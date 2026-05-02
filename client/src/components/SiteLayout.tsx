@@ -64,9 +64,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FAF7F4" }}>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FDF8F4" }}>
       {/* Affiliate Disclosure Banner */}
-      <div style={{ backgroundColor: "#2C2C2C", color: "#FDF6EE" }} className="text-center py-2 px-4">
+      <div style={{ backgroundColor: "#2C2C2C", color: "#FDF8F4" }} className="text-center py-2 px-4">
         <p className="font-body text-xs" style={{ letterSpacing: "0.03em" }}>
           As an Amazon Associate, PauseAndFlourish earns from qualifying purchases. 
           <span className="opacity-70 ml-1">Product prices and availability are accurate as of the date reviewed.</span>
@@ -74,7 +74,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b" style={{ backgroundColor: "#FAF7F4", borderColor: "#E8DDD0" }}>
+      <header className="sticky top-0 z-50 border-b" style={{ backgroundColor: "#FDF8F4", borderColor: "#D4EBE7" }}>
         {/* Top bar */}
         <div className="container">
           <div className="flex items-center justify-between py-4">
@@ -107,11 +107,11 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 </button>
                 {categoriesOpen && (
                   <div className="absolute top-full left-0 mt-1 w-56 bg-white border shadow-lg z-50"
-                    style={{ borderColor: "#E8DDD0" }}>
+                    style={{ borderColor: "#D4EBE7" }}>
                     {navCategories.map(cat => (
                       <Link key={cat.href} href={cat.href}>
                         <div className="px-4 py-3 hover:bg-gray-50 font-body text-sm cursor-pointer"
-                          style={{ color: "#2C2C2C", borderBottom: "1px solid #F5EBE0" }}>
+                          style={{ color: "#2C2C2C", borderBottom: "1px solid #EDF5F3" }}>
                           {cat.label}
                         </div>
                       </Link>
@@ -129,18 +129,18 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 </button>
                 {stagesOpen && (
                   <div className="absolute top-full left-0 mt-1 w-52 bg-white border shadow-lg z-50"
-                    style={{ borderColor: "#E8DDD0" }}>
+                    style={{ borderColor: "#D4EBE7" }}>
                 {navStages.map(ht => (
                   <Link key={ht.href} href={ht.href}>
                     <div className="px-4 py-2.5 hover:bg-amber-50 font-body text-sm cursor-pointer"
-                      style={{ color: "#2C2C2C", borderBottom: "1px solid #F5EBE0" }}>
+                      style={{ color: "#2C2C2C", borderBottom: "1px solid #EDF5F3" }}>
                       {ht.label}
                     </div>
                   </Link>
                 ))}
                 <Link href="/quiz">
                   <div className="px-4 py-2.5 font-body text-sm font-semibold cursor-pointer"
-                    style={{ color: "#2D7D6F", backgroundColor: "#FFF5F7" }}>
+                    style={{ color: "#2D7D6F", backgroundColor: "#F0FAF8" }}>
                     Take the Stage Quiz →
                   </div>
                 </Link>
@@ -151,7 +151,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 <Link href="/quiz">
                   <span
                     className="inline-flex items-center gap-1.5 font-body font-semibold px-3 py-1.5 rounded transition-all duration-200 hover:opacity-90"
-                    style={{ backgroundColor: "#FFF5E6", color: "#2D7D6F", border: "1.5px solid #D4822A", fontSize: "0.78rem", letterSpacing: "0.03em" }}
+                    style={{ backgroundColor: "#FFF5E6", color: "#2D7D6F", border: "1.5px solid #C4722A", fontSize: "0.78rem", letterSpacing: "0.03em" }}
                     title="Your saved menopause stage — click to view your results"
                   >
                     <Sparkles size={12} style={{ color: "#7ECEC4" }} />
@@ -162,7 +162,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 <Link href="/quiz">
                   <span
                     className="nav-link font-semibold px-3 py-1.5 rounded transition-all duration-200"
-                    style={{ backgroundColor: "#2D7D6F", color: "#FDF6EE", letterSpacing: "0.04em", fontSize: "0.78rem" }}
+                    style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.04em", fontSize: "0.78rem" }}
                   >
                     Stage Quiz
                   </span>
@@ -186,7 +186,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden border-t" style={{ borderColor: "#E8DDD0", backgroundColor: "#FAF7F4" }}>
+          <div className="lg:hidden border-t" style={{ borderColor: "#D4EBE7", backgroundColor: "#FDF8F4" }}>
             <div className="container py-4 flex flex-col gap-4">
               <Link href="/reviews" onClick={() => setMobileOpen(false)}>
                 <span className="nav-link block py-2">Reviews</span>
@@ -194,7 +194,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               <Link href="/comparisons" onClick={() => setMobileOpen(false)}>
                 <span className="nav-link block py-2">Comparisons</span>
               </Link>
-              <div className="border-t pt-2" style={{ borderColor: "#E8DDD0" }}>
+              <div className="border-t pt-2" style={{ borderColor: "#D4EBE7" }}>
                 <p className="section-label mb-2">Categories</p>
                 {navCategories.map(cat => (
                   <Link key={cat.href} href={cat.href} onClick={() => setMobileOpen(false)}>
@@ -202,7 +202,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                   </Link>
                 ))}
               </div>
-              <div className="border-t pt-2" style={{ borderColor: "#E8DDD0" }}>
+              <div className="border-t pt-2" style={{ borderColor: "#D4EBE7" }}>
                 <p className="section-label mb-2">My Journey</p>
                 {navStages.map(ht => (
                   <Link key={ht.href} href={ht.href} onClick={() => setMobileOpen(false)}>
@@ -212,7 +212,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               </div>
               <Link href="/quiz" onClick={() => setMobileOpen(false)}>
                 <div className="py-2.5 px-4 rounded font-body text-sm font-semibold my-1"
-                  style={{ backgroundColor: "#2D7D6F", color: "#FDF6EE" }}>
+                  style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}>
                   Take the Stage Quiz
                 </div>
               </Link>
@@ -230,7 +230,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       </main>
 
       {/* Footer */}
-      <footer style={{ backgroundColor: "#2C2C2C", color: "#FDF6EE" }}>
+      <footer style={{ backgroundColor: "#2C2C2C", color: "#FDF8F4" }}>
         <div className="container py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Brand */}

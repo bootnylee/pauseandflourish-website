@@ -1,5 +1,5 @@
 /*
- * SilkierStrands.com — Global Styles
+ * PauseAndFlourish.com — Global Styles
  * Design: Refined Magazine Meets Bold Lifestyle
  * Colors: Warm Cream bg, Deep Burgundy primary, Warm Amber accent, Blush Rose highlight
  * Typography: Cormorant Garamond (display) + Inter (body) + Montserrat (labels)
@@ -48,15 +48,15 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* SilkierStrands Custom Tokens */
-  --color-burgundy: #8B1A2F;
-  --color-burgundy-dark: #6B1224;
-  --color-burgundy-light: #A82840;
-  --color-amber: #D4822A;
-  --color-amber-light: #E8A050;
-  --color-blush: #F2C4CE;
-  --color-cream: #FDF6EE;
-  --color-cream-dark: #F5EBE0;
+  /* PauseAndFlourish Custom Tokens */
+  --color-teal: #2D7D6F;
+  --color-teal-dark: #1A5C52;
+  --color-teal-light: #4A9E94;
+  --color-terracotta: #C4722A;
+  --color-terracotta-light: #E8A050;
+  --color-mint: #C8EAE6;
+  --color-ivory: #FDF8F4;
+  --color-ivory-dark: #EDF5F3;
   --color-taupe: #B8A99A;
   --color-charcoal: #2C2C2C;
   --color-gold: #C9A84C;
@@ -105,7 +105,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
-    background-color: #FDF6EE;
+    background-color: #FDF8F4;
     color: #2C2C2C;
   }
   h1, h2, h3, h4, h5, h6 {
@@ -153,7 +153,7 @@
     }
   }
 
-  /* SilkierStrands Component Styles */
+  /* PauseAndFlourish Component Styles */
   .font-display {
     font-family: 'Cormorant Garamond', serif;
   }
@@ -167,8 +167,8 @@
   }
 
   .btn-primary {
-    background-color: #8B1A2F;
-    color: #FDF6EE;
+    background-color: #2D7D6F;
+    color: #FDF8F4;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 0.8rem;
@@ -185,8 +185,8 @@
   }
 
   .btn-amazon {
-    background-color: #D4822A;
-    color: #FDF6EE;
+    background-color: #C4722A;
+    color: #FDF8F4;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 0.8rem;
@@ -207,7 +207,7 @@
 
   .editorial-rule {
     height: 3px;
-    background: linear-gradient(90deg, #8B1A2F, #D4822A);
+    background: linear-gradient(90deg, #2D7D6F, #C4722A);
     border: none;
     margin: 0;
   }
@@ -219,8 +219,8 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    background-color: #8B1A2F;
-    color: #FDF6EE;
+    background-color: #2D7D6F;
+    color: #FDF8F4;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.65rem;
     font-weight: 700;
@@ -232,7 +232,7 @@
 
   .editor-pick-badge {
     background-color: #C9A84C;
-    color: #FDF6EE;
+    color: #FDF8F4;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.65rem;
     font-weight: 700;
@@ -242,7 +242,7 @@
   }
 
   .star-rating {
-    color: #D4822A;
+    color: #C4722A;
   }
 
   .product-card {
@@ -262,11 +262,11 @@
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #8B1A2F;
+    color: #2D7D6F;
   }
 
   .pull-quote {
-    border-left: 4px solid #8B1A2F;
+    border-left: 4px solid #2D7D6F;
     padding-left: 1.5rem;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem;
@@ -275,8 +275,8 @@
   }
 
   .comparison-winner {
-    background-color: #FFF8F0;
-    border: 2px solid #D4822A;
+    background-color: #F0FAF8;
+    border: 2px solid #C4722A;
   }
 
   .nav-link {
@@ -290,7 +290,7 @@
   }
 
   .nav-link:hover {
-    color: #8B1A2F;
+    color: #2D7D6F;
   }
 
   /* Animations */
@@ -331,8 +331,8 @@
 }
 
 /* ─── EmailOctopus Widget Overrides ──────────────────────────────────────────
- * Override the default EmailOctopus widget styles to match the SilkierStrands
- * burgundy (#8B1A2F) + cream (#FDF6EE) + amber (#D4822A) palette.
+ * Override the default EmailOctopus widget styles to match the PauseAndFlourish
+ * teal (#2D7D6F) + ivory (#FDF8F4) + terracotta (#C4722A) palette.
  * These selectors target the widget's injected HTML structure.
  * ─────────────────────────────────────────────────────────────────────────── */
 
@@ -364,7 +364,7 @@
 
 .emailoctopus-form input[type="email"]:focus,
 .emailoctopus-form input.form-control:focus {
-  border-color: #8B1A2F !important;
+  border-color: #2D7D6F !important;
   box-shadow: 0 0 0 3px rgba(139, 26, 47, 0.12) !important;
 }
 
@@ -376,10 +376,10 @@
 /* Submit button */
 .emailoctopus-form input[type="submit"],
 .emailoctopus-form .btn-primary {
-  background-color: #8B1A2F !important;
+  background-color: #2D7D6F !important;
   border: none !important;
   border-radius: 2px !important;
-  color: #FDF6EE !important;
+  color: #FDF8F4 !important;
   cursor: pointer !important;
   font-family: 'Inter', sans-serif !important;
   font-size: 0.8125rem !important;
@@ -405,7 +405,7 @@
 
 /* Success message */
 .emailoctopus-form .emailoctopus-success-message {
-  color: #8B1A2F !important;
+  color: #2D7D6F !important;
   font-family: 'Inter', sans-serif !important;
   font-size: 0.875rem !important;
   font-weight: 600 !important;
@@ -444,7 +444,7 @@ footer .emailoctopus-form input[type="email"],
 footer .emailoctopus-form input.form-control {
   background-color: rgba(255, 255, 255, 0.1) !important;
   border-color: rgba(255, 255, 255, 0.25) !important;
-  color: #FDF6EE !important;
+  color: #FDF8F4 !important;
 }
 
 footer .emailoctopus-form input[type="email"]::placeholder,
@@ -454,8 +454,8 @@ footer .emailoctopus-form input.form-control::placeholder {
 
 footer .emailoctopus-form input[type="submit"],
 footer .emailoctopus-form .btn-primary {
-  background-color: #D4822A !important;
-  color: #FDF6EE !important;
+  background-color: #C4722A !important;
+  color: #FDF8F4 !important;
 }
 
 footer .emailoctopus-form input[type="submit"]:hover,

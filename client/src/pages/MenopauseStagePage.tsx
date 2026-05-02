@@ -34,7 +34,7 @@ export default function MenopauseStagePage() {
           <h1 className="font-display font-bold text-3xl mb-4" style={{ color: "#2C2C2C" }}>Stage Not Found</h1>
           <p className="font-body text-base mb-8" style={{ color: "#5C5C5C" }}>We couldn't find that menopause stage. Try taking our quiz to find yours.</p>
           <Link href="/quiz">
-            <button className="font-label font-semibold px-6 py-3 rounded-sm" style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4", letterSpacing: "0.08em", textTransform: "uppercase" }}>Take the Quiz</button>
+            <button className="font-label font-semibold px-6 py-3 rounded-sm" style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.08em", textTransform: "uppercase" }}>Take the Quiz</button>
           </Link>
         </div>
       </SiteLayout>
@@ -96,7 +96,7 @@ export default function MenopauseStagePage() {
                 ))}
               </div>
               {stage.keyFocus && (
-                <div className="mt-4 pt-4 border-t" style={{ borderColor: "#E8DDD0" }}>
+                <div className="mt-4 pt-4 border-t" style={{ borderColor: "#D4EBE7" }}>
                   <p className="font-label font-semibold text-xs mb-2" style={{ color: stage.color, letterSpacing: "0.1em", textTransform: "uppercase" }}>Key Focus Areas</p>
                   <div className="flex flex-wrap gap-2">
                     {stage.keyFocus.map((focus) => (
@@ -126,7 +126,7 @@ export default function MenopauseStagePage() {
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
                 className="font-body text-sm border rounded-sm px-3 py-1.5"
-                style={{ borderColor: "#E8DDD0", color: "#2C2C2C", backgroundColor: "#FAF7F4" }}
+                style={{ borderColor: "#D4EBE7", color: "#2C2C2C", backgroundColor: "#FDF8F4" }}
               >
                 <option value="default">Editor's Choice</option>
                 <option value="rating">Highest Rated</option>
@@ -141,7 +141,7 @@ export default function MenopauseStagePage() {
               <p className="font-display font-bold text-xl mb-3" style={{ color: "#2C2C2C" }}>No products yet for this stage</p>
               <p className="font-body text-sm mb-6" style={{ color: "#8C8C8C" }}>We're adding more reviews regularly. Check back soon.</p>
               <Link href="/reviews">
-                <button className="font-label font-semibold text-xs px-5 py-3 rounded-sm" style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4", letterSpacing: "0.08em", textTransform: "uppercase" }}>Browse All Reviews</button>
+                <button className="font-label font-semibold text-xs px-5 py-3 rounded-sm" style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.08em", textTransform: "uppercase" }}>Browse All Reviews</button>
               </Link>
             </div>
           ) : (
@@ -155,7 +155,7 @@ export default function MenopauseStagePage() {
       </section>
 
       {/* Other Stages */}
-      <section className="py-12 border-t" style={{ borderColor: "#E8DDD0", backgroundColor: "#F5F0EA" }}>
+      <section className="py-12 border-t" style={{ borderColor: "#D4EBE7", backgroundColor: "#EDF5F3" }}>
         <div className="container">
           <div className="flex items-center justify-between mb-6">
             <h2 className="font-display font-bold" style={{ fontSize: "1.4rem", color: "#2C2C2C" }}>Explore Other Stages</h2>

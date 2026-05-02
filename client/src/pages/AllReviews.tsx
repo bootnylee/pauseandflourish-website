@@ -1,5 +1,5 @@
 // PauseAndFlourish.com - All Reviews Page
-// Design: Bold magazine aesthetic with Burgundy (#2D7D6F) + Amber (#C4722A) + Cream (#FAF7F4)
+// Design: Bold magazine aesthetic with Burgundy (#2D7D6F) + Amber (#C4722A) + Cream (#FDF8F4)
 // Features: Sidebar FilterPanel (price range + menopause stage + category) + Sort + Search
 
 import { useEffect, useState, useMemo } from "react";
@@ -26,7 +26,7 @@ const STAGE_LABELS: Record<string, { label: string; color: string; bg: string; t
   coarse:        { label: "Coarse Hair",       color: "#8B4513", bg: "#FFF5EE", tagline: "Intensive hydration and smoothing treatments for coarse texture." },
   dry:           { label: "Dry Hair",          color: "#C0392B", bg: "#FFF5F5", tagline: "Deep moisture and repair formulas for parched, brittle hair." },
   normal:        { label: "Normal Hair",       color: "#2C6B2F", bg: "#EDFAEE", tagline: "Balanced, everyday essentials that keep your hair at its best." },
-  "color-treated": { label: "Color-Treated Hair", color: "#2D7D6F", bg: "#FFF5F7", tagline: "Color-safe formulas that protect vibrancy and prevent fade." },
+  "color-treated": { label: "Color-Treated Hair", color: "#2D7D6F", bg: "#F0FAF8", tagline: "Color-safe formulas that protect vibrancy and prevent fade." },
 };
 
 // Personalized banner shown at top of reviews when quiz result is saved
@@ -63,7 +63,7 @@ function PicksForYouBanner({ onApplyFilter }: { onApplyFilter: (stage: string) =
             <span className="font-body font-semibold text-sm" style={{ color: meta.color }}>
               {matchCount} Picks for Your {meta.label}
             </span>
-            <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "#6B5B4E" }}>
+            <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "#3D5A58" }}>
               {meta.tagline}
             </span>
           </div>
@@ -72,7 +72,7 @@ function PicksForYouBanner({ onApplyFilter }: { onApplyFilter: (stage: string) =
           <button
             onClick={() => onApplyFilter(savedStage)}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded font-body font-semibold text-xs transition-all duration-200 hover:opacity-90"
-            style={{ backgroundColor: meta.color, color: "#FAF7F4" }}
+            style={{ backgroundColor: meta.color, color: "#FDF8F4" }}
           >
             Show My Picks <ArrowRight size={12} />
           </button>
@@ -207,7 +207,7 @@ export default function AllReviews() {
       {/* ── Page Header ── */}
       <section
         className="py-14 border-b"
-        style={{ borderColor: "#E8DDD0", backgroundColor: "#F5F0EA" }}
+        style={{ borderColor: "#D4EBE7", backgroundColor: "#EDF5F3" }}
       >
         <div className="container">
           <p
@@ -237,7 +237,7 @@ export default function AllReviews() {
       <div id="reviews-grid" />
       <section
         className="py-4 border-b sticky top-[73px] z-40"
-        style={{ borderColor: "#E8DDD0", backgroundColor: "#FAF7F4" }}
+        style={{ borderColor: "#D4EBE7", backgroundColor: "#FDF8F4" }}
       >
         <div className="container">
           <div className="flex flex-wrap items-center gap-3">
@@ -255,7 +255,7 @@ export default function AllReviews() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-9 pr-4 py-2 text-sm font-body rounded-sm border"
                 style={{
-                  borderColor: "#D4C5B5",
+                  borderColor: "#C0DDD9",
                   backgroundColor: "#FFFFFF",
                   color: "#2C2C2C",
                   outline: "none",
@@ -277,9 +277,9 @@ export default function AllReviews() {
               onClick={() => setShowMobileFilters((v) => !v)}
               className="lg:hidden flex items-center gap-2 px-4 py-2 text-xs font-label font-semibold rounded-sm border transition-colors"
               style={{
-                borderColor: showMobileFilters ? "#2D7D6F" : "#D4C5B5",
+                borderColor: showMobileFilters ? "#2D7D6F" : "#C0DDD9",
                 backgroundColor: showMobileFilters ? "#2D7D6F" : "transparent",
-                color: showMobileFilters ? "#FAF7F4" : "#2D7D6F",
+                color: showMobileFilters ? "#FDF8F4" : "#2D7D6F",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
               }}
@@ -302,7 +302,7 @@ export default function AllReviews() {
                 onClick={() => setSortOpen((v) => !v)}
                 className="flex items-center gap-2 px-4 py-2 text-xs font-label font-semibold rounded-sm border transition-colors"
                 style={{
-                  borderColor: "#D4C5B5",
+                  borderColor: "#C0DDD9",
                   backgroundColor: "transparent",
                   color: "#2C2C2C",
                   letterSpacing: "0.08em",
@@ -315,7 +315,7 @@ export default function AllReviews() {
               {sortOpen && (
                 <div
                   className="absolute right-0 top-full mt-1 rounded-sm border shadow-lg z-50"
-                  style={{ backgroundColor: "#FFF", borderColor: "#E8DDD0", minWidth: "180px" }}
+                  style={{ backgroundColor: "#FFF", borderColor: "#D4EBE7", minWidth: "180px" }}
                 >
                   {SORT_OPTIONS.map((opt) => (
                     <button
@@ -359,7 +359,7 @@ export default function AllReviews() {
       {anyActive && (
         <section
           className="py-3 border-b"
-          style={{ borderColor: "#E8DDD0", backgroundColor: "#F5F0EA" }}
+          style={{ borderColor: "#D4EBE7", backgroundColor: "#EDF5F3" }}
         >
           <div className="container">
             <div className="flex flex-wrap items-center gap-2">
@@ -367,7 +367,7 @@ export default function AllReviews() {
               {selectedCategory !== "all" && (
                 <span
                   className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full"
-                  style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4" }}
+                  style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}
                 >
                   {categories.find((c) => c.slug === selectedCategory)?.name}
                   <button onClick={() => setSelectedCategory("all")}><X size={11} /></button>
@@ -376,7 +376,7 @@ export default function AllReviews() {
               {(filters.priceMin > 0 || filters.priceMax < 600) && (
                 <span
                   className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full"
-                  style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4" }}
+                  style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}
                 >
                   ${filters.priceMin}–{filters.priceMax >= 600 ? "$600+" : `$${filters.priceMax}`}
                   <button onClick={() => setFilters(f => ({ ...f, priceMin: 0, priceMax: 600 }))}><X size={11} /></button>
@@ -471,7 +471,7 @@ export default function AllReviews() {
                   <button
                     onClick={clearAll}
                     className="px-6 py-3 font-label font-semibold text-xs rounded-sm"
-                    style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4", letterSpacing: "0.1em", textTransform: "uppercase" }}
+                    style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.1em", textTransform: "uppercase" }}
                   >
                     Clear All Filters
                   </button>
@@ -495,7 +495,7 @@ export default function AllReviews() {
                           <ProductCard key={p.id} product={p} variant="featured" />
                         ))}
                       </div>
-                      <div className="border-t mb-10" style={{ borderColor: "#E8DDD0" }} />
+                      <div className="border-t mb-10" style={{ borderColor: "#D4EBE7" }} />
                       <div className="flex items-center gap-3 mb-6">
                         <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#2D7D6F" }} />
                         <h2

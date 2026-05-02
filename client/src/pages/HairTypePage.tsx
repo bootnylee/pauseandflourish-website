@@ -1,5 +1,5 @@
 // PauseAndFlourish.com - Hair Type Page
-// Design: Bold magazine aesthetic - Burgundy (#8B1A2F) + Amber (#D4822A) + Cream (#FDF6EE)
+// Design: Bold magazine aesthetic - Burgundy (#2D7D6F) + Amber (#C4722A) + Cream (#FDF8F4)
 // SEO: Optimized for "best hair products for [type] hair" keywords
 
 import { useEffect, useState, useMemo } from "react";
@@ -116,8 +116,8 @@ export default function HairTypePage() {
             <button
               className="px-6 py-3 font-label font-semibold text-xs rounded-sm"
               style={{
-                backgroundColor: "#8B1A2F",
-                color: "#FDF6EE",
+                backgroundColor: "#2D7D6F",
+                color: "#FDF8F4",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
               }}
@@ -149,7 +149,7 @@ export default function HairTypePage() {
       {/* ── Hero Section ── */}
       <section
         className="relative overflow-hidden"
-        style={{ backgroundColor: "#1A0A0F", minHeight: "420px" }}
+        style={{ backgroundColor: "#0D2B29", minHeight: "420px" }}
       >
         {/* Background image with overlay */}
         <div
@@ -163,18 +163,18 @@ export default function HairTypePage() {
           <nav className="flex items-center gap-2 mb-8" aria-label="Breadcrumb">
             <Link href="/">
               <span className="font-label text-xs font-semibold hover:opacity-80 transition-opacity cursor-pointer"
-                style={{ color: "#D4822A", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                style={{ color: "#C4722A", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                 Home
               </span>
             </Link>
-            <ChevronRight size={12} style={{ color: "#D4822A" }} />
+            <ChevronRight size={12} style={{ color: "#C4722A" }} />
             <Link href="/reviews">
               <span className="font-label text-xs font-semibold hover:opacity-80 transition-opacity cursor-pointer"
-                style={{ color: "#D4822A", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                style={{ color: "#C4722A", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                 Reviews
               </span>
             </Link>
-            <ChevronRight size={12} style={{ color: "#D4822A" }} />
+            <ChevronRight size={12} style={{ color: "#C4722A" }} />
             <span className="font-label text-xs font-semibold"
               style={{ color: "#F2C4CE", letterSpacing: "0.08em", textTransform: "uppercase" }}>
               {hairType.name}
@@ -199,7 +199,7 @@ export default function HairTypePage() {
 
             <h1
               className="font-display font-bold mb-4 leading-tight"
-              style={{ fontSize: "clamp(2.2rem, 5vw, 3.5rem)", color: "#FDF6EE" }}
+              style={{ fontSize: "clamp(2.2rem, 5vw, 3.5rem)", color: "#FDF8F4" }}
             >
               {hairType.name}
             </h1>
@@ -214,14 +214,14 @@ export default function HairTypePage() {
             <div className="flex items-center gap-4">
               <span
                 className="font-label font-semibold text-sm"
-                style={{ color: "#D4822A" }}
+                style={{ color: "#C4722A" }}
               >
                 {allMatchingProducts.length} products reviewed
               </span>
               <span style={{ color: "#6C4A5A" }}>·</span>
               <span
                 className="font-label font-semibold text-sm"
-                style={{ color: "#D4822A" }}
+                style={{ color: "#C4722A" }}
               >
                 Expert tested
               </span>
@@ -232,14 +232,14 @@ export default function HairTypePage() {
 
       {/* ── Top 3 Editorial Spotlight ── */}
       {top3Picks.length > 0 && (
-        <section className="py-14 border-b" style={{ borderColor: "#E8DDD0", backgroundColor: "#FDF6EE" }}>
+        <section className="py-14 border-b" style={{ borderColor: "#D4EBE7", backgroundColor: "#FDF8F4" }}>
           <div className="container">
             {/* Section header */}
             <div className="flex items-center justify-between mb-8">
               <div>
                 <div className="flex items-center gap-3 mb-2">
-                  <Award size={16} style={{ color: "#D4822A" }} />
-                  <p className="font-label font-semibold text-xs" style={{ color: "#D4822A", letterSpacing: "0.14em", textTransform: "uppercase" }}>
+                  <Award size={16} style={{ color: "#C4722A" }} />
+                  <p className="font-label font-semibold text-xs" style={{ color: "#C4722A", letterSpacing: "0.14em", textTransform: "uppercase" }}>
                     Our Top Picks
                   </p>
                 </div>
@@ -251,7 +251,7 @@ export default function HairTypePage() {
                 </p>
               </div>
               <Link href={`/reviews?hairType=${hairType.id}`}>
-                <button className="hidden md:flex items-center gap-2 font-label font-semibold text-xs" style={{ color: "#8B1A2F", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                <button className="hidden md:flex items-center gap-2 font-label font-semibold text-xs" style={{ color: "#2D7D6F", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                   See All Products <ArrowRight size={14} />
                 </button>
               </Link>
@@ -265,7 +265,7 @@ export default function HairTypePage() {
                     className="group relative flex flex-col h-full rounded-sm overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1"
                     style={{
                       backgroundColor: "#FFFFFF",
-                      border: index === 0 ? "2px solid #8B1A2F" : "1px solid #E8DDD0",
+                      border: index === 0 ? "2px solid #2D7D6F" : "1px solid #D4EBE7",
                       boxShadow: index === 0 ? "0 8px 32px rgba(139,26,47,0.12)" : "0 2px 12px rgba(0,0,0,0.06)",
                     }}
                   >
@@ -273,7 +273,7 @@ export default function HairTypePage() {
                     <div
                       className="absolute top-3 left-3 z-10 w-8 h-8 rounded-full flex items-center justify-center font-label font-bold text-sm"
                       style={{
-                        backgroundColor: index === 0 ? "#8B1A2F" : index === 1 ? "#D4822A" : "#B8A99A",
+                        backgroundColor: index === 0 ? "#2D7D6F" : index === 1 ? "#C4722A" : "#B8A99A",
                         color: "#FFF",
                       }}
                     >
@@ -284,16 +284,16 @@ export default function HairTypePage() {
                     {index === 0 && (
                       <div
                         className="absolute top-3 right-3 z-10 flex items-center gap-1 px-2 py-0.5 rounded-sm font-label font-bold text-xs"
-                        style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.06em", textTransform: "uppercase" }}
+                        style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.06em", textTransform: "uppercase" }}
                       >
                         <Award size={10} /> Editor's Pick
                       </div>
                     )}
 
                     {/* Product image */}
-                    <div className="relative overflow-hidden" style={{ height: "200px", backgroundColor: "#F5EBE0" }}>
+                    <div className="relative overflow-hidden" style={{ height: "200px", backgroundColor: "#EDF5F3" }}>
                       <img
-                        src={product.imageUrl || product.amazonImageUrl}
+                        src={product.heroImage}
                         alt={product.name}
                         className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                       />
@@ -301,7 +301,7 @@ export default function HairTypePage() {
 
                     {/* Content */}
                     <div className="flex flex-col flex-1 p-5">
-                      <p className="font-label font-semibold text-xs mb-1" style={{ color: "#D4822A", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                      <p className="font-label font-semibold text-xs mb-1" style={{ color: "#C4722A", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                         {product.category}
                       </p>
                       <h3 className="font-display font-bold mb-1 leading-snug" style={{ fontSize: "1.05rem", color: "#2C2C2C" }}>
@@ -312,8 +312,8 @@ export default function HairTypePage() {
                       </p>
                       {product.bestFor && (
                         <p className="inline-flex items-center gap-1 font-label font-semibold text-xs px-2 py-0.5 rounded-sm mb-3"
-                          style={{ backgroundColor: "#FFF8F0", color: "#8B1A2F", border: "1px solid #E8C8B0", letterSpacing: "0.04em" }}>
-                          <span style={{ color: "#D4822A" }}>✦</span> Best for: {product.bestFor}
+                          style={{ backgroundColor: "#F0FAF8", color: "#2D7D6F", border: "1px solid #E8C8B0", letterSpacing: "0.04em" }}>
+                          <span style={{ color: "#C4722A" }}>✦</span> Best for: {product.bestFor}
                         </p>
                       )}
 
@@ -324,12 +324,12 @@ export default function HairTypePage() {
                             <Star
                               key={star}
                               size={12}
-                              fill={star <= Math.round(product.rating) ? "#D4822A" : "none"}
-                              style={{ color: "#D4822A" }}
+                              fill={star <= Math.round(product.rating) ? "#C4722A" : "none"}
+                              style={{ color: "#C4722A" }}
                             />
                           ))}
                         </div>
-                        <span className="font-label font-bold text-xs" style={{ color: "#D4822A" }}>{product.rating.toFixed(1)}</span>
+                        <span className="font-label font-bold text-xs" style={{ color: "#C4722A" }}>{product.rating.toFixed(1)}</span>
                         <span className="font-body text-xs" style={{ color: "#9E8E84" }}>({product.reviewCount.toLocaleString()})</span>
                       </div>
 
@@ -338,16 +338,16 @@ export default function HairTypePage() {
                       </p>
 
                       {/* Price + CTA */}
-                      <div className="flex items-center justify-between mt-4 pt-4 border-t" style={{ borderColor: "#E8DDD0" }}>
+                      <div className="flex items-center justify-between mt-4 pt-4 border-t" style={{ borderColor: "#D4EBE7" }}>
                         <span className="font-display font-bold" style={{ fontSize: "1.1rem", color: "#2C2C2C" }}>
                           {product.priceDisplay}
                         </span>
                         <span
                           className="font-label font-semibold text-xs px-3 py-1.5 rounded-sm transition-colors"
                           style={{
-                            backgroundColor: index === 0 ? "#8B1A2F" : "transparent",
-                            color: index === 0 ? "#FDF6EE" : "#8B1A2F",
-                            border: index === 0 ? "none" : "1px solid #8B1A2F",
+                            backgroundColor: index === 0 ? "#2D7D6F" : "transparent",
+                            color: index === 0 ? "#FDF8F4" : "#2D7D6F",
+                            border: index === 0 ? "none" : "1px solid #2D7D6F",
                             letterSpacing: "0.06em",
                             textTransform: "uppercase",
                           }}
@@ -368,7 +368,7 @@ export default function HairTypePage() {
                 <Link href={`/comparison/${fc.slug}`}>
                   <div
                     className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-5 rounded-sm cursor-pointer group transition-all duration-200 hover:shadow-md"
-                    style={{ backgroundColor: "#1A0A0F", border: "1px solid rgba(212,130,42,0.3)" }}
+                    style={{ backgroundColor: "#0D2B29", border: "1px solid rgba(212,130,42,0.3)" }}
                   >
                     <div className="flex items-start gap-4">
                       <div
@@ -378,10 +378,10 @@ export default function HairTypePage() {
                         <span style={{ fontSize: "1.1rem" }}>⚖️</span>
                       </div>
                       <div>
-                        <p className="font-label font-semibold text-xs mb-1" style={{ color: "#D4822A", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                        <p className="font-label font-semibold text-xs mb-1" style={{ color: "#C4722A", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                           Compare These Two
                         </p>
-                        <p className="font-display font-bold leading-snug" style={{ fontSize: "1rem", color: "#FDF6EE" }}>
+                        <p className="font-display font-bold leading-snug" style={{ fontSize: "1rem", color: "#FDF8F4" }}>
                           {fc.title}
                         </p>
                         <p className="font-body text-xs mt-0.5" style={{ color: "rgba(253,246,238,0.55)" }}>
@@ -391,7 +391,7 @@ export default function HairTypePage() {
                     </div>
                     <span
                       className="flex-shrink-0 flex items-center gap-2 font-label font-semibold text-xs px-4 py-2 rounded-sm transition-colors"
-                      style={{ backgroundColor: "#D4822A", color: "#FFF", letterSpacing: "0.08em", textTransform: "uppercase" }}
+                      style={{ backgroundColor: "#C4722A", color: "#FFF", letterSpacing: "0.08em", textTransform: "uppercase" }}
                     >
                       Read Comparison <ArrowRight size={13} />
                     </span>
@@ -404,14 +404,14 @@ export default function HairTypePage() {
       )}
 
        {/* ── About This Hair Type ── */}
-      <section className="py-14 border-b" style={{ borderColor: "#E8DDD0", backgroundColor: "#FFF8F0" }}>
+      <section className="py-14 border-b" style={{ borderColor: "#D4EBE7", backgroundColor: "#F0FAF8" }}>
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Description */}
             <div>
               <p
                 className="font-label font-semibold text-xs mb-3"
-                style={{ color: "#D4822A", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                style={{ color: "#C4722A", letterSpacing: "0.12em", textTransform: "uppercase" }}
               >
                 Understanding {hairType.name}
               </p>
@@ -429,7 +429,7 @@ export default function HairTypePage() {
               <div className="mt-6">
                 <p
                   className="font-label font-semibold text-xs mb-3"
-                  style={{ color: "#8B1A2F", letterSpacing: "0.1em", textTransform: "uppercase" }}
+                  style={{ color: "#2D7D6F", letterSpacing: "0.1em", textTransform: "uppercase" }}
                 >
                   Common Challenges
                 </p>
@@ -438,7 +438,7 @@ export default function HairTypePage() {
                     <li key={i} className="flex items-start gap-2">
                       <div
                         className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                        style={{ backgroundColor: "#8B1A2F" }}
+                        style={{ backgroundColor: "#2D7D6F" }}
                       />
                       <span className="font-body text-sm leading-relaxed" style={{ color: "#4A4A4A" }}>
                         {challenge}
@@ -452,13 +452,13 @@ export default function HairTypePage() {
             {/* Tips */}
             <div
               className="rounded-sm p-8"
-              style={{ backgroundColor: "#FDF6EE", border: "1px solid #E8DDD0" }}
+              style={{ backgroundColor: "#FDF8F4", border: "1px solid #D4EBE7" }}
             >
               <div className="flex items-center gap-2 mb-5">
-                <Lightbulb size={18} style={{ color: "#D4822A" }} />
+                <Lightbulb size={18} style={{ color: "#C4722A" }} />
                 <p
                   className="font-label font-semibold text-xs"
-                  style={{ color: "#D4822A", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                  style={{ color: "#C4722A", letterSpacing: "0.12em", textTransform: "uppercase" }}
                 >
                   Expert Tips for {hairType.name}
                 </p>
@@ -469,7 +469,7 @@ export default function HairTypePage() {
                     <CheckCircle
                       size={16}
                       className="flex-shrink-0 mt-0.5"
-                      style={{ color: "#D4822A" }}
+                      style={{ color: "#C4722A" }}
                     />
                     <span className="font-body text-sm leading-relaxed" style={{ color: "#4A4A4A" }}>
                       {tip}
@@ -480,10 +480,10 @@ export default function HairTypePage() {
 
               {/* Related Hair Types */}
               {relatedTypes.length > 0 && (
-                <div className="mt-8 pt-6 border-t" style={{ borderColor: "#E8DDD0" }}>
+                <div className="mt-8 pt-6 border-t" style={{ borderColor: "#D4EBE7" }}>
                   <p
                     className="font-label font-semibold text-xs mb-3"
-                    style={{ color: "#8B1A2F", letterSpacing: "0.1em", textTransform: "uppercase" }}
+                    style={{ color: "#2D7D6F", letterSpacing: "0.1em", textTransform: "uppercase" }}
                   >
                     Related Hair Types
                   </p>
@@ -494,8 +494,8 @@ export default function HairTypePage() {
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-label font-semibold rounded-sm cursor-pointer transition-colors hover:opacity-80"
                           style={{
                             backgroundColor: "#FFF",
-                            color: "#8B1A2F",
-                            border: "1px solid #8B1A2F",
+                            color: "#2D7D6F",
+                            border: "1px solid #2D7D6F",
                             letterSpacing: "0.06em",
                             textTransform: "uppercase",
                           }}
@@ -513,15 +513,15 @@ export default function HairTypePage() {
       </section>
 
       {/* ── Top Picks + Filter Sidebar ── */}
-      <section className="py-14 border-b" style={{ borderColor: "#E8DDD0" }}>
+      <section className="py-14 border-b" style={{ borderColor: "#D4EBE7" }}>
         <div className="container">
 
           {/* Section header */}
           <div className="flex items-center justify-between mb-6">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#D4822A" }} />
-                <p className="font-label font-semibold text-xs" style={{ color: "#D4822A", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+                <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#C4722A" }} />
+                <p className="font-label font-semibold text-xs" style={{ color: "#C4722A", letterSpacing: "0.12em", textTransform: "uppercase" }}>
                   Editor's Top Picks
                 </p>
               </div>
@@ -535,9 +535,9 @@ export default function HairTypePage() {
                 onClick={() => setShowMobileFilters(v => !v)}
                 className="lg:hidden flex items-center gap-2 px-3 py-2 text-xs font-label font-semibold rounded-sm border transition-colors"
                 style={{
-                  borderColor: showMobileFilters ? "#8B1A2F" : "#D4C5B5",
-                  backgroundColor: showMobileFilters ? "#8B1A2F" : "transparent",
-                  color: showMobileFilters ? "#FDF6EE" : "#8B1A2F",
+                  borderColor: showMobileFilters ? "#2D7D6F" : "#C0DDD9",
+                  backgroundColor: showMobileFilters ? "#2D7D6F" : "transparent",
+                  color: showMobileFilters ? "#FDF8F4" : "#2D7D6F",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                 }}
@@ -545,13 +545,13 @@ export default function HairTypePage() {
                 <SlidersHorizontal size={13} />
                 Filter
                 {activeFilterCount > 0 && (
-                  <span className="ml-1 w-4 h-4 rounded-full text-xs flex items-center justify-center" style={{ backgroundColor: "#D4822A", color: "#FFF" }}>
+                  <span className="ml-1 w-4 h-4 rounded-full text-xs flex items-center justify-center" style={{ backgroundColor: "#C4722A", color: "#FFF" }}>
                     {activeFilterCount}
                   </span>
                 )}
               </button>
               <Link href={`/reviews?hairType=${hairType.id}`}>
-                <button className="hidden md:flex items-center gap-2 font-label font-semibold text-xs" style={{ color: "#8B1A2F", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                <button className="hidden md:flex items-center gap-2 font-label font-semibold text-xs" style={{ color: "#2D7D6F", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                   See All {allMatchingProducts.length} Products <ArrowRight size={14} />
                 </button>
               </Link>
@@ -563,12 +563,12 @@ export default function HairTypePage() {
             <div className="flex flex-wrap items-center gap-2 mb-5">
               <span className="text-xs font-body" style={{ color: "#999" }}>Active:</span>
               {(filters.priceMin > 0 || filters.priceMax < 600) && (
-                <span className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full" style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}>
+                <span className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full" style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}>
                   ${filters.priceMin}–{filters.priceMax >= 600 ? "$600+" : `$${filters.priceMax}`}
                   <button onClick={() => setFilters(f => ({ ...f, priceMin: 0, priceMax: 600 }))}><X size={11} /></button>
                 </span>
               )}
-              <button onClick={() => setFilters(getDefaultFilters())} className="flex items-center gap-1 text-xs font-label font-semibold" style={{ color: "#D4822A" }}>
+              <button onClick={() => setFilters(getDefaultFilters())} className="flex items-center gap-1 text-xs font-label font-semibold" style={{ color: "#C4722A" }}>
                 <X size={11} /> Clear All
               </button>
             </div>
@@ -581,9 +581,9 @@ export default function HairTypePage() {
             <aside className="hidden lg:block flex-shrink-0" style={{ width: "240px" }}>
               <div className="sticky top-[130px]">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-label font-semibold text-xs" style={{ color: "#8B1A2F", letterSpacing: "0.12em", textTransform: "uppercase" }}>Filter</h3>
+                  <h3 className="font-label font-semibold text-xs" style={{ color: "#2D7D6F", letterSpacing: "0.12em", textTransform: "uppercase" }}>Filter</h3>
                   {anyActive && (
-                    <button onClick={() => setFilters(getDefaultFilters())} className="text-xs font-label font-semibold" style={{ color: "#D4822A" }}>Clear</button>
+                    <button onClick={() => setFilters(getDefaultFilters())} className="text-xs font-label font-semibold" style={{ color: "#C4722A" }}>Clear</button>
                   )}
                 </div>
                 <FilterPanel
@@ -609,16 +609,16 @@ export default function HairTypePage() {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-16 rounded-sm" style={{ backgroundColor: "#FFF8F0", border: "1px solid #E8DDD0" }}>
+                <div className="text-center py-16 rounded-sm" style={{ backgroundColor: "#F0FAF8", border: "1px solid #D4EBE7" }}>
                   <p className="font-display text-xl font-semibold mb-2" style={{ color: "#2C2C2C" }}>No products match your filters</p>
                   <p className="font-body text-sm mb-4" style={{ color: "#6C6C6C" }}>Try widening your price range.</p>
-                  <button onClick={() => setFilters(getDefaultFilters())} className="px-5 py-2.5 font-label font-semibold text-xs rounded-sm" style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.1em", textTransform: "uppercase" }}>Clear Filters</button>
+                  <button onClick={() => setFilters(getDefaultFilters())} className="px-5 py-2.5 font-label font-semibold text-xs rounded-sm" style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.1em", textTransform: "uppercase" }}>Clear Filters</button>
                 </div>
               )}
 
               <div className="mt-8 text-center md:hidden">
                 <Link href="/reviews">
-                  <button className="inline-flex items-center gap-2 px-6 py-3 font-label font-semibold text-xs rounded-sm" style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                  <button className="inline-flex items-center gap-2 px-6 py-3 font-label font-semibold text-xs rounded-sm" style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                     See All {allMatchingProducts.length} Products <ArrowRight size={14} />
                   </button>
                 </Link>
@@ -630,13 +630,13 @@ export default function HairTypePage() {
 
       {/* ── Shop by Category ── */}
       {productsByCategory.length > 0 && (
-        <section className="py-14 border-b" style={{ borderColor: "#E8DDD0", backgroundColor: "#FFF8F0" }}>
+        <section className="py-14 border-b" style={{ borderColor: "#D4EBE7", backgroundColor: "#F0FAF8" }}>
           <div className="container">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#8B1A2F" }} />
+              <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#2D7D6F" }} />
               <p
                 className="font-label font-semibold text-xs"
-                style={{ color: "#8B1A2F", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                style={{ color: "#2D7D6F", letterSpacing: "0.12em", textTransform: "uppercase" }}
               >
                 Shop by Category
               </p>
@@ -664,7 +664,7 @@ export default function HairTypePage() {
                     <Link href={`/category/${category.slug}`}>
                       <span
                         className="font-label font-semibold text-xs flex items-center gap-1 cursor-pointer hover:opacity-70 transition-opacity"
-                        style={{ color: "#8B1A2F", letterSpacing: "0.08em", textTransform: "uppercase" }}
+                        style={{ color: "#2D7D6F", letterSpacing: "0.08em", textTransform: "uppercase" }}
                       >
                         All {category.name} <ArrowRight size={12} />
                       </span>
@@ -683,17 +683,17 @@ export default function HairTypePage() {
       )}
 
       {/* ── All Hair Types Navigation ── */}
-      <section className="py-14" style={{ backgroundColor: "#1A0A0F" }}>
+      <section className="py-14" style={{ backgroundColor: "#0D2B29" }}>
         <div className="container">
           <p
             className="font-label font-semibold text-xs mb-2"
-            style={{ color: "#D4822A", letterSpacing: "0.12em", textTransform: "uppercase" }}
+            style={{ color: "#C4722A", letterSpacing: "0.12em", textTransform: "uppercase" }}
           >
             Find Your Hair Type
           </p>
           <h2
             className="font-display font-bold mb-8"
-            style={{ fontSize: "1.75rem", color: "#FDF6EE" }}
+            style={{ fontSize: "1.75rem", color: "#FDF8F4" }}
           >
             Browse All Hair Type Guides
           </h2>
@@ -711,7 +711,7 @@ export default function HairTypePage() {
                   <span className="text-2xl mb-2 block">{ht.icon}</span>
                   <p
                     className="font-display font-semibold"
-                    style={{ fontSize: "1rem", color: ht.id === hairType.id ? "#FFF" : "#FDF6EE" }}
+                    style={{ fontSize: "1rem", color: ht.id === hairType.id ? "#FFF" : "#FDF8F4" }}
                   >
                     {ht.name}
                   </p>

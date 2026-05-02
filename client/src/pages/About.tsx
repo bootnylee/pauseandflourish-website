@@ -51,7 +51,7 @@ export default function About() {
             Amazon Affiliate Disclosure
           </h2>
 
-          <div className="p-5 rounded-sm" style={{ backgroundColor: "#F5F0EA", border: "1px solid #E8DDD0" }}>
+          <div className="p-5 rounded-sm" style={{ backgroundColor: "#EDF5F3", border: "1px solid #D4EBE7" }}>
             <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
               PauseAndFlourish is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. When you click an Amazon link on our site and make a purchase, we may earn a small commission at no additional cost to you.
             </p>

@@ -61,7 +61,7 @@ function QuizEmailCapture({ hairTypeLabel, accentColor }: { hairTypeLabel: strin
       <h3 className="font-display text-2xl font-bold mb-2" style={{ color: "#2C2C2C" }}>
         Get Your {hairTypeLabel} Guide
       </h3>
-      <p className="font-body text-sm mb-6 leading-relaxed" style={{ color: "#6B5B6E", maxWidth: "420px", margin: "0 auto 1.5rem" }}>
+      <p className="font-body text-sm mb-6 leading-relaxed" style={{ color: "#3D5A58", maxWidth: "420px", margin: "0 auto 1.5rem" }}>
         We'll email you your personalized hair type profile, top product picks, and weekly expert tips — curated for {hairTypeLabel}.
       </p>
       {/* The EmailOctopus widget injects the form HTML right after the <script> tag
@@ -239,8 +239,8 @@ const resultData: Record<HairTypeId, {
     title: "Fine Hair",
     tagline: "Your hair needs lightweight love — volume without weight.",
     description: "Your strands are naturally thin and can easily become weighed down. The right products add body and volume while keeping hair clean and fresh longer.",
-    accentColor: "#D4822A",
-    bgColor: "#FFF8F0",
+    accentColor: "#C4722A",
+    bgColor: "#F0FAF8",
     tips: ["Use lightweight, sulfate-free shampoos", "Apply conditioner only from mid-length to ends", "Choose volumizing serums over heavy oils", "Blow-dry with a round brush for lift"],
     avoid: ["Heavy creams or butters", "Applying conditioner at the roots", "Over-washing, which strips natural oils"],
   },
@@ -248,8 +248,8 @@ const resultData: Record<HairTypeId, {
     title: "Thick Hair",
     tagline: "Your hair has natural power — tame and smooth it with rich formulas.",
     description: "Your hair has abundant density and strand width. It needs rich, moisturizing products that can penetrate deeply and powerful tools to manage its natural volume.",
-    accentColor: "#8B1A2F",
-    bgColor: "#FFF5F7",
+    accentColor: "#2D7D6F",
+    bgColor: "#F0FAF8",
     tips: ["Use rich, moisturizing shampoos and conditioners", "Deep condition weekly", "Apply anti-frizz serums on damp hair", "Use a high-powered dryer to reduce drying time"],
     avoid: ["Lightweight or volumizing formulas", "Skipping deep conditioning", "Low-powered styling tools"],
   },
@@ -355,14 +355,14 @@ function ProgressBar({ current, total }: { current: number; total: number }) {
         <span className="font-body text-xs" style={{ color: "#9A7A8A", letterSpacing: "0.08em" }}>
           QUESTION {current} OF {total}
         </span>
-        <span className="font-body text-xs font-medium" style={{ color: "#8B1A2F" }}>
+        <span className="font-body text-xs font-medium" style={{ color: "#2D7D6F" }}>
           {pct}% complete
         </span>
       </div>
-      <div className="h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: "#E8DDD0" }}>
+      <div className="h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: "#D4EBE7" }}>
         <div
           className="h-full rounded-full transition-all duration-500 ease-out"
-          style={{ width: `${pct}%`, backgroundColor: "#8B1A2F" }}
+          style={{ width: `${pct}%`, backgroundColor: "#2D7D6F" }}
         />
       </div>
     </div>
@@ -376,11 +376,11 @@ function QuizProductCard({ product }: { product: typeof allProducts[0] }) {
   return (
     <div
       className="flex flex-col rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg"
-      style={{ backgroundColor: "#FFFFFF", border: "1px solid #E8DDD0" }}
+      style={{ backgroundColor: "#FFFFFF", border: "1px solid #D4EBE7" }}
     >
       <div className="relative overflow-hidden" style={{ aspectRatio: "1/1", backgroundColor: "#F9F4EE" }}>
         <img
-          src={product.amazonImageUrl || product.imageUrl}
+          src={product.heroImage}
           alt={product.name}
           className="w-full h-full object-contain p-4 transition-transform duration-300 hover:scale-105"
           onError={(e) => {
@@ -390,7 +390,7 @@ function QuizProductCard({ product }: { product: typeof allProducts[0] }) {
         {product.editorPick && (
           <div
             className="absolute top-2 left-2 px-2 py-0.5 text-xs font-body font-semibold rounded"
-            style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.06em" }}
+            style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.06em" }}
           >
             EDITOR'S PICK
           </div>
@@ -403,7 +403,7 @@ function QuizProductCard({ product }: { product: typeof allProducts[0] }) {
         <h3 className="font-display text-base font-semibold mb-2 leading-snug" style={{ color: "#2C2C2C" }}>
           {product.name}
         </h3>
-        <p className="font-body text-sm mb-3 flex-1 leading-relaxed" style={{ color: "#6B5B6E" }}>
+        <p className="font-body text-sm mb-3 flex-1 leading-relaxed" style={{ color: "#3D5A58" }}>
           {product.shortDescription}
         </p>
         <div className="flex items-center gap-1 mb-3">
@@ -411,8 +411,8 @@ function QuizProductCard({ product }: { product: typeof allProducts[0] }) {
             <Star
               key={s}
               size={12}
-              fill={s <= Math.round(product.rating || 4.5) ? "#D4822A" : "none"}
-              stroke={s <= Math.round(product.rating || 4.5) ? "#D4822A" : "#D4822A"}
+              fill={s <= Math.round(product.rating || 4.5) ? "#C4722A" : "none"}
+              stroke={s <= Math.round(product.rating || 4.5) ? "#C4722A" : "#C4722A"}
             />
           ))}
           <span className="font-body text-xs ml-1" style={{ color: "#9A7A8A" }}>
@@ -425,14 +425,14 @@ function QuizProductCard({ product }: { product: typeof allProducts[0] }) {
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded text-xs font-body font-semibold transition-all duration-200 hover:opacity-90"
-            style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.05em" }}
+            style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.05em" }}
           >
             View on Amazon <ExternalLink size={11} />
           </a>
           <Link
             href={`/review/${product.slug}`}
             className="flex items-center justify-center py-2 px-3 rounded text-xs font-body font-semibold transition-all duration-200"
-            style={{ border: "1px solid #8B1A2F", color: "#8B1A2F", backgroundColor: "transparent" }}
+            style={{ border: "1px solid #2D7D6F", color: "#2D7D6F", backgroundColor: "transparent" }}
           >
             Review
           </Link>
@@ -547,26 +547,26 @@ export default function HairQuiz() {
     <SiteLayout>
       {/* ── Intro Screen ── */}
       {step === "intro" && (
-        <div className="min-h-screen" style={{ backgroundColor: "#FDF6EE" }}>
+        <div className="min-h-screen" style={{ backgroundColor: "#FDF8F4" }}>
           {/* Hero */}
           <div
             className="relative overflow-hidden py-20 px-6"
-            style={{ backgroundColor: "#2C1810", backgroundImage: "linear-gradient(135deg, #2C1810 0%, #8B1A2F 60%, #5C2D44 100%)" }}
+            style={{ backgroundColor: "#2C1810", backgroundImage: "linear-gradient(135deg, #2C1810 0%, #2D7D6F 60%, #5C2D44 100%)" }}
           >
             <div className="max-w-2xl mx-auto text-center relative z-10">
               <p
                 className="font-body text-xs tracking-widest mb-4 uppercase"
-                style={{ color: "#D4822A", letterSpacing: "0.18em" }}
+                style={{ color: "#C4722A", letterSpacing: "0.18em" }}
               >
                 Personalized Hair Care
               </p>
               <h1
                 className="font-display text-5xl md:text-6xl font-bold mb-6 leading-tight"
-                style={{ color: "#FDF6EE" }}
+                style={{ color: "#FDF8F4" }}
               >
                 Discover Your
                 <br />
-                <span style={{ color: "#D4822A" }}>Hair Type</span>
+                <span style={{ color: "#C4722A" }}>Hair Type</span>
               </h1>
               <p className="font-body text-lg mb-10 leading-relaxed" style={{ color: "rgba(253,246,238,0.8)" }}>
                 Answer 8 quick questions and we'll identify your hair type and recommend the exact products your hair needs — curated from our expert-tested catalog.
@@ -578,7 +578,7 @@ export default function HairQuiz() {
                   { label: "6 Products", sub: "Personalized for you" },
                 ].map((stat) => (
                   <div key={stat.label} className="text-center">
-                    <div className="font-display text-2xl font-bold" style={{ color: "#D4822A" }}>{stat.label}</div>
+                    <div className="font-display text-2xl font-bold" style={{ color: "#C4722A" }}>{stat.label}</div>
                     <div className="font-body text-xs" style={{ color: "rgba(253,246,238,0.6)", letterSpacing: "0.06em" }}>{stat.sub}</div>
                   </div>
                 ))}
@@ -586,14 +586,14 @@ export default function HairQuiz() {
               <button
                 onClick={() => setStep("quiz")}
                 className="inline-flex items-center gap-2 px-10 py-4 rounded font-body font-semibold text-base transition-all duration-200 hover:opacity-90 hover:gap-3"
-                style={{ backgroundColor: "#D4822A", color: "#FDF6EE", letterSpacing: "0.06em" }}
+                style={{ backgroundColor: "#C4722A", color: "#FDF8F4", letterSpacing: "0.06em" }}
               >
                 Start the Quiz <ChevronRight size={18} />
               </button>
             </div>
             {/* Decorative circles */}
-            <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-10" style={{ backgroundColor: "#D4822A" }} />
-            <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10" style={{ backgroundColor: "#FDF6EE" }} />
+            <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-10" style={{ backgroundColor: "#C4722A" }} />
+            <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10" style={{ backgroundColor: "#FDF8F4" }} />
           </div>
 
           {/* Hair types preview */}
@@ -611,7 +611,7 @@ export default function HairQuiz() {
                   <div className="font-display text-sm font-semibold mb-1" style={{ color: data.accentColor }}>
                     {data.title}
                   </div>
-                  <div className="font-body text-xs leading-snug" style={{ color: "#6B5B6E" }}>
+                  <div className="font-body text-xs leading-snug" style={{ color: "#3D5A58" }}>
                     {data.tagline.split(" — ")[0]}
                   </div>
                 </div>
@@ -623,7 +623,7 @@ export default function HairQuiz() {
 
       {/* ── Quiz Screen ── */}
       {step === "quiz" && (
-        <div className="min-h-screen py-12 px-6" style={{ backgroundColor: "#FDF6EE" }}>
+        <div className="min-h-screen py-12 px-6" style={{ backgroundColor: "#FDF8F4" }}>
           <div className="max-w-2xl mx-auto">
             {/* Progress */}
             <div className="mb-10">
@@ -633,7 +633,7 @@ export default function HairQuiz() {
             {/* Question card */}
             <div
               className={`rounded-xl p-8 mb-6 transition-all duration-200 ${animating ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"}`}
-              style={{ backgroundColor: "#FFFFFF", border: "1px solid #E8DDD0", boxShadow: "0 4px 24px rgba(44,24,16,0.06)" }}
+              style={{ backgroundColor: "#FFFFFF", border: "1px solid #D4EBE7", boxShadow: "0 4px 24px rgba(44,24,16,0.06)" }}
             >
               <h2 className="font-display text-2xl md:text-3xl font-bold mb-2 leading-snug" style={{ color: "#2C2C2C" }}>
                 {q.question}
@@ -652,17 +652,17 @@ export default function HairQuiz() {
                     onClick={() => handleSelect(i)}
                     className="w-full text-left px-5 py-4 rounded-lg font-body text-sm transition-all duration-150"
                     style={{
-                      border: selected === i ? "2px solid #8B1A2F" : "1.5px solid #E8DDD0",
-                      backgroundColor: selected === i ? "#FFF5F7" : "#FDFAF7",
-                      color: selected === i ? "#8B1A2F" : "#2C2C2C",
+                      border: selected === i ? "2px solid #2D7D6F" : "1.5px solid #D4EBE7",
+                      backgroundColor: selected === i ? "#F0FAF8" : "#FDFAF7",
+                      color: selected === i ? "#2D7D6F" : "#2C2C2C",
                       fontWeight: selected === i ? "600" : "400",
                     }}
                   >
                     <span
                       className="inline-flex items-center justify-center w-6 h-6 rounded-full mr-3 text-xs font-semibold flex-shrink-0"
                       style={{
-                        backgroundColor: selected === i ? "#8B1A2F" : "#E8DDD0",
-                        color: selected === i ? "#FDF6EE" : "#6B5B6E",
+                        backgroundColor: selected === i ? "#2D7D6F" : "#D4EBE7",
+                        color: selected === i ? "#FDF8F4" : "#3D5A58",
                       }}
                     >
                       {String.fromCharCode(65 + i)}
@@ -678,7 +678,7 @@ export default function HairQuiz() {
               <button
                 onClick={handleBack}
                 className="flex items-center gap-2 px-5 py-2.5 rounded font-body text-sm transition-all duration-150 hover:opacity-80"
-                style={{ border: "1px solid #E8DDD0", color: "#6B5B6E", backgroundColor: "transparent" }}
+                style={{ border: "1px solid #D4EBE7", color: "#3D5A58", backgroundColor: "transparent" }}
               >
                 <ChevronLeft size={16} />
                 {currentQ === 0 ? "Back to Intro" : "Previous"}
@@ -688,8 +688,8 @@ export default function HairQuiz() {
                 disabled={selected === null}
                 className="flex items-center gap-2 px-7 py-2.5 rounded font-body font-semibold text-sm transition-all duration-150"
                 style={{
-                  backgroundColor: selected !== null ? "#8B1A2F" : "#E8DDD0",
-                  color: selected !== null ? "#FDF6EE" : "#9A7A8A",
+                  backgroundColor: selected !== null ? "#2D7D6F" : "#D4EBE7",
+                  color: selected !== null ? "#FDF8F4" : "#9A7A8A",
                   cursor: selected !== null ? "pointer" : "not-allowed",
                   letterSpacing: "0.05em",
                 }}
@@ -704,7 +704,7 @@ export default function HairQuiz() {
 
       {/* ── Results Screen ── */}
       {step === "results" && resultInfo && result && (
-        <div style={{ backgroundColor: "#FDF6EE" }}>
+        <div style={{ backgroundColor: "#FDF8F4" }}>
           {/* Result hero */}
           <div
             className="py-16 px-6 text-center"
@@ -729,14 +729,14 @@ export default function HairQuiz() {
               <p className="font-display text-xl md:text-2xl mb-6 italic" style={{ color: "#2C2C2C" }}>
                 "{resultInfo.tagline}"
               </p>
-              <p className="font-body text-base leading-relaxed mb-8" style={{ color: "#4A3A4A", maxWidth: "560px", margin: "0 auto 2rem" }}>
+              <p className="font-body text-base leading-relaxed mb-8" style={{ color: "#3D5A58", maxWidth: "560px", margin: "0 auto 2rem" }}>
                 {resultInfo.description}
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Link
                   href={`/hair-type/${result}`}
                   className="inline-flex items-center gap-2 px-6 py-3 rounded font-body font-semibold text-sm transition-all duration-200 hover:opacity-90"
-                  style={{ backgroundColor: resultInfo.accentColor, color: "#FDF6EE", letterSpacing: "0.05em" }}
+                  style={{ backgroundColor: resultInfo.accentColor, color: "#FDF8F4", letterSpacing: "0.05em" }}
                 >
                   Explore {resultInfo.title} Guide <ChevronRight size={15} />
                 </Link>
@@ -760,7 +760,7 @@ export default function HairQuiz() {
                     handleRestart();
                   }}
                   className="inline-flex items-center gap-2 px-5 py-3 rounded font-body text-sm transition-all duration-200 hover:opacity-80"
-                  style={{ border: "1.5px solid #E8DDD0", color: "#8C8C8C", backgroundColor: "transparent" }}
+                  style={{ border: "1.5px solid #D4EBE7", color: "#8C8C8C", backgroundColor: "transparent" }}
                   title="Remove your saved hair profile and start fresh"
                 >
                   <Trash2 size={13} /> Clear My Profile
@@ -781,8 +781,8 @@ export default function HairQuiz() {
                 </h3>
                 <ul className="space-y-2">
                   {resultInfo.tips.map((tip, i) => (
-                    <li key={i} className="flex items-start gap-2 font-body text-sm" style={{ color: "#4A3A4A" }}>
-                      <span className="mt-1 w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold" style={{ backgroundColor: resultInfo.accentColor, color: "#FDF6EE" }}>✓</span>
+                    <li key={i} className="flex items-start gap-2 font-body text-sm" style={{ color: "#3D5A58" }}>
+                      <span className="mt-1 w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold" style={{ backgroundColor: resultInfo.accentColor, color: "#FDF8F4" }}>✓</span>
                       {tip}
                     </li>
                   ))}
@@ -790,15 +790,15 @@ export default function HairQuiz() {
               </div>
               <div
                 className="p-6 rounded-xl"
-                style={{ backgroundColor: "#FFFFFF", border: "1px solid #E8DDD0" }}
+                style={{ backgroundColor: "#FFFFFF", border: "1px solid #D4EBE7" }}
               >
-                <h3 className="font-display text-lg font-bold mb-4" style={{ color: "#6B5B6E" }}>
+                <h3 className="font-display text-lg font-bold mb-4" style={{ color: "#3D5A58" }}>
                   What to Avoid
                 </h3>
                 <ul className="space-y-2">
                   {resultInfo.avoid.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 font-body text-sm" style={{ color: "#4A3A4A" }}>
-                      <span className="mt-1 w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold" style={{ backgroundColor: "#E8DDD0", color: "#6B5B6E" }}>✕</span>
+                    <li key={i} className="flex items-start gap-2 font-body text-sm" style={{ color: "#3D5A58" }}>
+                      <span className="mt-1 w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold" style={{ backgroundColor: "#D4EBE7", color: "#3D5A58" }}>✕</span>
                       {item}
                     </li>
                   ))}

@@ -53,7 +53,7 @@ function QuizPromptBanner() {
       <div className="flex items-start gap-4">
         <Sparkles size={28} style={{ color: "#C4722A", flexShrink: 0, marginTop: "2px" }} />
         <div>
-          <p className="font-display font-bold text-lg leading-tight" style={{ color: "#FAF7F4" }}>
+          <p className="font-display font-bold text-lg leading-tight" style={{ color: "#FDF8F4" }}>
             {hasResult && hairTypeName
               ? `Not sure this is right for your ${hairTypeName}?`
               : "Not sure this product is right for your hair?"}
@@ -68,7 +68,7 @@ function QuizPromptBanner() {
       <Link href="/hair-quiz">
         <button
           className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded font-body font-semibold text-sm whitespace-nowrap transition-all duration-200 hover:opacity-90"
-          style={{ backgroundColor: "#C4722A", color: "#FAF7F4" }}
+          style={{ backgroundColor: "#C4722A", color: "#FDF8F4" }}
         >
           {hasResult ? <><Sparkles size={14} /> Retake Quiz</> : <><Sparkles size={14} /> Take the Hair Quiz</>}
         </button>
@@ -121,7 +121,7 @@ export default function ProductReview() {
         description: `Expert review of ${product.name} by ${product.brand}. ${product.shortDescription}`,
         keywords: `${product.name} review, ${product.brand}, ${product.category}`,
         canonical: `https://pauseandflourish.com/review/${product.slug}`,
-        ogImage: product.imageUrl,
+        ogImage: product.heroImage,
         ogType: "article",
       });
 
@@ -132,7 +132,7 @@ export default function ProductReview() {
         price: product.price,
         rating: product.rating,
         reviewCount: product.reviewCount,
-        imageUrl: product.imageUrl,
+        heroImage: product.heroImage,
         asin: product.asin,
       });
 
@@ -175,9 +175,9 @@ export default function ProductReview() {
           {/* Left: Product Info */}
           <div className="lg:col-span-1">
             {/* Product Image */}
-            <div className="rounded-sm overflow-hidden mb-4" style={{ backgroundColor: "#F5EBE0", height: "280px" }}>
+            <div className="rounded-sm overflow-hidden mb-4" style={{ backgroundColor: "#EDF5F3", height: "280px" }}>
               <img
-                src={product.imageUrl}
+                src={product.heroImage}
                 alt={product.name}
                 className="w-full h-full object-contain p-6"
                 onError={(e) => {
@@ -187,7 +187,7 @@ export default function ProductReview() {
             </div>
 
             {/* Price & Buy */}
-            <div className="p-5 rounded-sm border" style={{ borderColor: "#E8DDD0", backgroundColor: "white" }}>
+            <div className="p-5 rounded-sm border" style={{ borderColor: "#D4EBE7", backgroundColor: "white" }}>
               {product.editorPick && (
                 <div className="mb-3">
                   <span className="editor-pick-badge text-xs px-3 py-1">Editor's Pick</span>
@@ -231,7 +231,7 @@ export default function ProductReview() {
             </div>
 
             {/* Best For */}
-            <div className="mt-6 p-4 rounded-sm" style={{ backgroundColor: "#F5F0EA", border: "1px solid #E8DDD0" }}>
+            <div className="mt-6 p-4 rounded-sm" style={{ backgroundColor: "#EDF5F3", border: "1px solid #D4EBE7" }}>
               <p className="section-label text-xs mb-2">Best For</p>
               <p className="font-body text-sm" style={{ color: "#2C2C2C" }}>{product.bestFor}</p>
             </div>
@@ -265,7 +265,7 @@ export default function ProductReview() {
                   className="absolute -top-2 -left-3 w-6 h-6 rounded-full flex items-center justify-center"
                   style={{ backgroundColor: "#2D7D6F" }}
                 >
-                  <span style={{ color: "#FAF7F4", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.05em" }}>Ed</span>
+                  <span style={{ color: "#FDF8F4", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.05em" }}>Ed</span>
                 </div>
                 <p
                   className="font-label text-xs font-semibold mb-2"
@@ -275,7 +275,7 @@ export default function ProductReview() {
                 </p>
                 <blockquote
                   className="font-body italic leading-relaxed"
-                  style={{ color: "#3D2B1F", fontSize: "1.05rem", fontStyle: "italic" }}
+                  style={{ color: "#1A3A38", fontSize: "1.05rem", fontStyle: "italic" }}
                 >
                   &ldquo;{product.editorNote}&rdquo;
                 </blockquote>
@@ -288,7 +288,7 @@ export default function ProductReview() {
             )}
 
             {/* Final Verdict */}
-            <div className="p-6 rounded-sm mt-8" style={{ backgroundColor: "#F5F0EA", border: "2px solid #C4722A" }}>
+            <div className="p-6 rounded-sm mt-8" style={{ backgroundColor: "#EDF5F3", border: "2px solid #C4722A" }}>
               <p className="section-label mb-2">Our Verdict</p>
               <div className="flex items-center gap-3 mb-3">
                 <StarRatingDisplay rating={product.rating} reviewCount={product.reviewCount} size={20} />
@@ -315,7 +315,7 @@ export default function ProductReview() {
 
         {/* Related Products */}
         {relatedProducts.length > 0 && (
-          <section className="mt-16 pt-10 border-t" style={{ borderColor: "#E8DDD0" }}>
+          <section className="mt-16 pt-10 border-t" style={{ borderColor: "#D4EBE7" }}>
             <p className="section-label mb-2">
               {relatedLabel ? "Personalized for You" : `More in ${product.category}`}
             </p>

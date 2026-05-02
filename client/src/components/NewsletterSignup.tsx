@@ -84,7 +84,7 @@ export default function NewsletterSignup({
             className="text-4xl md:text-5xl font-bold mb-4 leading-tight"
             style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
-              color: "#FAF7F4",
+              color: "#FDF8F4",
             }}
           >
             Evidence-Based Menopause Guidance
@@ -134,7 +134,7 @@ export default function NewsletterSignup({
   return (
     <div
       className={`rounded-sm p-6 ${className}`}
-      style={{ backgroundColor: "#F5F0EA", border: "1px solid #E8DDD0" }}
+      style={{ backgroundColor: "#EDF5F3", border: "1px solid #D4EBE7" }}
     >
       <p
         className="font-semibold text-xs mb-2 uppercase tracking-widest"

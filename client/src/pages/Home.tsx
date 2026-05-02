@@ -34,7 +34,7 @@ function RecentlyViewedSection() {
   }, []);
   if (recentProducts.length === 0) return null;
   return (
-    <section className="py-14 border-b" style={{ borderColor: "#E8DDD0" }}>
+    <section className="py-14 border-b" style={{ borderColor: "#D4EBE7" }}>
       <div className="container">
         <div className="flex items-end justify-between mb-8">
           <div>
@@ -77,7 +77,7 @@ function QuizCtaSection() {
               <p className="font-body text-sm mt-1" style={{ color: "#5C5C5C" }}>{meta.tagline}</p>
             </div>
             <Link href={`/stage/${savedResult.stage}`}>
-              <button className="font-label font-semibold text-xs px-5 py-3 rounded-sm transition-colors whitespace-nowrap" style={{ backgroundColor: meta.color, color: "#FAF7F4", letterSpacing: "0.08em", textTransform: "uppercase" }}>View My Stage Guide</button>
+              <button className="font-label font-semibold text-xs px-5 py-3 rounded-sm transition-colors whitespace-nowrap" style={{ backgroundColor: meta.color, color: "#FDF8F4", letterSpacing: "0.08em", textTransform: "uppercase" }}>View My Stage Guide</button>
             </Link>
           </div>
           {topProducts.length > 0 && (
@@ -97,7 +97,7 @@ function QuizCtaSection() {
         <h2 className="font-display font-bold mb-4" style={{ fontSize: "2rem", color: "#2C2C2C" }}>Where Are You in Your Journey?</h2>
         <p className="font-body text-base mb-8 leading-relaxed" style={{ color: "#5C5C5C" }}>Take our 2-minute quiz to identify your menopause stage and get personalized product recommendations, symptom guides, and expert content tailored to exactly where you are.</p>
         <Link href="/quiz">
-          <button className="font-label font-semibold px-8 py-4 rounded-sm transition-colors" style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4", letterSpacing: "0.08em", textTransform: "uppercase" }}>Find My Menopause Stage</button>
+          <button className="font-label font-semibold px-8 py-4 rounded-sm transition-colors" style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.08em", textTransform: "uppercase" }}>Find My Menopause Stage</button>
         </Link>
       </div>
     </section>
@@ -121,7 +121,7 @@ export default function Home() {
   return (
     <SiteLayout>
       {/* Hero */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: "#FAF7F4" }}>
+      <section className="relative overflow-hidden" style={{ backgroundColor: "#FDF8F4" }}>
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-[520px]">
             <div className="flex flex-col justify-center py-16 pr-8">
@@ -137,7 +137,7 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/reviews">
-                  <button className="font-label font-semibold text-sm px-6 py-3 rounded-sm transition-colors" style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4", letterSpacing: "0.06em" }}>Browse All Reviews</button>
+                  <button className="font-label font-semibold text-sm px-6 py-3 rounded-sm transition-colors" style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.06em" }}>Browse All Reviews</button>
                 </Link>
                 <Link href="/quiz">
                   <button className="font-label font-semibold text-sm px-6 py-3 rounded-sm transition-colors border" style={{ color: "#2D7D6F", borderColor: "#2D7D6F", backgroundColor: "transparent", letterSpacing: "0.06em" }}>Find My Stage</button>
@@ -146,14 +146,14 @@ export default function Home() {
             </div>
             <div className="relative hidden lg:block">
               <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&q=80" alt="Woman confidently navigating menopause wellness" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center top" }} />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #FAF7F4 0%, transparent 20%)" }} />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #FDF8F4 0%, transparent 20%)" }} />
             </div>
           </div>
         </div>
       </section>
 
       {/* Trust Bar */}
-      <section className="py-6 border-y" style={{ borderColor: "#E8DDD0", backgroundColor: "#F5F0EA" }}>
+      <section className="py-6 border-y" style={{ borderColor: "#D4EBE7", backgroundColor: "#EDF5F3" }}>
         <div className="container">
           <div className="flex flex-wrap justify-center gap-8 items-center">
             {[{ label: "Products Reviewed", value: "22+" }, { label: "Categories Covered", value: "8" }, { label: "Amazon Reviews Analyzed", value: "400K+" }, { label: "Stages Addressed", value: "5" }].map(stat => (
@@ -183,7 +183,7 @@ export default function Home() {
       </section>
 
       {/* Comparisons */}
-      <section className="py-16 border-t" style={{ borderColor: "#E8DDD0", backgroundColor: "#F5F0EA" }}>
+      <section className="py-16 border-t" style={{ borderColor: "#D4EBE7", backgroundColor: "#EDF5F3" }}>
         <div className="container">
           <div className="flex items-end justify-between mb-8">
             <div>
@@ -199,7 +199,7 @@ export default function Home() {
       </section>
 
       {/* Brand Statement */}
-      <section className="py-16 border-y" style={{ borderColor: "#E8DDD0" }}>
+      <section className="py-16 border-y" style={{ borderColor: "#D4EBE7" }}>
         <div className="container max-w-3xl mx-auto text-center">
           <blockquote className="font-display font-medium italic leading-relaxed" style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)", color: "#2C2C2C" }}>
             {"\"Every woman deserves honest, evidence-based guidance through menopause — not confusion, not shame, not guesswork.\""}
@@ -229,7 +229,7 @@ export default function Home() {
       </section>
 
       {/* Stage Guide */}
-      <section className="py-14 border-b" style={{ borderColor: "#E8DDD0", backgroundColor: "#FAF7F4" }}>
+      <section className="py-14 border-b" style={{ borderColor: "#D4EBE7", backgroundColor: "#FDF8F4" }}>
         <div className="container">
           <div className="flex items-center justify-between mb-8">
             <div>

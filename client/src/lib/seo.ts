@@ -64,7 +64,7 @@ export function buildProductSchema(product: {
   price: number;
   rating: number;
   reviewCount: number;
-  imageUrl: string;
+  heroImage: string;
   asin: string;
 }): object {
   return {
@@ -76,7 +76,7 @@ export function buildProductSchema(product: {
       "@type": "Brand",
       name: product.brand,
     },
-    image: product.imageUrl,
+    image: product.heroImage,
     offers: {
       "@type": "Offer",
       price: product.price,

@@ -44,7 +44,7 @@ export const hairTypes: HairType[] = [
     metaTitle: "Best Hair Products for Fine Hair 2025 | PauseAndFlourish",
     metaDescription:
       "Expert-tested hair products for fine hair. Lightweight shampoos, volumizing treatments, and styling tools that add body without weighing down fine strands.",
-    accentColor: "#D4822A",
+    accentColor: "#C4722A",
     icon: "🌾",
     heroImageUrl:
       "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&auto=format&fit=crop&q=80",
@@ -73,7 +73,7 @@ export const hairTypes: HairType[] = [
     metaTitle: "Best Hair Products for Thick Hair 2025 | PauseAndFlourish",
     metaDescription:
       "Expert-tested hair products for thick hair. Moisturizing shampoos, deep conditioners, and powerful styling tools that tame and smooth thick, voluminous strands.",
-    accentColor: "#8B1A2F",
+    accentColor: "#2D7D6F",
     icon: "🌿",
     heroImageUrl:
       "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&auto=format&fit=crop&q=80",

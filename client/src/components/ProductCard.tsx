@@ -56,8 +56,8 @@ export function StarRatingDisplay({
         <Star
           key={star}
           size={size}
-          fill={star <= Math.round(rating) ? "#D4822A" : "none"}
-          stroke={star <= Math.round(rating) ? "#D4822A" : "#B8A99A"}
+          fill={star <= Math.round(rating) ? "#C4722A" : "none"}
+          stroke={star <= Math.round(rating) ? "#C4722A" : "#B8A99A"}
         />
       ))}
       <span className="font-body text-xs ml-1" style={{ color: "#8C8C8C" }}>
@@ -79,9 +79,9 @@ function PriceDropBadge({ badge, size = "sm" }: { badge: PriceBadge; size?: "sm"
   const isPriceDrop = badge.type === "price-drop";
 
   const bg = isAllTimeLow
-    ? "#D4822A"
+    ? "#C4722A"
     : isPriceDrop
-    ? "#8B1A2F"
+    ? "#2D7D6F"
     : "#4A7C59";
 
   const Icon = isAllTimeLow ? Flame : TrendingDown;
@@ -122,10 +122,10 @@ export default function ProductCard({
         )}
         <div
           className="flex-shrink-0 w-20 h-20 overflow-hidden rounded-sm"
-          style={{ backgroundColor: "#F5EBE0" }}
+          style={{ backgroundColor: "#EDF5F3" }}
         >
           <img
-            src={product.imageUrl}
+            src={product.heroImage}
             alt={product.name}
             className="w-full h-full object-contain"
             onError={(e) => {
@@ -153,7 +153,7 @@ export default function ProductCard({
             <div className="flex flex-col gap-0.5">
               <span
                 className="font-label font-bold"
-                style={{ color: "#8B1A2F", fontSize: "0.9rem" }}
+                style={{ color: "#2D7D6F", fontSize: "0.9rem" }}
               >
                 {product.priceDisplay}
               </span>
@@ -178,10 +178,10 @@ export default function ProductCard({
       <div className="product-card rounded-sm overflow-hidden group">
         <div
           className="relative overflow-hidden"
-          style={{ height: "220px", backgroundColor: "#F5EBE0" }}
+          style={{ height: "220px", backgroundColor: "#EDF5F3" }}
         >
           <img
-            src={product.imageUrl}
+            src={product.heroImage}
             alt={product.name}
             className="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
             onError={(e) => {
@@ -227,7 +227,7 @@ export default function ProductCard({
             <div>
               <span
                 className="font-label font-bold"
-                style={{ color: "#8B1A2F", fontSize: "1.1rem" }}
+                style={{ color: "#2D7D6F", fontSize: "1.1rem" }}
               >
                 {product.priceDisplay}
               </span>
@@ -264,10 +264,10 @@ export default function ProductCard({
     <div className="product-card rounded-sm overflow-hidden group">
       <div
         className="relative overflow-hidden"
-        style={{ height: "180px", backgroundColor: "#F5EBE0" }}
+        style={{ height: "180px", backgroundColor: "#EDF5F3" }}
       >
         <img
-          src={product.imageUrl}
+          src={product.heroImage}
           alt={product.name}
           className="w-full h-full object-contain p-3 transition-transform duration-300 group-hover:scale-105"
           onError={(e) => {
@@ -308,7 +308,7 @@ export default function ProductCard({
           <div>
             <span
               className="font-label font-bold block"
-              style={{ color: "#8B1A2F", fontSize: "1rem" }}
+              style={{ color: "#2D7D6F", fontSize: "1rem" }}
             >
               {product.priceDisplay}
             </span>

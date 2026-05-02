@@ -17,7 +17,7 @@ const HAIR_META: Record<string, { label: string; color: string; bg: string }> = 
   coarse:          { label: "Coarse Hair",        color: "#8B4513", bg: "#FFF5EE" },
   dry:             { label: "Dry Hair",           color: "#C0392B", bg: "#FFF5F5" },
   normal:          { label: "Normal Hair",        color: "#2C6B2F", bg: "#EDFAEE" },
-  "color-treated": { label: "Color-Treated Hair", color: "#2D7D6F", bg: "#FFF5F7" },
+  "color-treated": { label: "Color-Treated Hair", color: "#2D7D6F", bg: "#F0FAF8" },
 };
 
 // Contextual tips per menopause stage per product category
@@ -121,7 +121,7 @@ function ComparisonQuizBanner({ category }: { category: string }) {
   return (
     <div
       className="rounded-lg px-5 py-4 mb-8 flex items-center gap-3 justify-between"
-      style={{ backgroundColor: "#F5F0EA", border: "1.5px solid #E8DDD0" }}
+      style={{ backgroundColor: "#EDF5F3", border: "1.5px solid #D4EBE7" }}
     >
       <div className="flex items-center gap-3">
         <Sparkles size={15} className="flex-shrink-0" style={{ color: "#2D7D6F" }} />
@@ -134,7 +134,7 @@ function ComparisonQuizBanner({ category }: { category: string }) {
         <Link href="/hair-quiz">
           <span
             className="inline-flex items-center gap-1 px-4 py-2 rounded font-body font-semibold text-xs cursor-pointer transition-opacity hover:opacity-90"
-            style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4" }}
+            style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}
           >
             Take Quiz <ArrowRight size={11} />
           </span>
@@ -212,7 +212,7 @@ export default function ComparisonPage() {
             const isWinner = product.id === comparison.winnerId;
             return (
               <div key={product.id} className={`rounded-sm overflow-hidden border-2 ${isWinner ? "comparison-winner" : ""}`}
-                style={{ borderColor: isWinner ? "#C4722A" : "#E8DDD0" }}>
+                style={{ borderColor: isWinner ? "#C4722A" : "#D4EBE7" }}>
                 {isWinner && (
                   <div className="flex items-center justify-center gap-2 py-2"
                     style={{ backgroundColor: "#C4722A" }}>
@@ -223,9 +223,9 @@ export default function ComparisonPage() {
                   </div>
                 )}
                 <div className="p-6">
-                  <div className="h-40 flex items-center justify-center mb-4 rounded-sm" style={{ backgroundColor: "#F5EBE0" }}>
+                  <div className="h-40 flex items-center justify-center mb-4 rounded-sm" style={{ backgroundColor: "#EDF5F3" }}>
                     <img
-                      src={product.imageUrl}
+                      src={product.heroImage}
                       alt={product.name}
                       className="h-full w-full object-contain p-4"
                       onError={(e) => {
@@ -272,7 +272,7 @@ export default function ComparisonPage() {
         </div>
 
         {/* Winner Explanation */}
-        <div className="p-6 rounded-sm mb-8" style={{ backgroundColor: "#F5F0EA", border: "2px solid #C4722A" }}>
+        <div className="p-6 rounded-sm mb-8" style={{ backgroundColor: "#EDF5F3", border: "2px solid #C4722A" }}>
           <div className="flex items-center gap-2 mb-3">
             <Trophy size={18} style={{ color: "#C4722A" }} />
             <p className="section-label">Why {winner.name} Wins</p>
@@ -287,9 +287,9 @@ export default function ComparisonPage() {
         </div>
 
         {/* Bottom CTAs */}
-        <div className="grid grid-cols-2 gap-4 pt-8 border-t" style={{ borderColor: "#E8DDD0" }}>
+        <div className="grid grid-cols-2 gap-4 pt-8 border-t" style={{ borderColor: "#D4EBE7" }}>
           {[winner, runnerUp].map((product, i) => (
-            <div key={product.id} className="p-4 rounded-sm border" style={{ borderColor: "#E8DDD0" }}>
+            <div key={product.id} className="p-4 rounded-sm border" style={{ borderColor: "#D4EBE7" }}>
               <p className="section-label text-xs mb-1">{i === 0 ? "🏆 Winner" : "Runner-Up"}</p>
               <p className="font-body font-semibold text-sm mb-2" style={{ color: "#2C2C2C" }}>{product.name}</p>
               <p className="font-label font-bold mb-3" style={{ color: "#2D7D6F" }}>{product.priceDisplay}</p>

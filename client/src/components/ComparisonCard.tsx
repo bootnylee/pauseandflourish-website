@@ -21,7 +21,7 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
 
   return (
     <div className="product-card rounded-sm overflow-hidden">
-      <div className="p-4 border-b" style={{ borderColor: "#F0E8DE", backgroundColor: "#FFF8F0" }}>
+      <div className="p-4 border-b" style={{ borderColor: "#F0E8DE", backgroundColor: "#F0FAF8" }}>
         <p className="section-label text-xs mb-1">{comparison.category}</p>
         <Link href={`/comparison/${comparison.slug}`}>
           <h3 className="font-display font-bold leading-snug hover:text-red-800 transition-colors cursor-pointer"
@@ -36,14 +36,14 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
         {/* Winner */}
         <div className="p-4 border-r" style={{ borderColor: "#F0E8DE", backgroundColor: "#FFFAF5" }}>
           <div className="flex items-center gap-1 mb-2">
-            <Trophy size={12} style={{ color: "#D4822A" }} />
-            <span className="font-label font-bold text-xs" style={{ color: "#D4822A", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            <Trophy size={12} style={{ color: "#C4722A" }} />
+            <span className="font-label font-bold text-xs" style={{ color: "#C4722A", letterSpacing: "0.1em", textTransform: "uppercase" }}>
               Winner
             </span>
           </div>
           <div className="w-16 h-16 mx-auto mb-2 bg-gray-50 rounded overflow-hidden">
             <img
-              src={winner.imageUrl}
+              src={winner.heroImage}
               alt={winner.name}
               className="w-full h-full object-contain p-1"
               onError={(e) => {
@@ -54,7 +54,7 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
           <p className="font-body text-xs font-semibold text-center leading-tight" style={{ color: "#2C2C2C" }}>
             {winner.name}
           </p>
-          <p className="font-label font-bold text-center mt-1" style={{ color: "#8B1A2F", fontSize: "0.85rem" }}>
+          <p className="font-label font-bold text-center mt-1" style={{ color: "#2D7D6F", fontSize: "0.85rem" }}>
             {winner.priceDisplay}
           </p>
         </div>
@@ -68,7 +68,7 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
           </div>
           <div className="w-16 h-16 mx-auto mb-2 bg-gray-50 rounded overflow-hidden">
             <img
-              src={loser.imageUrl}
+              src={loser.heroImage}
               alt={loser.name}
               className="w-full h-full object-contain p-1"
               onError={(e) => {

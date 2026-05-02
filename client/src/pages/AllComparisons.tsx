@@ -28,7 +28,7 @@ const STAGE_LABELS: Record<string, { label: string; color: string; bg: string }>
   coarse:          { label: "Coarse Hair",        color: "#8B4513", bg: "#FFF5EE" },
   dry:             { label: "Dry Hair",           color: "#C0392B", bg: "#FFF5F5" },
   normal:          { label: "Normal Hair",        color: "#2C6B2F", bg: "#EDFAEE" },
-  "color-treated": { label: "Color-Treated Hair", color: "#2D7D6F", bg: "#FFF5F7" },
+  "color-treated": { label: "Color-Treated Hair", color: "#2D7D6F", bg: "#F0FAF8" },
 };
 
 const CATEGORY_OPTIONS = [
@@ -69,7 +69,7 @@ function QuizEntryBanner() {
               <span className="font-body font-semibold text-sm" style={{ color: meta.color }}>
                 Comparing products for {meta.label}?
               </span>
-              <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "#6B5B4E" }}>
+              <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "#3D5A58" }}>
                 Use the menopause stage filter below to surface the most relevant comparisons.
               </span>
             </div>
@@ -78,7 +78,7 @@ function QuizEntryBanner() {
             <Link href="/hair-quiz">
               <span
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded font-body font-semibold text-xs transition-all duration-200 hover:opacity-90 cursor-pointer"
-                style={{ backgroundColor: meta.color, color: "#FAF7F4" }}
+                style={{ backgroundColor: meta.color, color: "#FDF8F4" }}
               >
                 View My Profile <ArrowRight size={12} />
               </span>
@@ -98,7 +98,7 @@ function QuizEntryBanner() {
   }
 
   return (
-    <div className="border-b px-6 py-4" style={{ backgroundColor: "#F5F0EA", borderColor: "#E8DDD0" }}>
+    <div className="border-b px-6 py-4" style={{ backgroundColor: "#EDF5F3", borderColor: "#D4EBE7" }}>
       <div className="container flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
         <div className="flex items-center gap-3">
           <Sparkles size={16} style={{ color: "#2D7D6F", flexShrink: 0 }} />
@@ -106,7 +106,7 @@ function QuizEntryBanner() {
             <span className="font-body font-semibold text-sm" style={{ color: "#2D7D6F" }}>
               Not sure which product is right for you?
             </span>
-            <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "#6B5B4E" }}>
+            <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "#3D5A58" }}>
               Your menopause stage can help — take our 2-minute quiz to find out.
             </span>
           </div>
@@ -115,7 +115,7 @@ function QuizEntryBanner() {
           <Link href="/hair-quiz">
             <span
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded font-body font-semibold text-xs transition-all duration-200 hover:opacity-90 cursor-pointer"
-              style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4" }}
+              style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}
             >
               Take the Menopause Stage Quiz <ArrowRight size={12} />
             </span>
@@ -166,7 +166,7 @@ export default function AllComparisons() {
       <QuizEntryBanner />
 
       {/* Header */}
-      <section className="py-16 border-b" style={{ borderColor: "#E8DDD0", backgroundColor: "#F5F0EA" }}>
+      <section className="py-16 border-b" style={{ borderColor: "#D4EBE7", backgroundColor: "#EDF5F3" }}>
         <div className="container">
           <p className="section-label mb-2">Head-to-Head</p>
           <h1 className="font-display font-bold" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2C2C" }}>
@@ -179,7 +179,7 @@ export default function AllComparisons() {
       </section>
 
       {/* Filter Bar */}
-      <section className="sticky top-0 z-20 border-b" style={{ backgroundColor: "#FDFAF6", borderColor: "#E8DDD0" }}>
+      <section className="sticky top-0 z-20 border-b" style={{ backgroundColor: "#FDFAF6", borderColor: "#D4EBE7" }}>
         <div className="container py-4">
           <div className="flex flex-col gap-3">
 
@@ -193,8 +193,8 @@ export default function AllComparisons() {
                 className="px-3 py-1.5 rounded-full font-body text-xs font-medium transition-all duration-150"
                 style={
                   activeStage === null
-                    ? { backgroundColor: "#2D7D6F", color: "#FAF7F4", border: "1.5px solid #2D7D6F" }
-                    : { backgroundColor: "transparent", color: "#6B5B4E", border: "1.5px solid #D4C5B5" }
+                    ? { backgroundColor: "#2D7D6F", color: "#FDF8F4", border: "1.5px solid #2D7D6F" }
+                    : { backgroundColor: "transparent", color: "#3D5A58", border: "1.5px solid #C0DDD9" }
                 }
               >
                 All Types
@@ -206,8 +206,8 @@ export default function AllComparisons() {
                   className="px-3 py-1.5 rounded-full font-body text-xs font-medium transition-all duration-150"
                   style={
                     activeStage === ht.id
-                      ? { backgroundColor: "#2D7D6F", color: "#FAF7F4", border: "1.5px solid #2D7D6F" }
-                      : { backgroundColor: "transparent", color: "#6B5B4E", border: "1.5px solid #D4C5B5" }
+                      ? { backgroundColor: "#2D7D6F", color: "#FDF8F4", border: "1.5px solid #2D7D6F" }
+                      : { backgroundColor: "transparent", color: "#3D5A58", border: "1.5px solid #C0DDD9" }
                   }
                 >
                   {ht.emoji} {ht.label}
@@ -217,7 +217,7 @@ export default function AllComparisons() {
 
             {/* Category Filter */}
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-1.5 font-label text-xs font-semibold mr-1" style={{ color: "#6B5B4E", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+              <span className="inline-flex items-center gap-1.5 font-label text-xs font-semibold mr-1" style={{ color: "#3D5A58", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                 Category
               </span>
               {CATEGORY_OPTIONS.map(cat => (
@@ -227,8 +227,8 @@ export default function AllComparisons() {
                   className="px-3 py-1.5 rounded-full font-body text-xs font-medium transition-all duration-150"
                   style={
                     activeCategory === cat.id
-                      ? { backgroundColor: "#3D2B1F", color: "#FAF7F4", border: "1.5px solid #3D2B1F" }
-                      : { backgroundColor: "transparent", color: "#6B5B4E", border: "1.5px solid #D4C5B5" }
+                      ? { backgroundColor: "#1A3A38", color: "#FDF8F4", border: "1.5px solid #1A3A38" }
+                      : { backgroundColor: "transparent", color: "#3D5A58", border: "1.5px solid #C0DDD9" }
                   }
                 >
                   {cat.label}
@@ -251,7 +251,7 @@ export default function AllComparisons() {
             </span>
           )}
           {activeCategory !== "all" && (
-            <span style={{ color: "#6B5B4E" }}>
+            <span style={{ color: "#3D5A58" }}>
               {" "}in <strong>{CATEGORY_OPTIONS.find(c => c.id === activeCategory)?.label}</strong>
             </span>
           )}
@@ -274,7 +274,7 @@ export default function AllComparisons() {
               <button
                 onClick={() => { setActiveCategory("all"); setActiveHairType(null); }}
                 className="px-5 py-2.5 rounded font-body font-semibold text-sm transition-all hover:opacity-90"
-                style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4" }}
+                style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}
               >
                 Clear All Filters
               </button>

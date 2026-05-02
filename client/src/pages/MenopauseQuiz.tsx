@@ -292,7 +292,7 @@ export default function MenopauseQuiz() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/stage/${result}`}>
-                <button className="font-label font-semibold px-8 py-4 rounded-sm transition-colors" style={{ backgroundColor: stageResult.color, color: "#FAF7F4", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                <button className="font-label font-semibold px-8 py-4 rounded-sm transition-colors" style={{ backgroundColor: stageResult.color, color: "#FDF8F4", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                   View Full Stage Guide <ArrowRight size={16} className="inline ml-2" />
                 </button>
               </Link>
@@ -309,7 +309,7 @@ export default function MenopauseQuiz() {
   // Quiz screen
   return (
     <SiteLayout>
-      <div className="min-h-screen" style={{ backgroundColor: "#FAF7F4" }}>
+      <div className="min-h-screen" style={{ backgroundColor: "#FDF8F4" }}>
         <div className="container max-w-2xl py-12">
           {/* Progress */}
           <div className="mb-8">
@@ -319,7 +319,7 @@ export default function MenopauseQuiz() {
               </p>
               <p className="font-label text-xs" style={{ color: "#2D7D6F" }}>{Math.round(progress)}% complete</p>
             </div>
-            <div className="w-full h-1.5 rounded-full" style={{ backgroundColor: "#E8DDD0" }}>
+            <div className="w-full h-1.5 rounded-full" style={{ backgroundColor: "#D4EBE7" }}>
               <div className="h-1.5 rounded-full transition-all duration-300" style={{ width: `${progress}%`, backgroundColor: "#2D7D6F" }} />
             </div>
           </div>
@@ -342,7 +342,7 @@ export default function MenopauseQuiz() {
                 onClick={() => handleSelect(option.value)}
                 className="w-full text-left p-4 rounded-sm border-2 transition-all"
                 style={{
-                  borderColor: selectedOption === option.value ? "#2D7D6F" : "#E8DDD0",
+                  borderColor: selectedOption === option.value ? "#2D7D6F" : "#D4EBE7",
                   backgroundColor: selectedOption === option.value ? "#E8F5F2" : "#FFFFFF",
                 }}
               >
@@ -373,7 +373,7 @@ export default function MenopauseQuiz() {
               onClick={handleNext}
               disabled={!selectedOption}
               className="flex items-center gap-2 font-label font-semibold text-sm px-6 py-3 rounded-sm transition-colors disabled:opacity-40"
-              style={{ backgroundColor: selectedOption ? "#2D7D6F" : "#B8A99A", color: "#FAF7F4", letterSpacing: "0.06em" }}
+              style={{ backgroundColor: selectedOption ? "#2D7D6F" : "#B8A99A", color: "#FDF8F4", letterSpacing: "0.06em" }}
             >
               {currentQuestion === QUESTIONS.length - 1 ? "See My Results" : "Next"} <ArrowRight size={16} />
             </button>

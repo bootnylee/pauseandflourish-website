@@ -1,5 +1,5 @@
 // PauseAndFlourish.com - Category Page
-// Design: Bold magazine aesthetic with Burgundy (#2D7D6F) + Amber (#C4722A) + Cream (#FAF7F4)
+// Design: Bold magazine aesthetic with Burgundy (#2D7D6F) + Amber (#C4722A) + Cream (#FDF8F4)
 // Features: Sidebar FilterPanel (price range + menopause stage) + Sort
 
 import { useEffect, useState, useMemo } from "react";
@@ -44,7 +44,7 @@ export default function CategoryPage() {
         title: `${category.name} Reviews | PauseAndFlourish`,
         description: `${category.description} Read our expert reviews and comparisons.`,
         canonical: `https://pauseandflourish.com/category/${slug}`,
-        ogImage: category.imageUrl,
+        // no category image
       });
     }
     // Reset filters when category changes
@@ -108,7 +108,7 @@ export default function CategoryPage() {
       {/* ── Category Hero ── */}
       <section className="relative overflow-hidden" style={{ minHeight: "300px" }}>
         <div className="absolute inset-0">
-          <img src={category.imageUrl} alt={category.name} className="w-full h-full object-cover" />
+          
           <div
             className="absolute inset-0"
             style={{
@@ -134,7 +134,7 @@ export default function CategoryPage() {
           </p>
           <h1
             className="font-display font-bold mb-4"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "#FAF7F4" }}
+            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "#FDF8F4" }}
           >
             {category.name}
           </h1>
@@ -149,7 +149,7 @@ export default function CategoryPage() {
 
       {/* ── Comparisons ── */}
       {comparisons.length > 0 && (
-        <section className="py-12" style={{ backgroundColor: "#F5F0EA" }}>
+        <section className="py-12" style={{ backgroundColor: "#EDF5F3" }}>
           <div className="container">
             <p className="section-label mb-2">Head-to-Head</p>
             <h2
@@ -170,7 +170,7 @@ export default function CategoryPage() {
       {/* ── Sort + Filter Bar ── */}
       <section
         className="py-4 border-y sticky top-[73px] z-40"
-        style={{ borderColor: "#E8DDD0", backgroundColor: "#FAF7F4" }}
+        style={{ borderColor: "#D4EBE7", backgroundColor: "#FDF8F4" }}
       >
         <div className="container">
           <div className="flex flex-wrap items-center gap-3">
@@ -179,9 +179,9 @@ export default function CategoryPage() {
               onClick={() => setShowMobileFilters((v) => !v)}
               className="lg:hidden flex items-center gap-2 px-4 py-2 text-xs font-label font-semibold rounded-sm border transition-colors"
               style={{
-                borderColor: showMobileFilters ? "#2D7D6F" : "#D4C5B5",
+                borderColor: showMobileFilters ? "#2D7D6F" : "#C0DDD9",
                 backgroundColor: showMobileFilters ? "#2D7D6F" : "transparent",
-                color: showMobileFilters ? "#FAF7F4" : "#2D7D6F",
+                color: showMobileFilters ? "#FDF8F4" : "#2D7D6F",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
               }}
@@ -204,7 +204,7 @@ export default function CategoryPage() {
                 onClick={() => setSortOpen((v) => !v)}
                 className="flex items-center gap-2 px-4 py-2 text-xs font-label font-semibold rounded-sm border transition-colors"
                 style={{
-                  borderColor: "#D4C5B5",
+                  borderColor: "#C0DDD9",
                   backgroundColor: "transparent",
                   color: "#2C2C2C",
                   letterSpacing: "0.08em",
@@ -217,7 +217,7 @@ export default function CategoryPage() {
               {sortOpen && (
                 <div
                   className="absolute left-0 top-full mt-1 rounded-sm border shadow-lg z-50"
-                  style={{ backgroundColor: "#FFF", borderColor: "#E8DDD0", minWidth: "180px" }}
+                  style={{ backgroundColor: "#FFF", borderColor: "#D4EBE7", minWidth: "180px" }}
                 >
                   {SORT_OPTIONS.map((opt) => (
                     <button
@@ -259,12 +259,12 @@ export default function CategoryPage() {
 
       {/* ── Active Filter Chips ── */}
       {anyActive && (
-        <section className="py-3 border-b" style={{ borderColor: "#E8DDD0", backgroundColor: "#F5F0EA" }}>
+        <section className="py-3 border-b" style={{ borderColor: "#D4EBE7", backgroundColor: "#EDF5F3" }}>
           <div className="container">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-xs font-body" style={{ color: "#999" }}>Active:</span>
               {(filters.priceMin > 0 || filters.priceMax < 600) && (
-                <span className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full" style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4" }}>
+                <span className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full" style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}>
                   ${filters.priceMin}–{filters.priceMax >= 600 ? "$600+" : `$${filters.priceMax}`}
                   <button onClick={() => setFilters(f => ({ ...f, priceMin: 0, priceMax: 600 }))}><X size={11} /></button>
                 </span>
@@ -347,7 +347,7 @@ export default function CategoryPage() {
                   <button
                     onClick={() => { setFilters(getDefaultFilters()); setSortBy("default"); }}
                     className="px-6 py-3 font-label font-semibold text-xs rounded-sm"
-                    style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4", letterSpacing: "0.1em", textTransform: "uppercase" }}
+                    style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.1em", textTransform: "uppercase" }}
                   >
                     Clear Filters
                   </button>
