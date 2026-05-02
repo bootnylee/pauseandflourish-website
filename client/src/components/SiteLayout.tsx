@@ -252,14 +252,17 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 Product Categories
               </p>
               <div className="flex flex-col gap-2">
-                <Link href="/category/shampoo-conditioner">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Shampoo & Conditioner</span>
+                <Link href="/category/multi-symptom-supplements">
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Multi-Symptom Supplements</span>
                 </Link>
                 <Link href="/category/sleep-mood-support">
                   <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Sleep & Mood Support</span>
                 </Link>
-                <Link href="/category/serums-oils">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Serums & Oils</span>
+                <Link href="/category/hot-flash-cooling">
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Hot Flash & Cooling</span>
+                </Link>
+                <Link href="/category/bone-joint-health">
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Bone & Joint Health</span>
                 </Link>
               </div>
             </div>
@@ -270,14 +273,17 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 My Journey
               </p>
               <div className="flex flex-col gap-2">
-                <Link href="/category/hot-flash-cooling">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Hot Flash & Cooling</span>
+                <Link href="/category/vaginal-intimate-health">
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Vaginal & Intimate Health</span>
                 </Link>
-                <Link href="/category/flat-irons">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Flat Irons</span>
+                <Link href="/category/menopause-skincare">
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Menopause Skincare</span>
                 </Link>
-                <Link href="/category/curling-irons">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Curling Irons & Wands</span>
+                <Link href="/category/fitness-pelvic-health">
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Fitness & Pelvic Health</span>
+                </Link>
+                <Link href="/category/cognitive-energy-support">
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Cognitive & Energy Support</span>
                 </Link>
               </div>
             </div>
