@@ -6,6 +6,7 @@ import { Link } from "wouter";
 import { ArrowRight, ArrowLeft, CheckCircle } from "lucide-react";
 import SiteLayout from "@/components/SiteLayout";
 import ProductCard from "@/components/ProductCard";
+import QuizEmailCapture from "@/components/QuizEmailCapture";
 import { allProducts } from "@/lib/products";
 import { menopauseStages } from "@/lib/menopauseStages";
 import { updateDocumentMeta } from "@/lib/seo";
@@ -288,6 +289,15 @@ export default function MenopauseQuiz() {
                 </div>
               </div>
             )}
+
+            {/* Email Capture — personalised stage guide */}
+            <div className="mb-8">
+              <QuizEmailCapture
+                stageSlug={result}
+                stageColor={stageResult.color}
+                stageBg={stageResult.bg}
+              />
+            </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

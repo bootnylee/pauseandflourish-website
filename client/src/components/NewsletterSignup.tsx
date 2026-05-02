@@ -19,9 +19,8 @@
 
 import { useEffect, useRef } from "react";
 
-// TODO: Replace with the PauseAndFlourish EmailOctopus form ID
-// Found in EmailOctopus dashboard → Forms → Your Form → Embed Code
-const EMAILOCTOPUS_FORM_ID = "REPLACE_WITH_PAF_FORM_ID";
+// PauseAndFlourish EmailOctopus form ID (created 2026-05-02)
+const EMAILOCTOPUS_FORM_ID = "4ad1a568-466f-11f1-8e43-77928305a476";
 const EMAILOCTOPUS_SCRIPT_SRC = `https://eocampaign1.com/form/${EMAILOCTOPUS_FORM_ID}.js`;
 
 /** Inject the EmailOctopus widget script into a container element.

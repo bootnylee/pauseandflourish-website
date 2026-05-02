@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Pause & Flourish</title>
+  <style>
+    body { margin: 0; padding: 0; background-color: #f9f5f0; font-family: Georgia, 'Times New Roman', serif; }
+    .wrapper { background-color: #f9f5f0; padding: 40px 20px; }
+    .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .header { background-color: #1a6b6b; padding: 36px 40px; text-align: center; }
+    .header h1 { color: #ffffff; font-family: Georgia, serif; font-size: 26px; margin: 0 0 6px 0; font-weight: normal; letter-spacing: 0.5px; }
+    .header p { color: #b8d8d8; font-size: 14px; margin: 0; font-family: Arial, sans-serif; }
+    .stage-badge { display: inline-block; background-color: #c8693a; color: #ffffff; font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; margin-top: 14px; }
+    .body { padding: 40px; }
+    .greeting { font-size: 18px; color: #2d2d2d; margin: 0 0 20px 0; line-height: 1.6; }
+    .body p { font-size: 16px; color: #4a4a4a; line-height: 1.8; margin: 0 0 18px 0; font-family: Arial, sans-serif; }
+    .highlight-box { background-color: #f0f7f7; border-left: 4px solid #1a6b6b; padding: 20px 24px; margin: 24px 0; border-radius: 0 6px 6px 0; }
+    .highlight-box p { margin: 0 0 8px 0; font-size: 15px; }
+    .highlight-box p:last-child { margin: 0; }
+    .highlight-box strong { color: #1a6b6b; }
+    .products-section { margin: 28px 0; }
+    .products-section h2 { font-family: Georgia, serif; font-size: 20px; color: #1a6b6b; margin: 0 0 16px 0; font-weight: normal; }
+    .product-card { border: 1px solid #e8e0d8; border-radius: 6px; padding: 16px 20px; margin-bottom: 12px; display: block; text-decoration: none; }
+    .product-card:hover { border-color: #1a6b6b; }
+    .product-name { font-family: Arial, sans-serif; font-weight: bold; font-size: 15px; color: #2d2d2d; margin: 0 0 4px 0; }
+    .product-desc { font-family: Arial, sans-serif; font-size: 13px; color: #777; margin: 0; }
+    .cta-button { display: block; background-color: #c8693a; color: #ffffff; text-align: center; padding: 16px 32px; border-radius: 6px; text-decoration: none; font-family: Arial, sans-serif; font-weight: bold; font-size: 16px; margin: 28px 0; letter-spacing: 0.5px; }
+    .divider { border: none; border-top: 1px solid #e8e0d8; margin: 28px 0; }
+    .footer { background-color: #f9f5f0; padding: 28px 40px; text-align: center; }
+    .footer p { font-family: Arial, sans-serif; font-size: 12px; color: #999; margin: 0 0 8px 0; line-height: 1.6; }
+    .footer a { color: #1a6b6b; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <h1>Pause &amp; Flourish</h1>
+        <p>Your trusted guide to menopause wellness</p>
+        <div class="stage-badge">Early Perimenopause</div>
+      </div>
+
+      <!-- Body -->
+      <div class="body">
+        <p class="greeting">Welcome, {{FirstName}}! 🌿</p>
+
+        <p>You've just taken a meaningful step toward understanding your body. Based on your quiz results, you're in <strong>Early Perimenopause</strong> — the beginning of a natural transition that typically starts in your 40s (sometimes earlier).</p>
+
+        <p>This stage is often marked by subtle changes: slightly irregular periods, occasional mood shifts, or sleep that isn't quite as restful as it used to be. The good news? You're ahead of the curve — and the right support now can make a real difference.</p>
+
+        <div class="highlight-box">
+          <p><strong>What to expect in Early Perimenopause:</strong></p>
+          <p>Periods may become slightly irregular · Mild mood changes · Early sleep disruptions · Occasional hot flashes beginning</p>
+        </div>
+
+        <div class="products-section">
+          <h2>Recommended for Your Stage</h2>
+          <p>These are the products our editors have reviewed and recommended specifically for women in Early Perimenopause:</p>
+
+          <a href="https://www.pauseandflourish.com/review/remifemin-menopause-supplement" class="product-card" style="display:block; text-decoration:none;">
+            <p class="product-name">Remifemin Menopause Supplement</p>
+            <p class="product-desc">Black cohosh formula — clinically studied for early hormonal changes &amp; mood support</p>
+          </a>
+
+          <a href="https://www.pauseandflourish.com/review/magnesium-glycinate-sleep-support" class="product-card" style="display:block; text-decoration:none;">
+            <p class="product-name">Magnesium Glycinate Sleep Support</p>
+            <p class="product-desc">Gentle, highly absorbable magnesium for better sleep quality during perimenopause</p>
+          </a>
+
+          <a href="https://www.pauseandflourish.com/review/natures-bounty-black-cohosh" class="product-card" style="display:block; text-decoration:none;">
+            <p class="product-name">Nature's Bounty Black Cohosh</p>
+            <p class="product-desc">Affordable, well-reviewed option for managing early perimenopause symptoms</p>
+          </a>
+        </div>
+
+        <a href="https://www.pauseandflourish.com/stage/early-perimenopause" class="cta-button">View Your Full Early Perimenopause Guide →</a>
+
+        <hr class="divider">
+
+        <p>Every week, we publish honest, research-backed reviews of menopause supplements and wellness products — no fluff, no sponsored bias. You'll hear from us weekly with the latest insights tailored to your stage.</p>
+
+        <p>Have a question or want to share your experience? Just reply to this email — we read every message.</p>
+
+        <p style="margin-top: 24px;">With warmth,<br><strong>The Pause &amp; Flourish Team</strong></p>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p>You're receiving this because you signed up at <a href="https://www.pauseandflourish.com">pauseandflourish.com</a>.</p>
+        <p>{{SenderInfo}}</p>
+        <p><a href="{{UnsubscribeURL}}">Unsubscribe</a> · <a href="https://www.pauseandflourish.com/privacy">Privacy Policy</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
