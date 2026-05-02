@@ -838,6 +838,20 @@ export function getCategoryBySlug(slug: string): Category | undefined {
 
 export const comparisons: Comparison[] = [
   {
+    id: "remifemin-vs-nature-made-black-cohosh",
+    title: "Remifemin vs. Nature Made Black Cohosh for Hot Flashes",
+    subtitle: "Standardized Extract vs. Budget Option: Which Delivers Better Hot Flash Relief?",
+    category: "Menopause Supplements",
+    categorySlug: "menopause-supplements",
+    product1Id: "remifemin-menopause",
+    product2Id: "nature-made-black-cohosh",
+    winnerId: "remifemin-menopause",
+    winnerReason: "Remifemin wins for its standardized extract with 60+ years of clinical validation.",
+    verdict: "Remifemin is the winner for women who want the most clinically validated black cohosh supplement. Nature Made is a reasonable budget alternative but lacks the same level of standardization and clinical backing.",
+    publishDate: "2026-05-02",
+    slug: "remifemin-vs-nature-made-black-cohosh",
+  },
+  {
     id: "remifemin-vs-estroven",
     slug: "remifemin-vs-estroven-complete",
     title: "Remifemin vs. Estroven Complete",
