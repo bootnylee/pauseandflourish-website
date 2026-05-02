@@ -1,48 +1,46 @@
-// PauseAndFlourish.com - All Comparisons Page
-// Design: Warm editorial — cream/burgundy palette, asymmetric filter bar, card grid
+// PauseAndFlourish.com — All Comparisons Page
+// Menopause product head-to-head comparisons, filtered by stage and category
 
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import SiteLayout from "@/components/SiteLayout";
 import ComparisonCard from "@/components/ComparisonCard";
-import { comparisons } from "@/lib/products";
+import { comparisons, allProducts } from "@/lib/products";
 import { updateDocumentMeta } from "@/lib/seo";
 import { QUIZ_RESULT_KEY } from "@/pages/MenopauseQuiz";
 import { Sparkles, ArrowRight, X, Filter } from "lucide-react";
 
-// Hair type labels
+// Menopause stage filter options
 const STAGE_OPTIONS: { id: string; label: string; emoji: string }[] = [
-  { id: "fine",          label: "Fine",          emoji: "🌿" },
-  { id: "thick",         label: "Thick",         emoji: "🌳" },
-  { id: "curly",         label: "Curly",         emoji: "🌀" },
-  { id: "coarse",        label: "Coarse",        emoji: "🪨" },
-  { id: "dry",           label: "Dry",           emoji: "🏜️" },
-  { id: "normal",        label: "Normal",        emoji: "✨" },
-  { id: "color-treated", label: "Color-Treated", emoji: "🎨" },
+  { id: "early-perimenopause",  label: "Early Perimenopause",  emoji: "🌱" },
+  { id: "late-perimenopause",   label: "Late Perimenopause",   emoji: "🌿" },
+  { id: "active-menopause",     label: "Active Menopause",     emoji: "🔥" },
+  { id: "early-postmenopause",  label: "Early Postmenopause",  emoji: "🌸" },
+  { id: "late-postmenopause",   label: "Late Postmenopause",   emoji: "✨" },
 ];
 
 const STAGE_LABELS: Record<string, { label: string; color: string; bg: string }> = {
-  fine:            { label: "Fine Hair",          color: "#6B4E9B", bg: "#F5F0FF" },
-  thick:           { label: "Thick Hair",         color: "#2C6B2F", bg: "#EDFAEE" },
-  curly:           { label: "Curly Hair",         color: "#C4722A", bg: "#FFF8EE" },
-  coarse:          { label: "Coarse Hair",        color: "#8B4513", bg: "#FFF5EE" },
-  dry:             { label: "Dry Hair",           color: "#C0392B", bg: "#FFF5F5" },
-  normal:          { label: "Normal Hair",        color: "#2C6B2F", bg: "#EDFAEE" },
-  "color-treated": { label: "Color-Treated Hair", color: "#2D7D6F", bg: "#F0FAF8" },
+  "early-perimenopause":  { label: "Early Perimenopause",  color: "#2D7D6F", bg: "#F0FAF8" },
+  "late-perimenopause":   { label: "Late Perimenopause",   color: "#3D8B7A", bg: "#E8F7F4" },
+  "active-menopause":     { label: "Active Menopause",     color: "#C4722A", bg: "#FFF8EE" },
+  "early-postmenopause":  { label: "Early Postmenopause",  color: "#7B6EA8", bg: "#F5F0FF" },
+  "late-postmenopause":   { label: "Late Postmenopause",   color: "#2D7D6F", bg: "#F0FAF8" },
 };
 
 const CATEGORY_OPTIONS = [
-  { id: "all",                label: "All Categories" },
-  { id: "shampoo-conditioner",label: "Shampoo & Conditioner" },
-  { id: "hair-masks",         label: "Hair Masks" },
-  { id: "serums-oils",        label: "Serums & Oils" },
-  { id: "hair-dryers",        label: "Hair Dryers" },
-  { id: "flat-irons",         label: "Flat Irons" },
-  { id: "curling-irons",      label: "Curling Irons" },
+  { id: "all",                        label: "All Categories" },
+  { id: "multi-symptom-supplements",  label: "Menopause Supplements" },
+  { id: "sleep-mood-support",         label: "Sleep & Mood" },
+  { id: "hot-flash-cooling",          label: "Hot Flash & Cooling" },
+  { id: "bone-joint-health",          label: "Bone & Joint Health" },
+  { id: "vaginal-intimate-health",    label: "Vaginal & Intimate Health" },
+  { id: "menopause-skincare",         label: "Menopause Skincare" },
+  { id: "fitness-pelvic-health",      label: "Fitness & Pelvic Health" },
+  { id: "cognitive-energy-support",   label: "Cognitive & Energy" },
 ];
 
 function QuizEntryBanner() {
-  const [savedStage, setSavedHairType] = useState<string | null>(null);
+  const [savedStage, setSavedStage] = useState<string | null>(null);
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
@@ -50,7 +48,7 @@ function QuizEntryBanner() {
       const saved = localStorage.getItem(QUIZ_RESULT_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (parsed?.stage) setSavedHairType(parsed?.stage);
+        if (parsed?.stage) setSavedStage(parsed?.stage);
       }
     } catch {}
   }, []);
@@ -67,7 +65,7 @@ function QuizEntryBanner() {
             <Sparkles size={16} style={{ color: meta.color, flexShrink: 0 }} />
             <div>
               <span className="font-body font-semibold text-sm" style={{ color: meta.color }}>
-                Comparing products for {meta.label}?
+                Showing comparisons for {meta.label}
               </span>
               <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "#3D5A58" }}>
                 Use the menopause stage filter below to surface the most relevant comparisons.
@@ -75,12 +73,12 @@ function QuizEntryBanner() {
             </div>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
-            <Link href="/hair-quiz">
+            <Link href="/quiz">
               <span
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded font-body font-semibold text-xs transition-all duration-200 hover:opacity-90 cursor-pointer"
                 style={{ backgroundColor: meta.color, color: "#FDF8F4" }}
               >
-                View My Profile <ArrowRight size={12} />
+                View My Stage Profile <ArrowRight size={12} />
               </span>
             </Link>
             <button
@@ -112,7 +110,7 @@ function QuizEntryBanner() {
           </div>
         </div>
         <div className="flex items-center gap-3 flex-shrink-0">
-          <Link href="/hair-quiz">
+          <Link href="/quiz">
             <span
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded font-body font-semibold text-xs transition-all duration-200 hover:opacity-90 cursor-pointer"
               style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}
@@ -136,12 +134,12 @@ function QuizEntryBanner() {
 
 export default function AllComparisons() {
   const [activeCategory, setActiveCategory] = useState("all");
-  const [activeStage, setActiveHairType] = useState<string | null>(null);
+  const [activeStage, setActiveStage] = useState<string | null>(null);
 
   useEffect(() => {
     updateDocumentMeta({
-      title: "Hair Product Head-to-Head Comparisons | PauseAndFlourish",
-      description: "Expert head-to-head comparisons of the best hair products and styling tools. Find out which product wins in each category.",
+      title: "Menopause Product Comparisons | PauseAndFlourish",
+      description: "Expert head-to-head comparisons of the best menopause supplements, cooling products, and wellness solutions. Find out which product wins for your stage.",
       canonical: "https://pauseandflourish.com/comparisons",
     });
     // Pre-select menopause stage from saved quiz result
@@ -149,15 +147,19 @@ export default function AllComparisons() {
       const saved = localStorage.getItem(QUIZ_RESULT_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (parsed?.stage) setActiveHairType(parsed?.stage);
+        if (parsed?.stage) setActiveStage(parsed?.stage);
       }
     } catch {}
   }, []);
 
   const filtered = comparisons.filter(c => {
     const categoryMatch = activeCategory === "all" || c.categorySlug === activeCategory;
-    const hairTypeMatch = !activeStage || (c.stages && c.stages.includes(activeStage));
-    return categoryMatch && hairTypeMatch;
+    const productIds = (c as any).productIds || [(c as any).product1Id, (c as any).product2Id].filter(Boolean);
+    const stageMatch = !activeStage || productIds.some((pid: string) => {
+      const product = (allProducts as any[]).find((p: any) => p.id === pid);
+      return product?.stages?.includes(activeStage);
+    });
+    return categoryMatch && stageMatch;
   });
 
   return (
@@ -189,7 +191,7 @@ export default function AllComparisons() {
                 <Filter size={11} /> Menopause Stage
               </span>
               <button
-                onClick={() => setActiveHairType(null)}
+                onClick={() => setActiveStage(null)}
                 className="px-3 py-1.5 rounded-full font-body text-xs font-medium transition-all duration-150"
                 style={
                   activeStage === null
@@ -202,7 +204,7 @@ export default function AllComparisons() {
               {STAGE_OPTIONS.map(ht => (
                 <button
                   key={ht.id}
-                  onClick={() => setActiveHairType(activeStage === ht.id ? null : ht.id)}
+                  onClick={() => setActiveStage(activeStage === ht.id ? null : ht.id)}
                   className="px-3 py-1.5 rounded-full font-body text-xs font-medium transition-all duration-150"
                   style={
                     activeStage === ht.id
@@ -247,7 +249,7 @@ export default function AllComparisons() {
             : `${filtered.length} of ${comparisons.length} comparisons`}
           {activeStage && (
             <span style={{ color: "#2D7D6F" }}>
-              {" "}matching <strong>{STAGE_OPTIONS.find(h => h.id === activeStage)?.label} Hair</strong>
+              {" for "}<strong>{STAGE_OPTIONS.find(h => h.id === activeStage)?.label}</strong>
             </span>
           )}
           {activeCategory !== "all" && (
@@ -271,8 +273,7 @@ export default function AllComparisons() {
               <p className="font-body text-base mb-6" style={{ color: "#6C6C6C" }}>
                 No comparisons match the selected filters. Try removing a filter to see more results.
               </p>
-              <button
-                onClick={() => { setActiveCategory("all"); setActiveHairType(null); }}
+              <button              onClick={() => { setActiveCategory("all"); setActiveStage(null); }}
                 className="px-5 py-2.5 rounded font-body font-semibold text-sm transition-all hover:opacity-90"
                 style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}
               >

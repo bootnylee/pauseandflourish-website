@@ -138,7 +138,7 @@ export default function ProductCard({
           <p className="section-label text-xs mb-1">{product.brand}</p>
           <Link href={`/review/${product.slug}`}>
             <h3
-              className="font-display font-semibold leading-tight mb-1 hover:text-red-800 transition-colors cursor-pointer"
+              className="font-display font-semibold leading-tight mb-1 hover:text-teal-700 transition-colors cursor-pointer"
               style={{ fontSize: "1rem", color: "#2C2C2C" }}
             >
               {product.name}
@@ -204,7 +204,7 @@ export default function ProductCard({
           <p className="section-label text-xs mb-1">{product.brand}</p>
           <Link href={`/review/${product.slug}`}>
             <h3
-              className="font-display font-semibold mb-2 hover:text-red-800 transition-colors cursor-pointer leading-snug"
+              className="font-display font-semibold mb-2 hover:text-teal-700 transition-colors cursor-pointer leading-snug"
               style={{ fontSize: "1.1rem", color: "#2C2C2C" }}
             >
               {product.name}
@@ -290,7 +290,7 @@ export default function ProductCard({
         <p className="section-label text-xs mb-1">{product.brand}</p>
         <Link href={`/review/${product.slug}`}>
           <h3
-            className="font-display font-semibold mb-1 hover:text-red-800 transition-colors cursor-pointer leading-snug"
+            className="font-display font-semibold mb-1 hover:text-teal-700 transition-colors cursor-pointer leading-snug"
             style={{ fontSize: "1rem", color: "#2C2C2C" }}
           >
             {product.name}

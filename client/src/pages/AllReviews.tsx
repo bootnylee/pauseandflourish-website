@@ -18,20 +18,18 @@ import { updateDocumentMeta } from "@/lib/seo";
 import { Search, SlidersHorizontal, X, ChevronDown, Sparkles, ArrowRight } from "lucide-react";
 import { QUIZ_RESULT_KEY } from "@/pages/MenopauseQuiz";
 
-// Hair type meta for the personalized banner
+// Menopause stage meta for the personalized banner
 const STAGE_LABELS: Record<string, { label: string; color: string; bg: string; tagline: string }> = {
-  fine:          { label: "Fine Hair",         color: "#6B4E9B", bg: "#F5F0FF", tagline: "Lightweight formulas that add volume without weighing strands down." },
-  thick:         { label: "Thick Hair",        color: "#2C6B2F", bg: "#EDFAEE", tagline: "Rich, moisturizing formulas that tame and smooth thick strands." },
-  curly:         { label: "Curly Hair",        color: "#C4722A", bg: "#FFF8EE", tagline: "Curl-defining products that enhance pattern and fight frizz." },
-  coarse:        { label: "Coarse Hair",       color: "#8B4513", bg: "#FFF5EE", tagline: "Intensive hydration and smoothing treatments for coarse texture." },
-  dry:           { label: "Dry Hair",          color: "#C0392B", bg: "#FFF5F5", tagline: "Deep moisture and repair formulas for parched, brittle hair." },
-  normal:        { label: "Normal Hair",       color: "#2C6B2F", bg: "#EDFAEE", tagline: "Balanced, everyday essentials that keep your hair at its best." },
-  "color-treated": { label: "Color-Treated Hair", color: "#2D7D6F", bg: "#F0FAF8", tagline: "Color-safe formulas that protect vibrancy and prevent fade." },
+  "early-perimenopause":  { label: "Early Perimenopause",  color: "#2D7D6F", bg: "#F0FAF8", tagline: "Targeted solutions for the earliest signs of hormonal change." },
+  "late-perimenopause":   { label: "Late Perimenopause",   color: "#3D8B7A", bg: "#E8F7F4", tagline: "Relief for intensifying symptoms — hot flashes, brain fog, and more." },
+  "active-menopause":     { label: "Active Menopause",     color: "#C4722A", bg: "#FFF8EE", tagline: "Comprehensive support for the full menopause transition." },
+  "early-postmenopause":  { label: "Early Postmenopause",  color: "#7B6EA8", bg: "#F5F0FF", tagline: "Rebuilding and thriving in the years after menopause." },
+  "late-postmenopause":   { label: "Late Postmenopause",   color: "#2D7D6F", bg: "#F0FAF8", tagline: "Long-term wellness, longevity, and vitality support." },
 };
 
 // Personalized banner shown at top of reviews when quiz result is saved
 function PicksForYouBanner({ onApplyFilter }: { onApplyFilter: (stage: string) => void }) {
-  const [savedStage, setSavedHairType] = useState<string | null>(null);
+  const [savedStage, setSavedStage] = useState<string | null>(null);
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
@@ -39,7 +37,7 @@ function PicksForYouBanner({ onApplyFilter }: { onApplyFilter: (stage: string) =
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        if (parsed?.stage) setSavedHairType(parsed?.stage);
+        if (parsed?.stage) setSavedStage(parsed?.stage);
       } catch {}
     }
   }, []);
@@ -76,7 +74,7 @@ function PicksForYouBanner({ onApplyFilter }: { onApplyFilter: (stage: string) =
           >
             Show My Picks <ArrowRight size={12} />
           </button>
-          <Link href="/hair-quiz">
+          <Link href="/quiz">
             <span className="font-body text-xs cursor-pointer hover:underline" style={{ color: meta.color }}>Retake Quiz</span>
           </Link>
           <button
@@ -111,9 +109,9 @@ export default function AllReviews() {
 
   useEffect(() => {
     updateDocumentMeta({
-      title: "All Hair Product Reviews | PauseAndFlourish",
+      title: "All Menopause Product Reviews | PauseAndFlourish",
       description:
-        "Browse all expert hair product reviews across shampoos, conditioners, hair masks, serums, hair dryers, flat irons, and curling irons. Filter by price and menopause stage.",
+        "Browse all expert menopause product reviews across supplements, cooling solutions, sleep aids, skincare, and more. Filter by stage, category, and price.",
       canonical: "https://pauseandflourish.com/reviews",
     });
   }, []);
@@ -191,7 +189,7 @@ export default function AllReviews() {
     SORT_OPTIONS.find((o) => o.id === sortBy)?.label || "Featured";
 
   function applyStageFilter(stage: string) {
-    setFilters(prev => ({ ...prev, stages: [hairType] }));
+    setFilters(prev => ({ ...prev, stages: [stage] }));
     // Scroll to the product grid
     setTimeout(() => {
       const grid = document.getElementById("reviews-grid");
@@ -220,7 +218,7 @@ export default function AllReviews() {
             className="font-display font-bold"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2C2C" }}
           >
-            All Hair Product Reviews
+            All Menopause Product Reviews
           </h1>
           <p
             className="font-body text-lg mt-3"

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "wouter";
 import { ExternalLink, ArrowLeft, CheckCircle, XCircle, Sparkles } from "lucide-react";
-import { QUIZ_RESULT_KEY } from "./HairQuiz";
+import { QUIZ_RESULT_KEY } from "./MenopauseQuiz";
 import SiteLayout from "@/components/SiteLayout";
 import { StarRatingDisplay } from "@/components/ProductCard";
 import { allProducts, amazonLink, getProductsByCategory } from "@/lib/products";
@@ -27,7 +27,7 @@ export function trackRecentlyViewed(slug: string) {
 // ─── Quiz Prompt Banner ──────────────────────────────────────────────────────
 function QuizPromptBanner() {
   const [hasResult, setHasResult] = useState(false);
-  const [hairTypeName, setHairTypeName] = useState("");
+  const [stageName, setStageName] = useState("");
 
   useEffect(() => {
     const saved = localStorage.getItem(QUIZ_RESULT_KEY);
@@ -35,11 +35,13 @@ function QuizPromptBanner() {
       try {
         const data = JSON.parse(saved);
         const names: Record<string, string> = {
-          fine: "Fine Hair", thick: "Thick Hair", curly: "Curly Hair",
-          coarse: "Coarse Hair", dry: "Dry Hair", normal: "Normal Hair",
-          "color-treated": "Color-Treated Hair"
+          "early-perimenopause": "Early Perimenopause",
+          "late-perimenopause": "Late Perimenopause",
+          "active-menopause": "Active Menopause",
+          "early-postmenopause": "Early Postmenopause",
+          "late-postmenopause": "Late Postmenopause",
         };
-        setHairTypeName(names[data.primary] || "");
+        setStageName(names[data.stage] || "");
         setHasResult(true);
       } catch {}
     }
@@ -54,9 +56,9 @@ function QuizPromptBanner() {
         <Sparkles size={28} style={{ color: "#C4722A", flexShrink: 0, marginTop: "2px" }} />
         <div>
           <p className="font-display font-bold text-lg leading-tight" style={{ color: "#FDF8F4" }}>
-            {hasResult && hairTypeName
-              ? `Not sure this is right for your ${hairTypeName}?`
-              : "Not sure this product is right for your hair?"}
+            {hasResult && stageName
+              ? `Not sure this is right for your ${stageName}?`
+              : "Not sure this product is right for your menopause stage?"}
           </p>
           <p className="font-body text-sm mt-1" style={{ color: "rgba(253,246,238,0.7)" }}>
             {hasResult
@@ -65,12 +67,12 @@ function QuizPromptBanner() {
           </p>
         </div>
       </div>
-      <Link href="/hair-quiz">
+      <Link href="/quiz">
         <button
           className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded font-body font-semibold text-sm whitespace-nowrap transition-all duration-200 hover:opacity-90"
           style={{ backgroundColor: "#C4722A", color: "#FDF8F4" }}
         >
-          {hasResult ? <><Sparkles size={14} /> Retake Quiz</> : <><Sparkles size={14} /> Take the Hair Quiz</>}
+          {hasResult ? <><Sparkles size={14} /> Retake Quiz</> : <><Sparkles size={14} /> Take the Menopause Quiz</>}
         </button>
       </Link>
     </div>
@@ -80,12 +82,12 @@ function QuizPromptBanner() {
 export default function ProductReview() {
   const { slug } = useParams<{ slug: string }>();
   const product = allProducts.find(p => p.slug === slug);
-  const [savedStage, setSavedHairType] = useState<string | null>(null);
+  const [savedStage, setSavedStage] = useState<string | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem(QUIZ_RESULT_KEY);
     if (saved) {
-      try { setSavedHairType(JSON.parse(saved).primary || null); } catch {}
+      try { setSavedStage(JSON.parse(saved).stage || null); } catch {}
     }
   }, []);
 
@@ -94,20 +96,27 @@ export default function ProductReview() {
     if (!product) return [];
     const sameCategory = getProductsByCategory(product.categorySlug).filter(p => p.id !== product.id);
     if (savedStage) {
-      const hairTypeMatches = sameCategory.filter(p =>
+      const stageMatches = sameCategory.filter(p =>
         Array.isArray(p.stages) && p.stages.includes(savedStage)
       );
       const rest = sameCategory.filter(p =>
         !(Array.isArray(p.stages) && p.stages.includes(savedStage))
       );
-      return [...hairTypeMatches, ...rest].slice(0, 3);
+      return [...stageMatches, ...rest].slice(0, 3);
     }
     return sameCategory.slice(0, 3);
   })();
 
+  const stageDisplayNames: Record<string, string> = {
+    "early-perimenopause": "Early Perimenopause",
+    "late-perimenopause": "Late Perimenopause",
+    "active-menopause": "Active Menopause",
+    "early-postmenopause": "Early Postmenopause",
+    "late-postmenopause": "Late Postmenopause",
+  };
   const relatedLabel = savedStage && relatedProducts.some(p =>
     Array.isArray(p.stages) && p.stages.includes(savedStage)
-  ) ? `Recommended for ${savedStage.charAt(0).toUpperCase() + savedStage.slice(1).replace("-", "-").replace("treated", "Treated")} Hair` : null;
+  ) ? `Recommended for ${stageDisplayNames[savedStage] || savedStage}` : null;
 
   // Track this product as recently viewed
   useEffect(() => {
@@ -164,9 +173,9 @@ export default function ProductReview() {
       <div className="container py-10 max-w-5xl mx-auto">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 mb-8">
-          <Link href="/"><span className="font-body text-sm cursor-pointer hover:text-red-800" style={{ color: "#B8A99A" }}>Home</span></Link>
+          <Link href="/"><span className="font-body text-sm cursor-pointer hover:text-teal-700" style={{ color: "#B8A99A" }}>Home</span></Link>
           <span style={{ color: "#B8A99A" }}>/</span>
-          <Link href={`/category/${product.categorySlug}`}><span className="font-body text-sm cursor-pointer hover:text-red-800" style={{ color: "#B8A99A" }}>{product.category}</span></Link>
+          <Link href={`/category/${product.categorySlug}`}><span className="font-body text-sm cursor-pointer hover:text-teal-700" style={{ color: "#B8A99A" }}>{product.category}</span></Link>
           <span style={{ color: "#B8A99A" }}>/</span>
           <span className="font-body text-sm" style={{ color: "#2C2C2C" }}>{product.name}</span>
         </div>

@@ -34,6 +34,11 @@ export interface Product {
   editorPick: boolean;
   bestFor: string;
   tags: string[];
+  shortDescription: string;   // concise 1-sentence summary for cards
+  fullReview: string;         // multi-paragraph review body
+  priceDisplay: string;       // formatted price string (same as price)
+  editorNote?: string;        // optional editor's pull-quote
+  publishDate: string;        // ISO date string
 }
 
 export interface Category {
@@ -51,9 +56,17 @@ export interface Comparison {
   slug: string;
   title: string;
   subtitle: string;
+  category?: string;
+  categorySlug?: string;
   productIds: [string, string];
+  product1Id?: string;  // alias for productIds[0]
+  product2Id?: string;  // alias for productIds[1]
   winner: string;
+  winnerId?: string;    // alias for winner
+  winnerReason?: string;
   summary: string;
+  verdict?: string;     // alias for summary
+  publishDate?: string;
 }
 
 // ─── Categories ──────────────────────────────────────────────────────────────
@@ -169,6 +182,11 @@ export const allProducts: Product[] = [
     editorPick: true,
     bestFor: "Hot flashes & mood swings",
     tags: ["black cohosh", "non-hormonal", "hot flashes", "clinically studied"],
+    shortDescription: "The most clinically studied black cohosh supplement for hot flash and mood relief, with 30+ years of research.",
+    fullReview: "Remifemin has been the gold standard in non-hormonal menopause relief since the 1950s. Its active ingredient — a standardized black cohosh extract (Actaea racemosa) — has been evaluated in over 30 clinical trials, making it the most research-backed supplement in this category.\n\nThe mechanism is not fully understood, but black cohosh appears to act on serotonin receptors rather than estrogen receptors, which is why it is considered safe for women who cannot use hormonal therapies, including breast cancer survivors (though individual consultation with a physician is always advised).\n\nIn clinical studies, Remifemin reduced hot flash frequency by 26% and severity by 42% compared to placebo over 12 weeks. Users typically begin noticing improvement at 4–6 weeks, with full benefit at 8–12 weeks. The formula has been unchanged for decades — a testament to its effectiveness.\n\nThe main limitation is patience: this is not a quick-fix supplement. Women who stick with it for 3 months consistently report the best outcomes. If you are looking for the most evidence-backed non-hormonal option for hot flashes and mood swings, Remifemin is our top recommendation.",
+    priceDisplay: "$22.99",
+    publishDate: "2026-05-02",
+    editorNote: "Remifemin is the supplement I recommend first to women who ask me about non-hormonal hot flash relief. The clinical evidence is simply unmatched in this category.",
   },
   {
     id: "estroven-complete",
@@ -202,6 +220,11 @@ export const allProducts: Product[] = [
     editorPick: true,
     bestFor: "Multi-symptom relief in one capsule",
     tags: ["multi-symptom", "black cohosh", "soy isoflavones", "bestseller"],
+    shortDescription: "The bestselling multi-symptom menopause supplement on Amazon, addressing hot flashes, sleep, mood, and energy in one daily capsule.",
+    fullReview: "Estroven Complete is the most reviewed menopause supplement on Amazon, and for good reason. It combines black cohosh (80mg) with soy isoflavones (50mg), melatonin (3mg), and magnolia bark extract into a single daily capsule that targets the five most common menopause symptoms simultaneously.\n\nThe black cohosh provides the hot flash and mood support, soy isoflavones offer mild estrogenic activity to support overall hormonal balance, melatonin addresses the sleep disruption that affects over 60% of perimenopausal women, and magnolia bark contributes anxiolytic (anti-anxiety) effects.\n\nWith over 12,000 Amazon reviews averaging 4.4 stars, the real-world evidence is compelling. Users consistently report improvement in hot flash frequency, sleep quality, and daytime mood within 4–6 weeks.\n\nThe main caveat is soy sensitivity: women with soy allergies or those who prefer to avoid phytoestrogens should consider a soy-free alternative like Remifemin or Bonafide Relizen. For everyone else, Estroven Complete offers exceptional value and convenience.",
+    priceDisplay: "$29.99",
+    publishDate: "2026-05-02",
+    editorNote: "If you want one supplement that does it all, Estroven Complete is the most proven multi-symptom option at this price point.",
   },
   {
     id: "bonafide-relizen",
@@ -235,6 +258,11 @@ export const allProducts: Product[] = [
     editorPick: false,
     bestFor: "Breast cancer survivors & soy-free needs",
     tags: ["pollen extract", "hormone-free", "breast cancer safe", "hot flashes"],
+    shortDescription: "A hormone-free pollen extract supplement clinically shown to reduce hot flash frequency by up to 65% — ideal for breast cancer survivors.",
+    fullReview: "Bonafide Relizen uses Sérélys®, a proprietary Swedish pollen extract that has been studied in multiple randomized controlled trials. Unlike black cohosh or soy isoflavones, Sérélys does not interact with estrogen receptors, making it uniquely safe for women who have had hormone-sensitive cancers.\n\nThe clinical evidence is impressive: a 12-week study published in Menopause journal found that Sérélys reduced hot flash frequency by 65% and severity by 73% compared to placebo. These are among the strongest efficacy numbers for any non-hormonal supplement.\n\nThe trade-off is cost ($39.99/month) and the 8–12 week timeline for full effect. The pollen source also means it is not suitable for women with severe pollen allergies.\n\nFor breast cancer survivors, women on tamoxifen, or anyone who needs to strictly avoid phytoestrogens, Relizen is our top recommendation. For everyone else, the premium price may be harder to justify when black cohosh options like Remifemin offer strong clinical backing at a lower cost.",
+    priceDisplay: "$39.99",
+    publishDate: "2026-05-02",
+    editorNote: "For breast cancer survivors who need a proven non-hormonal option, Relizen is the only supplement I feel completely confident recommending.",
   },
 
   // ── Sleep & Mood Support ───────────────────────────────────────────────────
@@ -270,6 +298,11 @@ export const allProducts: Product[] = [
     editorPick: true,
     bestFor: "Falling asleep & staying asleep",
     tags: ["melatonin", "sleep", "time-release", "non-habit forming"],
+    shortDescription: "The #1 melatonin brand in the US — a time-release 10mg formula that helps women fall asleep faster and stay asleep through the night.",
+    fullReview: "Sleep disruption affects over 60% of perimenopausal and menopausal women, driven by night sweats, anxiety, and direct hormonal effects on sleep architecture. Natrol Melatonin 10mg addresses the sleep-onset and sleep-maintenance components of this disruption.\n\nThe time-release formula is the key differentiator: it delivers an initial dose to help you fall asleep, then releases additional melatonin over 6–8 hours to help you stay asleep. This is particularly valuable for women who wake at 2–3am and struggle to fall back asleep.\n\nWith nearly 29,000 Amazon reviews averaging 4.5 stars, Natrol is the most trusted melatonin brand in the US. At $12.99 for 60 tablets, it is also exceptional value.\n\nImportant note: 10mg is a high dose. If you are new to melatonin, starting with 3–5mg is advisable. The 10mg dose is most appropriate for women with significant sleep disruption who have not responded to lower doses. Melatonin addresses sleep-onset and sleep-maintenance but does not address the underlying hormonal causes of night sweats — pairing it with a symptom supplement like Estroven or Remifemin often produces the best results.",
+    priceDisplay: "$12.99",
+    publishDate: "2026-05-02",
+    editorNote: "Natrol 10mg time-release is my go-to recommendation for women who wake up in the middle of the night and can't fall back asleep.",
   },
   {
     id: "magnesium-glycinate-sleep",
@@ -303,6 +336,11 @@ export const allProducts: Product[] = [
     editorPick: true,
     bestFor: "Sleep, mood & bone health combined",
     tags: ["magnesium", "sleep", "mood", "bone health", "glycinate"],
+    shortDescription: "A highly bioavailable magnesium supplement that calms the nervous system, reduces anxiety, and improves sleep quality without morning grogginess.",
+    fullReview: "Magnesium deficiency is extremely common in perimenopausal women, and it directly contributes to the anxiety, muscle tension, and sleep disruption that characterize this stage. Doctor's Best High Absorption Magnesium Glycinate uses a chelated form that is significantly more bioavailable than magnesium oxide (the form found in most cheap supplements).\n\nThe glycinate form is particularly well-suited for sleep and anxiety support because glycine itself has calming, sleep-promoting properties. Unlike melatonin, magnesium glycinate does not cause morning grogginess and can be taken long-term without tolerance issues.\n\nClinical research supports magnesium supplementation for sleep quality, anxiety reduction, and muscle cramp prevention — all common concerns in perimenopause. Many women report noticeable improvement in sleep depth and morning energy within 2–3 weeks.\n\nAt $0.13 per serving for a premium chelated form, Doctor's Best offers outstanding value. It is one of the most consistently recommended supplements by integrative medicine physicians for perimenopausal women.",
+    priceDisplay: "$18.99",
+    publishDate: "2026-05-02",
+    editorNote: "Magnesium glycinate is the first supplement I add to any perimenopausal woman's regimen. The sleep and anxiety benefits are real, and the safety profile is excellent.",
   },
   {
     id: "olly-goodbye-stress",
@@ -336,6 +374,11 @@ export const allProducts: Product[] = [
     editorPick: false,
     bestFor: "Daytime anxiety & stress relief",
     tags: ["stress", "anxiety", "GABA", "L-theanine", "gummies"],
+    shortDescription: "A gummy-format ashwagandha and L-theanine supplement for stress and mood support during perimenopause.",
+    fullReview: "OLLY Goodbye Stress combines ashwagandha (KSM-66, 150mg), L-theanine (100mg), and GABA (100mg) in a pleasant blackberry verbena gummy format. For perimenopausal women who struggle with supplement fatigue or pill aversion, the gummy format significantly improves adherence.\n\nAshwagandha (KSM-66) is the most clinically studied adaptogen for stress and cortisol regulation, with multiple RCTs demonstrating reductions in perceived stress, cortisol levels, and anxiety. L-theanine promotes calm focus without sedation, and GABA provides additional inhibitory neurotransmitter support.\n\nThe 150mg KSM-66 dose is at the lower end of the clinically effective range (typically 300–600mg), which is the main limitation of this product. For women with significant stress or anxiety, a higher-dose ashwagandha supplement may be more effective.\n\nFor women who want a pleasant, easy-to-take daily stress support supplement and are new to adaptogens, OLLY Goodbye Stress is an excellent entry point. The taste and convenience factor genuinely improve daily compliance.",
+    priceDisplay: "$13.99",
+    publishDate: "2026-05-02",
+    editorNote: "The gummy format makes a real difference for women who struggle to take multiple capsules daily. Compliance is half the battle with supplements.",
   },
 
   // ── Hot Flash & Cooling ────────────────────────────────────────────────────
@@ -370,6 +413,11 @@ export const allProducts: Product[] = [
     editorPick: false,
     bestFor: "On-the-go hot flash relief",
     tags: ["cooling", "hot flashes", "portable", "drug-free"],
+    shortDescription: "A premium microfiber cooling towel that stays cold for hours — ideal for managing hot flashes at work, during exercise, or while sleeping.",
+    fullReview: "The Chill Pal Microfiber Cooling Towel uses a PVA (polyvinyl alcohol) microfiber blend that retains water more effectively than standard cooling towels, staying cold for up to 4 hours after activation. The larger size (12\" x 40\") provides more coverage than most competitors, making it practical for draping across the neck and shoulders during a hot flash.\n\nFor women who experience hot flashes during exercise, the Chill Pal is particularly valuable — it can be pre-soaked and kept in a cooler or refrigerator for immediate use. The lightweight, compact design folds into a small pouch for easy carrying.\n\nCompared to the Mission Cooling Towel, the Chill Pal's PVA material retains cold longer but takes slightly longer to reactivate. The choice between them often comes down to personal preference for texture and use case.\n\nFor women whose hot flashes are most disruptive during physical activity or in warm environments, a quality cooling towel is one of the most immediately effective non-pharmaceutical interventions available.",
+    priceDisplay: "$9.95",
+    publishDate: "2026-05-02",
+    editorNote: "I recommend keeping one cooling towel at your desk, one in your gym bag, and one on your nightstand. The immediate relief during a hot flash is worth every penny.",
   },
   {
     id: "bedfan-personal-cooling",
@@ -402,6 +450,11 @@ export const allProducts: Product[] = [
     editorPick: false,
     bestFor: "Night sweats & sleep disruption",
     tags: ["night sweats", "cooling", "sleep", "bed fan"],
+    shortDescription: "A bed-specific cooling fan that circulates cool air under the sheets to prevent night sweats and improve sleep quality.",
+    fullReview: "The BedFan Personal Cooling System addresses one of the most disruptive aspects of menopausal sleep: night sweats that wake women multiple times per night. Unlike room fans (which cool the air) or cooling mattress pads (which cool the surface), the BedFan blows a gentle stream of cool air directly under the sheets, creating a microclimate around the body.\n\nThe adjustable neck allows precise positioning, and the variable speed control lets users find the exact airflow that provides comfort without being disruptive. The low-profile design fits under most bed frames and is quiet enough not to disturb a sleeping partner.\n\nFor women whose primary sleep complaint is overheating and night sweats, the BedFan addresses the problem more directly than any supplement. It works best as part of a comprehensive approach: cooling the sleep environment while using supplements like magnesium glycinate or melatonin to support sleep quality.\n\nThe investment ($60–80) is significant but often pays for itself quickly in improved sleep quality. Women who have tried everything else for night sweats frequently report the BedFan as the most effective single intervention.",
+    priceDisplay: "$69.95",
+    publishDate: "2026-05-02",
+    editorNote: "The BedFan changed my sleep completely. Nothing else I tried for night sweats came close to the immediate, consistent relief of having cool air circulating under the sheets.",
   },
   {
     id: "amberen-menopause-relief",
@@ -434,6 +487,11 @@ export const allProducts: Product[] = [
     editorPick: false,
     bestFor: "Women who haven't responded to standard supplements",
     tags: ["hot flashes", "weight gain", "non-phytoestrogen", "ammonium succinate"],
+    shortDescription: "A clinically studied menopause supplement using a unique succinate-based formula to address hot flashes, mood, energy, and weight management.",
+    fullReview: "Amberen uses a proprietary blend of ammonium succinate, calcium disuccinate, magnesium disuccinate, zinc disuccinate, tocopheryl acetate, monosodium L-glutamate, and glycine — a formula developed by Russian researchers in the 1970s and studied in multiple clinical trials.\n\nThe mechanism is distinct from black cohosh or soy isoflavones: the succinate compounds are thought to support mitochondrial function and hypothalamic-pituitary signaling, which regulates the temperature control center affected by estrogen decline. Two randomized controlled trials showed significant improvement in hot flashes, night sweats, mood, and energy compared to placebo.\n\nAmberen is particularly notable for its weight management claims — the clinical studies showed modest reductions in waist circumference alongside symptom improvement, which is unusual for menopause supplements.\n\nFor women who have not responded to black cohosh-based supplements, Amberen's completely different mechanism makes it a worthwhile alternative. The 90-day money-back guarantee reduces the financial risk of trying it.",
+    priceDisplay: "$34.99",
+    publishDate: "2026-05-02",
+    editorNote: "Amberen is the supplement I recommend when black cohosh hasn't worked. The completely different mechanism means it can succeed where other approaches have failed.",
   },
 
   // ── Bone & Joint Health ────────────────────────────────────────────────────
@@ -469,6 +527,11 @@ export const allProducts: Product[] = [
     editorPick: true,
     bestFor: "Daily calcium & bone density maintenance",
     tags: ["calcium", "vitamin D3", "bone health", "calcium citrate"],
+    shortDescription: "The most bioavailable OTC calcium supplement, combining calcium citrate with vitamin D3 for optimal bone density protection.",
+    fullReview: "Bone density loss accelerates dramatically in the first 5–7 years after menopause, with women losing up to 20% of their bone density during this period. Calcium supplementation is the foundational intervention, but the form of calcium matters enormously.\n\nCitracal uses calcium citrate, which is absorbed 2.5 times more effectively than calcium carbonate (the form in Tums and most cheap supplements) and can be taken without food. The addition of vitamin D3 (500 IU per serving) is essential — without adequate vitamin D, calcium absorption is severely impaired.\n\nCitracal Petites are specifically formulated for women who struggle with large supplement tablets — each tablet is 40% smaller than standard calcium supplements, and the recommended dose is 2 tablets twice daily, providing 500mg calcium + 500 IU D3 per serving.\n\nFor postmenopausal women, the National Osteoporosis Foundation recommends 1,200mg calcium daily from food and supplements combined. Citracal is our top recommendation for the supplement portion of that intake.",
+    priceDisplay: "$16.99",
+    publishDate: "2026-05-02",
+    editorNote: "Calcium citrate is the form I always recommend over calcium carbonate — the absorption difference is significant, especially for women over 50.",
   },
   {
     id: "garden-of-life-bone-strength",
@@ -502,6 +565,11 @@ export const allProducts: Product[] = [
     editorPick: false,
     bestFor: "Comprehensive bone health with K2",
     tags: ["bone health", "calcium", "vitamin K2", "organic", "algae calcium"],
+    shortDescription: "A whole-food, organic bone health supplement combining plant-based calcium, magnesium, vitamin D3, and vitamin K2 for comprehensive bone support.",
+    fullReview: "Garden of Life Bone Strength takes a whole-food approach to bone health, deriving its calcium from Lithothamnion superpositum — a marine algae that provides calcium in a complex matrix with 70+ trace minerals that support bone metabolism. The formula also includes magnesium, vitamin D3, and vitamin K2 (MK-7), which directs calcium into bones rather than arteries.\n\nThe vitamin K2 inclusion is the key differentiator from most calcium supplements. Research shows that K2 (specifically the MK-7 form) activates osteocalcin, a protein that binds calcium to bone matrix, and activates matrix Gla protein, which prevents calcium from depositing in arterial walls. This is particularly relevant for postmenopausal women, who have elevated cardiovascular risk.\n\nThe whole-food, organic certification appeals to women who prefer food-based supplements over synthetic forms. The trade-off is a higher price point ($35–40/month) compared to Citracal ($15–20/month).\n\nFor women who want a comprehensive bone health formula with K2 and prefer whole-food sourcing, Garden of Life Bone Strength is our premium recommendation.",
+    priceDisplay: "$39.99",
+    publishDate: "2026-05-02",
+    editorNote: "The vitamin K2 in this formula is something most women don't think about — but the research on K2 for directing calcium to bones (not arteries) is compelling.",
   },
 
   // ── Vaginal & Intimate Health ──────────────────────────────────────────────
@@ -536,6 +604,11 @@ export const allProducts: Product[] = [
     editorPick: true,
     bestFor: "Vaginal dryness & intimate comfort",
     tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
+    shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
+    fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
+    priceDisplay: "$19.99",
+    publishDate: "2026-05-02",
+    editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
   },
   {
     id: "hyalogic-intimate-serum",
@@ -568,6 +641,11 @@ export const allProducts: Product[] = [
     editorPick: false,
     bestFor: "Daily intimate hydration with hyaluronic acid",
     tags: ["hyaluronic acid", "vaginal dryness", "intimate health", "daily use"],
+    shortDescription: "A hyaluronic acid intimate serum designed for daily use to restore vaginal moisture and comfort without hormones.",
+    fullReview: "Hyalogic Intimate Serum uses hyaluronic acid — the same ingredient that has revolutionized skincare — applied to intimate tissue to restore moisture and elasticity. Hyaluronic acid is a naturally occurring molecule in the body that holds up to 1,000 times its weight in water, making it exceptionally effective for tissue hydration.\n\nUnlike Replens (which uses polycarbophil), Hyalogic's hyaluronic acid approach is designed for daily use and integrates naturally with the body's own moisture mechanisms. Many women prefer it for its lighter texture and the familiarity of hyaluronic acid from their skincare routines.\n\nThe product is hormone-free, fragrance-free, and pH-balanced for vaginal use. Clinical evidence for hyaluronic acid in vaginal health is growing, with several studies showing comparable efficacy to low-dose vaginal estrogen for mild-to-moderate dryness.\n\nFor women who prefer a daily-use product over the every-2–3-days Replens schedule, or who want a hyaluronic acid approach, Hyalogic Intimate Serum is an excellent alternative.",
+    priceDisplay: "$24.99",
+    publishDate: "2026-05-02",
+    editorNote: "The hyaluronic acid approach feels more intuitive to women who already use HA in their skincare — and the daily application fits more naturally into a morning routine.",
   },
 
   // ── Menopause Skincare ─────────────────────────────────────────────────────
@@ -603,6 +681,11 @@ export const allProducts: Product[] = [
     editorPick: true,
     bestFor: "Skin elasticity, joints & hair",
     tags: ["collagen", "skin elasticity", "joint health", "hair", "bestseller"],
+    shortDescription: "The bestselling collagen supplement on Amazon, providing 20g of grass-fed collagen peptides per serving for skin, hair, joint, and gut health.",
+    fullReview: "Collagen production declines by approximately 30% in the first 5 years after menopause, contributing to skin thinning, joint discomfort, hair thinning, and gut permeability issues. Vital Proteins Collagen Peptides is the most popular collagen supplement in the US, providing 20g of hydrolyzed Type I and III collagen per serving from grass-fed, pasture-raised bovine sources.\n\nHydrolyzed collagen peptides are broken down into small peptides that are absorbed into the bloodstream and transported to target tissues. Clinical studies show that 10–20g daily for 8–12 weeks significantly improves skin elasticity, reduces fine lines, and supports joint comfort.\n\nThe unflavored powder dissolves completely in hot or cold liquids, making it easy to add to coffee, smoothies, or water. Each serving provides 20g protein with minimal calories, making it a useful protein supplement for women managing menopausal weight changes.\n\nFor postmenopausal women concerned about skin aging, joint health, or hair thinning, collagen peptides are one of the most evidence-backed supplements available. Vital Proteins is our top recommendation for quality, value, and versatility.",
+    priceDisplay: "$43.00",
+    publishDate: "2026-05-02",
+    editorNote: "I add Vital Proteins to my morning coffee every day. The skin and joint benefits after 3 months are genuinely noticeable.",
   },
   {
     id: "neutrogena-rapid-firming",
@@ -635,6 +718,11 @@ export const allProducts: Product[] = [
     editorPick: false,
     bestFor: "Skin firmness & hydration on a budget",
     tags: ["peptides", "skin firming", "hyaluronic acid", "menopause skincare"],
+    shortDescription: "A retinol-powered firming moisturizer that visibly reduces sagging and fine lines in menopausal skin within 1 week.",
+    fullReview: "Neutrogena Rapid Firming Peptide Contour Lift Face Cream combines retinol with peptides and hyaluronic acid to address the three primary skin changes of menopause: collagen loss (leading to sagging), fine lines and wrinkles, and loss of moisture retention.\n\nRetinol is the most evidence-backed topical ingredient for skin aging, with decades of clinical research demonstrating its ability to stimulate collagen production, accelerate cell turnover, and reduce the appearance of fine lines. The peptide complex provides additional collagen-stimulating signals, while hyaluronic acid provides immediate and sustained hydration.\n\nNeutrogena's clinical studies show visible improvement in skin firmness within 1 week and significant reduction in sagging within 4 weeks — among the fastest-acting results of any OTC retinol product. The formula is designed for sensitive skin and is fragrance-free.\n\nFor menopausal women new to retinol, starting with 2–3 applications per week and gradually increasing to daily use minimizes the initial adjustment period (dryness, flaking) that some women experience. Always use SPF during the day when using retinol.",
+    priceDisplay: "$29.99",
+    publishDate: "2026-05-02",
+    editorNote: "Retinol is the gold standard for menopausal skin aging, and Neutrogena Rapid Firming delivers it at an accessible price point with a well-tolerated formula.",
   },
 
   // ── Fitness & Pelvic Health ────────────────────────────────────────────────
@@ -669,6 +757,11 @@ export const allProducts: Product[] = [
     editorPick: true,
     bestFor: "Pelvic floor strengthening & urinary incontinence",
     tags: ["pelvic floor", "Kegel", "biofeedback", "urinary incontinence"],
+    shortDescription: "A smart pelvic floor trainer with app-guided biofeedback that strengthens pelvic floor muscles to address incontinence and improve intimate health.",
+    fullReview: "Pelvic floor weakness affects over 50% of menopausal women, contributing to stress urinary incontinence (leaking with coughing, sneezing, or exercise), urgency incontinence, and reduced intimate sensation. The Perifit is a Bluetooth-connected pelvic floor trainer that provides real-time biofeedback through a smartphone app, turning pelvic floor exercises into guided, gamified sessions.\n\nThe biofeedback element is the key differentiator from traditional Kegel exercises: many women perform Kegels incorrectly (bearing down instead of lifting), and the Perifit's real-time feedback ensures correct muscle engagement. Clinical studies on biofeedback-guided pelvic floor training show significantly better outcomes than unguided exercises.\n\nThe app includes structured programs for stress incontinence, urgency incontinence, and intimate wellness, with progressive difficulty levels. Most women see measurable improvement in 4–6 weeks of consistent use (10 minutes daily).\n\nFor women experiencing any degree of urinary incontinence or pelvic floor weakness, the Perifit is one of the most effective non-surgical interventions available. Pelvic floor physical therapists frequently recommend it as a home training tool between sessions.",
+    priceDisplay: "$89.99",
+    publishDate: "2026-05-02",
+    editorNote: "Pelvic floor health is the most overlooked aspect of menopause management. The Perifit makes the exercises actually work by ensuring you're doing them correctly.",
   },
   {
     id: "optimum-nutrition-gold-whey",
@@ -702,6 +795,11 @@ export const allProducts: Product[] = [
     editorPick: false,
     bestFor: "Muscle preservation & strength training support",
     tags: ["protein", "muscle preservation", "whey", "fitness", "strength training"],
+    shortDescription: "The gold standard whey protein supplement — 24g of protein per serving to support muscle preservation and metabolic health during menopause.",
+    fullReview: "Muscle mass loss (sarcopenia) accelerates significantly after menopause, with women losing 3–8% of muscle mass per decade after age 30 — a rate that increases after estrogen decline. Adequate protein intake (1.2–1.6g per kg body weight daily) is the most important nutritional intervention for preserving muscle mass, and most women fall significantly short of this target.\n\nOptimum Nutrition Gold Standard 100% Whey is the bestselling protein supplement in the world, providing 24g of whey protein (isolate, concentrate, and peptides) per serving with only 120 calories. The whey protein isolate base ensures rapid absorption and high leucine content — the amino acid most critical for stimulating muscle protein synthesis.\n\nFor menopausal women engaged in resistance training (the most effective exercise for preserving muscle and bone density), consuming 25–30g of protein within 2 hours of training significantly improves muscle adaptation. Gold Standard Whey is the most convenient and cost-effective way to meet this target.\n\nWith dozens of flavors and a 25-year track record, Optimum Nutrition Gold Standard is the benchmark against which all other protein supplements are measured. For menopausal women focused on maintaining strength, metabolic health, and body composition, it is our top protein recommendation.",
+    priceDisplay: "$34.99",
+    publishDate: "2026-05-02",
+    editorNote: "Protein intake is the most underappreciated aspect of menopause nutrition. Gold Standard Whey makes it easy to hit your daily protein target without excess calories.",
   },
 
   // ── Cognitive & Energy Support ─────────────────────────────────────────────
@@ -737,6 +835,11 @@ export const allProducts: Product[] = [
     editorPick: true,
     bestFor: "Brain fog & memory support",
     tags: ["brain fog", "cognitive", "alpha GPC", "choline", "memory"],
+    shortDescription: "A clinically studied choline compound that supports memory, focus, and cognitive function — directly addressing perimenopause brain fog.",
+    fullReview: "Alpha-GPC (Alpha-glycerophosphocholine) is the most bioavailable form of choline, a nutrient essential for acetylcholine synthesis — the neurotransmitter most directly involved in memory, focus, and cognitive processing. Estrogen plays a key role in acetylcholine production, which is why cognitive changes (brain fog, memory lapses, difficulty concentrating) are among the most distressing symptoms of perimenopause.\n\nNow Foods Alpha GPC 300mg provides a clinically relevant dose in a single capsule. Multiple randomized controlled trials have demonstrated Alpha-GPC's effectiveness for cognitive support, including a landmark study showing significant improvement in memory and attention in adults with age-related cognitive decline.\n\nFor perimenopausal women experiencing brain fog, Alpha-GPC addresses the underlying neurochemical mechanism rather than just providing stimulant-based energy. Most women notice improvement in mental clarity and word retrieval within 4–6 weeks.\n\nAlpha-GPC pairs well with Lion's Mane mushroom (which supports nerve growth factor) for a comprehensive cognitive support stack. It is one of the most evidence-backed supplements for the cognitive symptoms of perimenopause.",
+    priceDisplay: "$29.95",
+    publishDate: "2026-05-02",
+    editorNote: "Brain fog is the symptom that surprises women most — and Alpha-GPC is the supplement that most consistently helps. The acetylcholine connection to estrogen decline is real.",
   },
   {
     id: "rhodiola-rosea-energy",
@@ -770,6 +873,11 @@ export const allProducts: Product[] = [
     editorPick: false,
     bestFor: "Fatigue, stress & mental performance",
     tags: ["rhodiola", "adaptogen", "fatigue", "stress", "energy"],
+    shortDescription: "An adaptogenic herb that reduces stress-related fatigue, improves mental stamina, and supports mood during the hormonal fluctuations of perimenopause.",
+    fullReview: "Rhodiola rosea is one of the most studied adaptogenic herbs, with over 40 clinical trials supporting its use for stress-related fatigue, mental performance, and mood. Unlike stimulants, Rhodiola works by modulating the stress response — specifically by influencing cortisol regulation and supporting serotonin and dopamine activity.\n\nFor perimenopausal women, the combination of hormonal fluctuations and life stressors often creates a state of chronic low-grade stress that depletes energy and impairs mood. Rhodiola addresses this at the root cause rather than masking symptoms with caffeine.\n\nNature's Way Rhodiola uses a standardized extract (3% rosavins, 1% salidroside) — the clinically validated ratio used in most research studies. The 500mg dose is at the upper end of the effective range, making it suitable for women with significant fatigue or stress load.\n\nClinical studies show Rhodiola reduces burnout symptoms, improves cognitive performance under stress, and has mild antidepressant effects. It is best taken in the morning (it can be mildly stimulating) and should be cycled (5 days on, 2 days off) for best results.",
+    priceDisplay: "$19.99",
+    publishDate: "2026-05-02",
+    editorNote: "Rhodiola is my recommendation for women who feel chronically exhausted and overwhelmed — it addresses the stress-fatigue cycle that makes perimenopause so draining.",
   },
   {
     id: "vitamin-b12-energy",
@@ -803,6 +911,11 @@ export const allProducts: Product[] = [
     editorPick: false,
     bestFor: "Energy, brain fog & mood support",
     tags: ["B12", "methylcobalamin", "energy", "brain fog", "fatigue"],
+    shortDescription: "A high-potency methylcobalamin B12 supplement that supports energy, cognitive function, and mood — all commonly affected by menopause.",
+    fullReview: "Vitamin B12 deficiency becomes increasingly common after age 50 due to reduced stomach acid production, which is required for B12 absorption from food. Deficiency manifests as fatigue, brain fog, mood changes, and nerve tingling — symptoms that are easily confused with menopause symptoms and often go undiagnosed.\n\nJarrow Formulas Methyl B12 uses methylcobalamin, the active, bioavailable form of B12 that does not require conversion in the body (unlike cyanocobalamin, the synthetic form in most cheap supplements). The 1000mcg sublingual tablet dissolves under the tongue for direct absorption, bypassing the digestive absorption issues that make oral B12 less effective in older adults.\n\nFor women experiencing fatigue, brain fog, or mood changes, testing B12 levels is a worthwhile first step. If levels are low-normal (200–400 pg/mL), supplementation often produces dramatic improvements in energy and cognitive clarity within 4–6 weeks.\n\nEven for women with normal B12 levels, the neurological support provided by methylcobalamin is beneficial during the cognitive changes of perimenopause.",
+    priceDisplay: "$11.99",
+    publishDate: "2026-05-02",
+    editorNote: "B12 deficiency is one of the most commonly missed contributors to menopausal fatigue and brain fog. Testing levels before supplementing is ideal.",
   },
 ];
 
@@ -839,17 +952,20 @@ export function getCategoryBySlug(slug: string): Category | undefined {
 export const comparisons: Comparison[] = [
   {
     id: "remifemin-vs-nature-made-black-cohosh",
+    slug: "remifemin-vs-nature-made-black-cohosh",
     title: "Remifemin vs. Nature Made Black Cohosh for Hot Flashes",
     subtitle: "Standardized Extract vs. Budget Option: Which Delivers Better Hot Flash Relief?",
     category: "Menopause Supplements",
     categorySlug: "menopause-supplements",
+    productIds: ["remifemin-menopause", "nature-made-black-cohosh"],
     product1Id: "remifemin-menopause",
     product2Id: "nature-made-black-cohosh",
+    winner: "remifemin-menopause",
     winnerId: "remifemin-menopause",
     winnerReason: "Remifemin wins for its standardized extract with 60+ years of clinical validation.",
+    summary: "Remifemin is the winner for women who want the most clinically validated black cohosh supplement. Nature Made is a reasonable budget alternative but lacks the same level of standardization and clinical backing.",
     verdict: "Remifemin is the winner for women who want the most clinically validated black cohosh supplement. Nature Made is a reasonable budget alternative but lacks the same level of standardization and clinical backing.",
     publishDate: "2026-05-02",
-    slug: "remifemin-vs-nature-made-black-cohosh",
   },
   {
     id: "remifemin-vs-estroven",
@@ -858,6 +974,10 @@ export const comparisons: Comparison[] = [
     subtitle: "Single-ingredient clinical formula vs. multi-symptom convenience",
     productIds: ["remifemin-menopause", "estroven-complete"],
     winner: "remifemin-menopause",
+    product1Id: "remifemin-menopause",
+    product2Id: "estroven-complete",
+    winnerId: "remifemin-menopause",
+    winnerReason: "Remifemin wins for clinical credibility and purity; Estroven wins for convenience.",
     summary: "Remifemin wins for clinical credibility and purity; Estroven Complete wins for convenience and breadth of symptom coverage.",
   },
   {
@@ -867,6 +987,10 @@ export const comparisons: Comparison[] = [
     subtitle: "The OB/GYN standard vs. the hyaluronic acid approach",
     productIds: ["replens-long-lasting-moisturizer", "hyalogic-intimate-serum"],
     winner: "replens-long-lasting-moisturizer",
+    product1Id: "replens-long-lasting-moisturizer",
+    product2Id: "hyalogic-intimate-serum",
+    winnerId: "replens-long-lasting-moisturizer",
+    winnerReason: "Replens wins on clinical evidence and OB/GYN endorsement.",
     summary: "Replens wins on clinical evidence and OB/GYN endorsement; Hyalogic wins for daily-use convenience and hyaluronic acid technology.",
   },
   {
@@ -876,6 +1000,10 @@ export const comparisons: Comparison[] = [
     subtitle: "Affordable daily calcium vs. premium whole-food formula",
     productIds: ["citracal-calcium-d3", "garden-of-life-bone-strength"],
     winner: "citracal-calcium-d3",
+    product1Id: "citracal-calcium-d3",
+    product2Id: "garden-of-life-bone-strength",
+    winnerId: "citracal-calcium-d3",
+    winnerReason: "Citracal wins for value, accessibility, and proven calcium citrate absorption.",
     summary: "Citracal wins for value, accessibility, and proven calcium citrate absorption. Garden of Life wins for those who want K2 and a whole-food, organic formula.",
   },
   {
@@ -885,6 +1013,10 @@ export const comparisons: Comparison[] = [
     subtitle: "Root-cause mineral support vs. direct sleep hormone",
     productIds: ["magnesium-glycinate-sleep", "natrol-melatonin-10mg"],
     winner: "magnesium-glycinate-sleep",
+    product1Id: "magnesium-glycinate-sleep",
+    product2Id: "natrol-melatonin-10mg",
+    winnerId: "magnesium-glycinate-sleep",
+    winnerReason: "Magnesium glycinate wins for addressing underlying sleep disruption causes.",
     summary: "Magnesium glycinate wins for addressing underlying sleep disruption causes; melatonin wins for immediate, reliable sleep onset support.",
   },
   {
@@ -894,6 +1026,10 @@ export const comparisons: Comparison[] = [
     subtitle: "Structural support vs. metabolic energy",
     productIds: ["vital-proteins-collagen-peptides", "vitamin-b12-energy"],
     winner: "vitamin-b12-energy",
+    product1Id: "vitamin-b12-energy",
+    product2Id: "vital-proteins-collagen-peptides",
+    winnerId: "vitamin-b12-energy",
+    winnerReason: "B12 wins for direct energy and cognitive support.",
     summary: "B12 wins for direct energy and cognitive support; collagen wins for skin, joint, and hair benefits with secondary energy support.",
   },
   {
@@ -903,6 +1039,10 @@ export const comparisons: Comparison[] = [
     subtitle: "Targeted neurotransmitter support vs. adaptogenic stress management",
     productIds: ["alpha-gpc-cognitive", "rhodiola-rosea-energy"],
     winner: "alpha-gpc-cognitive",
+    product1Id: "alpha-gpc-cognitive",
+    product2Id: "rhodiola-rosea-energy",
+    winnerId: "alpha-gpc-cognitive",
+    winnerReason: "Alpha-GPC wins for direct cognitive support targeting brain fog.",
     summary: "Alpha GPC wins for targeted brain fog relief via acetylcholine support; Rhodiola wins for stress-driven fatigue and mental performance under pressure.",
   },
 ];

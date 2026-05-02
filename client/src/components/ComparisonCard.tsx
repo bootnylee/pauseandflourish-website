@@ -24,7 +24,7 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
       <div className="p-4 border-b" style={{ borderColor: "#F0E8DE", backgroundColor: "#F0FAF8" }}>
         <p className="section-label text-xs mb-1">{comparison.category}</p>
         <Link href={`/comparison/${comparison.slug}`}>
-          <h3 className="font-display font-bold leading-snug hover:text-red-800 transition-colors cursor-pointer"
+          <h3 className="font-display font-bold leading-snug hover:text-teal-700 transition-colors cursor-pointer"
             style={{ fontSize: variant === "featured" ? "1.3rem" : "1.1rem", color: "#2C2C2C" }}>
             {comparison.title}
           </h3>
