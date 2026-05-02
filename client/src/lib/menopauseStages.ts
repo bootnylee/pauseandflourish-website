@@ -84,7 +84,7 @@ export function getMenopauseStageBySlug(slug: string): MenopauseStage | undefine
 
 export function getProductsForStage(stageId: MenopauseStageId): Product[] {
   return allProducts.filter(
-    (p) => Array.isArray(p.menopauseStages) && p.menopauseStages.includes(stageId)
+    (p) => Array.isArray(p.stages) && p.stages.includes(stageId)
   );
 }
 

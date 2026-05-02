@@ -88,7 +88,7 @@ export default function MenopauseStagePage() {
             <div className="bg-white rounded-sm p-6 border" style={{ borderColor: `${stage.color}33` }}>
               <h2 className="font-display font-bold mb-4" style={{ fontSize: "1.1rem", color: "#2C2C2C" }}>Common Symptoms</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {stage.symptoms.map((symptom) => (
+                {stage.primarySymptoms.map((symptom) => (
                   <div key={symptom} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: stage.color }} />
                     <span className="font-body text-sm" style={{ color: "#5C5C5C" }}>{symptom}</span>

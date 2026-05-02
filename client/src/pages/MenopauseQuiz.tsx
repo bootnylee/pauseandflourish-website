@@ -265,7 +265,7 @@ export default function MenopauseQuiz() {
               <div className="bg-white rounded-sm p-6 mb-8 border" style={{ borderColor: `${stageResult.color}33` }}>
                 <h2 className="font-display font-bold mb-4" style={{ fontSize: "1.3rem", color: "#2C2C2C" }}>Common Symptoms at This Stage</h2>
                 <div className="grid grid-cols-2 gap-2">
-                  {stageData.symptoms.map(symptom => (
+                  {stageData.primarySymptoms.map(symptom => (
                     <div key={symptom} className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: stageResult.color }} />
                       <span className="font-body text-sm" style={{ color: "#5C5C5C" }}>{symptom}</span>
