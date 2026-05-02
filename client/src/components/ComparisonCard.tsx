@@ -11,18 +11,19 @@ interface ComparisonCardProps {
 }
 
 export default function ComparisonCard({ comparison, variant = "default" }: ComparisonCardProps) {
-  const product1 = getProductById(comparison.product1Id);
-  const product2 = getProductById(comparison.product2Id);
+  const product1 = getProductById(comparison.product1Id ?? comparison.productIds[0]);
+  const product2 = getProductById(comparison.product2Id ?? comparison.productIds[1]);
 
   if (!product1 || !product2) return null;
 
-  const winner = comparison.winnerId === product1.id ? product1 : product2;
-  const loser = comparison.winnerId === product1.id ? product2 : product1;
+  const winnerId = comparison.winnerId ?? comparison.winner;
+  const winner = winnerId === product1.id ? product1 : product2;
+  const loser = winnerId === product1.id ? product2 : product1;
 
   return (
     <div className="product-card rounded-sm overflow-hidden">
       <div className="p-4 border-b" style={{ borderColor: "#F0E8DE", backgroundColor: "#F0FAF8" }}>
-        <p className="section-label text-xs mb-1">{comparison.category}</p>
+        <p className="section-label text-xs mb-1">{comparison.category ?? "Menopause Supplements"}</p>
         <Link href={`/comparison/${comparison.slug}`}>
           <h3 className="font-display font-bold leading-snug hover:text-teal-700 transition-colors cursor-pointer"
             style={{ fontSize: variant === "featured" ? "1.3rem" : "1.1rem", color: "#2C2C2C" }}>
@@ -87,7 +88,7 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
 
       <div className="p-4 border-t" style={{ borderColor: "#F0E8DE" }}>
         <p className="font-body text-sm line-clamp-2 leading-relaxed" style={{ color: "#6C6C6C" }}>
-          {comparison.winnerReason}
+          {comparison.winnerReason ?? comparison.summary}
         </p>
         <Link href={`/comparison/${comparison.slug}`}>
           <button className="btn-primary text-xs py-2 px-4 rounded-sm mt-3 w-full">

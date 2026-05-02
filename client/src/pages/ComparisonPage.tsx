@@ -143,14 +143,14 @@ function ComparisonQuizBanner({ category }: { category: string }) {
 export default function ComparisonPage() {
   const { slug } = useParams<{ slug: string }>();
   const comparison = comparisons.find(c => c.slug === slug);
-  const product1 = comparison ? getProductById(comparison.product1Id) : undefined;
-  const product2 = comparison ? getProductById(comparison.product2Id) : undefined;
+  const product1 = comparison ? getProductById(comparison.product1Id ?? comparison.productIds[0]) : undefined;
+  const product2 = comparison ? getProductById(comparison.product2Id ?? comparison.productIds[1]) : undefined;
 
   useEffect(() => {
     if (comparison) {
       updateDocumentMeta({
         title: `${comparison.title} | PauseAndFlourish`,
-        description: `${comparison.subtitle}. ${comparison.verdict.substring(0, 150)}`,
+        description: `${comparison.subtitle}. ${(comparison.verdict ?? comparison.summary).substring(0, 150)}`,
         canonical: `https://pauseandflourish.com/comparison/${comparison.slug}`,
         ogType: "article",
       });
@@ -168,8 +168,9 @@ export default function ComparisonPage() {
     );
   }
 
-  const winner = comparison.winnerId === product1.id ? product1 : product2;
-  const runnerUp = comparison.winnerId === product1.id ? product2 : product1;
+  const winnerId = comparison.winnerId ?? comparison.winner;
+  const winner = winnerId === product1.id ? product1 : product2;
+  const runnerUp = winnerId === product1.id ? product2 : product1;
 
   return (
     <SiteLayout>
@@ -184,7 +185,7 @@ export default function ComparisonPage() {
         </div>
 
         {/* Header */}
-        <p className="section-label mb-2">{comparison.category} · Head-to-Head</p>
+        <p className="section-label mb-2">{comparison.category ?? "Menopause Supplements"} · Head-to-Head</p>
         <h1 className="font-display font-bold mb-3 leading-tight" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2C2C" }}>
           {comparison.title}
         </h1>
@@ -192,12 +193,12 @@ export default function ComparisonPage() {
         <hr className="editorial-rule w-16 mb-10" />
 
         {/* Quiz-aware contextual banner */}
-        <ComparisonQuizBanner category={comparison.category} />
+        <ComparisonQuizBanner category={comparison.category ?? "Menopause Supplements"} />
 
         {/* Side-by-Side Comparison */}
         <div className="grid grid-cols-2 gap-6 mb-10">
           {[product1, product2].map((product) => {
-            const isWinner = product.id === comparison.winnerId;
+            const isWinner = product.id === (comparison.winnerId ?? comparison.winner);
             return (
               <div key={product.id} className={`rounded-sm overflow-hidden border-2 ${isWinner ? "comparison-winner" : ""}`}
                 style={{ borderColor: isWinner ? "#C4722A" : "#D4EBE7" }}>
@@ -295,7 +296,7 @@ export default function ComparisonPage() {
         </div>
 
         <p className="font-body text-xs mt-6" style={{ color: "#B8A99A" }}>
-          Published: {new Date(comparison.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} · 
+          Published: {new Date(comparison.publishDate ?? "2026-05-02").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} · 
           Prices subject to change. Amazon affiliate links - we earn a commission at no extra cost to you.
         </p>
       </div>
