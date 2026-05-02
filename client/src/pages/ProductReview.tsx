@@ -48,12 +48,12 @@ function QuizPromptBanner() {
   return (
     <div
       className="mt-14 rounded-xl p-7 flex flex-col sm:flex-row items-center justify-between gap-5"
-      style={{ background: "linear-gradient(135deg, #2C1810 0%, #8B1A2F 100%)", border: "1px solid #8B1A2F44" }}
+      style={{ background: "linear-gradient(135deg, #2C1810 0%, #2D7D6F 100%)", border: "1px solid #2D7D6F44" }}
     >
       <div className="flex items-start gap-4">
-        <Sparkles size={28} style={{ color: "#D4822A", flexShrink: 0, marginTop: "2px" }} />
+        <Sparkles size={28} style={{ color: "#C4722A", flexShrink: 0, marginTop: "2px" }} />
         <div>
-          <p className="font-display font-bold text-lg leading-tight" style={{ color: "#FDF6EE" }}>
+          <p className="font-display font-bold text-lg leading-tight" style={{ color: "#FAF7F4" }}>
             {hasResult && hairTypeName
               ? `Not sure this is right for your ${hairTypeName}?`
               : "Not sure this product is right for your hair?"}
@@ -61,14 +61,14 @@ function QuizPromptBanner() {
           <p className="font-body text-sm mt-1" style={{ color: "rgba(253,246,238,0.7)" }}>
             {hasResult
               ? "Retake the quiz to refresh your personalized recommendations."
-              : "Take our 2-minute quiz to get personalized product recommendations for your exact hair type."}
+              : "Take our 2-minute quiz to get personalized product recommendations for your exact menopause stage."}
           </p>
         </div>
       </div>
       <Link href="/hair-quiz">
         <button
           className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded font-body font-semibold text-sm whitespace-nowrap transition-all duration-200 hover:opacity-90"
-          style={{ backgroundColor: "#D4822A", color: "#FDF6EE" }}
+          style={{ backgroundColor: "#C4722A", color: "#FAF7F4" }}
         >
           {hasResult ? <><Sparkles size={14} /> Retake Quiz</> : <><Sparkles size={14} /> Take the Hair Quiz</>}
         </button>
@@ -80,7 +80,7 @@ function QuizPromptBanner() {
 export default function ProductReview() {
   const { slug } = useParams<{ slug: string }>();
   const product = allProducts.find(p => p.slug === slug);
-  const [savedHairType, setSavedHairType] = useState<string | null>(null);
+  const [savedStage, setSavedHairType] = useState<string | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem(QUIZ_RESULT_KEY);
@@ -89,25 +89,25 @@ export default function ProductReview() {
     }
   }, []);
 
-  // Build related products: prioritize those matching the user's saved hair type
+  // Build related products: prioritize those matching the user's saved menopause stage
   const relatedProducts = (() => {
     if (!product) return [];
     const sameCategory = getProductsByCategory(product.categorySlug).filter(p => p.id !== product.id);
-    if (savedHairType) {
+    if (savedStage) {
       const hairTypeMatches = sameCategory.filter(p =>
-        Array.isArray(p.hairTypes) && p.hairTypes.includes(savedHairType)
+        Array.isArray(p.stages) && p.stages.includes(savedStage)
       );
       const rest = sameCategory.filter(p =>
-        !(Array.isArray(p.hairTypes) && p.hairTypes.includes(savedHairType))
+        !(Array.isArray(p.stages) && p.stages.includes(savedStage))
       );
       return [...hairTypeMatches, ...rest].slice(0, 3);
     }
     return sameCategory.slice(0, 3);
   })();
 
-  const relatedLabel = savedHairType && relatedProducts.some(p =>
-    Array.isArray(p.hairTypes) && p.hairTypes.includes(savedHairType)
-  ) ? `Recommended for ${savedHairType.charAt(0).toUpperCase() + savedHairType.slice(1).replace("-", "-").replace("treated", "Treated")} Hair` : null;
+  const relatedLabel = savedStage && relatedProducts.some(p =>
+    Array.isArray(p.stages) && p.stages.includes(savedStage)
+  ) ? `Recommended for ${savedStage.charAt(0).toUpperCase() + savedStage.slice(1).replace("-", "-").replace("treated", "Treated")} Hair` : null;
 
   // Track this product as recently viewed
   useEffect(() => {
@@ -193,7 +193,7 @@ export default function ProductReview() {
                   <span className="editor-pick-badge text-xs px-3 py-1">Editor's Pick</span>
                 </div>
               )}
-              <p className="font-label font-bold" style={{ color: "#8B1A2F", fontSize: "1.8rem" }}>{product.priceDisplay}</p>
+              <p className="font-label font-bold" style={{ color: "#2D7D6F", fontSize: "1.8rem" }}>{product.priceDisplay}</p>
               <p className="font-body text-xs mb-3" style={{ color: "#B8A99A" }}>Price on Amazon</p>
               <StarRatingDisplay rating={product.rating} reviewCount={product.reviewCount} size={16} />
               <a
@@ -231,7 +231,7 @@ export default function ProductReview() {
             </div>
 
             {/* Best For */}
-            <div className="mt-6 p-4 rounded-sm" style={{ backgroundColor: "#FFF8F0", border: "1px solid #E8DDD0" }}>
+            <div className="mt-6 p-4 rounded-sm" style={{ backgroundColor: "#F5F0EA", border: "1px solid #E8DDD0" }}>
               <p className="section-label text-xs mb-2">Best For</p>
               <p className="font-body text-sm" style={{ color: "#2C2C2C" }}>{product.bestFor}</p>
             </div>
@@ -260,16 +260,16 @@ export default function ProductReview() {
 
             {/* Editor's Note */}
             {product.editorNote ? (
-              <div className="my-8 relative" style={{ borderLeft: "4px solid #8B1A2F", paddingLeft: "1.5rem" }}>
+              <div className="my-8 relative" style={{ borderLeft: "4px solid #2D7D6F", paddingLeft: "1.5rem" }}>
                 <div
                   className="absolute -top-2 -left-3 w-6 h-6 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: "#8B1A2F" }}
+                  style={{ backgroundColor: "#2D7D6F" }}
                 >
-                  <span style={{ color: "#FDF6EE", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.05em" }}>Ed</span>
+                  <span style={{ color: "#FAF7F4", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.05em" }}>Ed</span>
                 </div>
                 <p
                   className="font-label text-xs font-semibold mb-2"
-                  style={{ color: "#8B1A2F", letterSpacing: "0.1em", textTransform: "uppercase" }}
+                  style={{ color: "#2D7D6F", letterSpacing: "0.1em", textTransform: "uppercase" }}
                 >
                   Editor's Note
                 </p>
@@ -288,7 +288,7 @@ export default function ProductReview() {
             )}
 
             {/* Final Verdict */}
-            <div className="p-6 rounded-sm mt-8" style={{ backgroundColor: "#FFF8F0", border: "2px solid #D4822A" }}>
+            <div className="p-6 rounded-sm mt-8" style={{ backgroundColor: "#F5F0EA", border: "2px solid #C4722A" }}>
               <p className="section-label mb-2">Our Verdict</p>
               <div className="flex items-center gap-3 mb-3">
                 <StarRatingDisplay rating={product.rating} reviewCount={product.reviewCount} size={20} />

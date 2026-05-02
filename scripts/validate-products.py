@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SilkierStrands Product Validator
+PauseAndFlourish Product Validator
 =================================
 Run this script before every deployment to catch:
   1. Duplicate ASINs (same product listed twice)
@@ -129,12 +129,12 @@ def check_live_image(image_code):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="SilkierStrands Product Validator")
+    parser = argparse.ArgumentParser(description="PauseAndFlourish Product Validator")
     parser.add_argument("--live", action="store_true", help="Run live HTTP checks (slower)")
     args = parser.parse_args()
 
     print("=" * 60)
-    print("SilkierStrands Product Validator")
+    print("PauseAndFlourish Product Validator")
     print("=" * 60)
 
     all_issues = []

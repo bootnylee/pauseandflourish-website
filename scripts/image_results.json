@@ -1,0 +1,102 @@
+{
+  "remifemin-menopause": {
+    "asin": "B00020I9W4",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "estroven-complete": {
+    "asin": "B07WQMKQMK",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "bonafide-relizen": {
+    "asin": "B07BXPQXM8",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "natrol-melatonin-10mg": {
+    "asin": "B000GG9UBM",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "magnesium-glycinate-sleep": {
+    "asin": "B000BD0RT0",
+    "image": "https://m.media-amazon.com/images/I/61A-zRQCJiL._AC_SL1500_.jpg",
+    "method": "hiRes"
+  },
+  "olly-goodbye-stress": {
+    "asin": "B07BXHQKQJ",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "cooling-towel-chill-pal": {
+    "asin": "B07CZPBGKW",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "bedfan-personal-cooling": {
+    "asin": "B001CNPWH4",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "amberen-menopause-relief": {
+    "asin": "B003YDQCMQ",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "citracal-calcium-d3": {
+    "asin": "B001GCU8V4",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "garden-of-life-bone-strength": {
+    "asin": "B00YXNPXMI",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "replens-long-lasting-moisturizer": {
+    "asin": "B000052XEL",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "hyalogic-intimate-serum": {
+    "asin": "B000Z96ZJQ",
+    "image": "https://m.media-amazon.com/images/I/519hwkXRxiL._SL1000_.jpg",
+    "method": "hiRes"
+  },
+  "vital-proteins-collagen-peptides": {
+    "asin": "B00K6TP2ZS",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "neutrogena-rapid-firming": {
+    "asin": "B09BXHQKQJ",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "kegel-exerciser-perifit": {
+    "asin": "B07XQMKQMK",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "optimum-nutrition-gold-whey": {
+    "asin": "B000QSNYGI",
+    "image": "https://m.media-amazon.com/images/I/71Lw7FkgniL._AC_SL1500_.jpg",
+    "method": "hiRes"
+  },
+  "alpha-gpc-cognitive": {
+    "asin": "B01DOQX5QI",
+    "image": null,
+    "error": "HTTP 404"
+  },
+  "rhodiola-rosea-energy": {
+    "asin": "B0775B46M3",
+    "image": "https://m.media-amazon.com/images/I/71pzt+C8s6L._AC_SL1075_.jpg",
+    "method": "hiRes"
+  },
+  "vitamin-b12-energy": {
+    "asin": "B0013OQGO6",
+    "image": "https://m.media-amazon.com/images/I/71VgeuZ1NAL._AC_SL1500_.jpg",
+    "method": "hiRes"
+  }
+}

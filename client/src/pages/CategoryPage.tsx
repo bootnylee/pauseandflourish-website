@@ -1,6 +1,6 @@
 // PauseAndFlourish.com - Category Page
-// Design: Bold magazine aesthetic with Burgundy (#8B1A2F) + Amber (#D4822A) + Cream (#FDF6EE)
-// Features: Sidebar FilterPanel (price range + hair type) + Sort
+// Design: Bold magazine aesthetic with Burgundy (#2D7D6F) + Amber (#C4722A) + Cream (#FAF7F4)
+// Features: Sidebar FilterPanel (price range + menopause stage) + Sort
 
 import { useEffect, useState, useMemo } from "react";
 import { useParams } from "wouter";
@@ -12,7 +12,7 @@ import FilterPanel, {
   getDefaultFilters,
   hasActiveFilters,
   applyFilters,
-  HAIR_TYPES,
+  MENOPAUSE_STAGES,
 } from "@/components/FilterPanel";
 import { categories, getProductsByCategory, getComparisonsByCategory } from "@/lib/products";
 import { updateDocumentMeta } from "@/lib/seo";
@@ -56,7 +56,7 @@ export default function CategoryPage() {
 
   const activeFilterCount =
     (filters.priceMin > 0 || filters.priceMax < 600 ? 1 : 0) +
-    filters.hairTypes.length;
+    filters.stages.length;
 
   const filtered = useMemo(() => {
     let result = applyFilters(allCategoryProducts, filters);
@@ -134,7 +134,7 @@ export default function CategoryPage() {
           </p>
           <h1
             className="font-display font-bold mb-4"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "#FDF6EE" }}
+            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "#FAF7F4" }}
           >
             {category.name}
           </h1>
@@ -149,7 +149,7 @@ export default function CategoryPage() {
 
       {/* ── Comparisons ── */}
       {comparisons.length > 0 && (
-        <section className="py-12" style={{ backgroundColor: "#FFF8F0" }}>
+        <section className="py-12" style={{ backgroundColor: "#F5F0EA" }}>
           <div className="container">
             <p className="section-label mb-2">Head-to-Head</p>
             <h2
@@ -170,7 +170,7 @@ export default function CategoryPage() {
       {/* ── Sort + Filter Bar ── */}
       <section
         className="py-4 border-y sticky top-[73px] z-40"
-        style={{ borderColor: "#E8DDD0", backgroundColor: "#FDF6EE" }}
+        style={{ borderColor: "#E8DDD0", backgroundColor: "#FAF7F4" }}
       >
         <div className="container">
           <div className="flex flex-wrap items-center gap-3">
@@ -179,9 +179,9 @@ export default function CategoryPage() {
               onClick={() => setShowMobileFilters((v) => !v)}
               className="lg:hidden flex items-center gap-2 px-4 py-2 text-xs font-label font-semibold rounded-sm border transition-colors"
               style={{
-                borderColor: showMobileFilters ? "#8B1A2F" : "#D4C5B5",
-                backgroundColor: showMobileFilters ? "#8B1A2F" : "transparent",
-                color: showMobileFilters ? "#FDF6EE" : "#8B1A2F",
+                borderColor: showMobileFilters ? "#2D7D6F" : "#D4C5B5",
+                backgroundColor: showMobileFilters ? "#2D7D6F" : "transparent",
+                color: showMobileFilters ? "#FAF7F4" : "#2D7D6F",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
               }}
@@ -191,7 +191,7 @@ export default function CategoryPage() {
               {activeFilterCount > 0 && (
                 <span
                   className="ml-1 w-4 h-4 rounded-full text-xs flex items-center justify-center"
-                  style={{ backgroundColor: "#D4822A", color: "#FFF" }}
+                  style={{ backgroundColor: "#C4722A", color: "#FFF" }}
                 >
                   {activeFilterCount}
                 </span>
@@ -225,7 +225,7 @@ export default function CategoryPage() {
                       onClick={() => { setSortBy(opt.id); setSortOpen(false); }}
                       className="w-full text-left px-4 py-2.5 text-xs font-label font-semibold hover:bg-amber-50 transition-colors"
                       style={{
-                        color: sortBy === opt.id ? "#8B1A2F" : "#2C2C2C",
+                        color: sortBy === opt.id ? "#2D7D6F" : "#2C2C2C",
                         letterSpacing: "0.06em",
                         textTransform: "uppercase",
                         borderBottom: "1px solid #F0E8DC",
@@ -243,7 +243,7 @@ export default function CategoryPage() {
               <button
                 onClick={() => { setFilters(getDefaultFilters()); setSortBy("default"); }}
                 className="flex items-center gap-1 text-xs font-label font-semibold"
-                style={{ color: "#D4822A", letterSpacing: "0.06em", textTransform: "uppercase" }}
+                style={{ color: "#C4722A", letterSpacing: "0.06em", textTransform: "uppercase" }}
               >
                 <X size={12} /> Clear All
               </button>
@@ -259,20 +259,20 @@ export default function CategoryPage() {
 
       {/* ── Active Filter Chips ── */}
       {anyActive && (
-        <section className="py-3 border-b" style={{ borderColor: "#E8DDD0", backgroundColor: "#FFF8F0" }}>
+        <section className="py-3 border-b" style={{ borderColor: "#E8DDD0", backgroundColor: "#F5F0EA" }}>
           <div className="container">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-xs font-body" style={{ color: "#999" }}>Active:</span>
               {(filters.priceMin > 0 || filters.priceMax < 600) && (
-                <span className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full" style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}>
+                <span className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full" style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4" }}>
                   ${filters.priceMin}–{filters.priceMax >= 600 ? "$600+" : `$${filters.priceMax}`}
                   <button onClick={() => setFilters(f => ({ ...f, priceMin: 0, priceMax: 600 }))}><X size={11} /></button>
                 </span>
               )}
-              {filters.hairTypes.map((ht) => (
-                <span key={ht} className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full" style={{ backgroundColor: "#D4822A", color: "#FFF" }}>
-                  {HAIR_TYPES.find((h) => h.id === ht)?.label}
-                  <button onClick={() => setFilters(f => ({ ...f, hairTypes: f.hairTypes.filter(t => t !== ht) }))}><X size={11} /></button>
+              {filters.stages.map((ht) => (
+                <span key={ht} className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full" style={{ backgroundColor: "#C4722A", color: "#FFF" }}>
+                  {MENOPAUSE_STAGES.find((h) => h.id === ht)?.label}
+                  <button onClick={() => setFilters(f => ({ ...f, stages: f.stages.filter(t => t !== ht) }))}><X size={11} /></button>
                 </span>
               ))}
             </div>
@@ -291,7 +291,7 @@ export default function CategoryPage() {
                 <div className="flex items-center justify-between mb-4">
                   <h2
                     className="font-label font-semibold text-xs"
-                    style={{ color: "#8B1A2F", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                    style={{ color: "#2D7D6F", letterSpacing: "0.12em", textTransform: "uppercase" }}
                   >
                     Filter Products
                   </h2>
@@ -299,7 +299,7 @@ export default function CategoryPage() {
                     <button
                       onClick={() => { setFilters(getDefaultFilters()); setSortBy("default"); }}
                       className="text-xs font-label font-semibold"
-                      style={{ color: "#D4822A" }}
+                      style={{ color: "#C4722A" }}
                     >
                       Clear All
                     </button>
@@ -327,10 +327,10 @@ export default function CategoryPage() {
 
               {/* Section header */}
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#8B1A2F" }} />
+                <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#2D7D6F" }} />
                 <h2
                   className="font-label font-semibold text-sm"
-                  style={{ color: "#8B1A2F", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                  style={{ color: "#2D7D6F", letterSpacing: "0.12em", textTransform: "uppercase" }}
                 >
                   {anyActive ? `${filtered.length} Results` : `All ${category.name} Reviews`}
                 </h2>
@@ -342,12 +342,12 @@ export default function CategoryPage() {
                     No products match your filters
                   </p>
                   <p className="font-body text-base mb-6" style={{ color: "#6C6C6C" }}>
-                    Try widening your price range or selecting different hair types.
+                    Try widening your price range or selecting different menopause stages.
                   </p>
                   <button
                     onClick={() => { setFilters(getDefaultFilters()); setSortBy("default"); }}
                     className="px-6 py-3 font-label font-semibold text-xs rounded-sm"
-                    style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.1em", textTransform: "uppercase" }}
+                    style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4", letterSpacing: "0.1em", textTransform: "uppercase" }}
                   >
                     Clear Filters
                   </button>

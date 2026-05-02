@@ -11,8 +11,8 @@ import ComparisonPage from "./pages/ComparisonPage";
 import AllReviews from "./pages/AllReviews";
 import AllComparisons from "./pages/AllComparisons";
 import About from "./pages/About";
-import HairTypePage from "./pages/HairTypePage";
-import HairQuiz from "./pages/HairQuiz";
+import MenopauseStagePage from "./pages/MenopauseStagePage";
+import MenopauseQuiz from "./pages/MenopauseQuiz";
 
 function Router() {
   return (
@@ -24,8 +24,8 @@ function Router() {
       <Route path="/category/:slug" component={CategoryPage} />
       <Route path="/review/:slug" component={ProductReview} />
       <Route path="/comparison/:slug" component={ComparisonPage} />
-      <Route path="/hair-type/:slug" component={HairTypePage} />
-      <Route path="/hair-quiz" component={HairQuiz} />
+      <Route path="/stage/:slug" component={MenopauseStagePage} />
+      <Route path="/quiz" component={MenopauseQuiz} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

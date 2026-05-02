@@ -1,36 +1,37 @@
 // PauseAndFlourish.com - Shared FilterPanel Component
-// Design: Bold magazine aesthetic with Burgundy (#8B1A2F) + Amber (#D4822A) + Cream (#FDF6EE)
-// Features: Dual-handle price range slider + hair type checkboxes + category pills
+// Design: Teal (#2D7D6F) + Terracotta (#C4722A) + Ivory (#FDF8F4)
+// Features: Dual-handle price range slider + menopause stage checkboxes + category pills
 
 import { useRef, useCallback } from "react";
-import { X, DollarSign, Scissors } from "lucide-react";
+import { X, DollarSign, Activity } from "lucide-react";
 
-export const HAIR_TYPES = [
-  { id: "fine", label: "Fine", icon: "🌿" },
-  { id: "thick", label: "Thick", icon: "🌊" },
-  { id: "curly", label: "Curly", icon: "🌀" },
-  { id: "coarse", label: "Coarse", icon: "💪" },
-  { id: "dry", label: "Dry", icon: "🏜️" },
-  { id: "normal", label: "Normal", icon: "✨" },
-  { id: "color-treated", label: "Color-Treated", icon: "🎨" },
-  { id: "all", label: "All Hair Types", icon: "💁" },
+export const MENOPAUSE_STAGES = [
+  { id: "early-perimenopause", label: "Early Perimenopause", icon: "🌱" },
+  { id: "late-perimenopause", label: "Late Perimenopause", icon: "🌿" },
+  { id: "active-menopause", label: "Active Menopause", icon: "🔥" },
+  { id: "early-postmenopause", label: "Early Postmenopause", icon: "🌸" },
+  { id: "late-postmenopause", label: "Late Postmenopause", icon: "✨" },
 ];
 
+// Backward-compat alias so any component importing HAIR_TYPES still works
+export const HAIR_TYPES = MENOPAUSE_STAGES;
+
 export const PRICE_PRESETS = [
-  { label: "Under $25", min: 0, max: 25 },
-  { label: "$25–$75", min: 25, max: 75 },
-  { label: "$75–$150", min: 75, max: 150 },
-  { label: "$150–$300", min: 150, max: 300 },
-  { label: "$300+", min: 300, max: 600 },
+  { label: "Under $15", min: 0, max: 15 },
+  { label: "$15–$30", min: 15, max: 30 },
+  { label: "$30–$50", min: 30, max: 50 },
+  { label: "$50–$100", min: 50, max: 100 },
+  { label: "$100+", min: 100, max: 300 },
 ];
 
 export const PRICE_MIN = 0;
-export const PRICE_MAX = 600;
+export const PRICE_MAX = 300;
 
 export interface FilterState {
   priceMin: number;
   priceMax: number;
-  hairTypes: string[];
+  stages: string[];
+  hairTypes?: string[]; // deprecated alias
 }
 
 interface FilterPanelProps {
@@ -44,30 +45,26 @@ interface FilterPanelProps {
 }
 
 export function getDefaultFilters(): FilterState {
-  return { priceMin: PRICE_MIN, priceMax: PRICE_MAX, hairTypes: [] };
+  return { priceMin: PRICE_MIN, priceMax: PRICE_MAX, stages: [] };
 }
 
 export function hasActiveFilters(filters: FilterState): boolean {
   return (
     filters.priceMin > PRICE_MIN ||
     filters.priceMax < PRICE_MAX ||
-    filters.hairTypes.length > 0
+    (filters.stages?.length ?? 0) > 0
   );
 }
 
-export function applyFilters<T extends { price: number; hairTypes?: string[] }>(
+export function applyFilters<T extends { price: number; stages?: string[] }>(
   products: T[],
   filters: FilterState
 ): T[] {
   return products.filter((p) => {
-    // Price range
     if (p.price < filters.priceMin || p.price > filters.priceMax) return false;
-    // Hair type
-    if (filters.hairTypes.length > 0) {
-      if (!p.hairTypes || p.hairTypes.length === 0) return true;
-      return filters.hairTypes.some(
-        (ht) => p.hairTypes!.includes(ht) || p.hairTypes!.includes("all")
-      );
+    if (filters.stages && filters.stages.length > 0) {
+      if (!p.stages || p.stages.length === 0) return true;
+      return filters.stages.some((s) => p.stages!.includes(s));
     }
     return true;
   });
@@ -78,58 +75,43 @@ export default function FilterPanel({
   onChange,
   showCategoryFilter = false,
   categories = [],
-  selectedCategory = "all",
+  selectedCategory,
   onCategoryChange,
   productCount,
 }: FilterPanelProps) {
-  const trackRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
-  const toggleHairType = (id: string) => {
-    const next = filters.hairTypes.includes(id)
-      ? filters.hairTypes.filter((t) => t !== id)
-      : [...filters.hairTypes, id];
-    onChange({ ...filters, hairTypes: next });
-  };
+  const getPercent = (value: number) =>
+    ((value - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100;
 
-  const setPricePreset = (min: number, max: number) => {
-    onChange({ ...filters, priceMin: min, priceMax: max });
-  };
+  const minPct = getPercent(filters.priceMin);
+  const maxPct = getPercent(filters.priceMax);
 
-  const resetPrice = () => {
-    onChange({ ...filters, priceMin: PRICE_MIN, priceMax: PRICE_MAX });
-  };
-
-  const resetHairTypes = () => {
-    onChange({ ...filters, hairTypes: [] });
-  };
-
-  // Dual-handle slider logic
   const handleMinDrag = useCallback(
     (e: React.MouseEvent | React.TouchEvent) => {
       e.preventDefault();
-      const track = trackRef.current;
-      if (!track) return;
-
+      const slider = sliderRef.current;
+      if (!slider) return;
+      const rect = slider.getBoundingClientRect();
       const move = (clientX: number) => {
-        const rect = track.getBoundingClientRect();
         const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-        const raw = Math.round(pct * PRICE_MAX);
-        const newMin = Math.min(raw, filters.priceMax - 10);
-        onChange({ ...filters, priceMin: newMin });
+        const value = Math.round(PRICE_MIN + pct * (PRICE_MAX - PRICE_MIN));
+        if (value < filters.priceMax) onChange({ ...filters, priceMin: value });
       };
-
-      const onMouseMove = (ev: MouseEvent) => move(ev.clientX);
-      const onTouchMove = (ev: TouchEvent) => move(ev.touches[0].clientX);
-      const cleanup = () => {
-        window.removeEventListener("mousemove", onMouseMove);
-        window.removeEventListener("mouseup", cleanup);
-        window.removeEventListener("touchmove", onTouchMove);
-        window.removeEventListener("touchend", cleanup);
+      const onMove = (ev: MouseEvent | TouchEvent) => {
+        const x = "touches" in ev ? ev.touches[0].clientX : (ev as MouseEvent).clientX;
+        move(x);
       };
-      window.addEventListener("mousemove", onMouseMove);
-      window.addEventListener("mouseup", cleanup);
-      window.addEventListener("touchmove", onTouchMove);
-      window.addEventListener("touchend", cleanup);
+      const onUp = () => {
+        window.removeEventListener("mousemove", onMove);
+        window.removeEventListener("touchmove", onMove);
+        window.removeEventListener("mouseup", onUp);
+        window.removeEventListener("touchend", onUp);
+      };
+      window.addEventListener("mousemove", onMove);
+      window.addEventListener("touchmove", onMove);
+      window.addEventListener("mouseup", onUp);
+      window.addEventListener("touchend", onUp);
     },
     [filters, onChange]
   );
@@ -137,282 +119,200 @@ export default function FilterPanel({
   const handleMaxDrag = useCallback(
     (e: React.MouseEvent | React.TouchEvent) => {
       e.preventDefault();
-      const track = trackRef.current;
-      if (!track) return;
-
+      const slider = sliderRef.current;
+      if (!slider) return;
+      const rect = slider.getBoundingClientRect();
       const move = (clientX: number) => {
-        const rect = track.getBoundingClientRect();
         const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-        const raw = Math.round(pct * PRICE_MAX);
-        const newMax = Math.max(raw, filters.priceMin + 10);
-        onChange({ ...filters, priceMax: newMax });
+        const value = Math.round(PRICE_MIN + pct * (PRICE_MAX - PRICE_MIN));
+        if (value > filters.priceMin) onChange({ ...filters, priceMax: value });
       };
-
-      const onMouseMove = (ev: MouseEvent) => move(ev.clientX);
-      const onTouchMove = (ev: TouchEvent) => move(ev.touches[0].clientX);
-      const cleanup = () => {
-        window.removeEventListener("mousemove", onMouseMove);
-        window.removeEventListener("mouseup", cleanup);
-        window.removeEventListener("touchmove", onTouchMove);
-        window.removeEventListener("touchend", cleanup);
+      const onMove = (ev: MouseEvent | TouchEvent) => {
+        const x = "touches" in ev ? ev.touches[0].clientX : (ev as MouseEvent).clientX;
+        move(x);
       };
-      window.addEventListener("mousemove", onMouseMove);
-      window.addEventListener("mouseup", cleanup);
-      window.addEventListener("touchmove", onTouchMove);
-      window.addEventListener("touchend", cleanup);
+      const onUp = () => {
+        window.removeEventListener("mousemove", onMove);
+        window.removeEventListener("touchmove", onMove);
+        window.removeEventListener("mouseup", onUp);
+        window.removeEventListener("touchend", onUp);
+      };
+      window.addEventListener("mousemove", onMove);
+      window.addEventListener("touchmove", onMove);
+      window.addEventListener("mouseup", onUp);
+      window.addEventListener("touchend", onUp);
     },
     [filters, onChange]
   );
 
-  const minPct = (filters.priceMin / PRICE_MAX) * 100;
-  const maxPct = (filters.priceMax / PRICE_MAX) * 100;
-  const isPriceActive = filters.priceMin > PRICE_MIN || filters.priceMax < PRICE_MAX;
+  const setPricePreset = (min: number, max: number) =>
+    onChange({ ...filters, priceMin: min, priceMax: max });
+
   const isPresetActive = (min: number, max: number) =>
     filters.priceMin === min && filters.priceMax === max;
 
-  return (
-    <div
-      className="rounded-sm border p-5"
-      style={{ borderColor: "#E8DDD0", backgroundColor: "#FFF8F0" }}
-    >
-      <div className="flex flex-col gap-7">
+  const toggleStage = (id: string) => {
+    const stages = filters.stages ?? [];
+    const next = stages.includes(id) ? stages.filter((s) => s !== id) : [...stages, id];
+    onChange({ ...filters, stages: next });
+  };
 
-        {/* ── Category Filter (optional) ── */}
-        {showCategoryFilter && categories.length > 0 && onCategoryChange && (
-          <div>
-            <div className="flex items-center justify-between mb-3">
-              <p
-                className="font-label font-semibold text-xs"
-                style={{ color: "#8B1A2F", letterSpacing: "0.1em", textTransform: "uppercase" }}
-              >
-                Category
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <button
-                onClick={() => onCategoryChange("all")}
-                className="px-3 py-1.5 text-xs font-label font-semibold rounded-sm border transition-colors"
-                style={{
-                  backgroundColor: selectedCategory === "all" ? "#8B1A2F" : "transparent",
-                  color: selectedCategory === "all" ? "#FDF6EE" : "#8B1A2F",
-                  borderColor: "#8B1A2F",
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                }}
-              >
-                All
-              </button>
-              {categories.map((cat) => (
+  const resetStages = () => onChange({ ...filters, stages: [] });
+  const resetAll = () => onChange(getDefaultFilters());
+
+  const TEAL = "#2D7D6F";
+  const TERRA = "#C4722A";
+  const IVORY = "#FDF8F4";
+  const BORDER = "#D9EDE9";
+
+  return (
+    <div className="rounded-xl border p-5 space-y-6" style={{ backgroundColor: IVORY, borderColor: BORDER }}>
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <h3 className="font-label font-bold text-sm" style={{ color: TEAL, letterSpacing: "0.08em", textTransform: "uppercase" }}>
+          Filter
+        </h3>
+        {hasActiveFilters(filters) && (
+          <button onClick={resetAll} className="flex items-center gap-1 text-xs font-label font-semibold" style={{ color: TERRA }}>
+            <X size={11} /> Clear all
+          </button>
+        )}
+      </div>
+
+      {/* Category pills */}
+      {showCategoryFilter && categories.length > 0 && (
+        <div>
+          <p className="font-label font-semibold text-xs mb-2" style={{ color: TEAL, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            Category
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {categories.map((cat) => {
+              const active = selectedCategory === cat.slug;
+              return (
                 <button
                   key={cat.id}
-                  onClick={() => onCategoryChange(cat.slug)}
-                  className="px-3 py-1.5 text-xs font-label font-semibold rounded-sm border transition-colors"
-                  style={{
-                    backgroundColor: selectedCategory === cat.slug ? "#8B1A2F" : "transparent",
-                    color: selectedCategory === cat.slug ? "#FDF6EE" : "#8B1A2F",
-                    borderColor: "#8B1A2F",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                  }}
+                  onClick={() => onCategoryChange?.(active ? "" : cat.slug)}
+                  className="px-2.5 py-1 text-xs font-label font-semibold rounded-full border transition-colors"
+                  style={{ backgroundColor: active ? TEAL : "transparent", color: active ? IVORY : TEAL, borderColor: TEAL }}
                 >
                   {cat.name}
                 </button>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* ── Price Range ── */}
-        <div>
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <DollarSign size={13} style={{ color: "#8B1A2F" }} />
-              <p
-                className="font-label font-semibold text-xs"
-                style={{ color: "#8B1A2F", letterSpacing: "0.1em", textTransform: "uppercase" }}
-              >
-                Price Range
-              </p>
-            </div>
-            {isPriceActive && (
-              <button
-                onClick={resetPrice}
-                className="flex items-center gap-1 text-xs font-label font-semibold"
-                style={{ color: "#D4822A", letterSpacing: "0.05em" }}
-              >
-                <X size={11} /> Reset
-              </button>
-            )}
-          </div>
-
-          {/* Price display */}
-          <div className="flex items-center justify-between mb-4">
-            <span
-              className="font-label font-semibold text-sm px-3 py-1 rounded-sm"
-              style={{ backgroundColor: "#F2E8DC", color: "#8B1A2F" }}
-            >
-              ${filters.priceMin}
-            </span>
-            <span className="text-xs font-body" style={{ color: "#999" }}>to</span>
-            <span
-              className="font-label font-semibold text-sm px-3 py-1 rounded-sm"
-              style={{ backgroundColor: "#F2E8DC", color: "#8B1A2F" }}
-            >
-              {filters.priceMax >= PRICE_MAX ? "$600+" : `$${filters.priceMax}`}
-            </span>
-          </div>
-
-          {/* Dual-handle slider track */}
-          <div className="relative h-6 flex items-center mb-4 px-2" ref={trackRef}>
-            {/* Track background */}
-            <div
-              className="absolute inset-x-2 h-1.5 rounded-full"
-              style={{ backgroundColor: "#E8DDD0" }}
-            />
-            {/* Active range fill */}
-            <div
-              className="absolute h-1.5 rounded-full"
-              style={{
-                left: `calc(${minPct}% + 8px * (1 - ${minPct / 100}))`,
-                right: `calc(${100 - maxPct}% + 8px * ${maxPct / 100})`,
-                backgroundColor: "#8B1A2F",
-              }}
-            />
-            {/* Min handle */}
-            <div
-              className="absolute w-5 h-5 rounded-full border-2 shadow-md cursor-grab active:cursor-grabbing z-10 transition-transform hover:scale-110"
-              style={{
-                left: `calc(${minPct}% - 10px + 8px)`,
-                backgroundColor: "#FDF6EE",
-                borderColor: "#8B1A2F",
-                boxShadow: "0 1px 4px rgba(139,26,47,0.3)",
-              }}
-              onMouseDown={handleMinDrag}
-              onTouchStart={handleMinDrag}
-            />
-            {/* Max handle */}
-            <div
-              className="absolute w-5 h-5 rounded-full border-2 shadow-md cursor-grab active:cursor-grabbing z-10 transition-transform hover:scale-110"
-              style={{
-                left: `calc(${maxPct}% - 10px + 8px)`,
-                backgroundColor: "#FDF6EE",
-                borderColor: "#8B1A2F",
-                boxShadow: "0 1px 4px rgba(139,26,47,0.3)",
-              }}
-              onMouseDown={handleMaxDrag}
-              onTouchStart={handleMaxDrag}
-            />
-          </div>
-
-          {/* Price presets */}
-          <div className="flex flex-wrap gap-1.5">
-            {PRICE_PRESETS.map((preset) => (
-              <button
-                key={preset.label}
-                onClick={() => setPricePreset(preset.min, preset.max)}
-                className="px-2.5 py-1 text-xs font-label font-semibold rounded-sm border transition-colors"
-                style={{
-                  backgroundColor: isPresetActive(preset.min, preset.max)
-                    ? "#8B1A2F"
-                    : "transparent",
-                  color: isPresetActive(preset.min, preset.max) ? "#FDF6EE" : "#8B1A2F",
-                  borderColor: "#C4A882",
-                  letterSpacing: "0.04em",
-                }}
-              >
-                {preset.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Hair Type ── */}
-        <div>
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <Scissors size={13} style={{ color: "#8B1A2F" }} />
-              <p
-                className="font-label font-semibold text-xs"
-                style={{ color: "#8B1A2F", letterSpacing: "0.1em", textTransform: "uppercase" }}
-              >
-                Hair Type
-              </p>
-            </div>
-            {filters.hairTypes.length > 0 && (
-              <button
-                onClick={resetHairTypes}
-                className="flex items-center gap-1 text-xs font-label font-semibold"
-                style={{ color: "#D4822A", letterSpacing: "0.05em" }}
-              >
-                <X size={11} /> Reset
-              </button>
-            )}
-          </div>
-          <div className="flex flex-col gap-2">
-            {HAIR_TYPES.map((ht) => {
-              const active = filters.hairTypes.includes(ht.id);
-              return (
-                <label
-                  key={ht.id}
-                  className="flex items-center gap-3 cursor-pointer group"
-                >
-                  {/* Custom checkbox */}
-                  <div
-                    className="w-4 h-4 rounded-sm border-2 flex items-center justify-center flex-shrink-0 transition-colors"
-                    style={{
-                      borderColor: active ? "#8B1A2F" : "#C4A882",
-                      backgroundColor: active ? "#8B1A2F" : "transparent",
-                    }}
-                    onClick={() => toggleHairType(ht.id)}
-                  >
-                    {active && (
-                      <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                        <path
-                          d="M1 4L3.5 6.5L9 1"
-                          stroke="#FDF6EE"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    )}
-                  </div>
-                  <span
-                    className="text-sm font-body transition-colors"
-                    style={{ color: active ? "#8B1A2F" : "#4A4A4A" }}
-                    onClick={() => toggleHairType(ht.id)}
-                  >
-                    {ht.label}
-                  </span>
-                </label>
               );
             })}
           </div>
-          {filters.hairTypes.length > 0 && (
-            <p className="text-xs font-body mt-3 leading-relaxed" style={{ color: "#999" }}>
-              Showing products for:{" "}
-              <strong style={{ color: "#D4822A" }}>
-                {filters.hairTypes
-                  .map((id) => HAIR_TYPES.find((h) => h.id === id)?.label)
-                  .join(", ")}
-              </strong>
-            </p>
-          )}
         </div>
+      )}
 
-        {/* ── Results count ── */}
-        {productCount !== undefined && (
-          <div
-            className="pt-3 border-t"
-            style={{ borderColor: "#E8DDD0" }}
-          >
-            <p className="text-xs font-body text-center" style={{ color: "#999" }}>
-              <strong style={{ color: "#8B1A2F" }}>{productCount}</strong>{" "}
-              product{productCount !== 1 ? "s" : ""} match your filters
+      {/* Price range */}
+      <div>
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            <DollarSign size={13} style={{ color: TEAL }} />
+            <p className="font-label font-semibold text-xs" style={{ color: TEAL, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+              Price Range
             </p>
           </div>
+          <span className="text-xs font-body" style={{ color: "#666" }}>
+            ${filters.priceMin} – {filters.priceMax >= PRICE_MAX ? "$300+" : `$${filters.priceMax}`}
+          </span>
+        </div>
+        <div ref={sliderRef} className="relative h-2 rounded-full mx-2 mb-4" style={{ backgroundColor: BORDER }}>
+          <div className="absolute h-2 rounded-full" style={{ left: `${minPct}%`, width: `${maxPct - minPct}%`, backgroundColor: TEAL }} />
+          <div
+            className="absolute w-5 h-5 rounded-full border-2 shadow-md cursor-grab active:cursor-grabbing z-10 transition-transform hover:scale-110"
+            style={{ left: `calc(${minPct}% - 10px)`, backgroundColor: IVORY, borderColor: TEAL }}
+            onMouseDown={handleMinDrag}
+            onTouchStart={handleMinDrag}
+          />
+          <div
+            className="absolute w-5 h-5 rounded-full border-2 shadow-md cursor-grab active:cursor-grabbing z-10 transition-transform hover:scale-110"
+            style={{ left: `calc(${maxPct}% - 10px + 8px)`, backgroundColor: IVORY, borderColor: TEAL }}
+            onMouseDown={handleMaxDrag}
+            onTouchStart={handleMaxDrag}
+          />
+        </div>
+        <div className="flex flex-wrap gap-1.5">
+          {PRICE_PRESETS.map((preset) => (
+            <button
+              key={preset.label}
+              onClick={() => setPricePreset(preset.min, preset.max)}
+              className="px-2.5 py-1 text-xs font-label font-semibold rounded-sm border transition-colors"
+              style={{
+                backgroundColor: isPresetActive(preset.min, preset.max) ? TEAL : "transparent",
+                color: isPresetActive(preset.min, preset.max) ? IVORY : TEAL,
+                borderColor: BORDER,
+                letterSpacing: "0.04em",
+              }}
+            >
+              {preset.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Menopause Stage filter */}
+      <div>
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            <Activity size={13} style={{ color: TEAL }} />
+            <p className="font-label font-semibold text-xs" style={{ color: TEAL, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+              Your Stage
+            </p>
+          </div>
+          {(filters.stages?.length ?? 0) > 0 && (
+            <button onClick={resetStages} className="flex items-center gap-1 text-xs font-label font-semibold" style={{ color: TERRA }}>
+              <X size={11} /> Reset
+            </button>
+          )}
+        </div>
+        <div className="flex flex-col gap-2">
+          {MENOPAUSE_STAGES.map((stage) => {
+            const active = (filters.stages ?? []).includes(stage.id);
+            return (
+              <label key={stage.id} className="flex items-center gap-3 cursor-pointer group">
+                <div
+                  className="w-4 h-4 rounded-sm border-2 flex items-center justify-center flex-shrink-0 transition-colors"
+                  style={{ borderColor: active ? TEAL : BORDER, backgroundColor: active ? TEAL : "transparent" }}
+                  onClick={() => toggleStage(stage.id)}
+                >
+                  {active && (
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                      <path d="M1 4L3.5 6.5L9 1" stroke={IVORY} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
+                </div>
+                <span
+                  className="text-sm font-body transition-colors"
+                  style={{ color: active ? TEAL : "#4A4A4A" }}
+                  onClick={() => toggleStage(stage.id)}
+                >
+                  {stage.icon} {stage.label}
+                </span>
+              </label>
+            );
+          })}
+        </div>
+        {(filters.stages?.length ?? 0) > 0 && (
+          <p className="text-xs font-body mt-3 leading-relaxed" style={{ color: "#999" }}>
+            Showing products for:{" "}
+            <strong style={{ color: TERRA }}>
+              {(filters.stages ?? [])
+                .map((id) => MENOPAUSE_STAGES.find((s) => s.id === id)?.label)
+                .join(", ")}
+            </strong>
+          </p>
         )}
       </div>
+
+      {/* Results count */}
+      {productCount !== undefined && (
+        <div className="pt-3 border-t" style={{ borderColor: BORDER }}>
+          <p className="text-xs font-body text-center" style={{ color: "#999" }}>
+            <strong style={{ color: TEAL }}>{productCount}</strong>{" "}
+            product{productCount !== 1 ? "s" : ""} match your filters
+          </p>
+        </div>
+      )}
     </div>
   );
 }

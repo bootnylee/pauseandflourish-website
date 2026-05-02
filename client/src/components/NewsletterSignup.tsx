@@ -1,6 +1,6 @@
 /**
  * NewsletterSignup Component - PauseAndFlourish.com
- * Design: Bold Magazine - Burgundy (#8B1A2F) + Amber (#D4822A) + Cream (#FDF6EE)
+ * Design: Teal + Terracotta on Ivory — Evidence-Based Menopause Wellness
  *
  * EmailOctopus integration: injects the <script data-form="..."> tag directly
  * inside the component's container div via useEffect. The EmailOctopus widget
@@ -9,14 +9,19 @@
  * Because the script is inside our div, the form renders inside the component —
  * not appended to <body> as it would with a static <script> tag.
  *
- * Note: hair type tagging via member[fields][HairType] requires the EmailOctopus
- * form to have a custom "HairType" field configured in the dashboard. The widget
- * handles reCAPTCHA automatically, which is why direct POST approaches fail.
+ * Note: menopause stage tagging via member[fields][MenopauseStage] requires the
+ * EmailOctopus form to have a custom "MenopauseStage" field configured in the
+ * dashboard. The widget handles reCAPTCHA automatically.
+ *
+ * IMPORTANT: Replace EMAILOCTOPUS_FORM_ID below with the PauseAndFlourish
+ * EmailOctopus form ID from your EmailOctopus dashboard.
  */
 
 import { useEffect, useRef } from "react";
 
-const EMAILOCTOPUS_FORM_ID = "aeb1d42c-40de-11f1-aa22-35d9c85d0d35";
+// TODO: Replace with the PauseAndFlourish EmailOctopus form ID
+// Found in EmailOctopus dashboard → Forms → Your Form → Embed Code
+const EMAILOCTOPUS_FORM_ID = "REPLACE_WITH_PAF_FORM_ID";
 const EMAILOCTOPUS_SCRIPT_SRC = `https://eocampaign1.com/form/${EMAILOCTOPUS_FORM_ID}.js`;
 
 /** Inject the EmailOctopus widget script into a container element.
@@ -58,20 +63,20 @@ export default function NewsletterSignup({
         className={`relative overflow-hidden ${className}`}
         style={{
           background:
-            "linear-gradient(135deg, #8B1A2F 0%, #6B1423 50%, #4A0E1A 100%)",
+            "linear-gradient(135deg, #1E5C54 0%, #2D7D6F 50%, #1A4A44 100%)",
         }}
       >
         <div
           className="absolute inset-0 opacity-10"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 20% 50%, #D4822A 0%, transparent 50%), radial-gradient(circle at 80% 50%, #F2C4CE 0%, transparent 50%)",
+              "radial-gradient(circle at 20% 50%, #C4722A 0%, transparent 50%), radial-gradient(circle at 80% 50%, #E8F5F2 0%, transparent 50%)",
           }}
         />
         <div className="relative max-w-4xl mx-auto px-6 py-16 text-center">
           <div
             className="inline-block text-xs font-bold tracking-widest uppercase mb-4 px-4 py-1 rounded-full"
-            style={{ background: "#D4822A", color: "#fff" }}
+            style={{ background: "#C4722A", color: "#fff" }}
           >
             Join the Community
           </div>
@@ -79,24 +84,24 @@ export default function NewsletterSignup({
             className="text-4xl md:text-5xl font-bold mb-4 leading-tight"
             style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
-              color: "#FDF6EE",
+              color: "#FAF7F4",
             }}
           >
-            Get Expert Hair Tips
+            Evidence-Based Menopause Guidance
             <br />
-            <span style={{ color: "#F2C4CE" }}>Delivered Weekly</span>
+            <span style={{ color: "#A8D8D0" }}>Delivered Every Monday</span>
           </h2>
           <p
             className="text-lg mb-8 max-w-xl mx-auto"
-            style={{ color: "rgba(253,246,238,0.8)" }}
+            style={{ color: "rgba(250,247,244,0.85)" }}
           >
-            Join thousands of women who receive our curated product reviews,
-            exclusive deals, and expert styling advice every week.
+            Join thousands of women who receive our latest product reviews,
+            clinical research summaries, and stage-specific wellness tips every week.
           </p>
           <div ref={containerRef} className="max-w-md mx-auto" />
           <p
             className="text-xs mt-4"
-            style={{ color: "rgba(253,246,238,0.5)" }}
+            style={{ color: "rgba(250,247,244,0.5)" }}
           >
             No spam, ever. Unsubscribe at any time.
           </p>
@@ -110,15 +115,15 @@ export default function NewsletterSignup({
       <div className={className}>
         <p
           className="font-semibold text-xs mb-3 uppercase tracking-widest"
-          style={{ color: "#D4822A" }}
+          style={{ color: "#C4722A" }}
         >
           The PauseAndFlourish Weekly
         </p>
         <p
           className="text-sm mb-4 leading-relaxed"
-          style={{ color: "rgba(253,246,238,0.7)" }}
+          style={{ color: "rgba(250,247,244,0.7)" }}
         >
-          New reviews every Monday. No spam, ever.
+          New reviews and research every Monday. No spam, ever.
         </p>
         <div ref={containerRef} />
       </div>
@@ -129,16 +134,16 @@ export default function NewsletterSignup({
   return (
     <div
       className={`rounded-sm p-6 ${className}`}
-      style={{ backgroundColor: "#FFF8F0", border: "1px solid #E8DDD0" }}
+      style={{ backgroundColor: "#F5F0EA", border: "1px solid #E8DDD0" }}
     >
       <p
         className="font-semibold text-xs mb-2 uppercase tracking-widest"
-        style={{ color: "#8B1A2F" }}
-      >
-        Stay Updated
+          style={{ color: "#2D7D6F" }}
+        >
+          Stay Informed
       </p>
       <p className="text-sm mb-4 leading-relaxed" style={{ color: "#4A4A4A" }}>
-        Get new reviews and comparisons in your inbox every Monday.
+        Get new menopause product reviews and clinical insights in your inbox every Monday.
       </p>
       <div ref={containerRef} />
     </div>

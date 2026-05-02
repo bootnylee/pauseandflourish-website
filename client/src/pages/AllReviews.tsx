@@ -1,6 +1,6 @@
 // PauseAndFlourish.com - All Reviews Page
-// Design: Bold magazine aesthetic with Burgundy (#8B1A2F) + Amber (#D4822A) + Cream (#FDF6EE)
-// Features: Sidebar FilterPanel (price range + hair type + category) + Sort + Search
+// Design: Bold magazine aesthetic with Burgundy (#2D7D6F) + Amber (#C4722A) + Cream (#FAF7F4)
+// Features: Sidebar FilterPanel (price range + menopause stage + category) + Sort + Search
 
 import { useEffect, useState, useMemo } from "react";
 import { Link } from "wouter";
@@ -11,27 +11,27 @@ import FilterPanel, {
   getDefaultFilters,
   hasActiveFilters,
   applyFilters,
-  HAIR_TYPES,
+  MENOPAUSE_STAGES,
 } from "@/components/FilterPanel";
 import { allProducts, categories } from "@/lib/products";
 import { updateDocumentMeta } from "@/lib/seo";
 import { Search, SlidersHorizontal, X, ChevronDown, Sparkles, ArrowRight } from "lucide-react";
-import { QUIZ_RESULT_KEY } from "@/pages/HairQuiz";
+import { QUIZ_RESULT_KEY } from "@/pages/MenopauseQuiz";
 
 // Hair type meta for the personalized banner
-const HAIR_TYPE_LABELS: Record<string, { label: string; color: string; bg: string; tagline: string }> = {
+const STAGE_LABELS: Record<string, { label: string; color: string; bg: string; tagline: string }> = {
   fine:          { label: "Fine Hair",         color: "#6B4E9B", bg: "#F5F0FF", tagline: "Lightweight formulas that add volume without weighing strands down." },
   thick:         { label: "Thick Hair",        color: "#2C6B2F", bg: "#EDFAEE", tagline: "Rich, moisturizing formulas that tame and smooth thick strands." },
-  curly:         { label: "Curly Hair",        color: "#D4822A", bg: "#FFF8EE", tagline: "Curl-defining products that enhance pattern and fight frizz." },
+  curly:         { label: "Curly Hair",        color: "#C4722A", bg: "#FFF8EE", tagline: "Curl-defining products that enhance pattern and fight frizz." },
   coarse:        { label: "Coarse Hair",       color: "#8B4513", bg: "#FFF5EE", tagline: "Intensive hydration and smoothing treatments for coarse texture." },
   dry:           { label: "Dry Hair",          color: "#C0392B", bg: "#FFF5F5", tagline: "Deep moisture and repair formulas for parched, brittle hair." },
   normal:        { label: "Normal Hair",       color: "#2C6B2F", bg: "#EDFAEE", tagline: "Balanced, everyday essentials that keep your hair at its best." },
-  "color-treated": { label: "Color-Treated Hair", color: "#8B1A2F", bg: "#FFF5F7", tagline: "Color-safe formulas that protect vibrancy and prevent fade." },
+  "color-treated": { label: "Color-Treated Hair", color: "#2D7D6F", bg: "#FFF5F7", tagline: "Color-safe formulas that protect vibrancy and prevent fade." },
 };
 
 // Personalized banner shown at top of reviews when quiz result is saved
-function PicksForYouBanner({ onApplyFilter }: { onApplyFilter: (hairType: string) => void }) {
-  const [savedHairType, setSavedHairType] = useState<string | null>(null);
+function PicksForYouBanner({ onApplyFilter }: { onApplyFilter: (stage: string) => void }) {
+  const [savedStage, setSavedHairType] = useState<string | null>(null);
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
@@ -39,16 +39,16 @@ function PicksForYouBanner({ onApplyFilter }: { onApplyFilter: (hairType: string
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        if (parsed?.primary) setSavedHairType(parsed.primary);
+        if (parsed?.stage) setSavedHairType(parsed?.stage);
       } catch {}
     }
   }, []);
 
-  if (!savedHairType || dismissed || !HAIR_TYPE_LABELS[savedHairType]) return null;
+  if (!savedStage || dismissed || !STAGE_LABELS[savedStage]) return null;
 
-  const meta = HAIR_TYPE_LABELS[savedHairType];
+  const meta = STAGE_LABELS[savedStage];
   const matchCount = allProducts.filter(
-    p => Array.isArray(p.hairTypes) && p.hairTypes.includes(savedHairType)
+    p => Array.isArray(p.stages) && p.stages.includes(savedStage)
   ).length;
 
   return (
@@ -70,9 +70,9 @@ function PicksForYouBanner({ onApplyFilter }: { onApplyFilter: (hairType: string
         </div>
         <div className="flex items-center gap-3 flex-shrink-0">
           <button
-            onClick={() => onApplyFilter(savedHairType)}
+            onClick={() => onApplyFilter(savedStage)}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded font-body font-semibold text-xs transition-all duration-200 hover:opacity-90"
-            style={{ backgroundColor: meta.color, color: "#FDF6EE" }}
+            style={{ backgroundColor: meta.color, color: "#FAF7F4" }}
           >
             Show My Picks <ArrowRight size={12} />
           </button>
@@ -113,7 +113,7 @@ export default function AllReviews() {
     updateDocumentMeta({
       title: "All Hair Product Reviews | PauseAndFlourish",
       description:
-        "Browse all expert hair product reviews across shampoos, conditioners, hair masks, serums, hair dryers, flat irons, and curling irons. Filter by price and hair type.",
+        "Browse all expert hair product reviews across shampoos, conditioners, hair masks, serums, hair dryers, flat irons, and curling irons. Filter by price and menopause stage.",
       canonical: "https://pauseandflourish.com/reviews",
     });
   }, []);
@@ -134,7 +134,7 @@ export default function AllReviews() {
   const activeFilterCount =
     (selectedCategory !== "all" ? 1 : 0) +
     (filters.priceMin > 0 || filters.priceMax < 600 ? 1 : 0) +
-    filters.hairTypes.length;
+    filters.stages.length;
 
   const filtered = useMemo(() => {
     let result = [...allProducts];
@@ -144,7 +144,7 @@ export default function AllReviews() {
       result = result.filter((p) => p.categorySlug === selectedCategory);
     }
 
-    // Price + Hair Type via shared utility
+    // Price + Menopause Stage via shared utility
     result = applyFilters(result, filters);
 
     // Search
@@ -190,8 +190,8 @@ export default function AllReviews() {
   const activeSortLabel =
     SORT_OPTIONS.find((o) => o.id === sortBy)?.label || "Featured";
 
-  function applyHairTypeFilter(hairType: string) {
-    setFilters(prev => ({ ...prev, hairTypes: [hairType] }));
+  function applyStageFilter(stage: string) {
+    setFilters(prev => ({ ...prev, stages: [hairType] }));
     // Scroll to the product grid
     setTimeout(() => {
       const grid = document.getElementById("reviews-grid");
@@ -202,17 +202,17 @@ export default function AllReviews() {
   return (
     <SiteLayout>
       {/* ── Personalized Picks Banner ── */}
-      <PicksForYouBanner onApplyFilter={applyHairTypeFilter} />
+      <PicksForYouBanner onApplyFilter={applyStageFilter} />
 
       {/* ── Page Header ── */}
       <section
         className="py-14 border-b"
-        style={{ borderColor: "#E8DDD0", backgroundColor: "#FFF8F0" }}
+        style={{ borderColor: "#E8DDD0", backgroundColor: "#F5F0EA" }}
       >
         <div className="container">
           <p
             className="font-label font-semibold text-xs mb-2"
-            style={{ color: "#D4822A", letterSpacing: "0.12em", textTransform: "uppercase" }}
+            style={{ color: "#C4722A", letterSpacing: "0.12em", textTransform: "uppercase" }}
           >
             Expert Tested
           </p>
@@ -237,7 +237,7 @@ export default function AllReviews() {
       <div id="reviews-grid" />
       <section
         className="py-4 border-b sticky top-[73px] z-40"
-        style={{ borderColor: "#E8DDD0", backgroundColor: "#FDF6EE" }}
+        style={{ borderColor: "#E8DDD0", backgroundColor: "#FAF7F4" }}
       >
         <div className="container">
           <div className="flex flex-wrap items-center gap-3">
@@ -246,7 +246,7 @@ export default function AllReviews() {
               <Search
                 size={15}
                 className="absolute left-3 top-1/2 -translate-y-1/2"
-                style={{ color: "#8B1A2F" }}
+                style={{ color: "#2D7D6F" }}
               />
               <input
                 type="text"
@@ -277,9 +277,9 @@ export default function AllReviews() {
               onClick={() => setShowMobileFilters((v) => !v)}
               className="lg:hidden flex items-center gap-2 px-4 py-2 text-xs font-label font-semibold rounded-sm border transition-colors"
               style={{
-                borderColor: showMobileFilters ? "#8B1A2F" : "#D4C5B5",
-                backgroundColor: showMobileFilters ? "#8B1A2F" : "transparent",
-                color: showMobileFilters ? "#FDF6EE" : "#8B1A2F",
+                borderColor: showMobileFilters ? "#2D7D6F" : "#D4C5B5",
+                backgroundColor: showMobileFilters ? "#2D7D6F" : "transparent",
+                color: showMobileFilters ? "#FAF7F4" : "#2D7D6F",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
               }}
@@ -289,7 +289,7 @@ export default function AllReviews() {
               {activeFilterCount > 0 && (
                 <span
                   className="ml-1 w-4 h-4 rounded-full text-xs flex items-center justify-center"
-                  style={{ backgroundColor: "#D4822A", color: "#FFF" }}
+                  style={{ backgroundColor: "#C4722A", color: "#FFF" }}
                 >
                   {activeFilterCount}
                 </span>
@@ -323,7 +323,7 @@ export default function AllReviews() {
                       onClick={() => { setSortBy(opt.id); setSortOpen(false); }}
                       className="w-full text-left px-4 py-2.5 text-xs font-label font-semibold hover:bg-amber-50 transition-colors"
                       style={{
-                        color: sortBy === opt.id ? "#8B1A2F" : "#2C2C2C",
+                        color: sortBy === opt.id ? "#2D7D6F" : "#2C2C2C",
                         letterSpacing: "0.06em",
                         textTransform: "uppercase",
                         borderBottom: "1px solid #F0E8DC",
@@ -341,7 +341,7 @@ export default function AllReviews() {
               <button
                 onClick={clearAll}
                 className="flex items-center gap-1 text-xs font-label font-semibold"
-                style={{ color: "#D4822A", letterSpacing: "0.06em", textTransform: "uppercase" }}
+                style={{ color: "#C4722A", letterSpacing: "0.06em", textTransform: "uppercase" }}
               >
                 <X size={12} /> Clear All
               </button>
@@ -359,7 +359,7 @@ export default function AllReviews() {
       {anyActive && (
         <section
           className="py-3 border-b"
-          style={{ borderColor: "#E8DDD0", backgroundColor: "#FFF8F0" }}
+          style={{ borderColor: "#E8DDD0", backgroundColor: "#F5F0EA" }}
         >
           <div className="container">
             <div className="flex flex-wrap items-center gap-2">
@@ -367,7 +367,7 @@ export default function AllReviews() {
               {selectedCategory !== "all" && (
                 <span
                   className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full"
-                  style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}
+                  style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4" }}
                 >
                   {categories.find((c) => c.slug === selectedCategory)?.name}
                   <button onClick={() => setSelectedCategory("all")}><X size={11} /></button>
@@ -376,20 +376,20 @@ export default function AllReviews() {
               {(filters.priceMin > 0 || filters.priceMax < 600) && (
                 <span
                   className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full"
-                  style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}
+                  style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4" }}
                 >
                   ${filters.priceMin}–{filters.priceMax >= 600 ? "$600+" : `$${filters.priceMax}`}
                   <button onClick={() => setFilters(f => ({ ...f, priceMin: 0, priceMax: 600 }))}><X size={11} /></button>
                 </span>
               )}
-              {filters.hairTypes.map((ht) => (
+              {filters.stages.map((ht) => (
                 <span
                   key={ht}
                   className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full"
-                  style={{ backgroundColor: "#D4822A", color: "#FFF" }}
+                  style={{ backgroundColor: "#C4722A", color: "#FFF" }}
                 >
-                  {HAIR_TYPES.find((h) => h.id === ht)?.label}
-                  <button onClick={() => setFilters(f => ({ ...f, hairTypes: f.hairTypes.filter(t => t !== ht) }))}><X size={11} /></button>
+                  {MENOPAUSE_STAGES.find((h) => h.id === ht)?.label}
+                  <button onClick={() => setFilters(f => ({ ...f, stages: f.stages.filter(t => t !== ht) }))}><X size={11} /></button>
                 </span>
               ))}
               {sortBy !== "default" && (
@@ -417,7 +417,7 @@ export default function AllReviews() {
                 <div className="flex items-center justify-between mb-4">
                   <h2
                     className="font-label font-semibold text-xs"
-                    style={{ color: "#8B1A2F", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                    style={{ color: "#2D7D6F", letterSpacing: "0.12em", textTransform: "uppercase" }}
                   >
                     Filter Products
                   </h2>
@@ -425,7 +425,7 @@ export default function AllReviews() {
                     <button
                       onClick={clearAll}
                       className="text-xs font-label font-semibold"
-                      style={{ color: "#D4822A" }}
+                      style={{ color: "#C4722A" }}
                     >
                       Clear All
                     </button>
@@ -466,12 +466,12 @@ export default function AllReviews() {
                     No products found
                   </p>
                   <p className="font-body text-base mb-6" style={{ color: "#6C6C6C" }}>
-                    Try adjusting your price range, hair type, or search terms.
+                    Try adjusting your price range, menopause stage, or search terms.
                   </p>
                   <button
                     onClick={clearAll}
                     className="px-6 py-3 font-label font-semibold text-xs rounded-sm"
-                    style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.1em", textTransform: "uppercase" }}
+                    style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4", letterSpacing: "0.1em", textTransform: "uppercase" }}
                   >
                     Clear All Filters
                   </button>
@@ -482,10 +482,10 @@ export default function AllReviews() {
                   {!anyActive && (
                     <div className="mb-10">
                       <div className="flex items-center gap-3 mb-6">
-                        <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#D4822A" }} />
+                        <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#C4722A" }} />
                         <h2
                           className="font-label font-semibold text-sm"
-                          style={{ color: "#8B1A2F", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                          style={{ color: "#2D7D6F", letterSpacing: "0.12em", textTransform: "uppercase" }}
                         >
                           Editor's Picks
                         </h2>
@@ -497,10 +497,10 @@ export default function AllReviews() {
                       </div>
                       <div className="border-t mb-10" style={{ borderColor: "#E8DDD0" }} />
                       <div className="flex items-center gap-3 mb-6">
-                        <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#8B1A2F" }} />
+                        <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#2D7D6F" }} />
                         <h2
                           className="font-label font-semibold text-sm"
-                          style={{ color: "#8B1A2F", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                          style={{ color: "#2D7D6F", letterSpacing: "0.12em", textTransform: "uppercase" }}
                         >
                           All Reviews
                         </h2>

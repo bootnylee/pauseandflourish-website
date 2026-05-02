@@ -7,11 +7,11 @@ import SiteLayout from "@/components/SiteLayout";
 import ComparisonCard from "@/components/ComparisonCard";
 import { comparisons } from "@/lib/products";
 import { updateDocumentMeta } from "@/lib/seo";
-import { QUIZ_RESULT_KEY } from "@/pages/HairQuiz";
+import { QUIZ_RESULT_KEY } from "@/pages/MenopauseQuiz";
 import { Sparkles, ArrowRight, X, Filter } from "lucide-react";
 
 // Hair type labels
-const HAIR_TYPE_OPTIONS: { id: string; label: string; emoji: string }[] = [
+const STAGE_OPTIONS: { id: string; label: string; emoji: string }[] = [
   { id: "fine",          label: "Fine",          emoji: "🌿" },
   { id: "thick",         label: "Thick",         emoji: "🌳" },
   { id: "curly",         label: "Curly",         emoji: "🌀" },
@@ -21,14 +21,14 @@ const HAIR_TYPE_OPTIONS: { id: string; label: string; emoji: string }[] = [
   { id: "color-treated", label: "Color-Treated", emoji: "🎨" },
 ];
 
-const HAIR_LABELS: Record<string, { label: string; color: string; bg: string }> = {
+const STAGE_LABELS: Record<string, { label: string; color: string; bg: string }> = {
   fine:            { label: "Fine Hair",          color: "#6B4E9B", bg: "#F5F0FF" },
   thick:           { label: "Thick Hair",         color: "#2C6B2F", bg: "#EDFAEE" },
-  curly:           { label: "Curly Hair",         color: "#D4822A", bg: "#FFF8EE" },
+  curly:           { label: "Curly Hair",         color: "#C4722A", bg: "#FFF8EE" },
   coarse:          { label: "Coarse Hair",        color: "#8B4513", bg: "#FFF5EE" },
   dry:             { label: "Dry Hair",           color: "#C0392B", bg: "#FFF5F5" },
   normal:          { label: "Normal Hair",        color: "#2C6B2F", bg: "#EDFAEE" },
-  "color-treated": { label: "Color-Treated Hair", color: "#8B1A2F", bg: "#FFF5F7" },
+  "color-treated": { label: "Color-Treated Hair", color: "#2D7D6F", bg: "#FFF5F7" },
 };
 
 const CATEGORY_OPTIONS = [
@@ -42,7 +42,7 @@ const CATEGORY_OPTIONS = [
 ];
 
 function QuizEntryBanner() {
-  const [savedHairType, setSavedHairType] = useState<string | null>(null);
+  const [savedStage, setSavedHairType] = useState<string | null>(null);
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
@@ -50,16 +50,16 @@ function QuizEntryBanner() {
       const saved = localStorage.getItem(QUIZ_RESULT_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (parsed?.primary) setSavedHairType(parsed.primary);
+        if (parsed?.stage) setSavedHairType(parsed?.stage);
       }
     } catch {}
   }, []);
 
   if (dismissed) return null;
 
-  const meta = savedHairType ? HAIR_LABELS[savedHairType] : null;
+  const meta = savedStage ? STAGE_LABELS[savedStage] : null;
 
-  if (meta && savedHairType) {
+  if (meta && savedStage) {
     return (
       <div className="border-b px-6 py-4" style={{ backgroundColor: meta.bg, borderColor: `${meta.color}33` }}>
         <div className="container flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
@@ -70,7 +70,7 @@ function QuizEntryBanner() {
                 Comparing products for {meta.label}?
               </span>
               <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "#6B5B4E" }}>
-                Use the hair type filter below to surface the most relevant comparisons.
+                Use the menopause stage filter below to surface the most relevant comparisons.
               </span>
             </div>
           </div>
@@ -78,7 +78,7 @@ function QuizEntryBanner() {
             <Link href="/hair-quiz">
               <span
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded font-body font-semibold text-xs transition-all duration-200 hover:opacity-90 cursor-pointer"
-                style={{ backgroundColor: meta.color, color: "#FDF6EE" }}
+                style={{ backgroundColor: meta.color, color: "#FAF7F4" }}
               >
                 View My Profile <ArrowRight size={12} />
               </span>
@@ -98,16 +98,16 @@ function QuizEntryBanner() {
   }
 
   return (
-    <div className="border-b px-6 py-4" style={{ backgroundColor: "#FFF8F0", borderColor: "#E8DDD0" }}>
+    <div className="border-b px-6 py-4" style={{ backgroundColor: "#F5F0EA", borderColor: "#E8DDD0" }}>
       <div className="container flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
         <div className="flex items-center gap-3">
-          <Sparkles size={16} style={{ color: "#8B1A2F", flexShrink: 0 }} />
+          <Sparkles size={16} style={{ color: "#2D7D6F", flexShrink: 0 }} />
           <div>
-            <span className="font-body font-semibold text-sm" style={{ color: "#8B1A2F" }}>
+            <span className="font-body font-semibold text-sm" style={{ color: "#2D7D6F" }}>
               Not sure which product is right for you?
             </span>
             <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "#6B5B4E" }}>
-              Your hair type can help — take our 2-minute quiz to find out.
+              Your menopause stage can help — take our 2-minute quiz to find out.
             </span>
           </div>
         </div>
@@ -115,9 +115,9 @@ function QuizEntryBanner() {
           <Link href="/hair-quiz">
             <span
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded font-body font-semibold text-xs transition-all duration-200 hover:opacity-90 cursor-pointer"
-              style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}
+              style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4" }}
             >
-              Take the Hair Type Quiz <ArrowRight size={12} />
+              Take the Menopause Stage Quiz <ArrowRight size={12} />
             </span>
           </Link>
           <button
@@ -136,7 +136,7 @@ function QuizEntryBanner() {
 
 export default function AllComparisons() {
   const [activeCategory, setActiveCategory] = useState("all");
-  const [activeHairType, setActiveHairType] = useState<string | null>(null);
+  const [activeStage, setActiveHairType] = useState<string | null>(null);
 
   useEffect(() => {
     updateDocumentMeta({
@@ -144,19 +144,19 @@ export default function AllComparisons() {
       description: "Expert head-to-head comparisons of the best hair products and styling tools. Find out which product wins in each category.",
       canonical: "https://pauseandflourish.com/comparisons",
     });
-    // Pre-select hair type from saved quiz result
+    // Pre-select menopause stage from saved quiz result
     try {
       const saved = localStorage.getItem(QUIZ_RESULT_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (parsed?.primary) setActiveHairType(parsed.primary);
+        if (parsed?.stage) setActiveHairType(parsed?.stage);
       }
     } catch {}
   }, []);
 
   const filtered = comparisons.filter(c => {
     const categoryMatch = activeCategory === "all" || c.categorySlug === activeCategory;
-    const hairTypeMatch = !activeHairType || (c.hairTypes && c.hairTypes.includes(activeHairType));
+    const hairTypeMatch = !activeStage || (c.stages && c.stages.includes(activeStage));
     return categoryMatch && hairTypeMatch;
   });
 
@@ -166,7 +166,7 @@ export default function AllComparisons() {
       <QuizEntryBanner />
 
       {/* Header */}
-      <section className="py-16 border-b" style={{ borderColor: "#E8DDD0", backgroundColor: "#FFF8F0" }}>
+      <section className="py-16 border-b" style={{ borderColor: "#E8DDD0", backgroundColor: "#F5F0EA" }}>
         <div className="container">
           <p className="section-label mb-2">Head-to-Head</p>
           <h1 className="font-display font-bold" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2C2C" }}>
@@ -183,30 +183,30 @@ export default function AllComparisons() {
         <div className="container py-4">
           <div className="flex flex-col gap-3">
 
-            {/* Hair Type Filter */}
+            {/* Menopause Stage Filter */}
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-1.5 font-label text-xs font-semibold mr-1" style={{ color: "#8B1A2F", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                <Filter size={11} /> Hair Type
+              <span className="inline-flex items-center gap-1.5 font-label text-xs font-semibold mr-1" style={{ color: "#2D7D6F", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                <Filter size={11} /> Menopause Stage
               </span>
               <button
                 onClick={() => setActiveHairType(null)}
                 className="px-3 py-1.5 rounded-full font-body text-xs font-medium transition-all duration-150"
                 style={
-                  activeHairType === null
-                    ? { backgroundColor: "#8B1A2F", color: "#FDF6EE", border: "1.5px solid #8B1A2F" }
+                  activeStage === null
+                    ? { backgroundColor: "#2D7D6F", color: "#FAF7F4", border: "1.5px solid #2D7D6F" }
                     : { backgroundColor: "transparent", color: "#6B5B4E", border: "1.5px solid #D4C5B5" }
                 }
               >
                 All Types
               </button>
-              {HAIR_TYPE_OPTIONS.map(ht => (
+              {STAGE_OPTIONS.map(ht => (
                 <button
                   key={ht.id}
-                  onClick={() => setActiveHairType(activeHairType === ht.id ? null : ht.id)}
+                  onClick={() => setActiveHairType(activeStage === ht.id ? null : ht.id)}
                   className="px-3 py-1.5 rounded-full font-body text-xs font-medium transition-all duration-150"
                   style={
-                    activeHairType === ht.id
-                      ? { backgroundColor: "#8B1A2F", color: "#FDF6EE", border: "1.5px solid #8B1A2F" }
+                    activeStage === ht.id
+                      ? { backgroundColor: "#2D7D6F", color: "#FAF7F4", border: "1.5px solid #2D7D6F" }
                       : { backgroundColor: "transparent", color: "#6B5B4E", border: "1.5px solid #D4C5B5" }
                   }
                 >
@@ -227,7 +227,7 @@ export default function AllComparisons() {
                   className="px-3 py-1.5 rounded-full font-body text-xs font-medium transition-all duration-150"
                   style={
                     activeCategory === cat.id
-                      ? { backgroundColor: "#3D2B1F", color: "#FDF6EE", border: "1.5px solid #3D2B1F" }
+                      ? { backgroundColor: "#3D2B1F", color: "#FAF7F4", border: "1.5px solid #3D2B1F" }
                       : { backgroundColor: "transparent", color: "#6B5B4E", border: "1.5px solid #D4C5B5" }
                   }
                 >
@@ -245,9 +245,9 @@ export default function AllComparisons() {
           {filtered.length === comparisons.length
             ? `${comparisons.length} comparisons`
             : `${filtered.length} of ${comparisons.length} comparisons`}
-          {activeHairType && (
-            <span style={{ color: "#8B1A2F" }}>
-              {" "}matching <strong>{HAIR_TYPE_OPTIONS.find(h => h.id === activeHairType)?.label} Hair</strong>
+          {activeStage && (
+            <span style={{ color: "#2D7D6F" }}>
+              {" "}matching <strong>{STAGE_OPTIONS.find(h => h.id === activeStage)?.label} Hair</strong>
             </span>
           )}
           {activeCategory !== "all" && (
@@ -274,7 +274,7 @@ export default function AllComparisons() {
               <button
                 onClick={() => { setActiveCategory("all"); setActiveHairType(null); }}
                 className="px-5 py-2.5 rounded font-body font-semibold text-sm transition-all hover:opacity-90"
-                style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}
+                style={{ backgroundColor: "#2D7D6F", color: "#FAF7F4" }}
               >
                 Clear All Filters
               </button>

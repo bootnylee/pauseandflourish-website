@@ -6,55 +6,57 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Sparkles } from "lucide-react";
 import NewsletterSignup from "./NewsletterSignup";
-import { QUIZ_RESULT_KEY } from "../pages/HairQuiz";
+import { QUIZ_RESULT_KEY } from "../pages/MenopauseQuiz";
 
-const HAIR_TYPE_LABELS: Record<string, string> = {
-  fine: "Fine Hair", thick: "Thick Hair", curly: "Curly Hair",
-  coarse: "Coarse Hair", dry: "Dry Hair", normal: "Normal Hair",
-  "color-treated": "Color-Treated",
+const STAGE_LABELS: Record<string, string> = {
+  "early-perimenopause": "Early Perimenopause",
+  "late-perimenopause": "Late Perimenopause",
+  "active-menopause": "Active Menopause",
+  "early-postmenopause": "Early Postmenopause",
+  "late-postmenopause": "Late Postmenopause",
 };
 
-const navHairTypes = [
-  { label: "Fine Hair", href: "/hair-type/fine" },
-  { label: "Thick Hair", href: "/hair-type/thick" },
-  { label: "Curly Hair", href: "/hair-type/curly" },
-  { label: "Coarse Hair", href: "/hair-type/coarse" },
-  { label: "Dry Hair", href: "/hair-type/dry" },
-  { label: "Normal Hair", href: "/hair-type/normal" },
-  { label: "Color-Treated", href: "/hair-type/color-treated" },
+const navStages = [
+  { label: "Early Perimenopause", href: "/stage/early-perimenopause" },
+  { label: "Late Perimenopause", href: "/stage/late-perimenopause" },
+  { label: "Active Menopause", href: "/stage/active-menopause" },
+  { label: "Early Postmenopause", href: "/stage/early-postmenopause" },
+  { label: "Late Postmenopause", href: "/stage/late-postmenopause" },
 ];
 
 const navCategories = [
-  { label: "Shampoo & Conditioner", href: "/category/shampoo-conditioner" },
-  { label: "Hair Masks & Treatments", href: "/category/hair-masks" },
-  { label: "Serums & Oils", href: "/category/serums-oils" },
-  { label: "Hair Dryers", href: "/category/hair-dryers" },
-  { label: "Flat Irons", href: "/category/flat-irons" },
-  { label: "Curling Irons & Wands", href: "/category/curling-irons" },
+  { label: "Multi-Symptom Supplements", href: "/category/multi-symptom-supplements" },
+  { label: "Sleep & Mood Support", href: "/category/sleep-mood-support" },
+  { label: "Hot Flash & Cooling", href: "/category/hot-flash-cooling" },
+  { label: "Bone & Joint Health", href: "/category/bone-joint-health" },
+  { label: "Vaginal & Intimate Health", href: "/category/vaginal-intimate-health" },
+  { label: "Menopause Skincare", href: "/category/menopause-skincare" },
+  { label: "Fitness & Pelvic Health", href: "/category/fitness-pelvic-health" },
+  { label: "Cognitive & Energy Support", href: "/category/cognitive-energy-support" },
 ];
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
-  const [hairTypeOpen, setHairTypeOpen] = useState(false);
+  const [stagesOpen, setStagesOpen] = useState(false);
   const [location] = useLocation();
-  const [savedHairType, setSavedHairType] = useState<string | null>(null);
+  const [savedStage, setSavedStage] = useState<string | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem(QUIZ_RESULT_KEY);
     if (saved) {
       try {
         const data = JSON.parse(saved);
-        setSavedHairType(data.primary || null);
+        setSavedStage(data.stage || null);
       } catch {}
     }
     // Listen for storage changes (e.g. quiz completed in same tab)
     const onStorage = () => {
       const s = localStorage.getItem(QUIZ_RESULT_KEY);
       if (s) {
-        try { setSavedHairType(JSON.parse(s).primary || null); } catch {}
+        try { setSavedStage(JSON.parse(s).stage || null); } catch {}
       } else {
-        setSavedHairType(null);
+        setSavedStage(null);
       }
     };
     window.addEventListener("storage", onStorage);
@@ -62,7 +64,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FDF6EE" }}>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FAF7F4" }}>
       {/* Affiliate Disclosure Banner */}
       <div style={{ backgroundColor: "#2C2C2C", color: "#FDF6EE" }} className="text-center py-2 px-4">
         <p className="font-body text-xs" style={{ letterSpacing: "0.03em" }}>
@@ -72,18 +74,18 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b" style={{ backgroundColor: "#FDF6EE", borderColor: "#E8DDD0" }}>
+      <header className="sticky top-0 z-50 border-b" style={{ backgroundColor: "#FAF7F4", borderColor: "#E8DDD0" }}>
         {/* Top bar */}
         <div className="container">
           <div className="flex items-center justify-between py-4">
             {/* Logo */}
             <Link href="/">
               <div className="flex flex-col cursor-pointer">
-                <span className="font-display font-bold leading-none" style={{ fontSize: "1.8rem", color: "#8B1A2F", letterSpacing: "-0.01em" }}>
+                <span className="font-display font-bold leading-none" style={{ fontSize: "1.8rem", color: "#2D7D6F", letterSpacing: "-0.01em" }}>
                   PauseAndFlourish
                 </span>
                 <span className="font-label" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: "#B8A99A", textTransform: "uppercase" }}>
-                  Hair Care Reviews & Recommendations
+                  Menopause Wellness Reviews & Guidance
                 </span>
               </div>
             </Link>
@@ -117,18 +119,18 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                   </div>
                 )}
               </div>
-              {/* Hair Type Dropdown */}
+              {/* My Journey Dropdown */}
               <div className="relative"
-                onMouseEnter={() => setHairTypeOpen(true)}
-                onMouseLeave={() => setHairTypeOpen(false)}
+                onMouseEnter={() => setStagesOpen(true)}
+                onMouseLeave={() => setStagesOpen(false)}
               >
                 <button className="nav-link flex items-center gap-1">
-                  Hair Type <ChevronDown size={12} />
+                  My Journey <ChevronDown size={12} />
                 </button>
-                {hairTypeOpen && (
+                {stagesOpen && (
                   <div className="absolute top-full left-0 mt-1 w-52 bg-white border shadow-lg z-50"
                     style={{ borderColor: "#E8DDD0" }}>
-                {navHairTypes.map(ht => (
+                {navStages.map(ht => (
                   <Link key={ht.href} href={ht.href}>
                     <div className="px-4 py-2.5 hover:bg-amber-50 font-body text-sm cursor-pointer"
                       style={{ color: "#2C2C2C", borderBottom: "1px solid #F5EBE0" }}>
@@ -136,33 +138,33 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                     </div>
                   </Link>
                 ))}
-                <Link href="/hair-quiz">
+                <Link href="/quiz">
                   <div className="px-4 py-2.5 font-body text-sm font-semibold cursor-pointer"
-                    style={{ color: "#8B1A2F", backgroundColor: "#FFF5F7" }}>
-                    Not sure? Take the Quiz
+                    style={{ color: "#2D7D6F", backgroundColor: "#FFF5F7" }}>
+                    Take the Stage Quiz →
                   </div>
                 </Link>
                   </div>
                 )}
               </div>
-              {savedHairType ? (
-                <Link href="/hair-quiz">
+              {savedStage ? (
+                <Link href="/quiz">
                   <span
                     className="inline-flex items-center gap-1.5 font-body font-semibold px-3 py-1.5 rounded transition-all duration-200 hover:opacity-90"
-                    style={{ backgroundColor: "#FFF5E6", color: "#8B1A2F", border: "1.5px solid #D4822A", fontSize: "0.78rem", letterSpacing: "0.03em" }}
-                    title="Your saved hair type — click to view your quiz results"
+                    style={{ backgroundColor: "#FFF5E6", color: "#2D7D6F", border: "1.5px solid #D4822A", fontSize: "0.78rem", letterSpacing: "0.03em" }}
+                    title="Your saved menopause stage — click to view your results"
                   >
-                    <Sparkles size={12} style={{ color: "#D4822A" }} />
-                    {HAIR_TYPE_LABELS[savedHairType] ?? "My Hair Type"}
+                    <Sparkles size={12} style={{ color: "#7ECEC4" }} />
+                    {STAGE_LABELS[savedStage] ?? "My Stage"}
                   </span>
                 </Link>
               ) : (
-                <Link href="/hair-quiz">
+                <Link href="/quiz">
                   <span
                     className="nav-link font-semibold px-3 py-1.5 rounded transition-all duration-200"
-                    style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.04em", fontSize: "0.78rem" }}
+                    style={{ backgroundColor: "#2D7D6F", color: "#FDF6EE", letterSpacing: "0.04em", fontSize: "0.78rem" }}
                   >
-                    Hair Quiz
+                    Stage Quiz
                   </span>
                 </Link>
               )}
@@ -177,14 +179,14 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
-              {mobileOpen ? <X size={24} style={{ color: "#8B1A2F" }} /> : <Menu size={24} style={{ color: "#8B1A2F" }} />}
+              {mobileOpen ? <X size={24} style={{ color: "#2D7D6F" }} /> : <Menu size={24} style={{ color: "#2D7D6F" }} />}
             </button>
           </div>
         </div>
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden border-t" style={{ borderColor: "#E8DDD0", backgroundColor: "#FDF6EE" }}>
+          <div className="lg:hidden border-t" style={{ borderColor: "#E8DDD0", backgroundColor: "#FAF7F4" }}>
             <div className="container py-4 flex flex-col gap-4">
               <Link href="/reviews" onClick={() => setMobileOpen(false)}>
                 <span className="nav-link block py-2">Reviews</span>
@@ -201,17 +203,17 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 ))}
               </div>
               <div className="border-t pt-2" style={{ borderColor: "#E8DDD0" }}>
-                <p className="section-label mb-2">By Hair Type</p>
-                {navHairTypes.map(ht => (
+                <p className="section-label mb-2">My Journey</p>
+                {navStages.map(ht => (
                   <Link key={ht.href} href={ht.href} onClick={() => setMobileOpen(false)}>
                     <div className="py-1.5 font-body text-sm" style={{ color: "#2C2C2C" }}>{ht.label}</div>
                   </Link>
                 ))}
               </div>
-              <Link href="/hair-quiz" onClick={() => setMobileOpen(false)}>
+              <Link href="/quiz" onClick={() => setMobileOpen(false)}>
                 <div className="py-2.5 px-4 rounded font-body text-sm font-semibold my-1"
-                  style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}>
-                  Take the Hair Type Quiz
+                  style={{ backgroundColor: "#2D7D6F", color: "#FDF6EE" }}>
+                  Take the Stage Quiz
                 </div>
               </Link>
               <Link href="/about" onClick={() => setMobileOpen(false)}>
@@ -233,11 +235,11 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Brand */}
             <div className="md:col-span-2">
-              <span className="font-display font-bold" style={{ fontSize: "1.6rem", color: "#F2C4CE" }}>
+              <span className="font-display font-bold" style={{ fontSize: "1.6rem", color: "#7ECEC4" }}>
                 PauseAndFlourish
               </span>
               <p className="font-body text-sm mt-3 leading-relaxed" style={{ color: "#B8A99A" }}>
-                Expert hair product reviews and recommendations for women. We test every product so you don't have to.
+                Expert menopause and perimenopause product reviews for women navigating the transition. We research the evidence so you can make confident decisions.
               </p>
               <p className="font-body text-xs mt-4" style={{ color: "#8C8C8C" }}>
                 PauseAndFlourish is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.
@@ -246,15 +248,15 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
 
             {/* Product Categories */}
             <div>
-              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "#D4822A" }}>
-                Hair Products
+              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "#7ECEC4" }}>
+                Product Categories
               </p>
               <div className="flex flex-col gap-2">
                 <Link href="/category/shampoo-conditioner">
                   <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Shampoo & Conditioner</span>
                 </Link>
-                <Link href="/category/hair-masks">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Hair Masks & Treatments</span>
+                <Link href="/category/sleep-mood-support">
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Sleep & Mood Support</span>
                 </Link>
                 <Link href="/category/serums-oils">
                   <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Serums & Oils</span>
@@ -262,14 +264,14 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               </div>
             </div>
 
-            {/* Styling Tools */}
+            {/* My Journey */}
             <div>
-              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "#D4822A" }}>
-                Styling Tools
+              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "#7ECEC4" }}>
+                My Journey
               </p>
               <div className="flex flex-col gap-2">
-                <Link href="/category/hair-dryers">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Hair Dryers</span>
+                <Link href="/category/hot-flash-cooling">
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Hot Flash & Cooling</span>
                 </Link>
                 <Link href="/category/flat-irons">
                   <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Flat Irons</span>
@@ -292,22 +294,22 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               © {new Date().getFullYear()} PauseAndFlourish.com - All rights reserved.
             </p>
             <div className="flex gap-6 items-center">
-              <Link href="/hair-quiz">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "#D4822A" }}>Hair Quiz</span>
+              <Link href="/quiz">
+                <span className="font-body text-xs cursor-pointer" style={{ color: "#7ECEC4" }}>Stage Quiz</span>
               </Link>
               <Link href="/about">
                 <span className="font-body text-xs cursor-pointer" style={{ color: "#8C8C8C" }}>About</span>
               </Link>
               <a href="mailto:hello@pauseandflourish.com" className="font-body text-xs" style={{ color: "#8C8C8C" }}>Contact</a>
-              {savedHairType && (
+              {savedStage && (
                 <button
                   onClick={() => {
                     localStorage.removeItem(QUIZ_RESULT_KEY);
-                    setSavedHairType(null);
+                    setSavedStage(null);
                   }}
                   className="font-body text-xs cursor-pointer transition-colors hover:text-white"
                   style={{ color: "#8C8C8C", background: "none", border: "none", padding: 0 }}
-                  title="Remove your saved hair type profile"
+                  title="Remove your saved stage profile"
                 >
                   Clear My Profile
                 </button>
