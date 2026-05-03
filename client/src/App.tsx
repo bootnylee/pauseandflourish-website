@@ -13,6 +13,7 @@ import AllComparisons from "./pages/AllComparisons";
 import About from "./pages/About";
 import MenopauseStagePage from "./pages/MenopauseStagePage";
 import MenopauseQuiz from "./pages/MenopauseQuiz";
+import NewsAndArticles from "./pages/NewsAndArticles";
 
 function Router() {
   return (
@@ -26,6 +27,7 @@ function Router() {
       <Route path="/comparison/:slug" component={ComparisonPage} />
       <Route path="/stage/:slug" component={MenopauseStagePage} />
       <Route path="/quiz" component={MenopauseQuiz} />
+      <Route path="/news-and-articles" component={NewsAndArticles} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

@@ -98,6 +98,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               <Link href="/comparisons">
                 <span className="nav-link">Comparisons</span>
               </Link>
+              <Link href="/news-and-articles">
+                <span className="nav-link">News &amp; Articles</span>
+              </Link>
               <div className="relative"
                 onMouseEnter={() => setCategoriesOpen(true)}
                 onMouseLeave={() => setCategoriesOpen(false)}
@@ -193,6 +196,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               </Link>
               <Link href="/comparisons" onClick={() => setMobileOpen(false)}>
                 <span className="nav-link block py-2">Comparisons</span>
+              </Link>
+              <Link href="/news-and-articles" onClick={() => setMobileOpen(false)}>
+                <span className="nav-link block py-2">News &amp; Articles</span>
               </Link>
               <div className="border-t pt-2" style={{ borderColor: "#D4EBE7" }}>
                 <p className="section-label mb-2">Categories</p>
@@ -300,6 +306,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               © {new Date().getFullYear()} PauseAndFlourish.com - All rights reserved.
             </p>
             <div className="flex gap-6 items-center">
+              <Link href="/news-and-articles">
+                <span className="font-body text-xs cursor-pointer" style={{ color: "#7ECEC4" }}>News &amp; Articles</span>
+              </Link>
               <Link href="/quiz">
                 <span className="font-body text-xs cursor-pointer" style={{ color: "#7ECEC4" }}>Stage Quiz</span>
               </Link>
