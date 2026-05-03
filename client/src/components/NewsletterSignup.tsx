@@ -114,7 +114,7 @@ export default function NewsletterSignup({
       <div className={className}>
         <p
           className="font-semibold text-xs mb-3 uppercase tracking-widest"
-          style={{ color: "#C4722A" }}
+          style={{ color: "#2D7D6F" }}
         >
           The PauseAndFlourish Weekly
         </p>
