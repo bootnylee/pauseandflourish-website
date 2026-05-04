@@ -1141,7 +1141,6 @@ export const comparisons: Comparison[] = [
     id: "pure-encapsulations-vs-natrol-sleep",
     slug: "pure-encapsulations-vs-natrol-sleep",
     title: "Pure Encapsulations Magnesium vs. Natrol Melatonin",
-    slug: "pure-encapsulations-vs-natrol-sleep",
     subtitle: "Mineral Relaxation vs. Sleep Hormone",
     category: "Sleep & Mood Support",
     categorySlug: "sleep-mood-support",
