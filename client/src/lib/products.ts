@@ -239,7 +239,7 @@ export const allProducts: Product[] = [
     price: "$39.99",
     rating: 4.1,
     reviewCount: 2341,
-    heroImage: "https://m.media-amazon.com/images/I/611R8Jct43L._AC_SL1500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/71YyP9YyKqL._AC_SL1500_.jpg",
     summary: "Relizen uses a proprietary Swedish pollen extract (Sérélys) that is hormone-free and clinically shown to reduce hot flash frequency by up to 65% in 12 weeks.",
     pros: [
       "Hormone-free pollen extract — unique mechanism of action",
@@ -508,7 +508,7 @@ export const allProducts: Product[] = [
     price: "$16.99",
     rating: 4.7,
     reviewCount: 22841,
-    heroImage: "https://m.media-amazon.com/images/I/81ZSh6JO+xL._AC_SL1500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/81x4YxXG4aL._AC_SL1500_.jpg",
     summary: "Citracal Petites uses calcium citrate — the most bioavailable form of calcium — combined with vitamin D3 for optimal absorption. The small tablet size makes it easy to take consistently.",
     pros: [
       "Calcium citrate — absorbed with or without food",
@@ -1107,6 +1107,51 @@ export const comparisons: Comparison[] = [
     verdict: "Alpha GPC wins for targeted brain fog relief via acetylcholine support; Rhodiola wins for stress-driven fatigue and mental performance under pressure.",
     publishDate: "2026-05-02",
   },
+,
+
+  {
+    id: "equelle-vs-estroven",
+    slug: "equelle-vs-estroven",
+    title: "EQUELLE vs. Estroven Complete for Menopause Relief",
+    subtitle: "Plant-based S-Equol vs. Rhapontic Maca Root",
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    productIds: ["equelle-menopause", "estroven-complete"],
+    winner: "equelle-menopause",
+    winnerReason: "EQUELLE's unique S-Equol formulation provides targeted relief for hot flashes and muscle aches with strong clinical backing.",
+    summary: "Both supplements offer non-hormonal relief for menopause symptoms. Estroven is more budget-friendly and uses Rhapontic Maca, while EQUELLE uses a proprietary plant-based S-Equol that mimics estrogen's positive effects without the risks.",
+    verdict: "For women who can metabolize S-Equol or are looking for a premium, highly-targeted supplement, EQUELLE is the winner. Estroven remains a excellent budget alternative.",
+    publishDate: "2026-05-04"
+  },
+  {
+    id: "weleda-vs-neutrogena-skincare",
+    slug: "weleda-vs-neutrogena-skincare",
+    title: "Weleda Menopause Night Cream vs. Neutrogena Rapid Firming",
+    subtitle: "Natural Nourishment vs. Peptide Power",
+    category: "Menopause Skincare",
+    categorySlug: "menopause-skincare",
+    productIds: ["weleda-menopause-night-cream", "neutrogena-rapid-firming"],
+    winner: "neutrogena-rapid-firming",
+    winnerReason: "Neutrogena's peptide complex offers more noticeable firming results for collagen-depleted skin.",
+    summary: "Weleda provides deep, natural hydration using evening primrose oil, which is excellent for dry menopausal skin. Neutrogena focuses on restoring elasticity and firmness using a patented peptide formula.",
+    verdict: "If your primary concern is dryness and you prefer natural ingredients, Weleda is fantastic. However, for targeting sagging and loss of firmness, Neutrogena Rapid Firming takes the lead.",
+    publishDate: "2026-05-04"
+  },
+  {
+    id: "pure-encapsulations-vs-natrol-sleep",
+    slug: "pure-encapsulations-vs-natrol-sleep",
+    title: "Pure Encapsulations Magnesium vs. Natrol Melatonin",
+    slug: "pure-encapsulations-vs-natrol-sleep",
+    subtitle: "Mineral Relaxation vs. Sleep Hormone",
+    category: "Sleep & Mood Support",
+    categorySlug: "sleep-mood-support",
+    productIds: ["pure-encapsulations-magnesium", "natrol-melatonin-10mg"],
+    winner: "pure-encapsulations-magnesium",
+    winnerReason: "Magnesium provides broader benefits for menopause, including mood support and bone health, without the grogginess sometimes associated with melatonin.",
+    summary: "Sleep disturbances are common in menopause. Natrol Melatonin offers a direct approach to initiating sleep, while Pure Encapsulations Magnesium Glycinate helps calm the nervous system and supports overall relaxation.",
+    verdict: "Magnesium is a foundational mineral that many menopausal women lack, making it the better overall choice for sustained sleep and mood support.",
+    publishDate: "2026-05-04"
+  }
 ];
 
 /** Get a product by its id field (used by ComparisonCard and comparison pages) */
