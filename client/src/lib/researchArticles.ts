@@ -802,13 +802,70 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "RCT",
     "stage_id": "late-perimenopause",
     "date_added": "2026-05-03"
+  },
+
+  {
+    "id": "article-078",
+    "citation": "Gibson CJ, Ajmera M, O'Sullivan F, Shiozawa A, Lozano-Ortega G, Badillo E, Venkataraman M, Mancuso S. A Systematic Review of Anxiety and Depressive Symptoms Among Women Experiencing Vasomotor Symptoms Across Reproductive Stages in the US. Int J Womens Health. 2025 Feb 27;17:537-552. doi:10.2147/IJWH.S491640.",
+    "headline": "Hot Flashes and Night Sweats Strongly Linked to Anxiety and Depression.",
+    "takeaway": "Vasomotor symptoms (hot flashes and night sweats) are strongly and consistently associated with depressive symptoms and anxiety. Women with more frequent and severe hot flashes had higher rates of depression (up to 58%) and anxiety (up to 52%), with the worst anxiety seen in those who also had sleep disturbances.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40034973/",
+    "study_type": "Systematic Review",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-05-04"
+  },
+  {
+    "id": "article-079",
+    "citation": "Marjoribanks J, Farquhar C, Roberts H, Lethaby A, Lee J. Long-term hormone therapy for perimenopausal and postmenopausal women. Cochrane Database Syst Rev. 2025;4:CD004143. doi:10.1002/14651858.CD004143.pub6.",
+    "headline": "Updated Cochrane Review Clarifies Benefits and Risks of Long-Term Hormone Therapy.",
+    "takeaway": "This updated Cochrane review confirms that oestrogen-only hormone therapy reduces fracture risk and probably has little effect on coronary events, but likely increases stroke and gallbladder disease risk. Combined hormone therapy probably increases breast cancer risk and may raise thromboembolism risk. Decisions should be individualized based on a woman's symptom burden and risk profile.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41307293/",
+    "study_type": "Systematic Review",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-05-04"
+  },
+  {
+    "id": "article-080",
+    "citation": "Anekwe CV, Cano A, Mulligan J, et al. The role of lifestyle medicine in menopausal health: a review of non-pharmacologic interventions. Climacteric. 2025;28(3):221-232. doi:10.1080/13697137.2025.2462978.",
+    "headline": "Lifestyle Medicine Reduces Hot Flashes, Improves Sleep, and Supports Healthy Weight at Menopause.",
+    "takeaway": "Non-pharmacologic lifestyle interventions — including exercise, nutrition, stress management, and sleep hygiene — were associated with reductions in vasomotor symptoms, improved sleep quality, better mental well-being, healthier weight, and reduced cardiometabolic and osteoporosis risk. Multidisciplinary, person-centered approaches improved adherence and outcomes.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40937901/",
+    "study_type": "Review",
+    "stage_id": "active-menopause",
+    "date_added": "2026-05-04"
+  },
+  {
+    "id": "article-081",
+    "citation": "Nasr AM, Saad MA, Mohamed AS, et al. Efficacy of CO2 laser vs vaginal estrogen in perimenopausal women with genitourinary syndrome of menopause: systematic review and meta-analysis. J Sex Med. 2025;22(7):1123-1134. doi:10.1093/jsxmed/qdaf073.",
+    "headline": "CO2 Laser and Vaginal Estrogen Show Similar Effectiveness for Vaginal Dryness and Sexual Health.",
+    "takeaway": "A systematic review and meta-analysis found no statistically significant difference between CO2 fractional laser therapy and vaginal estrogen for treating genitourinary syndrome of menopause (GSM), including vaginal dryness, sexual function, and urinary symptoms. Both treatments are effective options, and choice should be guided by patient preference and clinical context.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40622331/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-05-04"
+  },
+  {
+    "id": "article-082",
+    "citation": "Bontempo S, Yeganeh L, Giri R, Vincent AJ. Use of MHT in women with cardiovascular disease: a systematic review and meta-analysis. Climacteric. 2024;27(1):15-24. doi:10.1080/13697137.2023.2268519.",
+    "headline": "Hormone Therapy Does Not Reduce Heart Attack or Stroke Risk in Women With Existing Cardiovascular Disease.",
+    "takeaway": "This meta-analysis found no significant benefit of menopausal hormone therapy (MHT) for secondary prevention of cardiovascular disease. There was no difference between MHT users and non-users in rates of non-fatal heart attack, cardiovascular death, or stroke. MHT should not be prescribed for cardiovascular protection in women who already have heart disease.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/37933495/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-05-04"
+  },
+  {
+    "id": "article-083",
+    "citation": "Melville M, He L, Desai R, et al. Menopause hormone therapy and risk of mild cognitive impairment or dementia: a systematic review and meta-analysis. Lancet Healthy Longev. 2025 Dec;6(12):100803. doi:10.1016/j.lanhl.2025.100803.",
+    "headline": "Hormone Therapy Neither Prevents Nor Causes Dementia, Large Review Finds.",
+    "takeaway": "A systematic review and meta-analysis of over 1 million participants found no significant association between menopausal hormone therapy (MHT) and risk of mild cognitive impairment or dementia. This applies regardless of MHT type, duration, or timing. MHT should not be prescribed or avoided specifically for dementia prevention; decisions should be based on symptom management and individual risk.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41448220/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "general",
+    "date_added": "2026-05-04"
   }
 ];
 
 export function getArticlesByStage(stageId: ArticleStageId): ResearchArticle[] {
   return researchArticles.filter(a => a.stage_id === stageId);
-}
-
-export function getAllArticlesSorted(): ResearchArticle[] {
-  return [...researchArticles].sort((a, b) => b.date_added.localeCompare(a.date_added));
 }
