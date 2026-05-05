@@ -264,8 +264,7 @@ export default function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {categories.map(cat => (
               <Link key={cat.id} href={`/category/${cat.slug}`}>
-                <div className="p-5 rounded-sm cursor-pointer transition-all hover:shadow-md group border" style={{ backgroundColor: cat.bg, borderColor: `${cat.color}33` }}>
-                  <span className="text-2xl mb-3 block">{cat.icon}</span>
+                <div className="p-5 rounded-sm cursor-pointer transition-all hover:shadow-md group border flex flex-col justify-between" style={{ backgroundColor: cat.bg, borderColor: `${cat.color}33`, minHeight: "96px" }}>
                   <p className="font-display font-semibold leading-tight mb-1" style={{ fontSize: "0.95rem", color: "#2C2C2C" }}>{cat.name}</p>
                   <p className="font-body text-xs leading-relaxed" style={{ color: "#8C8C8C" }}>{cat.description.split(" ").slice(0, 8).join(" ")}...</p>
                 </div>

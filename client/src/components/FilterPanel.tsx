@@ -286,7 +286,7 @@ export default function FilterPanel({
                   style={{ color: active ? TEAL : "#4A4A4A" }}
                   onClick={() => toggleStage(stage.id)}
                 >
-                  {stage.icon} {stage.label}
+                  {stage.label}
                 </span>
               </label>
             );
