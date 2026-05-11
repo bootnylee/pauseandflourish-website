@@ -863,7 +863,69 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "Meta-Analysis",
     "stage_id": "general",
     "date_added": "2026-05-04"
+  },
+
+  {
+    "id": "article-084",
+    "citation": "Wang S, Bai L, Zhu P, Wang H, Zhou E, Jing M, Fu S, Lyu Q, Bai T. A network meta-analysis of acupuncture therapy for female insomnia and negative emotions from the perspective of the perimenopausal window. Frontiers in neurology. 2025;16:1726927. doi:10.3389/fneur.2025.1726927",
+    "headline": "Acupuncture May Ease Perimenopause Sleep and Mood",
+    "takeaway": "This network meta-analysis found that several acupuncture combinations were associated with improved sleep scores and reduced negative emotions in perimenopausal women. The findings suggest acupuncture may be a supportive, non-drug option for sleep and mood symptoms, although treatment choice should be discussed with a qualified clinician.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41659976/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-05-11"
+  },
+  {
+    "id": "article-085",
+    "citation": "Furey RT, Thomas EHX, Kulkarni J, Gurvich C. Subjective versus objective cognition during menopause: A systematic review and meta-analysis. Journal of the International Neuropsychological Society : JINS. 2025;31(5-6):459-477. doi:10.1017/S1355617725101306",
+    "headline": "Brain Fog May Not Match Test Scores",
+    "takeaway": "This systematic review and meta-analysis found only a small association between self-reported cognitive concerns and objective learning-efficiency measures during peri- and postmenopause. For women experiencing brain fog, the evidence reinforces that symptoms are real but may need better assessment tools than standard cognitive tests alone.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41122799/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-05-11"
+  },
+  {
+    "id": "article-086",
+    "citation": "Corrêa AB, Bardella MDC, da Silva AP, Moreira MM, Leite LFPA, de Moraes C. Effect of physical activity on sleep in women experiencing vasomotor symptoms during menopause: a systematic review and meta-analysis. Maturitas. 2025;198:108271. doi:10.1016/j.maturitas.2025.108271",
+    "headline": "Exercise Has Mixed Sleep Benefits During Menopause",
+    "takeaway": "This meta-analysis of randomized trials found that physical activity did not meaningfully improve overall sleep quality or insomnia in women with hot flashes and night sweats, though small improvements in sleep problems were observed. Exercise remains important for broader menopausal health, but sleep plans may need to be tailored by activity type, timing, intensity, and symptom pattern.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40288155/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "active-menopause",
+    "date_added": "2026-05-11"
+  },
+  {
+    "id": "article-087",
+    "citation": "Walter F, Schalla J, Bloch W, Diel P, Geisler S, Isenmann E. Analysis of the Additive Effects of Nutritional Strategies in Strength Training Interventions on Body Composition, Muscle Strength and Bone Mineral Density in Postmenopausal Women: A Systematic Review. Sports medicine - open. 2026;12(1):5. doi:10.1186/s40798-025-00954-2",
+    "headline": "Strength Training Supports Postmenopause Bone Health",
+    "takeaway": "This systematic review found that structured strength training consistently improved body composition, muscle strength, and bone mineral density in postmenopausal women. Added nutrition strategies such as calorie restriction or adequate protein may help body composition, but evidence is not yet strong enough to make specific supplement recommendations.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41535482/",
+    "study_type": "Systematic Review",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-05-11"
+  },
+  {
+    "id": "article-088",
+    "citation": "Lambrinoudaki I, Armeni E, Milli N, Anagnostis P. Then and Now: What We Have Learned From the WHI. The Journal of clinical endocrinology and metabolism. 2026;111(4):e974-e994. doi:10.1210/clinem/dgaf638",
+    "headline": "WHI Clarifies Timing for Hormone Therapy",
+    "takeaway": "This review of Women’s Health Initiative evidence emphasizes that hormone therapy benefits and risks vary by timing, formulation, and personal risk factors. It highlights fracture-risk reduction, the importance of cardiovascular timing, and greater dementia risk when therapy is initiated later in older postmenopausal women.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41379766/",
+    "study_type": "Review",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-05-11"
+  },
+  {
+    "id": "article-089",
+    "citation": "Panay N, Fenton A, Hamoda H, Hillard T, Islam R, Pedder H, Romero L, Vincent AJ, IMS Recommendations Writing Group. International Menopause Society (IMS) recommendations and key messages on women's midlife health and menopause. Climacteric : the journal of the International Menopause Society. 2025;28(6):634-656. doi:10.1080/13697137.2025.2585487",
+    "headline": "Global Menopause Guidance Updates Care Priorities",
+    "takeaway": "The International Menopause Society issued updated recommendations and key messages based on a systematic review process and GRADE-style evidence appraisal. The guidance supports individualized menopause care across symptoms, hormone therapy, and midlife health priorities, helping readers frame conversations with their healthcare clinician.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41433054/",
+    "study_type": "Review",
+    "stage_id": "general",
+    "date_added": "2026-05-11"
   }
+
 ];
 
 export function getArticlesByStage(stageId: ArticleStageId): ResearchArticle[] {
