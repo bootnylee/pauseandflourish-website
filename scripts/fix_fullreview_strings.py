@@ -1,0 +1,21 @@
+from pathlib import Path
+
+path = Path('/home/ubuntu/pauseandflourish/client/src/lib/products.ts')
+text = path.read_text()
+
+reviews = {
+    'opositiv-meno-vitamins': "O Positiv MENO is designed for the woman who does not want to assemble a supplement stack one bottle at a time. Instead of relying on a single botanical, it combines black cohosh for vasomotor symptoms with KSM-66 ashwagandha for stress resilience and mood support, plus complementary herbs often used in women's health formulas.\n\nThe most practical advantage is symptom breadth. Many women in late perimenopause and active menopause are not dealing with hot flashes in isolation; the same hormonal transition can affect mood, sleep continuity, and perceived stress. MENO's positioning makes sense for that cluster of symptoms, especially for women who already tolerate adaptogens well.\n\nThe trade-off is that a multi-ingredient formula requires more caution. Women taking thyroid medication, sedatives, antidepressants, hormone therapy, or blood-pressure medications should review ashwagandha and black cohosh with a clinician before starting. It is also not the lowest-cost option in the category.\n\nOverall, O Positiv MENO is best for women who want a polished, hormone-free supplement with a broader mood-and-stress lens than classic black cohosh products. For the most clinically conservative single-ingredient route, Remifemin still has the stronger legacy; for convenience and symptom breadth, MENO is a compelling addition.",
+    'equelle-menopause': "EQUELLE stands apart from the crowded menopause supplement shelf because it is built around S-equol, a plant-based compound associated with soy germ fermentation. That makes it a very different choice from the black cohosh, rhapontic rhubarb, or maca-based formulas that dominate the category.\n\nThe key value proposition is targeted multi-symptom support without hormones. EQUELLE is positioned for hot flashes, sleep quality, muscle aches, and general menopause comfort, which makes it especially relevant for women who feel that their symptoms extend beyond classic daytime flushing.\n\nThe primary downside is cost. At roughly $80 for the verified two-month Amazon listing, it is meaningfully more expensive than Estroven, Remifemin, and many black cohosh products. It is also soy-derived, so it will not be appropriate for every user preference or allergy profile.\n\nFor women who have already tried black cohosh or want a different non-hormonal mechanism, EQUELLE is one of the more interesting premium options available. It should be positioned as a targeted upgrade rather than a budget first-line product.",
+    'bonafide-revaree-vaginal-moisturizer': "Revaree addresses one of the most persistent postmenopausal concerns: vaginal dryness related to genitourinary syndrome of menopause. Unlike lubricants that primarily help during intimacy, Revaree is designed as a recurring vaginal moisturizer insert for everyday tissue comfort.\n\nThe formula is centered on hyaluronic acid, a moisture-binding compound already familiar in skincare and increasingly used in intimate-health products. The insert format is cleaner and more targeted than many gel applicators, which will appeal to women who want a structured routine rather than an on-demand lubricant.\n\nThe limitation is price. Revaree is significantly more expensive than Replens and aloe-based moisturizers, so it makes the most sense for women who have tried lower-cost products and want a more premium hyaluronic acid approach. Severe GSM symptoms, recurrent urinary symptoms, bleeding, or pain should still be discussed with a clinician.\n\nFor women seeking an estrogen-free vaginal moisturizer with strong consumer validation and a premium insert format, Revaree is one of the best-positioned products in the category.",
+}
+
+for product_id, review in reviews.items():
+    id_pos = text.index(f'id: "{product_id}"')
+    full_pos = text.index('    fullReview: "', id_pos)
+    price_pos = text.index('    priceDisplay:', full_pos)
+    escaped = review.replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n')
+    replacement = f'    fullReview: "{escaped}",\n'
+    text = text[:full_pos] + replacement + text[price_pos:]
+
+path.write_text(text)
+print('Rewrote fullReview fields with escaped newlines')
