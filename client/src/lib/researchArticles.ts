@@ -924,6 +924,67 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "Review",
     "stage_id": "general",
     "date_added": "2026-05-11"
+  },
+
+  {
+    "id": "article-090",
+    "citation": "Cong J, Zhang H, Xing W. Effectiveness and Safety of Chinese Herbal Medicine in Treatment of Perimenopausal Insomnia: A Systematic Review and Meta-Analysis of Randomized Controlled Trails. Holist Nurs Pract. 2026;40(1):3-15. doi:10.1097/HNP.0000000000000743.",
+    "headline": "Herbal Medicine May Improve Perimenopause Sleep",
+    "takeaway": "This meta-analysis of 20 randomized trials found that Chinese herbal medicine was associated with better sleep quality and overall symptom response in women with perimenopausal insomnia. The authors reported no severe herb-related adverse events, but readers should discuss supplement use with a clinician because study quality and product formulations can vary.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40231842/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-05-18"
+  },
+  {
+    "id": "article-091",
+    "citation": "Hira R, Uppal J, Deol P, Porter D, Exner D, Raj SR, et al. A systematic review of heart rate variability and menopausal vasomotor symptoms. Physiol Rep. 2026;14(9):e70907. doi:10.14814/phy2.70907.",
+    "headline": "Hot Flashes and Heart Signals Need More Study",
+    "takeaway": "This systematic review and meta-analysis examined whether heart rate variability differs in peri- or postmenopausal women with vasomotor symptoms compared with those without symptoms. The pooled results did not show clear heart rate variability differences, highlighting that larger and more standardized studies are still needed to understand hot flashes, autonomic function, and cardiovascular risk.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42121335/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-05-18"
+  },
+  {
+    "id": "article-092",
+    "citation": "Wang Z, Yang H, Li S, Cheng L, Yuan Y, Bai Y, et al. Effectiveness of nonpharmacological interventions for menopause-related insomnia: A systematic review and Bayesian network meta-analysis. Maturitas. 2025;202:108713. doi:10.1016/j.maturitas.2025.108713.",
+    "headline": "Mindfulness Leads Non-Drug Menopause Sleep Options",
+    "takeaway": "This network meta-analysis of 44 randomized studies found that relaxation, cognitive behavioral therapy, mindfulness, aromatherapy, acupuncture, massage, yoga, and exercise all improved sleep quality for menopausal insomnia. Mindfulness ranked as the most effective option, suggesting that non-drug sleep strategies can be a meaningful part of a menopause symptom plan.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40907338/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "active-menopause",
+    "date_added": "2026-05-18"
+  },
+  {
+    "id": "article-093",
+    "citation": "Porcari I, Uccella S, Casprini C, Bosco M, Zorzato PC, Garzon S. Vulvovaginal estrogen therapy for urinary symptoms in postmenopausal women: a review and meta-analysis. Climacteric. 2026;29(1):13-22. doi:10.1080/13697137.2025.2517138.",
+    "headline": "Vaginal Estrogen May Ease Urinary Symptoms",
+    "takeaway": "This review and meta-analysis found that topical vulvovaginal estrogen was associated with improvements in recurrent urinary tract infections, urgency, frequency, urge incontinence, stress incontinence, nocturia, and vaginal pH. The findings support current guidance that local estrogen can be an effective option for genitourinary symptoms after menopause when appropriate for the individual.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40569036/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-05-18"
+  },
+  {
+    "id": "article-094",
+    "citation": "Oka P, Moosa AS, Koh EYL, Ng CJ. Health and adverse events associated with extended oral bisphosphonates among postmenopausal women: a systematic review. J Clin Endocrinol Metab. 2026;111(5):e1226-e1238. doi:10.1210/clinem/dgag057.",
+    "headline": "Longer Bisphosphonate Use Has Tradeoffs",
+    "takeaway": "This systematic review found that extending oral bisphosphonate therapy beyond five years may increase bone mineral density, but evidence for fracture reduction was limited and prolonged use was linked with atypical fracture concerns. Women considering long-term osteoporosis medication should review bone density, fracture history, and adverse-event risk with their clinician.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41668457/",
+    "study_type": "Systematic Review",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-05-18"
+  },
+  {
+    "id": "article-095",
+    "citation": "Wu Q, Shen L, Hu S, Yang R, Wang Y, Xue D, et al. Relationship between menopausal hormone therapy and incidence risk of breast cancer: systematic review and meta-analysis. Ann Med. 2026;58(1):2640244. doi:10.1080/07853890.2026.2640244.",
+    "headline": "Hormone Therapy Risks Vary by Type",
+    "takeaway": "This meta-analysis found a modest overall association between menopausal hormone therapy and breast cancer risk, mainly driven by estrogen-progestin therapy rather than estrogen-only therapy. The results reinforce the need for individualized hormone therapy decisions that consider symptom severity, regimen type, duration, and personal risk factors.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41808362/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "general",
+    "date_added": "2026-05-18"
   }
 
 ];
