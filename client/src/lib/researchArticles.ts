@@ -985,7 +985,68 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "Meta-Analysis",
     "stage_id": "general",
     "date_added": "2026-05-18"
+  },
+  {
+    "id": "article-096",
+    "citation": "Schaedel Z, Bakker TR, Bassetti C, Briasoulis O, Cassel P, Pain S, et al. Efficacy and safety of daridorexant for the treatment of insomnia disorder in women of menopausal transition age: Insights from a randomized controlled trial. Maturitas. 2026;206:108821. doi:10.1016/j.maturitas.2025.108821.",
+    "headline": "Sleep Drug Studied in Menopause Transition",
+    "takeaway": "In this randomized controlled trial subgroup, daridorexant 50 mg improved sleep measures and daytime functioning in women aged 47-55 with insomnia disorder. The findings suggest that targeted insomnia treatment may help women in the menopause transition, though medication decisions should be individualized with a clinician.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41506007/",
+    "study_type": "RCT",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-05-25"
+  },
+  {
+    "id": "article-097",
+    "citation": "Hoang J, Halliday K, Allen D, Mtika WM, Tranter E, Glover G, et al. Factors Associated With Menopause Symptoms: A Systematic Review and Meta-Analysis. BJOG. 2026 May 6. doi:10.1111/1471-0528.70257.",
+    "headline": "Personalized Care for Menopause Symptoms",
+    "takeaway": "This systematic review and meta-analysis found that ethnicity, education, income, depression, smoking, and obesity were associated with the presence or severity of vasomotor symptoms and vaginal dryness. The results reinforce that hot flashes and related symptoms are shaped by both biology and lifestyle context, supporting more personalized symptom management.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42087841/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-05-25"
+  },
+  {
+    "id": "article-098",
+    "citation": "Luo R, Zhu J, Yang J. Effectiveness of non-pharmacological interventions for insomnia related to natural menopause: A meta-analysis of randomized controlled trials. Maturitas. 2026;209:108970. doi:10.1016/j.maturitas.2026.108970.",
+    "headline": "Non-Drug Options Improve Menopause Sleep",
+    "takeaway": "This meta-analysis of 22 randomized trials found that non-pharmacological interventions significantly improved sleep quality and insomnia severity in women with natural menopause-related insomnia. Cognitive behavioral therapy, exercise, acupuncture, acupressure, and integrated approaches all showed benefit, offering options for women who prefer to avoid or cannot use medication or hormone therapy.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42090940/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "active-menopause",
+    "date_added": "2026-05-25"
+  },
+  {
+    "id": "article-099",
+    "citation": "Treister-Goltzman Y, Peleg R. Effects of Prunes on Bone Density in Humans: A Systematic Review and Meta-Analysis of Randomized Controlled Trials. Nutrients. 2026;18(9):1338. doi:10.3390/nu18091338.",
+    "headline": "Prunes May Modestly Support Bones",
+    "takeaway": "This systematic review and meta-analysis of randomized studies found preliminary evidence that 50-100 grams of prunes may modestly benefit lumbar spine bone mineral density, especially in postmenopausal women. The evidence remains limited and heterogeneous, so prunes are best viewed as a possible nutrition support rather than a stand-alone bone-protection strategy.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42123941/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-05-25"
+  },
+  {
+    "id": "article-100",
+    "citation": "Ahn SH, Boo D, Kim KJ, Choi J, Yoon H, Jung CY, et al. Risk of Cardiovascular Events in Patients with Osteoporosis on Romosozumab Treatment Compared with Denosumab: A Multicenter Observational Cohort Study. Endocrinol Metab (Seoul). 2026 May 15. doi:10.3803/EnM.2026.2883.",
+    "headline": "Osteoporosis Drug Heart Risk Compared",
+    "takeaway": "This multicenter observational cohort study compared cardiovascular outcomes in osteoporosis patients newly treated with romosozumab or denosumab. In real-world practice, romosozumab was not associated with a statistically significant increase in major cardiovascular events versus denosumab over one or three years.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42136379/",
+    "study_type": "Cohort Study",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-05-25"
+  },
+  {
+    "id": "article-101",
+    "citation": "Ahmadi K, Dashti S, Bahri N. Relationship between the severity of menopausal symptoms and quality of life during the menopause transition: a systematic review. Arch Womens Ment Health. 2026;29(3):76. doi:10.1007/s00737-026-01716-z.",
+    "headline": "Symptoms Shape Menopause Quality of Life",
+    "takeaway": "This systematic review found that greater menopausal symptom severity is generally linked with poorer quality of life during the transition to menopause. The findings support proactive symptom management programs that address physical, emotional, and daily-function impacts together.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42113329/",
+    "study_type": "Systematic Review",
+    "stage_id": "general",
+    "date_added": "2026-05-25"
   }
+
 
 ];
 
