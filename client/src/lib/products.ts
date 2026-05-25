@@ -1302,6 +1302,140 @@ export const allProducts: Product[] = [
     editorNote: "CLEA fills a clear niche: menopause brain fog support for buyers who prefer stimulant-free, cannabinoid-based focus.",
   },
 
+  // ── New Product Reviews: Week of 2026-05-25 ────────────────────────────────
+  {
+    id: "amberen-menopause-supplement",
+    slug: "amberen-menopause-supplement-12-symptom-relief",
+    name: "Amberen Menopause Supplement for Women",
+    brand: "Amberen",
+    asin: "B00KFA94FC",
+    affiliateUrl: buildAffiliateUrl("B00KFA94FC"),
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    stages: ["late-perimenopause", "active-menopause", "early-postmenopause"],
+    price: "$24.97",
+    rating: 4.2,
+    reviewCount: 23858,
+    heroImage: "https://m.media-amazon.com/images/I/7120+vq4VnL._AC_SL1500_.jpg",
+    summary: "Amberen is a clinically positioned, hormone-free menopause supplement built around a proprietary succinate-based mineral and amino acid complex for hot flashes, night sweats, mood swings, fatigue, and broader day-to-night symptom support.",
+    pros: [
+      "Very large Amazon review base with more than 23,000 rating signals",
+      "Hormone-free, drug-free, sugar-free, and soy-free positioning",
+      "Targets a broad set of 12 menopause symptoms rather than hot flashes alone",
+      "Good mid-range price for a 60-capsule multi-symptom formula",
+    ],
+    cons: [
+      "Proprietary complex makes ingredient-level evaluation less transparent",
+      "Not an herbal black cohosh formula, which some buyers specifically seek",
+      "Women with medical conditions or medication use should review the formula with a clinician",
+    ],
+    ingredients: ["Ammonium Succinate", "Calcium Disuccinate", "Monosodium L-Glutamate", "Glycine", "Magnesium Disuccinate Hydrate", "Zinc Difumarate Hydrate", "Tocopheryl Acetate Vitamin E"],
+    verdict: "Amberen is one of the strongest mainstream multi-symptom additions for women who want a non-hormonal, soy-free supplement with major consumer validation. It is best for buyers seeking broad relief across hot flashes, night sweats, mood, fatigue, and concentration rather than a single-ingredient botanical.",
+    score: 8.7,
+    editorPick: false,
+    bestFor: "Broad non-hormonal 12-symptom menopause support",
+    tags: ["multi-symptom", "hot flashes", "night sweats", "soy-free", "hormone-free"],
+    shortDescription: "A widely reviewed, hormone-free menopause supplement positioned for 12-symptom relief including hot flashes, night sweats, mood swings, and fatigue.",
+    fullReview: `Amberen is a valuable addition to the multi-symptom supplement category because it takes a different path from black cohosh, soy isoflavones, and pollen-extract formulas. Its core is a proprietary blend of succinate-based minerals, amino acids, and vitamin E, positioned to support hormone balance without adding hormones or phytoestrogens.
+
+The strongest case for Amberen is breadth. The Amazon listing positions it around 12 menopause symptoms, including hot flashes, night sweats, fatigue, mood swings, stress, low libido, joint aches, headaches, and concentration difficulty. That makes it most relevant for women who describe menopause as a cluster of day-to-night disruptions rather than one isolated complaint.
+
+The main limitation is transparency. Because the formula relies on a proprietary complex, ingredient-sensitive buyers may prefer products with clearer single-ingredient dosing, such as Remifemin for black cohosh or Bonafide Relizen for pollen extract. It is also still a supplement, so women with significant medical histories, medication use, or severe symptoms should involve a clinician rather than relying on Amazon reviews alone.
+
+For buyers who want a mainstream, non-hormonal, soy-free option with one of the largest review bases in the category, Amberen earns a strong place in the catalog. It sits between budget herbal blends and premium specialty formulas as a practical broad-coverage choice.`,
+    priceDisplay: "$24.97",
+    publishDate: "2026-05-25",
+    editorNote: "Amberen is a strong mainstream choice when the buyer wants broad symptom coverage but prefers to avoid soy, hormones, and classic black cohosh-only formulas.",
+  },
+  {
+    id: "natures-craft-menopause-support",
+    slug: "natures-craft-complete-herbal-menopause-support",
+    name: "Natures Craft Complete Herbal Menopause Supplement",
+    brand: "Natures Craft",
+    asin: "B089V9WXYL",
+    affiliateUrl: buildAffiliateUrl("B089V9WXYL"),
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    stages: ["early-perimenopause", "late-perimenopause", "active-menopause"],
+    price: "$16.99",
+    rating: 4.3,
+    reviewCount: 8964,
+    heroImage: "https://m.media-amazon.com/images/I/71PbKncbtTL._AC_SL1500_.jpg",
+    summary: "Natures Craft Complete Herbal Menopause Supplement is a budget-friendly botanical blend using black cohosh, chaste berry, dong quai, red clover, vitamin B6, vitamin D3, and magnesium for hot flashes, night sweats, mood swings, and hormonal-transition support.",
+    pros: [
+      "Affordable price point compared with most multi-symptom menopause supplements",
+      "Broad herbal and micronutrient blend for hot flashes, night sweats, mood, and energy",
+      "Strong Amazon review depth with nearly 9,000 rating signals",
+      "Includes vitamin D3 and magnesium alongside traditional botanicals",
+    ],
+    cons: [
+      "Blend includes several botanicals, so it is not ideal for users who need a simple formula",
+      "Contains phytoestrogen-associated herbs such as red clover and dong quai",
+      "Less clinically specific than standardized black cohosh or specialty formulas",
+    ],
+    ingredients: ["Black Cohosh Root", "Chaste Berry", "Dong Quai", "Red Clover", "Vitamin B6", "Vitamin D3", "Magnesium"],
+    verdict: "Natures Craft is the value pick for women who want a broad herbal menopause blend at a low monthly cost. It is not as clinically focused as Remifemin or Relizen, but it offers strong review depth and a useful ingredient spread for budget-conscious buyers.",
+    score: 8.1,
+    editorPick: false,
+    bestFor: "Budget herbal multi-symptom support",
+    tags: ["black cohosh", "chaste berry", "dong quai", "red clover", "budget"],
+    shortDescription: "A budget-friendly herbal menopause supplement combining black cohosh, chaste berry, dong quai, red clover, vitamin D3, B6, and magnesium.",
+    fullReview: `Natures Craft Complete Herbal Menopause Supplement fills an important price-and-accessibility gap in the catalog. At roughly $17 on the verified Amazon listing, it is one of the more affordable ways to try a broad menopause support formula without jumping to premium specialty products.
+
+The formula is a classic botanical blend: black cohosh for hot-flash support, chaste berry and dong quai for hormone-transition positioning, red clover for phytoestrogen-style support, and added vitamin B6, vitamin D3, and magnesium for broader wellness coverage. This gives it a more comprehensive ingredient list than a single black cohosh capsule while remaining easy to understand for mainstream buyers.
+
+The trade-off is that broad herbal blends are harder to evaluate clinically. Women who need soy-free, phytoestrogen-free, or medication-sensitive routines should be cautious with red clover, dong quai, and black cohosh combinations. Buyers who prefer standardized clinical evidence may still be better served by Remifemin, Estroven, or a specialty option such as Relizen.
+
+For budget-conscious women with mixed symptoms and no contraindications to the included botanicals, Natures Craft is a sensible comparison product. It earns its place as a value-oriented herbal alternative rather than a premium evidence-first recommendation.`,
+    priceDisplay: "$16.99",
+    publishDate: "2026-05-25",
+    editorNote: "Natures Craft is the catalog's practical budget herbal blend: not the most clinically precise, but compelling for price-sensitive buyers with broad symptoms.",
+  },
+  {
+    id: "eu-natural-staying-cool",
+    slug: "eu-natural-staying-cool-menopause-supplement",
+    name: "Eu Natural Staying Cool Menopause Supplements",
+    brand: "Eu Natural",
+    asin: "B00S74SB9S",
+    affiliateUrl: buildAffiliateUrl("B00S74SB9S"),
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    stages: ["late-perimenopause", "active-menopause", "early-postmenopause"],
+    price: "$29.99",
+    rating: 3.9,
+    reviewCount: 3728,
+    heroImage: "https://m.media-amazon.com/images/I/71eBzV4FcFL._AC_SL1500_.jpg",
+    summary: "Eu Natural Staying Cool is a vegetarian menopause supplement centered on hot flashes, night sweats, sleep, and hormone-transition comfort, combining vitex, black cohosh, KSM-66 ashwagandha, magnolia, hops, and pueraria mirifica.",
+    pros: [
+      "Targets hot flashes and night sweats while also addressing sleep and stress overlap",
+      "Includes KSM-66 ashwagandha for adaptogen-focused support",
+      "Vegetarian soft capsule formula without gluten, wheat, or dairy",
+      "Useful for buyers who want a more comprehensive herbal blend than black cohosh alone",
+    ],
+    cons: [
+      "Lower Amazon rating than several category leaders",
+      "Pueraria mirifica and multiple botanicals may not suit hormone-sensitive users",
+      "Not the best first pick for women who want a minimal or soy-free-style formula",
+    ],
+    ingredients: ["Vitex Chaste Tree Berry", "Black Cohosh", "KSM-66 Ashwagandha", "Magnolia", "Hops", "Pueraria Mirifica"],
+    verdict: "Eu Natural Staying Cool is best for women whose hot flashes overlap with stress, sleep disruption, and nighttime temperature swings. Its comprehensive botanical profile is useful, but the lower rating and phytoestrogen-sensitive ingredients make it a more selective recommendation than Estroven or Remifemin.",
+    score: 7.7,
+    editorPick: false,
+    bestFor: "Hot flashes with stress and sleep disruption",
+    tags: ["hot flashes", "night sweats", "ashwagandha", "vitex", "vegetarian"],
+    shortDescription: "A vegetarian hot-flash and night-sweat supplement combining vitex, black cohosh, KSM-66 ashwagandha, magnolia, hops, and pueraria mirifica.",
+    fullReview: `Eu Natural Staying Cool is positioned for women who experience menopause symptoms as heat, stress, and sleep disruption at the same time. The formula combines traditional hot-flash botanicals with adaptogen and relaxation-oriented ingredients, which gives it a broader profile than black cohosh alone.
+
+The most relevant ingredients are vitex chaste tree berry, black cohosh, KSM-66 ashwagandha, magnolia, hops, and pueraria mirifica. That combination makes sense for buyers who report night sweats, warmer sleep, irritability, and stress-driven symptom spikes. It also gives the product a wellness-forward feel, helped by its vegetarian soft capsule format and gluten-, wheat-, and dairy-free positioning.
+
+The caution is selectivity. The Amazon rating is lower than several category leaders, and the ingredient list includes botanicals that may be inappropriate for women with hormone-sensitive histories, medication interactions, or a preference to avoid phytoestrogen-associated products. This is not the cleanest or simplest choice in the catalog.
+
+For women who want a comprehensive herbal formula aimed at staying cooler while also supporting calm and sleep, Eu Natural Staying Cool is worth considering. For the average first-time buyer, Estroven, Remifemin, Amberen, or O Positiv MENO may be easier starting points depending on ingredient preferences.`,
+    priceDisplay: "$29.99",
+    publishDate: "2026-05-25",
+    editorNote: "Eu Natural Staying Cool is most useful when hot flashes are tied to stress and poor sleep, but it requires more ingredient caution than simpler formulas.",
+  },
+
 ];
 
 // ─── Helper Functions ─────────────────────────────────────────────────────────
@@ -1651,6 +1785,59 @@ export const comparisons: Comparison[] = [
     summary: "Alpha GPC remains the better first-line choice for menopause-related brain fog because it is more conventional and easier to fit into most routines. CLEA Midlife Focus is a differentiated alternative for women specifically interested in hemp-derived CBG support.",
     verdict: "Alpha GPC remains the better first-line choice for menopause-related brain fog because it is more conventional and easier to fit into most routines. CLEA Midlife Focus is a differentiated alternative for women specifically interested in hemp-derived CBG support.",
     publishDate: "2026-05-18",
+  },
+
+  // ── New Comparisons: Week of 2026-05-25 ───────────────────────────────────
+  {
+    id: "amberen-vs-estroven-complete",
+    slug: "amberen-vs-estroven-complete-menopause-relief",
+    title: "Amberen vs. Estroven Complete for Menopause Relief",
+    subtitle: "Succinate-based broad support vs. the bestselling multi-symptom formula",
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    productIds: ["amberen-menopause-supplement", "estroven-complete"],
+    product1Id: "amberen-menopause-supplement",
+    product2Id: "estroven-complete",
+    winner: "estroven-complete",
+    winnerId: "estroven-complete",
+    winnerReason: "Estroven Complete wins for broader category familiarity and ingredient transparency; Amberen is the better fit for women who specifically want a soy-free, hormone-free, non-botanical approach.",
+    summary: "Estroven Complete remains the better default pick for most buyers because it has broad consumer validation and a more familiar menopause supplement profile. Amberen is a compelling alternative for women who want 12-symptom support without soy, hormones, or a classic black cohosh-only formula.",
+    verdict: "Estroven Complete remains the better default pick for most buyers because it has broad consumer validation and a more familiar menopause supplement profile. Amberen is a compelling alternative for women who want 12-symptom support without soy, hormones, or a classic black cohosh-only formula.",
+    publishDate: "2026-05-25",
+  },
+  {
+    id: "natures-craft-vs-remifemin-black-cohosh",
+    slug: "natures-craft-vs-remifemin-black-cohosh",
+    title: "Natures Craft vs. Remifemin for Herbal Menopause Support",
+    subtitle: "Budget broad herbal blend vs. clinically studied black cohosh",
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    productIds: ["natures-craft-menopause-support", "remifemin-menopause"],
+    product1Id: "natures-craft-menopause-support",
+    product2Id: "remifemin-menopause",
+    winner: "remifemin-menopause",
+    winnerId: "remifemin-menopause",
+    winnerReason: "Remifemin wins for standardized black cohosh evidence and clinical focus; Natures Craft wins on price and ingredient breadth for budget-conscious buyers.",
+    summary: "Remifemin is the stronger evidence-first choice for women who want a targeted black cohosh product. Natures Craft is the better budget blend for buyers who want multiple botanicals and micronutrients in one lower-cost capsule.",
+    verdict: "Remifemin is the stronger evidence-first choice for women who want a targeted black cohosh product. Natures Craft is the better budget blend for buyers who want multiple botanicals and micronutrients in one lower-cost capsule.",
+    publishDate: "2026-05-25",
+  },
+  {
+    id: "eu-natural-staying-cool-vs-opositiv-meno",
+    slug: "eu-natural-staying-cool-vs-opositiv-meno",
+    title: "Eu Natural Staying Cool vs. O Positiv MENO",
+    subtitle: "Traditional herbal cooling blend vs. modern adaptogen-forward menopause support",
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    productIds: ["eu-natural-staying-cool", "opositiv-meno-vitamins"],
+    product1Id: "eu-natural-staying-cool",
+    product2Id: "opositiv-meno-vitamins",
+    winner: "opositiv-meno-vitamins",
+    winnerId: "opositiv-meno-vitamins",
+    winnerReason: "O Positiv MENO wins for stronger rating, more contemporary symptom positioning, and broader fit; Eu Natural Staying Cool is best for buyers who want a more traditional herbal cooling blend.",
+    summary: "O Positiv MENO is the better overall pick for stress-linked hot flashes and multi-symptom support because it has stronger consumer signals and clearer modern positioning. Eu Natural Staying Cool remains useful for women who specifically want vitex, black cohosh, hops, magnolia, and pueraria mirifica in one vegetarian formula.",
+    verdict: "O Positiv MENO is the better overall pick for stress-linked hot flashes and multi-symptom support because it has stronger consumer signals and clearer modern positioning. Eu Natural Staying Cool remains useful for women who specifically want vitex, black cohosh, hops, magnolia, and pueraria mirifica in one vegetarian formula.",
+    publishDate: "2026-05-25",
   },
 
 ];
