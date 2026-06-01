@@ -1047,6 +1047,67 @@ export const researchArticles: ResearchArticle[] =
     "date_added": "2026-05-25"
   }
 
+  ,
+  {
+    "id": "article-102",
+    "citation": "Li Y, Sun Y, Bi Y, Yang L, Xu Y, Wu H, Ma X. Efficacy and safety of menopausal hormone therapy for depressive symptoms in perimenopausal women: A systematic review and meta-analysis. J Affect Disord. 2026;409:121892. doi:10.1016/j.jad.2026.121892.",
+    "headline": "Hormone Therapy May Ease Perimenopause Depression",
+    "takeaway": "This meta-analysis of 12 randomized trials found that menopausal hormone therapy was associated with a small reduction in depressive symptom severity among perimenopausal women. The effect was modest and evidence certainty was limited, so treatment decisions should be individualized with a clinician.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42061517/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-06-01"
+  },
+  {
+    "id": "article-103",
+    "citation": "Yang C, Zhang X, Bie J, Kang W, Sun G, Zhao Q, Li L, Hu Q. Gut microbiota drives dietary lignans to improve perimenopausal depression via activating hippocampal ERβ/GluN2A/PSD95 pathway. Pharmacol Res. 2026;227:108161. doi:10.1016/j.phrs.2026.108161.",
+    "headline": "Dietary Lignans May Support Perimenopause Mood",
+    "takeaway": "This randomized controlled trial found that one month of dietary lignan supplementation significantly reduced depressive and anxiety symptoms in perimenopausal women. The study suggests gut microbiome conversion of plant compounds may play a role, but supplementation choices should be discussed with a healthcare professional.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41833765/",
+    "study_type": "RCT",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-06-01"
+  },
+  {
+    "id": "article-104",
+    "citation": "Simoncini T, Bouchard C, Cloes M, Taziaux M, Palacios S, de Medeiros SF, Vrabii V, Archer DF, Panay N. Estetrol (E4) for the treatment of moderate to severe vasomotor symptoms in postmenopausal women - Efficacy and safety results from the phase 3 E4COMFORT I multicenter, placebo-controlled study. Maturitas. 2026;209:108965. doi:10.1016/j.maturitas.2026.108965.",
+    "headline": "Estetrol Reduces Hot Flashes in Phase 3 Trial",
+    "takeaway": "This phase 3 randomized trial found that estetrol significantly reduced the frequency and severity of moderate to severe hot flashes compared with placebo over 12 weeks. The findings add evidence for a prescription option for women with peak vasomotor symptoms, with individualized risk-benefit review still essential.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42068869/",
+    "study_type": "RCT",
+    "stage_id": "active-menopause",
+    "date_added": "2026-06-01"
+  },
+  {
+    "id": "article-105",
+    "citation": "Liu L, Ruan X, Gu M, Li Y, Yang Y, Cheng J, Jiang L, Wang Z, Zhang M, Liu A, Mueck AO. A randomized controlled trial on the effect of Gushukang on bone mineral density in perimenopausal and postmenopausal women. Gynecol Endocrinol. 2026;42(1):2659980. doi:10.1080/09513590.2026.2659980.",
+    "headline": "Bone Density Trial Tests Combination Therapy",
+    "takeaway": "This randomized trial found that menopausal hormone therapy and Gushukang were associated with improved bone mineral density over six months, with the combination showing the strongest improvement. The result highlights the importance of early bone-protection planning after menopause, while any therapy should be selected with clinical guidance.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42033017/",
+    "study_type": "RCT",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-06-01"
+  },
+  {
+    "id": "article-106",
+    "citation": "Naddafha S, Antonio J, Kreider RB, Stout JR. Creatine monohydrate for lean mass, strength, and bone density in postmenopausal women: a systematic review and meta-analysis. J Int Soc Sports Nutr. 2026;23(1):2668435. doi:10.1080/15502783.2026.2668435.",
+    "headline": "Creatine Shows Modest Muscle Benefits",
+    "takeaway": "This systematic review and meta-analysis of seven randomized trials found small but meaningful improvements in lean mass and strength among postmenopausal women using creatine, especially when paired with resistance training. Bone density did not clearly improve overall, so creatine should be viewed as a muscle-support strategy rather than a stand-alone bone treatment.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42141930/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-06-01"
+  },
+  {
+    "id": "article-107",
+    "citation": "Khadilkar S, Divakar H, Benedetto C, Genazzani A, Ramos D, Argale E, Deshpande G, Hicky M, Filho ALDS, Herrera E, Balkrishnan M. FIGO best practice recommendations for the mental health of women at menopausal age. Int J Gynaecol Obstet. 2026;173(2):588-601. doi:10.1002/ijgo.70943.",
+    "headline": "FIGO Recommends Menopause Mental Health Support",
+    "takeaway": "This FIGO review and practice-guidance article emphasizes that anxiety and depression are common during the menopause transition and can meaningfully affect quality of life. It recommends early detection, individualized care, lifestyle support, cognitive-behavioral therapy when appropriate, and clinician-guided use of hormone or nonhormonal treatments.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41902367/",
+    "study_type": "Review",
+    "stage_id": "general",
+    "date_added": "2026-06-01"
+  }
 
 ];
 
