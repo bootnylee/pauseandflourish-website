@@ -1600,6 +1600,141 @@ For women cleared for strengthening who want a durable, progressive, non-electro
   },
 
 
+  // ── New Product Reviews: Week of 2026-06-08 ────────────────────────────────
+  {
+    id: "health-her-perimenopause-supplement",
+    slug: "health-and-her-perimenopause-supplement",
+    name: "Health & Her Perimenopause Supplement",
+    brand: "Health & Her",
+    asin: "B08H6KGPX3",
+    affiliateUrl: buildAffiliateUrl("B08H6KGPX3"),
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    stages: ["early-perimenopause", "late-perimenopause"],
+    price: "$22.99",
+    rating: 4.3,
+    reviewCount: 3346,
+    heroImage: "https://m.media-amazon.com/images/I/814oYuC7HSL._AC_SL1500_.jpg",
+    summary: "Health & Her Perimenopause Supplement is a vegan, gluten-free, non-GMO multi-nutrient formula positioned for early menopause transition support, with a practical 60-capsule one-month format.",
+    pros: [
+      "Purpose-built for early-stage perimenopause rather than only active menopause",
+      "Vegan, gluten-free, and non-GMO positioning",
+      "Strong review base with more than 3,300 Amazon ratings",
+      "Good mid-market price for a one-month multi-nutrient formula",
+    ],
+    cons: [
+      "Multi-ingredient formulas make it harder to identify which component is helping",
+      "Best fit is early perimenopause; severe hot flashes may need a more targeted formula",
+      "Two-capsule daily format may be less convenient than once-daily options",
+    ],
+    ingredients: ["Sage", "Soy Isoflavones", "Vitamin B6", "Vitamin B12", "Biotin", "Magnesium", "Zinc"],
+    verdict: "Health & Her is a strong early-transition option for women who want broad perimenopause support in a vegan, mainstream supplement rather than a single-ingredient hot-flash product.",
+    score: 8.2,
+    editorPick: false,
+    bestFor: "Early perimenopause multi-nutrient support",
+    tags: ["perimenopause", "vegan", "multi-nutrient", "hot flashes", "mood"],
+    shortDescription: "A vegan, gluten-free multi-nutrient perimenopause supplement for early-stage transition symptoms, daily wellbeing, mood, and temperature support.",
+    fullReview: `Health & Her Perimenopause Supplement fills an important gap for women who are not yet in active menopause but are starting to experience early transition symptoms such as warmer nights, cycle irregularity, mood changes, lower energy, and stress sensitivity. Many menopause products are positioned for full menopause, while Health & Her is marketed specifically around the early stage of the transition.
+
+The Amazon listing emphasizes a 60-capsule, one-month format with vegan, gluten-free, and non-GMO positioning. That makes it accessible for women who want a clean daily supplement routine without hormones or a heavily pharmaceutical feel. The formula is best understood as broad support rather than a single-target intervention; it is intended to support overall wellbeing, mood, and temperature regulation during the period when symptoms can be inconsistent.
+
+The main limitation is that broad blends require realistic expectations. Women with severe hot flashes, persistent insomnia, or clinically significant mood symptoms may need a more targeted product or clinician-guided care. Ingredient-sensitive buyers should also review the full supplement facts panel carefully, especially if they avoid soy isoflavones or are taking medications.
+
+For early perimenopause buyers, Health & Her is a credible addition because it combines strong Amazon review depth, an approachable price, and transition-specific positioning. It is best placed as a first-line perimenopause wellness option, with more targeted products reserved for women whose symptoms become clearer or more disruptive over time.`,
+    priceDisplay: "$22.99",
+    publishDate: "2026-06-08",
+    editorNote: "Health & Her is most useful for women who know something has shifted but do not yet need a narrowly targeted hot-flash or sleep product.",
+  },
+  {
+    id: "olly-mellow-menopause",
+    slug: "olly-mellow-menopause-hot-flash-support",
+    name: "OLLY Mellow Menopause",
+    brand: "OLLY",
+    asin: "B0DBXQQGLG",
+    affiliateUrl: buildAffiliateUrl("B0DBXQQGLG"),
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    stages: ["late-perimenopause", "active-menopause", "early-postmenopause"],
+    price: "$27.99",
+    rating: 4.3,
+    reviewCount: 650,
+    heroImage: "https://m.media-amazon.com/images/I/71yJD3rAw9L._AC_SL1500_.jpg",
+    summary: "OLLY Mellow Menopause is a vegan capsule formula built around Estro-G100 and GABA for hot flashes, vaginal dryness, and occasional mood swings in a simple 30-count monthly supply.",
+    pros: [
+      "Recognizable mainstream supplement brand with menopause-specific positioning",
+      "Targets hot flashes, vaginal dryness, and occasional mood swings",
+      "Includes Estro-G100 and GABA rather than a classic black cohosh-only approach",
+      "Vegan capsule format with one-month supply",
+    ],
+    cons: [
+      "Newer listing with a smaller review base than long-running category leaders",
+      "May not provide enough support for severe night sweats or sleep disruption",
+      "Ingredient-sensitive buyers should confirm suitability of the proprietary botanical blend",
+    ],
+    ingredients: ["Estro-G100", "GABA", "Hypromellose", "Microcrystalline Cellulose", "Magnesium Stearate", "Silica"],
+    verdict: "OLLY Mellow Menopause is a good mainstream choice for women who want a simple, modern supplement aimed at hot flashes, dryness, and mood without choosing a black-cohosh-first formula.",
+    score: 8.0,
+    editorPick: false,
+    bestFor: "Hot flashes, dryness & occasional mood swings",
+    tags: ["hot flashes", "vaginal dryness", "mood", "GABA", "vegan"],
+    shortDescription: "A vegan menopause capsule with Estro-G100 and GABA for hot flashes, vaginal dryness, and occasional mood swings.",
+    fullReview: `OLLY Mellow Menopause brings a familiar consumer wellness brand into the menopause category with a focused but not overly complicated formula. The current Amazon listing positions it around three high-frequency complaints: hot flashes, vaginal dryness, and occasional mood swings. That combination makes it relevant for women who want more than a single hot-flash supplement but do not necessarily want a large herbal blend.
+
+The two ingredients that define the product are Estro-G100 and GABA. Estro-G100 gives the formula a botanical menopause angle, while GABA broadens the positioning toward calm and mood balance. The 30-count vegan capsule format is simple and easy to understand, which is a meaningful advantage for buyers who feel overwhelmed by competing supplement labels.
+
+The caution is maturity. OLLY has a strong brand reputation, but this specific menopause listing has a smaller Amazon review base than products such as Estroven, Remifemin, Amberen, or Natures Craft. Women with severe symptoms, medication interactions, or hormone-sensitive histories should review the supplement facts panel with a clinician before relying on it as a primary strategy.
+
+For buyers who want a modern mainstream supplement that addresses hot flashes, dryness, and mood together, OLLY Mellow Menopause is a useful addition. It is not the most evidence-established product in the catalog, but it offers a clean, approachable alternative for women who want to avoid older-style black cohosh-only formulas.`,
+    priceDisplay: "$27.99",
+    publishDate: "2026-06-08",
+    editorNote: "OLLY is best for the buyer who wants a familiar brand and a simple menopause formula rather than a dense botanical blend.",
+  },
+  {
+    id: "metagenics-estrovera",
+    slug: "metagenics-herwellness-estrovera-menopause-relief",
+    name: "Metagenics HerWellness Estrovera",
+    brand: "Metagenics",
+    asin: "B005NKRJWE",
+    affiliateUrl: buildAffiliateUrl("B005NKRJWE"),
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    stages: ["late-perimenopause", "active-menopause", "early-postmenopause"],
+    price: "$36.75",
+    rating: 4.4,
+    reviewCount: 2116,
+    heroImage: "https://m.media-amazon.com/images/I/71yjynEsNVL._AC_SL1500_.jpg",
+    summary: "Metagenics HerWellness Estrovera is a hormone-free, plant-based supplement positioned for menopause and perimenopause relief, including hot flashes, night sweats, and multi-symptom support.",
+    pros: [
+      "Hormone-free plant-based formula for hot flashes and night sweats",
+      "Strong practitioner-channel brand credibility from Metagenics",
+      "Vegetarian and non-GMO positioning",
+      "Solid Amazon validation with more than 2,100 reviews and Amazon's Choice visibility",
+    ],
+    cons: [
+      "Higher price than many mass-market menopause supplements",
+      "30-tablet bottle may feel expensive for long-term use",
+      "Women with medical conditions or medication use should confirm suitability with a clinician",
+    ],
+    ingredients: ["ERr 731 Rhapontic Rhubarb Root Extract", "Microcrystalline Cellulose", "Vegetarian Tablet Ingredients"],
+    verdict: "Estrovera is one of the stronger premium options for women who want a hormone-free plant-based menopause supplement with brand credibility and focused hot-flash/night-sweat positioning.",
+    score: 8.6,
+    editorPick: false,
+    bestFor: "Premium plant-based hot flash and night sweat support",
+    tags: ["rhapontic rhubarb", "hot flashes", "night sweats", "hormone-free", "plant-based"],
+    shortDescription: "A premium hormone-free plant-based menopause supplement for hot flashes, night sweats, and multi-symptom support.",
+    fullReview: `Metagenics HerWellness Estrovera is a strong addition for women who want a more premium, practitioner-adjacent alternative to mass-market menopause supplements. The Amazon listing emphasizes hormone-free, plant-based support for menopause and perimenopause relief, with hot flashes, night sweats, and multi-symptom support as the central use case.
+
+The formula is built around rhapontic rhubarb extract, commonly associated with ERr 731-style menopause support. That gives Estrovera a more focused identity than broad herbal blends that combine many botanicals without a clear lead ingredient. The vegetarian and non-GMO positioning also fits well for women seeking a cleaner daily supplement routine.
+
+The trade-off is price. At roughly $37 for a 30-tablet bottle, Estrovera costs more than budget options such as Natures Craft and many black cohosh capsules. It also competes directly with established products such as Estroven Complete and Remifemin, so the best buyer is someone who values the Metagenics brand, wants plant-based support, and is comfortable paying for a premium formula.
+
+For women prioritizing hot flash and night sweat relief without hormones, Estrovera deserves a serious look. It is not the cheapest recommendation, but it is one of the more credible premium plant-based additions to the multi-symptom supplement category.`,
+    priceDisplay: "$36.75",
+    publishDate: "2026-06-08",
+    editorNote: "Estrovera is the premium rhapontic-rhubarb option I would compare directly against Estroven Complete and Remifemin for hot-flash-focused buyers.",
+  },
+
+
 ];
 
 // ─── Helper Functions ─────────────────────────────────────────────────────────
@@ -2062,6 +2197,60 @@ export const comparisons: Comparison[] = [
     verdict: "Intimate Rose is the better first-line pelvic floor trainer for women who want an affordable, durable, no-app progression system. Perifit remains the premium upgrade for users who want biofeedback, gamified coaching, and app-based tracking.",
     publishDate: "2026-06-01",
   },
+
+  // ── New Comparisons: Week of 2026-06-08 ───────────────────────────────────
+  {
+    id: "health-her-vs-wile-perimenopause",
+    slug: "health-and-her-vs-wile-perimenopause-support",
+    title: "Health & Her vs. WILE for Perimenopause Support",
+    subtitle: "Multi-nutrient early-transition support vs. adaptogen-forward symptom support",
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    productIds: ["health-her-perimenopause-supplement", "wile-menopause-perimenopause"],
+    product1Id: "health-her-perimenopause-supplement",
+    product2Id: "wile-menopause-perimenopause",
+    winner: "health-her-perimenopause-supplement",
+    winnerId: "health-her-perimenopause-supplement",
+    winnerReason: "Health & Her wins for clearer early-perimenopause positioning, stronger Amazon review depth, and a more broadly accessible multi-nutrient profile; WILE is better for stress-linked symptoms and adaptogen-oriented buyers.",
+    summary: "Health & Her is the better first-line pick for early perimenopause buyers who want broad daily wellbeing support with substantial consumer validation. WILE remains useful for women whose symptoms are strongly tied to stress, sleep disruption, and adaptogen preference.",
+    verdict: "Health & Her is the better first-line pick for early perimenopause buyers who want broad daily wellbeing support with substantial consumer validation. WILE remains useful for women whose symptoms are strongly tied to stress, sleep disruption, and adaptogen preference.",
+    publishDate: "2026-06-08",
+  },
+  {
+    id: "olly-mellow-menopause-vs-opositiv-meno",
+    slug: "olly-mellow-menopause-vs-opositiv-meno",
+    title: "OLLY Mellow Menopause vs. O Positiv MENO",
+    subtitle: "Simple mainstream capsule vs. modern adaptogen-forward menopause support",
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    productIds: ["olly-mellow-menopause", "opositiv-meno-vitamins"],
+    product1Id: "olly-mellow-menopause",
+    product2Id: "opositiv-meno-vitamins",
+    winner: "opositiv-meno-vitamins",
+    winnerId: "opositiv-meno-vitamins",
+    winnerReason: "O Positiv MENO wins for broader consumer validation and stronger stress-linked symptom positioning; OLLY is the simpler choice for buyers focused on hot flashes, dryness, and mood in a familiar-brand capsule.",
+    summary: "O Positiv MENO remains the stronger default pick when the buyer wants a contemporary menopause supplement with deeper review support. OLLY Mellow Menopause is a compelling alternative for women who want a simpler vegan capsule from a mainstream wellness brand.",
+    verdict: "O Positiv MENO remains the stronger default pick when the buyer wants a contemporary menopause supplement with deeper review support. OLLY Mellow Menopause is a compelling alternative for women who want a simpler vegan capsule from a mainstream wellness brand.",
+    publishDate: "2026-06-08",
+  },
+  {
+    id: "estrovera-vs-estroven-complete",
+    slug: "metagenics-estrovera-vs-estroven-complete",
+    title: "Metagenics Estrovera vs. Estroven Complete",
+    subtitle: "Premium rhapontic rhubarb support vs. the broad Amazon bestseller",
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    productIds: ["metagenics-estrovera", "estroven-complete"],
+    product1Id: "metagenics-estrovera",
+    product2Id: "estroven-complete",
+    winner: "estroven-complete",
+    winnerId: "estroven-complete",
+    winnerReason: "Estroven Complete wins for affordability, review depth, and broad first-line utility; Estrovera is the premium pick for buyers who specifically want Metagenics' plant-based rhapontic-rhubarb positioning.",
+    summary: "Estroven Complete is the better default recommendation for most women because it combines broad symptom coverage, lower cost, and deeper consumer validation. Metagenics Estrovera is the more premium, focused alternative for women prioritizing plant-based hot flash and night sweat support.",
+    verdict: "Estroven Complete is the better default recommendation for most women because it combines broad symptom coverage, lower cost, and deeper consumer validation. Metagenics Estrovera is the more premium, focused alternative for women prioritizing plant-based hot flash and night sweat support.",
+    publishDate: "2026-06-08",
+  },
+
 
 
 ];
