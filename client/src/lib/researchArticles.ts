@@ -1107,7 +1107,69 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "Review",
     "stage_id": "general",
     "date_added": "2026-06-01"
+
+  },
+  {
+    "id": "article-108",
+    "citation": "Bruyneel M, Rozenberg S, Sanida C, Demaeyer N, Castermans E, Bruyneel AV. Pharmacological and non-pharmacological treatments for chronic insomnia in perimenopausal and postmenopausal women: a systematic review and meta-analysis. Sleep Med. 2026;146:109040. doi:10.1016/j.sleep.2026.109040.",
+    "headline": "Nonhormonal Options May Improve Menopause Insomnia",
+    "takeaway": "This systematic review and meta-analysis found that nonpharmacological approaches, especially cognitive behavioral therapy for insomnia and calming practices such as acupuncture, yoga, and massage, appeared to improve sleep measures in peri- and postmenopausal women. The findings support starting with structured behavioral and lifestyle-based sleep strategies while reserving medication decisions for individualized clinical guidance.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42247852/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-06-08"
+  },
+  {
+    "id": "article-109",
+    "citation": "Spector A, Faulkner A, Gilchrist H, Sethi S, He L, Gurvich C, Evans R. Cognitive Stimulation Therapy in Menopause: Feasibility randomised controlled trial. Reprod Fertil. 2026;7(2):RAF260027. doi:10.1530/RAF-26-0027.",
+    "headline": "Brain Fog Program Feasible in Menopause",
+    "takeaway": "This feasibility randomized controlled trial tested an online group cognitive stimulation program for women experiencing menopause-related brain fog and found strong acceptability, attendance, and retention. Because the study was small and not powered for efficacy, it is best viewed as early evidence that a larger trial is warranted rather than proof of symptom improvement.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42148722/",
+    "study_type": "RCT",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-06-08"
+  },
+  {
+    "id": "article-110",
+    "citation": "Diniz AF, Ciuffatelli MX, Queiroz LF, Lemos M, Peloggia A. Radiofrequency versus vaginal estrogen for menopausal sexual dysfunction: a systematic review and meta-analysis of randomized clinical trials. Sex Med Rev. 2026;14(1):qeag013. doi:10.1093/sxmrev/qeag013.",
+    "headline": "Nonhormonal Vaginal Therapy Shows Promise",
+    "takeaway": "This meta-analysis of randomized trials compared vaginal radiofrequency with vaginal estrogen for postmenopausal sexual dysfunction related to genitourinary syndrome of menopause. Radiofrequency showed a modest improvement in overall sexual function scores, but the authors emphasized that longer-term durability and broader safety evidence are still needed.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41824547/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "active-menopause",
+    "date_added": "2026-06-08"
+  },
+  {
+    "id": "article-111",
+    "citation": "Bandeira TFGS, Aguiar PM, Vianna CMM, Mosegui GBG, Lima TM. Romosozumab Versus Teriparatide for the Treatment of Postmenopausal Osteoporosis: An Overview of Systematic Reviews With Direct and Indirect Meta-Analyses. Int J Rheum Dis. 2026;29(4):e70658. doi:10.1111/1756-185x.70658.",
+    "headline": "Osteoporosis Drugs Show Similar Outcomes",
+    "takeaway": "This overview of systematic reviews with meta-analyses found broadly similar efficacy and safety outcomes for romosozumab compared with teriparatide in postmenopausal osteoporosis. Because the quality of evidence ranged from very low to moderate, treatment selection should remain individualized around fracture risk, cardiovascular history, and clinician guidance.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41999058/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-06-08"
+  },
+  {
+    "id": "article-112",
+    "citation": "Huang YC, Chang KH, Kao SW, Chen YC, Cheng MT. Spine-hip bone mineral density discordance in postmenopausal Asian women: fracture burden and incremental risk stratification beyond hip BMD. Arch Osteoporos. 2026;21(1):86. doi:10.1007/s11657-026-01720-x.",
+    "headline": "Dual-Site Bone Scans Improve Risk Detection",
+    "takeaway": "This large retrospective cross-sectional study found that spine-hip bone density discordance was common in postmenopausal women and that hip-only screening missed many vertebral fractures. The study suggests that evaluating both spine and hip results may give clinicians a fuller view of skeletal risk in later postmenopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42234246/",
+    "study_type": "Cross-Sectional",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-06-08"
+  },
+  {
+    "id": "article-113",
+    "citation": "Yazici Sarikaya S, Nyback S, Derntl B, Ljungman L, Hirschberg AL, Kopp Kallner H, Sundström Poromaa I, Wikman A, Kunovac Kallak T. The effect of vaginal tamoxifen on symptoms of anxiety, depression, and health-related quality of life in postmenopausal women with and without breast cancer. Maturitas. 2026;211:109010. doi:10.1016/j.maturitas.2026.109010.",
+    "headline": "Vaginal Tamoxifen May Reduce Pain",
+    "takeaway": "This double-blind randomized placebo-controlled trial found that weekly vaginal tamoxifen was associated with reduced anxiety scores and clinically meaningful pain reduction in postmenopausal women with genitourinary syndrome of menopause. The results are promising for quality of life, but additional research is needed to clarify mechanisms, systemic effects, and broader benefits.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42235095/",
+    "study_type": "RCT",
+    "stage_id": "general",
+    "date_added": "2026-06-08"
   }
+
 
 ];
 
