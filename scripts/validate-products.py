@@ -1,211 +1,317 @@
 #!/usr/bin/env python3
 """
-PauseAndFlourish Product Validator
-=================================
-Run this script before every deployment to catch:
-  1. Duplicate ASINs (same product listed twice)
-  2. Duplicate image URLs (same image used for different products)
-  3. Fake/placeholder ASINs (known sequential patterns)
-  4. Broken Amazon product pages (HTTP 404)
-  5. Broken Amazon image URLs (HTTP non-200)
+PauseAndFlourish Product and Asset Validator
+============================================
+Run this script during weekly catalog maintenance and before deployment to catch:
+  1. Duplicate product IDs, slugs, ASINs, or heroImage URLs
+  2. Missing or malformed Amazon ASINs
+  3. Missing, duplicate, non-Amazon, or broken heroImage URLs
+  4. Broken heroImage URLs when --live is enabled
+  5. Broken Amazon product pages when --live-products is enabled
 
 Usage:
-  python3 scripts/validate-products.py              # Fast checks only (no HTTP)
-  python3 scripts/validate-products.py --live       # Full live HTTP checks (slower)
+  python3 scripts/validate-products.py                  # Fast static catalog checks
+  python3 scripts/validate-products.py --live           # Static checks plus live heroImage HTTP checks
+  python3 scripts/validate-products.py --live-products  # Static checks plus live product-page HTTP checks
+  npm run check:assets                                  # Weekly workflow asset-integrity check
 
 Exit codes:
   0 = All clear
   1 = Issues found
 """
 
+from __future__ import annotations
+
+import argparse
 import re
 import sys
 import time
-import argparse
 from collections import Counter
 from pathlib import Path
+from typing import Iterable
 
-# ── Configuration ──────────────────────────────────────────────────────────────
+try:
+    import requests
+except ImportError:  # pragma: no cover - handled at runtime
+    requests = None
+
 ROOT = Path(__file__).parent.parent
-FILES_TO_CHECK = [
-    ROOT / "client/src/lib/products.ts",
-    ROOT / "scripts/weekly-update.mjs",
-]
+PRODUCTS_FILE = ROOT / "client/src/lib/products.ts"
 
-# Known fake ASIN patterns (sequential placeholders that were used historically)
-FAKE_ASIN_PATTERNS = [
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+}
+IMAGE_HEADERS = {
+    "User-Agent": HEADERS["User-Agent"],
+    "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+}
+
+KNOWN_FAKE_ASIN_PATTERNS = [
     r"B00AQNFMD[A-Z0-9]",
     r"B09NWQMHV[A-Z0-9]",
     r"B000UXLPB[A-Z0-9]",
     r"B07QHQRPN[A-Z0-9]",
     r"B0C7BKGM5[A-Z0-9]",
-    r"B0FKCQTPF[A-Z0-9]",   # Native Coconut placeholder
-    r"B0BJNX6R5[A-Z0-9]",   # L'Oreal placeholder
-    r"B08NWQMHV[A-Z0-9]",   # Olaplex placeholder series
-    r"B003EQUKX[A-Z0-9]",   # It's a 10 placeholder
-    r"B00YQHK8G[A-Z0-9]",   # Briogeo placeholder
-    r"B08CXQJWJ[A-Z0-9]",   # Karseell placeholder
-    r"B0C1VQWX5[A-Z0-9]",   # SUNATORIA placeholder
-    r"B002A5WKX[A-Z0-9]",   # Moroccanoil placeholder
-    r"B0773VWWJ[A-Z0-9]",   # Alfaparf placeholder
-    r"B0C2JQHK4[A-Z0-9]",   # MAREE placeholder
-    r"B0CXTKBV1[A-Z0-9]",   # Dyson Supersonic placeholder
-    r"B07CKKGR8[A-Z0-9]",   # Conair Double Ceramic placeholder
+    r"B0FKCQTPF[A-Z0-9]",
+    r"B0BJNX6R5[A-Z0-9]",
+    r"B08NWQMHV[A-Z0-9]",
+    r"B003EQUKX[A-Z0-9]",
+    r"B00YQHK8G[A-Z0-9]",
+    r"B08CXQJWJ[A-Z0-9]",
+    r"B0C1VQWX5[A-Z0-9]",
+    r"B002A5WKX[A-Z0-9]",
+    r"B0773VWWJ[A-Z0-9]",
+    r"B0C2JQHK4[A-Z0-9]",
+    r"B0CXTKBV1[A-Z0-9]",
+    r"B07CKKGR8[A-Z0-9]",
 ]
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-}
+
+def extract_array(source: str, export_name: str) -> str:
+    """Return the source text inside an exported top-level array."""
+    start = source.index(f"export const {export_name}")
+    equals = source.index("=", start)
+    array_start = source.index("[", equals)
+    level = 0
+    in_string = False
+    escape = False
+    quote = ""
+
+    for idx, char in enumerate(source[array_start:], array_start):
+        if in_string:
+            if escape:
+                escape = False
+            elif char == "\\":
+                escape = True
+            elif char == quote:
+                in_string = False
+        else:
+            if char in ('"', "'", "`"):
+                in_string = True
+                quote = char
+            elif char == "[":
+                level += 1
+            elif char == "]":
+                level -= 1
+                if level == 0:
+                    return source[array_start + 1 : idx]
+    raise ValueError(f"Could not find end of {export_name} array")
 
 
-def extract_products(filepath):
-    """Extract all (asin, image_code, name) tuples from a file."""
-    content = filepath.read_text()
-    asins = re.findall(r'asin:\s*["\']([A-Z0-9]{10})["\']', content)
-    images = re.findall(
-        r'amazonImageUrl:\s*"https://m\.media-amazon\.com/images/I/([^"._]+)', content
-    )
-    names = re.findall(r'name:\s*["\']([^"\']+)["\']', content)
-    return asins, images, names
+def split_top_level_objects(array_source: str) -> list[str]:
+    """Split a TypeScript array body into top-level object literals."""
+    objects: list[str] = []
+    level = 0
+    start: int | None = None
+    in_string = False
+    escape = False
+    quote = ""
+
+    for idx, char in enumerate(array_source):
+        if in_string:
+            if escape:
+                escape = False
+            elif char == "\\":
+                escape = True
+            elif char == quote:
+                in_string = False
+        else:
+            if char in ('"', "'", "`"):
+                in_string = True
+                quote = char
+            elif char == "{":
+                if level == 0:
+                    start = idx
+                level += 1
+            elif char == "}":
+                level -= 1
+                if level == 0 and start is not None:
+                    objects.append(array_source[start : idx + 1])
+                    start = None
+    return objects
 
 
-def check_static(filepath, label, all_asins, all_images):
-    """Run fast static checks (no HTTP requests)."""
-    asins, images, names = extract_products(filepath)
-    all_asins.extend(asins)
-    all_images.extend(images)
-
-    issues = []
-
-    # Duplicate ASINs within this file
-    asin_counts = Counter(asins)
-    for asin, count in asin_counts.items():
-        if count > 1:
-            issues.append(f"DUPLICATE ASIN {asin} appears {count} times")
-
-    # Duplicate images within this file
-    img_counts = Counter(images)
-    for img, count in img_counts.items():
-        if count > 1:
-            issues.append(f"DUPLICATE IMAGE {img} appears {count} times")
-
-    # Fake/placeholder ASINs
-    for pattern in FAKE_ASIN_PATTERNS:
-        matches = re.findall(pattern, filepath.read_text())
-        for m in matches:
-            issues.append(f"FAKE/PLACEHOLDER ASIN detected: {m}")
-
-    return issues, len(asins)
+def get_string_field(object_source: str, field: str) -> str:
+    patterns = [
+        rf'{field}:\s*"([^"]*)"',
+        rf"{field}:\s*'([^']*)'",
+        rf'{field}:\s*buildAffiliateUrl\("([^"]*)"\)',
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, object_source)
+        if match:
+            return match.group(1).strip()
+    return ""
 
 
-def check_live_asin(asin):
-    """Check if an Amazon product page returns HTTP 200."""
+def extract_products() -> list[dict[str, str]]:
+    source = PRODUCTS_FILE.read_text()
+    products_source = extract_array(source, "allProducts")
+    products = []
+    for object_source in split_top_level_objects(products_source):
+        products.append(
+            {
+                "id": get_string_field(object_source, "id"),
+                "slug": get_string_field(object_source, "slug"),
+                "name": get_string_field(object_source, "name"),
+                "brand": get_string_field(object_source, "brand"),
+                "asin": get_string_field(object_source, "asin"),
+                "heroImage": get_string_field(object_source, "heroImage"),
+            }
+        )
+    return products
+
+
+def duplicate_values(products: Iterable[dict[str, str]], field: str) -> list[str]:
+    values = [product[field] for product in products if product.get(field)]
+    counts = Counter(values)
+    return sorted(value for value, count in counts.items() if count > 1)
+
+
+def check_static(products: list[dict[str, str]]) -> list[str]:
+    issues: list[str] = []
+
+    required_fields = ["id", "slug", "name", "brand", "asin", "heroImage"]
+    for product in products:
+        label = product.get("id") or product.get("name") or "unknown product"
+        for field in required_fields:
+            if not product.get(field):
+                issues.append(f"[{label}] missing required field: {field}")
+        asin = product.get("asin", "")
+        if asin and not re.fullmatch(r"[A-Z0-9]{10}", asin):
+            issues.append(f"[{label}] malformed ASIN: {asin}")
+        image = product.get("heroImage", "")
+        if image and not image.startswith("https://m.media-amazon.com/images/I/"):
+            issues.append(f"[{label}] heroImage must be an Amazon media image URL: {image}")
+
+    for field in ["id", "slug", "asin", "heroImage"]:
+        for value in duplicate_values(products, field):
+            matching_ids = [product["id"] for product in products if product.get(field) == value]
+            issues.append(f"duplicate {field}: {value} used by {', '.join(matching_ids)}")
+
+    source = PRODUCTS_FILE.read_text()
+    for pattern in KNOWN_FAKE_ASIN_PATTERNS:
+        for asin in re.findall(pattern, source):
+            issues.append(f"fake or placeholder ASIN detected: {asin}")
+
+    return issues
+
+
+def check_live_product(session: "requests.Session", asin: str) -> tuple[bool | None, str]:
     try:
-        import requests
-        url = f"https://www.amazon.com/dp/{asin}"
-        resp = requests.get(url, headers=HEADERS, timeout=10, allow_redirects=True)
-        if resp.status_code == 404:
-            return False, 404
-        elif resp.status_code == 200:
-            # Check if it's a "page not found" response disguised as 200
-            if "page not found" in resp.text.lower() or "dog" in resp.text.lower()[:500]:
-                return False, "SOFT_404"
-        return True, resp.status_code
-    except Exception as e:
-        return None, str(e)
+        response = session.get(
+            f"https://www.amazon.com/dp/{asin}?tag=pauseandflourish-20",
+            headers=HEADERS,
+            timeout=20,
+            allow_redirects=True,
+        )
+        body = response.text[:300000].lower()
+        unavailable_markers = [
+            "currently unavailable",
+            "we don't know when or if this item will be back in stock",
+            "no longer available",
+            "page not found",
+            "sorry! we couldn't find that page",
+        ]
+        title_found = 'id="producttitle"' in body or "id='producttitle'" in body
+        unavailable = any(marker in body for marker in unavailable_markers)
+        if response.status_code == 404 or unavailable:
+            return False, f"status={response.status_code}; unavailable marker found"
+        if response.status_code == 200 and title_found:
+            return True, "status=200; product title found"
+        return None, f"status={response.status_code}; manual review recommended"
+    except Exception as exc:  # pragma: no cover - network dependent
+        return None, f"{type(exc).__name__}: {exc}"
 
 
-def check_live_image(image_code):
-    """Check if an Amazon image URL returns HTTP 200."""
+def check_live_image(session: "requests.Session", image_url: str) -> tuple[bool, str]:
     try:
-        import requests
-        url = f"https://m.media-amazon.com/images/I/{image_code}._SL1500_.jpg"
-        resp = requests.head(url, timeout=8)
-        return resp.status_code == 200, resp.status_code
-    except Exception as e:
-        return None, str(e)
+        response = session.get(image_url, headers=IMAGE_HEADERS, timeout=20, stream=True)
+        content_type = response.headers.get("content-type", "")
+        ok = response.status_code == 200 and content_type.startswith("image/")
+        status = f"status={response.status_code}; content-type={content_type or 'unknown'}"
+        response.close()
+        return ok, status
+    except Exception as exc:  # pragma: no cover - network dependent
+        return False, f"{type(exc).__name__}: {exc}"
 
 
-def main():
-    parser = argparse.ArgumentParser(description="PauseAndFlourish Product Validator")
-    parser.add_argument("--live", action="store_true", help="Run live HTTP checks (slower)")
+def check_live_images(products: list[dict[str, str]]) -> list[str]:
+    if requests is None:
+        return ["requests package is required for --live checks"]
+
+    issues: list[str] = []
+    session = requests.Session()
+
+    print("\nRunning live asset-integrity checks for heroImage URLs...")
+    for index, product in enumerate(products, start=1):
+        label = f"{product['id']} ({product['asin']})"
+        image_ok, image_status = check_live_image(session, product["heroImage"])
+        if not image_ok:
+            issues.append(f"[{label}] heroImage broken: {image_status}; {product['heroImage']}")
+        print(f"  {index:02d}/{len(products)} {label}: image={image_status}")
+        time.sleep(0.2)
+
+    return issues
+
+
+def check_live_products(products: list[dict[str, str]]) -> list[str]:
+    if requests is None:
+        return ["requests package is required for --live-products checks"]
+
+    issues: list[str] = []
+    session = requests.Session()
+
+    print("\nRunning live Amazon product-page checks...")
+    for index, product in enumerate(products, start=1):
+        label = f"{product['id']} ({product['asin']})"
+        product_ok, product_status = check_live_product(session, product["asin"])
+        if product_ok is False:
+            issues.append(f"[{label}] Amazon product unavailable or broken: {product_status}")
+        elif product_ok is None:
+            print(f"  Manual review: {label}; {product_status}")
+        print(f"  {index:02d}/{len(products)} {label}: product={product_status}")
+        time.sleep(0.35)
+
+    return issues
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="PauseAndFlourish product and asset validator")
+    parser.add_argument("--live", action="store_true", help="Run live heroImage HTTP checks")
+    parser.add_argument("--live-products", action="store_true", help="Run live Amazon product-page HTTP checks")
     args = parser.parse_args()
 
-    print("=" * 60)
-    print("PauseAndFlourish Product Validator")
-    print("=" * 60)
+    print("=" * 72)
+    print("PauseAndFlourish Product and Asset Validator")
+    print("=" * 72)
 
-    all_issues = []
-    total_products = 0
-    all_asins = []
-    all_images = []
+    products = extract_products()
+    issues = check_static(products)
 
-    # Static checks
-    for filepath in FILES_TO_CHECK:
-        if not filepath.exists():
-            print(f"WARNING: {filepath} not found, skipping")
-            continue
-        label = filepath.name
-        issues, count = check_static(filepath, label, all_asins, all_images)
-        total_products += count
-        if issues:
-            for issue in issues:
-                all_issues.append(f"[{label}] {issue}")
-            print(f"  {label}: {count} products — {len(issues)} issues")
-        else:
-            print(f"  {label}: {count} products — OK")
+    print(f"Products checked: {len(products)}")
+    print("Static checks: product IDs, slugs, ASINs, heroImage URLs, duplicates, and placeholders")
 
-    # NOTE: Cross-file duplicates are intentional — weekly-update.mjs reuses
-    # products from the main products.ts catalog. Only within-file duplicates
-    # are flagged (handled above in check_static).
-
-    print(f"\nTotal products checked: {total_products}")
-
-    # Live HTTP checks (optional)
     if args.live:
-        print("\nRunning live HTTP checks (this may take a few minutes)...")
-        unique_asins = list(set(all_asins))
-        unique_images = list(set(all_images))
+        issues.extend(check_live_images(products))
+    if args.live_products:
+        issues.extend(check_live_products(products))
 
-        broken_asins = []
-        for i, asin in enumerate(unique_asins):
-            ok, status = check_live_asin(asin)
-            if ok is False:
-                broken_asins.append(asin)
-                all_issues.append(f"[LIVE] BROKEN AMAZON LINK: https://www.amazon.com/dp/{asin} (status: {status})")
-            time.sleep(0.5)  # Rate limiting
-            if (i + 1) % 10 == 0:
-                print(f"  Checked {i+1}/{len(unique_asins)} ASINs...")
+    print("\n" + "=" * 72)
+    if issues:
+        print(f"VALIDATION FAILED — {len(issues)} issue(s) found:")
+        for issue in issues:
+            print(f"  - {issue}")
+        return 1
 
-        broken_images = []
-        for i, img in enumerate(unique_images):
-            ok, status = check_live_image(img)
-            if ok is False:
-                broken_images.append(img)
-                all_issues.append(f"[LIVE] BROKEN IMAGE: {img} (status: {status})")
-            time.sleep(0.2)
-            if (i + 1) % 20 == 0:
-                print(f"  Checked {i+1}/{len(unique_images)} images...")
-
-        print(f"  Live ASIN checks: {len(unique_asins) - len(broken_asins)}/{len(unique_asins)} OK")
-        print(f"  Live image checks: {len(unique_images) - len(broken_images)}/{len(unique_images)} OK")
-
-    # Final report
-    print("\n" + "=" * 60)
-    if all_issues:
-        print(f"VALIDATION FAILED — {len(all_issues)} issue(s) found:")
-        for issue in all_issues:
-            print(f"  ❌  {issue}")
-        print("\nRule: Any product not available on Amazon MUST be replaced")
-        print("      with a real, available Amazon product in the same category.")
-        sys.exit(1)
+    if args.live or args.live_products:
+        print("VALIDATION PASSED — requested live checks passed.")
     else:
-        print(f"VALIDATION PASSED — {total_products} products, zero issues")
-        print("\nAll ASINs are unique, all images are unique, no fake ASINs detected.")
-        sys.exit(0)
+        print("VALIDATION PASSED — static product and asset checks passed.")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
