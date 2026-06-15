@@ -1168,6 +1168,66 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "RCT",
     "stage_id": "general",
     "date_added": "2026-06-08"
+  },
+  {
+    "id": "article-114",
+    "citation": "Ray P, Srivastava A, Jani P. Effect of vitamin D supplementation on fatigue and mood among perimenopausal women. Bioinformation. 2026;22(3):1638-1642. doi:10.6026/973206300221638. PMID: 42145430.",
+    "headline": "Vitamin D Supplementation Eases Perimenopause Fatigue and Mood",
+    "takeaway": "This randomized, double-blind, placebo-controlled trial found that six months of vitamin D3 supplementation significantly improved both fatigue and mood in perimenopausal women with vitamin D deficiency compared with placebo. Multivariate analysis confirmed vitamin D supplementation as an independent predictor of these improvements, suggesting that correcting deficiency may be a practical first step for women experiencing early perimenopausal fatigue and mood changes.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42145430/",
+    "study_type": "RCT",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-06-15"
+  },
+  {
+    "id": "article-115",
+    "citation": "Coronado PJ, Mendoza N, González SP, Sánchez-Méndez S, Presa J, Jurado AR, et al. Prevalence of vasomotor symptoms and the associated risk factors: the \"Mi Menopausia\" app study. Maturitas. 2026 Jun;209:108958. doi:10.1016/j.maturitas.2026.108958. PMID: 42066667.",
+    "headline": "Vasomotor Symptoms Linked to Insomnia, Anxiety, and Reduced Quality of Life",
+    "takeaway": "This large cross-sectional study using a menopause app found that moderate-to-severe vasomotor symptoms were significantly associated with insomnia, irritability, depression, anxiety, and vaginal dryness, and were linked to lower health-related quality of life. Despite the high burden, only 17% of affected women received treatment, underscoring a major gap in care for women in late perimenopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42066667/",
+    "study_type": "Cross-Sectional",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-06-15"
+  },
+  {
+    "id": "article-116",
+    "citation": "Di Pierro F, Filippini M, Lucia M, Khan A, Ujjan I, Khan SA, et al. Clinical and vaginal microbiota effects of oral Lactobacillus crispatus M247 combined with vaginal laser therapy in menopausal women with atrophic vulvovaginitis: a prospective, randomized and controlled study. Lasers Med Sci. 2026 Jun 3;41(1):106. doi:10.1007/s10103-026-04900-w. PMID: 42234022.",
+    "headline": "Probiotic Plus Laser Therapy Improves Vaginal Atrophy Symptoms",
+    "takeaway": "This randomized controlled trial found that combining oral Lactobacillus crispatus M247 probiotic with vaginal CO₂ laser therapy produced greater reductions in vaginal dryness, dyspareunia, burning, and itching compared with laser therapy alone in postmenopausal women with vulvovaginal atrophy. The probiotic group also showed a shift toward a more favorable vaginal microbiota profile, suggesting that gut-vaginal microbiome support may enhance the benefits of laser treatment for active menopause symptoms.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42234022/",
+    "study_type": "RCT",
+    "stage_id": "active-menopause",
+    "date_added": "2026-06-15"
+  },
+  {
+    "id": "article-117",
+    "citation": "Leder BZ, Ramchand SK, Jordan M, Ryan S, Patnaik A, Lee H, et al. 3 months vs 12 months of romosozumab for postmenopausal osteoporosis (LIDA): an open-label, non-inferiority, randomised controlled trial. Lancet Diabetes Endocrinol. 2026 Mar;14(3):216-222. doi:10.1016/S2213-8587(25)00319-5. PMID: 41621431.",
+    "headline": "Shorter Romosozumab Course Non-Inferior for Postmenopausal Bone Loss",
+    "takeaway": "This non-inferiority randomized controlled trial published in The Lancet found that three months of romosozumab produced bone mineral density gains at the total hip that were non-inferior to the standard twelve-month course in postmenopausal women with osteoporosis. The findings suggest that a shorter treatment duration may be a viable option, potentially improving tolerability and adherence for women in early postmenopause who need bone-protective therapy.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41621431/",
+    "study_type": "RCT",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-06-15"
+  },
+  {
+    "id": "article-118",
+    "citation": "Melville M, He L, Desai R, Nyamayaro P, Fox C, Kothari KU, et al. Menopause hormone therapy and risk of mild cognitive impairment or dementia: a systematic review and meta-analysis. Lancet Healthy Longev. 2025 Dec;6(12):100803. doi:10.1016/j.lanhl.2025.100803. PMID: 41448220.",
+    "headline": "Hormone Therapy Does Not Raise or Lower Dementia Risk",
+    "takeaway": "This Lancet systematic review and meta-analysis of over one million participants found no significant association between menopausal hormone therapy use and the risk of mild cognitive impairment or dementia in postmenopausal women. The authors conclude that MHT should not be prescribed for dementia prevention, but equally should not be withheld on that basis, reinforcing individualized decision-making based on other benefits and risks.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41448220/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-06-15"
+  },
+  {
+    "id": "article-119",
+    "citation": "Jiang W, Wu K. The effectiveness of red clover on hot-flash in menopausal women: a GRADE-assessed systematic review and meta-analysis. Eur J Obstet Gynecol Reprod Biol. 2026 Jun 3;324:115226. doi:10.1016/j.ejogrb.2026.115226. PMID: 42269521.",
+    "headline": "Red Clover Isoflavones Modestly Reduce Menopausal Hot Flashes",
+    "takeaway": "This GRADE-assessed systematic review and meta-analysis of nine randomized controlled trials found that red clover isoflavone supplementation produced a statistically significant small-to-moderate reduction in hot flash frequency compared with placebo in menopausal women. The results support red clover as a phytoestrogenic alternative for women seeking non-hormonal options to manage vasomotor symptoms, though individual response may vary.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42269521/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "general",
+    "date_added": "2026-06-15"
   }
 
 
