@@ -1850,6 +1850,146 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
     editorNote: "NEURIVA Plus is the cognitive support supplement I recommend most often to women describing menopause brain fog because it has the deepest consumer validation and the most credible clinical ingredient story in the category.",
   },
 
+  // ── New Products: Week of 2026-06-22 ─────────────────────────────────────────
+  {
+    id: "bonafide-thermella",
+    slug: "bonafide-thermella-hot-flash-supplement",
+    name: "Bonafide Thermella Hot Flash & Night Sweat Relief",
+    brand: "Bonafide",
+    asin: "B0FJMNTKQ7",
+    affiliateUrl: buildAffiliateUrl("B0FJMNTKQ7"),
+    category: "Hot Flash & Cooling",
+    categorySlug: "hot-flash-cooling",
+    stages: ["late-perimenopause", "active-menopause", "early-postmenopause"],
+    price: "$49.99",
+    rating: 4.1,
+    reviewCount: 312,
+    heroImage: "https://m.media-amazon.com/images/I/718JFi1q1DL._AC_SL1500_.jpg",
+    summary: "Bonafide Thermella is a hormone-free, non-prescription supplement formulated specifically for hot flash and night sweat relief using a clinically studied pycnogenol and soy isoflavone blend, developed by the team behind the prescription menopause brand Bijuva.",
+    pros: [
+      "Clinically studied pycnogenol (French maritime pine bark extract) as the lead active ingredient",
+      "Hormone-free and non-prescription formula from a credible menopause-focused brand",
+      "Targets both frequency and severity of hot flashes and night sweats",
+      "Once-daily capsule format for easy integration into a daily routine",
+    ],
+    cons: [
+      "Higher price point than many mass-market hot flash supplements",
+      "Relatively newer product with a smaller review base than established competitors",
+      "Contains soy isoflavones, which may not be appropriate for all women",
+    ],
+    ingredients: ["Pycnogenol (French Maritime Pine Bark Extract) 60mg", "Soy Isoflavones 40mg", "Microcrystalline Cellulose", "Vegetable Capsule"],
+    verdict: "Bonafide Thermella is a strong premium option for women seeking a clinically grounded, hormone-free hot flash supplement from a brand with deep menopause expertise. The pycnogenol-led formula differentiates it from the black cohosh and red clover products that dominate this category.",
+    score: 8.4,
+    editorPick: false,
+    bestFor: "Women seeking a clinically studied, hormone-free hot flash supplement with a pycnogenol-based formula",
+    tags: ["hot flashes", "night sweats", "pycnogenol", "hormone-free", "soy isoflavones", "cooling"],
+    shortDescription: "A hormone-free hot flash and night sweat supplement from Bonafide, using clinically studied pycnogenol and soy isoflavones for targeted cooling relief.",
+    fullReview: `Bonafide Thermella stands out in the crowded hot flash supplement category because it leads with pycnogenol — a standardized extract from French maritime pine bark — rather than the black cohosh or red clover isoflavones that anchor most competitors. Pycnogenol has been studied in multiple clinical trials for its effects on menopausal symptoms, including hot flash frequency and severity, and its inclusion as the primary active ingredient gives Thermella a more differentiated scientific identity than broad herbal blends.
+
+The Bonafide brand itself carries significant credibility in the menopause space. The company is best known for Bijuva, an FDA-approved bioidentical hormone therapy, and its non-prescription line reflects the same commitment to evidence-based formulation. For women who want a supplement that comes from a brand with genuine clinical expertise rather than a generic supplement manufacturer, that provenance matters.
+
+The formula combines pycnogenol at 60mg with soy isoflavones at 40mg in a once-daily capsule. The soy isoflavone component adds phytoestrogen activity that complements the antioxidant and anti-inflammatory effects of pycnogenol, creating a dual-mechanism approach to hot flash management. The hormone-free positioning makes it accessible to women who are not candidates for or who prefer to avoid hormone therapy.
+
+At roughly $50 for a 30-day supply, Thermella is priced at the premium end of the non-prescription hot flash supplement market. The review base is smaller than established products like Remifemin or Estroven, which is expected for a newer product, but the ratings are solid and consistent with the brand's quality positioning.
+
+For women who have tried black cohosh-based supplements without satisfactory results, or who specifically want a pycnogenol-led formula from a menopause-focused brand, Bonafide Thermella is one of the most compelling premium options in the hot-flash-cooling category.`,
+    priceDisplay: "$49.99",
+    publishDate: "2026-06-22",
+    editorNote: "Thermella is the go-to recommendation for women who want a pycnogenol-based hot flash supplement from a brand with genuine clinical menopause expertise.",
+  },
+  {
+    id: "thorne-perimenopause-complete",
+    slug: "thorne-perimenopause-complete-supplement",
+    name: "THORNE Perimenopause Complete",
+    brand: "Thorne",
+    asin: "B0GMYXQJTN",
+    affiliateUrl: buildAffiliateUrl("B0GMYXQJTN"),
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    stages: ["early-perimenopause", "late-perimenopause", "active-menopause"],
+    price: "$52.00",
+    rating: 3.9,
+    reviewCount: 18,
+    heroImage: "https://m.media-amazon.com/images/I/71NjlagGHML._AC_SL1500_.jpg",
+    summary: "THORNE Perimenopause Complete is an NSF Certified for Sport multi-symptom menopause supplement from one of the most trusted clinical supplement brands, combining vitamin B6, a patented EstroG-100 botanical blend, and hops extract to address hot flashes, night sweats, vaginal dryness, mood, and bone health in a single formula.",
+    pros: [
+      "NSF Certified for Sport — one of the most rigorous third-party quality certifications available",
+      "Clinically studied EstroG-100 botanical blend with patented phytoestrogen support",
+      "Addresses hot flashes, night sweats, vaginal dryness, mood, and bone health in one formula",
+      "Trusted by 100+ professional sports teams and recommended by healthcare practitioners",
+    ],
+    cons: [
+      "Premium price at $52 for a 30-day supply",
+      "Newer product with a limited review base compared to established competitors",
+      "The EstroG-100 blend contains phytoestrogens, which may not suit all women",
+    ],
+    ingredients: ["Vitamin B6 (as Pyridoxal 5'-Phosphate) 30mg", "EstroG-100 Botanical Blend 514mg", "Hops Extract (flower) 85mg", "Hypromellose Capsule", "Microcrystalline Cellulose", "Ascorbyl Palmitate"],
+    verdict: "THORNE Perimenopause Complete is the strongest NSF-certified multi-symptom menopause supplement in the catalog, offering a clinically grounded formula from one of the most trusted names in practitioner-grade supplementation. It is the premium choice for women who prioritize third-party quality verification and want a single formula addressing the full spectrum of perimenopause symptoms.",
+    score: 8.7,
+    editorPick: false,
+    bestFor: "Women who prioritize NSF certification and practitioner-grade quality in a multi-symptom perimenopause supplement",
+    tags: ["multi-symptom", "hot flashes", "night sweats", "vaginal dryness", "mood", "bone health", "NSF certified", "EstroG-100"],
+    shortDescription: "An NSF Certified for Sport multi-symptom perimenopause supplement from Thorne, combining EstroG-100 botanicals, vitamin B6, and hops extract for comprehensive symptom relief.",
+    fullReview: `THORNE Perimenopause Complete enters the multi-symptom supplement category with one of the most credentialed quality profiles available: NSF Certified for Sport, which means it has been independently tested for label accuracy and the absence of nearly 300 substances banned by major athletic organizations. For women who want the highest level of third-party quality assurance in their menopause supplement, that certification is a meaningful differentiator.
+
+The formula is built around EstroG-100, a patented botanical blend that has been clinically studied for its effects on hot flashes, night sweats, vaginal dryness, and mood changes during perimenopause and menopause. EstroG-100 is derived from three Korean herbs — Cynanchum wilfordii, Phlomis umbrosa, and Angelica gigas — and represents a distinct botanical approach compared to the black cohosh and red clover isoflavones that dominate most competitor formulas. The addition of vitamin B6 as pyridoxal 5'-phosphate (the active form) supports mood balance and energy, while hops extract provides a phytoestrogen called 8-prenylnaringenin that has been studied for bone health support in postmenopausal women.
+
+Thorne's brand positioning is anchored in the practitioner channel. The company is the number-one recommended clinical supplement brand by healthcare practitioners according to a 2023 survey, and it is the official supplement partner of multiple U.S. national sports teams. That credibility translates directly to consumer confidence for women who want a supplement that meets the same quality standards used by elite athletes and clinical practitioners.
+
+At $52 for a 60-capsule bottle (30-day supply at two capsules per day), Perimenopause Complete is priced at the premium end of the multi-symptom supplement market. The review base is small for a newer product, but the ratings are consistent with the brand's quality reputation. Women who have been satisfied with other Thorne products will find this formula meets the same standards they expect from the brand.
+
+For women in early to late perimenopause who want a comprehensive, NSF-certified multi-symptom formula from a practitioner-trusted brand, THORNE Perimenopause Complete is one of the strongest premium additions to this catalog.`,
+    priceDisplay: "$52.00",
+    publishDate: "2026-06-22",
+    editorNote: "Thorne Perimenopause Complete is the recommendation for women who specifically ask for NSF certification or who are already Thorne customers looking for a menopause-specific formula.",
+  },
+  {
+    id: "stripes-evening-wear-retinol",
+    slug: "stripes-evening-wear-retinol-night-cream-menopause",
+    name: "STRIPES Evening Wear Retinol Night Cream",
+    brand: "STRIPES",
+    asin: "B0BSWWD7MK",
+    affiliateUrl: buildAffiliateUrl("B0BSWWD7MK"),
+    category: "Menopause Skincare",
+    categorySlug: "menopause-skincare",
+    stages: ["late-perimenopause", "active-menopause", "early-postmenopause", "late-postmenopause"],
+    price: "$80.00",
+    rating: 4.0,
+    reviewCount: 48,
+    heroImage: "https://m.media-amazon.com/images/I/71AKQdGGUML._SL1500_.jpg",
+    summary: "STRIPES Evening Wear Retinol Night Cream is a menopause-specific retinoid night cream from Naomi Watts' brand, combining a gentle retinoid with ectoine, squalane, and hyaluronic acid to address the fine lines, wrinkles, and loss of elasticity that accelerate during the menopause transition.",
+    pros: [
+      "Formulated specifically for menopause skin changes including fine lines, wrinkles, and elasticity loss",
+      "Gentle retinoid suitable for sensitive skin, dermatologist tested",
+      "Combines ectoine, squalane, and hyaluronic acid for deep hydration alongside retinoid activity",
+      "Hormone-free, clean ingredients, and free of harsh irritants",
+    ],
+    cons: [
+      "Premium price at $80 for a 1.7 fl oz jar",
+      "Relatively small review base for a premium skincare product",
+      "Contains fragrance, which may not suit women with fragrance sensitivities",
+    ],
+    ingredients: ["Retinoid (Hydroxypinacolone Retinoate)", "Ectoine", "Squalane", "Hyaluronic Acid", "Ceramides", "Edelweiss Extract", "Niacinamide"],
+    verdict: "STRIPES Evening Wear Retinol Night Cream is the most menopause-specific retinoid night cream in the catalog, offering a gentle but effective formula designed for the skin changes that accelerate during the menopause transition. It is the premium recommendation for women who want a retinoid product that explicitly addresses menopause-related skin aging rather than a generic anti-aging cream.",
+    score: 8.3,
+    editorPick: false,
+    bestFor: "Women experiencing accelerated skin aging, fine lines, and elasticity loss during menopause who want a gentle retinoid night cream",
+    tags: ["retinol", "retinoid", "fine lines", "wrinkles", "elasticity", "night cream", "squalane", "hyaluronic acid", "menopause skincare"],
+    shortDescription: "A menopause-specific retinoid night cream from STRIPES by Naomi Watts, combining a gentle retinoid with ectoine, squalane, and hyaluronic acid for fine lines and elasticity support.",
+    fullReview: `STRIPES Evening Wear Retinol Night Cream occupies a distinct position in the menopause skincare category: it is one of the few retinoid products explicitly designed and marketed for the skin changes that occur during the menopause transition, rather than a generic anti-aging cream that happens to be used by menopausal women.
+
+The brand was founded by Naomi Watts, who has been public about her own menopause experience, and the entire STRIPES line is built around the specific skin, hair, and body changes associated with perimenopause and menopause. That intentional positioning matters because menopause-related skin changes — accelerated collagen loss, decreased elasticity, increased dryness, and thinning — are distinct from general aging and benefit from formulas that address the hormonal context rather than simply targeting surface wrinkles.
+
+The formula uses hydroxypinacolone retinoate, a gentle retinoid ester that delivers retinoid activity with significantly less irritation than traditional retinol or prescription tretinoin. This makes it appropriate for the sensitive, reactive skin that many women experience during the menopause transition. The retinoid is paired with ectoine, a natural stress-protection molecule that stabilizes cell membranes and reduces inflammation, along with squalane for deep lipid-based hydration and hyaluronic acid for surface moisture retention.
+
+The formula is hormone-free, dermatologist tested, and suitable for sensitive skin — all meaningful attributes for women navigating menopause skincare for the first time. The clean ingredient positioning and absence of parabens and harsh preservatives align with the preferences of the core STRIPES customer.
+
+At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the menopause skincare market. The review base is smaller than mass-market retinol creams, but the ratings are consistent and the brand's overall product line has strong consumer engagement. For women who want a retinoid night cream that was specifically designed for menopause skin rather than adapted from a general anti-aging line, STRIPES Evening Wear is the strongest premium option in this catalog.`,
+    priceDisplay: "$80.00",
+    publishDate: "2026-06-22",
+    editorNote: "STRIPES Evening Wear is the recommendation for women who specifically ask for a retinoid product designed for menopause skin changes rather than a generic anti-aging cream.",
+  },
+
 
 ];
 
@@ -2420,6 +2560,58 @@ export const comparisons: Comparison[] = [
     publishDate: "2026-06-15",
   },
 
+  // ── New Comparisons: Week of 2026-06-22 ─────────────────────────────────────────
+  {
+    id: "bonafide-thermella-vs-remifemin-hot-flash",
+    slug: "bonafide-thermella-vs-remifemin-hot-flash",
+    title: "Bonafide Thermella vs. Remifemin for Hot Flash Relief",
+    subtitle: "Pycnogenol-led premium formula vs. the gold-standard black cohosh extract",
+    category: "Hot Flash & Cooling",
+    categorySlug: "hot-flash-cooling",
+    productIds: ["bonafide-thermella", "remifemin-menopause"],
+    product1Id: "bonafide-thermella",
+    product2Id: "remifemin-menopause",
+    winner: "remifemin-menopause",
+    winnerId: "remifemin-menopause",
+    winnerReason: "Remifemin wins for clinical depth, affordability, and the 60+ years of black cohosh research behind its standardized extract. Bonafide Thermella is the better choice for women who have not responded to black cohosh or who specifically want a pycnogenol-based formula from a menopause-focused brand.",
+    summary: "Remifemin is the stronger default recommendation for hot flash relief because of its unmatched clinical validation, lower price, and deeper consumer review base. Bonafide Thermella is the premium alternative for women who want a pycnogenol-led formula from a brand with prescription menopause expertise and who have not found black cohosh effective.",
+    verdict: "Remifemin wins for first-line hot flash relief with the deepest clinical backing and best value. Bonafide Thermella wins for women who want a premium pycnogenol-based alternative from a brand with genuine menopause clinical credentials.",
+    publishDate: "2026-06-22",
+  },
+  {
+    id: "thorne-perimenopause-vs-amberen-multi-symptom",
+    slug: "thorne-perimenopause-complete-vs-amberen-multi-symptom",
+    title: "THORNE Perimenopause Complete vs. Amberen Menopause",
+    subtitle: "NSF-certified practitioner-grade formula vs. the bestselling multi-symptom supplement",
+    category: "Multi-Symptom Supplements",
+    categorySlug: "multi-symptom-supplements",
+    productIds: ["thorne-perimenopause-complete", "amberen-menopause"],
+    product1Id: "thorne-perimenopause-complete",
+    product2Id: "amberen-menopause",
+    winner: "amberen-menopause",
+    winnerId: "amberen-menopause",
+    winnerReason: "Amberen wins for consumer validation depth, affordability, and the established track record of its succinic acid-based formula. THORNE Perimenopause Complete is the better choice for women who prioritize NSF certification, practitioner-grade quality, and the EstroG-100 botanical blend.",
+    summary: "Amberen Menopause is the stronger first-line recommendation for most women because of its extensive review base, lower price, and well-established multi-symptom formula. THORNE Perimenopause Complete is the premium upgrade for women who want NSF certification and a practitioner-trusted brand with a clinically studied botanical blend.",
+    verdict: "Amberen wins for broad first-line multi-symptom relief with the deepest consumer validation. THORNE Perimenopause Complete wins for women who specifically want NSF certification and are willing to pay a premium for practitioner-grade quality.",
+    publishDate: "2026-06-22",
+  },
+  {
+    id: "stripes-evening-wear-vs-neutrogena-rapid-firming",
+    slug: "stripes-evening-wear-retinol-vs-neutrogena-rapid-firming-menopause",
+    title: "STRIPES Evening Wear vs. Neutrogena Rapid Firming for Menopause Skin",
+    subtitle: "Premium menopause-specific retinoid night cream vs. accessible peptide firming serum",
+    category: "Menopause Skincare",
+    categorySlug: "menopause-skincare",
+    productIds: ["stripes-evening-wear-retinol", "neutrogena-rapid-firming"],
+    product1Id: "stripes-evening-wear-retinol",
+    product2Id: "neutrogena-rapid-firming",
+    winner: "neutrogena-rapid-firming",
+    winnerId: "neutrogena-rapid-firming",
+    winnerReason: "Neutrogena Rapid Firming wins for most women because it delivers effective peptide-based firming and hydration at a fraction of the price, with a deeper review base and proven accessibility. STRIPES Evening Wear is the better choice for women who specifically want a menopause-branded retinoid formula and are willing to pay a significant premium for the brand positioning.",
+    summary: "Neutrogena Rapid Firming Peptide Contour Lift is the stronger value recommendation for most women because it provides effective topical peptide firming at under $30 with over 6,800 reviews. STRIPES Evening Wear is the premium menopause-specific retinoid option for women who want a gentle retinoid formula from a brand explicitly designed for the menopause transition and are comfortable with the $80 price point.",
+    verdict: "Neutrogena Rapid Firming wins for value, accessibility, and review depth. STRIPES Evening Wear wins for women who want a menopause-specific retinoid night cream from a brand built around the menopause experience and are willing to invest in the premium positioning.",
+    publishDate: "2026-06-22",
+  },
 
 
 ];
