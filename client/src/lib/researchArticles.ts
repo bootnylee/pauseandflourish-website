@@ -1228,9 +1228,67 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "Meta-Analysis",
     "stage_id": "general",
     "date_added": "2026-06-15"
+  },
+  {
+    "id": "article-120",
+    "citation": "McNulty KL, Murphy M, Flynn E, Lane A, Muldoon A, Kealy R, Harrison M, Windle J, Heavey P. The Effectiveness of Lifestyle Interventions, Including Exercise, Diet, and Health Education on Symptoms Experienced During Perimenopause: A Systematic Review of Randomized Controlled Trials. J Aging Phys Act. 2025 Sep 23;34(3):380-403. doi: 10.1123/japa.2024-0226. PMID: 40992413.",
+    "headline": "Lifestyle Modifications Show Promise for Easing Early Perimenopause Symptoms",
+    "takeaway": "This systematic review of 25 randomized controlled trials found that exercise and health education interventions may offer benefits in managing physical and psychological symptoms during perimenopause. While evidence-based guidelines for optimal lifestyle prescription remain elusive due to study variances, these non-pharmacological approaches show potential for improving well-being in the early menopausal transition.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40992413/",
+    "study_type": "Systematic Review",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-06-22"
+  },
+  {
+    "id": "article-121",
+    "citation": "Wojciechowski P, Kolonko K, Giannopoulou A, Smela B, Olewinska E, Bolling KR, Sassarini J, Shulman LP, Talaulikar V. Comparative Efficacy of Elinzanetant Versus Other Non-Hormonal Pharmaceutical Therapies for the Treatment of Moderate-to-Severe Vasomotor Symptoms Associated With Menopause: A Network Meta-Analysis. BJOG. 2026 Mar 15. doi: 10.1111/1471-0528.70213. PMID: 41834312.",
+    "headline": "New Non-Hormonal Therapy Elinzanetant Effectively Reduces Late Perimenopause Hot Flashes",
+    "takeaway": "An indirect comparison network meta-analysis revealed that the novel dual neurokinin-targeted therapy elinzanetant was more effective than desvenlafaxine, gabapentin, and paroxetine in reducing hot flash frequency. It also outperformed other treatments in improving sleep disturbances, positioning it as a promising non-hormonal option for managing moderate-to-severe vasomotor symptoms during late perimenopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41834312/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-06-22"
+  },
+  {
+    "id": "article-122",
+    "citation": "Lemos MJ, Queiroz LF, Diniz AF, Longo da Silva CM, Dos Santos PL, de Oliveira Gomide P, Ferraz JM, De Marco Novellino AM. Intravaginal dehydroepiandrosterone for the treatment of vulvovaginal atrophy: a systematic review and meta-analysis. Menopause. 2026 Jan 27. doi: 10.1097/GME.0000000000002736. PMID: 41589851.",
+    "headline": "Intravaginal DHEA Effectively Relieves Vaginal Dryness and Dyspareunia",
+    "takeaway": "This systematic review and meta-analysis of randomized controlled trials demonstrated that intravaginal dehydroepiandrosterone (DHEA) significantly improves vulvovaginal symptoms, particularly vaginal dryness and dyspareunia, compared to placebo. With mild and infrequent adverse effects, intravaginal DHEA offers a safe and well-tolerated therapeutic alternative for managing genitourinary syndrome of active menopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41589851/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "active-menopause",
+    "date_added": "2026-06-22"
+  },
+  {
+    "id": "article-123",
+    "citation": "Blackburn I, Kunadian V. Hormone replacement therapy and cardiovascular risk in postmenopausal women. Eur Heart J Open. 2026 Mar 28;6(2):oeag054. doi: 10.1093/ehjopen/oeag054. PMID: 42027787.",
+    "headline": "Early HRT Initiation Shows Cardiovascular Benefits in Postmenopause",
+    "takeaway": "A comprehensive review of major trials and meta-analyses highlights that initiating hormone replacement therapy (HRT) within 10 years of menopause onset consistently demonstrates cardiovascular benefits. Conversely, delayed initiation may increase risks such as stroke, underscoring the critical role of timing, formulation, and administration route in optimizing cardiovascular health outcomes for early postmenopausal women.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42027787/",
+    "study_type": "Review",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-06-22"
+  },
+  {
+    "id": "article-124",
+    "citation": "Zhou Z, Wei X, Zhang X, Ainsworth BE, Lü J, Liu Y. Effects of different types of exercise over 24 weeks on bone mineral density in postmenopausal women: A systematic review with pairwise and network meta-analysis of randomized controlled trials. J Sport Health Sci. 2026 Jan 29;15:101127. doi: 10.1016/j.jshs.2026.101127. PMID: 41617082.",
+    "headline": "Combined Exercise Modalities Superior for Postmenopausal Bone Density",
+    "takeaway": "This extensive network meta-analysis found that combining mind-body exercise with resistance training (MBEx_Re) was the most effective modality for improving bone mineral density at multiple skeletal sites in postmenopausal women. Interventions lasting 52 weeks or longer produced the most consistent and sustained improvements, offering clear guidance for exercise prescriptions to prevent osteoporotic fractures in late postmenopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41617082/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-06-22"
+  },
+  {
+    "id": "article-125",
+    "citation": "Dumlu Bilgin G, Keküllüoğlu Tan M, Usta Ulutaş P, Kaya Cebioğlu İ, Keleş YN, Kural A, Böcek AC. From hot flashes to harmony: Mediterranean diet, menopausal symptoms, and cardiovascular risk awareness. Nutrition. 2026 May 17;150:113293. doi: 10.1016/j.nut.2026.113293. PMID: 42287755.",
+    "headline": "Mediterranean Diet Adherence Linked to Milder Menopausal Symptoms",
+    "takeaway": "In a study of 702 women across menopausal stages, greater adherence to the Mediterranean diet was significantly associated with a lower body mass index, fewer psychological complaints, and reduced overall menopausal symptom severity. Higher diet adherence also predicted increased cardiovascular disease risk awareness, highlighting its potential role in promoting holistic women's health and harmony during the menopause transition.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42287755/",
+    "study_type": "Cross-Sectional",
+    "stage_id": "general",
+    "date_added": "2026-06-22"
   }
-
-
 ];
 
 export function getArticlesByStage(stageId: ArticleStageId): ResearchArticle[] {
