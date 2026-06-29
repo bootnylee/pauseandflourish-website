@@ -1288,6 +1288,66 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "Cross-Sectional",
     "stage_id": "general",
     "date_added": "2026-06-22"
+  },
+  {
+    "id": "article-126",
+    "citation": "Yang D, Chen D, Peng J, Peng Y, Yang C, Sun J. Efficacy and security of traditional Chinese medicine in the treatment of perimenopausal insomnia in the Chinese population: a systematic review and meta-analysis of randomized controlled trials. Front Neurol. 2026 Feb 19;17:1749660. doi: 10.3389/fneur.2026.1749660. PMID: 41798817.",
+    "headline": "Traditional Chinese Medicine Improves Perimenopausal Sleep and Mood",
+    "takeaway": "A meta-analysis of 48 randomized controlled trials found that Traditional Chinese Medicine interventions significantly improved sleep quality, hormonal balance, and psychological symptoms in women with perimenopausal insomnia compared to Western medicine. The treatments were also associated with fewer adverse reactions, suggesting they may offer a safe and effective complementary approach during the early menopausal transition.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41798817/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-06-29"
+  },
+  {
+    "id": "article-127",
+    "citation": "Hedges MS, Hewings-Martin Y, Karam J, Castaneda R, Cunningham AC, Xu Y, Zhaunova L, Faubion SS, Shufelt CL. Global perspectives on perimenopause: a digital survey of knowledge and symptoms using the Flo application. Menopause. 2026 Jul 1;33(7):789-798. doi: 10.1097/GME.0000000000002730. PMID: 41603602.",
+    "headline": "Fatigue and Exhaustion Top Perimenopause Symptoms Globally",
+    "takeaway": "A global survey of over 17,000 women found a disconnect between recognized perimenopause symptoms and actual experiences. While hot flashes were the most recognized symptom, women aged 35 and older most frequently reported fatigue, physical and mental exhaustion, and irritability as their primary challenges during late perimenopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41603602/",
+    "study_type": "Cross-Sectional",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-06-29"
+  },
+  {
+    "id": "article-128",
+    "citation": "Luo R, Zhu J, Yang J. Effectiveness of non-pharmacological interventions for insomnia related to natural menopause: A meta-analysis of randomized controlled trials. Maturitas. 2026 Jun;209:108970. doi: 10.1016/j.maturitas.2026.108970. PMID: 42090940.",
+    "headline": "Non-Pharmacological Therapies Improve Menopause-Related Insomnia",
+    "takeaway": "A meta-analysis of 22 randomized controlled trials demonstrated that non-pharmacological interventions, particularly cognitive behavioral therapy and acupressure, significantly improved sleep quality and reduced insomnia severity in menopausal women. These approaches offer effective alternatives for managing active menopause sleep disturbances, especially for patients unable or unwilling to use hypnotic medications or hormone therapy.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42090940/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "active-menopause",
+    "date_added": "2026-06-29"
+  },
+  {
+    "id": "article-129",
+    "citation": "Zago IHR, Colonetti L, Balbinot EL, Taschetto IS, Grande AJ, da Rosa MI, Colonetti T. Effects of green tea use on the metabolic profile of postmenopausal women: systematic review and meta-analysis. Eur J Nutr. 2026 Jun 2;65(4):150. doi: 10.1007/s00394-026-04005-8. PMID: 42228178.",
+    "headline": "Green Tea Consumption Reduces Total Cholesterol in Postmenopause",
+    "takeaway": "A systematic review and meta-analysis of seven randomized controlled trials found that green tea consumption significantly reduced total cholesterol levels in postmenopausal women. While it did not significantly impact body weight or blood glucose, green tea may serve as a beneficial adjunctive strategy for managing early postmenopausal cardiovascular risk profiles.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42228178/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-06-29"
+  },
+  {
+    "id": "article-130",
+    "citation": "Sims S, Sen F, Korkmaz F, Barak O, Cheliadinova U, Yuen T, Zaidi M, Kim SM. FSH Signaling in Osteoporosis and Alzheimer's Disease. Curr Osteoporos Rep. 2026 Mar 11;24(1):11. doi: 10.1007/s11914-026-00958-1. PMID: 41807843.",
+    "headline": "Elevated FSH Links Postmenopausal Bone Loss and Cognitive Decline",
+    "takeaway": "Emerging evidence indicates that rising follicle-stimulating hormone (FSH) levels during the menopausal transition play a critical independent role in both osteoporosis and Alzheimer's disease risk. Pre-clinical and population studies suggest that targeting FSH signaling could provide a novel therapeutic approach to simultaneously address late postmenopausal bone loss and cognitive aging.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41807843/",
+    "study_type": "Review",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-06-29"
+  },
+  {
+    "id": "article-131",
+    "citation": "Buzduga CM, Bobu AM, Covali R, Costea CF, Cucu AI, Graur M, Patrascanu E, Solomon-Condriuc I, Carauleanu A. Menopausal Hormone Therapy and Cardiovascular Risk: Current Evidence and Clinical Implications. Med Sci (Basel). 2026 Jun 10;14(2):298. doi: 10.3390/medsci14020298. PMID: 42346837.",
+    "headline": "Early Initiation of Hormone Therapy Offers Safest Cardiovascular Profile",
+    "takeaway": "A comprehensive review of major trials confirms that menopausal hormone therapy (MHT) should not be prescribed solely for cardiovascular disease prevention. However, the 'timing hypothesis' suggests that initiating individualized, preferably transdermal, MHT early in the menopausal transition provides the greatest benefit for symptom relief and osteoporosis prevention with the lowest cardiovascular risk.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42346837/",
+    "study_type": "Review",
+    "stage_id": "general",
+    "date_added": "2026-06-29"
   }
 ];
 
