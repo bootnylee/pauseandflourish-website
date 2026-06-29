@@ -35,6 +35,9 @@ const staticPages = [
 
 // Product review slugs — updated weekly by weekly-update.mjs
 const productSlugs = [
+  "hum-fan-club-menopause-probiotic",
+  "vmagic-vulva-balm-menopause",
+  "thorne-hormone-advantage-dim",
   "remifemin-menopause-supplement",
   "estroven-complete-menopause-relief",
   "bonafide-relizen-hot-flash-relief",
@@ -59,6 +62,9 @@ const productSlugs = [
 
 // Comparison slugs
 const comparisonSlugs = [
+  "hum-fan-club-vs-estroven-complete",
+  "vmagic-vulva-balm-vs-replens-vaginal-dryness",
+  "natures-craft-vs-remifemin-black-cohosh",
   "remifemin-vs-estroven-complete",
   "natrol-melatonin-vs-magnesium-glycinate",
   "replens-vs-hyalogic-intimate-serum",
