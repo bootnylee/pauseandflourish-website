@@ -1348,6 +1348,66 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "Review",
     "stage_id": "general",
     "date_added": "2026-06-29"
+  },
+  {
+    "id": "article-132",
+    "citation": "Lopresti AL, Smith SJ, Ferdinands FR. An examination into the safety and efficacy of Khapregesic®, a Khaya senegalensis preparation, on physical and psychological wellbeing in women experiencing menopausal symptoms: a randomised, double-blind, placebo-controlled trial. Front Reprod Health. 2026 Jun 2;8:1824321. doi: 10.3389/frph.2026.1824321. eCollection 2026.",
+    "headline": "Herbal Supplement Improves Sleep, Fatigue, and Mood in Perimenopause",
+    "takeaway": "This 28-day randomized, double-blind, placebo-controlled trial found that Khapregesic® (Khaya senegalensis) supplementation significantly improved psychological symptoms, fatigue, and sleep disturbances in postmenopausal women compared to placebo. While no group-wide effects were observed across the full cohort, subgroup analyses suggest this herbal preparation may offer a safe, well-tolerated option for managing common early perimenopause symptoms including mood changes, fatigue, and sleep disruption.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42312188/",
+    "study_type": "Clinical Trial",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-07-06"
+  },
+  {
+    "id": "article-133",
+    "citation": "Li Y, Sun Y, Bi Y, Yang L, Xu Y, Wu H, Ma X. Efficacy and safety of menopausal hormone therapy for depressive symptoms in perimenopausal women: A systematic review and meta-analysis. J Affect Disord. 2026 Sep 15;409:121892. doi: 10.1016/j.jad.2026.121892. Epub 2026 Apr 28.",
+    "headline": "Hormone Therapy Modestly Reduces Depression in Perimenopause",
+    "takeaway": "This systematic review and meta-analysis of 12 randomized controlled trials found that menopausal hormone therapy (HRT) was associated with a small but statistically significant reduction in depressive symptom severity in perimenopausal women. While the magnitude of effect is modest and evidence certainty is limited, the findings support HRT as a potential option for managing mood-related symptoms during the late perimenopause transition.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42061517/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-07-06"
+  },
+  {
+    "id": "article-134",
+    "citation": "Robinson K, Hardy R, Melville M, Saidel S, Desai R, Spector A. The effectiveness of psychosocial interventions on physiological symptoms of menopause: a systematic review and meta-analysis. BMC Womens Health. 2026 Jun 8. doi: 10.1186/s12905-026-04563-3. Online ahead of print.",
+    "headline": "Psychosocial Interventions Reduce Physiological Menopause Symptoms",
+    "takeaway": "This systematic review and meta-analysis evaluated psychosocial interventions (including CBT, mindfulness, and stress management) for physiological menopause symptoms such as hot flashes, night sweats, fatigue, and sleep disturbance. The findings demonstrate that these non-pharmacological approaches can meaningfully reduce symptom burden during active menopause, offering evidence-based alternatives or complements to hormone therapy.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42252432/",
+    "study_type": "Systematic Review",
+    "stage_id": "active-menopause",
+    "date_added": "2026-07-06"
+  },
+  {
+    "id": "article-135",
+    "citation": "Bahari H, Ramezani E, Malekahmadi M. Citrulline supplementation in postmenopausal women: a systematic review of vascular, muscular, and metabolic effects. BMC Womens Health. 2026 Jan 26;26(1):116. doi: 10.1186/s12905-026-04277-6.",
+    "headline": "Citrulline Supplementation May Lower Blood Pressure in Postmenopause",
+    "takeaway": "This systematic review of 12 randomized controlled trials found that citrulline supplementation (directly or via watermelon products) may reduce systolic blood pressure by up to 9 mmHg in hypertensive postmenopausal women. While evidence for arterial stiffness, endothelial function, and metabolic outcomes remains inconsistent, citrulline offers a promising, safe dietary approach for supporting cardiovascular health in early postmenopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41588439/",
+    "study_type": "Systematic Review",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-07-06"
+  },
+  {
+    "id": "article-136",
+    "citation": "Zhou Z, Wei X, Zhang X, Ainsworth BE, Lü J, Liu Y. Effects of different types of exercise over 24 weeks on bone mineral density in postmenopausal women: A systematic review with pairwise and network meta-analysis of randomized controlled trials. J Sport Health Sci. 2026 Jan 29;15:101127. doi: 10.1016/j.jshs.2026.101127. Online ahead of print.",
+    "headline": "Combined Exercise Modalities Improve Bone Density in Postmenopause",
+    "takeaway": "This systematic review and network meta-analysis of 74 randomized controlled trials found that combining mind-body exercises (like Tai Chi or yoga) with resistance training was the most effective modality for improving bone mineral density at the lumbar spine and femoral neck in postmenopausal women. The findings suggest that interventions lasting 52 weeks or longer provide the most consistent and sustained benefits for bone health and fracture prevention.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41617082/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-07-06"
+  },
+  {
+    "id": "article-137",
+    "citation": "Raskin L, Boretti E, Douxfils J, Beaudart C. Patient Preferences Regarding Menopausal Symptoms and Treatments: A Systematic Review of Quantitative Stated-Preference Studies. Patient. 2026 Jul;19(4):501-517. doi: 10.1007/s40271-025-00800-3. Epub 2026 Feb 10.",
+    "headline": "Efficacy and Long-Term Safety Drive Menopause Treatment Preferences",
+    "takeaway": "This systematic review of quantitative stated-preference studies revealed that when women choose menopausal treatments, their primary considerations are efficacy and long-term safety, though many report dissatisfaction with current therapeutic options. The findings highlight a critical need for better patient-centered communication and shared decision-making regarding menopause symptom management and quality of life.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41667867/",
+    "study_type": "Systematic Review",
+    "stage_id": "general",
+    "date_added": "2026-07-06"
   }
 ];
 
