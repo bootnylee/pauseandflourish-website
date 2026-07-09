@@ -114,7 +114,7 @@ export default function Home() {
       title: "PauseAndFlourish — Menopause & Perimenopause Product Reviews",
       description: "Expert reviews of menopause supplements, cooling products, sleep aids, and wellness tools. Evidence-based guidance for every stage of the transition.",
       keywords: "menopause supplements, perimenopause products, hot flash relief, menopause sleep aids, menopause skincare",
-      canonical: "https://www.pauseandflourish.com/",
+      canonical: "https://pauseandflourish.com/",
     });
   }, []);
 

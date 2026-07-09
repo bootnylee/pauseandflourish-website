@@ -315,6 +315,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               <Link href="/about">
                 <span className="font-body text-xs cursor-pointer" style={{ color: "#8C8C8C" }}>About</span>
               </Link>
+              <Link href="/methodology">
+                <span className="font-body text-xs cursor-pointer" style={{ color: "#8C8C8C" }}>Methodology</span>
+              </Link>
               <a href="mailto:hello@pauseandflourish.com" className="font-body text-xs" style={{ color: "#8C8C8C" }}>Contact</a>
               {savedStage && (
                 <button

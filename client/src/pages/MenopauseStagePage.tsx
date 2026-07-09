@@ -9,7 +9,7 @@ import ProductCard from "@/components/ProductCard";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { allProducts } from "@/lib/products";
 import { menopauseStages } from "@/lib/menopauseStages";
-import { updateDocumentMeta } from "@/lib/seo";
+import { updateDocumentMeta, buildBreadcrumbSchema, injectStructuredData } from "@/lib/seo";
 
 export default function MenopauseStagePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -23,8 +23,14 @@ export default function MenopauseStagePage() {
       title: `${stage.name} Products & Guide | PauseAndFlourish`,
       description: `Expert-reviewed products and guidance for ${stage.name}. ${stage.description}`,
       keywords: `${stage.name.toLowerCase()} products, ${stage.name.toLowerCase()} supplements, menopause ${stage.slug} guide`,
-      canonical: `https://www.pauseandflourish.com/stage/${stage.slug}`,
+      canonical: `https://pauseandflourish.com/stage/${stage.slug}`,
     });
+    const breadcrumbSchema = buildBreadcrumbSchema([
+      { name: "Home", url: "https://pauseandflourish.com/" },
+      { name: "Stage Guide", url: "https://pauseandflourish.com/quiz" },
+      { name: stage.name, url: `https://pauseandflourish.com/stage/${stage.slug}` },
+    ]);
+    injectStructuredData(breadcrumbSchema, "breadcrumb-schema");
   }, [stage]);
 
   if (!stage) {

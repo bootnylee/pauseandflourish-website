@@ -194,7 +194,7 @@ export default function MenopauseQuiz() {
     updateDocumentMeta({
       title: "Menopause Stage Quiz — Find Your Stage | PauseAndFlourish",
       description: "Take our 8-question quiz to identify your menopause or perimenopause stage and get personalized product recommendations.",
-      canonical: "https://www.pauseandflourish.com/quiz",
+      canonical: "https://pauseandflourish.com/quiz",
     });
   }, []);
 

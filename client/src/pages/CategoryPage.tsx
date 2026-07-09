@@ -15,7 +15,7 @@ import FilterPanel, {
   MENOPAUSE_STAGES,
 } from "@/components/FilterPanel";
 import { categories, getProductsByCategory, getComparisonsByCategory } from "@/lib/products";
-import { updateDocumentMeta } from "@/lib/seo";
+import { updateDocumentMeta, buildBreadcrumbSchema, injectStructuredData } from "@/lib/seo";
 import { Link } from "wouter";
 import { ArrowLeft, SlidersHorizontal, X, ChevronDown } from "lucide-react";
 
@@ -44,8 +44,13 @@ export default function CategoryPage() {
         title: `${category.name} Reviews | PauseAndFlourish`,
         description: `${category.description} Read our expert reviews and comparisons.`,
         canonical: `https://pauseandflourish.com/category/${slug}`,
-        // no category image
       });
+      const breadcrumbSchema = buildBreadcrumbSchema([
+        { name: "Home", url: "https://pauseandflourish.com/" },
+        { name: "Reviews", url: "https://pauseandflourish.com/reviews" },
+        { name: category.name, url: `https://pauseandflourish.com/category/${slug}` },
+      ]);
+      injectStructuredData(breadcrumbSchema, "breadcrumb-schema");
     }
     // Reset filters when category changes
     setFilters(getDefaultFilters());

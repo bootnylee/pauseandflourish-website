@@ -7,7 +7,7 @@ import { QUIZ_RESULT_KEY } from "./MenopauseQuiz";
 import SiteLayout from "@/components/SiteLayout";
 import { StarRatingDisplay } from "@/components/ProductCard";
 import { allProducts, amazonLink, getProductsByCategory } from "@/lib/products";
-import { updateDocumentMeta, buildProductSchema, buildReviewSchema, injectStructuredData } from "@/lib/seo";
+import { updateDocumentMeta, buildProductSchema, buildBreadcrumbSchema, injectStructuredData } from "@/lib/seo";
 import ProductCard from "@/components/ProductCard";
 
 // ─── Recently Viewed Key ────────────────────────────────────────────────────
@@ -139,21 +139,21 @@ export default function ProductReview() {
         description: product.shortDescription,
         brand: product.brand,
         price: product.price,
-        rating: product.rating,
-        reviewCount: product.reviewCount,
+        score: product.score,
         heroImage: product.heroImage,
         asin: product.asin,
-      });
-
-      const reviewSchema = buildReviewSchema({
-        productName: product.name,
-        reviewBody: product.fullReview.substring(0, 500),
-        rating: product.rating,
-        datePublished: product.publishDate,
+        publishDate: product.publishDate,
+        reviewBody: product.fullReview ? product.fullReview.substring(0, 500) : undefined,
       });
 
       injectStructuredData(productSchema, "product-schema");
-      injectStructuredData(reviewSchema, "review-schema");
+
+      const breadcrumbSchema = buildBreadcrumbSchema([
+        { name: "Home", url: "https://pauseandflourish.com/" },
+        { name: product.category, url: `https://pauseandflourish.com/category/${product.categorySlug}` },
+        { name: product.name, url: `https://pauseandflourish.com/review/${product.slug}` },
+      ]);
+      injectStructuredData(breadcrumbSchema, "breadcrumb-schema");
     }
   }, [product]);
 
@@ -252,7 +252,22 @@ export default function ProductReview() {
             <h1 className="font-display font-bold mb-4 leading-tight" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", color: "#2C2C2C" }}>
               {product.name}
             </h1>
-            <hr className="editorial-rule w-16 mb-6" />
+            <hr className="editorial-rule w-16 mb-4" />
+
+            {/* E-E-A-T: Author byline + publish/update date */}
+            <div className="flex flex-wrap items-center gap-3 mb-6 text-xs" style={{ color: "#B8A99A" }}>
+              <span className="flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>By <strong style={{ color: "#2C2C2C" }}>PauseAndFlourish Editorial Team</strong></span>
+              </span>
+              <span>·</span>
+              <span className="flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span>Published {new Date(product.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
+              </span>
+              <span>·</span>
+              <a href="/methodology" className="underline hover:text-teal-700" style={{ color: "#B8A99A" }}>Editorial Methodology</a>
+            </div>
 
             <p className="font-body text-lg leading-relaxed mb-8" style={{ color: "#6C6C6C" }}>
               {product.shortDescription}
@@ -316,7 +331,6 @@ export default function ProductReview() {
             </div>
 
             <p className="font-body text-xs mt-4" style={{ color: "#B8A99A" }}>
-              Published: {new Date(product.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} · 
               Prices and availability subject to change. Last verified on Amazon.
             </p>
           </div>

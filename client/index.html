@@ -3,41 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>SilkierStrands — Expert Hair Product Reviews & Recommendations</title>
-    <meta name="description" content="SilkierStrands is your trusted source for expert hair product reviews, head-to-head comparisons, and recommendations for the best shampoos, conditioners, hair masks, serums, and styling tools for women." />
-    <meta name="keywords" content="hair product reviews, best shampoo, best conditioner, hair mask reviews, hair serum, hair dryer reviews, flat iron reviews, curling iron reviews, hair care for women, hair styling tools" />
-    <meta name="author" content="SilkierStrands" />
+    <title>PauseAndFlourish — Menopause &amp; Perimenopause Product Reviews</title>
+    <meta name="description" content="PauseAndFlourish is your trusted source for expert, evidence-based menopause and perimenopause product reviews, head-to-head comparisons, and wellness guidance for every stage of the transition." />
+    <meta name="keywords" content="menopause supplements, perimenopause products, hot flash relief, menopause sleep aids, menopause skincare, menopause wellness" />
+    <meta name="author" content="PauseAndFlourish Editorial Team" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://silkierstrands.com/" />
+    <link rel="canonical" href="https://pauseandflourish.com/" />
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://silkierstrands.com/" />
-    <meta property="og:title" content="SilkierStrands — Expert Hair Product Reviews & Recommendations" />
-    <meta property="og:description" content="Expert hair product reviews, head-to-head comparisons, and recommendations for the best hair care products and styling tools for women." />
-    <meta property="og:image" content="https://silkierstrands.com/og-image.jpg" />
-    <meta property="og:site_name" content="SilkierStrands" />
+    <meta property="og:url" content="https://pauseandflourish.com/" />
+    <meta property="og:title" content="PauseAndFlourish — Menopause &amp; Perimenopause Product Reviews" />
+    <meta property="og:description" content="Expert reviews of menopause supplements, cooling products, sleep aids, and wellness tools. Evidence-based guidance for every stage of the transition." />
+    <meta property="og:image" content="https://pauseandflourish.com/og-image.jpg" />
+    <meta property="og:site_name" content="PauseAndFlourish" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@silkierstrands" />
-    <meta name="twitter:title" content="SilkierStrands — Expert Hair Product Reviews" />
-    <meta name="twitter:description" content="Expert hair product reviews, head-to-head comparisons, and recommendations for women." />
-    <meta name="twitter:image" content="https://silkierstrands.com/og-image.jpg" />
+    <meta name="twitter:site" content="@pauseandflourish" />
+    <meta name="twitter:title" content="PauseAndFlourish — Menopause &amp; Perimenopause Product Reviews" />
+    <meta name="twitter:description" content="Expert reviews of menopause supplements, cooling products, sleep aids, and wellness tools for every stage of the transition." />
+    <meta name="twitter:image" content="https://pauseandflourish.com/og-image.jpg" />
 
-    <!-- Schema.org structured data -->
+    <!-- Schema.org structured data — site-wide defaults (overridden per-page by prerender) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "SilkierStrands",
-      "url": "https://silkierstrands.com",
-      "description": "Expert hair product reviews and recommendations for women",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://silkierstrands.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://pauseandflourish.com/#organization",
+          "name": "PauseAndFlourish",
+          "url": "https://pauseandflourish.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://pauseandflourish.com/logo.png"
+          },
+          "description": "Evidence-based menopause and perimenopause product reviews and wellness guidance for women.",
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://pauseandflourish.com/#website",
+          "name": "PauseAndFlourish",
+          "url": "https://pauseandflourish.com",
+          "publisher": { "@id": "https://pauseandflourish.com/#organization" },
+          "description": "Expert menopause product reviews and wellness guidance for women",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://pauseandflourish.com/reviews?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
     }
     </script>
 
@@ -47,14 +68,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Amazon Affiliate Disclosure (required) -->
-    <meta name="amazon-affiliate" content="silkierstrands-20" />
+    <meta name="amazon-affiliate" content="pauseandflourish-20" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+    <!-- Analytics: configured via VITE_ANALYTICS_ENDPOINT and VITE_ANALYTICS_WEBSITE_ID env vars in Netlify -->
   </body>
 </html>

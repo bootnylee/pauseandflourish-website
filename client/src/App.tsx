@@ -14,6 +14,7 @@ import About from "./pages/About";
 import MenopauseStagePage from "./pages/MenopauseStagePage";
 import MenopauseQuiz from "./pages/MenopauseQuiz";
 import NewsAndArticles from "./pages/NewsAndArticles";
+import Methodology from "./pages/Methodology";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/stage/:slug" component={MenopauseStagePage} />
       <Route path="/quiz" component={MenopauseQuiz} />
       <Route path="/news-and-articles" component={NewsAndArticles} />
+      <Route path="/methodology" component={Methodology} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

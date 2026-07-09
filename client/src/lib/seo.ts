@@ -57,16 +57,29 @@ export function updateDocumentMeta(meta: SEOMeta): void {
   }
 }
 
+/**
+ * Build a Product schema node with an editorial Review.
+ * NOTE: We intentionally do NOT include aggregateRating here because the
+ * Amazon review counts are third-party data and Google's review-snippet
+ * guidelines require that aggregate ratings reflect genuine first-party
+ * reviews on the page.  Only the editorial rating (derived from our score
+ * field, 1–10 → 1–5) is marked up.
+ */
 export function buildProductSchema(product: {
   name: string;
   description: string;
   brand: string;
-  price: number;
-  rating: number;
-  reviewCount: number;
+  price: number | string;
+  score?: number;   // 1–10 editorial score
   heroImage: string;
   asin: string;
+  publishDate?: string;
+  reviewBody?: string;
 }): object {
+  const editorialRating = product.score
+    ? Math.round((product.score / 10) * 5 * 10) / 10
+    : null;
+
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -79,7 +92,7 @@ export function buildProductSchema(product: {
     image: product.heroImage,
     offers: {
       "@type": "Offer",
-      price: product.price,
+      price: String(product.price).replace(/[^0-9.]/g, ""),
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
       url: `https://www.amazon.com/dp/${product.asin}?tag=pauseandflourish-20`,
@@ -88,13 +101,32 @@ export function buildProductSchema(product: {
         name: "Amazon",
       },
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: product.rating,
-      reviewCount: product.reviewCount,
-      bestRating: 5,
-      worstRating: 1,
-    },
+    // Editorial review only — no fabricated aggregateRating
+    ...(editorialRating
+      ? {
+          review: {
+            "@type": "Review",
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: editorialRating,
+              bestRating: 5,
+              worstRating: 1,
+            },
+            author: {
+              "@type": "Organization",
+              name: "PauseAndFlourish Editorial Team",
+              url: "https://pauseandflourish.com",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "PauseAndFlourish",
+              url: "https://pauseandflourish.com",
+            },
+            datePublished: product.publishDate || new Date().toISOString().split("T")[0],
+            ...(product.reviewBody ? { reviewBody: product.reviewBody } : {}),
+          },
+        }
+      : {}),
   };
 }
 
@@ -115,18 +147,84 @@ export function buildReviewSchema(review: {
       "@type": "Rating",
       ratingValue: review.rating,
       bestRating: 5,
+      worstRating: 1,
     },
     reviewBody: review.reviewBody,
     datePublished: review.datePublished,
     author: {
       "@type": "Organization",
       name: "PauseAndFlourish Editorial Team",
+      url: "https://pauseandflourish.com",
     },
     publisher: {
       "@type": "Organization",
       name: "PauseAndFlourish",
       url: "https://pauseandflourish.com",
     },
+  };
+}
+
+export function buildBreadcrumbSchema(
+  items: Array<{ name: string; url: string }>
+): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map(({ name, url }, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name,
+      item: url,
+    })),
+  };
+}
+
+export function buildOrganizationSchema(): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://pauseandflourish.com/#organization",
+    name: "PauseAndFlourish",
+    url: "https://pauseandflourish.com",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://pauseandflourish.com/logo.png",
+    },
+    description:
+      "Evidence-based menopause and perimenopause product reviews and wellness guidance for women.",
+  };
+}
+
+export function buildArticleSchema(article: {
+  headline: string;
+  description: string;
+  datePublished: string;
+  dateModified?: string;
+  url: string;
+}): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.headline,
+    description: article.description,
+    author: {
+      "@type": "Organization",
+      name: "PauseAndFlourish Editorial Team",
+      url: "https://pauseandflourish.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "PauseAndFlourish",
+      url: "https://pauseandflourish.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://pauseandflourish.com/logo.png",
+      },
+    },
+    datePublished: article.datePublished,
+    dateModified: article.dateModified || article.datePublished,
+    url: article.url,
+    mainEntityOfPage: article.url,
   };
 }
 

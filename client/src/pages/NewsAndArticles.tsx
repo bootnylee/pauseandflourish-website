@@ -1,8 +1,9 @@
 // PauseAndFlourish.com — News & Articles Page
 // Displays peer-reviewed research articles sorted by menopause stage
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ExternalLink, BookOpen, FlaskConical, BarChart3, Users, FileText, Microscope } from "lucide-react";
 import SiteLayout from "../components/SiteLayout";
+import { updateDocumentMeta, buildBreadcrumbSchema, injectStructuredData } from "../lib/seo";
 import {
   researchArticles,
   getArticlesByStage,
@@ -118,6 +119,20 @@ function ArticleCard({ article }: { article: ResearchArticle }) {
 export default function NewsAndArticles() {
   const [activeTab, setActiveTab] = useState<ArticleStageId | "all">("all");
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    updateDocumentMeta({
+      title: "Menopause Research & Articles | PauseAndFlourish",
+      description:
+        "Latest peer-reviewed research on menopause and perimenopause — translated into plain language. Updated weekly with evidence-based guidance for every stage.",
+      canonical: "https://pauseandflourish.com/news-and-articles",
+    });
+    const breadcrumbSchema = buildBreadcrumbSchema([
+      { name: "Home", url: "https://pauseandflourish.com/" },
+      { name: "News & Articles", url: "https://pauseandflourish.com/news-and-articles" },
+    ]);
+    injectStructuredData(breadcrumbSchema, "breadcrumb-schema");
+  }, []);
 
   const baseArticles: ResearchArticle[] =
     activeTab === "all"
