@@ -3,6 +3,7 @@
 [build]
   command = "pnpm install && node scripts/generate-sitemap.mjs && npx tsx scripts/extract-data.ts && pnpm build && node scripts/prerender.mjs"
   publish = "dist/public"
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "20"
@@ -49,8 +50,10 @@
   [headers.values]
     Cache-Control = "public, max-age=604800"
 
-# ── Affiliate link redirect (clean URLs) ─────────────────────────────────────
-# [[redirects]]
-#   from = "/go/:asin"
-#   to = "https://www.amazon.com/dp/:asin?tag=pauseandflourish-20"
-#   status = 302
+# ── PDF guides — correct Content-Type + download header ──────────────────────
+[[headers]]
+  for = "/guides/*.pdf"
+  [headers.values]
+    Content-Type = "application/pdf"
+    Content-Disposition = "attachment"
+    Cache-Control = "public, max-age=86400"

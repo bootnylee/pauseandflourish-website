@@ -9,6 +9,7 @@ import { comparisons, getProductById, amazonLink } from "@/lib/products";
 import { updateDocumentMeta, buildArticleSchema, buildBreadcrumbSchema, buildPersonSchema, injectStructuredData } from "@/lib/seo";
 import { getAuthor } from "@/lib/authors";
 import { QUIZ_RESULT_KEY } from "@/pages/MenopauseQuiz";
+import { trackAffiliateClick } from "@/lib/analytics";
 
 // Menopause stage metadata for contextual tips
 const STAGE_META: Record<string, { label: string; color: string; bg: string }> = {
@@ -306,6 +307,7 @@ export default function ComparisonPage() {
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     className="btn-amazon rounded-sm w-full flex items-center justify-center gap-2 py-2.5 text-xs"
+                    onClick={() => trackAffiliateClick(product.name, amazonLink(product.asin), product.asin)}
                   >
                     View on Amazon <ExternalLink size={12} />
                   </a>
@@ -342,7 +344,8 @@ export default function ComparisonPage() {
                   <button className="btn-primary text-xs py-2 px-3 rounded-sm">Review</button>
                 </Link>
                 <a href={amazonLink(product.asin)} target="_blank" rel="noopener noreferrer nofollow"
-                  className="btn-amazon text-xs py-2 px-3 rounded-sm inline-flex items-center gap-1">
+                  className="btn-amazon text-xs py-2 px-3 rounded-sm inline-flex items-center gap-1"
+                  onClick={() => trackAffiliateClick(product.name, amazonLink(product.asin), product.asin)}>
                   Amazon <ExternalLink size={10} />
                 </a>
               </div>

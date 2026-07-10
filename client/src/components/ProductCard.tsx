@@ -6,6 +6,7 @@ import { Link } from "wouter";
 import { ExternalLink, Star, TrendingDown, Flame, Sparkles } from "lucide-react";
 import { type Product, amazonLink } from "@/lib/products";
 import { getPriceBadge, type PriceBadge } from "@/lib/priceHistory";
+import { trackAffiliateClick } from "@/lib/analytics";
 
 // Returns true if the product was published within the last 14 days
 function isNewThisWeek(publishDate: string): boolean {
@@ -111,6 +112,7 @@ export default function ProductCard({
 }: ProductCardProps) {
   const priceBadge = getPriceBadge(product.asin, product.price);
   const isNew = isNewThisWeek(product.publishDate);
+  const affUrl = amazonLink(product.asin);
 
   if (variant === "compact") {
     return (
@@ -160,10 +162,11 @@ export default function ProductCard({
               {priceBadge && <PriceDropBadge badge={priceBadge} size="xs" />}
             </div>
             <a
-              href={amazonLink(product.asin)}
+              href={affUrl}
               target="_blank"
               rel="noopener noreferrer nofollow"
               className="btn-amazon text-xs py-1.5 px-3 rounded-sm inline-flex items-center gap-1"
+              onClick={() => trackAffiliateClick(product.name, affUrl, product.asin)}
             >
               Amazon <ExternalLink size={10} />
             </a>
@@ -245,10 +248,11 @@ export default function ProductCard({
                 </button>
               </Link>
               <a
-                href={amazonLink(product.asin)}
+                href={affUrl}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="btn-amazon text-xs py-2 px-3 rounded-sm inline-flex items-center gap-1"
+                onClick={() => trackAffiliateClick(product.name, affUrl, product.asin)}
               >
                 Buy <ExternalLink size={10} />
               </a>
@@ -319,10 +323,11 @@ export default function ProductCard({
             )}
           </div>
           <a
-            href={amazonLink(product.asin)}
+            href={affUrl}
             target="_blank"
             rel="noopener noreferrer nofollow"
             className="btn-amazon text-xs py-1.5 px-3 rounded-sm inline-flex items-center gap-1"
+            onClick={() => trackAffiliateClick(product.name, affUrl, product.asin)}
           >
             View on Amazon <ExternalLink size={10} />
           </a>

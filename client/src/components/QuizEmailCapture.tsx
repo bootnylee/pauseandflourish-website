@@ -1,29 +1,47 @@
 /**
  * QuizEmailCapture — PauseAndFlourish.com
  *
- * Shown on the quiz results screen. Captures the user's first name + email,
- * then subscribes them to the EmailOctopus list with their MenopauseStage
- * custom field pre-filled. This triggers the "Segmented Welcome by Menopause
- * Stage" automation, which sends a personalised welcome email with
- * stage-specific product recommendations.
+ * Shown on the quiz results screen. Captures first name + email, subscribes
+ * the visitor to the EmailOctopus list with their MenopauseStage custom field
+ * pre-filled, and then delivers the stage-specific lead-magnet PDF.
  *
- * Implementation note: EmailOctopus does not expose a public REST API for
- * direct form submissions from the browser (API key would be exposed). Instead
- * we POST to the same endpoint the EmailOctopus embed widget uses:
- *   POST https://emailoctopus.com/lists/{listId}/members/embedded/1.3/add
- * with form-encoded body: member[email_address], member[fields][FirstName],
- * member[fields][MenopauseStage], and hp (honeypot).
+ * ── EmailOctopus Configuration ───────────────────────────────────────────────
+ * PRIMARY path (server-side, API key never exposed to browser):
+ *   POST /.netlify/functions/subscribe
+ *   Requires EMAILOCTOPUS_API_KEY + EMAILOCTOPUS_LIST_ID in Netlify env vars.
  *
- * The list ID is the UUID from the EmailOctopus Contacts URL.
+ * FALLBACK path (embedded widget endpoint, no API key needed):
+ *   POST https://emailoctopus.com/lists/{EO_LIST_ID_FALLBACK}/members/embedded/1.3/add
+ *   Uses the list ID hardcoded below.
+ *
+ * ── TO CONFIGURE ─────────────────────────────────────────────────────────────
+ * 1. Set EMAILOCTOPUS_API_KEY and EMAILOCTOPUS_LIST_ID in Netlify → Site settings
+ *    → Environment variables. The Netlify Function will use these automatically.
+ * 2. The EO_LIST_ID_FALLBACK constant below is the fallback list ID for the
+ *    embedded widget path. Update it if your list ID changes.
+ *
+ * ── Lead Magnet ──────────────────────────────────────────────────────────────
+ * On successful subscription, the browser is directed to download the
+ * stage-specific PDF from /guides/paf-guide-{stage}.pdf (served as a static
+ * asset from client/public/guides/).
  */
 
 import { useState, useRef, useEffect } from "react";
-import { CheckCircle, Mail, ArrowRight, Loader2 } from "lucide-react";
+import { CheckCircle, Mail, ArrowRight, Loader2, Download } from "lucide-react";
 
-// EmailOctopus list ID (from dashboard.emailoctopus.com/lists/{id})
-const EO_LIST_ID = "a1d7e346-40dd-11f1-90e8-0d2682659c97";
+// ─── Configuration ────────────────────────────────────────────────────────────
 
-// Map quiz stage slugs → human-readable stage names stored in MenopauseStage field
+/**
+ * FALLBACK EmailOctopus list ID (used when the Netlify Function is unavailable).
+ * This is the UUID from dashboard.emailoctopus.com/lists/{id}.
+ * The primary path uses EMAILOCTOPUS_LIST_ID set in Netlify environment variables.
+ *
+ * ⚠️  TO UPDATE: Replace this value with your EmailOctopus list UUID.
+ */
+const EO_LIST_ID_FALLBACK = "a1d7e346-40dd-11f1-90e8-0d2682659c97";
+
+// ─── Stage label map ──────────────────────────────────────────────────────────
+
 const STAGE_LABELS: Record<string, string> = {
   "early-perimenopause": "Early Perimenopause",
   "late-perimenopause": "Late Perimenopause",
@@ -32,15 +50,27 @@ const STAGE_LABELS: Record<string, string> = {
   "late-postmenopause": "Late Postmenopause",
 };
 
+// ─── Types ────────────────────────────────────────────────────────────────────
+
 interface QuizEmailCaptureProps {
   stageSlug: string;
   stageColor: string;
   stageBg: string;
-  /** Top 3 product slugs recommended for this stage */
-  topProductSlugs?: string[];
 }
 
 type SubmitState = "idle" | "submitting" | "success" | "error" | "already_subscribed";
+
+// ─── Analytics helper ─────────────────────────────────────────────────────────
+
+function fireGa4Event(eventName: string, params: Record<string, string>) {
+  try {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", eventName, params);
+    }
+  } catch {}
+}
+
+// ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function QuizEmailCapture({
   stageSlug,
@@ -51,67 +81,10 @@ export default function QuizEmailCapture({
   const [email, setEmail] = useState("");
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
 
   const stageLabel = STAGE_LABELS[stageSlug] ?? "Menopause";
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (submitState === "submitting" || submitState === "success") return;
-
-    // Honeypot check (bots fill hidden fields)
-    if (honeypotRef.current?.value) return;
-
-    if (!email.trim()) {
-      setErrorMessage("Please enter your email address.");
-      return;
-    }
-
-    setSubmitState("submitting");
-    setErrorMessage("");
-
-    try {
-      const formData = new URLSearchParams();
-      formData.append("member[email_address]", email.trim());
-      if (firstName.trim()) {
-        formData.append("member[fields][FirstName]", firstName.trim());
-      }
-      formData.append("member[fields][MenopauseStage]", stageLabel);
-      formData.append("hp", ""); // honeypot field expected by EO
-
-      const response = await fetch(
-        `https://emailoctopus.com/lists/${EO_LIST_ID}/members/embedded/1.3/add`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: formData.toString(),
-        }
-      );
-
-      const data = await response.json().catch(() => ({}));
-
-      if (response.ok || data?.status === "SUCCESS") {
-        setSubmitState("success");
-        // Persist so we don't show the form again on this device
-        try {
-          localStorage.setItem("paf_email_captured", "1");
-        } catch {}
-      } else if (
-        data?.error?.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS" ||
-        data?.message?.toLowerCase().includes("already")
-      ) {
-        setSubmitState("already_subscribed");
-      } else {
-        setErrorMessage(
-          data?.message ?? "Something went wrong. Please try again."
-        );
-        setSubmitState("error");
-      }
-    } catch {
-      setErrorMessage("Network error. Please check your connection and try again.");
-      setSubmitState("error");
-    }
-  }
 
   // Don't show if already captured on this device
   const [alreadyCaptured, setAlreadyCaptured] = useState(false);
@@ -123,6 +96,102 @@ export default function QuizEmailCapture({
     } catch {}
   }, []);
 
+  // ── Primary: Netlify Function proxy ────────────────────────────────────────
+  async function subscribeViaFunction(
+    emailVal: string,
+    firstNameVal: string
+  ): Promise<"success" | "already_subscribed" | "error"> {
+    const res = await fetch("/.netlify/functions/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: emailVal,
+        firstName: firstNameVal,
+        stage: stageLabel,
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (res.ok && data.status === "success") return "success";
+    if (res.status === 409 || data.status === "already_subscribed") return "already_subscribed";
+    return "error";
+  }
+
+  // ── Fallback: EmailOctopus embedded widget endpoint ────────────────────────
+  async function subscribeViaEmbedded(
+    emailVal: string,
+    firstNameVal: string
+  ): Promise<"success" | "already_subscribed" | "error"> {
+    const formData = new URLSearchParams();
+    formData.append("member[email_address]", emailVal);
+    if (firstNameVal) formData.append("member[fields][FirstName]", firstNameVal);
+    formData.append("member[fields][MenopauseStage]", stageLabel);
+    formData.append("hp", "");
+
+    const res = await fetch(
+      `https://emailoctopus.com/lists/${EO_LIST_ID_FALLBACK}/members/embedded/1.3/add`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData.toString(),
+      }
+    );
+    const data = await res.json().catch(() => ({}));
+    if (res.ok || data?.status === "SUCCESS") return "success";
+    if (
+      data?.error?.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS" ||
+      data?.message?.toLowerCase().includes("already")
+    ) return "already_subscribed";
+    return "error";
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (submitState === "submitting" || submitState === "success") return;
+    if (honeypotRef.current?.value) return; // bot trap
+
+    if (!email.trim()) {
+      setErrorMessage("Please enter your email address.");
+      return;
+    }
+
+    setSubmitState("submitting");
+    setErrorMessage("");
+
+    const emailVal = email.trim().toLowerCase();
+    const firstNameVal = firstName.trim();
+
+    try {
+      // Try primary (Netlify Function) first; fall back to embedded endpoint
+      let result: "success" | "already_subscribed" | "error";
+      try {
+        result = await subscribeViaFunction(emailVal, firstNameVal);
+      } catch {
+        result = await subscribeViaEmbedded(emailVal, firstNameVal);
+      }
+
+      if (result === "success" || result === "already_subscribed") {
+        setSubmitState(result);
+        try { localStorage.setItem("paf_email_captured", "1"); } catch {}
+
+        // Set lead-magnet download URL
+        setDownloadUrl(`/guides/paf-guide-${stageSlug}.pdf`);
+
+        // Fire GA4 event
+        fireGa4Event("quiz_email_capture", {
+          stage: stageSlug,
+          stage_label: stageLabel,
+          result: result,
+        });
+      } else {
+        setErrorMessage("Something went wrong. Please try again.");
+        setSubmitState("error");
+      }
+    } catch {
+      setErrorMessage("Network error. Please check your connection and try again.");
+      setSubmitState("error");
+    }
+  }
+
   if (alreadyCaptured) return null;
 
   // ── Success state ─────────────────────────────────────────────────────────
@@ -133,19 +202,40 @@ export default function QuizEmailCapture({
         style={{ backgroundColor: stageBg, border: `1px solid ${stageColor}30` }}
       >
         <CheckCircle size={40} className="mx-auto mb-4" style={{ color: stageColor }} />
-        <h3
-          className="font-display font-bold text-xl mb-2"
-          style={{ color: "#2C2C2C" }}
-        >
-          {submitState === "already_subscribed"
-            ? "You're already on the list!"
-            : "Check your inbox!"}
+        <h3 className="font-display font-bold text-xl mb-2" style={{ color: "#2C2C2C" }}>
+          {submitState === "already_subscribed" ? "You're already on the list!" : "Check your inbox!"}
         </h3>
-        <p className="font-body text-sm leading-relaxed" style={{ color: "#5C5C5C" }}>
+        <p className="font-body text-sm leading-relaxed mb-6" style={{ color: "#5C5C5C" }}>
           {submitState === "already_subscribed"
-            ? `We already have your email. Your ${stageLabel} guide and product recommendations are waiting for you.`
-            : `We've sent your personalised ${stageLabel} guide with our top product picks directly to ${email}. Check your spam folder if it doesn't arrive within a few minutes.`}
+            ? `We already have your email. Your ${stageLabel} guide is ready to download below.`
+            : `We've sent your personalised ${stageLabel} guide to ${email}. You can also download it directly below.`}
         </p>
+
+        {/* Lead-magnet download button */}
+        {downloadUrl && (
+          <a
+            href={downloadUrl}
+            download
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-sm font-label font-semibold text-sm transition-opacity hover:opacity-90"
+            style={{
+              backgroundColor: stageColor,
+              color: "#FDF8F4",
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              textDecoration: "none",
+            }}
+            onClick={() =>
+              fireGa4Event("guide_download", {
+                stage: stageSlug,
+                stage_label: stageLabel,
+                file: `paf-guide-${stageSlug}.pdf`,
+              })
+            }
+          >
+            <Download size={16} />
+            Download Your {stageLabel} Guide
+          </a>
+        )}
       </div>
     );
   }
@@ -171,23 +261,19 @@ export default function QuizEmailCapture({
           >
             Free Personalised Guide
           </p>
-          <h3
-            className="font-display font-bold text-lg leading-tight"
-            style={{ color: "#2C2C2C" }}
-          >
+          <h3 className="font-display font-bold text-lg leading-tight" style={{ color: "#2C2C2C" }}>
             Get Your {stageLabel} Product Guide
           </h3>
         </div>
       </div>
 
       <p className="font-body text-sm leading-relaxed mb-6" style={{ color: "#5C5C5C" }}>
-        We'll email you our top-rated products for <strong>{stageLabel}</strong>, 
-        including our editor's picks, clinical evidence summaries, and exclusive 
-        discount codes — all tailored to your stage.
+        Enter your email to receive our top-rated products for <strong>{stageLabel}</strong> — 
+        editor's picks, evidence summaries, and a downloadable stage guide, all tailored to where you are.
       </p>
 
       <form onSubmit={handleSubmit} noValidate>
-        {/* Honeypot — hidden from real users */}
+        {/* Honeypot — hidden from real users, visible to bots */}
         <input
           ref={honeypotRef}
           type="text"
@@ -205,11 +291,7 @@ export default function QuizEmailCapture({
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             className="flex-1 px-4 py-3 rounded-sm border text-sm font-body focus:outline-none focus:ring-2"
-            style={{
-              borderColor: "#D4EBE7",
-              backgroundColor: "#FFFFFF",
-              color: "#2C2C2C",
-            }}
+            style={{ borderColor: "#D4EBE7", backgroundColor: "#FFFFFF", color: "#2C2C2C" }}
             autoComplete="given-name"
           />
           <input
@@ -229,9 +311,7 @@ export default function QuizEmailCapture({
         </div>
 
         {errorMessage && (
-          <p className="text-xs mb-3" style={{ color: "#C0392B" }}>
-            {errorMessage}
-          </p>
+          <p className="text-xs mb-3" style={{ color: "#C0392B" }}>{errorMessage}</p>
         )}
 
         <button
@@ -246,14 +326,9 @@ export default function QuizEmailCapture({
           }}
         >
           {submitState === "submitting" ? (
-            <>
-              <Loader2 size={16} className="animate-spin" />
-              Sending…
-            </>
+            <><Loader2 size={16} className="animate-spin" /> Sending…</>
           ) : (
-            <>
-              Send My Guide <ArrowRight size={16} />
-            </>
+            <>Send My Guide <ArrowRight size={16} /></>
           )}
         </button>
 
