@@ -1,7 +1,7 @@
 /**
  * PauseAndFlourish.com — Static Prerender Script
  * ================================================
- * Runs at build time (before `vite build`) and writes a unique index.html
+ * Runs at build time (AFTER `vite build`) and writes a unique index.html
  * for every route into dist/public/.  Each file contains the correct:
  *   - <title>
  *   - <meta name="description">
@@ -10,12 +10,18 @@
  *   - Twitter Card tags
  *   - JSON-LD (Organization + WebSite + page-specific schema)
  *
+ * IMPORTANT: This script MUST run after `vite build` because it reads
+ * dist/public/index.html (which has the hashed asset script/CSS paths
+ * injected by Vite) as its template.  Using client/index.html instead
+ * would produce pages that reference /src/main.tsx (a dev-only path)
+ * causing a blank page in production.
+ *
  * Netlify's SPA fallback rule (`/* → /index.html, status 200`) means that
  * when a crawler requests /review/remifemin-menopause-supplement it gets the
  * pre-built HTML for that exact route — with JS disabled the correct title,
  * canonical, and body text are already present.
  *
- * Usage: node scripts/prerender.mjs
+ * Usage: node scripts/prerender.mjs  (after pnpm build)
  * (called automatically by the Netlify build command in netlify.toml)
  */
 
@@ -44,7 +50,17 @@ function trunc(str = "", max = 155) {
 }
 
 // ── Read the base index.html template ────────────────────────────────────────
-const BASE_HTML = readFileSync(resolve(ROOT, "client", "index.html"), "utf8");
+// MUST read from dist/public/index.html (the Vite-built output) so that
+// the hashed asset paths (/assets/index-XXXX.js, /assets/index-XXXX.css)
+// injected by Vite are preserved in every prerendered page.  Reading from
+// client/index.html would embed the raw /src/main.tsx dev path instead,
+// which does not exist as a static file and causes a blank page.
+const BUILT_INDEX = resolve(ROOT, "dist", "public", "index.html");
+if (!existsSync(BUILT_INDEX)) {
+  console.error("❌ dist/public/index.html not found — run `pnpm build` before prerender.mjs");
+  process.exit(1);
+}
+const BASE_HTML = readFileSync(BUILT_INDEX, "utf8");
 
 // ── Build a full HTML page from page-specific meta ───────────────────────────
 function buildHtml({
