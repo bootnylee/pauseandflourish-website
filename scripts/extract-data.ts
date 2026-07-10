@@ -5,6 +5,7 @@
  */
 import { allProducts, categories, comparisons } from "../client/src/lib/products.js";
 import { menopauseStages } from "../client/src/lib/menopauseStages.js";
+import { authors } from "../client/src/lib/authors.js";
 import { writeFileSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -29,6 +30,7 @@ const data = {
     verdict: p.verdict,
     score: p.score,
     publishDate: p.publishDate,
+    authorId: (p as any).authorId || "diane-kessler",
   })),
   categories: categories.map(c => ({
     slug: c.slug,
@@ -44,6 +46,17 @@ const data = {
     summary: c.summary,
     verdict: c.verdict,
     publishDate: c.publishDate,
+    authorId: (c as any).authorId || "diane-kessler",
+  })),
+  authors: authors.map(a => ({
+    id: a.id,
+    slug: a.slug,
+    name: a.name,
+    role: a.role,
+    bio: a.bio,
+    bioLong: a.bioLong,
+    photoPlaceholder: a.photoPlaceholder,
+    url: a.url,
   })),
   menopauseStages: menopauseStages.map(s => ({
     slug: s.slug,

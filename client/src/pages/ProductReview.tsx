@@ -7,7 +7,11 @@ import { QUIZ_RESULT_KEY } from "./MenopauseQuiz";
 import SiteLayout from "@/components/SiteLayout";
 import { StarRatingDisplay } from "@/components/ProductCard";
 import { allProducts, amazonLink, getProductsByCategory } from "@/lib/products";
-import { updateDocumentMeta, buildProductSchema, buildBreadcrumbSchema, injectStructuredData } from "@/lib/seo";
+import { updateDocumentMeta, buildProductSchema, buildBreadcrumbSchema, buildPersonSchema, injectStructuredData } from "@/lib/seo";
+import { getAuthor } from "@/lib/authors";
+import { FEATURE_USER_REVIEWS } from "@/lib/featureFlags";
+import { buildAggregateRatingSchema } from "@/lib/userReviews";
+import UserReviewSection from "@/components/UserReviewSection";
 import ProductCard from "@/components/ProductCard";
 
 // ─── Recently Viewed Key ────────────────────────────────────────────────────
@@ -134,6 +138,8 @@ export default function ProductReview() {
         ogType: "article",
       });
 
+      const author = getAuthor((product as any).authorId || "");
+
       const productSchema = buildProductSchema({
         name: product.name,
         description: product.shortDescription,
@@ -144,9 +150,17 @@ export default function ProductReview() {
         asin: product.asin,
         publishDate: product.publishDate,
         reviewBody: product.fullReview ? product.fullReview.substring(0, 500) : undefined,
+        author: { name: author.name, url: author.url, id: author.id },
       });
 
       injectStructuredData(productSchema, "product-schema");
+
+      injectStructuredData(buildPersonSchema({
+        name: author.name,
+        role: author.role,
+        url: author.url,
+        id: author.id,
+      }), "person-schema");
 
       const breadcrumbSchema = buildBreadcrumbSchema([
         { name: "Home", url: "https://pauseandflourish.com/" },
@@ -255,19 +269,29 @@ export default function ProductReview() {
             <hr className="editorial-rule w-16 mb-4" />
 
             {/* E-E-A-T: Author byline + publish/update date */}
-            <div className="flex flex-wrap items-center gap-3 mb-6 text-xs" style={{ color: "#B8A99A" }}>
-              <span className="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                <span>By <strong style={{ color: "#2C2C2C" }}>PauseAndFlourish Editorial Team</strong></span>
-              </span>
-              <span>·</span>
-              <span className="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                <span>Published {new Date(product.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
-              </span>
-              <span>·</span>
-              <a href="/methodology" className="underline hover:text-teal-700" style={{ color: "#B8A99A" }}>Editorial Methodology</a>
-            </div>
+            {(() => {
+              const reviewAuthor = getAuthor((product as any).authorId || "");
+              return (
+                <div className="flex flex-wrap items-center gap-3 mb-6 text-xs" style={{ color: "#B8A99A" }}>
+                  <span className="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span>By{" "}
+                      <Link href={`/author/${reviewAuthor.slug}`}>
+                        <a className="font-semibold hover:underline" style={{ color: "#2C2C2C" }}>{reviewAuthor.name}</a>
+                      </Link>
+                      <span className="ml-1">· {reviewAuthor.role}</span>
+                    </span>
+                  </span>
+                  <span>·</span>
+                  <span className="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    <span>Published {new Date(product.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
+                  </span>
+                  <span>·</span>
+                  <a href="/methodology" className="underline hover:text-teal-700" style={{ color: "#B8A99A" }}>Editorial Methodology</a>
+                </div>
+              );
+            })()}
 
             <p className="font-body text-lg leading-relaxed mb-8" style={{ color: "#6C6C6C" }}>
               {product.shortDescription}
@@ -335,6 +359,33 @@ export default function ProductReview() {
             </p>
           </div>
         </div>
+
+        {/* User Reviews — only rendered when feature flag is ON */}
+        {FEATURE_USER_REVIEWS && (
+          <UserReviewSection
+            productSlug={product.slug}
+            onAggregateRatingChange={(count, avg) => {
+              // Dynamically update the Product schema's aggregateRating
+              // when the approved review set changes.
+              if (count > 0 && avg !== null) {
+                const existingScript = document.getElementById("product-schema");
+                if (existingScript) {
+                  try {
+                    const schema = JSON.parse(existingScript.textContent || "{}");
+                    schema.aggregateRating = {
+                      "@type": "AggregateRating",
+                      ratingValue: avg,
+                      reviewCount: count,
+                      bestRating: 5,
+                      worstRating: 1,
+                    };
+                    existingScript.textContent = JSON.stringify(schema);
+                  } catch {}
+                }
+              }
+            }}
+          />
+        )}
 
         {/* Related Products */}
         {relatedProducts.length > 0 && (

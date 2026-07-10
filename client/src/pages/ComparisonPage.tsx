@@ -6,7 +6,8 @@ import { Trophy, ExternalLink, CheckCircle, XCircle, Sparkles, ArrowRight } from
 import SiteLayout from "@/components/SiteLayout";
 import { StarRatingDisplay } from "@/components/ProductCard";
 import { comparisons, getProductById, amazonLink } from "@/lib/products";
-import { updateDocumentMeta, buildArticleSchema, buildBreadcrumbSchema, injectStructuredData } from "@/lib/seo";
+import { updateDocumentMeta, buildArticleSchema, buildBreadcrumbSchema, buildPersonSchema, injectStructuredData } from "@/lib/seo";
+import { getAuthor } from "@/lib/authors";
 import { QUIZ_RESULT_KEY } from "@/pages/MenopauseQuiz";
 
 // Menopause stage metadata for contextual tips
@@ -155,6 +156,8 @@ export default function ComparisonPage() {
         ogType: "article",
       });
 
+      const compAuthor = getAuthor((comparison as any).authorId || "");
+
       const articleSchema = buildArticleSchema({
         headline: comparison.title,
         description: `${comparison.subtitle}. ${(comparison.verdict ?? comparison.summary).substring(0, 150)}`,
@@ -162,6 +165,13 @@ export default function ComparisonPage() {
         url: `https://pauseandflourish.com/comparison/${comparison.slug}`,
       });
       injectStructuredData(articleSchema, "article-schema");
+
+      injectStructuredData(buildPersonSchema({
+        name: compAuthor.name,
+        role: compAuthor.role,
+        url: compAuthor.url,
+        id: compAuthor.id,
+      }), "person-schema");
 
       const breadcrumbSchema = buildBreadcrumbSchema([
         { name: "Home", url: "https://pauseandflourish.com/" },
@@ -207,21 +217,33 @@ export default function ComparisonPage() {
         <p className="font-body text-lg mb-4" style={{ color: "#6C6C6C" }}>{comparison.subtitle}</p>
 
         {/* E-E-A-T: Author byline + publish date */}
-        <div className="flex flex-wrap items-center gap-3 mb-6 text-xs" style={{ color: "#B8A99A" }}>
-          <span className="flex items-center gap-1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            <span>By <strong style={{ color: "#2C2C2C" }}>PauseAndFlourish Editorial Team</strong></span>
-          </span>
-          <span>·</span>
-          {comparison.publishDate && (
-            <span className="flex items-center gap-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span>Published {new Date(comparison.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
-            </span>
-          )}
-          <span>·</span>
-          <a href="/methodology" className="underline hover:text-teal-700" style={{ color: "#B8A99A" }}>Editorial Methodology</a>
-        </div>
+        {(() => {
+          const compAuthorDisplay = getAuthor((comparison as any).authorId || "");
+          return (
+            <div className="flex flex-wrap items-center gap-3 mb-6 text-xs" style={{ color: "#B8A99A" }}>
+              <span className="flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>By{" "}
+                  <Link href={`/author/${compAuthorDisplay.slug}`}>
+                    <a className="font-semibold hover:underline" style={{ color: "#2C2C2C" }}>{compAuthorDisplay.name}</a>
+                  </Link>
+                  <span className="ml-1">· {compAuthorDisplay.role}</span>
+                </span>
+              </span>
+              {comparison.publishDate && (
+                <>
+                  <span>·</span>
+                  <span className="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    <span>Published {new Date(comparison.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
+                  </span>
+                </>
+              )}
+              <span>·</span>
+              <a href="/methodology" className="underline hover:text-teal-700" style={{ color: "#B8A99A" }}>Editorial Methodology</a>
+            </div>
+          );
+        })()}
 
         <hr className="editorial-rule w-16 mb-10" />
 

@@ -75,6 +75,7 @@ export function buildProductSchema(product: {
   asin: string;
   publishDate?: string;
   reviewBody?: string;
+  author?: { name: string; url: string; id: string };
 }): object {
   const editorialRating = product.score
     ? Math.round((product.score / 10) * 5 * 10) / 10
@@ -112,11 +113,18 @@ export function buildProductSchema(product: {
               bestRating: 5,
               worstRating: 1,
             },
-            author: {
-              "@type": "Organization",
-              name: "PauseAndFlourish Editorial Team",
-              url: "https://pauseandflourish.com",
-            },
+            author: product.author
+              ? {
+                  "@type": "Person",
+                  "@id": `https://pauseandflourish.com/author/${product.author.id}`,
+                  name: product.author.name,
+                  url: product.author.url,
+                }
+              : {
+                  "@type": "Organization",
+                  name: "PauseAndFlourish Editorial Team",
+                  url: "https://pauseandflourish.com",
+                },
             publisher: {
               "@type": "Organization",
               name: "PauseAndFlourish",
@@ -176,6 +184,27 @@ export function buildBreadcrumbSchema(
       name,
       item: url,
     })),
+  };
+}
+
+export function buildPersonSchema(author: {
+  name: string;
+  role: string;
+  url: string;
+  id: string;
+}): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `https://pauseandflourish.com/author/${author.id}`,
+    name: author.name,
+    jobTitle: author.role,
+    url: author.url,
+    worksFor: {
+      "@type": "Organization",
+      "@id": "https://pauseandflourish.com/#organization",
+      name: "PauseAndFlourish",
+    },
   };
 }
 

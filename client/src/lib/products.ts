@@ -39,6 +39,7 @@ export interface Product {
   priceDisplay: string;       // formatted price string (same as price)
   editorNote?: string;        // optional editor's pull-quote
   publishDate: string;        // ISO date string
+  authorId: string;           // pen-name author id (see src/lib/authors.ts)
 }
 
 export interface Category {
@@ -67,6 +68,7 @@ export interface Comparison {
   summary: string;
   verdict?: string;     // alias for summary
   publishDate?: string;
+  authorId?: string;           // pen-name author id (see src/lib/authors.ts)
 }
 
 // ─── Categories ──────────────────────────────────────────────────────────────
@@ -185,6 +187,7 @@ export const allProducts: Product[] = [
     fullReview: "New Chapter Estrotone is a comprehensive herbal supplement designed to provide natural, hormone-free relief for perimenopause and menopause symptoms. It combines well-researched botanicals like Black Cohosh, Evening Primrose Oil, and Schizandra to target hot flashes, night sweats, and mood swings. What sets Estrotone apart is its commitment to quality — it uses whole-food fermented ingredients for better absorption and is 100% vegetarian.\n\nThe formula is rooted in traditional herbal medicine and supported by modern quality standards. Black Cohosh has been studied in numerous clinical trials for its ability to reduce hot flash frequency and severity, while Evening Primrose Oil provides gamma-linolenic acid (GLA) to support hormonal balance. Vitex (Chaste Tree) rounds out the formula by supporting the body's natural progesterone production.\n\nWith over 1,000 Amazon reviews and Amazon's Choice designation, Estrotone has earned strong credibility among women seeking a gentle yet effective multi-symptom solution. Users consistently report improvements in hot flash frequency, sleep quality, and mood within 4–8 weeks of consistent use.\n\nFor women who prefer a whole-food, multi-herb approach over single-ingredient supplements, New Chapter Estrotone represents one of the best-formulated options on the market.",
     priceDisplay: "$31.88",
     publishDate: "2026-06-29",
+    authorId: "diane-kessler",
     editorNote: "Estrotone is the whole-food herbal option I recommend for women who want a comprehensive formula without synthetic ingredients. The quality of New Chapter's sourcing and fermentation process is genuinely superior.",
   },
   {
@@ -222,6 +225,7 @@ export const allProducts: Product[] = [
     fullReview: "Womaness Daily V Soothe is an expertly crafted vaginal moisturizer specifically designed for women experiencing menopause-related dryness. This water-based, non-irritating gel features hyaluronic acid, a powerful humectant that draws and retains moisture for instant comfort. Free from estrogen, hormones, and silicones, it offers a clean and safe formulation for daily external use.\n\nThe formula reflects the Womaness brand's commitment to clean, effective intimate wellness products designed specifically for women in midlife. The lightweight gel texture absorbs quickly without leaving residue, making it comfortable to use at any time of day. Users praise its ability to provide immediate relief from itching, burning, and dryness without the heaviness of traditional moisturizers.\n\nWomaness Daily V Soothe is designed to complement other intimate health products rather than replace them. For women who need internal moisture support, pairing it with Replens or Bonafide Revaree provides comprehensive coverage. For those whose dryness is primarily external, Daily V Soothe may be all that is needed.\n\nWith a growing base of positive reviews and the trusted Womaness brand behind it, this product represents a modern, skincare-inspired approach to intimate wellness that resonates with women who are already familiar with hyaluronic acid from their facial care routines.",
     priceDisplay: "$19.64",
     publishDate: "2026-06-29",
+    authorId: "diane-kessler",
     editorNote: "Daily V Soothe brings the same hyaluronic acid technology that transformed facial skincare to intimate wellness. At under $20, it is one of the best-value intimate health products in the catalog.",
   },
   {
@@ -259,6 +263,7 @@ export const allProducts: Product[] = [
     fullReview: "Gaia Herbs Menopause Support Daytime is formulated to help women maintain emotional balance and vitality throughout the day during the menopausal transition. This potent herbal blend features Vitex (Chaste Tree) and Black Cohosh to support healthy hormone levels, alongside St. John's Wort and Oats to promote a positive mood and calm the nervous system.\n\nDelivered in fast-acting liquid phyto-capsules, the formula ensures optimal absorption and purity. Gaia Herbs is renowned for its rigorous quality standards, including Certified B Corporation status and its Meet Your Herbs traceability program, which allows consumers to trace each herb back to its source farm. This commitment to transparency sets Gaia apart from many competitors in the herbal supplement space.\n\nThe combination of hormone-balancing herbs (Vitex, Black Cohosh) with mood-supporting botanicals (St. John's Wort, Oats) makes this formula particularly well-suited for women experiencing the emotional and psychological aspects of menopause, including mood swings, irritability, and anxiety. Users report improvements in emotional stability and daytime well-being within 2–4 weeks of consistent use.\n\nAn important note: St. John's Wort can interact with certain medications, including antidepressants, birth control pills, and blood thinners. Women taking any prescription medications should consult their healthcare provider before starting this supplement.",
     priceDisplay: "$29.99",
     publishDate: "2026-06-29",
+    authorId: "carol-beaumont",
     editorNote: "Gaia Herbs is one of the most trusted names in herbal medicine, and their Menopause Support Daytime formula is a standout for women dealing with the emotional rollercoaster of perimenopause. The liquid capsule format is noticeably more effective than standard tablets.",
   },
 
@@ -299,6 +304,7 @@ export const allProducts: Product[] = [
     fullReview: "Remifemin has been the gold standard in non-hormonal menopause relief since the 1950s. Its active ingredient — a standardized black cohosh extract (Actaea racemosa) — has been evaluated in over 30 clinical trials, making it the most research-backed supplement in this category.\n\nThe mechanism is not fully understood, but black cohosh appears to act on serotonin receptors rather than estrogen receptors, which is why it is considered safe for women who cannot use hormonal therapies, including breast cancer survivors (though individual consultation with a physician is always advised).\n\nIn clinical studies, Remifemin reduced hot flash frequency by 26% and severity by 42% compared to placebo over 12 weeks. Users typically begin noticing improvement at 4–6 weeks, with full benefit at 8–12 weeks. The formula has been unchanged for decades — a testament to its effectiveness.\n\nThe main limitation is patience: this is not a quick-fix supplement. Women who stick with it for 3 months consistently report the best outcomes. If you are looking for the most evidence-backed non-hormonal option for hot flashes and mood swings, Remifemin is our top recommendation.",
     priceDisplay: "$22.99",
     publishDate: "2026-05-02",
+    authorId: "carol-beaumont",
     editorNote: "Remifemin is the supplement I recommend first to women who ask me about non-hormonal hot flash relief. The clinical evidence is simply unmatched in this category.",
   },
   {
@@ -337,6 +343,7 @@ export const allProducts: Product[] = [
     fullReview: "Estroven Complete is the most reviewed menopause supplement on Amazon, and for good reason. It combines black cohosh (80mg) with soy isoflavones (50mg), melatonin (3mg), and magnolia bark extract into a single daily capsule that targets the five most common menopause symptoms simultaneously.\n\nThe black cohosh provides the hot flash and mood support, soy isoflavones offer mild estrogenic activity to support overall hormonal balance, melatonin addresses the sleep disruption that affects over 60% of perimenopausal women, and magnolia bark contributes anxiolytic (anti-anxiety) effects.\n\nWith over 12,000 Amazon reviews averaging 4.4 stars, the real-world evidence is compelling. Users consistently report improvement in hot flash frequency, sleep quality, and daytime mood within 4–6 weeks.\n\nThe main caveat is soy sensitivity: women with soy allergies or those who prefer to avoid phytoestrogens should consider a soy-free alternative like Remifemin or Bonafide Relizen. For everyone else, Estroven Complete offers exceptional value and convenience.",
     priceDisplay: "$29.99",
     publishDate: "2026-05-02",
+    authorId: "diane-kessler",
     editorNote: "If you want one supplement that does it all, Estroven Complete is the most proven multi-symptom option at this price point.",
   },
   {
@@ -375,6 +382,7 @@ export const allProducts: Product[] = [
     fullReview: "Bonafide Relizen uses Sérélys®, a proprietary Swedish pollen extract that has been studied in multiple randomized controlled trials. Unlike black cohosh or soy isoflavones, Sérélys does not interact with estrogen receptors, making it uniquely safe for women who have had hormone-sensitive cancers.\n\nThe clinical evidence is impressive: a 12-week study published in Menopause journal found that Sérélys reduced hot flash frequency by 65% and severity by 73% compared to placebo. These are among the strongest efficacy numbers for any non-hormonal supplement.\n\nThe trade-off is cost ($62/month at the verified Amazon listing) and the 8–12 week timeline for full effect. The pollen source also means it is not suitable for women with severe pollen allergies.\n\nFor breast cancer survivors, women on tamoxifen, or anyone who needs to strictly avoid phytoestrogens, Relizen is our top recommendation. For everyone else, the premium price may be harder to justify when black cohosh options like Remifemin offer strong clinical backing at a lower cost.",
     priceDisplay: "$62.00",
     publishDate: "2026-05-02",
+    authorId: "diane-kessler",
     editorNote: "For women who need a proven non-hormonal, soy-free option, Relizen remains one of the most targeted choices despite its premium price.",
   },
 
@@ -415,6 +423,7 @@ export const allProducts: Product[] = [
     fullReview: "Sleep disruption affects over 60% of perimenopausal and menopausal women, driven by night sweats, anxiety, and direct hormonal effects on sleep architecture. Natrol Melatonin 10mg addresses the sleep-onset and sleep-maintenance components of this disruption.\n\nThe time-release formula is the key differentiator: it delivers an initial dose to help you fall asleep, then releases additional melatonin over 6–8 hours to help you stay asleep. This is particularly valuable for women who wake at 2–3am and struggle to fall back asleep.\n\nWith nearly 29,000 Amazon reviews averaging 4.5 stars, Natrol is the most trusted melatonin brand in the US. At $12.99 for 60 tablets, it is also exceptional value.\n\nImportant note: 10mg is a high dose. If you are new to melatonin, starting with 3–5mg is advisable. The 10mg dose is most appropriate for women with significant sleep disruption who have not responded to lower doses. Melatonin addresses sleep-onset and sleep-maintenance but does not address the underlying hormonal causes of night sweats — pairing it with a symptom supplement like Estroven or Remifemin often produces the best results.",
     priceDisplay: "$12.99",
     publishDate: "2026-05-02",
+    authorId: "carol-beaumont",
     editorNote: "Natrol 10mg time-release is my go-to recommendation for women who wake up in the middle of the night and can't fall back asleep.",
   },
   {
@@ -459,6 +468,7 @@ As with most magnesium products, expectations should be realistic. This is not a
 For women who want a non-hormonal, non-habit-forming sleep-support supplement with broader midlife wellness relevance, Nobi Nutrition Magnesium Glycinate is a strong everyday option and pairs well with targeted hot-flash support when overheating is the primary cause of wake-ups.`,
     priceDisplay: "$15.99",
     publishDate: "2026-06-01",
+    authorId: "carol-beaumont",
     editorNote: "Magnesium glycinate remains one of the most practical first-line supplements for menopause-related sleep disruption because it supports relaxation without acting like a sleeping pill.",
   },
   {
@@ -497,6 +507,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
     fullReview: "OLLY Goodbye Stress combines ashwagandha (KSM-66, 150mg), L-theanine (100mg), and GABA (100mg) in a pleasant blackberry verbena gummy format. For perimenopausal women who struggle with supplement fatigue or pill aversion, the gummy format significantly improves adherence.\n\nAshwagandha (KSM-66) is the most clinically studied adaptogen for stress and cortisol regulation, with multiple RCTs demonstrating reductions in perceived stress, cortisol levels, and anxiety. L-theanine promotes calm focus without sedation, and GABA provides additional inhibitory neurotransmitter support.\n\nThe 150mg KSM-66 dose is at the lower end of the clinically effective range (typically 300–600mg), which is the main limitation of this product. For women with significant stress or anxiety, a higher-dose ashwagandha supplement may be more effective.\n\nFor women who want a pleasant, easy-to-take daily stress support supplement and are new to adaptogens, OLLY Goodbye Stress is an excellent entry point. The taste and convenience factor genuinely improve daily compliance.",
     priceDisplay: "$13.99",
     publishDate: "2026-05-02",
+    authorId: "diane-kessler",
     editorNote: "The gummy format makes a real difference for women who struggle to take multiple capsules daily. Compliance is half the battle with supplements.",
   },
 
@@ -536,6 +547,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
     fullReview: "The Chill Pal Microfiber Cooling Towel uses a PVA (polyvinyl alcohol) microfiber blend that retains water more effectively than standard cooling towels, staying cold for up to 4 hours after activation. The larger size (12\" x 40\") provides more coverage than most competitors, making it practical for draping across the neck and shoulders during a hot flash.\n\nFor women who experience hot flashes during exercise, the Chill Pal is particularly valuable — it can be pre-soaked and kept in a cooler or refrigerator for immediate use. The lightweight, compact design folds into a small pouch for easy carrying.\n\nCompared to the Mission Cooling Towel, the Chill Pal's PVA material retains cold longer but takes slightly longer to reactivate. The choice between them often comes down to personal preference for texture and use case.\n\nFor women whose hot flashes are most disruptive during physical activity or in warm environments, a quality cooling towel is one of the most immediately effective non-pharmaceutical interventions available.",
     priceDisplay: "$9.95",
     publishDate: "2026-05-02",
+    authorId: "diane-kessler",
     editorNote: "I recommend keeping one cooling towel at your desk, one in your gym bag, and one on your nightstand. The immediate relief during a hot flash is worth every penny.",
   },
   {
@@ -572,6 +584,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
     fullReview: "The Elegear Revolutionary Cooling Blanket is one of the most practical and affordable solutions for women experiencing night sweats and hot flashes during menopause. Using proprietary Arc-Chill 3.0 cooling fiber technology, the blanket actively absorbs and dissipates body heat, lowering skin temperature by up to 9°F on contact — providing the kind of immediate relief that powered cooling devices cost ten times more to achieve.\n\nThe reversible design is a thoughtful feature: one side features the cooling Arc-Chill fiber for hot nights, while the other side is crafted from 100% breathable Egyptian cotton for cooler evenings or seasonal transitions. This versatility makes it a year-round investment rather than a single-season purchase.\n\nWith over 30,000 reviews and a 4.4-star rating, it is one of the most validated cooling products on Amazon. Users consistently praise its ability to stay cool throughout the night without requiring electricity, water, or any setup. It is lightweight enough to layer over existing bedding and machine washable for easy care.\n\nFor women who have tried everything from room fans to cooling mattress toppers, the Elegear blanket offers a simple, effective, and budget-friendly alternative that works from the very first night.",
     priceDisplay: "$29.99",
     publishDate: "2026-06-29",
+    authorId: "carol-beaumont",
     editorNote: "At under $30, this blanket is the best value cooling solution in the entire catalog. The instant cool-to-touch sensation is genuinely impressive and the reversible design means you can use it year-round.",
   },
   {
@@ -616,6 +629,7 @@ The primary limitation is review depth. At fewer than 300 extracted Amazon revie
 For women who have tried the major black cohosh or soy-based products without success, Santo Remedio Hormonal Balance offers a different botanical profile and a simple once-daily routine.`,
     priceDisplay: "$38.95",
     publishDate: "2026-06-01",
+    authorId: "carol-beaumont",
     editorNote: "This is best positioned as an alternative botanical menopause formula, not a replacement for the better-established category leaders.",
   },
 
@@ -656,6 +670,7 @@ For women who have tried the major black cohosh or soy-based products without su
     fullReview: "Bone density loss accelerates dramatically in the first 5–7 years after menopause, with women losing up to 20% of their bone density during this period. Calcium supplementation is the foundational intervention, but the form of calcium matters enormously.\n\nCitracal uses calcium citrate, which is absorbed 2.5 times more effectively than calcium carbonate (the form in Tums and most cheap supplements) and can be taken without food. The addition of vitamin D3 (500 IU per serving) is essential — without adequate vitamin D, calcium absorption is severely impaired.\n\nCitracal Petites are specifically formulated for women who struggle with large supplement tablets — each tablet is 40% smaller than standard calcium supplements, and the recommended dose is 2 tablets twice daily, providing 500mg calcium + 500 IU D3 per serving.\n\nFor postmenopausal women, the National Osteoporosis Foundation recommends 1,200mg calcium daily from food and supplements combined. Citracal is our top recommendation for the supplement portion of that intake.",
     priceDisplay: "$19.49",
     publishDate: "2026-05-02",
+    authorId: "diane-kessler",
     editorNote: "Calcium citrate is the form I always recommend over calcium carbonate — the absorption difference is significant, especially for women over 50.",
   },
   {
@@ -700,6 +715,7 @@ The product's clean-label positioning is also strong: plant-based, non-GMO, vega
 Citracal remains the better budget and simplicity pick, but NATURELO Bone Strength is a compelling upgrade for women who want calcium plus D3, K2, magnesium, zinc, and vitamin C in one daily bone-support formula.`,
     priceDisplay: "$27.95",
     publishDate: "2026-06-01",
+    authorId: "diane-kessler",
     editorNote: "The D3 and K2 cofactor pairing is the reason I prefer comprehensive bone formulas over plain calcium for many postmenopausal women.",
   },
 
@@ -739,6 +755,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
     priceDisplay: "$19.99",
     publishDate: "2026-05-02",
+    authorId: "carol-beaumont",
     editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
   },
   {
@@ -775,6 +792,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     fullReview: "ZENZSUAL Feminine Moisturizing Gel is a premium, gynecologist-formulated solution for the vaginal dryness that affects the majority of women during and after menopause. This water-based gel is enriched with hyaluronic acid, one of the most effective humectants known to science, which attracts and retains moisture to provide deep, long-lasting hydration without feeling sticky or greasy.\n\nFormulated without hormones, fragrances, or parabens, ZENZSUAL is designed to be gentle enough for daily use while remaining effective enough to provide meaningful relief from itching, burning, and discomfort. Its pH-balanced formula supports the natural vaginal environment, which is particularly important during menopause when pH levels can shift and increase susceptibility to irritation.\n\nMany users report significant improvements in comfort within the first week of consistent use, and the gel\'s lightweight texture absorbs quickly without leaving residue. It can also be used as a natural intimacy preparation, making it a versatile addition to intimate wellness routines.\n\nWith over 2,300 reviews and a 4.5-star rating, ZENZSUAL has earned strong credibility among women seeking a clean, effective alternative to traditional vaginal moisturizers. It represents a modern, skincare-inspired approach to intimate health that resonates with women who are already familiar with hyaluronic acid from their facial care routines.",
     priceDisplay: "$51.83",
     publishDate: "2026-06-29",
+    authorId: "carol-beaumont",
     editorNote: "The ZENZSUAL gel brings the same hyaluronic acid technology that transformed facial skincare to intimate wellness. The clean formula and gynecologist backing make it a trustworthy daily choice.",
   },
 
@@ -815,6 +833,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     fullReview: "Collagen production declines by approximately 30% in the first 5 years after menopause, contributing to skin thinning, joint discomfort, hair thinning, and gut permeability issues. Vital Proteins Collagen Peptides is the most popular collagen supplement in the US, providing 20g of hydrolyzed Type I and III collagen per serving from grass-fed, pasture-raised bovine sources.\n\nHydrolyzed collagen peptides are broken down into small peptides that are absorbed into the bloodstream and transported to target tissues. Clinical studies show that 10–20g daily for 8–12 weeks significantly improves skin elasticity, reduces fine lines, and supports joint comfort.\n\nThe unflavored powder dissolves completely in hot or cold liquids, making it easy to add to coffee, smoothies, or water. Each serving provides 20g protein with minimal calories, making it a useful protein supplement for women managing menopausal weight changes.\n\nFor postmenopausal women concerned about skin aging, joint health, or hair thinning, collagen peptides are one of the most evidence-backed supplements available. Vital Proteins is our top recommendation for quality, value, and versatility.",
     priceDisplay: "$43.00",
     publishDate: "2026-05-02",
+    authorId: "diane-kessler",
     editorNote: "I add Vital Proteins to my morning coffee every day. The skin and joint benefits after 3 months are genuinely noticeable.",
   },
   {
@@ -852,6 +871,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     fullReview: "Neutrogena Rapid Firming Peptide Contour Lift Face Cream combines retinol with peptides and hyaluronic acid to address the three primary skin changes of menopause: collagen loss (leading to sagging), fine lines and wrinkles, and loss of moisture retention.\n\nRetinol is the most evidence-backed topical ingredient for skin aging, with decades of clinical research demonstrating its ability to stimulate collagen production, accelerate cell turnover, and reduce the appearance of fine lines. The peptide complex provides additional collagen-stimulating signals, while hyaluronic acid provides immediate and sustained hydration.\n\nNeutrogena's clinical studies show visible improvement in skin firmness within 1 week and significant reduction in sagging within 4 weeks — among the fastest-acting results of any OTC retinol product. The formula is designed for sensitive skin and is fragrance-free.\n\nFor menopausal women new to retinol, starting with 2–3 applications per week and gradually increasing to daily use minimizes the initial adjustment period (dryness, flaking) that some women experience. Always use SPF during the day when using retinol.",
     priceDisplay: "$29.99",
     publishDate: "2026-05-02",
+    authorId: "diane-kessler",
     editorNote: "Retinol is the gold standard for menopausal skin aging, and Neutrogena Rapid Firming delivers it at an accessible price point with a well-tolerated formula.",
   },
 
@@ -891,6 +911,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     fullReview: "Pelvic floor weakness affects over 50% of menopausal women, contributing to stress urinary incontinence (leaking with coughing, sneezing, or exercise), urgency incontinence, and reduced intimate sensation. The Perifit is a Bluetooth-connected pelvic floor trainer that provides real-time biofeedback through a smartphone app, turning pelvic floor exercises into guided, gamified sessions.\n\nThe biofeedback element is the key differentiator from traditional Kegel exercises: many women perform Kegels incorrectly (bearing down instead of lifting), and the Perifit's real-time feedback ensures correct muscle engagement. Clinical studies on biofeedback-guided pelvic floor training show significantly better outcomes than unguided exercises.\n\nThe app includes structured programs for stress incontinence, urgency incontinence, and intimate wellness, with progressive difficulty levels. Most women see measurable improvement in 4–6 weeks of consistent use (10 minutes daily).\n\nFor women experiencing any degree of urinary incontinence or pelvic floor weakness, the Perifit is one of the most effective non-surgical interventions available. Pelvic floor physical therapists frequently recommend it as a home training tool between sessions.",
     priceDisplay: "$89.99",
     publishDate: "2026-05-02",
+    authorId: "carol-beaumont",
     editorNote: "Pelvic floor health is the most overlooked aspect of menopause management. The Perifit makes the exercises actually work by ensuring you're doing them correctly.",
   },
   {
@@ -929,6 +950,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     fullReview: "Muscle mass loss (sarcopenia) accelerates significantly after menopause, with women losing 3–8% of muscle mass per decade after age 30 — a rate that increases after estrogen decline. Adequate protein intake (1.2–1.6g per kg body weight daily) is the most important nutritional intervention for preserving muscle mass, and most women fall significantly short of this target.\n\nOptimum Nutrition Gold Standard 100% Whey is the bestselling protein supplement in the world, providing 24g of whey protein (isolate, concentrate, and peptides) per serving with only 120 calories. The whey protein isolate base ensures rapid absorption and high leucine content — the amino acid most critical for stimulating muscle protein synthesis.\n\nFor menopausal women engaged in resistance training (the most effective exercise for preserving muscle and bone density), consuming 25–30g of protein within 2 hours of training significantly improves muscle adaptation. Gold Standard Whey is the most convenient and cost-effective way to meet this target.\n\nWith dozens of flavors and a 25-year track record, Optimum Nutrition Gold Standard is the benchmark against which all other protein supplements are measured. For menopausal women focused on maintaining strength, metabolic health, and body composition, it is our top protein recommendation.",
     priceDisplay: "$34.99",
     publishDate: "2026-05-02",
+    authorId: "carol-beaumont",
     editorNote: "Protein intake is the most underappreciated aspect of menopause nutrition. Gold Standard Whey makes it easy to hit your daily protein target without excess calories.",
   },
 
@@ -975,6 +997,7 @@ The main caution is review depth. The product has a strong extracted rating sign
 For women looking for steady, non-stimulant focus support and who are comfortable with mushroom supplements, Real Mushrooms Lion's Mane Focus is one of the more thoughtful cognitive formulas in the category.`,
     priceDisplay: "$39.95",
     publishDate: "2026-06-01",
+    authorId: "diane-kessler",
     editorNote: "The combination of lion's mane and Alpha GPC is a smart non-stimulant approach for women who want focus support without caffeine or jittery energy.",
   },
   {
@@ -1013,6 +1036,7 @@ For women looking for steady, non-stimulant focus support and who are comfortabl
     fullReview: "Rhodiola rosea is one of the most studied adaptogenic herbs, with over 40 clinical trials supporting its use for stress-related fatigue, mental performance, and mood. Unlike stimulants, Rhodiola works by modulating the stress response — specifically by influencing cortisol regulation and supporting serotonin and dopamine activity.\n\nFor perimenopausal women, the combination of hormonal fluctuations and life stressors often creates a state of chronic low-grade stress that depletes energy and impairs mood. Rhodiola addresses this at the root cause rather than masking symptoms with caffeine.\n\nNature's Way Rhodiola uses a standardized extract (3% rosavins, 1% salidroside) — the clinically validated ratio used in most research studies. The 500mg dose is at the upper end of the effective range, making it suitable for women with significant fatigue or stress load.\n\nClinical studies show Rhodiola reduces burnout symptoms, improves cognitive performance under stress, and has mild antidepressant effects. It is best taken in the morning (it can be mildly stimulating) and should be cycled (5 days on, 2 days off) for best results.",
     priceDisplay: "$19.99",
     publishDate: "2026-05-02",
+    authorId: "diane-kessler",
     editorNote: "Rhodiola is my recommendation for women who feel chronically exhausted and overwhelmed — it addresses the stress-fatigue cycle that makes perimenopause so draining.",
   },
   {
@@ -1057,6 +1081,7 @@ This is a higher-potency product than many women need if B12 levels are already 
 Triquetra is more expensive than basic B12 tablets, but the active-form spectrum and sublingual delivery justify the premium for women specifically prioritizing absorption and methylation support.`,
     priceDisplay: "$21.99",
     publishDate: "2026-06-01",
+    authorId: "carol-beaumont",
     editorNote: "For women with fatigue or brain fog, B12 testing is worth doing. If supplementation makes sense, active-form drops are one of the more absorption-friendly options.",
   },
   {
@@ -1095,6 +1120,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     fullReview: "Nature's Bounty Black Cohosh provides 540mg of whole black cohosh root per capsule — a higher dose than many competitors. With over 12,000 verified reviews and an Overall Pick badge on Amazon, it is one of the most purchased black cohosh supplements available.\n\nBlack cohosh (Actaea racemosa) has been used for centuries to support women's hormonal health. Clinical studies suggest it may help reduce hot flash frequency and intensity, improve sleep quality, and stabilize mood during perimenopause and menopause.\n\nNature's Bounty uses a whole herb extract rather than a standardized extract (like Remifemin's 2.5% triterpene glycosides), which means potency can vary slightly between batches. However, the brand's quality control and long track record make it a reliable choice for women looking for an accessible, affordable option.\n\nFor women who want a clinically validated standardized extract, Remifemin is the stronger choice. But for women who want a well-reviewed, budget-friendly black cohosh supplement from a trusted brand, Nature's Bounty delivers solid value.",
     priceDisplay: "$23.94",
     publishDate: "2026-05-02",
+    authorId: "carol-beaumont",
     editorNote: "A great entry-level black cohosh option. If you don't see results after 8 weeks, consider upgrading to a standardized extract like Remifemin.",
   },
 
@@ -1135,6 +1161,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     fullReview: "Night sweats affect up to 75% of menopausal women, and one of the most immediate interventions is optimizing the sleep environment. The QUTOOL Cooling Pillow addresses the heat-trapping problem of traditional memory foam pillows by using a shredded fill — individual foam pieces allow air to circulate between them, dissipating body heat more effectively than a solid foam core.\n\nThe pillow features a bamboo-derived cover that is both breathable and moisture-wicking, pulling sweat away from the skin rather than allowing it to pool. The CertiPUR-US certification confirms the foam is free from harmful chemicals including formaldehyde, heavy metals, and ozone-depleting substances.\n\nWith over 12,000 Amazon reviews averaging 4.4 stars, the QUTOOL has earned a loyal following among women who find that a cooler sleep surface meaningfully reduces the frequency with which night sweats wake them. The pillow does not prevent hot flashes — it simply reduces their impact on sleep quality by keeping the sleep surface cooler.\n\nFor women who want a simple, affordable, non-pharmaceutical intervention for night sweats, the QUTOOL Cooling Pillow is a practical starting point. Pair it with moisture-wicking sleepwear and a cooling mattress topper for maximum effect.",
     priceDisplay: "$39.98",
     publishDate: "2026-05-04",
+    authorId: "diane-kessler",
     editorNote: "A cooling pillow won't cure hot flashes, but it can make the difference between waking up three times a night and sleeping through. Worth the investment.",
   },
   {
@@ -1173,6 +1200,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     fullReview: "Vaginal atrophy (now termed genitourinary syndrome of menopause, or GSM) affects up to 50% of postmenopausal women, causing dryness, irritation, and discomfort during intimacy. Unlike hot flashes, which often improve over time, GSM tends to worsen without treatment.\n\nAloe Cadabra takes a minimalist, natural approach: its formula is 95% organic aloe vera, supplemented with vitamin E and a small amount of xanthan gum for consistency. Aloe vera has natural moisturizing, anti-inflammatory, and mild antimicrobial properties, making it an ideal base for intimate skincare.\n\nThe dual-use design is a key advantage: Aloe Cadabra can be applied daily as a vaginal moisturizer (like Replens) and also used as a lubricant during intimacy. This simplifies the routine for women who want a single product for both purposes.\n\nWith over 24,000 Amazon reviews, it is one of the most widely reviewed intimate health products available. Women consistently report that it provides immediate comfort for dryness and irritation without the stickiness or residue of synthetic lubricants.\n\nFor women who prefer natural, organic formulations and want a product that works for both daily moisturizing and intimate use, Aloe Cadabra is our top natural recommendation in this category.",
     priceDisplay: "$9.99",
     publishDate: "2026-05-04",
+    authorId: "diane-kessler",
     editorNote: "Aloe Cadabra is the product I recommend to women who want something natural and gentle. The 95% aloe formula is as clean as it gets in this category.",
   },
   {
@@ -1211,6 +1239,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     fullReview: "Vitamin D deficiency affects an estimated 40% of American adults, and the problem is particularly acute for postmenopausal women: estrogen decline reduces the efficiency of vitamin D metabolism, and vitamin D is essential for calcium absorption. Without adequate D3, even optimal calcium intake cannot effectively support bone density.\n\nVitamin K2 (specifically the MK-7 form) is the critical partner to D3 that most calcium and D3 supplements omit. K2 activates two proteins: osteocalcin, which binds calcium to bone matrix, and matrix Gla protein (MGP), which prevents calcium from depositing in arterial walls. This dual action is why the D3+K2 combination is increasingly recommended by functional medicine practitioners for postmenopausal women.\n\nPure Encapsulations is one of the most respected supplement brands in clinical practice, known for hypoallergenic formulations that are free from over 125 common allergens, artificial additives, and unnecessary fillers. Their D3+K2 delivers 5,000 IU of cholecalciferol (D3) and 180mcg of MK-7 K2 in a single daily softgel.\n\nWith a 4.8-star rating across nearly 20,000 Amazon reviews, this is one of the highest-rated supplements in any category on the platform. For postmenopausal women who want the most targeted, clean-label bone health supplement available, Pure Encapsulations D3+K2 is our top recommendation.",
     priceDisplay: "$35.50",
     publishDate: "2026-05-04",
+    authorId: "carol-beaumont",
     editorNote: "D3 and K2 work as a team — D3 gets calcium into the bloodstream, K2 directs it into bones instead of arteries. This combination is what I recommend to every postmenopausal woman I know.",
   },
 
@@ -1251,6 +1280,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     fullReview: "O Positiv MENO is designed for the woman who does not want to assemble a supplement stack one bottle at a time. Instead of relying on a single botanical, it combines black cohosh for vasomotor symptoms with KSM-66 ashwagandha for stress resilience and mood support, plus complementary herbs often used in women's health formulas.\n\nThe most practical advantage is symptom breadth. Many women in late perimenopause and active menopause are not dealing with hot flashes in isolation; the same hormonal transition can affect mood, sleep continuity, and perceived stress. MENO's positioning makes sense for that cluster of symptoms, especially for women who already tolerate adaptogens well.\n\nThe trade-off is that a multi-ingredient formula requires more caution. Women taking thyroid medication, sedatives, antidepressants, hormone therapy, or blood-pressure medications should review ashwagandha and black cohosh with a clinician before starting. It is also not the lowest-cost option in the category.\n\nOverall, O Positiv MENO is best for women who want a polished, hormone-free supplement with a broader mood-and-stress lens than classic black cohosh products. For the most clinically conservative single-ingredient route, Remifemin still has the stronger legacy; for convenience and symptom breadth, MENO is a compelling addition.",
     priceDisplay: "$36.97",
     publishDate: "2026-05-11",
+    authorId: "carol-beaumont",
     editorNote: "This is the modern multi-symptom option I would consider for women whose hot flashes are tied to stress, mood changes, and sleep disruption rather than heat alone.",
   },
   {
@@ -1289,6 +1319,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     fullReview: "EQUELLE stands apart from the crowded menopause supplement shelf because it is built around S-equol, a plant-based compound associated with soy germ fermentation. That makes it a very different choice from the black cohosh, rhapontic rhubarb, or maca-based formulas that dominate the category.\n\nThe key value proposition is targeted multi-symptom support without hormones. EQUELLE is positioned for hot flashes, sleep quality, muscle aches, and general menopause comfort, which makes it especially relevant for women who feel that their symptoms extend beyond classic daytime flushing.\n\nThe primary downside is cost. At roughly $80 for the verified two-month Amazon listing, it is meaningfully more expensive than Estroven, Remifemin, and many black cohosh products. It is also soy-derived, so it will not be appropriate for every user preference or allergy profile.\n\nFor women who have already tried black cohosh or want a different non-hormonal mechanism, EQUELLE is one of the more interesting premium options available. It should be positioned as a targeted upgrade rather than a budget first-line product.",
     priceDisplay: "$79.99",
     publishDate: "2026-05-11",
+    authorId: "diane-kessler",
     editorNote: "EQUELLE is the product I would consider when black cohosh has not been enough and the buyer wants a genuinely different non-hormonal mechanism.",
   },
   {
@@ -1327,6 +1358,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     fullReview: "Revaree addresses one of the most persistent postmenopausal concerns: vaginal dryness related to genitourinary syndrome of menopause. Unlike lubricants that primarily help during intimacy, Revaree is designed as a recurring vaginal moisturizer insert for everyday tissue comfort.\n\nThe formula is centered on hyaluronic acid, a moisture-binding compound already familiar in skincare and increasingly used in intimate-health products. The insert format is cleaner and more targeted than many gel applicators, which will appeal to women who want a structured routine rather than an on-demand lubricant.\n\nThe limitation is price. Revaree is significantly more expensive than Replens and aloe-based moisturizers, so it makes the most sense for women who have tried lower-cost products and want a more premium hyaluronic acid approach. Severe GSM symptoms, recurrent urinary symptoms, bleeding, or pain should still be discussed with a clinician.\n\nFor women seeking an estrogen-free vaginal moisturizer with strong consumer validation and a premium insert format, Revaree is one of the best-positioned products in the category.",
     priceDisplay: "$131.00",
     publishDate: "2026-05-11",
+    authorId: "diane-kessler",
     editorNote: "Revaree is expensive, but the hyaluronic acid insert format fills an important gap between basic moisturizers and prescription estrogen therapy.",
   },
   {
@@ -1365,6 +1397,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     fullReview: "Amberen Perimenopause Multi-Symptom Relief Supplement stands out in the crowded menopause supplement category because it is formulated specifically for the perimenopause window rather than full menopause. The core active complex is built around ammonium succinate and related succinate compounds, which is a meaningfully different mechanism from the black cohosh, phytoestrogen, and adaptogen blends that dominate most competitors.\n\nThe clinical positioning is one of Amberen's strongest assets. The brand references clinical studies supporting the formula's ability to address up to 12 perimenopause symptoms, including hot flashes, night sweats, mood changes, low energy, sleep disruption, and weight gain. For women who want a supplement with some evidence foundation rather than a purely botanical blend, this is a relevant differentiator.\n\nBeing hormone-free and soy-free is another key advantage. Women who have hormone-sensitive medical histories, are advised to avoid phytoestrogens, or have already tried black cohosh products without satisfaction will find Amberen Perimenopause a genuinely different option rather than a reformulation of the same botanical approach.\n\nThe trade-off is the proprietary blend structure, which makes it difficult to evaluate individual ingredient dosages. The price per capsule is also higher than many herbal competitors. Women who are post-menopausal should note that this product is designed specifically for the peri-transition and may not be the optimal choice once the transition is complete.\n\nFor women in early to late perimenopause who want clinically referenced, hormone-free, soy-free multi-symptom support, Amberen Perimenopause is a well-positioned and credible choice that fills a distinct niche in the catalog.",
     priceDisplay: "$24.99",
     publishDate: "2026-06-15",
+    authorId: "carol-beaumont",
     editorNote: "Amberen Perimenopause is the strongest hormone-free, soy-free option for women specifically in the peri-transition who want clinical study backing rather than a purely botanical formula.",
   },
   {
@@ -1403,6 +1436,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     fullReview: "Gynatrof fits neatly into the growing hyaluronic-acid segment of intimate care. While Replens remains the familiar pharmacy standard and Revaree offers a premium insert format, Gynatrof gives women a hormone-free gel option centered on moisture binding and tissue comfort.\n\nThe formula's key appeal is its combination of hyaluronic acid and vitamin E. Hyaluronic acid is useful because it can hold water and support a hydrated surface environment, while vitamin E and lactic-acid positioning make the product feel more complete than a basic lubricant. This matters for menopausal vaginal dryness because daily comfort is often the goal, not just intimacy support.\n\nThe limitations are practical rather than conceptual. Gels and applicators can feel less tidy than suppositories, and symptom relief is usually best when the product is used consistently rather than only once symptoms are severe. Women experiencing bleeding, significant pain, recurrent urinary symptoms, or persistent irritation should still seek medical evaluation.\n\nFor women who want an estrogen-free vaginal moisturizer with meaningful review depth and a more approachable price than premium inserts, Gynatrof is a strong addition to the intimate-health category. It is a practical step up from basic lubricants while remaining more accessible than the highest-priced alternatives.",
     priceDisplay: "$25.99",
     publishDate: "2026-05-18",
+    authorId: "carol-beaumont",
     editorNote: "Gynatrof is the hyaluronic acid option I would place between budget moisturizers and premium insert products.",
   },
   {
@@ -1441,6 +1475,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     fullReview: "CLEA Midlife Focus takes a different route from traditional menopause cognition products. Rather than leaning on B vitamins, rhodiola, or choline support, it uses 50mg of hemp-derived CBG/cannabinoid support per capsule and positions itself specifically around brain fog, focus, and mood during perimenopause and midlife.\n\nThat makes it a useful catalog addition because brain fog is one of the more frustrating menopause complaints, and many women do not want more caffeine. CLEA's stimulant-free approach may appeal to buyers who feel wired by energy drinks or who want a calmer afternoon-focus option. The vegetarian capsule and organic coconut oil carrier also make the product feel clean and simple.\n\nThe main caution is that cannabinoid products are not universal. Women should consider workplace testing policies, medication interactions, THC sensitivity, pregnancy status, and local regulations before using hemp-derived products. The Amazon rating is also more modest than established cognition supplements, so this should be positioned as a specialized option rather than the default first pick.\n\nFor cannabinoid-comfortable women who want a menopause-specific focus product, CLEA Midlife Focus is worth considering. For buyers who want a more conventional supplement path, Alpha GPC, B12, or rhodiola remain better first-line comparisons.",
     priceDisplay: "$40.99",
     publishDate: "2026-05-18",
+    authorId: "diane-kessler",
     editorNote: "CLEA fills a clear niche: menopause brain fog support for buyers who prefer stimulant-free, cannabinoid-based focus.",
   },
 
@@ -1487,6 +1522,7 @@ The main limitation is transparency. Because the formula relies on a proprietary
 For buyers who want a mainstream, non-hormonal, soy-free option with one of the largest review bases in the category, Amberen earns a strong place in the catalog. It sits between budget herbal blends and premium specialty formulas as a practical broad-coverage choice.`,
     priceDisplay: "$24.97",
     publishDate: "2026-05-25",
+    authorId: "diane-kessler",
     editorNote: "Amberen is a strong mainstream choice when the buyer wants broad symptom coverage but prefers to avoid soy, hormones, and classic black cohosh-only formulas.",
   },
   {
@@ -1531,6 +1567,7 @@ The trade-off is that broad herbal blends are harder to evaluate clinically. Wom
 For budget-conscious women with mixed symptoms and no contraindications to the included botanicals, Natures Craft is a sensible comparison product. It earns its place as a value-oriented herbal alternative rather than a premium evidence-first recommendation.`,
     priceDisplay: "$16.99",
     publishDate: "2026-05-25",
+    authorId: "carol-beaumont",
     editorNote: "Natures Craft is the catalog's practical budget herbal blend: not the most clinically precise, but compelling for price-sensitive buyers with broad symptoms.",
   },
   {
@@ -1575,6 +1612,7 @@ The caution is selectivity. The Amazon rating is lower than several category lea
 For women who want a comprehensive herbal formula aimed at staying cooler while also supporting calm and sleep, Eu Natural Staying Cool is worth considering. For the average first-time buyer, Estroven, Remifemin, Amberen, or O Positiv MENO may be easier starting points depending on ingredient preferences.`,
     priceDisplay: "$29.99",
     publishDate: "2026-05-25",
+    authorId: "carol-beaumont",
     editorNote: "Eu Natural Staying Cool is most useful when hot flashes are tied to stress and poor sleep, but it requires more ingredient caution than simpler formulas.",
   },
 
@@ -1621,6 +1659,7 @@ The trade-off is price. At roughly $45 for a 30-day supply, MenoFit is more expe
 For women prioritizing gut health, digestive regularity, and broad symptom support, MenoFit is a credible and differentiated addition to the menopause supplement shelf. For women seeking the most evidence-first hot flash product, Remifemin or Estroven may still be better starting points.`,
     priceDisplay: "$44.99",
     publishDate: "2026-06-01",
+    authorId: "diane-kessler",
     editorNote: "MenoFit is most compelling when gut changes are part of the menopause picture. It is less about quick symptom suppression and more about daily systems support.",
   },
   {
@@ -1664,6 +1703,7 @@ The limitation is intensity. Passive cooling pads usually cannot match active ai
 For buyers who want a simple, drug-free cooling product under $20, the HI FINE CARE Cooling Gel Pad is worth considering, especially as a pillow insert, travel item, or backup bedside cooling tool.`,
     priceDisplay: "$15.99",
     publishDate: "2026-06-01",
+    authorId: "diane-kessler",
     editorNote: "This is the kind of low-cost tool that is useful to keep on the nightstand even if you also use supplements or active cooling at night.",
   },
   {
@@ -1707,6 +1747,7 @@ The key caveat is medical appropriateness. Women with pelvic pain, prolapse conc
 For women cleared for strengthening who want a durable, progressive, non-electronic training system, Intimate Rose is one of the best values in the pelvic health category and a strong companion to broader menopause fitness work.`,
     priceDisplay: "$49.99",
     publishDate: "2026-06-01",
+    authorId: "carol-beaumont",
     editorNote: "A progressive weight system is often the sweet spot between unsupported Kegels and expensive smart trainers, especially for women who prefer simple routines.",
   },
 
@@ -1754,6 +1795,7 @@ The main limitation is that broad blends require realistic expectations. Women w
 For early perimenopause buyers, Health & Her is a credible addition because it combines strong Amazon review depth, an approachable price, and transition-specific positioning. It is best placed as a first-line perimenopause wellness option, with more targeted products reserved for women whose symptoms become clearer or more disruptive over time.`,
     priceDisplay: "$22.99",
     publishDate: "2026-06-08",
+    authorId: "carol-beaumont",
     editorNote: "Health & Her is most useful for women who know something has shifted but do not yet need a narrowly targeted hot-flash or sleep product.",
   },
   {
@@ -1798,6 +1840,7 @@ The caution is maturity. OLLY has a strong brand reputation, but this specific m
 For buyers who want a modern mainstream supplement that addresses hot flashes, dryness, and mood together, OLLY Mellow Menopause is a useful addition. It is not the most evidence-established product in the catalog, but it offers a clean, approachable alternative for women who want to avoid older-style black cohosh-only formulas.`,
     priceDisplay: "$27.99",
     publishDate: "2026-06-08",
+    authorId: "diane-kessler",
     editorNote: "OLLY is best for the buyer who wants a familiar brand and a simple menopause formula rather than a dense botanical blend.",
   },
   {
@@ -1842,6 +1885,7 @@ The trade-off is price. At roughly $37 for a 30-tablet bottle, Estrovera costs m
 For women prioritizing hot flash and night sweat relief without hormones, Estrovera deserves a serious look. It is not the cheapest recommendation, but it is one of the more credible premium plant-based additions to the multi-symptom supplement category.`,
     priceDisplay: "$36.75",
     publishDate: "2026-06-08",
+    authorId: "diane-kessler",
     editorNote: "Estrovera is the premium rhapontic-rhubarb option I would compare directly against Estroven Complete and Remifemin for hot-flash-focused buyers.",
   },
 
@@ -1882,6 +1926,7 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
     fullReview: "Estroven Sleep Cool occupies a distinct and practical niche in the menopause supplement market: it is designed for women who experience both hot flashes and sleep disruption at the same time, which is one of the most common overlapping symptom patterns in late perimenopause and active menopause.\n\nThe formula combines black cohosh root extract at 160mg, which is the most studied botanical for hot flash reduction, with melatonin at 3mg and valerian root extract at 200mg for sleep support. Soy isoflavones at 25mg and vitamin B6 round out the formula. The once-nightly format is a meaningful convenience advantage: rather than taking separate supplements for hot flashes and sleep, women can address both with a single capsule before bed.\n\nWith over 7,100 Amazon reviews and a 4.3-star rating, Estroven Sleep Cool has one of the deepest consumer validation profiles in the sleep-mood-support category. The price point of under $14 for a 30-count bottle makes it one of the most accessible menopause supplements available, and the Estroven brand has been a category staple for decades.\n\nThe trade-offs are worth noting. The soy isoflavone content means this product is not appropriate for women with hormone-sensitive medical histories or those who have been advised to avoid phytoestrogens. The 3mg melatonin dose is moderate and may not be sufficient for women with severe sleep disruption who need a higher dose. The formula is also designed as a nightly supplement, so women who want daytime hot flash support will need a separate product.\n\nFor women in late perimenopause through early postmenopause who experience hot flashes that disrupt sleep, Estroven Sleep Cool is a well-validated, affordable, and convenient first-line choice.",
     priceDisplay: "$13.99",
     publishDate: "2026-06-15",
+    authorId: "carol-beaumont",
     editorNote: "Estroven Sleep Cool is the best value-for-money pick when a woman's primary complaint is hot flashes that wake her up at night. The combined formula eliminates the need for two separate supplements.",
   },
   {
@@ -1920,6 +1965,7 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
     fullReview: "New Chapter Bone Strength Take Care is one of the most differentiated bone supplements in the menopause category because it sources its calcium from marine algae rather than conventional calcium carbonate or calcium citrate. The algae-derived calcium is accompanied by naturally occurring trace minerals including magnesium, silica, boron, strontium, and vanadium, which gives the formula a more complex mineral profile than most single-ingredient calcium supplements.\n\nThe formula also includes vitamin D3 at 1000 IU and vitamin K2 at 100mcg, which are the two co-factors most important for directing calcium into bone tissue rather than soft tissue. Magnesium is included at 33mg per serving, which supports both bone metabolism and muscle function. The combination of these four core nutrients in a single vegetarian tablet makes Bone Strength Take Care a genuinely comprehensive bone support formula rather than a basic calcium supplement.\n\nWith a 4.6-star rating and nearly 3,900 Amazon reviews, the product has strong consumer validation. The New Chapter brand has a long track record in the whole-food supplement space, and the non-GMO, certified gluten-free, and vegetarian positioning makes it accessible to a wide range of buyers.\n\nThe trade-off is price. At roughly $30 for a 120-tablet bottle, Bone Strength Take Care costs more per serving than conventional calcium carbonate supplements. The multiple-tablet-per-day dosing is also a consideration for women who prefer a single-capsule routine. Women who are already taking a separate vitamin D or K2 supplement should also review the combined dosage to avoid over-supplementation.\n\nFor women in active menopause through late postmenopause who are focused on long-term bone density and want a plant-sourced, whole-food calcium formula with D3 and K2 included, New Chapter Bone Strength Take Care is the strongest option in this catalog.",
     priceDisplay: "$29.95",
     publishDate: "2026-06-15",
+    authorId: "carol-beaumont",
     editorNote: "New Chapter Bone Strength is the go-to recommendation for women who specifically want plant-sourced calcium from marine algae rather than synthetic calcium carbonate, and who want D3 and K2 included in the same formula.",
   },
   {
@@ -1958,6 +2004,7 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
     fullReview: "NEURIVA Plus Brain Supplement is the most broadly validated cognitive support product in the PauseAndFlourish catalog, with over 34,000 Amazon reviews and an Overall Pick designation. For women experiencing the memory lapses, concentration difficulties, and mental fatigue commonly associated with menopause-related brain fog, it represents one of the most accessible and well-studied nootropic options available without a prescription.\n\nThe formula centers on two clinically tested ingredients. Neurofactor is a proprietary whole coffee fruit extract that has been shown in clinical studies to increase levels of Brain-Derived Neurotrophic Factor (BDNF), a protein that plays a key role in the survival, growth, and maintenance of brain cells. Phosphatidylserine at 100mg is one of the most studied phospholipids for memory and learning support, with a qualified health claim from the FDA recognizing its potential role in reducing the risk of cognitive dysfunction. Together, these two ingredients give NEURIVA Plus a more evidence-based foundation than most over-the-counter nootropics.\n\nThe inclusion of B vitamins — B6, folate, and B12 — rounds out the formula by supporting cognitive function and reducing fatigue, which is particularly relevant for menopausal women who may have suboptimal B12 levels. The once-daily capsule is vegetarian, gluten-free, GMO-free, and caffeine-free, making it easy to integrate into most supplement routines without concern about stimulant effects.\n\nThe trade-offs are the price point and the undisclosed Neurofactor dose. At roughly $40 for 30 capsules, NEURIVA Plus is more expensive per serving than many single-ingredient cognitive supplements. Women who are looking for a budget option or who want to see exact ingredient dosages may prefer alternatives. Effects on brain fog are also gradual and may take several weeks of consistent use to become noticeable.\n\nFor women in late perimenopause through postmenopause who want a well-validated, caffeine-free nootropic with clinical ingredient backing and an easy daily format, NEURIVA Plus is the strongest first-line recommendation in the cognitive-energy-support category.",
     priceDisplay: "$39.97",
     publishDate: "2026-06-15",
+    authorId: "diane-kessler",
     editorNote: "NEURIVA Plus is the cognitive support supplement I recommend most often to women describing menopause brain fog because it has the deepest consumer validation and the most credible clinical ingredient story in the category.",
   },
 
@@ -2006,6 +2053,7 @@ At roughly $50 for a 30-day supply, Thermella is priced at the premium end of th
 For women who have tried black cohosh-based supplements without satisfactory results, or who specifically want a pycnogenol-led formula from a menopause-focused brand, Bonafide Thermella is one of the most compelling premium options in the hot-flash-cooling category.`,
     priceDisplay: "$49.99",
     publishDate: "2026-06-22",
+    authorId: "diane-kessler",
     editorNote: "Thermella is the go-to recommendation for women who want a pycnogenol-based hot flash supplement from a brand with genuine clinical menopause expertise.",
   },
   {
@@ -2052,6 +2100,7 @@ At $52 for a 60-capsule bottle (30-day supply at two capsules per day), Perimeno
 For women in early to late perimenopause who want a comprehensive, NSF-certified multi-symptom formula from a practitioner-trusted brand, THORNE Perimenopause Complete is one of the strongest premium additions to this catalog.`,
     priceDisplay: "$52.00",
     publishDate: "2026-06-22",
+    authorId: "carol-beaumont",
     editorNote: "Thorne Perimenopause Complete is the recommendation for women who specifically ask for NSF certification or who are already Thorne customers looking for a menopause-specific formula.",
   },
   {
@@ -2098,6 +2147,7 @@ The formula is hormone-free, dermatologist tested, and suitable for sensitive sk
 At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the menopause skincare market. The review base is smaller than mass-market retinol creams, but the ratings are consistent and the brand's overall product line has strong consumer engagement. For women who want a retinoid night cream that was specifically designed for menopause skin rather than adapted from a general anti-aging line, STRIPES Evening Wear is the strongest premium option in this catalog.`,
     priceDisplay: "$80.00",
     publishDate: "2026-06-22",
+    authorId: "carol-beaumont",
     editorNote: "STRIPES Evening Wear is the recommendation for women who specifically ask for a retinoid product designed for menopause skin changes rather than a generic anti-aging cream.",
   },
 
@@ -2129,6 +2179,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     fullReview: `HUM Nutrition's Fan Club takes a modern, clean-ingredient approach to menopause symptom relief. Instead of relying on the traditional black cohosh or soy isoflavones, this formula is built around a clinically studied Siberian rhubarb extract (ERr 731), which has shown significant efficacy in reducing hot flash frequency and severity in clinical trials.\n\nWhat makes Fan Club unique is its inclusion of a patented probiotic strain (Lactobacillus plantarum) and grape seed extract. The gut microbiome undergoes significant shifts during the menopause transition as estrogen levels decline, and supporting gut health can have downstream benefits for mood, bloating, and overall inflammation. The grape seed extract provides antioxidant support for cardiovascular and skin health.\n\nHUM Nutrition is known for its strict ingredient standards—the product is vegan, non-GMO, and Clean Label Project Certified, free from artificial colors, preservatives, and common allergens. At $40 for a one-month supply, it sits in the premium tier, but the combination of targeted symptom relief and foundational gut support justifies the price for women prioritizing clean, modern formulations.`,
     priceDisplay: "$40.00",
     publishDate: "2026-06-29",
+    authorId: "diane-kessler",
     editorNote: "Fan Club is my go-to recommendation for women who want a clean supplement that addresses both their hot flashes and the digestive changes common in perimenopause.",
   },
   {
@@ -2158,6 +2209,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     fullReview: `Vaginal and vulvar dryness is one of the most common—yet least discussed—symptoms of menopause, affecting up to 50% of postmenopausal women. While internal moisturizers address deep tissue hydration, VMAGIC by Medicine Mama is specifically designed for the delicate external vulvar skin that often becomes irritated, thin, and prone to chafing as estrogen declines.\n\nThe brilliance of VMAGIC lies in its simplicity and purity. It is a 100% organic, hormone-free balm formulated with extra virgin olive oil, beeswax, honey, and avocado oil. Honey and beeswax have natural antimicrobial and anti-inflammatory properties, while the oils provide a protective lipid barrier that locks in moisture and prevents friction from clothing or exercise.\n\nWith over 15,000 Amazon reviews averaging 4.4 stars, the consumer validation is massive. Women consistently report immediate relief from the burning, itching, and general discomfort of vulvar dryness. Because it contains no synthetic chemicals, parabens, or artificial fragrances, it is exceptionally safe for the most sensitive skin.\n\nIt is important to note that VMAGIC is a thick balm intended for external use, making it an excellent complement to an internal moisturizer like Replens or Revaree, rather than a replacement. At $29.99 for a 2 oz jar, a little goes a very long way, making it a cost-effective staple for daily intimate care.`,
     priceDisplay: "$29.99",
     publishDate: "2026-06-29",
+    authorId: "diane-kessler",
     editorNote: "VMAGIC is an absolute essential. Many women focus only on internal moisture, but treating external vulvar dryness is just as critical for daily comfort.",
   },
   {
@@ -2187,6 +2239,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     fullReview: `During early to late perimenopause, estrogen levels do not just drop—they fluctuate wildly, often leading to periods of estrogen dominance relative to progesterone. This imbalance is frequently responsible for the sudden weight gain, breast tenderness, and severe mood swings many women experience before their periods stop entirely.\n\nTHORNE Hormone Advantage targets this specific phase using DIM (diindolylmethane), a compound found in cruciferous vegetables that promotes the metabolism of estrogen into its healthier, more protective metabolites. By optimizing this ratio, DIM helps mitigate the symptoms of estrogen dominance. Thorne enhances this formula with pomegranate extract and SGS (sulforaphane glucosinolate) from broccoli seed extract, which provide extended antioxidant protection and support liver detoxification pathways—crucial for clearing metabolized hormones.\n\nAs with all Thorne products, the quality is exceptional. It is NSF Certified for Sport, meaning it undergoes rigorous third-party testing for purity and label accuracy. At $47 for a one-month supply, it is an investment, but for women struggling with the specific symptoms of perimenopausal estrogen fluctuations, it is one of the most targeted and effective interventions available.`,
     priceDisplay: "$47.00",
     publishDate: "2026-06-29",
+    authorId: "carol-beaumont",
     editorNote: "For women who tell me they are gaining weight around their middle despite changing nothing about their diet during perimenopause, DIM is often the missing puzzle piece. Thorne makes the best version.",
   },
 
@@ -2227,6 +2280,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     fullReview: `For many women, menopause symptoms do not exist in isolation—stress makes hot flashes worse, anxiety disrupts sleep, and poor sleep amplifies mood swings. Estroven Complete + Ashwagandha is specifically designed to break this cycle by combining two clinically studied ingredients in a single daily capsule.\n\nThe foundation of this formula is ERr 731, the same Rhapontic Rhubarb Root Extract used in the original Estroven Complete, which has been validated in multiple clinical trials to significantly reduce hot flash frequency and severity within 4 weeks. What sets this version apart is the addition of KSM-66 Ashwagandha, a highly bioavailable, full-spectrum root extract that is one of the most extensively studied adaptogens for stress, anxiety, and sleep quality. KSM-66 has been shown in clinical studies to reduce cortisol levels, improve resilience to stress, and support better sleep onset and duration.\n\nThe synergy between these two ingredients is particularly compelling for perimenopausal and menopausal women. Elevated cortisol from chronic stress directly worsens hot flash frequency and disrupts the sleep architecture already compromised by night sweats. By addressing both the physiological trigger (declining estrogen, managed by ERr 731) and the psychological amplifier (elevated stress hormones, managed by ashwagandha), this formula tackles menopause symptoms from two angles simultaneously.\n\nAt $34.99 for a 60-count (2-month supply), it is a meaningful step up from the standard Estroven Complete, but the added value of KSM-66 Ashwagandha makes it well worth the investment for women dealing with stress-linked symptom flare-ups. It is drug-free, hormone-free, and non-GMO, maintaining Estroven's commitment to a clean, accessible formula.`,
     priceDisplay: "$34.99",
     publishDate: "2026-07-06",
+    authorId: "carol-beaumont",
     editorNote: "When women tell me their hot flashes are worst during stressful periods at work or family events, this is the version of Estroven I recommend. The ashwagandha addition makes a real difference.",
   },
 
@@ -2266,6 +2320,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     fullReview: `The menopause supplement market has long been dominated by capsules and tablets, but Estroven's new Complete Menopause Relief Gummies bring the brand's most clinically validated ingredient—ERr 731 Rhapontic Rhubarb Root Extract—into a format that significantly improves daily compliance for many women.\n\nERr 731 is one of the most rigorously studied non-hormonal ingredients for menopause relief. In randomized controlled trials, it has been shown to reduce hot flash frequency by up to 83% and significantly improve night sweat severity within 4 weeks of consistent use. The fact that Estroven has now made this ingredient available in a gummy is a meaningful development for the estimated 20–30% of women who have difficulty swallowing pills or who simply prefer a more enjoyable supplement experience.\n\nThe mango passionfruit flavor is genuinely pleasant without being overly sweet, and the use of citrus pectin (rather than gelatin) makes this a vegan-friendly option. At $24.99 for a 30-count supply, the price is reasonable and competitive with other premium menopause gummies on the market.\n\nAs a newer product launched in 2025, the review count is still building, but the 4.6-star average from early adopters is encouraging and consistent with the performance of the capsule formula. Women who have previously used Estroven Complete capsules and are switching to the gummy format report equivalent effectiveness with significantly better daily enjoyment. For women who are new to menopause supplements and want to start with the most accessible format, these gummies are an excellent entry point.`,
     priceDisplay: "$24.99",
     publishDate: "2026-07-06",
+    authorId: "diane-kessler",
     editorNote: "The gummy format removes one of the most common barriers to supplement compliance. If a woman tells me she forgets to take her capsules, I switch her to these immediately.",
   },
 
@@ -2306,6 +2361,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     fullReview: `Bone density loss accelerates dramatically during the menopause transition. In the first five years after the final menstrual period, women can lose up to 20% of their bone density due to declining estrogen levels—estrogen plays a critical role in regulating osteoclast activity (the cells that break down bone). This makes adequate calcium, magnesium, and vitamin D supplementation not just beneficial but essential for women in perimenopause and beyond.\n\nNature Made Calcium Magnesium Zinc with Vitamin D3 is one of the most straightforward and cost-effective ways to address this need. Each serving of two tablets delivers 333mg of calcium, 133mg of magnesium, 5mg of zinc, and 200 IU of vitamin D3. While the individual doses are moderate, the formula is designed to complement dietary calcium intake rather than replace it, aligning with the current guidance that total daily calcium intake (from food and supplements combined) should be around 1,200mg for postmenopausal women.\n\nMagnesium plays a dual role here: it is essential for converting vitamin D into its active form, and it supports muscle relaxation and sleep quality—two areas commonly disrupted during menopause. Zinc contributes to bone matrix formation and immune function. The inclusion of vitamin D3 (the more bioavailable form compared to D2) ensures that the calcium can be properly absorbed in the gut.\n\nWith over 20,000 Amazon reviews averaging 4.8 stars and USP Verification for purity and label accuracy, this is one of the most trusted and validated bone health supplements available. At just $10.31 for a 300-tablet supply (approximately 150 days at two tablets per day), the value is exceptional and makes consistent supplementation financially accessible for all women.`,
     priceDisplay: "$10.31",
     publishDate: "2026-07-06",
+    authorId: "diane-kessler",
     editorNote: "This is the supplement I recommend to every woman who asks me where to start with bone health. The value is unmatched, and the USP verification gives me confidence in the quality.",
   },
 ];
@@ -2401,6 +2457,7 @@ export const comparisons: Comparison[] = [
     summary: "Remifemin is the winner for women who want the most clinically validated black cohosh supplement. Nature's Bounty is a solid budget alternative but lacks the same level of standardization and clinical backing.",
     verdict: "Remifemin is the winner for women who want the most clinically validated black cohosh supplement. Nature's Bounty is a solid budget alternative but lacks the same level of standardization and clinical backing.",
     publishDate: "2026-05-02",
+    authorId: "carol-beaumont",
   },
   {
     id: "remifemin-vs-estroven",
@@ -2418,6 +2475,7 @@ export const comparisons: Comparison[] = [
     summary: "Remifemin wins for clinical credibility and purity; Estroven Complete wins for convenience and breadth of symptom coverage.",
     verdict: "Remifemin wins for clinical credibility and purity; Estroven Complete wins for convenience and breadth of symptom coverage.",
     publishDate: "2026-05-02",
+    authorId: "diane-kessler",
   },
   {
     id: "replens-vs-hyalogic",
@@ -2435,6 +2493,7 @@ export const comparisons: Comparison[] = [
     summary: "Replens wins on clinical evidence and OB/GYN endorsement; Hyalogic wins for daily-use convenience and hyaluronic acid technology.",
     verdict: "Replens wins on clinical evidence and OB/GYN endorsement; Hyalogic wins for daily-use convenience and hyaluronic acid technology.",
     publishDate: "2026-05-02",
+    authorId: "carol-beaumont",
   },
   {
     id: "citracal-vs-garden-of-life-bone",
@@ -2452,6 +2511,7 @@ export const comparisons: Comparison[] = [
     summary: "Citracal wins for value, accessibility, and proven calcium citrate absorption. Garden of Life wins for those who want K2 and a whole-food, organic formula.",
     verdict: "Citracal wins for value, accessibility, and proven calcium citrate absorption. Garden of Life wins for those who want K2 and a whole-food, organic formula.",
     publishDate: "2026-05-02",
+    authorId: "diane-kessler",
   },
   {
     id: "magnesium-vs-melatonin-sleep",
@@ -2469,6 +2529,7 @@ export const comparisons: Comparison[] = [
     summary: "Magnesium glycinate wins for addressing underlying sleep disruption causes; melatonin wins for immediate, reliable sleep onset support.",
     verdict: "Magnesium glycinate wins for addressing underlying sleep disruption causes; melatonin wins for immediate, reliable sleep onset support.",
     publishDate: "2026-05-02",
+    authorId: "carol-beaumont",
   },
   {
     id: "collagen-vs-b12-cognitive",
@@ -2486,6 +2547,7 @@ export const comparisons: Comparison[] = [
     summary: "B12 wins for direct energy and cognitive support; collagen wins for skin, joint, and hair benefits with secondary energy support.",
     verdict: "B12 wins for direct energy and cognitive support; collagen wins for skin, joint, and hair benefits with secondary energy support.",
     publishDate: "2026-05-02",
+    authorId: "diane-kessler",
   },
   {
     id: "alpha-gpc-vs-rhodiola-brain-fog",
@@ -2503,6 +2565,7 @@ export const comparisons: Comparison[] = [
     summary: "Alpha GPC wins for targeted brain fog relief via acetylcholine support; Rhodiola wins for stress-driven fatigue and mental performance under pressure.",
     verdict: "Alpha GPC wins for targeted brain fog relief via acetylcholine support; Rhodiola wins for stress-driven fatigue and mental performance under pressure.",
     publishDate: "2026-05-02",
+    authorId: "diane-kessler",
   },
 
   // ── New Comparisons: Week of 2026-05-04 ───────────────────────────────────
@@ -2519,6 +2582,7 @@ export const comparisons: Comparison[] = [
     summary: "Both supplements offer non-hormonal relief for menopause symptoms. Estroven is more budget-friendly and uses Rhapontic Maca, while EQUELLE uses a proprietary plant-based S-Equol that mimics estrogen's positive effects without the risks.",
     verdict: "For women who can metabolize S-Equol or are looking for a premium, highly-targeted supplement, EQUELLE is the winner. Estroven remains a excellent budget alternative.",
     publishDate: "2026-05-04",
+    authorId: "carol-beaumont",
   },
   {
     id: "vital-proteins-vs-neutrogena-skincare",
@@ -2536,6 +2600,7 @@ export const comparisons: Comparison[] = [
     summary: "Vital Proteins supports skin structure systemically through collagen peptides, while Neutrogena Rapid Firming targets visible firmness directly with topical peptides and moisturizers.",
     verdict: "Choose Vital Proteins if you want a broader hair, skin, nail, and joint-support routine. Choose Neutrogena if the main goal is visible facial firmness and texture support, which is why it wins this skincare comparison.",
     publishDate: "2026-06-01",
+    authorId: "carol-beaumont",
   },
   {
     id: "nobi-magnesium-vs-natrol-sleep",
@@ -2553,6 +2618,7 @@ export const comparisons: Comparison[] = [
     summary: "Sleep disturbances are common in menopause. Natrol Melatonin offers a direct approach to initiating sleep, while Nobi Nutrition Magnesium Glycinate helps calm the nervous system and supports relaxation, muscles, and bone health.",
     verdict: "Magnesium is the better overall choice for sustained sleep and mood support when the issue is tension or restlessness; Natrol remains the more direct short-term option for sleep-timing support.",
     publishDate: "2026-06-01",
+    authorId: "diane-kessler",
   },
   {
     id: "qutool-cooling-pillow-vs-bedfan",
@@ -2570,6 +2636,7 @@ export const comparisons: Comparison[] = [
     summary: "BedFan wins for women with full-body night sweats who need sustained active cooling throughout the night. The QUTOOL Cooling Pillow wins for women whose night sweats are primarily head and neck heat, or who want a simpler, lower-cost solution.",
     verdict: "BedFan wins for women with full-body night sweats who need sustained active cooling throughout the night. The QUTOOL Cooling Pillow wins for women whose night sweats are primarily head and neck heat, or who want a simpler, lower-cost solution.",
     publishDate: "2026-05-04",
+    authorId: "diane-kessler",
   },
   {
     id: "aloe-cadabra-vs-replens",
@@ -2587,6 +2654,7 @@ export const comparisons: Comparison[] = [
     summary: "Replens wins for women who want the most clinically validated, OB/GYN-recommended vaginal moisturizer. Aloe Cadabra wins for women who prefer a natural, organic formula that doubles as a lubricant for intimate use.",
     verdict: "Replens wins for women who want the most clinically validated, OB/GYN-recommended vaginal moisturizer. Aloe Cadabra wins for women who prefer a natural, organic formula that doubles as a lubricant for intimate use.",
     publishDate: "2026-05-04",
+    authorId: "carol-beaumont",
   },
   {
     id: "pure-encapsulations-d3k2-vs-garden-of-life-bone",
@@ -2604,6 +2672,7 @@ export const comparisons: Comparison[] = [
     summary: "Pure Encapsulations D3+K2 wins for women who already take a calcium supplement and want the most targeted, high-potency D3+K2 formula. Garden of Life Bone Strength wins for women who want an all-in-one calcium, D3, K2, and magnesium formula in a whole-food, organic capsule.",
     verdict: "Pure Encapsulations D3+K2 wins for women who already take a calcium supplement and want the most targeted, high-potency D3+K2 formula. Garden of Life Bone Strength wins for women who want an all-in-one calcium, D3, K2, and magnesium formula in a whole-food, organic capsule.",
     publishDate: "2026-05-04",
+    authorId: "carol-beaumont",
 
   },
   {
@@ -2622,6 +2691,7 @@ export const comparisons: Comparison[] = [
     summary: "Estroven Complete remains the better first-line multi-symptom pick for most buyers because it is more affordable and more established. O Positiv MENO is the more modern, adaptogen-forward choice for hot flashes that overlap with stress, mood, and sleep disruption.",
     verdict: "Estroven Complete remains the better first-line multi-symptom pick for most buyers because it is more affordable and more established. O Positiv MENO is the more modern, adaptogen-forward choice for hot flashes that overlap with stress, mood, and sleep disruption.",
     publishDate: "2026-05-11",
+    authorId: "diane-kessler",
   },
   {
     id: "equelle-vs-bonafide-relizen",
@@ -2639,6 +2709,7 @@ export const comparisons: Comparison[] = [
     summary: "EQUELLE is the broader menopause-support option for hot flashes, sleep quality, and muscle aches. Relizen is more specialized and better suited to women who specifically want a pollen-extract formula without soy or black cohosh.",
     verdict: "EQUELLE is the broader menopause-support option for hot flashes, sleep quality, and muscle aches. Relizen is more specialized and better suited to women who specifically want a pollen-extract formula without soy or black cohosh.",
     publishDate: "2026-05-11",
+    authorId: "diane-kessler",
   },
   {
     id: "revaree-vs-replens-vaginal-moisturizer",
@@ -2656,6 +2727,7 @@ export const comparisons: Comparison[] = [
     summary: "Replens remains the better first-line vaginal moisturizer because it is affordable, accessible, and well established. Revaree is the premium upgrade for women who prefer hyaluronic acid inserts and are willing to pay substantially more.",
     verdict: "Replens remains the better first-line vaginal moisturizer because it is affordable, accessible, and well established. Revaree is the premium upgrade for women who prefer hyaluronic acid inserts and are willing to pay substantially more.",
     publishDate: "2026-05-11",
+    authorId: "carol-beaumont",
   },
   {
     id: "amberen-perimenopause-vs-opositiv-meno",
@@ -2673,6 +2745,7 @@ export const comparisons: Comparison[] = [
     summary: "O Positiv MENO is the stronger first-line choice for broad multi-symptom menopause support. Amberen Perimenopause is the better fit for women in the peri-transition who specifically want a hormone-free, soy-free, succinate-based formula with clinical study backing.",
     verdict: "O Positiv MENO is the stronger first-line choice for broad multi-symptom menopause support. Amberen Perimenopause is the better fit for women in the peri-transition who specifically want a hormone-free, soy-free, succinate-based formula with clinical study backing.",
     publishDate: "2026-05-18",
+    authorId: "carol-beaumont",
   },
   {
     id: "gynatrof-vs-revaree-vaginal-moisturizer",
@@ -2690,6 +2763,7 @@ export const comparisons: Comparison[] = [
     summary: "Both products use hyaluronic-acid positioning for hormone-free vaginal moisture. Gynatrof is the better value-oriented choice, while Revaree offers a cleaner premium insert experience at a much higher price.",
     verdict: "Both products use hyaluronic-acid positioning for hormone-free vaginal moisture. Gynatrof is the better value-oriented choice, while Revaree offers a cleaner premium insert experience at a much higher price.",
     publishDate: "2026-05-18",
+    authorId: "diane-kessler",
   },
   {
     id: "clea-midlife-focus-vs-alpha-gpc",
@@ -2707,6 +2781,7 @@ export const comparisons: Comparison[] = [
     summary: "Alpha GPC remains the better first-line choice for menopause-related brain fog because it is more conventional and easier to fit into most routines. CLEA Midlife Focus is a differentiated alternative for women specifically interested in hemp-derived CBG support.",
     verdict: "Alpha GPC remains the better first-line choice for menopause-related brain fog because it is more conventional and easier to fit into most routines. CLEA Midlife Focus is a differentiated alternative for women specifically interested in hemp-derived CBG support.",
     publishDate: "2026-05-18",
+    authorId: "diane-kessler",
   },
 
   // ── New Comparisons: Week of 2026-05-25 ───────────────────────────────────
@@ -2726,6 +2801,7 @@ export const comparisons: Comparison[] = [
     summary: "Estroven Complete remains the better default pick for most buyers because it has broad consumer validation and a more familiar menopause supplement profile. Amberen is a compelling alternative for women who want 12-symptom support without soy, hormones, or a classic black cohosh-only formula.",
     verdict: "Estroven Complete remains the better default pick for most buyers because it has broad consumer validation and a more familiar menopause supplement profile. Amberen is a compelling alternative for women who want 12-symptom support without soy, hormones, or a classic black cohosh-only formula.",
     publishDate: "2026-05-25",
+    authorId: "carol-beaumont",
   },
   {
     id: "natures-craft-vs-remifemin-black-cohosh",
@@ -2743,6 +2819,7 @@ export const comparisons: Comparison[] = [
     summary: "Remifemin is the stronger evidence-first choice for women who want a targeted black cohosh product. Natures Craft is the better budget blend for buyers who want multiple botanicals and micronutrients in one lower-cost capsule.",
     verdict: "Remifemin is the stronger evidence-first choice for women who want a targeted black cohosh product. Natures Craft is the better budget blend for buyers who want multiple botanicals and micronutrients in one lower-cost capsule.",
     publishDate: "2026-05-25",
+    authorId: "carol-beaumont",
   },
   {
     id: "eu-natural-staying-cool-vs-opositiv-meno",
@@ -2760,6 +2837,7 @@ export const comparisons: Comparison[] = [
     summary: "O Positiv MENO is the better overall pick for stress-linked hot flashes and multi-symptom support because it has stronger consumer signals and clearer modern positioning. Eu Natural Staying Cool remains useful for women who specifically want vitex, black cohosh, hops, magnolia, and pueraria mirifica in one vegetarian formula.",
     verdict: "O Positiv MENO is the better overall pick for stress-linked hot flashes and multi-symptom support because it has stronger consumer signals and clearer modern positioning. Eu Natural Staying Cool remains useful for women who specifically want vitex, black cohosh, hops, magnolia, and pueraria mirifica in one vegetarian formula.",
     publishDate: "2026-05-25",
+    authorId: "diane-kessler",
   },
 
   // ── New Comparisons: Week of 2026-06-01 ───────────────────────────────────
@@ -2779,6 +2857,7 @@ export const comparisons: Comparison[] = [
     summary: "Estroven Complete remains the better default pick for broad multi-symptom relief because it is more established and more affordable. MenoFit is the differentiated choice for women whose menopause symptoms overlap with digestive changes and who want probiotic-forward support.",
     verdict: "Estroven Complete remains the better default pick for broad multi-symptom relief because it is more established and more affordable. MenoFit is the differentiated choice for women whose menopause symptoms overlap with digestive changes and who want probiotic-forward support.",
     publishDate: "2026-06-01",
+    authorId: "diane-kessler",
   },
   {
     id: "hifinecare-cooling-gel-pad-vs-bedfan",
@@ -2796,6 +2875,7 @@ export const comparisons: Comparison[] = [
     summary: "BedFan is the stronger solution for recurring full-body night sweats because it provides active airflow all night. The HI FINE CARE Cooling Gel Pad is the better low-cost accessory for head, neck, pillow, or travel cooling.",
     verdict: "BedFan is the stronger solution for recurring full-body night sweats because it provides active airflow all night. The HI FINE CARE Cooling Gel Pad is the better low-cost accessory for head, neck, pillow, or travel cooling.",
     publishDate: "2026-06-01",
+    authorId: "carol-beaumont",
   },
   {
     id: "intimate-rose-kegel-weights-vs-perifit",
@@ -2813,6 +2893,7 @@ export const comparisons: Comparison[] = [
     summary: "Intimate Rose is the better first-line pelvic floor trainer for women who want an affordable, durable, no-app progression system. Perifit remains the premium upgrade for users who want biofeedback, gamified coaching, and app-based tracking.",
     verdict: "Intimate Rose is the better first-line pelvic floor trainer for women who want an affordable, durable, no-app progression system. Perifit remains the premium upgrade for users who want biofeedback, gamified coaching, and app-based tracking.",
     publishDate: "2026-06-01",
+    authorId: "carol-beaumont",
   },
 
   // ── New Comparisons: Week of 2026-06-08 ───────────────────────────────────
@@ -2832,6 +2913,7 @@ export const comparisons: Comparison[] = [
     summary: "Health & Her is the better first-line pick for early perimenopause buyers who want broad daily wellbeing support with substantial consumer validation. Amberen Perimenopause is the stronger choice for women who want a clinically studied, hormone-free, soy-free formula targeting up to 12 perimenopause symptoms.",
     verdict: "Health & Her is the better first-line pick for early perimenopause buyers who want broad daily wellbeing support with substantial consumer validation. Amberen Perimenopause is the stronger choice for women who want a clinically studied, hormone-free, soy-free formula targeting up to 12 perimenopause symptoms.",
     publishDate: "2026-06-08",
+    authorId: "diane-kessler",
   },
   {
     id: "olly-mellow-menopause-vs-opositiv-meno",
@@ -2849,6 +2931,7 @@ export const comparisons: Comparison[] = [
     summary: "O Positiv MENO remains the stronger default pick when the buyer wants a contemporary menopause supplement with deeper review support. OLLY Mellow Menopause is a compelling alternative for women who want a simpler vegan capsule from a mainstream wellness brand.",
     verdict: "O Positiv MENO remains the stronger default pick when the buyer wants a contemporary menopause supplement with deeper review support. OLLY Mellow Menopause is a compelling alternative for women who want a simpler vegan capsule from a mainstream wellness brand.",
     publishDate: "2026-06-08",
+    authorId: "diane-kessler",
   },
   {
     id: "estrovera-vs-estroven-complete",
@@ -2866,6 +2949,7 @@ export const comparisons: Comparison[] = [
     summary: "Estroven Complete is the better default recommendation for most women because it combines broad symptom coverage, lower cost, and deeper consumer validation. Metagenics Estrovera is the more premium, focused alternative for women prioritizing plant-based hot flash and night sweat support.",
     verdict: "Estroven Complete is the better default recommendation for most women because it combines broad symptom coverage, lower cost, and deeper consumer validation. Metagenics Estrovera is the more premium, focused alternative for women prioritizing plant-based hot flash and night sweat support.",
     publishDate: "2026-06-08",
+    authorId: "carol-beaumont",
   },
 
   // ── New Comparisons: Week of 2026-06-15 ─────────────────────────────────────────
@@ -2885,6 +2969,7 @@ export const comparisons: Comparison[] = [
     summary: "Estroven Sleep Cool is the better choice for women whose sleep disruption is caused by hot flashes and night sweats because it addresses both the trigger and the symptom. Natrol Melatonin 10mg is the stronger option for women with general sleep-onset difficulty who do not have significant hot flash activity.",
     verdict: "Estroven Sleep Cool wins for menopause-specific sleep disruption tied to hot flashes. Natrol Melatonin is the better standalone sleep aid when hot flashes are not the primary driver of poor sleep.",
     publishDate: "2026-06-15",
+    authorId: "carol-beaumont",
   },
   {
     id: "new-chapter-bone-strength-vs-pure-encapsulations-d3k2",
@@ -2902,6 +2987,7 @@ export const comparisons: Comparison[] = [
     summary: "New Chapter Bone Strength Take Care is the better choice for women who want a single all-in-one bone supplement with plant-sourced calcium, D3, K2, and magnesium. Pure Encapsulations D3+K2 is the better choice for women who already take a separate calcium supplement and want the highest-potency D3+K2 combination in a hypoallergenic formula.",
     verdict: "New Chapter Bone Strength wins for women building a bone health routine from scratch. Pure Encapsulations D3+K2 wins for women who already supplement calcium and want a targeted, high-potency D3+K2 add-on.",
     publishDate: "2026-06-15",
+    authorId: "diane-kessler",
   },
   {
     id: "neuriva-plus-vs-alpha-gpc-brain-fog",
@@ -2919,6 +3005,7 @@ export const comparisons: Comparison[] = [
     summary: "NEURIVA Plus is the better first-line cognitive supplement for most women experiencing menopause brain fog because it has the deepest consumer validation and a well-rounded formula. Alpha GPC is the more targeted option for women who specifically want a high-dose choline precursor for acetylcholine support.",
     verdict: "NEURIVA Plus wins for broad first-line cognitive support with the strongest review base. Alpha GPC wins for women who want a single high-potency choline precursor and are comfortable with a more targeted approach.",
     publishDate: "2026-06-15",
+    authorId: "diane-kessler",
   },
 
   // ── New Comparisons: Week of 2026-06-22 ─────────────────────────────────────────
@@ -2938,6 +3025,7 @@ export const comparisons: Comparison[] = [
     summary: "Remifemin is the stronger default recommendation for hot flash relief because of its unmatched clinical validation, lower price, and deeper consumer review base. Bonafide Thermella is the premium alternative for women who want a pycnogenol-led formula from a brand with prescription menopause expertise and who have not found black cohosh effective.",
     verdict: "Remifemin wins for first-line hot flash relief with the deepest clinical backing and best value. Bonafide Thermella wins for women who want a premium pycnogenol-based alternative from a brand with genuine menopause clinical credentials.",
     publishDate: "2026-06-22",
+    authorId: "carol-beaumont",
   },
   {
     id: "thorne-perimenopause-vs-amberen-multi-symptom",
@@ -2955,6 +3043,7 @@ export const comparisons: Comparison[] = [
     summary: "Amberen Menopause is the stronger first-line recommendation for most women because of its extensive review base, lower price, and well-established multi-symptom formula. THORNE Perimenopause Complete is the premium upgrade for women who want NSF certification and a practitioner-trusted brand with a clinically studied botanical blend.",
     verdict: "Amberen wins for broad first-line multi-symptom relief with the deepest consumer validation. THORNE Perimenopause Complete wins for women who specifically want NSF certification and are willing to pay a premium for practitioner-grade quality.",
     publishDate: "2026-06-22",
+    authorId: "carol-beaumont",
   },
   {
     id: "stripes-evening-wear-vs-neutrogena-rapid-firming",
@@ -2972,6 +3061,7 @@ export const comparisons: Comparison[] = [
     summary: "Neutrogena Rapid Firming Peptide Contour Lift is the stronger value recommendation for most women because it provides effective topical peptide firming at under $30 with over 6,800 reviews. STRIPES Evening Wear is the premium menopause-specific retinoid option for women who want a gentle retinoid formula from a brand explicitly designed for the menopause transition and are comfortable with the $80 price point.",
     verdict: "Neutrogena Rapid Firming wins for value, accessibility, and review depth. STRIPES Evening Wear wins for women who want a menopause-specific retinoid night cream from a brand built around the menopause experience and are willing to invest in the premium positioning.",
     publishDate: "2026-06-22",
+    authorId: "diane-kessler",
   },
 
 
@@ -2991,6 +3081,7 @@ export const comparisons: Comparison[] = [
     summary: "Estroven Complete is the stronger default recommendation because it is highly accessible, affordable, and has helped thousands of women manage their symptoms. HUM Fan Club is the premium upgrade for women who want a modern formula utilizing Siberian rhubarb and probiotics, and who value clean-ingredient certifications.",
     verdict: "Estroven Complete wins for overall value and proven reliability. HUM Fan Club wins for women prioritizing clean, vegan ingredients and gut health alongside menopause symptom relief.",
     publishDate: "2026-06-29",
+    authorId: "diane-kessler",
   },
   {
     id: "vmagic-vulva-balm-vs-replens",
@@ -3008,6 +3099,7 @@ export const comparisons: Comparison[] = [
     summary: "Comparing VMAGIC and Replens is like comparing a lip balm to a throat lozenge—they treat different areas. VMAGIC is the ultimate organic solution for external chafing, itching, and irritation. Replens is the clinical standard for internal, long-lasting moisture. For best results, use them together.",
     verdict: "VMAGIC wins for external vulvar soothing and organic purity. Replens wins for internal moisture. They are complementary products, not competitors.",
     publishDate: "2026-06-29",
+    authorId: "carol-beaumont",
   },
   {
     id: "thorne-hormone-advantage-vs-remifemin",
@@ -3025,6 +3117,7 @@ export const comparisons: Comparison[] = [
     summary: "These two supplements target different phases and mechanisms. Remifemin is the gold standard for hot flash relief in active menopause. THORNE Hormone Advantage is the premium choice for perimenopausal women whose primary symptoms are estrogen dominance—weight gain, breast tenderness, and mood swings.",
     verdict: "Remifemin wins for hot flash relief in active menopause. THORNE Hormone Advantage wins for perimenopausal women dealing with estrogen dominance symptoms.",
     publishDate: "2026-06-29",
+    authorId: "carol-beaumont",
   },
 
   // ── New Comparisons: Week of 2026-07-06 ──────────────────────────────────────────
@@ -3044,6 +3137,7 @@ export const comparisons: Comparison[] = [
     summary: "Both formulas use Estroven's clinically proven ERr 731 Rhapontic Rhubarb Extract as their foundation for hot flash and night sweat relief. The key difference is that the Ashwagandha version adds KSM-66, a premium adaptogen that reduces cortisol, improves resilience to stress, and supports sleep quality. For women whose symptoms are worsened by stress, the Ashwagandha formula provides a meaningful additional layer of support. For women with straightforward hot flash symptoms without a significant stress component, the original Estroven Complete at a lower price remains an excellent choice.",
     verdict: "Estroven Complete + Ashwagandha wins for women experiencing stress-amplified menopause symptoms. The original Estroven Complete wins for women who want the most affordable, proven hot flash relief without the added adaptogen.",
     publishDate: "2026-07-06",
+    authorId: "diane-kessler",
   },
   {
     id: "estroven-gummies-vs-estroven-complete",
@@ -3061,6 +3155,7 @@ export const comparisons: Comparison[] = [
     summary: "Both products deliver the same clinically proven ERr 731 Rhapontic Rhubarb Extract for hot flash and night sweat relief. The core difference is format and price. The original Estroven Complete capsules have over 19,000 reviews and a lower per-dose cost, making them the more validated and economical choice. The gummies are a newer format with fewer reviews but a significantly better compliance experience for women who dislike swallowing capsules. The gummies also use citrus pectin instead of gelatin, making them vegan-friendly.",
     verdict: "Estroven Complete capsules win for value and review depth. Estroven Complete Gummies win for women who want a vegan, capsule-free supplement experience with the same proven active ingredient.",
     publishDate: "2026-07-06",
+    authorId: "diane-kessler",
   },
   {
     id: "nature-made-calcium-vs-citracal-petites",
@@ -3078,6 +3173,7 @@ export const comparisons: Comparison[] = [
     summary: "Both supplements are trusted, USP-verified options for bone health during menopause, but they take different approaches. Nature Made Calcium Magnesium Zinc provides a comprehensive four-nutrient formula (calcium carbonate, magnesium, zinc, and D3) at an unbeatable value of $10.31 for 300 tablets. Citracal Petites uses calcium citrate, which is more easily absorbed without food and is gentler on the stomach, but it provides only calcium and D3 without the added magnesium and zinc. Women with sensitive stomachs or who cannot consistently take supplements with food may prefer Citracal's calcium citrate form, while women who want the broadest bone-health coverage in a single affordable tablet will find Nature Made the better value.",
     verdict: "Nature Made Calcium Magnesium Zinc wins for comprehensive bone support and exceptional value. Citracal Petites wins for women with sensitive stomachs who need a calcium citrate formula that can be taken without food.",
     publishDate: "2026-07-06",
+    authorId: "carol-beaumont",
   },
 ];
 

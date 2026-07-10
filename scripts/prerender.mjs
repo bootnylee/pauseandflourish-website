@@ -181,11 +181,11 @@ function breadcrumb(items) {
   };
 }
 
-// ── Load product/comparison data from pre-extracted JSON ─────────────────────
+// ── Load product/comparison/author data from pre-extracted JSON ───────────────
 // The data is extracted by scripts/extract-data.ts (run via tsx before this
 // script) and saved to scripts/site-data.json.
 
-let allProducts = [], categories = [], comparisons = [];
+let allProducts = [], categories = [], comparisons = [], authors = [];
 const dataPath = resolve(ROOT, "scripts", "site-data.json");
 if (existsSync(dataPath)) {
   try {
@@ -193,12 +193,41 @@ if (existsSync(dataPath)) {
     allProducts = siteData.allProducts || [];
     categories = siteData.categories || [];
     comparisons = siteData.comparisons || [];
-    console.log(`   Loaded ${allProducts.length} products, ${comparisons.length} comparisons from site-data.json`);
+    authors = siteData.authors || [];
+    console.log(`   Loaded ${allProducts.length} products, ${comparisons.length} comparisons, ${authors.length} authors from site-data.json`);
   } catch (e) {
     console.warn("⚠ Could not parse site-data.json — using fallback slugs from sitemap.");
   }
 } else {
   console.warn("⚠ site-data.json not found — using fallback slugs from sitemap.");
+}
+
+// ── Author lookup helper ──────────────────────────────────────────────────────
+const authorsById = Object.fromEntries(authors.map(a => [a.id, a]));
+const FALLBACK_AUTHOR = {
+  id: "diane-kessler",
+  slug: "diane-kessler",
+  name: "Diane Kessler",
+  role: "Editorial Lead",
+  url: `${BASE_URL}/author/diane-kessler`,
+};
+function getAuthor(id) {
+  return authorsById[id] || authors[0] || FALLBACK_AUTHOR;
+}
+
+function personNode(author) {
+  return {
+    "@type": "Person",
+    "@id": `${BASE_URL}/author/${author.id}`,
+    name: author.name,
+    jobTitle: author.role,
+    url: author.url || `${BASE_URL}/author/${author.id}`,
+    worksFor: {
+      "@type": "Organization",
+      "@id": `${BASE_URL}/#organization`,
+      name: "PauseAndFlourish",
+    },
+  };
 }
 
 // ── Menopause stages (hardcoded for build-time reliability) ─────────────────
@@ -359,7 +388,7 @@ writeRoute("/news-and-articles", {
   ),
 });
 
-// 7. /methodology (new page added in Priority 5)
+// 7. /methodology
 writeRoute("/methodology", {
   title: "Editorial Methodology | PauseAndFlourish",
   description:
@@ -373,13 +402,32 @@ writeRoute("/methodology", {
   ),
 });
 
-// 8. Category pages
+// 8. Author pages
+console.log("\n👤 Author pages:");
+const authorList = authors.length > 0 ? authors : [FALLBACK_AUTHOR];
+for (const author of authorList) {
+  writeRoute(`/author/${author.slug}`, {
+    title: `${author.name}, ${author.role} | PauseAndFlourish`,
+    description: author.bio || `${author.name} is a member of the PauseAndFlourish editorial team.`,
+    canonical: author.url || `${BASE_URL}/author/${author.slug}`,
+    jsonLd: siteGraph(
+      breadcrumb([
+        { name: "Home", url: `${BASE_URL}/` },
+        { name: "About", url: `${BASE_URL}/about` },
+        { name: author.name, url: author.url || `${BASE_URL}/author/${author.slug}` },
+      ]),
+      personNode(author)
+    ),
+  });
+}
+
+// 9. Category pages
 console.log("\n📂 Category pages:");
 const categoryDefs = categories.length > 0 ? categories : [
   { slug: "multi-symptom-supplements", name: "Multi-Symptom Supplements", description: "Comprehensive formulas targeting hot flashes, mood, sleep, and energy simultaneously." },
   { slug: "sleep-mood-support", name: "Sleep & Mood Support", description: "Supplements and tools to restore restful sleep and stabilize mood during hormonal shifts." },
   { slug: "hot-flash-cooling", name: "Hot Flash & Cooling", description: "Products designed to reduce hot flash frequency and intensity, and keep you cool." },
-  { slug: "bone-joint-health", name: "Bone & Joint Health", description: "Calcium, magnesium, vitamin D, and collagen supplements to protect bone density and joint comfort." },
+  { slug: "bone-joint-health", name: "Bone & Joint Health", description: "Calcium, vitamin D, and collagen supplements to protect bone density during menopause." },
   { slug: "vaginal-intimate-health", name: "Vaginal & Intimate Health", description: "Moisturizers, lubricants, and supplements for vaginal dryness and intimate comfort." },
   { slug: "menopause-skincare", name: "Menopause Skincare", description: "Collagen supplements, moisturizers, and serums formulated for menopausal skin changes." },
   { slug: "fitness-pelvic-health", name: "Fitness & Pelvic Health", description: "Resistance training tools, pelvic floor devices, and protein supplements for midlife fitness." },
@@ -416,7 +464,7 @@ for (const cat of categoryDefs) {
   });
 }
 
-// 9. Stage pages
+// 10. Stage pages
 console.log("\n🌿 Stage pages:");
 for (const stage of menopauseStages) {
   const stageProducts = allProducts.filter(p =>
@@ -450,9 +498,9 @@ for (const stage of menopauseStages) {
   });
 }
 
-// 10. Product review pages
+// 11. Product review pages
 console.log("\n📦 Product review pages:");
-const productList = allProducts.length > 0 ? allProducts : SITEMAP_PRODUCT_SLUGS.map(s => ({ slug: s, name: s, brand: "", shortDescription: "", category: "", categorySlug: "", score: 0, heroImage: "", publishDate: "", fullReview: "" }));
+const productList = allProducts.length > 0 ? allProducts : SITEMAP_PRODUCT_SLUGS.map(s => ({ slug: s, name: s, brand: "", shortDescription: "", category: "", categorySlug: "", score: 0, heroImage: "", publishDate: "", fullReview: "", authorId: "" }));
 
 for (const product of productList) {
   const slug = product.slug;
@@ -464,6 +512,9 @@ for (const product of productList) {
 
   // Editorial review schema (no fabricated aggregate rating)
   const editorialRating = product.score ? Math.round((product.score / 10) * 5 * 10) / 10 : null;
+
+  // Author for this product
+  const productAuthor = getAuthor(product.authorId || "");
 
   const productSchema = {
     "@type": "Product",
@@ -489,9 +540,10 @@ for (const product of productList) {
         worstRating: 1,
       },
       author: {
-        "@type": "Organization",
-        name: "PauseAndFlourish Editorial Team",
-        url: BASE_URL,
+        "@type": "Person",
+        "@id": `${BASE_URL}/author/${productAuthor.id}`,
+        name: productAuthor.name,
+        url: productAuthor.url || `${BASE_URL}/author/${productAuthor.id}`,
       },
       publisher: { "@type": "Organization", name: "PauseAndFlourish", url: BASE_URL },
       datePublished: product.publishDate || "2026-01-01",
@@ -514,12 +566,13 @@ for (const product of productList) {
         { name: product.category || "Reviews", url: product.categorySlug ? `${BASE_URL}/category/${product.categorySlug}` : `${BASE_URL}/reviews` },
         { name, url: `${BASE_URL}/review/${slug}` },
       ]),
-      cleanSchema
+      cleanSchema,
+      personNode(productAuthor)
     ),
   });
 }
 
-// 11. Comparison pages
+// 12. Comparison pages
 console.log("\n⚖️  Comparison pages:");
 for (const comp of comparisons) {
   const slug = comp.slug;
@@ -527,14 +580,17 @@ for (const comp of comparisons) {
   const subtitle = comp.subtitle || "";
   const summary = comp.verdict || comp.summary || "";
 
+  const compAuthor = getAuthor(comp.authorId || "");
+
   const articleSchema = {
     "@type": "Article",
     headline: trunc(title, 110),
     description: trunc(`${subtitle}. ${summary}`, 155),
     author: {
-      "@type": "Organization",
-      name: "PauseAndFlourish Editorial Team",
-      url: BASE_URL,
+      "@type": "Person",
+      "@id": `${BASE_URL}/author/${compAuthor.id}`,
+      name: compAuthor.name,
+      url: compAuthor.url || `${BASE_URL}/author/${compAuthor.id}`,
     },
     publisher: {
       "@type": "Organization",
@@ -559,11 +615,12 @@ for (const comp of comparisons) {
         { name: "Comparisons", url: `${BASE_URL}/comparisons` },
         { name: title, url: `${BASE_URL}/comparison/${slug}` },
       ]),
-      articleSchema
+      articleSchema,
+      personNode(compAuthor)
     ),
   });
 }
 
 // ── Summary ───────────────────────────────────────────────────────────────────
-const total = 7 + categoryDefs.length + menopauseStages.length + productList.length + comparisons.length;
+const total = 7 + authorList.length + categoryDefs.length + menopauseStages.length + productList.length + comparisons.length;
 console.log(`\n✅ Prerender complete — ${total} HTML files written to dist/public/\n`);
