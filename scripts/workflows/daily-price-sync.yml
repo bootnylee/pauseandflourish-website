@@ -1,0 +1,65 @@
+# PauseAndFlourish.com — Daily PA-API Price & Image Sync
+#
+# INSTALL (one-time, requires a user with workflow permission):
+#   git mv scripts/workflows/daily-price-sync.yml .github/workflows/daily-price-sync.yml
+#   git commit -m "chore: install daily price sync workflow" && git push
+# (Staged here because the CI bot token cannot create files under
+#  .github/workflows/. The .gitignore already whitelists it at that path.)
+#
+# Runs daily at 10:00 UTC. Pulls fresh prices and primary images from Amazon
+# PA-API 5.0 so displayed prices stay within the 24-hour freshness window
+# required by the Amazon Associates Operating Agreement. Commits and pushes
+# only when there is a diff.
+#
+# Required repository secrets (Settings → Secrets and variables → Actions):
+#   PAAPI_ACCESS_KEY   — PA-API access key
+#   PAAPI_SECRET_KEY   — PA-API secret key
+#   PAAPI_PARTNER_TAG  — Associates tag (pauseandflourish-20)
+name: Daily PA-API Price Sync
+on:
+  schedule:
+    - cron: '0 10 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-price-sync
+  cancel-in-progress: false
+
+jobs:
+  price-sync:
+    name: Sync Prices & Images from PA-API
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # No dependency install needed: scripts/fetch-prices.js uses only
+      # Node built-in modules (crypto, fs, path, fetch).
+      - name: Run price & image sync
+        env:
+          PAAPI_ACCESS_KEY: ${{ secrets.PAAPI_ACCESS_KEY }}
+          PAAPI_SECRET_KEY: ${{ secrets.PAAPI_SECRET_KEY }}
+          PAAPI_PARTNER_TAG: ${{ secrets.PAAPI_PARTNER_TAG }}
+        run: node scripts/fetch-prices.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add client/src/lib/products.ts price-sync-report.json
+          if git diff --cached --quiet; then
+            echo "No price or image changes — nothing to commit."
+          else
+            git commit -m "chore: daily PA-API price/image sync"
+            git push
+          fi

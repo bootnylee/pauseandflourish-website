@@ -110,7 +110,11 @@ temp/
 
 # Manus version file (auto-generated, not part of source)
 client/public/__manus__/version.json
-.github/workflows/
+# Ignore workflow files by default, but keep the directory traversable so
+# specific workflows (daily price sync) can be tracked.
+.github/workflows/*
+# Allow the daily PA-API price sync workflow to be tracked
+!.github/workflows/daily-price-sync.yml
 
 # Local Netlify folder
 .netlify
