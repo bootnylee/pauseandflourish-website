@@ -1408,6 +1408,66 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "Systematic Review",
     "stage_id": "general",
     "date_added": "2026-07-06"
+  },
+  {
+    "id": "article-138",
+    "citation": "Pangalangan JML, Tollefson M. Perimenopause and Lifestyle Medicine: A Window of Opportunity. Am J Lifestyle Med. 2026 May 13:15598276261449751. doi: 10.1177/15598276261449751. PMID: 42145808.",
+    "headline": "Lifestyle Medicine Crucial for Perimenopause Symptom Relief",
+    "takeaway": "This review synthesizes evidence showing that lifestyle interventions—including nutrition, physical activity, and sleep—can significantly mitigate early perimenopause symptoms. The midlife transition represents a critical window where these nonpharmacological approaches can improve quality of life and reduce chronic disease risk.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42145808/",
+    "study_type": "Review",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-07-13"
+  },
+  {
+    "id": "article-139",
+    "citation": "El-Ghoneimy LT, Elfayoumy NM, Helmy H, Elaguizy MMS, Nasser AMA, Abdelghany H. Clinical characteristics of perimenopausal migraine and its correlation to hormonal levels. J Headache Pain. 2026 Jun 16;27(1):156. doi: 10.1186/s10194-026-02418-8. PMID: 42304215.",
+    "headline": "Low Estradiol Linked to Severe Migraines in Perimenopause",
+    "takeaway": "A case-control study found that perimenopausal women experiencing new-onset migraines have significantly lower estradiol levels, which correlate with higher pain severity. These women also reported more frequent perimenopausal symptoms like fatigue, sleep disturbance, and anxiety compared to healthy controls.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42304215/",
+    "study_type": "Observational",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-07-13"
+  },
+  {
+    "id": "article-140",
+    "citation": "Saad JC, Brandon CA. Urinary manifestations of genitourinary syndrome of menopause: a review of the pathophysiology, clinical presentation, and management. Gynecol Pelvic Med. 2026 Jun 10;9:15. doi: 10.21037/gpm-2025-1-79. PMID: 42428460.",
+    "headline": "Managing Urinary Symptoms in Genitourinary Syndrome of Menopause",
+    "takeaway": "This comprehensive review highlights that urinary symptoms like urgency, frequency, and recurrent infections are prevalent but undertreated components of genitourinary syndrome of menopause (GSM). Local estrogen therapy remains the cornerstone treatment, offering significant relief for active menopause urogenital atrophy.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42428460/",
+    "study_type": "Review",
+    "stage_id": "active-menopause",
+    "date_added": "2026-07-13"
+  },
+  {
+    "id": "article-141",
+    "citation": "Dumlu Bilgin G, Keküllüoğlu Tan M, Usta Ulutaş P, Kaya Cebioğlu İ, Keleş YN, Kural A, Böcek AC. From hot flashes to harmony: Mediterranean diet, menopausal symptoms, and cardiovascular risk awareness. Nutrition. 2026 May 17;150:113293. doi: 10.1016/j.nut.2026.113293. PMID: 42287755.",
+    "headline": "Mediterranean Diet Linked to Milder Symptoms and Lower BMI",
+    "takeaway": "A cross-sectional study of 702 women demonstrated that higher adherence to the Mediterranean diet is associated with lower BMI, reduced psychological complaints, and better cardiovascular risk awareness. These findings support dietary interventions for promoting early postmenopausal health and symptom management.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42287755/",
+    "study_type": "Cross-Sectional",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-07-13"
+  },
+  {
+    "id": "article-142",
+    "citation": "Wang SM, Jeong C, Um YH, Kang DW, Kim S, Lee S, Lee CU, Aizenstein HJ, Baek KH, Lim HK. Follicle-stimulating hormone linked to cognitive decline and amyloid burden in postmenopausal women. Front Aging Neurosci. 2026 Jan 6;17:1697255. doi: 10.3389/fnagi.2025.1697255. PMID: 41568256.",
+    "headline": "Elevated FSH Associated with Cognitive Decline and Amyloid Burden",
+    "takeaway": "In a study of 884 postmenopausal women, elevated follicle-stimulating hormone (FSH) levels—rather than low estradiol—were significantly linked to poorer cognitive performance and greater cerebral amyloid-beta deposition. This suggests FSH may be a key risk factor and potential therapeutic target for Alzheimer's disease in late postmenopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41568256/",
+    "study_type": "Cohort Study",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-07-13"
+  },
+  {
+    "id": "article-143",
+    "citation": "Jung D, Park JY, Chung KM, Kim MR. Redefining menopausal care: a randomized trial of group CBT for vasomotor symptoms in Korean women. Climacteric. 2026 Jun 9:1-11. doi: 10.1080/13697137.2026.2661353. PMID: 42261852.",
+    "headline": "Group CBT Effectively Reduces Hot Flashes and Anxiety",
+    "takeaway": "A randomized controlled trial showed that an eight-session group cognitive behavioral therapy (CBT) program significantly reduced the frequency and distress of vasomotor symptoms. Participants also experienced improved menopause-specific quality of life and sustained reductions in anxiety.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42261852/",
+    "study_type": "RCT",
+    "stage_id": "general",
+    "date_added": "2026-07-13"
   }
 ];
 
