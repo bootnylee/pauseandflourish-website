@@ -145,6 +145,12 @@ function signRequest({ accessKey, secretKey }, payload) {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+/**
+ * Returns { body, httpStatus, errorCodes } where:
+ *   body        — parsed JSON response (may contain ItemsResult and/or Errors)
+ *   httpStatus  — numeric HTTP status code (always captured)
+ *   errorCodes  — array of Errors[].Code strings from the response (never credential material)
+ */
 async function getItems(credentials, asins) {
   const payload = JSON.stringify({
     ItemIds: asins,
@@ -174,10 +180,21 @@ async function getItems(credentials, asins) {
     }
 
     const body = await res.json().catch(() => ({}));
-    if (!res.ok && !body.ItemsResult && !body.Errors) {
-      throw new Error(`PA-API HTTP ${res.status} for batch [${asins.join(", ")}]`);
+
+    // Extract error codes ONLY — never log messages (may contain request details).
+    const errorCodes = (body.Errors ?? []).map((e) => e.Code ?? "Unknown");
+
+    if (!res.ok) {
+      // Log the HTTP status and error codes so they appear in the workflow log
+      // and are captured in the report. Never print credential material or full
+      // request headers.
+      console.error(
+        `  PA-API HTTP ${res.status} for batch [${asins.join(", ")}]` +
+          (errorCodes.length ? ` — error codes: ${errorCodes.join(", ")}` : "")
+      );
     }
-    return body;
+
+    return { body, httpStatus: res.status, errorCodes };
   }
 }
 
@@ -309,6 +326,10 @@ async function main() {
   const priceMap = new Map();
   const errorMap = new Map();
 
+  // batchErrors captures per-batch HTTP status and error codes for the report.
+  // Never contains credential material or full request headers.
+  const batchErrors = [];
+
   if (DRY_RUN) {
     console.log("DRY RUN: using mock GetItems fixture — no network calls, no credentials required.");
     const fixtures = loadFixture();
@@ -319,12 +340,38 @@ async function main() {
     const credentials = getCredentials();
     for (let i = 0; i < asins.length; i += BATCH_SIZE) {
       const batch = asins.slice(i, i + BATCH_SIZE);
-      console.log(`Fetching batch ${i / BATCH_SIZE + 1}/${Math.ceil(asins.length / BATCH_SIZE)} (${batch.length} ASINs)`);
+      const batchNum = i / BATCH_SIZE + 1;
+      const totalBatches = Math.ceil(asins.length / BATCH_SIZE);
+      console.log(`Fetching batch ${batchNum}/${totalBatches} (${batch.length} ASINs)`);
       try {
-        const response = await getItems(credentials, batch);
-        indexResponse(response, priceMap, errorMap);
+        const { body, httpStatus, errorCodes } = await getItems(credentials, batch);
+
+        // Record any non-200 batch result in the report (codes only, no secrets).
+        if (httpStatus !== 200 && errorCodes.length > 0) {
+          batchErrors.push({
+            batchNum,
+            asins: batch,
+            httpStatus,
+            errorCodes,
+          });
+          // Mark all ASINs in this batch with the first error code so they
+          // appear explicitly in the flagged list rather than as NotReturned.
+          for (const asin of batch) {
+            if (!priceMap.has(asin) && !errorMap.has(asin)) {
+              errorMap.set(asin, errorCodes[0]);
+            }
+          }
+        }
+
+        indexResponse(body, priceMap, errorMap);
       } catch (err) {
         console.error(`  Batch failed: ${err.message}`);
+        batchErrors.push({
+          batchNum,
+          asins: batch,
+          httpStatus: null,
+          errorCodes: ["BatchRequestFailed"],
+        });
         for (const asin of batch) {
           if (!priceMap.has(asin) && !errorMap.has(asin)) {
             errorMap.set(asin, "BatchRequestFailed");
@@ -373,10 +420,32 @@ async function main() {
     flagged: [...errorMap.entries()]
       .map(([asin, reason]) => ({ asin, reason, action: "left unchanged" }))
       .sort((a, b) => a.asin.localeCompare(b.asin)),
+    // batchErrors is only present when there were non-200 responses.
+    // Contains HTTP status codes and PA-API error Code strings only —
+    // never credential material, never full request headers.
+    ...(batchErrors.length > 0 ? { batchErrors } : {}),
   };
   fs.writeFileSync(REPORT_FILE, JSON.stringify(report, null, 2) + "\n", "utf8");
 
   console.log(`Updated ${updated.size} product(s); flagged ${errorMap.size} ASIN(s) — see price-sync-report.json`);
+
+  // ─── Systemic-failure guard ───────────────────────────────────────────────
+  // When running live, if every single ASIN was flagged and nothing was updated,
+  // the entire sync was a no-op. This is almost certainly a systemic error
+  // (auth failure, account eligibility, network issue) rather than legitimate
+  // product unavailability. Exit non-zero so the workflow FAILS loudly instead
+  // of committing a useless report that masks the problem.
+  if (!DRY_RUN && updated.size === 0 && errorMap.size === asins.length && asins.length > 0) {
+    const uniqueErrorCodes = [...new Set([...errorMap.values()])].sort();
+    console.error(
+      `SYSTEMIC FAILURE: mode=live, updatedCount=0, flagged=${errorMap.size}/${asins.length} (100%). ` +
+        `Unique error codes: ${uniqueErrorCodes.join(", ")}. ` +
+        `This is not a product-availability issue — check PA-API credentials, ` +
+        `partner tag, and Associates account eligibility (requires 3 qualifying ` +
+        `sales in the trailing 180 days). Exiting non-zero.`
+    );
+    process.exit(1);
+  }
 }
 
 main().catch((err) => {
