@@ -37,7 +37,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
       # No dependency install needed: scripts/fetch-prices.js uses only
       # Node built-in modules (crypto, fs, path, fetch).
       - name: Run price & image sync
