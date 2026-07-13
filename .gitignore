@@ -115,6 +115,8 @@ client/public/__manus__/version.json
 .github/workflows/*
 # Allow the daily PA-API price sync workflow to be tracked
 !.github/workflows/daily-price-sync.yml
+# Allow the weekly content workflow to be tracked
+!.github/workflows/weekly-content.yml
 
 # Local Netlify folder
 .netlify
