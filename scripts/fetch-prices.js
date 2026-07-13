@@ -20,7 +20,10 @@
  *
  * Usage:
  *   node scripts/fetch-prices.js             # live sync (requires env vars)
- *   node scripts/fetch-prices.js --dry-run   # uses local mock fixture, no network
+ *   node scripts/fetch-prices.js --dry-run   # uses local mock fixture, no network;
+ *                                             # STRICTLY READ-ONLY: products.ts is never
+ *                                             # modified, proposed changes go only into
+ *                                             # price-sync-report.json
  *
  * AWS SigV4 signing is implemented with Node built-in crypto only — no
  * external dependencies.
@@ -340,7 +343,13 @@ async function main() {
   }
 
   const { source: newSource, updated } = updateProductBlocks(source, priceMap);
-  if (newSource !== source) {
+  if (DRY_RUN) {
+    // DRY RUN is strictly read-only: products.ts is NEVER rewritten. All
+    // proposed changes are recorded in price-sync-report.json only.
+    console.log(
+      "DRY RUN: products.ts left untouched; proposed changes written to price-sync-report.json only."
+    );
+  } else if (newSource !== source) {
     fs.writeFileSync(PRODUCTS_FILE, newSource, "utf8");
   }
 
@@ -350,6 +359,17 @@ async function main() {
     totalAsins: asins.length,
     updatedCount: updated.size,
     updated: [...updated].sort(),
+    proposedChanges: DRY_RUN
+      ? [...updated].sort().map((asin) => {
+          const data = priceMap.get(asin);
+          return {
+            asin,
+            newPrice: data?.amount ?? null,
+            newPriceDisplay: data?.display ?? null,
+            newImage: data?.image ?? null,
+          };
+        })
+      : undefined,
     flagged: [...errorMap.entries()]
       .map(([asin, reason]) => ({ asin, reason, action: "left unchanged" }))
       .sort((a, b) => a.asin.localeCompare(b.asin)),
