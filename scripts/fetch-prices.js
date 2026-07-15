@@ -1,22 +1,29 @@
 #!/usr/bin/env node
 /**
- * scripts/fetch-prices.js — Amazon PA-API 5.0 price & image sync
+ * scripts/fetch-prices.js — Amazon Creators API price & image sync
  *
- * Reads every `asin:` from client/src/lib/products.ts, calls PA-API 5.0
- * GetItems in batches of 10 ASINs (Resources: Offers.Listings.Price,
- * Images.Primary.Large), throttled to 1 request/second with exponential
- * backoff on HTTP 429, then rewrites products.ts in place, updating ONLY:
- *   - price:        "<DisplayAmount>"   (from Offers.Listings[0].Price.DisplayAmount)
- *   - priceDisplay: "<DisplayAmount>"   (from Offers.Listings[0].Price.DisplayAmount)
- *   - heroImage:                        (from Images.Primary.Large.URL)
+ * Reads every `asin:` from client/src/lib/products.ts, calls the Amazon
+ * Creators API GetItems in batches of 10 ASINs (resources: offersV2.listings.price,
+ * images.primary.large), throttled to 1 request/second with exponential backoff
+ * on HTTP 429, then rewrites products.ts in place, updating ONLY:
+ *   - price:          <number>            (from offersV2.listings[0].price.money.amount)
+ *   - priceDisplay:   "<displayAmount>"   (from offersV2.listings[0].price.money.displayAmount)
+ *   - heroImage:                          (from images.primary.large.url)
  * All other fields and file formatting are preserved exactly.
  *
- * ASINs that return ItemNotAccessible (or any error) or have no offer are
- * flagged in price-sync-report.json and left unchanged — never deleted.
+ * ASINs that return errors or have no offer are flagged in price-sync-report.json
+ * and left unchanged — never deleted.
  *
  * Credentials are read STRICTLY from environment variables:
- *   PAAPI_ACCESS_KEY, PAAPI_SECRET_KEY, PAAPI_PARTNER_TAG
+ *   CREATORS_CREDENTIAL_ID, CREATORS_CREDENTIAL_SECRET, PAAPI_PARTNER_TAG
  * They are never logged, printed, or written to disk.
+ *
+ * Auth auto-detects credential version:
+ *   v3.x (LwA):    POST https://api.amazon.com/auth/o2/token
+ *                  JSON body, scope "creatorsapi::default"
+ *   v2.x (Cognito) fallback: POST https://creatorsapi.auth.us-east-1.amazoncognito.com/oauth2/token
+ *                  form-encoded with Basic auth, scope "creatorsapi/default"
+ * Token is cached in-process with a 60s expiry buffer.
  *
  * Usage:
  *   node scripts/fetch-prices.js             # live sync (requires env vars)
@@ -25,11 +32,10 @@
  *                                             # modified, proposed changes go only into
  *                                             # price-sync-report.json
  *
- * AWS SigV4 signing is implemented with Node built-in crypto only — no
- * external dependencies.
+ * Systemic-failure guard: if mode is live and updatedCount is 0 and every ASIN
+ * is flagged, the script exits non-zero so the workflow fails loudly.
  */
 
-import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -42,139 +48,179 @@ const PRODUCTS_FILE = path.join(REPO_ROOT, "client", "src", "lib", "products.ts"
 const REPORT_FILE = path.join(REPO_ROOT, "price-sync-report.json");
 const FIXTURE_FILE = path.join(__dirname, "fixtures", "paapi-getitems-mock.json");
 
-const HOST = "webservices.amazon.com";
-const REGION = "us-east-1";
-const SERVICE = "ProductAdvertisingAPI";
-const URI_PATH = "/paapi5/getitems";
-const API_TARGET = "com.amazon.paapi5.v1.ProductAdvertisingAPIv1.GetItems";
+const CREATORS_API_BASE = "https://creatorsapi.amazon";
+const GETITEMS_PATH = "/catalog/v1/getItems";
 const MARKETPLACE = "www.amazon.com";
+
+// v3.x LwA token endpoint (try first — new credentials issued as v3.x)
+const LWA_TOKEN_URL = "https://api.amazon.com/auth/o2/token";
+const LWA_SCOPE = "creatorsapi::default";
+
+// v2.x Cognito token endpoint (fallback for older credentials)
+const COGNITO_TOKEN_URL = "https://creatorsapi.auth.us-east-1.amazoncognito.com/oauth2/token";
+const COGNITO_SCOPE = "creatorsapi/default";
 
 const BATCH_SIZE = 10;
 const REQUEST_INTERVAL_MS = 1000; // 1 request per second
 const MAX_RETRIES = 5;
 const BACKOFF_BASE_MS = 2000; // 2s, 4s, 8s, 16s, 32s
+const TOKEN_EXPIRY_BUFFER_MS = 60_000; // 60s buffer before expiry
 
-const RESOURCES = ["Offers.Listings.Price", "Images.Primary.Large"];
+const RESOURCES = ["offersV2.listings.price", "images.primary.large"];
 
 const DRY_RUN = process.argv.includes("--dry-run");
 
 // ─── Credentials (env only — never logged, never hardcoded) ─────────────────
 
 function getCredentials() {
-  const accessKey = process.env.PAAPI_ACCESS_KEY;
-  const secretKey = process.env.PAAPI_SECRET_KEY;
+  const credentialId = process.env.CREATORS_CREDENTIAL_ID;
+  const credentialSecret = process.env.CREATORS_CREDENTIAL_SECRET;
   const partnerTag = process.env.PAAPI_PARTNER_TAG;
-  if (!accessKey || !secretKey || !partnerTag) {
+  if (!credentialId || !credentialSecret || !partnerTag) {
     console.error(
       "ERROR: Missing required environment variables. " +
-        "PAAPI_ACCESS_KEY, PAAPI_SECRET_KEY, and PAAPI_PARTNER_TAG must all be set."
+        "CREATORS_CREDENTIAL_ID, CREATORS_CREDENTIAL_SECRET, and PAAPI_PARTNER_TAG must all be set."
     );
     process.exit(1);
   }
-  return { accessKey, secretKey, partnerTag };
+  return { credentialId, credentialSecret, partnerTag };
 }
 
-// ─── AWS Signature Version 4 (Node built-in crypto only) ────────────────────
+// ─── OAuth2 token cache ───────────────────────────────────────────────────────
 
-function hmac(key, data) {
-  return crypto.createHmac("sha256", key).update(data, "utf8").digest();
+let _tokenCache = null; // { accessToken, expiresAt }
+
+async function getAccessToken(credentials) {
+  if (_tokenCache && Date.now() < _tokenCache.expiresAt) {
+    return _tokenCache.accessToken;
+  }
+
+  // Try v3.x (LwA) first — new credentials are issued as v3.x
+  try {
+    return await fetchToken_v3(credentials);
+  } catch (err) {
+    const code = err.errorCode ?? "";
+    if (code === "invalid_client" || code === "unauthorized_client") {
+      console.log(`  v3.x LwA token failed (${code}) — falling back to v2.x Cognito`);
+    } else {
+      console.log(`  v3.x LwA token error: ${code || err.message} — trying v2.x Cognito`);
+    }
+  }
+
+  // Fallback: v2.x (Cognito)
+  return await fetchToken_v2(credentials);
 }
 
-function sha256Hex(data) {
-  return crypto.createHash("sha256").update(data, "utf8").digest("hex");
+async function fetchToken_v3(credentials) {
+  const body = JSON.stringify({
+    grant_type: "client_credentials",
+    client_id: credentials.credentialId,
+    client_secret: credentials.credentialSecret,
+    scope: LWA_SCOPE,
+  });
+
+  const res = await fetch(LWA_TOKEN_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body,
+  });
+
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    const err = new Error(
+      `v3.x token HTTP ${res.status}: ${data.error_description ?? data.error ?? "unknown"}`
+    );
+    err.errorCode = data.error ?? "";
+    throw err;
+  }
+  if (!data.access_token) {
+    throw new Error("v3.x token response missing access_token");
+  }
+
+  const expiresIn = (data.expires_in ?? 3600) - TOKEN_EXPIRY_BUFFER_MS / 1000;
+  _tokenCache = { accessToken: data.access_token, expiresAt: Date.now() + expiresIn * 1000 };
+  console.log("  OAuth2 token acquired (v3.x LwA)");
+  return data.access_token;
 }
 
-function amzDates(date = new Date()) {
-  const amzDate = date.toISOString().replace(/[:-]|\.\d{3}/g, ""); // YYYYMMDDTHHMMSSZ
-  const dateStamp = amzDate.slice(0, 8); // YYYYMMDD
-  return { amzDate, dateStamp };
+async function fetchToken_v2(credentials) {
+  const basicAuth = Buffer.from(
+    `${credentials.credentialId}:${credentials.credentialSecret}`
+  ).toString("base64");
+
+  const body = new URLSearchParams({
+    grant_type: "client_credentials",
+    scope: COGNITO_SCOPE,
+  }).toString();
+
+  const res = await fetch(COGNITO_TOKEN_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization: `Basic ${basicAuth}`,
+    },
+    body,
+  });
+
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    const err = new Error(
+      `v2.x token HTTP ${res.status}: ${data.error_description ?? data.error ?? "unknown"}`
+    );
+    err.errorCode = data.error ?? "";
+    throw err;
+  }
+  if (!data.access_token) {
+    throw new Error("v2.x token response missing access_token");
+  }
+
+  const expiresIn = (data.expires_in ?? 3600) - TOKEN_EXPIRY_BUFFER_MS / 1000;
+  _tokenCache = { accessToken: data.access_token, expiresAt: Date.now() + expiresIn * 1000 };
+  console.log("  OAuth2 token acquired (v2.x Cognito)");
+  return data.access_token;
 }
 
-function signRequest({ accessKey, secretKey }, payload) {
-  const { amzDate, dateStamp } = amzDates();
-
-  const canonicalHeaders =
-    `content-encoding:amz-1.0\n` +
-    `content-type:application/json; charset=utf-8\n` +
-    `host:${HOST}\n` +
-    `x-amz-date:${amzDate}\n` +
-    `x-amz-target:${API_TARGET}\n`;
-  const signedHeaders = "content-encoding;content-type;host;x-amz-date;x-amz-target";
-
-  const canonicalRequest = [
-    "POST",
-    URI_PATH,
-    "", // no query string
-    canonicalHeaders,
-    signedHeaders,
-    sha256Hex(payload),
-  ].join("\n");
-
-  const credentialScope = `${dateStamp}/${REGION}/${SERVICE}/aws4_request`;
-  const stringToSign = [
-    "AWS4-HMAC-SHA256",
-    amzDate,
-    credentialScope,
-    sha256Hex(canonicalRequest),
-  ].join("\n");
-
-  const kDate = hmac(`AWS4${secretKey}`, dateStamp);
-  const kRegion = hmac(kDate, REGION);
-  const kService = hmac(kRegion, SERVICE);
-  const kSigning = hmac(kService, "aws4_request");
-  const signature = crypto
-    .createHmac("sha256", kSigning)
-    .update(stringToSign, "utf8")
-    .digest("hex");
-
-  const authorization =
-    `AWS4-HMAC-SHA256 Credential=${accessKey}/${credentialScope}, ` +
-    `SignedHeaders=${signedHeaders}, Signature=${signature}`;
-
-  return {
-    "Content-Encoding": "amz-1.0",
-    "Content-Type": "application/json; charset=utf-8",
-    Host: HOST,
-    "X-Amz-Date": amzDate,
-    "X-Amz-Target": API_TARGET,
-    Authorization: authorization,
-  };
-}
-
-// ─── PA-API GetItems call with throttle + exponential backoff ───────────────
+// ─── Creators API GetItems call with throttle + exponential backoff ──────────
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /**
  * Returns { body, httpStatus, errorCodes } where:
- *   body        — parsed JSON response (may contain ItemsResult and/or Errors)
+ *   body        — parsed JSON response (may contain itemsResult and/or errors)
  *   httpStatus  — numeric HTTP status code (always captured)
- *   errorCodes  — array of Errors[].Code strings from the response (never credential material)
+ *   errorCodes  — array of error code strings from the response (never credential material)
  */
 async function getItems(credentials, asins) {
+  const accessToken = await getAccessToken(credentials);
+
   const payload = JSON.stringify({
-    ItemIds: asins,
-    ItemIdType: "ASIN",
-    Resources: RESOURCES,
-    PartnerTag: credentials.partnerTag,
-    PartnerType: "Associates",
-    Marketplace: MARKETPLACE,
+    itemIds: asins,
+    partnerTag: credentials.partnerTag,
+    partnerType: "Associates",
+    resources: RESOURCES,
   });
 
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
-    const headers = signRequest(credentials, payload);
-    const res = await fetch(`https://${HOST}${URI_PATH}`, {
+    const res = await fetch(`${CREATORS_API_BASE}${GETITEMS_PATH}`, {
       method: "POST",
-      headers,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+        "x-marketplace": MARKETPLACE,
+      },
       body: payload,
     });
 
+    const httpStatus = res.status;
+
     if (res.status === 429) {
       if (attempt === MAX_RETRIES) {
-        throw new Error(`PA-API throttled (429) after ${MAX_RETRIES} retries`);
+        return { body: {}, httpStatus, errorCodes: ["TooManyRequests"] };
       }
       const backoff = BACKOFF_BASE_MS * 2 ** attempt;
-      console.log(`  429 TooManyRequests — backing off ${backoff / 1000}s (attempt ${attempt + 1}/${MAX_RETRIES})`);
+      console.log(
+        `  429 TooManyRequests — backing off ${backoff / 1000}s (attempt ${attempt + 1}/${MAX_RETRIES})`
+      );
       await sleep(backoff);
       continue;
     }
@@ -182,19 +228,29 @@ async function getItems(credentials, asins) {
     const body = await res.json().catch(() => ({}));
 
     // Extract error codes ONLY — never log messages (may contain request details).
-    const errorCodes = (body.Errors ?? []).map((e) => e.Code ?? "Unknown");
-
+    const errorCodes = [];
     if (!res.ok) {
-      // Log the HTTP status and error codes so they appear in the workflow log
-      // and are captured in the report. Never print credential material or full
-      // request headers.
+      // Top-level 4xx/5xx error body
+      if (body.code) errorCodes.push(body.code);
+      if (body.error) errorCodes.push(body.error);
+      if (body.__type) errorCodes.push(body.__type.split("#").pop());
+      if (Array.isArray(body.errors)) {
+        for (const e of body.errors) {
+          if (e.code) errorCodes.push(e.code);
+        }
+      }
+      if (errorCodes.length === 0) errorCodes.push(`HTTP_${httpStatus}`);
       console.error(
-        `  PA-API HTTP ${res.status} for batch [${asins.join(", ")}]` +
-          (errorCodes.length ? ` — error codes: ${errorCodes.join(", ")}` : "")
+        `  Creators API HTTP ${httpStatus} — error codes: ${errorCodes.join(", ")}`
       );
+    } else if (Array.isArray(body.errors) && body.errors.length > 0) {
+      // Partial per-item errors within a 200 response
+      for (const e of body.errors) {
+        if (e.code) errorCodes.push(e.code);
+      }
     }
 
-    return { body, httpStatus: res.status, errorCodes };
+    return { body, httpStatus, errorCodes };
   }
 }
 
@@ -209,31 +265,33 @@ function loadFixture() {
 
 function extractAsins(source) {
   const asins = new Set();
-  const re = /asin:\s*"([A-Z0-9]{10})"/g;
+  const re = /asin:\s*["']([A-Z0-9]{10})["']/g;
   let m;
   while ((m = re.exec(source)) !== null) asins.add(m[1]);
   return [...asins];
 }
 
-// ─── Parse GetItems responses into { asin: { price, display, image } } ──────
+// ─── Parse Creators API GetItems responses into { asin: { price, display, image } }
 
 function indexResponse(response, priceMap, errorMap) {
-  for (const err of response?.Errors ?? []) {
-    // Error code e.g. "ItemNotAccessible"; message contains the ASIN.
-    const asinMatch = /ItemId\s+([A-Z0-9]{10})/i.exec(err.Message ?? "");
+  // Partial per-item errors (Creators API uses lowercase: errors[].code, errors[].message)
+  for (const err of response?.errors ?? []) {
+    const asinMatch = /([A-Z0-9]{10})/i.exec(err.message ?? "");
     if (asinMatch) {
-      errorMap.set(asinMatch[1], err.Code ?? "Unknown");
+      errorMap.set(asinMatch[1], err.code ?? "Unknown");
     }
   }
-  for (const item of response?.ItemsResult?.Items ?? []) {
-    const asin = item.ASIN;
-    const listing = item.Offers?.Listings?.[0];
-    const price = listing?.Price;
-    const image = item.Images?.Primary?.Large?.URL ?? null;
-    if (price?.Amount != null && price?.DisplayAmount) {
+  // Items (Creators API camelCase: itemsResult.items[])
+  for (const item of response?.itemsResult?.items ?? []) {
+    const asin = item.asin;
+    if (!asin) continue;
+    const listing = item.offersV2?.listings?.[0];
+    const money = listing?.price?.money;
+    const image = item.images?.primary?.large?.url ?? null;
+    if (money?.amount != null && money?.displayAmount) {
       priceMap.set(asin, {
-        amount: price.Amount,
-        display: price.DisplayAmount,
+        amount: money.amount,
+        display: money.displayAmount,
         image,
       });
     } else {
@@ -249,10 +307,8 @@ function indexResponse(response, priceMap, errorMap) {
 
 function updateProductBlocks(source, priceMap) {
   const updated = new Set();
-  const asinRe = /asin:\s*"([A-Z0-9]{10})"/g;
+  const asinRe = /asin:\s*["']([A-Z0-9]{10})["']/g;
 
-  // Locate each product object block by scanning from the asin: field to the
-  // end of its enclosing object literal, then rewrite fields inside it.
   let result = "";
   let cursor = 0;
   let m;
@@ -261,11 +317,9 @@ function updateProductBlocks(source, priceMap) {
     const data = priceMap.get(asin);
     if (!data) continue;
 
-    // Find the boundaries of the enclosing object: walk back to the opening
-    // "{" and forward to its matching "}".
+    // Find the enclosing object block
     const asinPos = m.index;
     let open = source.lastIndexOf("{", asinPos);
-    // Walk back further if there are nested closings between (defensive).
     let depth = 1;
     let close = -1;
     for (let i = open + 1; i < source.length; i++) {
@@ -273,10 +327,7 @@ function updateProductBlocks(source, priceMap) {
       if (ch === "{") depth++;
       else if (ch === "}") {
         depth--;
-        if (depth === 0) {
-          close = i;
-          break;
-        }
+        if (depth === 0) { close = i; break; }
       }
     }
     if (open === -1 || close === -1) continue;
@@ -285,25 +336,20 @@ function updateProductBlocks(source, priceMap) {
     let changed = false;
 
     if (data.amount != null && data.display) {
-      // This repo stores price as a display string, e.g. price: "$31.88"
+      const numStr = data.amount.toFixed(2);
       const nb = block
-        .replace(/(\bprice:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.display}${p2}`)
+        .replace(/(\bprice:\s*)[0-9]+(?:\.[0-9]+)?(,)/, (_, p1, p2) => `${p1}${numStr}${p2}`)
         .replace(/(\bpriceDisplay:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.display}${p2}`);
-      if (nb !== block) {
-        block = nb;
-        changed = true;
-      }
+      if (nb !== block) { block = nb; changed = true; }
     }
 
     if (data.image) {
-      const nb = block.replace(
-        /(\bheroImage:\s*")[^"]*(")/,
-        (_, p1, p2) => `${p1}${data.image}${p2}`
-      );
-      if (nb !== block) {
-        block = nb;
-        changed = true;
-      }
+      // pauseandflourish uses heroImage instead of imageUrl/amazonImageUrl
+      const nb = block
+        .replace(/(\bheroImage:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.image}${p2}`)
+        .replace(/(\bimageUrl:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.image}${p2}`)
+        .replace(/(\bamazonImageUrl:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.image}${p2}`);
+      if (nb !== block) { block = nb; changed = true; }
     }
 
     if (changed) {
@@ -325,7 +371,6 @@ async function main() {
 
   const priceMap = new Map();
   const errorMap = new Map();
-
   // batchErrors captures per-batch HTTP status and error codes for the report.
   // Never contains credential material or full request headers.
   const batchErrors = [];
@@ -338,24 +383,16 @@ async function main() {
     }
   } else {
     const credentials = getCredentials();
+    const totalBatches = Math.ceil(asins.length / BATCH_SIZE);
     for (let i = 0; i < asins.length; i += BATCH_SIZE) {
       const batch = asins.slice(i, i + BATCH_SIZE);
       const batchNum = i / BATCH_SIZE + 1;
-      const totalBatches = Math.ceil(asins.length / BATCH_SIZE);
       console.log(`Fetching batch ${batchNum}/${totalBatches} (${batch.length} ASINs)`);
       try {
         const { body, httpStatus, errorCodes } = await getItems(credentials, batch);
 
-        // Record any non-200 batch result in the report (codes only, no secrets).
         if (httpStatus !== 200 && errorCodes.length > 0) {
-          batchErrors.push({
-            batchNum,
-            asins: batch,
-            httpStatus,
-            errorCodes,
-          });
-          // Mark all ASINs in this batch with the first error code so they
-          // appear explicitly in the flagged list rather than as NotReturned.
+          batchErrors.push({ batchNum, httpStatus, errorCodes });
           for (const asin of batch) {
             if (!priceMap.has(asin) && !errorMap.has(asin)) {
               errorMap.set(asin, errorCodes[0]);
@@ -363,15 +400,11 @@ async function main() {
           }
         }
 
+        // Always run indexResponse — it handles partial 200 errors too
         indexResponse(body, priceMap, errorMap);
       } catch (err) {
-        console.error(`  Batch failed: ${err.message}`);
-        batchErrors.push({
-          batchNum,
-          asins: batch,
-          httpStatus: null,
-          errorCodes: ["BatchRequestFailed"],
-        });
+        console.error(`  Batch ${batchNum} failed: ${err.message}`);
+        batchErrors.push({ batchNum, httpStatus: null, errorCodes: ["BatchRequestFailed"] });
         for (const asin of batch) {
           if (!priceMap.has(asin) && !errorMap.has(asin)) {
             errorMap.set(asin, "BatchRequestFailed");
@@ -420,29 +453,24 @@ async function main() {
     flagged: [...errorMap.entries()]
       .map(([asin, reason]) => ({ asin, reason, action: "left unchanged" }))
       .sort((a, b) => a.asin.localeCompare(b.asin)),
-    // batchErrors is only present when there were non-200 responses.
-    // Contains HTTP status codes and PA-API error Code strings only —
-    // never credential material, never full request headers.
-    ...(batchErrors.length > 0 ? { batchErrors } : {}),
+    batchErrors: batchErrors.length > 0 ? batchErrors : undefined,
   };
   fs.writeFileSync(REPORT_FILE, JSON.stringify(report, null, 2) + "\n", "utf8");
 
-  console.log(`Updated ${updated.size} product(s); flagged ${errorMap.size} ASIN(s) — see price-sync-report.json`);
+  console.log(
+    `Updated ${updated.size} product(s); flagged ${errorMap.size} ASIN(s) — see price-sync-report.json`
+  );
 
-  // ─── Systemic-failure guard ───────────────────────────────────────────────
-  // When running live, if every single ASIN was flagged and nothing was updated,
-  // the entire sync was a no-op. This is almost certainly a systemic error
-  // (auth failure, account eligibility, network issue) rather than legitimate
-  // product unavailability. Exit non-zero so the workflow FAILS loudly instead
-  // of committing a useless report that masks the problem.
+  // ── Systemic-failure guard ────────────────────────────────────────────────
+  // If live mode returned 0 updates and every ASIN is flagged, the API is
+  // returning errors for all items — fail loudly instead of committing a
+  // useless report.
   if (!DRY_RUN && updated.size === 0 && errorMap.size === asins.length && asins.length > 0) {
-    const uniqueErrorCodes = [...new Set([...errorMap.values()])].sort();
+    const uniqueCodes = [...new Set(batchErrors.flatMap((b) => b.errorCodes))];
     console.error(
-      `SYSTEMIC FAILURE: mode=live, updatedCount=0, flagged=${errorMap.size}/${asins.length} (100%). ` +
-        `Unique error codes: ${uniqueErrorCodes.join(", ")}. ` +
-        `This is not a product-availability issue — check PA-API credentials, ` +
-        `partner tag, and Associates account eligibility (requires 3 qualifying ` +
-        `sales in the trailing 180 days). Exiting non-zero.`
+      `SYSTEMIC FAILURE: live sync updated 0/${asins.length} ASINs. ` +
+        `All ASINs flagged. Error codes: ${uniqueCodes.join(", ") || "none captured"}. ` +
+        `Check Creators API credentials and Associates account eligibility.`
     );
     process.exit(1);
   }
