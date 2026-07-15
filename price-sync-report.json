@@ -1,9 +1,33 @@
 {
-  "generatedAt": "2026-07-13T21:52:55.131Z",
-  "mode": "live",
+  "generatedAt": "2026-07-15T17:33:31.350Z",
+  "mode": "dry-run",
   "totalAsins": 57,
-  "updatedCount": 0,
-  "updated": [],
+  "updatedCount": 3,
+  "updated": [
+    "B000OD1F7U",
+    "B01N169N8J",
+    "B09S6SWGVN"
+  ],
+  "proposedChanges": [
+    {
+      "asin": "B000OD1F7U",
+      "newPrice": null,
+      "newPriceDisplay": null,
+      "newImage": "https://m.media-amazon.com/images/I/MOCK-no-offer-item._SL1500_.jpg"
+    },
+    {
+      "asin": "B01N169N8J",
+      "newPrice": 29.74,
+      "newPriceDisplay": "$29.74",
+      "newImage": "https://m.media-amazon.com/images/I/MOCK-estrotone-fresh._SL1500_.jpg"
+    },
+    {
+      "asin": "B09S6SWGVN",
+      "newPrice": 18.99,
+      "newPriceDisplay": "$18.99",
+      "newImage": "https://m.media-amazon.com/images/I/MOCK-womaness-fresh._SL1500_.jpg"
+    }
+  ],
   "flagged": [
     {
       "asin": "B000KHMYR0",
@@ -12,12 +36,12 @@
     },
     {
       "asin": "B000OD1F7U",
-      "reason": "NotReturned",
+      "reason": "NoOffer",
       "action": "left unchanged"
     },
     {
       "asin": "B000P9WSMY",
-      "reason": "NotReturned",
+      "reason": "ItemNotAccessible",
       "action": "left unchanged"
     },
     {
@@ -92,11 +116,6 @@
     },
     {
       "asin": "B01MZ6YI2A",
-      "reason": "NotReturned",
-      "action": "left unchanged"
-    },
-    {
-      "asin": "B01N169N8J",
       "reason": "NotReturned",
       "action": "left unchanged"
     },
@@ -192,11 +211,6 @@
     },
     {
       "asin": "B09RQBHRCT",
-      "reason": "NotReturned",
-      "action": "left unchanged"
-    },
-    {
-      "asin": "B09S6SWGVN",
       "reason": "NotReturned",
       "action": "left unchanged"
     },
