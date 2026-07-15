@@ -2099,7 +2099,7 @@ Thorne's brand positioning is anchored in the practitioner channel. The company 
 At $52 for a 60-capsule bottle (30-day supply at two capsules per day), Perimenopause Complete is priced at the premium end of the multi-symptom supplement market. The review base is small for a newer product, but the ratings are consistent with the brand's quality reputation. Women who have been satisfied with other Thorne products will find this formula meets the same standards they expect from the brand.
 
 For women in early to late perimenopause who want a comprehensive, NSF-certified multi-symptom formula from a practitioner-trusted brand, THORNE Perimenopause Complete is one of the strongest premium additions to this catalog.`,
-    priceDisplay: "$52.00",
+    priceDisplay: "$51.00",
     publishDate: "2026-06-22",
     authorId: "carol-beaumont",
     editorNote: "Thorne Perimenopause Complete is the recommendation for women who specifically ask for NSF certification or who are already Thorne customers looking for a menopause-specific formula.",
