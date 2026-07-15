@@ -1,6 +1,6 @@
 # PauseAndFlourish.com — Weekly Content Pipeline
 # Runs every Monday at 16:00 UTC, plus manual trigger.
-# Contains the link/image health check and the conditional PA-API price sync.
+# Contains the link/image health check and the conditional Creators API price sync.
 
 name: Weekly Content
 
@@ -16,12 +16,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Link and image health check
         run: |
@@ -34,16 +34,16 @@ jobs:
           fi
           echo "No BROKEN links. INCONCLUSIVE results (e.g. Amazon bot-blocks) do not fail the job."
 
-      - name: PA-API price sync
+      - name: Creators API price sync
         env:
-          PAAPI_ACCESS_KEY: ${{ secrets.PAAPI_ACCESS_KEY }}
-          PAAPI_SECRET_KEY: ${{ secrets.PAAPI_SECRET_KEY }}
+          CREATORS_CREDENTIAL_ID: ${{ secrets.CREATORS_CREDENTIAL_ID }}
+          CREATORS_CREDENTIAL_SECRET: ${{ secrets.CREATORS_CREDENTIAL_SECRET }}
           PAAPI_PARTNER_TAG: ${{ secrets.PAAPI_PARTNER_TAG }}
         run: |
-          if [ -n "$PAAPI_ACCESS_KEY" ]; then
-            echo "PA-API credentials present - running live price sync."
+          if [ -n "$CREATORS_CREDENTIAL_ID" ]; then
+            echo "Creators API credentials present - running live price sync."
             node scripts/fetch-prices.js
           else
-            echo "PA-API credentials not configured - running dry-run price sync with mock fixture."
+            echo "Creators API credentials not configured - running dry-run price sync with mock fixture."
             node scripts/fetch-prices.js --dry-run
           fi
