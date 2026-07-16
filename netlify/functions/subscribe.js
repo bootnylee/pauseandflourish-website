@@ -3,29 +3,30 @@
  * ====================================================
  * Netlify Function: POST /.netlify/functions/subscribe
  *
- * Proxies email subscription to the EmailOctopus REST API so the API key
+ * Proxies email subscription to the EmailOctopus REST API v2 so the API key
  * never touches the browser. Sets the MenopauseStage custom field for
  * segmented welcome automation.
  *
+ * API v2 docs: https://emailoctopus.com/api-documentation/v2
+ * Base URL: https://api.emailoctopus.com
+ * Auth: Authorization: Bearer {EMAILOCTOPUS_API_KEY} header — key never in body.
+ *
  * ── Configuration ────────────────────────────────────────────────────────────
  * Set these two environment variables in Netlify:
- *   EMAILOCTOPUS_API_KEY   — from dashboard.emailoctopus.com/api
- *   EMAILOCTOPUS_LIST_ID   — UUID from dashboard.emailoctopus.com/lists/{id}
- *
- * If either variable is missing, the function falls back gracefully and
- * returns a 503 with a clear error message.
+ *   EMAILOCTOPUS_API_KEY   — v2 API key (not a legacy key)
+ *   EMAILOCTOPUS_LIST_ID   — UUID from emailoctopus.com/lists/{id}
  *
  * ── Request body (JSON) ──────────────────────────────────────────────────────
  * {
  *   "email":     "user@example.com",
- *   "firstName": "Jane",              // optional
+ *   "firstName": "Jane",               // optional
  *   "stage":     "Early Perimenopause" // required — stored in MenopauseStage field
  * }
  *
  * ── Response ─────────────────────────────────────────────────────────────────
  * 200  { "status": "success" }
- * 409  { "status": "already_subscribed" }
- * 4xx  { "status": "error", "message": "..." }
+ * 200  { "status": "already_subscribed" }   (contact existed; field updated)
+ * 400  { "status": "error", "message": "<EO error type slug>" }
  * 503  { "status": "error", "message": "EmailOctopus not configured" }
  */
 
@@ -35,6 +36,8 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Headers": "Content-Type",
   "Content-Type": "application/json",
 };
+
+const EO_BASE = "https://api.emailoctopus.com";
 
 exports.handler = async function (event) {
   // Handle CORS preflight
@@ -55,7 +58,7 @@ exports.handler = async function (event) {
   const LIST_ID = process.env.EMAILOCTOPUS_LIST_ID;
 
   if (!API_KEY || !LIST_ID) {
-    console.warn("[subscribe] EMAILOCTOPUS_API_KEY or EMAILOCTOPUS_LIST_ID not set");
+    console.error("[subscribe] EMAILOCTOPUS_API_KEY or EMAILOCTOPUS_LIST_ID not set");
     return {
       statusCode: 503,
       headers: CORS_HEADERS,
@@ -96,30 +99,31 @@ exports.handler = async function (event) {
     };
   }
 
-  // ── Call EmailOctopus REST API ────────────────────────────────────────────
-  // Docs: https://emailoctopus.com/api-documentation
-  const payload = {
-    api_key: API_KEY,
-    email_address: email.trim().toLowerCase(),
-    fields: {
-      FirstName: (firstName || "").trim(),
-      MenopauseStage: stage.trim(),
-    },
-    status: "SUBSCRIBED",
-  };
+  const normalizedEmail = email.trim().toLowerCase();
+  const authHeader = { "Authorization": `Bearer ${API_KEY}` };
 
+  // ── Call EmailOctopus API v2 — create contact ─────────────────────────────
+  // POST /lists/{list_id}/contacts
+  // Auth: Bearer token in header — API key is never placed in the request body.
   let eoResponse;
   try {
     eoResponse = await fetch(
-      `https://emailoctopus.com/api/1.6/lists/${LIST_ID}/contacts`,
+      `${EO_BASE}/lists/${LIST_ID}/contacts`,
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: { "Content-Type": "application/json", ...authHeader },
+        body: JSON.stringify({
+          email_address: normalizedEmail,
+          fields: {
+            FirstName: (firstName || "").trim(),
+            MenopauseStage: stage.trim(),
+          },
+          status: "subscribed",
+        }),
       }
     );
   } catch (networkErr) {
-    console.error("[subscribe] Network error calling EmailOctopus:", networkErr);
+    console.error("[subscribe] Network error calling EmailOctopus:", networkErr.message);
     return {
       statusCode: 502,
       headers: CORS_HEADERS,
@@ -134,7 +138,7 @@ exports.handler = async function (event) {
     eoData = {};
   }
 
-  // ── Handle EmailOctopus response ──────────────────────────────────────────
+  // ── 2xx → success ─────────────────────────────────────────────────────────
   if (eoResponse.ok) {
     return {
       statusCode: 200,
@@ -143,23 +147,25 @@ exports.handler = async function (event) {
     };
   }
 
-  const errorCode = eoData?.error?.code || "";
+  // ── 409 already-exists → update MenopauseStage field, then return success ─
+  // v2 already-exists: HTTP 409, type URL contains "already-exists"
+  const isAlreadyExists =
+    eoResponse.status === 409 &&
+    typeof eoData?.type === "string" &&
+    eoData.type.includes("already-exists");
 
-  if (
-    errorCode === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS" ||
-    eoResponse.status === 409
-  ) {
-    // Contact already exists — update their MenopauseStage field
-    // (best-effort PATCH; ignore failures)
+  if (isAlreadyExists) {
+    // Best-effort PUT to update the MenopauseStage field for the existing contact.
+    // The v2 update-contact endpoint uses the contact's MD5-hashed email as the ID.
+    // We use the email address directly as the identifier (v2 accepts email or MD5).
     try {
-      const contactId = encodeURIComponent(email.trim().toLowerCase());
+      const contactId = encodeURIComponent(normalizedEmail);
       await fetch(
-        `https://emailoctopus.com/api/1.6/lists/${LIST_ID}/contacts/${contactId}`,
+        `${EO_BASE}/lists/${LIST_ID}/contacts/${contactId}`,
         {
           method: "PUT",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", ...authHeader },
           body: JSON.stringify({
-            api_key: API_KEY,
             fields: {
               FirstName: (firstName || "").trim() || undefined,
               MenopauseStage: stage.trim(),
@@ -167,22 +173,28 @@ exports.handler = async function (event) {
           }),
         }
       );
-    } catch {}
+    } catch { /* non-fatal: field update failure does not block the response */ }
 
     return {
-      statusCode: 409,
+      statusCode: 200,
       headers: CORS_HEADERS,
       body: JSON.stringify({ status: "already_subscribed" }),
     };
   }
 
-  console.error("[subscribe] EmailOctopus error:", eoData);
+  // ── All other non-2xx → surface EO error type, never log key or list ID ───
+  const errorSlug =
+    (typeof eoData?.type === "string"
+      ? eoData.type.split("/").pop()
+      : null) ||
+    String(eoResponse.status);
+  console.error("[subscribe] EmailOctopus error status:", eoResponse.status, "type:", errorSlug);
   return {
-    statusCode: 400,
+    statusCode: eoResponse.status >= 400 && eoResponse.status < 500 ? 400 : 502,
     headers: CORS_HEADERS,
     body: JSON.stringify({
       status: "error",
-      message: eoData?.error?.message || "Subscription failed. Please try again.",
+      message: errorSlug,
     }),
   };
 };
