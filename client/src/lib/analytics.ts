@@ -8,8 +8,8 @@
  * is injected by index.html. To set your real Measurement ID:
  *
  *   1. Open client/index.html
- *   2. Find the line:  window.__PAF_GA4_ID__ = "G-XXXXXXXXXX";
- *   3. Replace "G-XXXXXXXXXX" with your actual Measurement ID from
+ *   2. Find the line:  window.__PAF_GA4_ID__ = "G-P4BJFS5ZWH";
+ *   3. Replace "G-P4BJFS5ZWH" with your actual Measurement ID from
  *      Google Analytics → Admin → Data Streams → Web stream → Measurement ID
  *
  * ── Events fired ─────────────────────────────────────────────────────────────
@@ -46,7 +46,7 @@ export function initGA4(): void {
   if (typeof window === "undefined") return;
 
   const measurementId = window.__PAF_GA4_ID__;
-  if (!measurementId || measurementId === "G-XXXXXXXXXX") {
+  if (!measurementId || measurementId === "G-P4BJFS5ZWH") {
     // Placeholder not yet replaced — skip loading to avoid polluting GA
     if (import.meta.env.DEV) {
       console.info("[analytics] GA4 Measurement ID not configured — analytics disabled.");
