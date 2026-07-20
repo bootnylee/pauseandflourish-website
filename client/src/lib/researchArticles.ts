@@ -1468,6 +1468,66 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "RCT",
     "stage_id": "general",
     "date_added": "2026-07-13"
+  },
+  {
+    "id": "article-144",
+    "citation": "Balasubramanian I, Abhijita B, Krishnamoorthy Y, Gnanadhas J, Beg MJ, Menon V. Prevalence and incidence of depressive, anxiety, and insomnia symptoms in perimenopausal and postmenopausal women: Systematic review and meta-analysis. Gen Hosp Psychiatry. 2026 May-Jun;100:325-335. doi: 10.1016/j.genhosppsych.2026.03.010. Epub 2026 Mar 14. PMID: 41946603.",
+    "headline": "One in Three Perimenopausal Women Face Depression or Insomnia",
+    "takeaway": "This systematic review and meta-analysis of 102 studies (N=1,141,955) found that nearly one in three women experiences depressive, anxiety, or insomnia symptoms during the menopausal transition, with insomnia affecting 27% of perimenopausal women. Subgroup analyses revealed higher rates during early menopause, underscoring the need for routine mental health screening and integrated multidisciplinary care.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41946603/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-07-20"
+  },
+  {
+    "id": "article-145",
+    "citation": "Reddy S, Gopal A, Weber R, Bolton E, Kumar N, Markowitz A. Evaluating tools for assessing mental health disorders in perimenopausal women. Int J Gynaecol Obstet. 2026 Jun;173(3):1325-1333. doi: 10.1002/ijgo.70783. Epub 2025 Dec 31. PMID: 41476384.",
+    "headline": "Screening Tools Needed for Perimenopausal Mood and Cognitive Changes",
+    "takeaway": "This review identifies that perimenopausal women progress from irregular cycles to hot flashes, night sweats, and cognitive symptoms, with an increased risk of anxiety and depression regardless of prior psychiatric history. Validated screening tools including the PHQ-9, GAD-7, and menopause-specific instruments are essential for early identification of mood and cognitive changes during late perimenopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41476384/",
+    "study_type": "Review",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-07-20"
+  },
+  {
+    "id": "article-146",
+    "citation": "Whitman PW, Alexander CJ, Kaluta L, McDonough MH, Jordan MJ, Billington EO, Burt LA, Gabel L. Preventing muscle and bone loss in peri-menopausal and early post-menopausal females with heavy strength and impact training: Results from the STOP-EM randomised waitlisted controlled feasibility trial. Bone Rep. 2026 Jun 19;30:101931. doi: 10.1016/j.bonr.2026.101931. eCollection 2026 Sep. PMID: 42396128.",
+    "headline": "Heavy Strength Training Preserves Bone and Muscle at Menopause",
+    "takeaway": "A randomized controlled feasibility trial of 40 peri- and early postmenopausal women showed that nine months of twice-weekly heavy strength and impact training significantly increased lean mass, leg power, and lumbar spine bone mineral density compared to a waitlisted control group. These results support progressive resistance training as an effective strategy to counteract bone and muscle loss during the menopause transition.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42396128/",
+    "study_type": "RCT",
+    "stage_id": "active-menopause",
+    "date_added": "2026-07-20"
+  },
+  {
+    "id": "article-147",
+    "citation": "Lasfar A, van Stratum SLM, Imperatrice M, van Kalkeren CAJ, Scheijen JLJM, Schalkwijk CG, La Torre D, Troost FJ. Effects of olive leaf extract supplementation on systemic markers of tissue aging and remodeling in postmenopausal women: a randomized controlled trial with exploratory skin outcomes. Front Nutr. 2025 Nov 18;12:1670194. doi: 10.3389/fnut.2025.1670194. eCollection 2025. PMID: 41340653.",
+    "headline": "Olive Leaf Extract Shows Skin and Tissue Benefits in Postmenopausal Women",
+    "takeaway": "A 12-week randomized controlled trial of 65 postmenopausal women found that olive leaf extract supplementation reduced skin pore number and surface skewness, suggesting localized benefits for skin structure and extracellular matrix preservation. Although systemic markers of tissue aging were not significantly altered after correction for multiple testing, trends suggest potential modulation of pathways involved in collagen and cardiovascular health.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41340653/",
+    "study_type": "RCT",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-07-20"
+  },
+  {
+    "id": "article-148",
+    "citation": "Melville M, He L, Desai R, Nyamayaro P, Fox C, Kothari KU, Condron P, Miao M, Hickey M, Spector A. Menopause hormone therapy and risk of mild cognitive impairment or dementia: a systematic review and meta-analysis. Lancet Healthy Longev. 2025 Dec;6(12):100803. doi: 10.1016/j.lanhl.2025.100803. Epub 2025 Dec 22. PMID: 41448220.",
+    "headline": "Hormone Therapy Does Not Increase or Decrease Dementia Risk",
+    "takeaway": "This systematic review and meta-analysis of 10 studies (N=1,016,055) published in The Lancet Healthy Longevity found no significant association between menopause hormone therapy and the risk of mild cognitive impairment or dementia in postmenopausal women. The findings reinforce current clinical guidance that MHT should be prescribed based on symptom management and other risk-benefit considerations, not for dementia prevention.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41448220/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-07-20"
+  },
+  {
+    "id": "article-149",
+    "citation": "McNulty KL, Murphy M, Flynn E, Lane A, Muldoon A, Kealy R, Harrison M, Windle J, Heavey P. The Effectiveness of Lifestyle Interventions, Including Exercise, Diet, and Health Education on Symptoms Experienced During Perimenopause: A Systematic Review of Randomized Controlled Trials. J Aging Phys Act. 2025 Sep 23;34(3):380-403. doi: 10.1123/japa.2024-0226. Print 2026 Jun 1. PMID: 40992413.",
+    "headline": "Exercise and Education Help Manage Perimenopause Symptoms",
+    "takeaway": "A systematic review of 25 RCTs found that both exercise interventions and health education programs offer meaningful benefits in managing perimenopausal symptoms, though large between-study variances make it difficult to establish definitive evidence-based guidelines. The review highlights a notable gap in diet-only intervention research and calls for more rigorous, high-quality trials to determine optimal lifestyle prescriptions for the menopausal transition.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40992413/",
+    "study_type": "Systematic Review",
+    "stage_id": "general",
+    "date_added": "2026-07-20"
   }
 ];
 
