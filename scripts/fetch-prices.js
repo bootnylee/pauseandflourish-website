@@ -433,6 +433,21 @@ async function main() {
     fs.writeFileSync(PRODUCTS_FILE, newSource, "utf8");
   }
 
+  // ── Write lastSyncedAt timestamp on every successful live run ────────────────
+  // The client-side freshness gate reads lastSyncedAt from products.ts and hides
+  // numeric prices when it is older than 24 hours or missing.
+  if (!DRY_RUN) {
+    const syncTs = new Date().toISOString();
+    const currentData = fs.readFileSync(PRODUCTS_FILE, "utf8");
+    const updatedData = currentData.replace(
+      /export const lastSyncedAt:\s*string\s*=\s*"[^"]*";/,
+      `export const lastSyncedAt: string = "${syncTs}";`
+    );
+    if (updatedData !== currentData) {
+      fs.writeFileSync(PRODUCTS_FILE, updatedData, "utf8");
+    }
+  }
+
   const report = {
     generatedAt: new Date().toISOString(),
     mode: DRY_RUN ? "dry-run" : "live",

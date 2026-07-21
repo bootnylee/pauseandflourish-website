@@ -3527,3 +3527,11 @@ export function getComparisonsByCategory(categorySlug: string): Comparison[] {
 export function getComparisonBySlug(slug: string): Comparison | undefined {
   return comparisons.find((c) => c.slug === slug);
 }
+
+/**
+ * ISO timestamp of the last successful live Creators API price sync.
+ * Written by scripts/fetch-prices.js on every successful live run.
+ * If older than 24 hours (or missing), the price-rendering layer hides
+ * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
+ */
+export const lastSyncedAt: string = "2026-07-18T11:11:20.970Z";
