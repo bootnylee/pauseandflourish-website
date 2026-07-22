@@ -165,7 +165,7 @@ export const allProducts: Product[] = [
     price: "$29.99",
     rating: 4.3,
     reviewCount: 753,
-    heroImage: "https://m.media-amazon.com/images/I/510ZCNRfMgL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/31SpMHcGTFL._SL500_.jpg",
     summary: "Pausitivi-T is a comprehensive multi-symptom herbal blend featuring Sage, Chasteberry, and Black Cohosh to provide powerful relief for hot flashes, night sweats, and hormone imbalance.",
     pros: [
       "Combines multiple well-researched botanicals",
@@ -202,7 +202,7 @@ export const allProducts: Product[] = [
     price: "$24.99",
     rating: 4.1,
     reviewCount: 85,
-    heroImage: "https://m.media-amazon.com/images/I/71HHm6Tw8cL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/51aMo2SJWEL._SL500_.jpg",
     summary: "Qunol Menopause Relief is a hormone-free supplement combining the EstroG-100 herbal blend with Cognizin Citicoline and Vitamin B6 to specifically target brain fog, fatigue, and hot flashes.",
     pros: [
       "Features Cognizin Citicoline specifically for brain fog and focus",
@@ -239,7 +239,7 @@ export const allProducts: Product[] = [
     price: "$35.84",
     rating: 4.5,
     reviewCount: 1009,
-    heroImage: "https://m.media-amazon.com/images/I/61nXSHujxBL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41zz+5ctpSL._SL500_.jpg",
     summary: "New Chapter Estrotone is a premium herbal hormone balance supplement featuring Black Cohosh and Evening Primrose to effectively reduce hot flashes and night sweats without added hormones.",
     pros: [
       "Expertly formulated with Black Cohosh and Vitex",
@@ -259,7 +259,7 @@ export const allProducts: Product[] = [
     tags: ["black cohosh", "hot flashes", "night sweats", "herbal", "hormone-free"],
     shortDescription: "Premium herbal hormone balance supplement with Black Cohosh for hot flash relief.",
     fullReview: "New Chapter Estrotone is a meticulously crafted herbal supplement aimed at providing natural, hormone-free relief from the most common and disruptive symptoms of menopause: hot flashes and night sweats. New Chapter is known for its high-quality sourcing and formulation standards, and Estrotone is no exception. The formula centers on Black Cohosh, one of the most widely researched and traditionally used herbs for vasomotor symptoms.\n\nBeyond Black Cohosh, Estrotone includes a thoughtful blend of supporting botanicals. Evening Primrose provides essential fatty acids that support hormonal balance, while Schizandra and Vitex (Chaste Tree) offer adaptogenic and further hormonal support. Ginger and Rosemary are included not just for their antioxidant properties, but to aid in the digestion and absorption of the primary herbs.\n\nThe 60-count bottle offers a convenient one-a-day dosage, making it easy to incorporate into a daily routine. Women using Estrotone consistently report a significant decrease in the intensity and frequency of their hot flashes, leading to better sleep and improved daily comfort. For those seeking a premium, vegetarian, and completely hormone-free herbal approach to menopause management, New Chapter Estrotone is a highly reliable choice.",
-    priceDisplay: "$35.84",
+    priceDisplay: "$33.18",
     publishDate: "2026-07-20",
     authorId: "diane-kessler",
   },
@@ -297,7 +297,7 @@ export const allProducts: Product[] = [
     tags: ["black cohosh", "herbal", "non-hormonal", "hot flashes", "mood"],
     shortDescription: "Herbal hormone balance supplement with Black Cohosh and Evening Primrose to reduce hot flashes and night sweats.",
     fullReview: "New Chapter Estrotone is a comprehensive herbal supplement designed to provide natural, hormone-free relief for perimenopause and menopause symptoms. It combines well-researched botanicals like Black Cohosh, Evening Primrose Oil, and Schizandra to target hot flashes, night sweats, and mood swings. What sets Estrotone apart is its commitment to quality — it uses whole-food fermented ingredients for better absorption and is 100% vegetarian.\n\nThe formula is rooted in traditional herbal medicine and supported by modern quality standards. Black Cohosh has been studied in numerous clinical trials for its ability to reduce hot flash frequency and severity, while Evening Primrose Oil provides gamma-linolenic acid (GLA) to support hormonal balance. Vitex (Chaste Tree) rounds out the formula by supporting the body's natural progesterone production.\n\nWith over 1,000 Amazon reviews and Amazon's Choice designation, Estrotone has earned strong credibility among women seeking a gentle yet effective multi-symptom solution. Users consistently report improvements in hot flash frequency, sleep quality, and mood within 4–8 weeks of consistent use.\n\nFor women who prefer a whole-food, multi-herb approach over single-ingredient supplements, New Chapter Estrotone represents one of the best-formulated options on the market.",
-    priceDisplay: "$44.97",
+    priceDisplay: "$33.18",
     publishDate: "2026-06-29",
     authorId: "diane-kessler",
     editorNote: "Estrotone is the whole-food herbal option I recommend for women who want a comprehensive formula without synthetic ingredients. The quality of New Chapter's sourcing and fermentation process is genuinely superior.",
@@ -825,7 +825,7 @@ That cofactor approach matters. Vitamin D3 supports calcium absorption, vitamin 
 The product's clean-label positioning is also strong: plant-based, non-GMO, vegan, gluten-free, and soy-free. Those attributes make it a better fit for women who avoid animal-derived ingredients or want a supplement that aligns with a broader clean-label routine.
 
 Citracal remains the better budget and simplicity pick, but NATURELO Bone Strength is a compelling upgrade for women who want calcium plus D3, K2, magnesium, zinc, and vitamin C in one daily bone-support formula.`,
-    priceDisplay: "$27.95",
+    priceDisplay: "$23.75",
     publishDate: "2026-06-01",
     authorId: "diane-kessler",
     editorNote: "The D3 and K2 cofactor pairing is the reason I prefer comprehensive bone formulas over plain calcium for many postmenopausal women.",
@@ -865,7 +865,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
     shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
     fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
-    priceDisplay: "$15.29",
+    priceDisplay: "$14.97",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
@@ -1469,7 +1469,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     tags: ["vaginal dryness", "hyaluronic acid", "hormone-free", "estrogen-free", "GSM"],
     shortDescription: "A premium hormone-free vaginal insert delivering 5 mg hyaluronic acid for mild to moderate menopausal vaginal dryness.",
     fullReview: "Revaree addresses one of the most persistent postmenopausal concerns: vaginal dryness related to genitourinary syndrome of menopause. Unlike lubricants that primarily help during intimacy, Revaree is designed as a recurring vaginal moisturizer insert for everyday tissue comfort.\n\nThe formula is centered on hyaluronic acid, a moisture-binding compound already familiar in skincare and increasingly used in intimate-health products. The insert format is cleaner and more targeted than many gel applicators, which will appeal to women who want a structured routine rather than an on-demand lubricant.\n\nThe limitation is price. Revaree is significantly more expensive than Replens and aloe-based moisturizers, so it makes the most sense for women who have tried lower-cost products and want a more premium hyaluronic acid approach. Severe GSM symptoms, recurrent urinary symptoms, bleeding, or pain should still be discussed with a clinician.\n\nFor women seeking an estrogen-free vaginal moisturizer with strong consumer validation and a premium insert format, Revaree is one of the best-positioned products in the category.",
-    priceDisplay: "$123.18",
+    priceDisplay: "$139.98",
     publishDate: "2026-05-11",
     authorId: "diane-kessler",
     editorNote: "Revaree is expensive, but the hyaluronic acid insert format fills an important gap between basic moisturizers and prescription estrogen therapy.",
@@ -1526,7 +1526,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     price: "$25.99",
     rating: 4.2,
     reviewCount: 2240,
-    heroImage: "https://m.media-amazon.com/images/I/51d4uC2c4DL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41SbImQ4bnL._SL500_.jpg",
     summary: "Gynatrof is a hormone-free vaginal moisturizer that combines hyaluronic acid and vitamin E for women dealing with menopausal dryness, irritation, and daily intimate discomfort.",
     pros: [
       "Hormone-free formula suitable for estrogen-free routines",
@@ -1678,7 +1678,7 @@ The formula is a classic botanical blend: black cohosh for hot-flash support, ch
 The trade-off is that broad herbal blends are harder to evaluate clinically. Women who need soy-free, phytoestrogen-free, or medication-sensitive routines should be cautious with red clover, dong quai, and black cohosh combinations. Buyers who prefer standardized clinical evidence may still be better served by Remifemin, Estroven, or a specialty option such as Relizen.
 
 For budget-conscious women with mixed symptoms and no contraindications to the included botanicals, Natures Craft is a sensible comparison product. It earns its place as a value-oriented herbal alternative rather than a premium evidence-first recommendation.`,
-    priceDisplay: "$13.99",
+    priceDisplay: "$17.99",
     publishDate: "2026-05-25",
     authorId: "carol-beaumont",
     editorNote: "Natures Craft is the catalog's practical budget herbal blend: not the most clinically precise, but compelling for price-sensitive buyers with broad symptoms.",
@@ -2076,7 +2076,7 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
     tags: ["bone density", "calcium", "vitamin D3", "vitamin K2", "magnesium", "marine algae", "osteoporosis prevention"],
     shortDescription: "A whole-food bone supplement using plant-sourced marine algae calcium with vitamin D3, K2, and magnesium for comprehensive bone density support during and after menopause.",
     fullReview: "New Chapter Bone Strength Take Care is one of the most differentiated bone supplements in the menopause category because it sources its calcium from marine algae rather than conventional calcium carbonate or calcium citrate. The algae-derived calcium is accompanied by naturally occurring trace minerals including magnesium, silica, boron, strontium, and vanadium, which gives the formula a more complex mineral profile than most single-ingredient calcium supplements.\n\nThe formula also includes vitamin D3 at 1000 IU and vitamin K2 at 100mcg, which are the two co-factors most important for directing calcium into bone tissue rather than soft tissue. Magnesium is included at 33mg per serving, which supports both bone metabolism and muscle function. The combination of these four core nutrients in a single vegetarian tablet makes Bone Strength Take Care a genuinely comprehensive bone support formula rather than a basic calcium supplement.\n\nWith a 4.6-star rating and nearly 3,900 Amazon reviews, the product has strong consumer validation. The New Chapter brand has a long track record in the whole-food supplement space, and the non-GMO, certified gluten-free, and vegetarian positioning makes it accessible to a wide range of buyers.\n\nThe trade-off is price. At roughly $30 for a 120-tablet bottle, Bone Strength Take Care costs more per serving than conventional calcium carbonate supplements. The multiple-tablet-per-day dosing is also a consideration for women who prefer a single-capsule routine. Women who are already taking a separate vitamin D or K2 supplement should also review the combined dosage to avoid over-supplementation.\n\nFor women in active menopause through late postmenopause who are focused on long-term bone density and want a plant-sourced, whole-food calcium formula with D3 and K2 included, New Chapter Bone Strength Take Care is the strongest option in this catalog.",
-    priceDisplay: "$41.58",
+    priceDisplay: "$32.59",
     publishDate: "2026-06-15",
     authorId: "carol-beaumont",
     editorNote: "New Chapter Bone Strength is the go-to recommendation for women who specifically want plant-sourced calcium from marine algae rather than synthetic calcium carbonate, and who want D3 and K2 included in the same formula.",
@@ -3534,4 +3534,4 @@ export function getComparisonBySlug(slug: string): Comparison | undefined {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-07-18T11:11:20.970Z";
+export const lastSyncedAt: string = "2026-07-22T11:54:49.777Z";
