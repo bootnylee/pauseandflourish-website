@@ -825,7 +825,7 @@ That cofactor approach matters. Vitamin D3 supports calcium absorption, vitamin 
 The product's clean-label positioning is also strong: plant-based, non-GMO, vegan, gluten-free, and soy-free. Those attributes make it a better fit for women who avoid animal-derived ingredients or want a supplement that aligns with a broader clean-label routine.
 
 Citracal remains the better budget and simplicity pick, but NATURELO Bone Strength is a compelling upgrade for women who want calcium plus D3, K2, magnesium, zinc, and vitamin C in one daily bone-support formula.`,
-    priceDisplay: "$23.75",
+    priceDisplay: "$27.95",
     publishDate: "2026-06-01",
     authorId: "diane-kessler",
     editorNote: "The D3 and K2 cofactor pairing is the reason I prefer comprehensive bone formulas over plain calcium for many postmenopausal women.",
@@ -865,7 +865,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
     shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
     fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
-    priceDisplay: "$15.16",
+    priceDisplay: "$14.81",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
@@ -3534,4 +3534,4 @@ export function getComparisonBySlug(slug: string): Comparison | undefined {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-07-25T11:18:22.069Z";
+export const lastSyncedAt: string = "2026-07-26T11:24:25.414Z";
