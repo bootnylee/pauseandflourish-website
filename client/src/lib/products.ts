@@ -239,7 +239,7 @@ export const allProducts: Product[] = [
     price: "$44.99",
     rating: 4.2,
     reviewCount: 19179,
-    heroImage: "https://m.media-amazon.com/images/I/71PKy8Vi71L._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41hyKuNDCrL._SL500_.jpg",
     summary: "Amberen's 60-day supply provides the same clinically tested, succinate-based formula as the 30-day version, offering better value for long-term multi-symptom relief.",
     pros: [
       "Clinically tested formula targeting 12 menopause symptoms",
@@ -617,7 +617,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
     tags: ["stress", "anxiety", "GABA", "L-theanine", "gummies"],
     shortDescription: "A gummy-format ashwagandha and L-theanine supplement for stress and mood support during perimenopause.",
     fullReview: "OLLY Goodbye Stress combines ashwagandha (KSM-66, 150mg), L-theanine (100mg), and GABA (100mg) in a pleasant blackberry verbena gummy format. For perimenopausal women who struggle with supplement fatigue or pill aversion, the gummy format significantly improves adherence.\n\nAshwagandha (KSM-66) is the most clinically studied adaptogen for stress and cortisol regulation, with multiple RCTs demonstrating reductions in perceived stress, cortisol levels, and anxiety. L-theanine promotes calm focus without sedation, and GABA provides additional inhibitory neurotransmitter support.\n\nThe 150mg KSM-66 dose is at the lower end of the clinically effective range (typically 300–600mg), which is the main limitation of this product. For women with significant stress or anxiety, a higher-dose ashwagandha supplement may be more effective.\n\nFor women who want a pleasant, easy-to-take daily stress support supplement and are new to adaptogens, OLLY Goodbye Stress is an excellent entry point. The taste and convenience factor genuinely improve daily compliance.",
-    priceDisplay: "$11.72",
+    priceDisplay: "$12.88",
     publishDate: "2026-05-02",
     authorId: "diane-kessler",
     editorNote: "The gummy format makes a real difference for women who struggle to take multiple capsules daily. Compliance is half the battle with supplements.",
@@ -865,7 +865,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
     shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
     fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
-    priceDisplay: "$15.04",
+    priceDisplay: "$14.54",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
@@ -1021,7 +1021,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     tags: ["pelvic floor", "Kegel", "biofeedback", "urinary incontinence"],
     shortDescription: "A smart pelvic floor trainer with app-guided biofeedback that strengthens pelvic floor muscles to address incontinence and improve intimate health.",
     fullReview: "Pelvic floor weakness affects over 50% of menopausal women, contributing to stress urinary incontinence (leaking with coughing, sneezing, or exercise), urgency incontinence, and reduced intimate sensation. The Perifit is a Bluetooth-connected pelvic floor trainer that provides real-time biofeedback through a smartphone app, turning pelvic floor exercises into guided, gamified sessions.\n\nThe biofeedback element is the key differentiator from traditional Kegel exercises: many women perform Kegels incorrectly (bearing down instead of lifting), and the Perifit's real-time feedback ensures correct muscle engagement. Clinical studies on biofeedback-guided pelvic floor training show significantly better outcomes than unguided exercises.\n\nThe app includes structured programs for stress incontinence, urgency incontinence, and intimate wellness, with progressive difficulty levels. Most women see measurable improvement in 4–6 weeks of consistent use (10 minutes daily).\n\nFor women experiencing any degree of urinary incontinence or pelvic floor weakness, the Perifit is one of the most effective non-surgical interventions available. Pelvic floor physical therapists frequently recommend it as a home training tool between sessions.",
-    priceDisplay: "$119.20",
+    priceDisplay: "$149.00",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Pelvic floor health is the most overlooked aspect of menopause management. The Perifit makes the exercises actually work by ensuring you're doing them correctly.",
@@ -2492,7 +2492,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     price: "$32.95",
     rating: 4.6,
     reviewCount: 129679,
-    heroImage: "https://m.media-amazon.com/images/I/41m9RicudkL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41SK2Dyh7UL._SL500_.jpg",
     summary: "A highly-rated, unflavored collagen peptide powder that supports skin elasticity, hair thickness, and joint health during menopause.",
     pros: [
       "Hydrolyzed Type I & III collagen for better absorption",
@@ -2612,7 +2612,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     price: "$27.99",
     rating: 4.3,
     reviewCount: 16621,
-    heroImage: "https://m.media-amazon.com/images/I/71FuPwDnLCL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41VWFQkujrL._SL500_.jpg",
     summary: "Estroven Weight Management combines the brand's signature black cohosh and soy isoflavones with CQR-300 (Cissus quadrangularis) to address hot flashes while supporting healthy metabolism and weight management.",
     pros: [
       "Addresses both vasomotor symptoms and menopausal weight changes",
@@ -2650,7 +2650,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     price: "$69.99",
     rating: 4.3,
     reviewCount: 1384,
-    heroImage: "https://m.media-amazon.com/images/I/71tzoDIl9GL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41gLkqNvbvL._SL500_.jpg",
     summary: "Femmenessence MacaPause uses a proprietary, highly concentrated maca phenotype blend to support the body's own hormone production, rather than introducing external plant estrogens.",
     pros: [
       "Clinically proven to support hormone balance and reduce hot flashes",
@@ -2689,7 +2689,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     price: "$15.79",
     rating: 4.2,
     reviewCount: 2365,
-    heroImage: "https://m.media-amazon.com/images/I/713sG-EJgpL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41jggeaIP4L._SL500_.jpg",
     summary: "BioNude is an ultra-sensitive, hypoallergenic, water-based lubricant formulated without parabens, glycerin, or fragrances, making it ideal for the delicate, easily irritated tissues common in menopause.",
     pros: [
       "Hypoallergenic and ultra-sensitive formula",
@@ -3708,4 +3708,4 @@ export function getComparisonBySlug(slug: string): Comparison | undefined {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-07-27T13:15:52.447Z";
+export const lastSyncedAt: string = "2026-07-28T12:03:13.395Z";
