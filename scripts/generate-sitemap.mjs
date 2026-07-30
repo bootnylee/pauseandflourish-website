@@ -1,109 +1,124 @@
-// PauseAndFlourish.com — Sitemap Generator
-// Run: node scripts/generate-sitemap.mjs
-// Generates /client/public/sitemap.xml from product data
+/**
+ * PauseAndFlourish.com — Sitemap Generator
+ * ==========================================
+ * Reads ONLY from scripts/site-data.json (produced by extract-data.ts)
+ * so every <loc> in the output maps 1:1 to a route that actually renders
+ * real content.  No hardcoded slug lists — the sitemap can never drift
+ * from the live data again.
+ *
+ * Build order in netlify.toml:
+ *   npx tsx scripts/extract-data.ts   ← writes site-data.json
+ *   node scripts/generate-sitemap.mjs ← reads site-data.json, writes sitemap
+ *   pnpm build
+ *   node scripts/prerender.mjs
+ *
+ * Usage: node scripts/generate-sitemap.mjs
+ */
 
-import { writeFileSync } from "fs";
+import { readFileSync, writeFileSync, existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
+const ROOT = resolve(__dirname, "..");
+const DATA_PATH = resolve(__dirname, "site-data.json");
+const OUT_PATH = resolve(ROOT, "client", "public", "sitemap.xml");
 const BASE_URL = "https://pauseandflourish.com";
-const TODAY = new Date().toISOString().split("T")[0];
 
-// Static pages
-const staticPages = [
-  { url: "/", priority: "1.0", changefreq: "weekly" },
-  { url: "/reviews", priority: "0.9", changefreq: "weekly" },
-  { url: "/comparisons", priority: "0.9", changefreq: "weekly" },
-  { url: "/about", priority: "0.5", changefreq: "monthly" },
-  { url: "/quiz", priority: "0.8", changefreq: "monthly" },
-  { url: "/category/multi-symptom-supplements", priority: "0.8", changefreq: "weekly" },
-  { url: "/category/sleep-mood-support", priority: "0.8", changefreq: "weekly" },
-  { url: "/category/hot-flash-cooling", priority: "0.8", changefreq: "weekly" },
-  { url: "/category/bone-joint-health", priority: "0.8", changefreq: "weekly" },
-  { url: "/category/vaginal-intimate-health", priority: "0.8", changefreq: "weekly" },
-  { url: "/category/menopause-skincare", priority: "0.8", changefreq: "weekly" },
-  { url: "/category/fitness-pelvic-health", priority: "0.8", changefreq: "weekly" },
-  { url: "/category/cognitive-energy-support", priority: "0.8", changefreq: "weekly" },
-  { url: "/stage/early-perimenopause", priority: "0.7", changefreq: "monthly" },
-  { url: "/stage/late-perimenopause", priority: "0.7", changefreq: "monthly" },
-  { url: "/stage/active-menopause", priority: "0.7", changefreq: "monthly" },
-  { url: "/stage/early-postmenopause", priority: "0.7", changefreq: "monthly" },
-  { url: "/stage/late-postmenopause", priority: "0.7", changefreq: "monthly" },
-];
-
-// Product review slugs — updated weekly by weekly-update.mjs
-const productSlugs = [
-  "hum-fan-club-menopause-probiotic",
-  "vmagic-vulva-balm-menopause",
-  "thorne-hormone-advantage-dim",
-  "remifemin-menopause-supplement",
-  "estroven-complete-menopause-relief",
-  "bonafide-relizen-hot-flash-relief",
-  "natrol-melatonin-10mg-sleep-aid",
-  "doctors-best-magnesium-glycinate",
-  "olly-goodbye-stress-gummies",
-  "chill-pal-mesh-cooling-towel",
-  "bedfan-personal-bed-fan",
-  "amberen-multi-symptom-menopause-relief",
-  "citracal-petites-calcium-d3",
-  "garden-of-life-mykind-bone-strength",
-  "replens-long-lasting-vaginal-moisturizer",
-  "hyalogic-hyaluronic-acid-intimate-serum",
-  "vital-proteins-collagen-peptides",
-  "neutrogena-rapid-firming-retinol-serum",
-  "perifit-kegel-exerciser-app",
-  "optimum-nutrition-gold-standard-whey",
-  "double-wood-alpha-gpc-cognitive-support",
-  "nootropics-depot-rhodiola-rosea",
-  "jarrow-formulas-methyl-b12",
-];
-
-// Comparison slugs
-const comparisonSlugs = [
-  "hum-fan-club-vs-estroven-complete",
-  "vmagic-vulva-balm-vs-replens-vaginal-dryness",
-  "natures-craft-vs-remifemin-black-cohosh",
-  "remifemin-vs-estroven-complete",
-  "natrol-melatonin-vs-magnesium-glycinate",
-  "replens-vs-hyalogic-intimate-serum",
-  "vital-proteins-vs-neutrogena-rapid-firming",
-  "amberen-vs-bonafide-relizen",
-  "alpha-gpc-vs-rhodiola-rosea-brain-fog",
-];
-
-function buildSitemapEntry({ url, priority, changefreq, lastmod }) {
-  return `  <url>
-    <loc>${BASE_URL}${url}</loc>
-    <lastmod>${lastmod || TODAY}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-  </url>`;
+// ── Guard: site-data.json must exist (run extract-data.ts first) ─────────────
+if (!existsSync(DATA_PATH)) {
+  console.error("❌ scripts/site-data.json not found — run `npx tsx scripts/extract-data.ts` first");
+  process.exit(1);
 }
 
-const entries = [
-  ...staticPages.map(p => buildSitemapEntry({ ...p, lastmod: TODAY })),
-  ...productSlugs.map(slug => buildSitemapEntry({
-    url: `/review/${slug}`,
-    priority: "0.7",
-    changefreq: "monthly",
-    lastmod: TODAY,
-  })),
-  ...comparisonSlugs.map(slug => buildSitemapEntry({
-    url: `/comparison/${slug}`,
-    priority: "0.8",
-    changefreq: "monthly",
-    lastmod: TODAY,
-  })),
-];
+const data = JSON.parse(readFileSync(DATA_PATH, "utf8"));
+const {
+  allProducts = [],
+  comparisons = [],
+  categories = [],
+  menopauseStages = [],
+  authors = [],
+} = data;
 
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${entries.join("\n")}
-</urlset>`;
+const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
-const outputPath = resolve(__dirname, "../client/public/sitemap.xml");
-writeFileSync(outputPath, sitemap, "utf-8");
-console.log(`✅ Sitemap generated: ${outputPath}`);
-console.log(`   ${entries.length} URLs included`);
+// ── Helper: build a <url> entry ───────────────────────────────────────────────
+function urlEntry(path, { lastmod = today, changefreq = "monthly", priority = "0.7" } = {}) {
+  return [
+    "  <url>",
+    `    <loc>${BASE_URL}${path}</loc>`,
+    `    <lastmod>${lastmod}</lastmod>`,
+    `    <changefreq>${changefreq}</changefreq>`,
+    `    <priority>${priority}</priority>`,
+    "  </url>",
+  ].join("\n");
+}
+
+// ── Collect all URLs ──────────────────────────────────────────────────────────
+const entries = [];
+
+// Static pages
+entries.push(urlEntry("/",            { changefreq: "weekly",  priority: "1.0" }));
+entries.push(urlEntry("/reviews",     { changefreq: "weekly",  priority: "0.9" }));
+entries.push(urlEntry("/comparisons", { changefreq: "weekly",  priority: "0.9" }));
+entries.push(urlEntry("/about",       { changefreq: "monthly", priority: "0.5" }));
+entries.push(urlEntry("/methodology", { changefreq: "monthly", priority: "0.5" }));
+entries.push(urlEntry("/quiz",        { changefreq: "monthly", priority: "0.8" }));
+
+// Category pages — sourced from live categories data
+for (const cat of categories) {
+  entries.push(urlEntry(`/category/${cat.slug}`, { changefreq: "weekly", priority: "0.8" }));
+}
+
+// Stage pages — sourced from live menopauseStages data
+for (const stage of menopauseStages) {
+  entries.push(urlEntry(`/stage/${stage.slug}`, { changefreq: "monthly", priority: "0.7" }));
+}
+
+// Author pages — sourced from live authors data
+for (const author of authors) {
+  entries.push(urlEntry(`/author/${author.slug}`, { changefreq: "monthly", priority: "0.5" }));
+}
+
+// Product review pages — sourced from live allProducts data
+for (const product of allProducts) {
+  let lastmod = today;
+  if (product.publishDate) {
+    try {
+      lastmod = new Date(product.publishDate).toISOString().slice(0, 10);
+    } catch (_) { /* keep today */ }
+  }
+  entries.push(urlEntry(`/review/${product.slug}`, { lastmod, changefreq: "monthly", priority: "0.7" }));
+}
+
+// Comparison pages — sourced from live comparisons data
+for (const comp of comparisons) {
+  let lastmod = today;
+  if (comp.publishDate) {
+    try {
+      lastmod = new Date(comp.publishDate).toISOString().slice(0, 10);
+    } catch (_) { /* keep today */ }
+  }
+  entries.push(urlEntry(`/comparison/${comp.slug}`, { lastmod, changefreq: "monthly", priority: "0.8" }));
+}
+
+// ── Assemble XML ─────────────────────────────────────────────────────────────
+const xml = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  ...entries,
+  "</urlset>",
+  "",
+].join("\n");
+
+writeFileSync(OUT_PATH, xml, "utf8");
+
+console.log(`✅ Sitemap written to ${OUT_PATH}`);
+console.log(`   ${entries.length} URLs total`);
+console.log(`   Breakdown:`);
+console.log(`     Static pages:     6`);
+console.log(`     Category pages:   ${categories.length}`);
+console.log(`     Stage pages:      ${menopauseStages.length}`);
+console.log(`     Author pages:     ${authors.length}`);
+console.log(`     Review pages:     ${allProducts.length}`);
+console.log(`     Comparison pages: ${comparisons.length}`);
