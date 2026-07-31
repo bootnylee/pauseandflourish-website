@@ -297,7 +297,7 @@ export const allProducts: Product[] = [
     tags: ["black cohosh", "herbal", "non-hormonal", "hot flashes", "mood"],
     shortDescription: "Herbal hormone balance supplement with Black Cohosh and Evening Primrose to reduce hot flashes and night sweats.",
     fullReview: "New Chapter Estrotone is a comprehensive herbal supplement designed to provide natural, hormone-free relief for perimenopause and menopause symptoms. It combines well-researched botanicals like Black Cohosh, Evening Primrose Oil, and Schizandra to target hot flashes, night sweats, and mood swings. What sets Estrotone apart is its commitment to quality — it uses whole-food fermented ingredients for better absorption and is 100% vegetarian.\n\nThe formula is rooted in traditional herbal medicine and supported by modern quality standards. Black Cohosh has been studied in numerous clinical trials for its ability to reduce hot flash frequency and severity, while Evening Primrose Oil provides gamma-linolenic acid (GLA) to support hormonal balance. Vitex (Chaste Tree) rounds out the formula by supporting the body's natural progesterone production.\n\nWith over 1,000 Amazon reviews and Amazon's Choice designation, Estrotone has earned strong credibility among women seeking a gentle yet effective multi-symptom solution. Users consistently report improvements in hot flash frequency, sleep quality, and mood within 4–8 weeks of consistent use.\n\nFor women who prefer a whole-food, multi-herb approach over single-ingredient supplements, New Chapter Estrotone represents one of the best-formulated options on the market.",
-    priceDisplay: "$33.75",
+    priceDisplay: "$44.97",
     publishDate: "2026-06-29",
     authorId: "diane-kessler",
     editorNote: "Estrotone is the whole-food herbal option I recommend for women who want a comprehensive formula without synthetic ingredients. The quality of New Chapter's sourcing and fermentation process is genuinely superior.",
@@ -533,7 +533,7 @@ export const allProducts: Product[] = [
     tags: ["melatonin", "sleep", "time-release", "non-habit forming"],
     shortDescription: "The #1 melatonin brand in the US — a time-release 10mg formula that helps women fall asleep faster and stay asleep through the night.",
     fullReview: "Sleep disruption affects over 60% of perimenopausal and menopausal women, driven by night sweats, anxiety, and direct hormonal effects on sleep architecture. Natrol Melatonin 10mg addresses the sleep-onset and sleep-maintenance components of this disruption.\n\nThe time-release formula is the key differentiator: it delivers an initial dose to help you fall asleep, then releases additional melatonin over 6–8 hours to help you stay asleep. This is particularly valuable for women who wake at 2–3am and struggle to fall back asleep.\n\nWith nearly 29,000 Amazon reviews averaging 4.5 stars, Natrol is the most trusted melatonin brand in the US. At $12.99 for 60 tablets, it is also exceptional value.\n\nImportant note: 10mg is a high dose. If you are new to melatonin, starting with 3–5mg is advisable. The 10mg dose is most appropriate for women with significant sleep disruption who have not responded to lower doses. Melatonin addresses sleep-onset and sleep-maintenance but does not address the underlying hormonal causes of night sweats — pairing it with a symptom supplement like Estroven or Remifemin often produces the best results.",
-    priceDisplay: "$11.95",
+    priceDisplay: "$17.32",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Natrol 10mg time-release is my go-to recommendation for women who wake up in the middle of the night and can't fall back asleep.",
@@ -798,7 +798,7 @@ For women who have tried the major black cohosh or soy-based products without su
     price: "$27.95",
     rating: 4.6,
     reviewCount: 10989,
-    heroImage: "https://m.media-amazon.com/images/I/41g0PeXON7L._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/51AU4ztKAJL._SL500_.jpg",
     summary: "NATURELO Bone Strength combines plant-based calcium with magnesium, zinc, vitamin C, vitamin D3, and vitamin K2 for a comprehensive clean-label bone-health formula.",
     pros: [
       "Plant-based calcium sourced from marine algae",
@@ -865,7 +865,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
     shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
     fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
-    priceDisplay: "$14.61",
+    priceDisplay: "$14.84",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
@@ -1080,7 +1080,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     price: "$39.95",
     rating: 4.6,
     reviewCount: 19,
-    heroImage: "https://m.media-amazon.com/images/I/41aFgVA1rHL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/31EvJZjAWZL._SL500_.jpg",
     summary: "Real Mushrooms Lion's Mane Focus combines organic lion's mane fruiting-body extract with 200mg Alpha GPC choline for non-stimulant mental clarity and daily cognitive support.",
     pros: [
       "Combines lion's mane mushroom extract with Alpha GPC choline",
@@ -3708,4 +3708,4 @@ export function getComparisonBySlug(slug: string): Comparison | undefined {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-07-30T11:57:08.233Z";
+export const lastSyncedAt: string = "2026-07-31T12:06:04.739Z";

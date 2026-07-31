@@ -1,20 +1,19 @@
 {
-  "generatedAt": "2026-07-30T11:57:08.236Z",
+  "generatedAt": "2026-07-31T12:06:04.742Z",
   "mode": "live",
   "totalAsins": 63,
-  "updatedCount": 1,
+  "updatedCount": 5,
   "updated": [
-    "B000P9WSMY"
+    "B000P9WSMY",
+    "B01N169N8J",
+    "B0716RWHX4",
+    "B072SD2PNY",
+    "B0GP23MVCC"
   ],
   "flagged": [
     {
       "asin": "B0GMYXQJTN",
       "reason": "ItemNotAccessible",
-      "action": "left unchanged"
-    },
-    {
-      "asin": "B0GP23MVCC",
-      "reason": "InvalidParameterValue",
       "action": "left unchanged"
     }
   ]
