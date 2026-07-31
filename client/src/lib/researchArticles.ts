@@ -1528,9 +1528,68 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "Systematic Review",
     "stage_id": "general",
     "date_added": "2026-07-20"
+  },
+  {
+    "id": "article-150",
+    "citation": "Hedges MS, Hewings-Martin Y, Karam J, Castaneda R, Cunningham AC, Xu Y, Zhaunova L, Faubion SS, Shufelt CL. Global perspectives on perimenopause: a digital survey of knowledge and symptoms using the Flo application. Menopause. 2026 Jul 1;33(7):789-798. doi: 10.1097/GME.0000000000002730. PMID: 41603602.",
+    "headline": "Fatigue and Mood Top Self-Reported Early Perimenopause Symptoms Globally",
+    "takeaway": "A cross-sectional digital survey of 17,494 women from 158 countries found that while hot flashes are the most widely recognized perimenopause symptom, women aged 35 and older most commonly self-reported fatigue, physical and mental exhaustion, and irritability as their actual experiences. This global data highlights a critical knowledge gap between expected and lived perimenopause symptoms, underscoring the need for better education around early-stage mood and energy changes.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41603602/",
+    "study_type": "Cross-Sectional",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-07-31"
+  },
+  {
+    "id": "article-151",
+    "citation": "Huang J, Feng P, Tang R, Huang F, Fan Y, Yang X, Xie Z, Yang L, Ma X, Yang K, Zhang R, Liu G, Luo M, Chen R. Menopausal transition and metabolic syndrome risk: insights from the Chinese PALM longitudinal cohort. Climacteric. 2026 Jun;29(3):381-395. doi: 10.1080/13697137.2025.2591300. PMID: 41504257.",
+    "headline": "Metabolic Syndrome Risk Surges During the Menopausal Transition",
+    "takeaway": "A 20-year longitudinal cohort study of 841 Chinese women found that metabolic syndrome prevalence increased from 15% in the reproductive stage to nearly 44% in late postmenopause, with the highest odds occurring in early postmenopause. Vasomotor symptoms—including hot flashes—were significantly linked to central obesity and elevated triglycerides, identifying the late perimenopause transition as a critical window for metabolic screening and intervention.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41504257/",
+    "study_type": "Cohort Study",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-07-31"
+  },
+  {
+    "id": "article-152",
+    "citation": "Hirose A, Terauchi M, Hirata M, Matsuoka K, Umayahara K, Sakamoto M, Miyasaka N. Effects of Micronized Progesterone in Menopausal Hormone Replacement Therapy on Sleep. J Obstet Gynaecol Res. 2026 Jul;52(7):e70401. doi: 10.1111/jog.70401. PMID: 42454969.",
+    "headline": "Micronized Progesterone Improves Sleep Onset at Three Months",
+    "takeaway": "A retrospective observational study found that switching menopausal women from synthetic progestins to micronized progesterone significantly improved sleep induction and reduced nighttime awakenings at three months, though these benefits diminished by one year. Women without pre-existing sleep disorders experienced worsened sleep, suggesting that micronized progesterone's sedative effects via GABA receptors require careful patient selection and ongoing monitoring.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42454969/",
+    "study_type": "Observational",
+    "stage_id": "active-menopause",
+    "date_added": "2026-07-31"
+  },
+  {
+    "id": "article-153",
+    "citation": "Miller SJ, Choo J, Grundy L, Taylor S, Rogers GB. Genitourinary microbiota in older women: a persistent knowledge gap that limits clinical and research progress. Infect Immun. 2026 Jul 10:e0023426. doi: 10.1128/iai.00234-26. PMID: 42429817.",
+    "headline": "Genitourinary Microbiome Shapes Vaginal and Urinary Health After Menopause",
+    "takeaway": "This review highlights that genitourinary health in older postmenopausal women—including genitourinary syndrome of menopause, urinary incontinence, and recurrent UTIs—is substantially influenced by shifts in the genitourinary microbiome driven by estrogen decline, polypharmacy, and aging physiology. The authors call for age-specific, integrative research to translate microbiological insights into person-centered care strategies for postmenopausal vaginal and urinary health.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42429817/",
+    "study_type": "Review",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-07-31"
+  },
+  {
+    "id": "article-154",
+    "citation": "Amado-Riveros P, Riveros-Perez E. Hormone Therapy is Associated with Better Cognitive Performance in Postmenopausal Women: Insights from the National Health and Nutrition Examination Survey (NHANES). Ann Geriatr Med Res. 2026 Jun;30(2):236-245. doi: 10.4235/agmr.25.0180. Epub 2026 Feb 19. PMID: 42366122.",
+    "headline": "Hormone Therapy Linked to Better Cognitive Performance in Older Women",
+    "takeaway": "A cross-sectional analysis of 1,374 postmenopausal women from the NHANES database found that hormone therapy was significantly associated with better performance across multiple cognitive domains, including word recall, processing speed, and verbal fluency. The cognitive benefit was most pronounced between ages 65 and 70, suggesting a critical window during which hormone therapy may help attenuate age-related cognitive decline in late postmenopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42366122/",
+    "study_type": "Cross-Sectional",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-07-31"
+  },
+  {
+    "id": "article-155",
+    "citation": "Lin Y, Zheng J, Hu D, Ying Y, Zhu Y, Chen Z. Modulating the gut ecosystem dietary, probiotic, and novel interventions for bone health in postmenopausal women. Front Immunol. 2026 Jul 3;17:1814866. doi: 10.3389/fimmu.2026.1814866. PMID: 42490818.",
+    "headline": "Gut Microbiota Interventions Offer New Hope for Postmenopausal Bone Health",
+    "takeaway": "This comprehensive review highlights the emerging role of gut microbiota in regulating bone metabolism in postmenopausal women, operating through the brain-gut-bone axis, immune modulation, and metabolic byproducts such as short-chain fatty acids. Dietary interventions, probiotics, and prebiotics show promise as accessible, non-hormonal strategies for preventing and managing postmenopausal osteoporosis.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42490818/",
+    "study_type": "Review",
+    "stage_id": "general",
+    "date_added": "2026-07-31"
   }
 ];
-
 export function getArticlesByStage(stageId: ArticleStageId): ResearchArticle[] {
   return researchArticles.filter(a => a.stage_id === stageId);
 }
