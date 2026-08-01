@@ -617,7 +617,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
     tags: ["stress", "anxiety", "GABA", "L-theanine", "gummies"],
     shortDescription: "A gummy-format ashwagandha and L-theanine supplement for stress and mood support during perimenopause.",
     fullReview: "OLLY Goodbye Stress combines ashwagandha (KSM-66, 150mg), L-theanine (100mg), and GABA (100mg) in a pleasant blackberry verbena gummy format. For perimenopausal women who struggle with supplement fatigue or pill aversion, the gummy format significantly improves adherence.\n\nAshwagandha (KSM-66) is the most clinically studied adaptogen for stress and cortisol regulation, with multiple RCTs demonstrating reductions in perceived stress, cortisol levels, and anxiety. L-theanine promotes calm focus without sedation, and GABA provides additional inhibitory neurotransmitter support.\n\nThe 150mg KSM-66 dose is at the lower end of the clinically effective range (typically 300–600mg), which is the main limitation of this product. For women with significant stress or anxiety, a higher-dose ashwagandha supplement may be more effective.\n\nFor women who want a pleasant, easy-to-take daily stress support supplement and are new to adaptogens, OLLY Goodbye Stress is an excellent entry point. The taste and convenience factor genuinely improve daily compliance.",
-    priceDisplay: "$11.72",
+    priceDisplay: "$12.88",
     publishDate: "2026-05-02",
     authorId: "diane-kessler",
     editorNote: "The gummy format makes a real difference for women who struggle to take multiple capsules daily. Compliance is half the battle with supplements.",
@@ -694,7 +694,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
     tags: ["night sweats", "cooling blanket", "sleep", "hot flashes"],
     shortDescription: "A lightweight cooling blanket with Arc-Chill technology that absorbs body heat to keep hot sleepers comfortable through the night.",
     fullReview: "The Elegear Revolutionary Cooling Blanket is one of the most practical and affordable solutions for women experiencing night sweats and hot flashes during menopause. Using proprietary Arc-Chill 3.0 cooling fiber technology, the blanket actively absorbs and dissipates body heat, lowering skin temperature by up to 9°F on contact — providing the kind of immediate relief that powered cooling devices cost ten times more to achieve.\n\nThe reversible design is a thoughtful feature: one side features the cooling Arc-Chill fiber for hot nights, while the other side is crafted from 100% breathable Egyptian cotton for cooler evenings or seasonal transitions. This versatility makes it a year-round investment rather than a single-season purchase.\n\nWith over 30,000 reviews and a 4.4-star rating, it is one of the most validated cooling products on Amazon. Users consistently praise its ability to stay cool throughout the night without requiring electricity, water, or any setup. It is lightweight enough to layer over existing bedding and machine washable for easy care.\n\nFor women who have tried everything from room fans to cooling mattress toppers, the Elegear blanket offers a simple, effective, and budget-friendly alternative that works from the very first night.",
-    priceDisplay: "$22.09",
+    priceDisplay: "$28.49",
     publishDate: "2026-06-29",
     authorId: "carol-beaumont",
     editorNote: "At under $30, this blanket is the best value cooling solution in the entire catalog. The instant cool-to-touch sensation is genuinely impressive and the reversible design means you can use it year-round.",
@@ -865,7 +865,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
     shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
     fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
-    priceDisplay: "$14.84",
+    priceDisplay: "$14.68",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
@@ -1272,7 +1272,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     tags: ["cooling pillow", "night sweats", "hot flashes", "sleep", "drug-free"],
     shortDescription: "A shredded memory foam cooling pillow with breathable cover designed to reduce heat buildup and night sweat discomfort during menopause.",
     fullReview: "Night sweats affect up to 75% of menopausal women, and one of the most immediate interventions is optimizing the sleep environment. The QUTOOL Cooling Pillow addresses the heat-trapping problem of traditional memory foam pillows by using a shredded fill — individual foam pieces allow air to circulate between them, dissipating body heat more effectively than a solid foam core.\n\nThe pillow features a bamboo-derived cover that is both breathable and moisture-wicking, pulling sweat away from the skin rather than allowing it to pool. The CertiPUR-US certification confirms the foam is free from harmful chemicals including formaldehyde, heavy metals, and ozone-depleting substances.\n\nWith over 12,000 Amazon reviews averaging 4.4 stars, the QUTOOL has earned a loyal following among women who find that a cooler sleep surface meaningfully reduces the frequency with which night sweats wake them. The pillow does not prevent hot flashes — it simply reduces their impact on sleep quality by keeping the sleep surface cooler.\n\nFor women who want a simple, affordable, non-pharmaceutical intervention for night sweats, the QUTOOL Cooling Pillow is a practical starting point. Pair it with moisture-wicking sleepwear and a cooling mattress topper for maximum effect.",
-    priceDisplay: "$37.99",
+    priceDisplay: "$39.99",
     publishDate: "2026-05-04",
     authorId: "diane-kessler",
     editorNote: "A cooling pillow won't cure hot flashes, but it can make the difference between waking up three times a night and sleeping through. Worth the investment.",
@@ -2709,7 +2709,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     tags: ["lubricant", "hypoallergenic", "water-based", "sensitive skin", "intimate health"],
     shortDescription: "An ultra-sensitive, hypoallergenic water-based lubricant free of parabens and glycerin, perfect for easily irritated menopausal tissue.",
     fullReview: "Vaginal atrophy and dryness during menopause don't just cause discomfort; they make the delicate intimate tissues significantly more prone to irritation, micro-tears, and reactions to common chemical additives. Good Clean Love BioNude is formulated specifically for this heightened sensitivity, offering a minimalist, hypoallergenic solution for intimate lubrication.\n\nUnlike many commercial lubricants, BioNude is completely free of parabens, petrochemicals, artificial fragrances, and perhaps most importantly, glycerin—a common additive that can trigger yeast infections and irritation in sensitive women. The water-based formula utilizes hydroxyethylcellulose to provide a natural, slippery feel that closely mimics the body's own moisture without becoming sticky or leaving a difficult-to-wash residue.\n\nWhile it is an excellent lubricant for intimacy, it is important to note that it is not a long-lasting vaginal moisturizer designed for multi-day tissue hydration (for that, products like Replens or Revaree are better suited). However, for safe, comfortable, and irritation-free intimacy, BioNude is a standout product that respects the delicate balance of the postmenopausal vaginal environment.",
-    priceDisplay: "$15.79",
+    priceDisplay: "$14.99",
     publishDate: "2026-07-27",
     authorId: "diane-kessler",
   },
@@ -3714,4 +3714,4 @@ export function getComparisonBySlug(slug: string): Comparison | undefined {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-07-31T12:06:04.739Z";
+export const lastSyncedAt: string = "2026-08-01T11:23:08.313Z";
