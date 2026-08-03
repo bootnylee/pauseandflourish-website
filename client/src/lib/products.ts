@@ -617,7 +617,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
     tags: ["stress", "anxiety", "GABA", "L-theanine", "gummies"],
     shortDescription: "A gummy-format ashwagandha and L-theanine supplement for stress and mood support during perimenopause.",
     fullReview: "OLLY Goodbye Stress combines ashwagandha (KSM-66, 150mg), L-theanine (100mg), and GABA (100mg) in a pleasant blackberry verbena gummy format. For perimenopausal women who struggle with supplement fatigue or pill aversion, the gummy format significantly improves adherence.\n\nAshwagandha (KSM-66) is the most clinically studied adaptogen for stress and cortisol regulation, with multiple RCTs demonstrating reductions in perceived stress, cortisol levels, and anxiety. L-theanine promotes calm focus without sedation, and GABA provides additional inhibitory neurotransmitter support.\n\nThe 150mg KSM-66 dose is at the lower end of the clinically effective range (typically 300–600mg), which is the main limitation of this product. For women with significant stress or anxiety, a higher-dose ashwagandha supplement may be more effective.\n\nFor women who want a pleasant, easy-to-take daily stress support supplement and are new to adaptogens, OLLY Goodbye Stress is an excellent entry point. The taste and convenience factor genuinely improve daily compliance.",
-    priceDisplay: "$12.88",
+    priceDisplay: "$11.72",
     publishDate: "2026-05-02",
     authorId: "diane-kessler",
     editorNote: "The gummy format makes a real difference for women who struggle to take multiple capsules daily. Compliance is half the battle with supplements.",
@@ -865,7 +865,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
     shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
     fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
-    priceDisplay: "$14.45",
+    priceDisplay: "$14.68",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
@@ -1080,7 +1080,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     price: "$39.95",
     rating: 4.6,
     reviewCount: 19,
-    heroImage: "https://m.media-amazon.com/images/I/31EvJZjAWZL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41aFgVA1rHL._SL500_.jpg",
     summary: "Real Mushrooms Lion's Mane Focus combines organic lion's mane fruiting-body extract with 200mg Alpha GPC choline for non-stimulant mental clarity and daily cognitive support.",
     pros: [
       "Combines lion's mane mushroom extract with Alpha GPC choline",
@@ -1230,7 +1230,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     tags: ["black cohosh", "hot flashes", "vegan", "budget-friendly"],
     shortDescription: "A traditional, Non-GMO verified black cohosh root supplement for natural hot flash and night sweat relief.",
     fullReview: `Nature's Way Black Cohosh Root offers a straightforward, traditional approach to managing menopause symptoms. Unlike standardized extracts that isolate specific compounds, this supplement provides the whole root of the Cimicifuga racemosa plant, honoring traditional herbal practices for women's health.\n\nBlack cohosh is one of the most widely used non-hormonal botanicals for menopause, primarily utilized to reduce the frequency and severity of hot flashes and night sweats. With 540mg per capsule, this formula provides a robust dose. The product is Non-GMO Project Verified, vegan, and free from artificial colors, flavors, and preservatives.\n\nWith nearly 20,000 reviews averaging 4.4 stars, it has a proven track record of efficacy for many women. It represents an exceptional value at just over $10 for a 50-day supply (taking one capsule twice daily). While some women may prefer the precision of a standardized extract like Remifemin, Nature's Way provides a high-quality, whole-herb alternative that is gentle on the budget and effective for mild to moderate symptoms.`,
-    priceDisplay: "$9.99",
+    priceDisplay: "$11.99",
     publishDate: "2026-05-02",
     authorId: "diane-kessler",
     editorNote: "A reliable, clean, and affordable option for women who prefer whole-herb supplements over isolated extracts."
@@ -2709,7 +2709,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     tags: ["lubricant", "hypoallergenic", "water-based", "sensitive skin", "intimate health"],
     shortDescription: "An ultra-sensitive, hypoallergenic water-based lubricant free of parabens and glycerin, perfect for easily irritated menopausal tissue.",
     fullReview: "Vaginal atrophy and dryness during menopause don't just cause discomfort; they make the delicate intimate tissues significantly more prone to irritation, micro-tears, and reactions to common chemical additives. Good Clean Love BioNude is formulated specifically for this heightened sensitivity, offering a minimalist, hypoallergenic solution for intimate lubrication.\n\nUnlike many commercial lubricants, BioNude is completely free of parabens, petrochemicals, artificial fragrances, and perhaps most importantly, glycerin—a common additive that can trigger yeast infections and irritation in sensitive women. The water-based formula utilizes hydroxyethylcellulose to provide a natural, slippery feel that closely mimics the body's own moisture without becoming sticky or leaving a difficult-to-wash residue.\n\nWhile it is an excellent lubricant for intimacy, it is important to note that it is not a long-lasting vaginal moisturizer designed for multi-day tissue hydration (for that, products like Replens or Revaree are better suited). However, for safe, comfortable, and irritation-free intimacy, BioNude is a standout product that respects the delicate balance of the postmenopausal vaginal environment.",
-    priceDisplay: "$14.99",
+    priceDisplay: "$12.99",
     publishDate: "2026-07-27",
     authorId: "diane-kessler",
   },
@@ -3714,4 +3714,4 @@ export function getComparisonBySlug(slug: string): Comparison | undefined {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-08-02T11:21:53.020Z";
+export const lastSyncedAt: string = "2026-08-03T13:14:56.758Z";
