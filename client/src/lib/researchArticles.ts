@@ -1588,6 +1588,66 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "Review",
     "stage_id": "general",
     "date_added": "2026-07-31"
+  },
+  {
+    "id": "article-156",
+    "citation": "Gibson CJ, Ajmera M, O'Sullivan F, Shiozawa A, Lozano-Ortega G, Badillo EC, Venkataraman M, Mancuso S. A Systematic Review of Anxiety and Depressive Symptoms Among Women Experiencing Vasomotor Symptoms Across Reproductive Stages in the US. Int J Womens Health. 2025 Feb 27;17:537-552. doi: 10.2147/IJWH.S491640. eCollection 2025. PMID: 40034973.",
+    "headline": "Vasomotor Symptoms Strongly Linked to Anxiety and Depression",
+    "takeaway": "A systematic review of 26 studies found that vasomotor symptoms (hot flashes and night sweats) are consistently and strongly associated with both depressive symptoms and anxiety across all reproductive stages, with higher rates observed in women with more frequent or severe symptoms. These findings underscore the need for integrated mental health support alongside physical symptom management in early perimenopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40034973/",
+    "study_type": "Systematic Review",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-08-03"
+  },
+  {
+    "id": "article-157",
+    "citation": "Wu X, Chen W, Yong Q, Zeng Q, You J, Zeng K, Li T, Wei J, Xie Y, Xu T, Chen T. Limosilactobacillus reuteri NCU-37 alleviates leuprorelin-induced perimenopausal syndrome in infertile women by modulating the gut microbiota: a randomized controlled trial. Food Funct. 2026 Jan 12;17(1):565-576. doi: 10.1039/d5fo04330a. PMID: 41399984.",
+    "headline": "Probiotic Reduces Hot Flashes, Anxiety in Perimenopause",
+    "takeaway": "A randomized controlled trial of 100 women found that Limosilactobacillus reuteri NCU-37 supplementation significantly reduced hot flashes, night sweats, anxiety, depression, and insomnia scores compared to placebo in women with leuprorelin-induced perimenopausal syndrome. The probiotic also improved hormone levels and beneficially shifted gut microbiota composition, suggesting a gut-hormone axis mechanism for symptom relief.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41399984/",
+    "study_type": "RCT",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-08-03"
+  },
+  {
+    "id": "article-158",
+    "citation": "Moon HJ, Yu SN, Hur MH. Effects of cognitive behavioral therapy on sleep quality and insomnia severity index in women with menopausal insomnia: a systematic review and meta-analysis. Womens Health Nurs. 2025 Dec;31(4):304-319. doi: 10.4069/whn.2025.09.07. Epub 2025 Dec 31. PMID: 41531400.",
+    "headline": "CBT Significantly Improves Sleep in Menopausal Women",
+    "takeaway": "A systematic review and meta-analysis of 11 RCTs (n=973) found that cognitive behavioral therapy for insomnia (CBT-I) significantly improved sleep quality and reduced insomnia severity in menopausal women, with benefits consistent across face-to-face, telephone, and internet-based delivery formats. These findings support CBT-I as an effective, non-pharmacological first-line intervention for the insomnia that commonly accompanies active menopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41531400/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "active-menopause",
+    "date_added": "2026-08-03"
+  },
+  {
+    "id": "article-159",
+    "citation": "Bofill Rodriguez M, Yong LN, Mirkov S, Bekos C, Lethaby A, Farquhar C. Long-term hormone therapy for perimenopausal and postmenopausal women. Cochrane Database Syst Rev. 2025 Nov 27;11(11):CD004143. doi: 10.1002/14651858.CD004143.pub6. PMID: 41307293.",
+    "headline": "Cochrane Review Updates Long-Term Hormone Therapy Risk-Benefit Profile",
+    "takeaway": "This updated Cochrane systematic review of 24 trials (45,660 participants) found that oestrogen-only hormone therapy probably makes little to no difference to coronary events and breast cancer risk, but probably reduces fracture risk, while combined hormone therapy probably increases breast cancer risk and may increase stroke and thromboembolism risk. The review reinforces that hormone therapy risk profiles differ substantially between formulation types and should be individualized based on each woman's health history and timing of menopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41307293/",
+    "study_type": "Systematic Review",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-08-03"
+  },
+  {
+    "id": "article-160",
+    "citation": "Bai J, Huang W, Yan R, Du X. Effects of Combined Exercise and Calcium/Vitamin D Supplementation on Bone Mineral Density in Postmenopausal Women: A Systematic Review and Meta-Analysis. Nutrients. 2025 Dec 11;17(24):3866. doi: 10.3390/nu17243866. PMID: 41470812.",
+    "headline": "Exercise Plus Calcium and Vitamin D Boosts Bone Density",
+    "takeaway": "A systematic review and meta-analysis of 13 RCTs found that combining exercise with calcium and vitamin D supplementation significantly increased lumbar spine and femoral neck bone mineral density in postmenopausal women compared to supplementation alone, with whole-body vibration and mind-body exercises producing the greatest benefits. Shorter intervention durations of six months or less yielded the most pronounced gains, providing a practical, evidence-based strategy for skeletal health in late postmenopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41470812/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-08-03"
+  },
+  {
+    "id": "article-161",
+    "citation": "Luan H, Liu Q, Guo Y, Fan H, A S, Lin J. Effects of soy isoflavones on menopausal symptoms in perimenopausal women: a systematic review and meta-analysis. PeerJ. 2025 Jul 23;13:e19715. doi: 10.7717/peerj.19715. eCollection 2025. PMID: 40718787.",
+    "headline": "Soy Isoflavones Reduce Mood and Psychosocial Menopause Symptoms",
+    "takeaway": "A systematic review and meta-analysis of 12 RCTs found that soy isoflavones significantly improved overall menopausal symptoms, with notable effects on headache, psychosocial symptoms, palpitations, and depression in perimenopausal women. While no significant effect was observed on hot flushes or vasomotor symptoms, the findings support soy isoflavones as a dietary strategy for managing the psychological and neurological dimensions of the menopausal transition.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40718787/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "general",
+    "date_added": "2026-08-03"
   }
 ];
 export function getArticlesByStage(stageId: ArticleStageId): ResearchArticle[] {
