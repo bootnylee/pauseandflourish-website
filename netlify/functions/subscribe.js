@@ -24,8 +24,8 @@
  * }
  *
  * ── Response ─────────────────────────────────────────────────────────────────
- * 200  { "status": "success" }
- * 200  { "status": "already_subscribed" }   (contact existed; field updated)
+ * 200  { "ok": true, "status": "success" }
+ * 200  { "ok": true, "status": "already_subscribed" }   (contact existed; field updated)
  * 400  { "status": "error", "message": "<EO error type slug>" }
  * 503  { "status": "error", "message": "EmailOctopus not configured" }
  */
@@ -143,7 +143,7 @@ exports.handler = async function (event) {
     return {
       statusCode: 200,
       headers: CORS_HEADERS,
-      body: JSON.stringify({ status: "success" }),
+      body: JSON.stringify({ ok: true, status: "success" }),
     };
   }
 
@@ -178,7 +178,7 @@ exports.handler = async function (event) {
     return {
       statusCode: 200,
       headers: CORS_HEADERS,
-      body: JSON.stringify({ status: "already_subscribed" }),
+      body: JSON.stringify({ ok: true, status: "already_subscribed" }),
     };
   }
 
