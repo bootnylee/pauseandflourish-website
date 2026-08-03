@@ -2714,6 +2714,122 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     authorId: "diane-kessler",
   },
 
+
+  // ── New Reviews: Week of 2026-08-03 ───────────────────────────────────────
+  {
+    id: "move-free-ultra-triple-action",
+    slug: "move-free-ultra-triple-action-joint-supplement",
+    name: "Move Free Ultra Triple Action Joint Support Supplement",
+    brand: "Move Free",
+    asin: "B07VLJN7C6",
+    affiliateUrl: buildAffiliateUrl("B07VLJN7C6"),
+    category: "Bone & Joint Health",
+    categorySlug: "bone-joint-health",
+    stages: ["early-perimenopause", "late-perimenopause", "active-menopause", "early-postmenopause", "late-postmenopause"],
+    price: "$29.85",
+    rating: 4.6,
+    reviewCount: 9752,
+    heroImage: "https://m.media-amazon.com/images/I/71moLqLHE3L._AC_SL1500_.jpg",
+    summary: "Move Free Ultra Triple Action combines Type II Collagen, Boron, and Hyaluronic Acid into one tiny daily pill to support joint comfort, cartilage, and bones during the menopause transition.",
+    pros: [
+      "Requires only one tiny pill per day, much easier to swallow than large glucosamine tablets",
+      "Contains Type II Collagen which is specifically targeted for joint cartilage health",
+      "Includes Boron to support bone health and Vitamin D metabolism",
+      "Hyaluronic acid supports joint lubrication"
+    ],
+    cons: [
+      "Contains poultry/chicken ingredients (Type II Collagen source), not suitable for vegetarians",
+      "May take 4-8 weeks of consistent daily use to notice significant joint comfort improvements",
+      "Higher price point per serving compared to basic glucosamine/chondroitin supplements"
+    ],
+    ingredients: ["Proprietary Cartilage Blend (providing undenatured type II collagen)", "Boron (as boron glycinate)", "Hyaluronic Acid"],
+    verdict: "Move Free Ultra Triple Action is an excellent, convenient option for menopausal women experiencing joint stiffness who want a highly effective collagen-based formula in a single, easy-to-swallow daily pill.",
+    score: 8.9,
+    editorPick: false,
+    bestFor: "Women seeking a convenient, single-pill daily joint support supplement",
+    tags: ["joint health", "collagen", "type II collagen", "hyaluronic acid", "boron", "menopause joint pain"],
+    shortDescription: "A tiny, once-daily joint support pill featuring Type II Collagen, Boron, and Hyaluronic Acid to ease menopause-related joint discomfort.",
+    fullReview: "Joint pain and stiffness are frequently under-discussed symptoms of the menopause transition. As estrogen levels decline, the body's natural production of collagen decreases, and joint tissues can lose elasticity and lubrication. Move Free Ultra Triple Action is designed to address this specific type of structural discomfort.\n\nThe standout feature of this supplement is its convenience. Traditional joint supplements often require taking two or three large glucosamine/chondroitin horse pills daily. Move Free Ultra condenses its active ingredients into one tiny, easy-to-swallow tablet. The formula centers on Undenatured Type II Collagen, which works differently than the Type I & III collagen powders often used for skin health. Type II collagen is specifically preserved to interact with the immune system in the gut, helping to reduce joint inflammation and preserve existing cartilage.\n\nThe addition of Hyaluronic Acid supports synovial fluid for better joint lubrication, while Boron is a crucial trace mineral that supports bone health and helps the body metabolize Vitamin D and calcium. With over 9,700 reviews and a 4.6-star rating, this clinically-proven formula is highly validated by consumers. For menopausal women noticing new aches in their knees, hips, or hands, this targeted collagen formula offers a highly effective, low-hassle intervention.",
+    priceDisplay: "$29.85",
+    publishDate: "2026-08-03",
+    authorId: "diane-kessler"
+  },
+  {
+    id: "olay-collagen-peptide-moisturizer",
+    slug: "olay-collagen-peptide-face-moisturizer",
+    name: "Olay Collagen Peptide Face Moisturizer",
+    brand: "Olay",
+    asin: "B09GHN9129",
+    affiliateUrl: buildAffiliateUrl("B09GHN9129"),
+    category: "Menopause Skincare",
+    categorySlug: "menopause-skincare",
+    stages: ["late-perimenopause", "active-menopause", "early-postmenopause", "late-postmenopause"],
+    price: "$34.94",
+    rating: 4.5,
+    reviewCount: 3949,
+    heroImage: "https://m.media-amazon.com/images/I/719yNdIrUhL._SL1500_.jpg",
+    summary: "Olay Collagen Peptide Face Moisturizer is a fragrance-free, firming cream formulated with collagen peptides and Vitamin B3 (Niacinamide) to deeply hydrate and visibly firm thinning menopausal skin.",
+    pros: [
+      "Formulated with Collagen Peptides that penetrate the skin's surface for visible firming",
+      "Contains Niacinamide (Vitamin B3) to strengthen the skin moisture barrier",
+      "Fragrance-free and non-greasy formula, ideal for sensitive skin",
+      "Provides 24 hours of intense hydration without feeling heavy"
+    ],
+    cons: [
+      "Jar packaging exposes active ingredients to air and light when opened",
+      "Does not contain SPF, requiring a separate sunscreen for daytime use",
+      "Premium drugstore price point compared to basic moisturizers"
+    ],
+    ingredients: ["Collagen Peptide", "Niacinamide (Vitamin B3)", "Glycerin", "Panthenol"],
+    verdict: "Olay Collagen Peptide Moisturizer is a highly effective, accessible firming cream for menopausal skin, delivering the proven benefits of peptides and niacinamide in a gentle, fragrance-free formula.",
+    score: 8.7,
+    editorPick: false,
+    bestFor: "Women seeking a fragrance-free firming moisturizer for thinning, dry skin",
+    tags: ["skincare", "collagen peptide", "niacinamide", "firming cream", "fragrance-free", "menopause skincare"],
+    shortDescription: "A fragrance-free firming face cream powered by collagen peptides and niacinamide to hydrate and tighten menopausal skin.",
+    fullReview: "During the first five years of menopause, women can lose up to 30% of their skin's collagen, leading to noticeable thinning, sagging, and increased dryness. Olay Collagen Peptide Face Moisturizer is specifically formulated to address these structural changes with a highly effective, accessible formula.\n\nWhile applying whole collagen molecules topically is ineffective (the molecules are too large to penetrate the skin), Olay uses collagen peptides—smaller fragments of protein that can absorb into the skin's surface layers. These peptides signal the skin to produce more of its own collagen, helping to restore firmness and smooth fine lines over time. The formula pairs these peptides with Niacinamide (Vitamin B3), a powerhouse ingredient that strengthens the skin's protective barrier, improves uneven tone, and helps the skin retain moisture.\n\nThe texture is a standout feature: it provides intense, 24-hour hydration but absorbs quickly without leaving a greasy or sticky residue. It is also completely fragrance-free, making it an excellent choice for the increased skin sensitivity many women experience during hormonal shifts. With nearly 4,000 reviews and a 4.5-star rating, it is a trusted staple. For women looking to upgrade their moisturizer to address menopausal skin changes without spending department-store prices, this Olay peptide cream is a reliable, science-backed choice.",
+    priceDisplay: "$34.94",
+    publishDate: "2026-08-03",
+    authorId: "carol-beaumont"
+  },
+  {
+    id: "youtheory-ashwagandha-1000mg",
+    slug: "youtheory-ashwagandha-stress-mood-supplement",
+    name: "Youtheory Ashwagandha 1,000 mg",
+    brand: "Youtheory",
+    asin: "B0DY833VPB",
+    affiliateUrl: buildAffiliateUrl("B0DY833VPB"),
+    category: "Sleep & Mood Support",
+    categorySlug: "sleep-mood-support",
+    stages: ["early-perimenopause", "late-perimenopause", "active-menopause"],
+    price: "$25.19",
+    rating: 4.7,
+    reviewCount: 5875,
+    heroImage: "https://m.media-amazon.com/images/I/81iImW0VMjL._AC_SL1500_.jpg",
+    summary: "Youtheory Ashwagandha provides a potent 1,000 mg dose of clinically-supported KSM-66 organic ashwagandha root extract to help menopausal women manage stress, balance cortisol, and improve sleep quality.",
+    pros: [
+      "Uses KSM-66, the most clinically studied and highly concentrated ashwagandha root extract",
+      "High potency 1,000 mg dose per serving for maximum stress and cortisol support",
+      "Includes ginger extract to enhance absorption and bioavailability",
+      "Exceptional value with a large review base (18,000+ reviews)"
+    ],
+    cons: [
+      "Requires taking two capsules per serving",
+      "Ashwagandha can interact with thyroid medications and certain sedatives",
+      "May take 2-4 weeks of consistent use to notice significant mood and stress benefits"
+    ],
+    ingredients: ["Organic Ashwagandha Extract (KSM-66)", "Organic Ashwagandha Root Powder", "Ginger Root Extract"],
+    verdict: "Youtheory Ashwagandha is an outstanding, high-potency adaptogen supplement for women whose perimenopause experience is dominated by anxiety, elevated stress, and cortisol-driven sleep disruption.",
+    score: 8.8,
+    editorPick: true,
+    bestFor: "Women dealing with high stress, anxiety, and cortisol-related sleep issues",
+    tags: ["ashwagandha", "ksm-66", "stress relief", "cortisol balance", "mood support", "adaptogen"],
+    shortDescription: "A high-potency 1,000 mg KSM-66 Ashwagandha supplement designed to lower cortisol, reduce stress, and promote restful sleep during menopause.",
+    fullReview: "The hormonal fluctuations of perimenopause and menopause frequently trigger an exaggerated stress response, leading to anxiety, mood swings, and elevated cortisol levels that disrupt sleep. Youtheory Ashwagandha addresses this specific symptom cluster using one of the most effective adaptogenic herbs available in a highly potent formulation.\n\nThe supplement features KSM-66, a patented, organic full-spectrum extract of ashwagandha root that is backed by extensive clinical research. KSM-66 has been shown to significantly reduce serum cortisol levels, improve resistance to stress, and enhance sleep quality. Youtheory delivers a robust 1,000 mg dose per two-capsule serving, combining the KSM-66 extract with full-spectrum root powder and ginger extract to maximize absorption.\n\nFor menopausal women, managing cortisol is critical—when estrogen drops, cortisol often spikes, which can exacerbate hot flashes and cause the dreaded 'tired but wired' feeling at bedtime. By modulating this stress response, ashwagandha helps calm the nervous system naturally without acting as a sedative. With over 18,000 Amazon reviews and a 4.6-star rating, Youtheory offers exceptional quality and value. If your menopause transition feels like a constant state of stress and anxiety, this adaptogen is one of the most evidence-based interventions you can add to your routine.",
+    priceDisplay: "$25.19",
+    publishDate: "2026-08-03",
+    authorId: "diane-kessler"
+  },
 ];
 
 // ─── Helper Functions ─────────────────────────────────────────────────────────
@@ -3688,6 +3804,62 @@ export const comparisons: Comparison[] = [
     authorId: "diane-kessler",
   },
 
+
+  // ── New Comparisons: Week of 2026-08-03 ─────────────────────────────────
+  {
+    id: "move-free-ultra-vs-citracal-petites",
+    slug: "move-free-ultra-vs-citracal-petites",
+    title: "Move Free Ultra Triple Action vs. Citracal Petites",
+    subtitle: "Targeted joint cartilage repair vs. foundational bone density support",
+    category: "Bone & Joint Health",
+    categorySlug: "bone-joint-health",
+    productIds: ["move-free-ultra-triple-action", "citracal-calcium-d3"],
+    product1Id: "move-free-ultra-triple-action",
+    product2Id: "citracal-calcium-d3",
+    winner: "move-free-ultra-triple-action",
+    winnerId: "move-free-ultra-triple-action",
+    winnerReason: "For menopausal women specifically experiencing new joint stiffness and pain, Move Free's Type II collagen directly targets cartilage health, whereas calcium primarily maintains bone density.",
+    summary: "These two products address different aspects of menopausal structural health. Citracal Petites provides the essential calcium citrate and Vitamin D3 needed to prevent osteoporosis and maintain bone mass as estrogen declines. Move Free Ultra Triple Action uses Type II Collagen and Hyaluronic Acid to specifically target joint comfort, cartilage preservation, and lubrication.",
+    verdict: "If your primary concern is aching knees, stiff fingers, or general joint pain, Move Free Ultra is the winner. If your doctor has advised you to protect your bone density to prevent osteoporosis, Citracal Petites is the essential foundational supplement.",
+    publishDate: "2026-08-03",
+    authorId: "carol-beaumont"
+  },
+  {
+    id: "olay-collagen-peptide-vs-neutrogena-rapid-firming",
+    slug: "olay-collagen-peptide-vs-neutrogena-rapid-firming",
+    title: "Olay Collagen Peptide Moisturizer vs. Neutrogena Rapid Firming",
+    subtitle: "Hydrating collagen peptides vs. retinol-powered firming",
+    category: "Menopause Skincare",
+    categorySlug: "menopause-skincare",
+    productIds: ["olay-collagen-peptide-moisturizer", "neutrogena-rapid-firming"],
+    product1Id: "olay-collagen-peptide-moisturizer",
+    product2Id: "neutrogena-rapid-firming",
+    winner: "olay-collagen-peptide-moisturizer",
+    winnerId: "olay-collagen-peptide-moisturizer",
+    winnerReason: "Olay's fragrance-free peptide and niacinamide formula provides intense hydration and firming without the irritation and dryness often caused by retinol, making it ideal for sensitive menopausal skin.",
+    summary: "Both moisturizers target the loss of firmness and elasticity common in menopausal skin. Neutrogena Rapid Firming uses a combination of peptides and retinol to accelerate cell turnover. Olay Collagen Peptide relies on a potent blend of collagen peptides and niacinamide to strengthen the skin barrier and stimulate collagen production gently.",
+    verdict: "Olay Collagen Peptide is the winner for women who want visible firming and intense hydration without the potential irritation of retinol. It is especially suitable for the increased skin sensitivity and dryness many women experience during menopause.",
+    publishDate: "2026-08-03",
+    authorId: "diane-kessler"
+  },
+  {
+    id: "youtheory-ashwagandha-vs-olly-goodbye-stress",
+    slug: "youtheory-ashwagandha-vs-olly-goodbye-stress",
+    title: "Youtheory Ashwagandha vs. OLLY Goodbye Stress",
+    subtitle: "High-potency clinical adaptogen vs. gentle daytime gummy relief",
+    category: "Sleep & Mood Support",
+    categorySlug: "sleep-mood-support",
+    productIds: ["youtheory-ashwagandha-1000mg", "olly-goodbye-stress"],
+    product1Id: "youtheory-ashwagandha-1000mg",
+    product2Id: "olly-goodbye-stress",
+    winner: "youtheory-ashwagandha-1000mg",
+    winnerId: "youtheory-ashwagandha-1000mg",
+    winnerReason: "Youtheory provides a clinical 1,000 mg dose of KSM-66 ashwagandha for profound cortisol regulation, making it significantly more effective for the severe stress and anxiety often seen in perimenopause.",
+    summary: "OLLY Goodbye Stress offers a pleasant, low-dose gummy blend of GABA, L-Theanine, and a small amount of ashwagandha for mild, immediate daytime calm. Youtheory Ashwagandha is a serious, high-potency adaptogen supplement delivering 1,000 mg of clinically studied KSM-66 ashwagandha designed to fundamentally lower cortisol levels and improve stress resilience over time.",
+    verdict: "For women dealing with significant perimenopausal anxiety, mood swings, and cortisol-driven sleep issues, Youtheory Ashwagandha is the clear winner due to its clinical potency. OLLY is better suited for those who just want a mild, tasty gummy for occasional stressful moments.",
+    publishDate: "2026-08-03",
+    authorId: "carol-beaumont"
+  },
 ];
 
 /** Get a product by its id field (used by ComparisonCard and comparison pages) */
