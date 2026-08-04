@@ -1,16 +1,25 @@
 {
-  "generatedAt": "2026-08-03T13:14:56.761Z",
+  "generatedAt": "2026-08-04T12:06:53.393Z",
   "mode": "live",
-  "totalAsins": 63,
-  "updatedCount": 5,
+  "totalAsins": 66,
+  "updatedCount": 9,
   "updated": [
-    "B000KHMYR0",
+    "B000OD1F7U",
     "B000P9WSMY",
     "B01M1HYRNJ",
+    "B01N169N8J",
     "B075NTJ96W",
-    "B0GP23MVCC"
+    "B07VLJN7C6",
+    "B08DP545FG",
+    "B09GHN9129",
+    "B0DY833VPB"
   ],
   "flagged": [
+    {
+      "asin": "B0FJMNTKQ7",
+      "reason": "NoOffer",
+      "action": "left unchanged"
+    },
     {
       "asin": "B0GMYXQJTN",
       "reason": "ItemNotAccessible",

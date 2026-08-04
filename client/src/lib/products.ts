@@ -297,7 +297,7 @@ export const allProducts: Product[] = [
     tags: ["black cohosh", "herbal", "non-hormonal", "hot flashes", "mood"],
     shortDescription: "Herbal hormone balance supplement with Black Cohosh and Evening Primrose to reduce hot flashes and night sweats.",
     fullReview: "New Chapter Estrotone is a comprehensive herbal supplement designed to provide natural, hormone-free relief for perimenopause and menopause symptoms. It combines well-researched botanicals like Black Cohosh, Evening Primrose Oil, and Schizandra to target hot flashes, night sweats, and mood swings. What sets Estrotone apart is its commitment to quality — it uses whole-food fermented ingredients for better absorption and is 100% vegetarian.\n\nThe formula is rooted in traditional herbal medicine and supported by modern quality standards. Black Cohosh has been studied in numerous clinical trials for its ability to reduce hot flash frequency and severity, while Evening Primrose Oil provides gamma-linolenic acid (GLA) to support hormonal balance. Vitex (Chaste Tree) rounds out the formula by supporting the body's natural progesterone production.\n\nWith over 1,000 Amazon reviews and Amazon's Choice designation, Estrotone has earned strong credibility among women seeking a gentle yet effective multi-symptom solution. Users consistently report improvements in hot flash frequency, sleep quality, and mood within 4–8 weeks of consistent use.\n\nFor women who prefer a whole-food, multi-herb approach over single-ingredient supplements, New Chapter Estrotone represents one of the best-formulated options on the market.",
-    priceDisplay: "$44.97",
+    priceDisplay: "$31.90",
     publishDate: "2026-06-29",
     authorId: "diane-kessler",
     editorNote: "Estrotone is the whole-food herbal option I recommend for women who want a comprehensive formula without synthetic ingredients. The quality of New Chapter's sourcing and fermentation process is genuinely superior.",
@@ -617,7 +617,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
     tags: ["stress", "anxiety", "GABA", "L-theanine", "gummies"],
     shortDescription: "A gummy-format ashwagandha and L-theanine supplement for stress and mood support during perimenopause.",
     fullReview: "OLLY Goodbye Stress combines ashwagandha (KSM-66, 150mg), L-theanine (100mg), and GABA (100mg) in a pleasant blackberry verbena gummy format. For perimenopausal women who struggle with supplement fatigue or pill aversion, the gummy format significantly improves adherence.\n\nAshwagandha (KSM-66) is the most clinically studied adaptogen for stress and cortisol regulation, with multiple RCTs demonstrating reductions in perceived stress, cortisol levels, and anxiety. L-theanine promotes calm focus without sedation, and GABA provides additional inhibitory neurotransmitter support.\n\nThe 150mg KSM-66 dose is at the lower end of the clinically effective range (typically 300–600mg), which is the main limitation of this product. For women with significant stress or anxiety, a higher-dose ashwagandha supplement may be more effective.\n\nFor women who want a pleasant, easy-to-take daily stress support supplement and are new to adaptogens, OLLY Goodbye Stress is an excellent entry point. The taste and convenience factor genuinely improve daily compliance.",
-    priceDisplay: "$11.72",
+    priceDisplay: "$12.88",
     publishDate: "2026-05-02",
     authorId: "diane-kessler",
     editorNote: "The gummy format makes a real difference for women who struggle to take multiple capsules daily. Compliance is half the battle with supplements.",
@@ -865,7 +865,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
     shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
     fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
-    priceDisplay: "$14.68",
+    priceDisplay: "$14.45",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
@@ -1191,7 +1191,7 @@ The liquid sublingual format is the main practical differentiator. Instead of re
 This is a higher-potency product than many women need if B12 levels are already robust, so testing B12 status remains the best first step when fatigue is persistent or severe. That said, for women with low-normal B12, plant-forward diets, long-term acid-suppressing medication use, or unexplained fatigue, a bioactive liquid formula can be a smart choice.
 
 Triquetra is more expensive than basic B12 tablets, but the active-form spectrum and sublingual delivery justify the premium for women specifically prioritizing absorption and methylation support.`,
-    priceDisplay: "$21.99",
+    priceDisplay: "$18.69",
     publishDate: "2026-06-01",
     authorId: "carol-beaumont",
     editorNote: "For women with fatigue or brain fog, B12 testing is worth doing. If supplementation makes sense, active-form drops are one of the more absorption-friendly options.",
@@ -2472,7 +2472,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     tags: ["calcium", "magnesium", "zinc", "vitamin d3", "bone health", "osteoporosis prevention", "usp verified"],
     shortDescription: "A USP-verified, four-in-one bone health supplement combining calcium, magnesium, zinc, and vitamin D3 at exceptional value for menopausal women.",
     fullReview: `Bone density loss accelerates dramatically during the menopause transition. In the first five years after the final menstrual period, women can lose up to 20% of their bone density due to declining estrogen levels—estrogen plays a critical role in regulating osteoclast activity (the cells that break down bone). This makes adequate calcium, magnesium, and vitamin D supplementation not just beneficial but essential for women in perimenopause and beyond.\n\nNature Made Calcium Magnesium Zinc with Vitamin D3 is one of the most straightforward and cost-effective ways to address this need. Each serving of two tablets delivers 333mg of calcium, 133mg of magnesium, 5mg of zinc, and 200 IU of vitamin D3. While the individual doses are moderate, the formula is designed to complement dietary calcium intake rather than replace it, aligning with the current guidance that total daily calcium intake (from food and supplements combined) should be around 1,200mg for postmenopausal women.\n\nMagnesium plays a dual role here: it is essential for converting vitamin D into its active form, and it supports muscle relaxation and sleep quality—two areas commonly disrupted during menopause. Zinc contributes to bone matrix formation and immune function. The inclusion of vitamin D3 (the more bioavailable form compared to D2) ensures that the calcium can be properly absorbed in the gut.\n\nWith over 20,000 Amazon reviews averaging 4.8 stars and USP Verification for purity and label accuracy, this is one of the most trusted and validated bone health supplements available. At just $10.31 for a 300-tablet supply (approximately 150 days at two tablets per day), the value is exceptional and makes consistent supplementation financially accessible for all women.`,
-    priceDisplay: "$12.70",
+    priceDisplay: "$13.98",
     publishDate: "2026-07-06",
     authorId: "diane-kessler",
     editorNote: "This is the supplement I recommend to every woman who asks me where to start with bone health. The value is unmatched, and the USP verification gives me confidence in the quality.",
@@ -2709,7 +2709,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     tags: ["lubricant", "hypoallergenic", "water-based", "sensitive skin", "intimate health"],
     shortDescription: "An ultra-sensitive, hypoallergenic water-based lubricant free of parabens and glycerin, perfect for easily irritated menopausal tissue.",
     fullReview: "Vaginal atrophy and dryness during menopause don't just cause discomfort; they make the delicate intimate tissues significantly more prone to irritation, micro-tears, and reactions to common chemical additives. Good Clean Love BioNude is formulated specifically for this heightened sensitivity, offering a minimalist, hypoallergenic solution for intimate lubrication.\n\nUnlike many commercial lubricants, BioNude is completely free of parabens, petrochemicals, artificial fragrances, and perhaps most importantly, glycerin—a common additive that can trigger yeast infections and irritation in sensitive women. The water-based formula utilizes hydroxyethylcellulose to provide a natural, slippery feel that closely mimics the body's own moisture without becoming sticky or leaving a difficult-to-wash residue.\n\nWhile it is an excellent lubricant for intimacy, it is important to note that it is not a long-lasting vaginal moisturizer designed for multi-day tissue hydration (for that, products like Replens or Revaree are better suited). However, for safe, comfortable, and irritation-free intimacy, BioNude is a standout product that respects the delicate balance of the postmenopausal vaginal environment.",
-    priceDisplay: "$12.99",
+    priceDisplay: "$13.19",
     publishDate: "2026-07-27",
     authorId: "diane-kessler",
   },
@@ -2729,7 +2729,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     price: "$29.85",
     rating: 4.6,
     reviewCount: 9752,
-    heroImage: "https://m.media-amazon.com/images/I/71moLqLHE3L._AC_SL1500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41+zx9kRxGL._SL500_.jpg",
     summary: "Move Free Ultra Triple Action combines Type II Collagen, Boron, and Hyaluronic Acid into one tiny daily pill to support joint comfort, cartilage, and bones during the menopause transition.",
     pros: [
       "Requires only one tiny pill per day, much easier to swallow than large glucosamine tablets",
@@ -2767,7 +2767,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     price: "$34.94",
     rating: 4.5,
     reviewCount: 3949,
-    heroImage: "https://m.media-amazon.com/images/I/719yNdIrUhL._SL1500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41SRxLAPTWL._SL500_.jpg",
     summary: "Olay Collagen Peptide Face Moisturizer is a fragrance-free, firming cream formulated with collagen peptides and Vitamin B3 (Niacinamide) to deeply hydrate and visibly firm thinning menopausal skin.",
     pros: [
       "Formulated with Collagen Peptides that penetrate the skin's surface for visible firming",
@@ -2805,7 +2805,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     price: "$25.19",
     rating: 4.7,
     reviewCount: 5875,
-    heroImage: "https://m.media-amazon.com/images/I/81iImW0VMjL._AC_SL1500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/419lowzRYwL._SL500_.jpg",
     summary: "Youtheory Ashwagandha provides a potent 1,000 mg dose of clinically-supported KSM-66 organic ashwagandha root extract to help menopausal women manage stress, balance cortisol, and improve sleep quality.",
     pros: [
       "Uses KSM-66, the most clinically studied and highly concentrated ashwagandha root extract",
@@ -3886,4 +3886,4 @@ export function getComparisonBySlug(slug: string): Comparison | undefined {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-08-03T13:14:56.758Z";
+export const lastSyncedAt: string = "2026-08-04T12:06:53.390Z";
