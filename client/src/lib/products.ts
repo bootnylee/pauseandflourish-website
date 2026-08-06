@@ -277,7 +277,7 @@ export const allProducts: Product[] = [
     price: "$31.88",
     rating: 4.5,
     reviewCount: 1007,
-    heroImage: "https://m.media-amazon.com/images/I/41zz+5ctpSL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41GHX1+y-eL._SL500_.jpg",
     summary: "New Chapter Estrotone is a whole-food herbal supplement combining Black Cohosh, Evening Primrose Oil, and Vitex to provide comprehensive, hormone-free relief for hot flashes, night sweats, and mood swings.",
     pros: [
       "Clinically studied herbal ingredients including Black Cohosh",
@@ -353,7 +353,7 @@ export const allProducts: Product[] = [
     price: "$29.99",
     rating: 4.5,
     reviewCount: 892,
-    heroImage: "https://m.media-amazon.com/images/I/41XSs7Sr1DL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41hZ2gq-wGL._SL500_.jpg",
     summary: "Gaia Herbs Menopause Support Daytime uses liquid phyto-capsules with Vitex, Black Cohosh, and St. John's Wort to support daytime hormone balance, mood, and emotional well-being.",
     pros: [
       "Targets mood and emotional balance with St. John's Wort",
@@ -512,7 +512,7 @@ export const allProducts: Product[] = [
     price: "$12.99",
     rating: 4.5,
     reviewCount: 28943,
-    heroImage: "https://m.media-amazon.com/images/I/41t8fIzDP1L._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41nx5ZFPTxL._SL500_.jpg",
     summary: "Natrol Melatonin 10mg is the #1 melatonin brand in the US, offering a time-release formula that helps women fall asleep faster and stay asleep through the night.",
     pros: [
       "#1 melatonin brand in the US",
@@ -617,7 +617,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
     tags: ["stress", "anxiety", "GABA", "L-theanine", "gummies"],
     shortDescription: "A gummy-format ashwagandha and L-theanine supplement for stress and mood support during perimenopause.",
     fullReview: "OLLY Goodbye Stress combines ashwagandha (KSM-66, 150mg), L-theanine (100mg), and GABA (100mg) in a pleasant blackberry verbena gummy format. For perimenopausal women who struggle with supplement fatigue or pill aversion, the gummy format significantly improves adherence.\n\nAshwagandha (KSM-66) is the most clinically studied adaptogen for stress and cortisol regulation, with multiple RCTs demonstrating reductions in perceived stress, cortisol levels, and anxiety. L-theanine promotes calm focus without sedation, and GABA provides additional inhibitory neurotransmitter support.\n\nThe 150mg KSM-66 dose is at the lower end of the clinically effective range (typically 300–600mg), which is the main limitation of this product. For women with significant stress or anxiety, a higher-dose ashwagandha supplement may be more effective.\n\nFor women who want a pleasant, easy-to-take daily stress support supplement and are new to adaptogens, OLLY Goodbye Stress is an excellent entry point. The taste and convenience factor genuinely improve daily compliance.",
-    priceDisplay: "$11.72",
+    priceDisplay: "$12.88",
     publishDate: "2026-05-02",
     authorId: "diane-kessler",
     editorNote: "The gummy format makes a real difference for women who struggle to take multiple capsules daily. Compliance is half the battle with supplements.",
@@ -865,7 +865,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
     shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
     fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
-    priceDisplay: "$15.04",
+    priceDisplay: "$15.08",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
@@ -1209,7 +1209,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     price: "$11.16",
     rating: 4.4,
     reviewCount: 19926,
-    heroImage: "https://m.media-amazon.com/images/I/41poIRUg4iL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41xcNijgT0L._SL500_.jpg",
     summary: "A straightforward, traditional black cohosh root supplement providing natural relief for hot flashes and night sweats at an excellent value.",
     pros: [
       "Traditional herbal support for hot flashes",
@@ -1230,7 +1230,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     tags: ["black cohosh", "hot flashes", "vegan", "budget-friendly"],
     shortDescription: "A traditional, Non-GMO verified black cohosh root supplement for natural hot flash and night sweat relief.",
     fullReview: `Nature's Way Black Cohosh Root offers a straightforward, traditional approach to managing menopause symptoms. Unlike standardized extracts that isolate specific compounds, this supplement provides the whole root of the Cimicifuga racemosa plant, honoring traditional herbal practices for women's health.\n\nBlack cohosh is one of the most widely used non-hormonal botanicals for menopause, primarily utilized to reduce the frequency and severity of hot flashes and night sweats. With 540mg per capsule, this formula provides a robust dose. The product is Non-GMO Project Verified, vegan, and free from artificial colors, flavors, and preservatives.\n\nWith nearly 20,000 reviews averaging 4.4 stars, it has a proven track record of efficacy for many women. It represents an exceptional value at just over $10 for a 50-day supply (taking one capsule twice daily). While some women may prefer the precision of a standardized extract like Remifemin, Nature's Way provides a high-quality, whole-herb alternative that is gentle on the budget and effective for mild to moderate symptoms.`,
-    priceDisplay: "$9.98",
+    priceDisplay: "$11.99",
     publishDate: "2026-05-02",
     authorId: "diane-kessler",
     editorNote: "A reliable, clean, and affordable option for women who prefer whole-herb supplements over isolated extracts."
@@ -1788,7 +1788,7 @@ For women prioritizing gut health, digestive regularity, and broad symptom suppo
     price: "$15.99",
     rating: 3.9,
     reviewCount: 140,
-    heroImage: "https://m.media-amazon.com/images/I/311JTeEGfjL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41l0bDeHA9L._SL500_.jpg",
     summary: "HI FINE CARE Cooling Gel Pad offers a low-cost, no-refrigeration cooling surface for hot flashes, night sweats, headaches, muscle soreness, and overheated sleep.",
     pros: [
       "No refrigeration required",
@@ -2016,7 +2016,7 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
     price: "$13.99",
     rating: 4.3,
     reviewCount: 7107,
-    heroImage: "https://m.media-amazon.com/images/I/41lrAwx4xyL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41qzjI2x6mL._SL500_.jpg",
     summary: "Estroven Sleep Cool is a dual-action menopause supplement that combines black cohosh-based hot flash relief with melatonin and valerian root for improved sleep, making it one of the most accessible and well-reviewed sleep-focused menopause products on Amazon.",
     pros: [
       "Combines hot flash relief and sleep support in a single once-nightly capsule",
@@ -2055,7 +2055,7 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
     price: "$29.95",
     rating: 4.6,
     reviewCount: 3890,
-    heroImage: "https://m.media-amazon.com/images/I/4149uMCJY-L._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41GyYDMsaKL._SL500_.jpg",
     summary: "New Chapter Bone Strength Take Care delivers whole-food calcium from marine algae alongside vitamin D3, K2, and magnesium in a vegetarian tablet, offering a plant-sourced alternative to conventional calcium carbonate supplements for women focused on long-term bone density during and after menopause.",
     pros: [
       "Whole-food calcium sourced from marine algae rather than synthetic calcium carbonate",
@@ -2076,7 +2076,7 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
     tags: ["bone density", "calcium", "vitamin D3", "vitamin K2", "magnesium", "marine algae", "osteoporosis prevention"],
     shortDescription: "A whole-food bone supplement using plant-sourced marine algae calcium with vitamin D3, K2, and magnesium for comprehensive bone density support during and after menopause.",
     fullReview: "New Chapter Bone Strength Take Care is one of the most differentiated bone supplements in the menopause category because it sources its calcium from marine algae rather than conventional calcium carbonate or calcium citrate. The algae-derived calcium is accompanied by naturally occurring trace minerals including magnesium, silica, boron, strontium, and vanadium, which gives the formula a more complex mineral profile than most single-ingredient calcium supplements.\n\nThe formula also includes vitamin D3 at 1000 IU and vitamin K2 at 100mcg, which are the two co-factors most important for directing calcium into bone tissue rather than soft tissue. Magnesium is included at 33mg per serving, which supports both bone metabolism and muscle function. The combination of these four core nutrients in a single vegetarian tablet makes Bone Strength Take Care a genuinely comprehensive bone support formula rather than a basic calcium supplement.\n\nWith a 4.6-star rating and nearly 3,900 Amazon reviews, the product has strong consumer validation. The New Chapter brand has a long track record in the whole-food supplement space, and the non-GMO, certified gluten-free, and vegetarian positioning makes it accessible to a wide range of buyers.\n\nThe trade-off is price. At roughly $30 for a 120-tablet bottle, Bone Strength Take Care costs more per serving than conventional calcium carbonate supplements. The multiple-tablet-per-day dosing is also a consideration for women who prefer a single-capsule routine. Women who are already taking a separate vitamin D or K2 supplement should also review the combined dosage to avoid over-supplementation.\n\nFor women in active menopause through late postmenopause who are focused on long-term bone density and want a plant-sourced, whole-food calcium formula with D3 and K2 included, New Chapter Bone Strength Take Care is the strongest option in this catalog.",
-    priceDisplay: "$41.58",
+    priceDisplay: "$32.59",
     publishDate: "2026-06-15",
     authorId: "carol-beaumont",
     editorNote: "New Chapter Bone Strength is the go-to recommendation for women who specifically want plant-sourced calcium from marine algae rather than synthetic calcium carbonate, and who want D3 and K2 included in the same formula.",
@@ -2094,7 +2094,7 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
     price: "$39.97",
     rating: 4.3,
     reviewCount: 34177,
-    heroImage: "https://m.media-amazon.com/images/I/51xwuR3+GEL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/51-0d+8PuJL._SL500_.jpg",
     summary: "NEURIVA Plus is a clinically tested nootropic brain supplement combining Neurofactor coffee fruit extract and phosphatidylserine with B vitamins to support memory, focus, and concentration — making it one of the most reviewed and accessible cognitive support options for women experiencing menopause-related brain fog.",
     pros: [
       "Clinically tested Neurofactor and phosphatidylserine combination with over 34,000 Amazon reviews",
@@ -2431,7 +2431,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     tags: ["gummies", "hot flashes", "night sweats", "hormone-free", "rhapontic rhubarb", "capsule-free"],
     shortDescription: "Clinically proven ERr 731 Rhapontic Rhubarb Extract for hot flash and night sweat relief, now in a delicious mango passionfruit gummy format.",
     fullReview: `The menopause supplement market has long been dominated by capsules and tablets, but Estroven's new Complete Menopause Relief Gummies bring the brand's most clinically validated ingredient—ERr 731 Rhapontic Rhubarb Root Extract—into a format that significantly improves daily compliance for many women.\n\nERr 731 is one of the most rigorously studied non-hormonal ingredients for menopause relief. In randomized controlled trials, it has been shown to reduce hot flash frequency by up to 83% and significantly improve night sweat severity within 4 weeks of consistent use. The fact that Estroven has now made this ingredient available in a gummy is a meaningful development for the estimated 20–30% of women who have difficulty swallowing pills or who simply prefer a more enjoyable supplement experience.\n\nThe mango passionfruit flavor is genuinely pleasant without being overly sweet, and the use of citrus pectin (rather than gelatin) makes this a vegan-friendly option. At $24.99 for a 30-count supply, the price is reasonable and competitive with other premium menopause gummies on the market.\n\nAs a newer product launched in 2025, the review count is still building, but the 4.6-star average from early adopters is encouraging and consistent with the performance of the capsule formula. Women who have previously used Estroven Complete capsules and are switching to the gummy format report equivalent effectiveness with significantly better daily enjoyment. For women who are new to menopause supplements and want to start with the most accessible format, these gummies are an excellent entry point.`,
-    priceDisplay: "$24.99",
+    priceDisplay: "$23.24",
     publishDate: "2026-07-06",
     authorId: "diane-kessler",
     editorNote: "The gummy format removes one of the most common barriers to supplement compliance. If a woman tells me she forgets to take her capsules, I switch her to these immediately.",
@@ -2450,7 +2450,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     price: "$10.31",
     rating: 4.8,
     reviewCount: 20004,
-    heroImage: "https://m.media-amazon.com/images/I/41emY9lbrjL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41SKxdhAQbL._SL500_.jpg",
     summary: "Nature Made Calcium Magnesium Zinc with Vitamin D3 is a comprehensive, affordable bone health supplement that delivers four essential minerals and vitamins in a single tablet, specifically formulated to support bone density and reduce osteoporosis risk during and after menopause.",
     pros: [
       "Outstanding value at $10.31 for a 300-tablet (150-day) supply",
@@ -2729,7 +2729,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     price: "$29.85",
     rating: 4.6,
     reviewCount: 9752,
-    heroImage: "https://m.media-amazon.com/images/I/41+zx9kRxGL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/51N9PHvYdyL._SL500_.jpg",
     summary: "Move Free Ultra Triple Action combines Type II Collagen, Boron, and Hyaluronic Acid into one tiny daily pill to support joint comfort, cartilage, and bones during the menopause transition.",
     pros: [
       "Requires only one tiny pill per day, much easier to swallow than large glucosamine tablets",
@@ -2750,7 +2750,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     tags: ["joint health", "collagen", "type II collagen", "hyaluronic acid", "boron", "menopause joint pain"],
     shortDescription: "A tiny, once-daily joint support pill featuring Type II Collagen, Boron, and Hyaluronic Acid to ease menopause-related joint discomfort.",
     fullReview: "Joint pain and stiffness are frequently under-discussed symptoms of the menopause transition. As estrogen levels decline, the body's natural production of collagen decreases, and joint tissues can lose elasticity and lubrication. Move Free Ultra Triple Action is designed to address this specific type of structural discomfort.\n\nThe standout feature of this supplement is its convenience. Traditional joint supplements often require taking two or three large glucosamine/chondroitin horse pills daily. Move Free Ultra condenses its active ingredients into one tiny, easy-to-swallow tablet. The formula centers on Undenatured Type II Collagen, which works differently than the Type I & III collagen powders often used for skin health. Type II collagen is specifically preserved to interact with the immune system in the gut, helping to reduce joint inflammation and preserve existing cartilage.\n\nThe addition of Hyaluronic Acid supports synovial fluid for better joint lubrication, while Boron is a crucial trace mineral that supports bone health and helps the body metabolize Vitamin D and calcium. With over 9,700 reviews and a 4.6-star rating, this clinically-proven formula is highly validated by consumers. For menopausal women noticing new aches in their knees, hips, or hands, this targeted collagen formula offers a highly effective, low-hassle intervention.",
-    priceDisplay: "$29.85",
+    priceDisplay: "$29.90",
     publishDate: "2026-08-03",
     authorId: "diane-kessler"
   },
@@ -3886,4 +3886,4 @@ export function getComparisonBySlug(slug: string): Comparison | undefined {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-08-05T12:04:58.880Z";
+export const lastSyncedAt: string = "2026-08-06T12:08:00.369Z";
