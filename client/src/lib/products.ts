@@ -617,7 +617,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
     tags: ["stress", "anxiety", "GABA", "L-theanine", "gummies"],
     shortDescription: "A gummy-format ashwagandha and L-theanine supplement for stress and mood support during perimenopause.",
     fullReview: "OLLY Goodbye Stress combines ashwagandha (KSM-66, 150mg), L-theanine (100mg), and GABA (100mg) in a pleasant blackberry verbena gummy format. For perimenopausal women who struggle with supplement fatigue or pill aversion, the gummy format significantly improves adherence.\n\nAshwagandha (KSM-66) is the most clinically studied adaptogen for stress and cortisol regulation, with multiple RCTs demonstrating reductions in perceived stress, cortisol levels, and anxiety. L-theanine promotes calm focus without sedation, and GABA provides additional inhibitory neurotransmitter support.\n\nThe 150mg KSM-66 dose is at the lower end of the clinically effective range (typically 300–600mg), which is the main limitation of this product. For women with significant stress or anxiety, a higher-dose ashwagandha supplement may be more effective.\n\nFor women who want a pleasant, easy-to-take daily stress support supplement and are new to adaptogens, OLLY Goodbye Stress is an excellent entry point. The taste and convenience factor genuinely improve daily compliance.",
-    priceDisplay: "$12.88",
+    priceDisplay: "$11.72",
     publishDate: "2026-05-02",
     authorId: "diane-kessler",
     editorNote: "The gummy format makes a real difference for women who struggle to take multiple capsules daily. Compliance is half the battle with supplements.",
@@ -865,7 +865,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
     shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
     fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
-    priceDisplay: "$15.08",
+    priceDisplay: "$14.99",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
@@ -2472,7 +2472,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     tags: ["calcium", "magnesium", "zinc", "vitamin d3", "bone health", "osteoporosis prevention", "usp verified"],
     shortDescription: "A USP-verified, four-in-one bone health supplement combining calcium, magnesium, zinc, and vitamin D3 at exceptional value for menopausal women.",
     fullReview: `Bone density loss accelerates dramatically during the menopause transition. In the first five years after the final menstrual period, women can lose up to 20% of their bone density due to declining estrogen levels—estrogen plays a critical role in regulating osteoclast activity (the cells that break down bone). This makes adequate calcium, magnesium, and vitamin D supplementation not just beneficial but essential for women in perimenopause and beyond.\n\nNature Made Calcium Magnesium Zinc with Vitamin D3 is one of the most straightforward and cost-effective ways to address this need. Each serving of two tablets delivers 333mg of calcium, 133mg of magnesium, 5mg of zinc, and 200 IU of vitamin D3. While the individual doses are moderate, the formula is designed to complement dietary calcium intake rather than replace it, aligning with the current guidance that total daily calcium intake (from food and supplements combined) should be around 1,200mg for postmenopausal women.\n\nMagnesium plays a dual role here: it is essential for converting vitamin D into its active form, and it supports muscle relaxation and sleep quality—two areas commonly disrupted during menopause. Zinc contributes to bone matrix formation and immune function. The inclusion of vitamin D3 (the more bioavailable form compared to D2) ensures that the calcium can be properly absorbed in the gut.\n\nWith over 20,000 Amazon reviews averaging 4.8 stars and USP Verification for purity and label accuracy, this is one of the most trusted and validated bone health supplements available. At just $10.31 for a 300-tablet supply (approximately 150 days at two tablets per day), the value is exceptional and makes consistent supplementation financially accessible for all women.`,
-    priceDisplay: "$13.98",
+    priceDisplay: "$12.70",
     publishDate: "2026-07-06",
     authorId: "diane-kessler",
     editorNote: "This is the supplement I recommend to every woman who asks me where to start with bone health. The value is unmatched, and the USP verification gives me confidence in the quality.",
@@ -2750,7 +2750,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     tags: ["joint health", "collagen", "type II collagen", "hyaluronic acid", "boron", "menopause joint pain"],
     shortDescription: "A tiny, once-daily joint support pill featuring Type II Collagen, Boron, and Hyaluronic Acid to ease menopause-related joint discomfort.",
     fullReview: "Joint pain and stiffness are frequently under-discussed symptoms of the menopause transition. As estrogen levels decline, the body's natural production of collagen decreases, and joint tissues can lose elasticity and lubrication. Move Free Ultra Triple Action is designed to address this specific type of structural discomfort.\n\nThe standout feature of this supplement is its convenience. Traditional joint supplements often require taking two or three large glucosamine/chondroitin horse pills daily. Move Free Ultra condenses its active ingredients into one tiny, easy-to-swallow tablet. The formula centers on Undenatured Type II Collagen, which works differently than the Type I & III collagen powders often used for skin health. Type II collagen is specifically preserved to interact with the immune system in the gut, helping to reduce joint inflammation and preserve existing cartilage.\n\nThe addition of Hyaluronic Acid supports synovial fluid for better joint lubrication, while Boron is a crucial trace mineral that supports bone health and helps the body metabolize Vitamin D and calcium. With over 9,700 reviews and a 4.6-star rating, this clinically-proven formula is highly validated by consumers. For menopausal women noticing new aches in their knees, hips, or hands, this targeted collagen formula offers a highly effective, low-hassle intervention.",
-    priceDisplay: "$29.90",
+    priceDisplay: "$29.85",
     publishDate: "2026-08-03",
     authorId: "diane-kessler"
   },
@@ -3886,4 +3886,4 @@ export function getComparisonBySlug(slug: string): Comparison | undefined {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-08-06T12:08:00.369Z";
+export const lastSyncedAt: string = "2026-08-07T10:59:59.584Z";
