@@ -1,7 +1,7 @@
 # PauseAndFlourish.com — Netlify Configuration
 
 [build]
-  command = "pnpm install && npx tsx scripts/extract-data.ts && node scripts/generate-sitemap.mjs && pnpm build && node scripts/prerender.mjs"
+  command = "pnpm install && node scripts/validate-asins.mjs ${ASIN_VALIDATE:+--warn-only} && npx tsx scripts/extract-data.ts && node scripts/generate-sitemap.mjs && pnpm build && node scripts/prerender.mjs"
   publish = "dist/public"
   functions = "netlify/functions"
 
