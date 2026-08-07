@@ -11,12 +11,17 @@
  * Usage:
  *   node scripts/validate-asins.mjs [--warn-only]
  *
- * Environment variables:
- *   ASIN_VALIDATE=warn   → warn-only mode (don't block deploy)
- *   ASIN_VALIDATE=skip   → skip validation entirely
- *   PAAPI_ACCESS_KEY     → Amazon PA-API access key (optional, enables faster validation)
- *   PAAPI_SECRET_KEY     → Amazon PA-API secret key
- *   PAAPI_ASSOCIATE_TAG  → affiliate tag (default: pauseandflourish-20)
+ * Environment variables (set in Netlify dashboard → Site settings → Environment):
+ *   ASIN_VALIDATE=warn              → warn-only mode (don't block deploy)
+ *   ASIN_VALIDATE=skip              → skip validation entirely (emergency only)
+ *   CREATORS_API_CLIENT_ID          → Amazon Creators API client ID
+ *   CREATORS_API_CLIENT_SECRET      → Amazon Creators API client secret
+ *   CREATORS_API_PARTNER_TAG        → affiliate tag (default: pauseandflourish-20)
+ *   Credentials portal: https://affiliate-program.amazon.com/creatorsapi
+ *
+ * Auth: OAuth 2.0 client_credentials via Login with Amazon (LwA)
+ * Token endpoint: https://api.amazon.com/auth/o2/token
+ * API endpoint:   https://creatorsapi.amazon/catalog/v1/getItems
  */
 
 import { readFileSync } from "fs";
@@ -27,11 +32,20 @@ import https from "https";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, "..");
 const PRODUCTS_FILE = join(REPO_ROOT, "client/src/lib/products.ts");
-const AFFILIATE_TAG = process.env.PAAPI_ASSOCIATE_TAG || "pauseandflourish-20";
+
+// ── Creators API config ────────────────────────────────────────────────────
+const CREATORS_CLIENT_ID     = process.env.CREATORS_API_CLIENT_ID || "";
+const CREATORS_CLIENT_SECRET = process.env.CREATORS_API_CLIENT_SECRET || "";
+const PARTNER_TAG            = process.env.CREATORS_API_PARTNER_TAG || "pauseandflourish-20";
+const MARKETPLACE            = "www.amazon.com";
+
 const WARN_ONLY = process.argv.includes("--warn-only") || process.env.ASIN_VALIDATE === "warn";
-const SKIP = process.env.ASIN_VALIDATE === "skip";
+const SKIP      = process.env.ASIN_VALIDATE === "skip";
 const MATCH_THRESHOLD = 0.35;
-const REQUEST_DELAY_MS = 1500;
+const REQUEST_DELAY_MS = 1200;
+
+// Token cache
+let _tokenCache = { token: null, expiresAt: 0 };
 
 if (SKIP) {
   console.log("⚠  ASIN validation skipped (ASIN_VALIDATE=skip).");
@@ -44,29 +58,20 @@ if (SKIP) {
 function extractProducts(filePath) {
   const content = readFileSync(filePath, "utf-8");
   const products = [];
+  const seen = new Set();
 
-  // Match objects with both name and asin fields
-  const objPattern = /\{[^{}]*?name:\s*["']([^"']{3,100})["'][^{}]*?asin:\s*["']([A-Z0-9]{10})["'][^{}]*?\}/gs;
+  const objPattern  = /\{[^{}]*?name:\s*["']([^"']{3,100})["'][^{}]*?asin:\s*["']([A-Z0-9]{10})["'][^{}]*?\}/gs;
   const objPattern2 = /\{[^{}]*?asin:\s*["']([A-Z0-9]{10})["'][^{}]*?name:\s*["']([^"']{3,100})["'][^{}]*?\}/gs;
 
   let m;
-  const seen = new Set();
-
   while ((m = objPattern.exec(content)) !== null) {
     const key = `${m[1]}|${m[2]}`;
-    if (!seen.has(key)) {
-      seen.add(key);
-      products.push({ name: m[1].trim(), asin: m[2].trim() });
-    }
+    if (!seen.has(key)) { seen.add(key); products.push({ name: m[1].trim(), asin: m[2].trim() }); }
   }
   while ((m = objPattern2.exec(content)) !== null) {
     const key = `${m[2]}|${m[1]}`;
-    if (!seen.has(key)) {
-      seen.add(key);
-      products.push({ name: m[2].trim(), asin: m[1].trim() });
-    }
+    if (!seen.has(key)) { seen.add(key); products.push({ name: m[2].trim(), asin: m[1].trim() }); }
   }
-
   return products;
 }
 
@@ -79,7 +84,7 @@ function normalize(text) {
 
 function titleMatches(expected, amazonTitle) {
   if (!amazonTitle) return { matches: false, score: 0 };
-  const stop = new Set(["a", "an", "the", "for", "and", "or", "in", "on", "of", "to", "with", "lb", "lbs"]);
+  const stop = new Set(["a","an","the","for","and","or","in","on","of","to","with","lb","lbs","by","at","from"]);
   const expWords = new Set(normalize(expected).split(" ").filter(w => w.length > 1 && !stop.has(w)));
   const amzWords = new Set(normalize(amazonTitle).split(" ").filter(w => w.length > 1 && !stop.has(w)));
   if (expWords.size === 0) return { matches: true, score: 1 };
@@ -88,46 +93,137 @@ function titleMatches(expected, amazonTitle) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Amazon page scraping (fallback)
+// HTTP helper
 // ─────────────────────────────────────────────────────────────────────────────
-function fetchAmazonTitle(asin) {
-  return new Promise((resolve) => {
-    const url = `https://www.amazon.com/dp/${asin}`;
-    const options = {
-      hostname: "www.amazon.com",
-      path: `/dp/${asin}`,
-      method: "GET",
-      headers: {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
-        "Accept-Language": "en-US,en;q=0.9",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-      },
-      timeout: 12000,
-    };
-
-    const req = https.request(options, (res) => {
-      let data = "";
-      res.on("data", chunk => { data += chunk; });
-      res.on("end", () => {
-        if (res.statusCode === 404) {
-          resolve({ title: null, error: "ASIN not found (404)" });
-          return;
-        }
-        const m = data.match(/id="productTitle"[^>]*>\s*([^<]{5,300})/);
-        if (m) { resolve({ title: m[1].trim(), error: null }); return; }
-        const m2 = data.match(/<meta[^>]+property="og:title"[^>]+content="([^"]{5,300})"/);
-        if (m2) { resolve({ title: m2[1].trim(), error: null }); return; }
-        if (data.includes("robot") || data.includes("captcha")) {
-          resolve({ title: null, error: "Amazon bot-check" });
-        } else {
-          resolve({ title: null, error: "Title not found in page" });
-        }
-      });
-    });
-    req.on("error", (e) => resolve({ title: null, error: e.message }));
-    req.on("timeout", () => { req.destroy(); resolve({ title: null, error: "Request timeout" }); });
+function httpPost(hostname, path, headers, body) {
+  return new Promise((resolve, reject) => {
+    const data = typeof body === "string" ? body : JSON.stringify(body);
+    const req = https.request(
+      { hostname, path, method: "POST", headers: { ...headers, "Content-Length": Buffer.byteLength(data) }, timeout: 12000 },
+      (res) => {
+        let raw = "";
+        res.on("data", c => { raw += c; });
+        res.on("end", () => resolve({ status: res.statusCode, body: raw }));
+      }
+    );
+    req.on("error", reject);
+    req.on("timeout", () => { req.destroy(); reject(new Error("Request timeout")); });
+    req.write(data);
     req.end();
   });
+}
+
+function httpGet(hostname, path, headers) {
+  return new Promise((resolve, reject) => {
+    const req = https.request(
+      { hostname, path, method: "GET", headers, timeout: 12000 },
+      (res) => {
+        let raw = "";
+        res.on("data", c => { raw += c; });
+        res.on("end", () => resolve({ status: res.statusCode, body: raw }));
+      }
+    );
+    req.on("error", reject);
+    req.on("timeout", () => { req.destroy(); reject(new Error("Request timeout")); });
+    req.end();
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Creators API — OAuth 2.0 token + GetItems
+// ─────────────────────────────────────────────────────────────────────────────
+async function getAccessToken() {
+  const now = Date.now() / 1000;
+  if (_tokenCache.token && now < _tokenCache.expiresAt - 60) return _tokenCache.token;
+
+  const resp = await httpPost(
+    "api.amazon.com", "/auth/o2/token",
+    { "Content-Type": "application/json" },
+    JSON.stringify({
+      grant_type: "client_credentials",
+      client_id: CREATORS_CLIENT_ID,
+      client_secret: CREATORS_CLIENT_SECRET,
+      scope: "creatorsapi::default",
+    })
+  );
+  const data = JSON.parse(resp.body);
+  _tokenCache.token = data.access_token;
+  _tokenCache.expiresAt = now + (data.expires_in || 3600);
+  return _tokenCache.token;
+}
+
+async function creatorsApiLookup(asin) {
+  const token = await getAccessToken();
+  const resp = await httpPost(
+    "creatorsapi.amazon", "/catalog/v1/getItems",
+    {
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json",
+      "x-marketplace": MARKETPLACE,
+    },
+    JSON.stringify({
+      itemIds: [asin],
+      itemIdType: "ASIN",
+      marketplace: MARKETPLACE,
+      partnerTag: PARTNER_TAG,
+      resources: ["itemInfo.title", "images.primary.small", "offersV2.listings.price"],
+    })
+  );
+  return JSON.parse(resp.body);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Fallback: scrape public Amazon page
+// ─────────────────────────────────────────────────────────────────────────────
+async function scrapeAmazonTitle(asin) {
+  try {
+    const resp = await httpGet(
+      "www.amazon.com", `/dp/${asin}`,
+      {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0.0.0 Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      }
+    );
+    if (resp.status === 404) return { title: null, error: "ASIN not found (404)" };
+    const m = resp.body.match(/id="productTitle"[^>]*>\s*([^<]{5,300})/);
+    if (m) return { title: m[1].trim(), error: null };
+    const m2 = resp.body.match(/<meta[^>]+property="og:title"[^>]+content="([^"]{5,300})"/);
+    if (m2) return { title: m2[1].trim(), error: null };
+    if (resp.body.includes("robot") || resp.body.includes("captcha"))
+      return { title: null, error: "Amazon bot-check" };
+    return { title: null, error: "Title not found in page" };
+  } catch (e) {
+    return { title: null, error: e.message };
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Verify one ASIN
+// ─────────────────────────────────────────────────────────────────────────────
+async function verifyAsin(asin, name) {
+  // Try Creators API first
+  if (CREATORS_CLIENT_ID && CREATORS_CLIENT_SECRET) {
+    try {
+      const data = await creatorsApiLookup(asin);
+      const items = data?.itemsResult?.items || [];
+      if (items.length > 0) {
+        const title = items[0]?.itemInfo?.title?.displayValue || null;
+        const { matches, score } = titleMatches(name, title || "");
+        return { title, resolves: true, matches, score, source: "creators_api", error: null };
+      }
+      const errMsg = data?.errors?.[0]?.message || "No items returned";
+      return { title: null, resolves: false, matches: false, score: 0, source: "creators_api", error: errMsg };
+    } catch (e) {
+      // Fall through to scrape
+    }
+  }
+
+  // Fallback: scrape
+  const { title, error } = await scrapeAmazonTitle(asin);
+  if (error || !title) return { title: null, resolves: false, matches: false, score: 0, source: "scrape", error: error || "not found" };
+  const { matches, score } = titleMatches(name, title);
+  return { title, resolves: true, matches, score, source: "scrape", error: null };
 }
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
@@ -138,6 +234,7 @@ function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 async function main() {
   console.log(`\n${"=".repeat(60)}`);
   console.log(`ASIN Validation Gate — PauseAndFlourish`);
+  console.log(`Auth: ${CREATORS_CLIENT_ID ? "Creators API (OAuth 2.0)" : "public page scraping (fallback)"}`);
   console.log(`${"=".repeat(60)}`);
 
   const products = extractProducts(PRODUCTS_FILE);
@@ -149,23 +246,18 @@ async function main() {
 
   for (let i = 0; i < products.length; i++) {
     const { name, asin } = products[i];
-    const { title, error } = await fetchAmazonTitle(asin);
+    const result = await verifyAsin(asin, name);
 
-    if (error || !title) {
-      console.log(`  ✗ ${name} (${asin}): ${error || "not found"}`);
-      failed++;
-      failures.push({ product: name, asin, issue: error || "ASIN not found" });
+    if (result.resolves && result.matches) {
+      console.log(`  ✓ ${name} (${asin})`);
+      passed++;
     } else {
-      const { matches, score } = titleMatches(name, title);
-      if (matches) {
-        console.log(`  ✓ ${name} (${asin})`);
-        passed++;
-      } else {
-        const issue = `title mismatch (${Math.round(score * 100)}%): got "${title.slice(0, 60)}"`;
-        console.log(`  ✗ ${name} (${asin}): ${issue}`);
-        failed++;
-        failures.push({ product: name, asin, issue, amazon_title: title });
-      }
+      const issue = !result.resolves
+        ? (result.error || "ASIN not found")
+        : `title mismatch (${Math.round(result.score * 100)}%): got "${(result.title || "N/A").slice(0, 60)}"`;
+      console.log(`  ✗ ${name} (${asin}): ${issue}`);
+      failed++;
+      failures.push({ product: name, asin, issue, amazon_title: result.title });
     }
 
     if (i < products.length - 1) await sleep(REQUEST_DELAY_MS);
@@ -177,7 +269,6 @@ async function main() {
   if (failures.length > 0) {
     console.log(`\n⚠  ${failed} product(s) failed:`);
     failures.forEach(f => console.log(`   • ${f.product} (${f.asin}): ${f.issue}`));
-
     if (WARN_ONLY) {
       console.log("\n⚠  warn-only mode: deploy proceeding despite failures.");
       process.exit(0);
