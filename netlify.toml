@@ -8,6 +8,7 @@
 [build.environment]
   NODE_VERSION = "20"
   PNPM_VERSION = "10"
+  ASIN_VALIDATE = "warn"  # scrape-fallback is unreliable; Creators API creds live in Netlify dashboard
 
 # ── Domain normalization: www → non-www (301) ────────────────────────────────
 [[redirects]]
