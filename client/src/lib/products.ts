@@ -865,7 +865,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
     shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
     fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
-    priceDisplay: "$15.29",
+    priceDisplay: "$15.60",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
@@ -1230,7 +1230,7 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     tags: ["black cohosh", "hot flashes", "vegan", "budget-friendly"],
     shortDescription: "A traditional, Non-GMO verified black cohosh root supplement for natural hot flash and night sweat relief.",
     fullReview: `Nature's Way Black Cohosh Root offers a straightforward, traditional approach to managing menopause symptoms. Unlike standardized extracts that isolate specific compounds, this supplement provides the whole root of the Cimicifuga racemosa plant, honoring traditional herbal practices for women's health.\n\nBlack cohosh is one of the most widely used non-hormonal botanicals for menopause, primarily utilized to reduce the frequency and severity of hot flashes and night sweats. With 540mg per capsule, this formula provides a robust dose. The product is Non-GMO Project Verified, vegan, and free from artificial colors, flavors, and preservatives.\n\nWith nearly 20,000 reviews averaging 4.4 stars, it has a proven track record of efficacy for many women. It represents an exceptional value at just over $10 for a 50-day supply (taking one capsule twice daily). While some women may prefer the precision of a standardized extract like Remifemin, Nature's Way provides a high-quality, whole-herb alternative that is gentle on the budget and effective for mild to moderate symptoms.`,
-    priceDisplay: "$11.99",
+    priceDisplay: "$9.99",
     publishDate: "2026-05-02",
     authorId: "diane-kessler",
     editorNote: "A reliable, clean, and affordable option for women who prefer whole-herb supplements over isolated extracts."
@@ -3886,4 +3886,4 @@ export function getComparisonBySlug(slug: string): Comparison | undefined {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-08-09T10:42:06.274Z";
+export const lastSyncedAt: string = "2026-08-10T11:14:35.756Z";
