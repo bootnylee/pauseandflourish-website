@@ -1648,6 +1648,66 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "Meta-Analysis",
     "stage_id": "general",
     "date_added": "2026-08-03"
+  },
+  {
+    "id": "article-162",
+    "citation": "Lopresti AL, Smith SJ, Ferdinands FR. An examination into the safety and efficacy of Khapregesic®, a Khaya senegalensis preparation, on physical and psychological wellbeing in women experiencing menopausal symptoms: a randomised, double-blind, placebo-controlled trial. Front Reprod Health. 2026 Jun 2;8:1824321. doi: 10.3389/frph.2026.1824321. eCollection 2026. PMID: 42312188.",
+    "headline": "Herbal Supplement Improves Sleep and Mood in Postmenopausal Women",
+    "takeaway": "A 28-day randomized, double-blind, placebo-controlled trial of 140 peri- and postmenopausal women found that Khapregesic® (Khaya senegalensis) supplementation significantly improved psychological symptoms, fatigue, and sleep disturbances compared to placebo in the postmenopausal subgroup. While no overall group effect was detected across the full cohort, the subgroup findings suggest this herbal preparation may offer targeted benefits for early perimenopause-related mood and sleep disruption.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42312188/",
+    "study_type": "RCT",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-08-10"
+  },
+  {
+    "id": "article-163",
+    "citation": "Jung D, Park JY, Chung KM, Kim MR. Redefining menopausal care: a randomized trial of group CBT for vasomotor symptoms in Korean women. Climacteric. 2026 Jun 9:1-11. doi: 10.1080/13697137.2026.2661353. Online ahead of print. PMID: 42261852.",
+    "headline": "Group CBT Cuts Hot Flashes and Anxiety in Perimenopausal Women",
+    "takeaway": "A randomized controlled trial of 50 perimenopausal and postmenopausal Korean women found that an eight-session group cognitive behavioral therapy program significantly reduced vasomotor symptom frequency, distress, and daily interference, while also improving quality of life and anxiety with effects sustained at four-week follow-up. These findings support group-based CBT as an effective non-hormonal intervention for the hot flashes and anxiety characteristic of late perimenopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42261852/",
+    "study_type": "RCT",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-08-10"
+  },
+  {
+    "id": "article-164",
+    "citation": "Lumowa FSR, Kurniawati EM, Hardianto G. Efficacy and Safety of Radiofrequency as a Treatment Modality for Genitourinary Syndrome of Menopause: A Systematic Review and Meta-Analysis of Randomized Controlled Trials. Int Urogynecol J. 2026 Jul 30. doi: 10.1007/s00192-026-06818-x. Online ahead of print. PMID: 42530648.",
+    "headline": "Radiofrequency Therapy Offers Safe Option for Vaginal Dryness",
+    "takeaway": "A systematic review and meta-analysis of randomized controlled trials found that radiofrequency therapy significantly improved vaginal dryness, dyspareunia, and urinary symptoms associated with genitourinary syndrome of menopause, with a favorable safety profile. These findings position radiofrequency as a promising non-hormonal, non-pharmacological treatment option for women experiencing peak genitourinary symptoms during active menopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42530648/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "active-menopause",
+    "date_added": "2026-08-10"
+  },
+  {
+    "id": "article-165",
+    "citation": "Oka P, Moosa AS, Koh EYL, Ng CJ. Health and adverse events associated with extended oral bisphosphonates among postmenopausal women: a systematic review. J Clin Endocrinol Metab. 2026 Apr 22;111(5):e1226-e1238. doi: 10.1210/clinem/dgag057. PMID: 41668457.",
+    "headline": "Extended Bisphosphonate Use: Bone Benefits and Fracture Risks",
+    "takeaway": "A systematic review of 11 studies found that extending oral bisphosphonate therapy beyond five years in postmenopausal women increased bone mineral density at the hip and lumbar spine and reduced vertebral fracture risk, but also raised the risk of atypical femoral fractures. These nuanced findings underscore the need for individualized risk-benefit assessment when managing bone protection in early postmenopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41668457/",
+    "study_type": "Systematic Review",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-08-10"
+  },
+  {
+    "id": "article-166",
+    "citation": "Khadilkar S, Mahajan Bhanushali J, Mahto AP, Khadilkar S. Cognition in menopausal women. Int J Gynaecol Obstet. 2026 Mar 27. doi: 10.1002/ijgo.70944. Online ahead of print. PMID: 41902393.",
+    "headline": "Estrogen Decline Drives Cognitive Changes Across Six Brain Domains",
+    "takeaway": "This review synthesizes evidence that the estrogen decline of menopause impairs memory, attention, executive functioning, and social cognition, with verbal and working memory showing the most significant deterioration in late postmenopause. The authors recommend a comprehensive strategy combining hormone therapy initiated early in the menopausal transition, aerobic exercise, strength training, and a balanced diet to preserve cognitive resilience and reduce Alzheimer's disease risk.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41902393/",
+    "study_type": "Review",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-08-10"
+  },
+  {
+    "id": "article-167",
+    "citation": "Castaneda R, Tatit CP, Hurtado Andrade MD, Faubion SS, Shufelt CL. Dyslipidemia across the menopause transition: Mechanisms, trajectories, and opportunities for cardiovascular prevention. Maturitas. 2026 Jul 17;212:109058. doi: 10.1016/j.maturitas.2026.109058. Online ahead of print. PMID: 42468089.",
+    "headline": "Menopause Drives Cholesterol Spikes: Key Window for Heart Protection",
+    "takeaway": "This review from Mayo Clinic researchers demonstrates that estrogen decline during the menopause transition causes significant increases in LDL cholesterol and triglycerides independent of chronological aging, with the most pronounced changes occurring within one year of the final menstrual period. Mediterranean and DASH dietary patterns combined with regular aerobic or resistance exercise are the recommended first-line interventions, while statins remain the pharmacological standard when lifestyle modifications are insufficient.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42468089/",
+    "study_type": "Review",
+    "stage_id": "general",
+    "date_added": "2026-08-10"
   }
 ];
 export function getArticlesByStage(stageId: ArticleStageId): ResearchArticle[] {
