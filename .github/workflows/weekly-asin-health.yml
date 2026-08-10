@@ -1,0 +1,79 @@
+name: Weekly ASIN Health Check
+
+on:
+  schedule:
+    # Every Monday at 08:00 UTC
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+jobs:
+  asin-health:
+    name: Validate all ASINs and report dead links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: '10'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run ASIN validation (warn-only — never blocks)
+        id: validate
+        env:
+          ASIN_VALIDATE: warn
+          PAAPI_PARTNER_TAG: ${{ secrets.PAAPI_PARTNER_TAG }}
+          CREATORS_API_CLIENT_ID: ${{ secrets.CREATORS_API_CLIENT_ID }}
+          CREATORS_API_CLIENT_SECRET: ${{ secrets.CREATORS_API_CLIENT_SECRET }}
+        run: |
+          node scripts/validate-asins.mjs --warn-only 2>&1 | tee /tmp/asin_output.txt
+          echo "done"
+        continue-on-error: true
+
+      - name: Check for dead ASINs and open issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let output = '';
+            try {
+              output = fs.readFileSync('/tmp/asin_output.txt', 'utf8');
+            } catch (e) {
+              console.log('No output file found');
+              return;
+            }
+
+            const brokenLines = output.split('\n').filter(l =>
+              l.includes('BROKEN') || l.includes('NOT_FOUND') || l.includes('404') || l.includes('❌')
+            );
+
+            if (brokenLines.length === 0) {
+              console.log('✅ All ASINs healthy — no issue needed');
+              return;
+            }
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `ASIN HEALTH: ${brokenLines.length} dead ASIN(s) detected — ${new Date().toISOString().slice(0,10)}`,
+              body: [
+                `## Weekly ASIN Health Check — Dead ASINs Found`,
+                ``,
+                '```',
+                brokenLines.join('\n'),
+                '```',
+                ``,
+                `**Action required:** Replace dead ASINs with live equivalents before next weekly publish.`,
+                ``,
+                `Workflow run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+              ].join('\n'),
+              labels: ['asin-health'],
+            });
+            console.log(`⚠️ Opened issue for ${brokenLines.length} dead ASIN line(s)`);
