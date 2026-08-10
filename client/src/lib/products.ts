@@ -1959,7 +1959,7 @@ For buyers who want a modern mainstream supplement that addresses hot flashes, d
   {
     id: "metagenics-estrovera",
     slug: "metagenics-herwellness-estrovera-menopause-relief",
-    name: "Metagenics HerWellness Estrovera",
+    name: "Metagenics Estrovera",
     brand: "Metagenics",
     asin: "B005NKRJWE",
     affiliateUrl: buildAffiliateUrl("B005NKRJWE"),
@@ -2123,7 +2123,7 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
 
   // ── New Products: Week of 2026-06-22 ─────────────────────────────────────────
   {
-    id: "bonafide-thermella",
+    id: "bonafide-serenol",
     slug: "bonafide-thermella-hot-flash-supplement",
     name: "Bonafide Thermella Hot Flash & Night Sweat Relief",
     brand: "Bonafide",
@@ -2830,6 +2830,97 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     publishDate: "2026-08-03",
     authorId: "diane-kessler"
   },
+  {
+    id: "remifemin-good-night",
+    slug: "remifemin-good-night",
+    name: "Remifemin Good Night - Menopause Sleep Support",
+    brand: "Remifemin",
+    category: "sleep-mood-support",
+    categorySlug: "sleep-mood-support",
+    asin: "B0CNTRGL4W",
+    affiliateUrl: "https://www.amazon.com/dp/B0CNTRGL4W?tag=pauseandflourish-20",
+    heroImage: "https://images-na.ssl-images-amazon.com/images/P/B0CNTRGL4W.jpg",
+    fullReview: "Remifemin Good Night combines the clinically proven menopause symptom relief of RemiSure black cohosh extract with a specialized Restful Sleep Blend featuring valerian root extract. This estrogen-free formula, made in Germany, effectively targets both daytime hot flashes and nighttime sleep disturbances. By addressing the root cause of menopause-related sleep issues rather than just inducing drowsiness, it helps women achieve deeper, more restorative sleep while simultaneously reducing night sweats.",
+    pros: [
+      "Clinically proven RemiSure black cohosh extract",
+      "Dual-action formula for symptoms and sleep",
+      "Estrogen-free and safe for long-term use",
+      "Manufactured in Germany to high quality standards"
+    ],
+    cons: [
+      "May take several weeks to see full benefits",
+      "Valerian root has a distinct herbal scent"
+    ],
+    ingredients: [
+      "Black Cohosh Extract (RemiSure)",
+      "Valerian Root Extract",
+      "Hops Extract",
+      "Lemon Balm Extract"
+    ],
+    score: 9.1,
+    publishDate: "2026-08-10"
+  },
+  {
+    id: "dr-tobias-omega-3",
+    slug: "dr-tobias-omega-3",
+    name: "Dr. Tobias Omega 3 Fish Oil Triple Strength",
+    brand: "Dr. Tobias",
+    category: "cognitive-energy-support",
+    categorySlug: "cognitive-energy-support",
+    asin: "B00CAZAU62",
+    affiliateUrl: "https://www.amazon.com/dp/B00CAZAU62?tag=pauseandflourish-20",
+    heroImage: "https://images-na.ssl-images-amazon.com/images/P/B00CAZAU62.jpg",
+    fullReview: "Dr. Tobias Triple Strength Omega 3 Fish Oil delivers an exceptionally high dose of essential fatty acids (800mg EPA and 600mg DHA per serving) crucial for women navigating menopause. Omega-3s are vital for combating the brain fog, joint stiffness, and cardiovascular changes that often accompany declining estrogen levels. The enteric-coated softgels ensure optimal absorption in the intestines rather than the stomach, effectively eliminating the unpleasant 'fish burps' common with lower-quality supplements. The oil is molecularly distilled to remove heavy metals and toxins.",
+    pros: [
+      "High potency (1400mg total Omega-3s per serving)",
+      "Enteric coating prevents fishy aftertaste",
+      "Supports cognitive function, heart, and joint health",
+      "NSF Certified and molecularly distilled for purity"
+    ],
+    cons: [
+      "Large softgels may be difficult for some to swallow",
+      "Requires taking two softgels daily"
+    ],
+    ingredients: [
+      "Fish Oil (2000mg)",
+      "EPA (800mg)",
+      "DHA (600mg)"
+    ],
+    score: 9.3,
+    publishDate: "2026-08-10"
+  },
+  {
+    id: "gynable-urocollagen",
+    slug: "gynable-urocollagen",
+    name: "Gynable UroCollagen Bladder Control Powder",
+    brand: "Gynable",
+    category: "fitness-pelvic-health",
+    categorySlug: "fitness-pelvic-health",
+    asin: "B0F8MF34Y5",
+    affiliateUrl: "https://www.amazon.com/dp/B0F8MF34Y5?tag=pauseandflourish-20",
+    heroImage: "https://images-na.ssl-images-amazon.com/images/P/B0F8MF34Y5.jpg",
+    fullReview: "Gynable UroCollagen offers a comprehensive, multi-ingredient approach to pelvic floor health and bladder control during menopause. This Italian-made powder supplement combines targeted collagen peptides with creatine, black cohosh, and magnesium to strengthen pelvic floor muscles from within while balancing hormones. It specifically addresses urinary urgency, frequency, and occasional leakage that many women experience as estrogen declines. The powder format makes it easy to incorporate into daily smoothies or water, offering a drug-free alternative to traditional bladder medications.",
+    pros: [
+      "Comprehensive formula targeting muscle strength and hormones",
+      "Easy-to-use daily powder sachet format",
+      "Hormone-free and drug-free",
+      "Manufactured in Italy to high quality standards"
+    ],
+    cons: [
+      "Premium price point for a 30-day supply",
+      "Powder format may be less convenient than pills for travel"
+    ],
+    ingredients: [
+      "Collagen Peptides",
+      "Creatine",
+      "Black Cohosh",
+      "Magnesium",
+      "Cranberry Extract",
+      "Vitamin D"
+    ],
+    score: 8.9,
+    publishDate: "2026-08-10"
+  },
 ];
 
 // ─── Helper Functions ─────────────────────────────────────────────────────────
@@ -3531,8 +3622,8 @@ export const comparisons: Comparison[] = [
     subtitle: "Pycnogenol-led premium formula vs. the gold-standard black cohosh extract",
     category: "Hot Flash & Cooling",
     categorySlug: "hot-flash-cooling",
-    productIds: ["bonafide-thermella", "remifemin-menopause"],
-    product1Id: "bonafide-thermella",
+    productIds: ["bonafide-serenol", "remifemin-menopause"],
+    product1Id: "bonafide-serenol",
     product2Id: "remifemin-menopause",
     winner: "remifemin-menopause",
     winnerId: "remifemin-menopause",
@@ -3717,9 +3808,9 @@ export const comparisons: Comparison[] = [
     subtitle: "Comparing Bonafide's two non-hormonal hot flash solutions",
     category: "Hot Flash & Cooling",
     categorySlug: "hot-flash-cooling",
-    productIds: ["bonafide-relizen", "bonafide-thermella"],
+    productIds: ["bonafide-relizen", "bonafide-serenol"],
     product1Id: "bonafide-relizen",
-    product2Id: "bonafide-thermella",
+    product2Id: "bonafide-serenol",
     winner: "bonafide-relizen",
     winnerId: "bonafide-relizen",
     winnerReason: "Stronger clinical data and longer track record for severe hot flashes, despite the premium price.",
@@ -3859,6 +3950,48 @@ export const comparisons: Comparison[] = [
     verdict: "For women dealing with significant perimenopausal anxiety, mood swings, and cortisol-driven sleep issues, Youtheory Ashwagandha is the clear winner due to its clinical potency. OLLY is better suited for those who just want a mild, tasty gummy for occasional stressful moments.",
     publishDate: "2026-08-03",
     authorId: "carol-beaumont"
+  },
+  {
+    id: "sleep-support-showdown",
+    slug: "remifemin-vs-olly-sleep",
+    title: "Menopause Sleep Support Showdown",
+    subtitle: "Remifemin Good Night vs. OLLY Mellow Menopause",
+    category: "Sleep & Mood Support",
+    categorySlug: "sleep-mood-support",
+    productIds: ["remifemin-good-night", "olly-mellow-menopause"],
+    winner: "remifemin-good-night",
+    winnerReason: "Remifemin offers a more comprehensive, clinically proven approach by targeting both the hormonal root cause (hot flashes/night sweats) and the sleep disturbance itself.",
+    summary: "When menopause disrupts your sleep, you need a solution that addresses both the physical symptoms (like night sweats) and the neurological aspects of insomnia. OLLY Mellow Menopause offers a convenient, tasty gummy with a solid blend of GABA and botanicals that works well for mild, stress-related sleep issues. However, Remifemin Good Night takes the crown for more severe menopause sleep disturbances. Its inclusion of RemiSure Black Cohosh specifically targets the hormonal fluctuations causing night sweats, while the Valerian root blend handles the insomnia. If your sleep issues are primarily driven by hot flashes and night sweats, Remifemin is the superior choice.",
+    verdict: "Choose Remifemin Good Night for comprehensive relief from night sweats and insomnia, or OLLY if you prefer a gummy format for mild, stress-related sleep disruption.",
+    publishDate: "2026-08-10"
+  },
+  {
+    id: "omega3-cognitive-clash",
+    slug: "dr-tobias-vs-neuriva-brain",
+    title: "Cognitive Support Clash: Omega-3 vs. Nootropics",
+    subtitle: "Dr. Tobias Omega 3 vs. Neuriva Plus Brain Supplement",
+    category: "Cognitive & Energy Support",
+    categorySlug: "cognitive-energy-support",
+    productIds: ["dr-tobias-omega-3", "neuriva-plus-brain-supplement"],
+    winner: "dr-tobias-omega-3",
+    winnerReason: "Omega-3s offer broader systemic benefits for menopausal women, supporting heart and joint health alongside cognitive function, whereas Neuriva is strictly focused on the brain.",
+    summary: "Brain fog is one of the most frustrating symptoms of menopause. Neuriva Plus tackles this directly with a clinically proven nootropic (Neurofactor) and B-vitamins, making it excellent for sharp, immediate focus and memory recall. However, Dr. Tobias Triple Strength Omega 3 Fish Oil wins our comparison because it provides foundational, systemic support that menopausal bodies desperately need. High-dose EPA and DHA not only combat brain fog and support long-term cognitive health, but they also reduce joint inflammation and protect cardiovascular health—both of which become critical concerns as estrogen declines. The enteric coating ensures you get these benefits without the fishy aftertaste.",
+    verdict: "Dr. Tobias Omega 3 is the better overall investment for menopausal health, providing essential brain, heart, and joint support, while Neuriva is best reserved for those needing targeted, immediate cognitive enhancement.",
+    publishDate: "2026-08-10"
+  },
+  {
+    id: "pelvic-floor-power",
+    slug: "gynable-urocollagen-vs-kegel-exerciser",
+    title: "Pelvic Floor Power: Supplement vs. Device",
+    subtitle: "Gynable UroCollagen vs. Perifit Kegel Exerciser",
+    category: "Fitness & Pelvic Health",
+    categorySlug: "fitness-pelvic-health",
+    productIds: ["gynable-urocollagen", "kegel-exerciser-perifit"],
+    winner: "kegel-exerciser-perifit",
+    winnerReason: "While supplements provide excellent nutritional support, active resistance training with biofeedback (Perifit) remains the gold standard for actually rebuilding pelvic floor muscle strength.",
+    summary: "Addressing bladder leaks and pelvic floor weakness during menopause requires a proactive approach. Gynable UroCollagen is an innovative supplement that provides the raw materials (collagen, creatine) and hormonal support (black cohosh) needed for healthy pelvic tissues. It's an excellent internal support system. However, muscles require exercise to grow stronger. The Perifit Kegel Exerciser takes the win because it provides active, gamified resistance training with real-time biofeedback via its app. This ensures you are doing Kegels correctly—which up to 30% of women do wrong without guidance. For best results, these two actually work perfectly together: Gynable provides the nutritional building blocks, while Perifit provides the workout.",
+    verdict: "Perifit is the essential tool for actively rebuilding pelvic strength, while Gynable UroCollagen serves as an excellent nutritional complement to your exercise routine.",
+    publishDate: "2026-08-10"
   },
 ];
 
