@@ -492,7 +492,7 @@ export const allProducts: Product[] = [
     tags: ["pollen extract", "hormone-free", "breast cancer safe", "hot flashes"],
     shortDescription: "A hormone-free pollen extract supplement clinically shown to reduce hot flash frequency by up to 65% — ideal for breast cancer survivors.",
     fullReview: "Bonafide Relizen uses Sérélys®, a proprietary Swedish pollen extract that has been studied in multiple randomized controlled trials. Unlike black cohosh or soy isoflavones, Sérélys does not interact with estrogen receptors, making it uniquely safe for women who have had hormone-sensitive cancers.\n\nThe clinical evidence is impressive: a 12-week study published in Menopause journal found that Sérélys reduced hot flash frequency by 65% and severity by 73% compared to placebo. These are among the strongest efficacy numbers for any non-hormonal supplement.\n\nThe trade-off is cost ($62/month at the verified Amazon listing) and the 8–12 week timeline for full effect. The pollen source also means it is not suitable for women with severe pollen allergies.\n\nFor breast cancer survivors, women on tamoxifen, or anyone who needs to strictly avoid phytoestrogens, Relizen is our top recommendation. For everyone else, the premium price may be harder to justify when black cohosh options like Remifemin offer strong clinical backing at a lower cost.",
-    priceDisplay: "$58.96",
+    priceDisplay: "$62.00",
     publishDate: "2026-05-02",
     authorId: "diane-kessler",
     editorNote: "For women who need a proven non-hormonal, soy-free option, Relizen remains one of the most targeted choices despite its premium price.",
@@ -865,7 +865,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
     shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
     fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
-    priceDisplay: "$15.82",
+    priceDisplay: "$15.01",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
@@ -2429,7 +2429,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     tags: ["gummies", "hot flashes", "night sweats", "hormone-free", "rhapontic rhubarb", "capsule-free"],
     shortDescription: "Clinically proven ERr 731 Rhapontic Rhubarb Extract for hot flash and night sweat relief, now in a delicious mango passionfruit gummy format.",
     fullReview: `The menopause supplement market has long been dominated by capsules and tablets, but Estroven's new Complete Menopause Relief Gummies bring the brand's most clinically validated ingredient—ERr 731 Rhapontic Rhubarb Root Extract—into a format that significantly improves daily compliance for many women.\n\nERr 731 is one of the most rigorously studied non-hormonal ingredients for menopause relief. In randomized controlled trials, it has been shown to reduce hot flash frequency by up to 83% and significantly improve night sweat severity within 4 weeks of consistent use. The fact that Estroven has now made this ingredient available in a gummy is a meaningful development for the estimated 20–30% of women who have difficulty swallowing pills or who simply prefer a more enjoyable supplement experience.\n\nThe mango passionfruit flavor is genuinely pleasant without being overly sweet, and the use of citrus pectin (rather than gelatin) makes this a vegan-friendly option. At $24.99 for a 30-count supply, the price is reasonable and competitive with other premium menopause gummies on the market.\n\nAs a newer product launched in 2025, the review count is still building, but the 4.6-star average from early adopters is encouraging and consistent with the performance of the capsule formula. Women who have previously used Estroven Complete capsules and are switching to the gummy format report equivalent effectiveness with significantly better daily enjoyment. For women who are new to menopause supplements and want to start with the most accessible format, these gummies are an excellent entry point.`,
-    priceDisplay: "$24.48",
+    priceDisplay: "$24.52",
     publishDate: "2026-07-06",
     authorId: "diane-kessler",
     editorNote: "The gummy format removes one of the most common barriers to supplement compliance. If a woman tells me she forgets to take her capsules, I switch her to these immediately.",
@@ -2952,7 +2952,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     bestFor: "Women in late perimenopause or postmenopause experiencing urinary urgency, frequency, or occasional leakage",
     tags: ["pelvic floor", "bladder control", "collagen", "creatine", "black cohosh", "urinary health", "Italy"],
     shortDescription: "An Italian-made powder supplement combining collagen peptides, creatine, and black cohosh to strengthen pelvic floor muscles and improve bladder control during menopause.",
-    priceDisplay: "$30.92",
+    priceDisplay: "$30.93",
     authorId: "carol-beaumont",
   },
 ];
@@ -4053,4 +4053,4 @@ export function getComparisonBySlug(slug: string): Comparison | undefined {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-08-12T11:05:01.825Z";
+export const lastSyncedAt: string = "2026-08-13T11:04:51.745Z";
