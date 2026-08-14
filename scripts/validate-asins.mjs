@@ -141,20 +141,44 @@ async function getAccessToken() {
   const now = Date.now() / 1000;
   if (_tokenCache.token && now < _tokenCache.expiresAt - 60) return _tokenCache.token;
 
-  const resp = await httpPost(
-    "api.amazon.com", "/auth/o2/token",
-    { "Content-Type": "application/json" },
-    JSON.stringify({
-      grant_type: "client_credentials",
-      client_id: CREATORS_CLIENT_ID,
-      client_secret: CREATORS_CLIENT_SECRET,
-      scope: "creatorsapi::default",
-    })
-  );
-  const data = JSON.parse(resp.body);
-  _tokenCache.token = data.access_token;
-  _tokenCache.expiresAt = now + (data.expires_in || 3600);
-  return _tokenCache.token;
+  const cacheToken = (resp, generation) => {
+    const data = JSON.parse(resp.body || "{}");
+    if (resp.status < 200 || resp.status >= 300 || !data.access_token) {
+      throw new Error(`${generation} Creators API authentication failed (HTTP ${resp.status})`);
+    }
+    _tokenCache.token = data.access_token;
+    _tokenCache.expiresAt = now + (data.expires_in || 3600);
+    return _tokenCache.token;
+  };
+
+  try {
+    const resp = await httpPost(
+      "api.amazon.com", "/auth/o2/token",
+      { "Content-Type": "application/json" },
+      JSON.stringify({
+        grant_type: "client_credentials",
+        client_id: CREATORS_CLIENT_ID,
+        client_secret: CREATORS_CLIENT_SECRET,
+        scope: "creatorsapi::default",
+      })
+    );
+    return cacheToken(resp, "v3");
+  } catch (v3Error) {
+    const basic = Buffer.from(`${CREATORS_CLIENT_ID}:${CREATORS_CLIENT_SECRET}`).toString("base64");
+    const resp = await httpPost(
+      "creatorsapi.auth.us-east-1.amazoncognito.com", "/oauth2/token",
+      {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": `Basic ${basic}`,
+      },
+      "grant_type=client_credentials&scope=creatorsapi%2Fdefault"
+    );
+    try {
+      return cacheToken(resp, "v2");
+    } catch (v2Error) {
+      throw new Error(`Creators API authentication failed for both v3 and v2 flows: ${v3Error.message}; ${v2Error.message}`);
+    }
+  }
 }
 
 async function creatorsApiLookup(asin) {
@@ -171,6 +195,7 @@ async function creatorsApiLookup(asin) {
       itemIdType: "ASIN",
       marketplace: MARKETPLACE,
       partnerTag: PARTNER_TAG,
+      partnerType: "Associates",
       resources: ["itemInfo.title", "images.primary.small", "offersV2.listings.price"],
     })
   );
