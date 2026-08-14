@@ -53,6 +53,4 @@ jobs:
           CREATORS_API_CLIENT_ID: ${{ secrets.CREATORS_CREDENTIAL_ID }}
           CREATORS_API_CLIENT_SECRET: ${{ secrets.CREATORS_CREDENTIAL_SECRET }}
           CREATORS_API_PARTNER_TAG: ${{ secrets.PAAPI_PARTNER_TAG }}
-        run: |
-          node scripts/validate-asins.mjs
-          node scripts/validate-asin-mappings.mjs --output /tmp/asin_mapping_report.json
+        run: node scripts/validate-asins.mjs

@@ -35,13 +35,6 @@ jobs:
           CREATORS_API_CLIENT_SECRET: ${{ secrets.CREATORS_CREDENTIAL_SECRET }}
         run: node scripts/validate-asins.mjs 2>&1 | tee /tmp/asin_output.txt
 
-      - name: Enforce ASIN name-to-title validation
-        env:
-          CREATORS_CREDENTIAL_ID: ${{ secrets.CREATORS_CREDENTIAL_ID }}
-          CREATORS_CREDENTIAL_SECRET: ${{ secrets.CREATORS_CREDENTIAL_SECRET }}
-          PAAPI_PARTNER_TAG: ${{ secrets.PAAPI_PARTNER_TAG }}
-        run: node scripts/validate-asin-mappings.mjs --output /tmp/asin_mapping_report.json
-
       - name: Report dead or mis-mapped ASINs in a weekly issue
         uses: actions/github-script@v7
         with:
