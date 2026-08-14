@@ -1,15 +1,20 @@
 {
-  "generatedAt": "2026-08-13T11:04:51.748Z",
+  "generatedAt": "2026-08-14T11:03:02.878Z",
   "mode": "live",
   "totalAsins": 69,
   "updatedCount": 4,
   "updated": [
     "B000P9WSMY",
-    "B01DTKK5ES",
-    "B0F8MF34Y5",
-    "B0GS41K1XH"
+    "B01M1HYRNJ",
+    "B07N813336",
+    "B0DLLH7KMW"
   ],
   "flagged": [
+    {
+      "asin": "B0F8MF34Y5",
+      "reason": "NoOffer",
+      "action": "left unchanged"
+    },
     {
       "asin": "B0GMYXQJTN",
       "reason": "ItemNotAccessible",
