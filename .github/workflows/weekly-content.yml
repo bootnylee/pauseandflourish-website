@@ -47,3 +47,12 @@ jobs:
             echo "Creators API credentials not configured - running dry-run price sync with mock fixture."
             node scripts/fetch-prices.js --dry-run
           fi
+
+      - name: Enforce direct Amazon ASIN policy
+        env:
+          CREATORS_API_CLIENT_ID: ${{ secrets.CREATORS_CREDENTIAL_ID }}
+          CREATORS_API_CLIENT_SECRET: ${{ secrets.CREATORS_CREDENTIAL_SECRET }}
+          CREATORS_API_PARTNER_TAG: ${{ secrets.PAAPI_PARTNER_TAG }}
+        run: |
+          node scripts/validate-asins.mjs
+          node scripts/validate-asin-mappings.mjs --output /tmp/asin_mapping_report.json

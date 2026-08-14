@@ -196,9 +196,9 @@ function extractProducts() {
 }
 
 function credentials() {
-  const credentialId = process.env.CREATORS_CREDENTIAL_ID || "";
-  const credentialSecret = process.env.CREATORS_CREDENTIAL_SECRET || "";
-  const partnerTag = process.env.PAAPI_PARTNER_TAG || "";
+  const credentialId = process.env.CREATORS_CREDENTIAL_ID || process.env.CREATORS_API_CLIENT_ID || "";
+  const credentialSecret = process.env.CREATORS_CREDENTIAL_SECRET || process.env.CREATORS_API_CLIENT_SECRET || "";
+  const partnerTag = process.env.PAAPI_PARTNER_TAG || process.env.CREATORS_API_PARTNER_TAG || "";
   return credentialId && credentialSecret && partnerTag ? { credentialId, credentialSecret, partnerTag } : null;
 }
 
@@ -332,7 +332,7 @@ async function main() {
   const config = credentials();
 
   console.log("=".repeat(72));
-  console.log("ASIN Mapping Validation — Pause & Flourish (non-blocking)");
+  console.log("ASIN Mapping Validation — Pause & Flourish (blocking gate)");
   console.log("=".repeat(72));
   console.log(`Catalog entries found: ${products.length} | entries inspected: ${inspected.length}`);
   console.log(`Lookup source: ${config ? "Amazon Creators API with scrape fallback" : "public Amazon scrape fallback"}`);
@@ -380,7 +380,7 @@ async function main() {
   const report = {
     generated_at: new Date().toISOString(),
     validator: "scripts/validate-asin-mappings.mjs",
-    non_blocking: true,
+    non_blocking: false,
     threshold: MATCH_THRESHOLD,
     catalog_file: "client/src/lib/products.ts",
     catalog_entries_found: products.length,
@@ -394,11 +394,14 @@ async function main() {
   writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
   console.log("-".repeat(72));
   console.log(`SUMMARY | match=${summary.MATCH} mismatch=${summary.MISMATCH} dead=${summary.DEAD} inconclusive=${summary.INCONCLUSIVE} | report=${reportPath}`);
+  const blockers = summary.MISMATCH + summary.DEAD + summary.INCONCLUSIVE + (products.length === 0 ? 1 : 0);
+  if (blockers > 0) {
+    console.error(`BLOCKED | ${blockers} product destination(s) are unresolved, dead, mismatched, or missing.`);
+    process.exit(1);
+  }
 }
 
 main().catch(error => {
-  // The workflow is explicitly reporting-only. Preserve that contract for an
-  // unexpected parse/runtime error while making it visible to the issue step.
-  console.error(`INCONCLUSIVE | validator internal error: ${error.message}`);
-  process.exit(0);
+  console.error(`BLOCKED | validator internal error: ${error.message}`);
+  process.exit(1);
 });

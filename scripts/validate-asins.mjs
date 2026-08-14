@@ -9,11 +9,10 @@
  * code 1 (blocking the deploy) if any product fails.
  *
  * Usage:
- *   node scripts/validate-asins.mjs [--warn-only]
+ *   node scripts/validate-asins.mjs
  *
+ * This is a hard publication gate. It does not support warning-only or skip modes.
  * Environment variables (set in Netlify dashboard → Site settings → Environment):
- *   ASIN_VALIDATE=warn              → warn-only mode (don't block deploy)
- *   ASIN_VALIDATE=skip              → skip validation entirely (emergency only)
  *   CREATORS_API_CLIENT_ID          → Amazon Creators API client ID
  *   CREATORS_API_CLIENT_SECRET      → Amazon Creators API client secret
  *   CREATORS_API_PARTNER_TAG        → affiliate tag (default: pauseandflourish-20)
@@ -24,7 +23,7 @@
  * API endpoint:   https://creatorsapi.amazon/catalog/v1/getItems
  */
 
-import { readFileSync } from "fs";
+import { readFileSync, readdirSync, statSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import https from "https";
@@ -39,18 +38,11 @@ const CREATORS_CLIENT_SECRET = process.env.CREATORS_API_CLIENT_SECRET || "";
 const PARTNER_TAG            = process.env.CREATORS_API_PARTNER_TAG || "pauseandflourish-20";
 const MARKETPLACE            = "www.amazon.com";
 
-const WARN_ONLY = process.argv.includes("--warn-only") || process.env.ASIN_VALIDATE === "warn";
-const SKIP      = process.env.ASIN_VALIDATE === "skip";
-const MATCH_THRESHOLD = 0.35;
+const MATCH_THRESHOLD = 0.60;
 const REQUEST_DELAY_MS = 1200;
 
 // Token cache
 let _tokenCache = { token: null, expiresAt: 0 };
-
-if (SKIP) {
-  console.log("⚠  ASIN validation skipped (ASIN_VALIDATE=skip).");
-  process.exit(0);
-}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Extract products from products.ts
@@ -84,12 +76,25 @@ function normalize(text) {
 
 function titleMatches(expected, amazonTitle) {
   if (!amazonTitle) return { matches: false, score: 0 };
-  const stop = new Set(["a","an","the","for","and","or","in","on","of","to","with","lb","lbs","by","at","from"]);
+  const stop = new Set(["a","an","the","for","and","or","in","on","of","to","with","lb","lbs","by","at","from","amazon"]);
   const expWords = new Set(normalize(expected).split(" ").filter(w => w.length > 1 && !stop.has(w)));
   const amzWords = new Set(normalize(amazonTitle).split(" ").filter(w => w.length > 1 && !stop.has(w)));
-  if (expWords.size === 0) return { matches: true, score: 1 };
-  const overlap = [...expWords].filter(w => amzWords.has(w)).length / expWords.size;
-  return { matches: overlap >= MATCH_THRESHOLD, score: overlap };
+  if (expWords.size === 0) return { matches: false, score: 0 };
+  const shared = [...expWords].filter(w => amzWords.has(w));
+  const overlap = shared.length / expWords.size;
+  const requiredShared = expWords.size <= 2 ? 1 : 2;
+  return { matches: overlap >= MATCH_THRESHOLD && shared.length >= requiredShared, score: overlap };
+}
+
+function findAmazonSearchUrls(root) {
+  const hits = [];
+  for (const entry of readdirSync(root)) {
+    const path = join(root, entry);
+    const stat = statSync(path);
+    if (stat.isDirectory()) hits.push(...findAmazonSearchUrls(path));
+    else if (/\.(?:ts|tsx|js|jsx|html)$/i.test(entry) && /amazon\.com\/s\?/i.test(readFileSync(path, "utf-8"))) hits.push(path);
+  }
+  return hits;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -238,11 +243,20 @@ async function main() {
   console.log(`${"=".repeat(60)}`);
 
   const products = extractProducts(PRODUCTS_FILE);
+  const searchUrlFiles = findAmazonSearchUrls(join(REPO_ROOT, "client", "src"));
   console.log(`Checking ${products.length} products...`);
-  console.log(`Mode: ${WARN_ONLY ? "warn-only" : "blocking"}\n`);
+  console.log("Mode: blocking direct-ASIN policy\n");
 
   let passed = 0, failed = 0;
   const failures = [];
+  for (const file of searchUrlFiles) {
+    failed++;
+    failures.push({ product: "Amazon search URL", asin: "N/A", issue: `Amazon search destinations are prohibited (${file})`, amazon_title: null });
+  }
+  if (products.length === 0) {
+    failed++;
+    failures.push({ product: "Product catalog", asin: "N/A", issue: "No direct-ASIN product records were found", amazon_title: null });
+  }
 
   for (let i = 0; i < products.length; i++) {
     const { name, asin } = products[i];
@@ -269,13 +283,8 @@ async function main() {
   if (failures.length > 0) {
     console.log(`\n⚠  ${failed} product(s) failed:`);
     failures.forEach(f => console.log(`   • ${f.product} (${f.asin}): ${f.issue}`));
-    if (WARN_ONLY) {
-      console.log("\n⚠  warn-only mode: deploy proceeding despite failures.");
-      process.exit(0);
-    } else {
-      console.log("\n✗  Deploy BLOCKED. Fix the above issues before publishing.");
-      process.exit(1);
-    }
+    console.log("\n✗  Deploy BLOCKED. Fix the above issues before publishing.");
+    process.exit(1);
   } else {
     console.log("\n✓  All products validated. Deploy proceeding.");
     process.exit(0);
