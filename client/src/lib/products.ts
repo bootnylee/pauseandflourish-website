@@ -414,7 +414,7 @@ export const allProducts: Product[] = [
     tags: ["multi-symptom", "black cohosh", "soy isoflavones", "bestseller"],
     shortDescription: "The bestselling multi-symptom menopause supplement on Amazon, addressing hot flashes, sleep, mood, and energy in one daily capsule.",
     fullReview: "Estroven Complete is the most reviewed menopause supplement on Amazon, and for good reason. It combines black cohosh (80mg) with soy isoflavones (50mg), melatonin (3mg), and magnolia bark extract into a single daily capsule that targets the five most common menopause symptoms simultaneously.\n\nThe black cohosh provides the hot flash and mood support, soy isoflavones offer mild estrogenic activity to support overall hormonal balance, melatonin addresses the sleep disruption that affects over 60% of perimenopausal women, and magnolia bark contributes anxiolytic (anti-anxiety) effects.\n\nWith over 12,000 Amazon reviews averaging 4.4 stars, the real-world evidence is compelling. Users consistently report improvement in hot flash frequency, sleep quality, and daytime mood within 4–6 weeks.\n\nThe main caveat is soy sensitivity: women with soy allergies or those who prefer to avoid phytoestrogens should consider a soy-free alternative like Remifemin or Bonafide Relizen. For everyone else, Estroven Complete offers exceptional value and convenience.",
-    priceDisplay: "$19.97",
+    priceDisplay: "$18.12",
     publishDate: "2026-05-02",
     authorId: "diane-kessler",
     editorNote: "If you want one supplement that does it all, Estroven Complete is the most proven multi-symptom option at this price point.",
@@ -499,7 +499,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
     tags: ["stress", "anxiety", "GABA", "L-theanine", "gummies"],
     shortDescription: "A gummy-format ashwagandha and L-theanine supplement for stress and mood support during perimenopause.",
     fullReview: "OLLY Goodbye Stress combines ashwagandha (KSM-66, 150mg), L-theanine (100mg), and GABA (100mg) in a pleasant blackberry verbena gummy format. For perimenopausal women who struggle with supplement fatigue or pill aversion, the gummy format significantly improves adherence.\n\nAshwagandha (KSM-66) is the most clinically studied adaptogen for stress and cortisol regulation, with multiple RCTs demonstrating reductions in perceived stress, cortisol levels, and anxiety. L-theanine promotes calm focus without sedation, and GABA provides additional inhibitory neurotransmitter support.\n\nThe 150mg KSM-66 dose is at the lower end of the clinically effective range (typically 300–600mg), which is the main limitation of this product. For women with significant stress or anxiety, a higher-dose ashwagandha supplement may be more effective.\n\nFor women who want a pleasant, easy-to-take daily stress support supplement and are new to adaptogens, OLLY Goodbye Stress is an excellent entry point. The taste and convenience factor genuinely improve daily compliance.",
-    priceDisplay: "$12.88",
+    priceDisplay: "$11.72",
     publishDate: "2026-05-02",
     authorId: "diane-kessler",
     editorNote: "The gummy format makes a real difference for women who struggle to take multiple capsules daily. Compliance is half the battle with supplements.",
@@ -662,7 +662,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
     shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
     fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
-    priceDisplay: "$15.65",
+    priceDisplay: "$14.65",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
@@ -1134,7 +1134,7 @@ For buyers who want a mainstream, non-hormonal, soy-free option with one of the 
     price: "$29.99",
     rating: 3.9,
     reviewCount: 3728,
-    heroImage: "https://m.media-amazon.com/images/I/41YwMa23WyL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/417D0kp-iXL._SL500_.jpg",
     summary: "Eu Natural Staying Cool is a vegetarian menopause supplement centered on hot flashes, night sweats, sleep, and hormone-transition comfort, combining vitex, black cohosh, KSM-66 ashwagandha, magnolia, hops, and pueraria mirifica.",
     pros: [
       "Targets hot flashes and night sweats while also addressing sleep and stress overlap",
@@ -1454,7 +1454,7 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
     price: "$13.99",
     rating: 4.3,
     reviewCount: 7107,
-    heroImage: "https://m.media-amazon.com/images/I/41qzjI2x6mL._SL500_.jpg",
+    heroImage: "https://m.media-amazon.com/images/I/41lrAwx4xyL._SL500_.jpg",
     summary: "Estroven Sleep Cool is a dual-action menopause supplement that combines black cohosh-based hot flash relief with melatonin and valerian root for improved sleep, making it one of the most accessible and well-reviewed sleep-focused menopause products on Amazon.",
     pros: [
       "Combines hot flash relief and sleep support in a single once-nightly capsule",
@@ -1820,7 +1820,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     tags: ["gummies", "hot flashes", "night sweats", "hormone-free", "rhapontic rhubarb", "capsule-free"],
     shortDescription: "Clinically proven ERr 731 Rhapontic Rhubarb Extract for hot flash and night sweat relief, now in a delicious mango passionfruit gummy format.",
     fullReview: `The menopause supplement market has long been dominated by capsules and tablets, but Estroven's new Complete Menopause Relief Gummies bring the brand's most clinically validated ingredient—ERr 731 Rhapontic Rhubarb Root Extract—into a format that significantly improves daily compliance for many women.\n\nERr 731 is one of the most rigorously studied non-hormonal ingredients for menopause relief. In randomized controlled trials, it has been shown to reduce hot flash frequency by up to 83% and significantly improve night sweat severity within 4 weeks of consistent use. The fact that Estroven has now made this ingredient available in a gummy is a meaningful development for the estimated 20–30% of women who have difficulty swallowing pills or who simply prefer a more enjoyable supplement experience.\n\nThe mango passionfruit flavor is genuinely pleasant without being overly sweet, and the use of citrus pectin (rather than gelatin) makes this a vegan-friendly option. At $24.99 for a 30-count supply, the price is reasonable and competitive with other premium menopause gummies on the market.\n\nAs a newer product launched in 2025, the review count is still building, but the 4.6-star average from early adopters is encouraging and consistent with the performance of the capsule formula. Women who have previously used Estroven Complete capsules and are switching to the gummy format report equivalent effectiveness with significantly better daily enjoyment. For women who are new to menopause supplements and want to start with the most accessible format, these gummies are an excellent entry point.`,
-    priceDisplay: "$24.52",
+    priceDisplay: "$24.99",
     publishDate: "2026-07-06",
     authorId: "diane-kessler",
     editorNote: "The gummy format removes one of the most common barriers to supplement compliance. If a woman tells me she forgets to take her capsules, I switch her to these immediately.",
@@ -2098,7 +2098,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     tags: ["lubricant", "hypoallergenic", "water-based", "sensitive skin", "intimate health"],
     shortDescription: "An ultra-sensitive, hypoallergenic water-based lubricant free of parabens and glycerin, perfect for easily irritated menopausal tissue.",
     fullReview: "Vaginal atrophy and dryness during menopause don't just cause discomfort; they make the delicate intimate tissues significantly more prone to irritation, micro-tears, and reactions to common chemical additives. Good Clean Love BioNude is formulated specifically for this heightened sensitivity, offering a minimalist, hypoallergenic solution for intimate lubrication.\n\nUnlike many commercial lubricants, BioNude is completely free of parabens, petrochemicals, artificial fragrances, and perhaps most importantly, glycerin—a common additive that can trigger yeast infections and irritation in sensitive women. The water-based formula utilizes hydroxyethylcellulose to provide a natural, slippery feel that closely mimics the body's own moisture without becoming sticky or leaving a difficult-to-wash residue.\n\nWhile it is an excellent lubricant for intimacy, it is important to note that it is not a long-lasting vaginal moisturizer designed for multi-day tissue hydration (for that, products like Replens or Revaree are better suited). However, for safe, comfortable, and irritation-free intimacy, BioNude is a standout product that respects the delicate balance of the postmenopausal vaginal environment.",
-    priceDisplay: "$13.19",
+    priceDisplay: "$10.95",
     publishDate: "2026-07-27",
     authorId: "diane-kessler",
   },
@@ -3444,4 +3444,4 @@ export function getComparisonBySlug(slug: string): Comparison | undefined {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-08-14T11:03:02.874Z";
+export const lastSyncedAt: string = "2026-08-15T10:29:28.869Z";
