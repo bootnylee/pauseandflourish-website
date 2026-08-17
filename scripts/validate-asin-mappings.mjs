@@ -7,8 +7,8 @@
  * a JSON report. It deliberately exits 0 for MATCH, MISMATCH, DEAD, and
  * INCONCLUSIVE results so the weekly workflow remains issue-only.
  *
- * It consumes the existing price-sync secret names:
- * CREATORS_CREDENTIAL_ID, CREATORS_CREDENTIAL_SECRET, PAAPI_PARTNER_TAG.
+ * It uses only the current Creators API secrets:
+ * CREATORS_API_CLIENT_ID, CREATORS_API_CLIENT_SECRET, CREATORS_API_PARTNER_TAG.
  * A public-page lookup is a conservative fallback. Bot blocks, rate limits,
  * credentials/service failures, and missing public titles are INCONCLUSIVE.
  */
@@ -196,9 +196,9 @@ function extractProducts() {
 }
 
 function credentials() {
-  const credentialId = process.env.CREATORS_CREDENTIAL_ID || process.env.CREATORS_API_CLIENT_ID || "";
-  const credentialSecret = process.env.CREATORS_CREDENTIAL_SECRET || process.env.CREATORS_API_CLIENT_SECRET || "";
-  const partnerTag = process.env.PAAPI_PARTNER_TAG || process.env.CREATORS_API_PARTNER_TAG || "";
+  const credentialId = process.env.CREATORS_API_CLIENT_ID || "";
+  const credentialSecret = process.env.CREATORS_API_CLIENT_SECRET || "";
+  const partnerTag = process.env.CREATORS_API_PARTNER_TAG || "";
   return credentialId && credentialSecret && partnerTag ? { credentialId, credentialSecret, partnerTag } : null;
 }
 
