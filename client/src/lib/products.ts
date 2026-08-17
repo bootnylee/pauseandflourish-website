@@ -222,7 +222,7 @@ export const allProducts: Product[] = [
     tags: ["brain fog", "energy", "hot flashes", "hormone-free", "citicoline"],
     shortDescription: "Hormone-free support targeting brain fog, fatigue, and hot flashes with Cognizin and EstroG-100.",
     fullReview: "Qunol Menopause Relief takes a unique approach to menopause symptom management by explicitly targeting cognitive symptoms alongside physical ones. While many supplements focus solely on hot flashes, Qunol recognizes that brain fog, fatigue, and mood swings are often equally disruptive for women in perimenopause and menopause.\n\nThe standout ingredient in this formula is Cognizin Citicoline, a clinically studied nutrient that supports brain energy, focus, and healthy cognitive function. This is paired with EstroG-100, a patented blend of three Korean botanical extracts (Giant Angelica, Wilford's Cynanchum, and Sok-dan) that has been clinically shown to significantly improve multiple menopause symptoms, including hot flashes, night sweats, and sleep disturbances, without estrogenic activity.\n\nThe addition of Vitamin B6 further supports energy metabolism and nervous system health. This targeted combination makes Qunol an excellent option for women who feel their mental sharpness has declined during the menopausal transition. Users report noticeable improvements in mental clarity and sustained energy levels, typically within the first four weeks of use. It's an innovative, hormone-free option that addresses the whole-body impact of menopause.",
-    priceDisplay: "$24.99",
+    priceDisplay: "$24.98",
     publishDate: "2026-07-20",
     authorId: "carol-beaumont",
   },
@@ -499,7 +499,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
     tags: ["stress", "anxiety", "GABA", "L-theanine", "gummies"],
     shortDescription: "A gummy-format ashwagandha and L-theanine supplement for stress and mood support during perimenopause.",
     fullReview: "OLLY Goodbye Stress combines ashwagandha (KSM-66, 150mg), L-theanine (100mg), and GABA (100mg) in a pleasant blackberry verbena gummy format. For perimenopausal women who struggle with supplement fatigue or pill aversion, the gummy format significantly improves adherence.\n\nAshwagandha (KSM-66) is the most clinically studied adaptogen for stress and cortisol regulation, with multiple RCTs demonstrating reductions in perceived stress, cortisol levels, and anxiety. L-theanine promotes calm focus without sedation, and GABA provides additional inhibitory neurotransmitter support.\n\nThe 150mg KSM-66 dose is at the lower end of the clinically effective range (typically 300–600mg), which is the main limitation of this product. For women with significant stress or anxiety, a higher-dose ashwagandha supplement may be more effective.\n\nFor women who want a pleasant, easy-to-take daily stress support supplement and are new to adaptogens, OLLY Goodbye Stress is an excellent entry point. The taste and convenience factor genuinely improve daily compliance.",
-    priceDisplay: "$12.88",
+    priceDisplay: "$11.72",
     publishDate: "2026-05-02",
     authorId: "diane-kessler",
     editorNote: "The gummy format makes a real difference for women who struggle to take multiple capsules daily. Compliance is half the battle with supplements.",
@@ -576,7 +576,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
     tags: ["night sweats", "cooling blanket", "sleep", "hot flashes"],
     shortDescription: "A lightweight cooling blanket with Arc-Chill technology that absorbs body heat to keep hot sleepers comfortable through the night.",
     fullReview: "The Elegear Revolutionary Cooling Blanket is one of the most practical and affordable solutions for women experiencing night sweats and hot flashes during menopause. Using proprietary Arc-Chill 3.0 cooling fiber technology, the blanket actively absorbs and dissipates body heat, lowering skin temperature by up to 9°F on contact — providing the kind of immediate relief that powered cooling devices cost ten times more to achieve.\n\nThe reversible design is a thoughtful feature: one side features the cooling Arc-Chill fiber for hot nights, while the other side is crafted from 100% breathable Egyptian cotton for cooler evenings or seasonal transitions. This versatility makes it a year-round investment rather than a single-season purchase.\n\nWith over 30,000 reviews and a 4.4-star rating, it is one of the most validated cooling products on Amazon. Users consistently praise its ability to stay cool throughout the night without requiring electricity, water, or any setup. It is lightweight enough to layer over existing bedding and machine washable for easy care.\n\nFor women who have tried everything from room fans to cooling mattress toppers, the Elegear blanket offers a simple, effective, and budget-friendly alternative that works from the very first night.",
-    priceDisplay: "$28.49",
+    priceDisplay: "$29.99",
     publishDate: "2026-06-29",
     authorId: "carol-beaumont",
     editorNote: "At under $30, this blanket is the best value cooling solution in the entire catalog. The instant cool-to-touch sensation is genuinely impressive and the reversible design means you can use it year-round.",
@@ -662,7 +662,7 @@ Citracal remains the better budget and simplicity pick, but NATURELO Bone Streng
     tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
     shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
     fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
-    priceDisplay: "$14.39",
+    priceDisplay: "$13.81",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
     editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
@@ -2098,7 +2098,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     tags: ["lubricant", "hypoallergenic", "water-based", "sensitive skin", "intimate health"],
     shortDescription: "An ultra-sensitive, hypoallergenic water-based lubricant free of parabens and glycerin, perfect for easily irritated menopausal tissue.",
     fullReview: "Vaginal atrophy and dryness during menopause don't just cause discomfort; they make the delicate intimate tissues significantly more prone to irritation, micro-tears, and reactions to common chemical additives. Good Clean Love BioNude is formulated specifically for this heightened sensitivity, offering a minimalist, hypoallergenic solution for intimate lubrication.\n\nUnlike many commercial lubricants, BioNude is completely free of parabens, petrochemicals, artificial fragrances, and perhaps most importantly, glycerin—a common additive that can trigger yeast infections and irritation in sensitive women. The water-based formula utilizes hydroxyethylcellulose to provide a natural, slippery feel that closely mimics the body's own moisture without becoming sticky or leaving a difficult-to-wash residue.\n\nWhile it is an excellent lubricant for intimacy, it is important to note that it is not a long-lasting vaginal moisturizer designed for multi-day tissue hydration (for that, products like Replens or Revaree are better suited). However, for safe, comfortable, and irritation-free intimacy, BioNude is a standout product that respects the delicate balance of the postmenopausal vaginal environment.",
-    priceDisplay: "$10.95",
+    priceDisplay: "$9.95",
     publishDate: "2026-07-27",
     authorId: "diane-kessler",
   },
@@ -3444,4 +3444,4 @@ export function getComparisonBySlug(slug: string): Comparison | undefined {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-08-16T10:29:58.106Z";
+export const lastSyncedAt: string = "2026-08-17T10:39:05.429Z";
