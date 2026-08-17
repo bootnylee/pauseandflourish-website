@@ -1708,6 +1708,66 @@ export const researchArticles: ResearchArticle[] =
     "study_type": "Review",
     "stage_id": "general",
     "date_added": "2026-08-10"
+  },
+  {
+    "id": "article-168",
+    "citation": "Dong S, Chan T, Wen Y. Effects of exercise interventions on depressive symptoms in perimenopausal women in China: a systematic review and meta-analysis. Front Psychol. 2026 Jul 22;17:1848514. doi:10.3389/fpsyg.2026.1848514. PMID: 42558434.",
+    "headline": "Exercise May Ease Depression During Perimenopause",
+    "takeaway": "A meta-analysis of 21 randomized trials involving 1,398 Chinese perimenopausal women found that exercise interventions reduced depressive symptoms versus control conditions. Because results varied substantially between studies and publication bias was possible, the review cannot identify an optimal exercise prescription.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42558434/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-08-17"
+  },
+  {
+    "id": "article-169",
+    "citation": "Zhuang J, Zhou Y, Yu G, Cheng H, Chen X, Qian R. Pharmacotherapy, acupoint stimulation, and psychotherapy for perimenopausal women with anxiety, depression, and panic disorder: a systematic review and network meta-analysis of randomized controlled trials. Front Psychiatry. 2026 Jul 17;17:1845876. doi:10.3389/fpsyt.2026.1845876. PMID: 42539596.",
+    "headline": "Combined Approaches May Better Address Perimenopausal Mood Symptoms",
+    "takeaway": "A network meta-analysis of 131 randomized trials involving 11,457 perimenopausal women found benefits across pharmacotherapy, acupoint stimulation, and psychotherapy for emotional symptoms. Combination approaches generally ranked better on several measures, but no single strategy was consistently superior across all outcomes.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42539596/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-08-17"
+  },
+  {
+    "id": "article-170",
+    "citation": "Tsuboi I, Inoue S, Hirayama T, Mitsui Y, Watanabe M, Hirakawa H, Sadahira T. Gut, vaginal, and urinary microbiome alterations in women with genitourinary syndrome of menopause: A systematic review. Maturitas. 2026 Aug;211:109031. doi:10.1016/j.maturitas.2026.109031. PMID: 42341424.",
+    "headline": "GSM Involves Microbiome Changes Across Three Body Sites",
+    "takeaway": "Across 23 studies involving 5,027 participants, postmenopausal women with genitourinary syndrome of menopause generally had lower Lactobacillus abundance and higher microbial diversity. Estrogen therapy partly restored Lactobacillus dominance, but microbiome changes did not consistently predict symptom relief.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42341424/",
+    "study_type": "Systematic Review",
+    "stage_id": "active-menopause",
+    "date_added": "2026-08-17"
+  },
+  {
+    "id": "article-171",
+    "citation": "Resciniti S, Dacaya P, Yim K, Esmaili T, Vinh A, Galvão HB, Ghasem-Zadeh A, Biesiekierski JR, Moschonis G. Effects of 12-month probiotic supplementation on bone mineral density and bone turnover markers in early postmenopausal females: A double-blind randomized controlled trial. Am J Clin Nutr. 2026 Aug;124(2):101384. doi:10.1016/j.ajcnut.2026.101384. PMID: 42264450.",
+    "headline": "One Probiotic Formula Did Not Protect Early Bone Density",
+    "takeaway": "In a double-blind trial of 114 women one to eight years after menopause, this lactobacilli formulation did not prevent bone loss over 12 months. The probiotic group had a small but statistically greater decline at the primary tibial bone-density site, so this specific formula is not supported as a stand-alone bone-preservation strategy.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42264450/",
+    "study_type": "RCT",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-08-17"
+  },
+  {
+    "id": "article-172",
+    "citation": "García-Nicolás M, Jarrín-Orozco MP, Romo-Vaquero M, Carrascosa C, Avilés-Plaza F, Martínez-Villanueva M, Noguera JA, Ávila-Gálvez MÁ, Espín JC. Polyphenols increase circulating lipids but improve LDL particle quality and reduce LDL oxidation in postmenopausal women: metabotype- and age-dependent effects in a randomised, placebo-controlled crossover trial. Eur J Nutr. 2026 Jun 29;65(5):177. doi:10.1007/s00394-026-04027-2. PMID: 42371155.",
+    "headline": "Polyphenol Mix Improved Oxidized LDL but Raised Lipids",
+    "takeaway": "In a randomized crossover trial, 90 mildly hypercholesterolemic postmenopausal women took a multi-polyphenol mix that lowered oxidized LDL after eight weeks but raised total cholesterol, LDL cholesterol, and triglycerides. Responses differed by metabolic phenotype, underscoring that these biomarker findings do not establish a general cardiovascular benefit.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42371155/",
+    "study_type": "RCT",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-08-17"
+  },
+  {
+    "id": "article-173",
+    "citation": "Shou M, Ye M, Lou C, Chen X, Yao Y, Yan J, Zhou W, Fu Z, Liu Z. Efficacy of hormone therapy and phytoestrogens on the psychological symptoms of menopausal women: a systematic review, meta-analysis, and trial sequential analysis. Front Med (Lausanne). 2026 Jul 10;13:1855845. doi:10.3389/fmed.2026.1855845. PMID: 42500528.",
+    "headline": "Hormone Therapy and Phytoestrogens May Ease Menopausal Mood Symptoms",
+    "takeaway": "A review of 51 hormone-therapy trials and 16 phytoestrogen trials found associations with improved mood and anxiety symptoms in menopausal women. Effects differed by symptom and subgroup, and some reported findings did not remain significant after correction, so treatment choices should remain individualized.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42500528/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "general",
+    "date_added": "2026-08-17"
   }
 ];
 export function getArticlesByStage(stageId: ArticleStageId): ResearchArticle[] {
