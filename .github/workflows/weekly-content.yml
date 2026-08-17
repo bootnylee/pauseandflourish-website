@@ -23,6 +23,12 @@ jobs:
         with:
           node-version: '24'
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Link and image health check
         run: |
           node scripts/check-links.js
@@ -54,3 +60,6 @@ jobs:
           CREATORS_API_CLIENT_SECRET: ${{ secrets.CREATORS_CREDENTIAL_SECRET }}
           CREATORS_API_PARTNER_TAG: ${{ secrets.PAAPI_PARTNER_TAG }}
         run: node scripts/validate-asins.mjs
+
+      - name: Enforce rendered Amazon-anchor policy
+        run: pnpm build
