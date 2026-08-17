@@ -39,7 +39,11 @@ const PARTNER_TAG            = process.env.CREATORS_API_PARTNER_TAG || "pauseand
 const MARKETPLACE            = "www.amazon.com";
 
 const MATCH_THRESHOLD = 0.60;
-const REQUEST_DELAY_MS = 1200;
+// Creators API can return a transient empty item set under short-lived quota or
+// catalog propagation pressure. Retry before treating a listing as unavailable.
+const REQUEST_DELAY_MS = 2500;
+const LOOKUP_ATTEMPTS = 3;
+const RETRY_BACKOFF_MS = 3000;
 
 // Token cache
 let _tokenCache = { token: null, expiresAt: 0 };
@@ -232,26 +236,31 @@ async function scrapeAmazonTitle(asin) {
 // Verify one ASIN
 // ─────────────────────────────────────────────────────────────────────────────
 async function verifyAsin(asin, name) {
-  // Try Creators API first
+  let lastApiIssue = "Creators API lookup unavailable";
   if (CREATORS_CLIENT_ID && CREATORS_CLIENT_SECRET) {
-    try {
-      const data = await creatorsApiLookup(asin);
-      const items = data?.itemsResult?.items || [];
-      if (items.length > 0) {
-        const title = items[0]?.itemInfo?.title?.displayValue || null;
-        const { matches, score } = titleMatches(name, title || "");
-        return { title, resolves: true, matches, score, source: "creators_api", error: null };
+    for (let attempt = 1; attempt <= LOOKUP_ATTEMPTS; attempt++) {
+      try {
+        const data = await creatorsApiLookup(asin);
+        const items = data?.itemsResult?.items || [];
+        if (items.length > 0) {
+          const title = items[0]?.itemInfo?.title?.displayValue || null;
+          const { matches, score } = titleMatches(name, title || "");
+          return { title, resolves: true, matches, score, source: "creators_api", error: null };
+        }
+        lastApiIssue = data?.errors?.[0]?.message || "No items returned";
+      } catch (error) {
+        lastApiIssue = error?.message || "Creators API request failed";
       }
-      const errMsg = data?.errors?.[0]?.message || "No items returned";
-      return { title: null, resolves: false, matches: false, score: 0, source: "creators_api", error: errMsg };
-    } catch (e) {
-      // Fall through to scrape
+      if (attempt < LOOKUP_ATTEMPTS) await sleep(RETRY_BACKOFF_MS * attempt);
     }
   }
 
-  // Fallback: scrape
+  // A final title fetch helps distinguish persistent API empty responses from a
+  // real delisting. A missing or bot-protected title still fails closed.
   const { title, error } = await scrapeAmazonTitle(asin);
-  if (error || !title) return { title: null, resolves: false, matches: false, score: 0, source: "scrape", error: error || "not found" };
+  if (error || !title) {
+    return { title: null, resolves: false, matches: false, score: 0, source: "scrape", error: `${lastApiIssue}; ${error || "not found"}` };
+  }
   const { matches, score } = titleMatches(name, title);
   return { title, resolves: true, matches, score, source: "scrape", error: null };
 }
