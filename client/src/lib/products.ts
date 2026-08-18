@@ -37,6 +37,8 @@ export interface Product {
   shortDescription: string;   // concise 1-sentence summary for cards
   fullReview: string;         // multi-paragraph review body
   priceDisplay: string;       // formatted price string (same as price)
+  availability?: string;       // current Creators API offer state when available
+  isBuyBoxWinner?: boolean;   // current Creators API buy-box state when available
   editorNote?: string;        // optional editor's pull-quote
   publishDate: string;        // ISO date string
   authorId: string;           // pen-name author id (see src/lib/authors.ts)

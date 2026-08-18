@@ -66,7 +66,7 @@ const MAX_RETRIES = 5;
 const BACKOFF_BASE_MS = 2000; // 2s, 4s, 8s, 16s, 32s
 const TOKEN_EXPIRY_BUFFER_MS = 60_000; // 60s buffer before expiry
 
-const RESOURCES = ["offersV2.listings.price", "images.primary.large"];
+const RESOURCES = ["offersV2.listings.price", "offersV2.listings.availability", "offersV2.listings.isBuyBoxWinner", "images.primary.large"];
 
 const DRY_RUN = process.argv.includes("--dry-run");
 
@@ -283,23 +283,20 @@ function indexResponse(response, priceMap, errorMap) {
     }
   }
   // Items (Creators API camelCase: itemsResult.items[])
-  for (const item of response?.itemsResult?.items ?? []) {
+  for (const item of response?.itemResults?.items ?? response?.itemsResult?.items ?? []) {
     const asin = item.asin;
     if (!asin) continue;
     const listing = item.offersV2?.listings?.[0];
     const money = listing?.price?.money;
     const image = item.images?.primary?.large?.url ?? null;
+    const availability = listing?.availability ? "Available" : "Unavailable";
+    const isBuyBoxWinner = Boolean(listing?.isBuyBoxWinner);
     if (money?.amount != null && money?.displayAmount) {
-      priceMap.set(asin, {
-        amount: money.amount,
-        display: money.displayAmount,
-        image,
-      });
+      priceMap.set(asin, { amount: money.amount, display: money.displayAmount, image, availability, isBuyBoxWinner });
     } else {
+      // Clear offer fields so a fresh sync cannot display a stale price.
       errorMap.set(asin, "NoOffer");
-      // Still capture a fresh image if present, so hotlink rot is fixed even
-      // when the offer is missing.
-      if (image) priceMap.set(asin, { amount: null, display: null, image });
+      priceMap.set(asin, { amount: 0, display: "", image, availability: "Unavailable", isBuyBoxWinner: false });
     }
   }
 }
@@ -336,11 +333,10 @@ function updateProductBlocks(source, priceMap) {
     let block = source.slice(open, close + 1);
     let changed = false;
 
-    if (data.amount != null && data.display) {
-      const numStr = data.amount.toFixed(2);
+    if (data.amount != null) {
       const nb = block
-        .replace(/(\bprice:\s*)[0-9]+(?:\.[0-9]+)?(,)/, (_, p1, p2) => `${p1}${numStr}${p2}`)
-        .replace(/(\bpriceDisplay:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.display}${p2}`);
+        .replace(/(\bprice:\s*)("[^"]*"|[0-9]+(?:\.[0-9]+)?)(,)/, (_, p1, current, p3) => `${p1}${JSON.stringify(data.display || "")}${p3}`)
+        .replace(/(\bpriceDisplay:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.display || ""}${p2}`);
       if (nb !== block) { block = nb; changed = true; }
     }
 
@@ -350,6 +346,20 @@ function updateProductBlocks(source, priceMap) {
         .replace(/(\bheroImage:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.image}${p2}`)
         .replace(/(\bimageUrl:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.image}${p2}`)
         .replace(/(\bamazonImageUrl:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.image}${p2}`);
+      if (nb !== block) { block = nb; changed = true; }
+    }
+    if (data.availability !== undefined) {
+      const availabilityLiteral = JSON.stringify(data.availability);
+      const buyBoxLiteral = data.isBuyBoxWinner ? "true" : "false";
+      let nb = block;
+      if (/\bavailability:\s*"[^"]*"/.test(nb)) {
+        nb = nb.replace(/(\bavailability:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.availability}${p2}`);
+      } else {
+        nb = nb.replace(/(\bpriceDisplay:\s*"[^"]*",?)/, `$1\n      availability: ${availabilityLiteral},\n      isBuyBoxWinner: ${buyBoxLiteral},`);
+      }
+      if (/\bisBuyBoxWinner:\s*(?:true|false)/.test(nb)) {
+        nb = nb.replace(/\bisBuyBoxWinner:\s*(?:true|false)/, `isBuyBoxWinner: ${buyBoxLiteral}`);
+      }
       if (nb !== block) { block = nb; changed = true; }
     }
 

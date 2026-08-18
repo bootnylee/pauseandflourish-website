@@ -2,14 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { useParams, Link } from "wouter";
-import { Trophy, ExternalLink, CheckCircle, XCircle, Sparkles, ArrowRight } from "lucide-react";
+import { Trophy, CheckCircle, XCircle, Sparkles, ArrowRight } from "lucide-react";
 import SiteLayout from "@/components/SiteLayout";
 import { StarRatingDisplay } from "@/components/ProductCard";
 import { comparisons, getProductById, amazonLink } from "@/lib/products";
 import { updateDocumentMeta, buildArticleSchema, buildBreadcrumbSchema, buildPersonSchema, injectStructuredData } from "@/lib/seo";
 import { getAuthor } from "@/lib/authors";
 import { QUIZ_RESULT_KEY } from "@/pages/MenopauseQuiz";
-import { trackAffiliateClick } from "@/lib/analytics";
+import { ProductComparisonTable, VerifiedAmazonCta, FreshCatalogPrice, catalogIsFresh, currentPriceNumber } from "@/components/ProductCommerce";
+import { commerceComparisonFaqSchema, commerceItemListSchema } from "@/lib/commerceSeo";
 
 // Menopause stage metadata for contextual tips
 const STAGE_META: Record<string, { label: string; color: string; bg: string }> = {
@@ -180,8 +181,12 @@ export default function ComparisonPage() {
         { name: comparison.title, url: `https://pauseandflourish.com/comparison/${comparison.slug}` },
       ]);
       injectStructuredData(breadcrumbSchema, "breadcrumb-schema");
+      if (product1 && product2) {
+        injectStructuredData(commerceItemListSchema([product1, product2], compAuthor), "comparison-itemlist-schema");
+        injectStructuredData(commerceComparisonFaqSchema(comparison.title, (comparison.winnerId ?? comparison.winner) === product1.id ? product1 : product2), "comparison-faq-schema");
+      }
     }
-  }, [comparison]);
+  }, [comparison, product1, product2]);
 
   if (!comparison || !product1 || !product2) {
     return (
@@ -251,6 +256,8 @@ export default function ComparisonPage() {
         {/* Quiz-aware contextual banner */}
         <ComparisonQuizBanner category={comparison.category ?? "Menopause Supplements"} />
 
+        <ProductComparisonTable products={[product1, product2]} />
+
         {/* Side-by-Side Comparison */}
         <div className="grid grid-cols-2 gap-6 mb-10">
           {[product1, product2].map((product) => {
@@ -283,9 +290,7 @@ export default function ComparisonPage() {
                     {product.name}
                   </h3>
                   <StarRatingDisplay rating={product.rating} reviewCount={product.reviewCount} />
-                  <p className="font-label font-bold mt-3 mb-4" style={{ color: "#2D7D6F", fontSize: "1.3rem" }}>
-                    {product.priceDisplay}
-                  </p>
+                  <div className="mt-3 mb-4"><FreshCatalogPrice product={product} className="text-xl" />{(!catalogIsFresh() || currentPriceNumber(product.price) <= 0) && <p className="font-body text-xs" style={{ color: "#8C8C8C" }}>Price unavailable</p>}</div>
                   <div className="space-y-1 mb-4">
                     {product.pros.slice(0, 3).map((pro, i) => (
                       <div key={i} className="flex items-start gap-2">
@@ -302,15 +307,7 @@ export default function ComparisonPage() {
                       </div>
                     ))}
                   </div>
-                  <a
-                    href={amazonLink(product.asin)}
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    className="btn-amazon rounded-sm w-full flex items-center justify-center gap-2 py-2.5 text-xs"
-                    onClick={() => trackAffiliateClick(product.name, amazonLink(product.asin), product.asin)}
-                  >
-                    View on Amazon <ExternalLink size={12} />
-                  </a>
+                  <VerifiedAmazonCta product={product} label="Check Price on Amazon" className="w-full" />
                 </div>
               </div>
             );
@@ -338,16 +335,12 @@ export default function ComparisonPage() {
             <div key={product.id} className="p-4 rounded-sm border" style={{ borderColor: "#D4EBE7" }}>
               <p className="section-label text-xs mb-1">{i === 0 ? "🏆 Winner" : "Runner-Up"}</p>
               <p className="font-body font-semibold text-sm mb-2" style={{ color: "#2C2C2C" }}>{product.name}</p>
-              <p className="font-label font-bold mb-3" style={{ color: "#2D7D6F" }}>{product.priceDisplay}</p>
+              <div className="mb-3"><FreshCatalogPrice product={product} />{(!catalogIsFresh() || currentPriceNumber(product.price) <= 0) && <span className="font-body text-xs" style={{ color: "#8C8C8C" }}>Price unavailable</span>}</div>
               <div className="flex gap-2">
                 <Link href={`/review/${product.slug}`}>
                   <button className="btn-primary text-xs py-2 px-3 rounded-sm">Review</button>
                 </Link>
-                <a href={amazonLink(product.asin)} target="_blank" rel="noopener noreferrer nofollow"
-                  className="btn-amazon text-xs py-2 px-3 rounded-sm inline-flex items-center gap-1"
-                  onClick={() => trackAffiliateClick(product.name, amazonLink(product.asin), product.asin)}>
-                  Amazon <ExternalLink size={10} />
-                </a>
+                <VerifiedAmazonCta product={product} label="Check Price on Amazon" compact />
               </div>
             </div>
           ))}
@@ -357,6 +350,9 @@ export default function ComparisonPage() {
           Published: {new Date(comparison.publishDate ?? "2026-05-02").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} · 
           Prices subject to change. Amazon affiliate links - we earn a commission at no extra cost to you.
         </p>
+        <div className="fixed inset-x-0 bottom-0 z-40 p-3 md:hidden" style={{ background: "rgba(250,253,252,0.97)", borderTop: "1px solid #D4EBE7" }}>
+          <VerifiedAmazonCta product={winner} label="View picks on Amazon" className="w-full" />
+        </div>
       </div>
     </SiteLayout>
   );

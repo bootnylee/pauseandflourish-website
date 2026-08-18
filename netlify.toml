@@ -1,7 +1,7 @@
 # PauseAndFlourish.com — Netlify Configuration
 
 [build]
-  command = "pnpm install && node scripts/validate-asins.mjs && npx tsx scripts/extract-data.ts && node scripts/generate-sitemap.mjs && pnpm build && node scripts/prerender.mjs && echo ${COMMIT_REF:-local} > dist/public/version.txt"
+  command = "pnpm install && node scripts/validate-commerce-template.mjs && node scripts/validate-asins.mjs && if [ -n \"$CREATORS_API_CLIENT_ID\" ] && [ -n \"$CREATORS_API_CLIENT_SECRET\" ] && [ -n \"$CREATORS_API_PARTNER_TAG\" ]; then node scripts/fetch-prices.js; else echo 'Creators API credentials unavailable; price UI will hide catalog values.'; fi && npx tsx scripts/extract-data.ts && node scripts/generate-sitemap.mjs && pnpm build && node scripts/prerender.mjs && echo ${COMMIT_REF:-local} > dist/public/version.txt"
   publish = "dist/public"
   functions = "netlify/functions"
 

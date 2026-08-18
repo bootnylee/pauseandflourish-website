@@ -7,7 +7,9 @@ import { QUIZ_RESULT_KEY } from "./MenopauseQuiz";
 import SiteLayout from "@/components/SiteLayout";
 import { StarRatingDisplay } from "@/components/ProductCard";
 import { allProducts, amazonLink, getProductsByCategory } from "@/lib/products";
-import { updateDocumentMeta, buildProductSchema, buildBreadcrumbSchema, buildPersonSchema, injectStructuredData } from "@/lib/seo";
+import { updateDocumentMeta, buildBreadcrumbSchema, buildPersonSchema, injectStructuredData } from "@/lib/seo";
+import { FreshCatalogPrice, VerifiedAmazonCta, catalogIsFresh, currentPriceNumber } from "@/components/ProductCommerce";
+import { commerceFaqSchema, commerceItemListSchema, editorialProductSchema } from "@/lib/commerceSeo";
 import { getAuthor } from "@/lib/authors";
 import { FEATURE_USER_REVIEWS } from "@/lib/featureFlags";
 import { buildAggregateRatingSchema } from "@/lib/userReviews";
@@ -141,20 +143,21 @@ export default function ProductReview() {
 
       const author = getAuthor((product as any).authorId || "");
 
-      const productSchema = buildProductSchema({
-        name: product.name,
-        description: product.shortDescription,
-        brand: product.brand,
-        price: product.price,
-        score: product.score,
-        heroImage: product.heroImage,
-        asin: product.asin,
-        publishDate: product.publishDate,
-        reviewBody: product.fullReview ? product.fullReview.substring(0, 500) : undefined,
-        author: { name: author.name, url: author.url, id: author.id },
-      });
+      const productSchema = {
+        "@context": "https://schema.org",
+        ...editorialProductSchema(product, { name: author.name, role: author.role, url: author.url }),
+      };
 
+      injectStructuredData({
+        "@context": "https://schema.org", "@type": "Article", headline: `${product.name} Review`,
+        description: product.shortDescription, datePublished: product.publishDate, dateModified: product.publishDate,
+        author: { "@type": "Person", name: author.name, url: author.url },
+        publisher: { "@type": "Organization", name: "PauseAndFlourish", url: "https://pauseandflourish.com" },
+        mainEntityOfPage: `https://pauseandflourish.com/review/${product.slug}`,
+      }, "article-schema");
       injectStructuredData(productSchema, "product-schema");
+      injectStructuredData(commerceItemListSchema([product], { name: author.name, role: author.role, url: author.url }), "product-itemlist-schema");
+      injectStructuredData(commerceFaqSchema(product, `https://pauseandflourish.com/review/${product.slug}`), "product-faq-schema");
 
       injectStructuredData(buildPersonSchema({
         name: author.name,
@@ -217,18 +220,9 @@ export default function ProductReview() {
                   <span className="editor-pick-badge text-xs px-3 py-1">Editor's Pick</span>
                 </div>
               )}
-              <p className="font-label font-bold" style={{ color: "#2D7D6F", fontSize: "1.8rem" }}>{product.priceDisplay}</p>
-              <p className="font-body text-xs mb-3" style={{ color: "#B8A99A" }}>Price on Amazon</p>
+              <div className="mb-3"><FreshCatalogPrice product={product} className="text-2xl" />{(!catalogIsFresh() || currentPriceNumber(product.price) <= 0) && <p className="font-body text-xs" style={{ color: "#B8A99A" }}>Current price unavailable</p>}</div>
               <StarRatingDisplay rating={product.rating} reviewCount={product.reviewCount} size={16} />
-              <a
-                href={amazonLink(product.asin)}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="btn-amazon rounded-sm w-full mt-4 flex items-center justify-center gap-2 py-3"
-                onClick={() => trackAffiliateClick(product.name, amazonLink(product.asin), product.asin)}
-              >
-                View on Amazon <ExternalLink size={14} />
-              </a>
+              <VerifiedAmazonCta product={product} label="Check Price on Amazon" className="w-full mt-4" />
               <p className="font-body text-xs text-center mt-2" style={{ color: "#B8A99A" }}>
                 Affiliate link - we earn a commission at no extra cost to you
               </p>
@@ -346,15 +340,7 @@ export default function ProductReview() {
               <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
                 {product.shortDescription} Best for: <strong>{product.bestFor}</strong>.
               </p>
-              <a
-                href={amazonLink(product.asin)}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="btn-amazon rounded-sm mt-4 inline-flex items-center gap-2 py-3 px-6"
-                onClick={() => trackAffiliateClick(product.name, amazonLink(product.asin), product.asin)}
-              >
-                Check Price on Amazon <ExternalLink size={14} />
-              </a>
+              <VerifiedAmazonCta product={product} label="Check Price on Amazon" className="mt-4" />
             </div>
 
             <p className="font-body text-xs mt-4" style={{ color: "#B8A99A" }}>

@@ -4,9 +4,10 @@
 
 import { Link } from "wouter";
 import { ExternalLink, Star, TrendingDown, Flame, Sparkles } from "lucide-react";
-import { type Product, amazonLink, lastSyncedAt } from "@/lib/products";
+import { type Product, lastSyncedAt } from "@/lib/products";
 import { getPriceBadge, type PriceBadge } from "@/lib/priceHistory";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { VerifiedAmazonCta, hasVerifiedAsin } from "@/components/ProductCommerce";
 
 // Returns true if the product was published within the last 14 days
 function isNewThisWeek(publishDate: string): boolean {
@@ -50,17 +51,10 @@ function PriceDisplay({
       </span>
     );
   }
-  return (
-    <a
-      href={amazonLink(product.asin)}
-      target="_blank"
-      rel="noopener noreferrer nofollow"
-      className="font-label font-bold block"
-      style={{ color, fontSize, textDecoration: "underline" }}
-      onClick={() => trackAffiliateClick(product.name, amazonLink(product.asin), product.asin)}
-    >
-      Check price on Amazon
-    </a>
+  return hasVerifiedAsin(product.asin) ? (
+    <span className="font-body text-xs block" style={{ color }}>Price unavailable</span>
+  ) : (
+    <span className="font-body text-xs block" style={{ color: "#8C8C8C" }}>No verified link</span>
   );
 }
 
@@ -159,7 +153,6 @@ export default function ProductCard({
 }: ProductCardProps) {
   const priceBadge = getPriceBadge(product.asin, product.price);
   const isNew = isNewThisWeek(product.publishDate);
-  const affUrl = amazonLink(product.asin);
 
   if (variant === "compact") {
     return (
@@ -203,15 +196,7 @@ export default function ProductCard({
               <PriceDisplay product={product} fontSize="0.9rem" />
               {PRICES_FRESH && priceBadge && <PriceDropBadge badge={priceBadge} size="xs" />}
             </div>
-            <a
-              href={affUrl}
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              className="btn-amazon text-xs py-1.5 px-3 rounded-sm inline-flex items-center gap-1"
-              onClick={() => trackAffiliateClick(product.name, affUrl, product.asin)}
-            >
-              Amazon <ExternalLink size={10} />
-            </a>
+              <VerifiedAmazonCta product={product} label="Check Price on Amazon" compact />
           </div>
         </div>
       </div>
@@ -286,15 +271,7 @@ export default function ProductCard({
                   Read Review
                 </button>
               </Link>
-              <a
-                href={affUrl}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="btn-amazon text-xs py-2 px-3 rounded-sm inline-flex items-center gap-1"
-                onClick={() => trackAffiliateClick(product.name, affUrl, product.asin)}
-              >
-                Buy <ExternalLink size={10} />
-              </a>
+              <VerifiedAmazonCta product={product} label="Check Price on Amazon" compact />
             </div>
           </div>
         </div>
@@ -356,15 +333,7 @@ export default function ProductCard({
               </div>
             )}
           </div>
-          <a
-            href={affUrl}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            className="btn-amazon text-xs py-1.5 px-3 rounded-sm inline-flex items-center gap-1"
-            onClick={() => trackAffiliateClick(product.name, affUrl, product.asin)}
-          >
-            View on Amazon <ExternalLink size={10} />
-          </a>
+              <VerifiedAmazonCta product={product} label="Check Price on Amazon" compact />
         </div>
       </div>
     </div>
