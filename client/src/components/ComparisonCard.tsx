@@ -4,7 +4,6 @@ import { Link } from "wouter";
 import { Trophy, ExternalLink } from "lucide-react";
 import { type Comparison, getProductById, amazonLink, lastSyncedAt } from "@/lib/products";
 
-import { StarRatingDisplay } from "./ProductCard";
 import { VerifiedAmazonCta } from "@/components/ProductCommerce";
 
 const PRICES_FRESH = (() => {

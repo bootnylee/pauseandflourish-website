@@ -77,10 +77,6 @@ export function buildProductSchema(product: {
   reviewBody?: string;
   author?: { name: string; url: string; id: string };
 }): object {
-  const editorialRating = product.score
-    ? Math.round((product.score / 10) * 5 * 10) / 10
-    : null;
-
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -102,46 +98,36 @@ export function buildProductSchema(product: {
         name: "Amazon",
       },
     },
-    // Editorial review only — no fabricated aggregateRating
-    ...(editorialRating
-      ? {
-          review: {
-            "@type": "Review",
-            reviewRating: {
-              "@type": "Rating",
-              ratingValue: editorialRating,
-              bestRating: 5,
-              worstRating: 1,
-            },
-            author: product.author
-              ? {
-                  "@type": "Person",
-                  "@id": `https://pauseandflourish.com/author/${product.author.id}`,
-                  name: product.author.name,
-                  url: product.author.url,
-                }
-              : {
-                  "@type": "Organization",
-                  name: "PauseAndFlourish Editorial Team",
-                  url: "https://pauseandflourish.com",
-                },
-            publisher: {
-              "@type": "Organization",
-              name: "PauseAndFlourish",
-              url: "https://pauseandflourish.com",
-            },
-            datePublished: product.publishDate || new Date().toISOString().split("T")[0],
-            ...(product.reviewBody ? { reviewBody: product.reviewBody } : {}),
+    // Editorial review content is retained without a numeric rating. AggregateRating
+    // is reserved exclusively for genuine approved first-party user reviews.
+    review: {
+      "@type": "Review",
+      author: product.author
+        ? {
+            "@type": "Person",
+            "@id": `https://pauseandflourish.com/author/${product.author.id}`,
+            name: product.author.name,
+            url: product.author.url,
+          }
+        : {
+            "@type": "Organization",
+            name: "PauseAndFlourish Editorial Team",
+            url: "https://pauseandflourish.com",
           },
-        }
-      : {}),
+      publisher: {
+        "@type": "Organization",
+        name: "PauseAndFlourish",
+        url: "https://pauseandflourish.com",
+      },
+      datePublished: product.publishDate || new Date().toISOString().split("T")[0],
+      ...(product.reviewBody ? { reviewBody: product.reviewBody } : {}),
+    },
   };
 }
 
 export function buildReviewSchema(review: {
   productName: string;
   reviewBody: string;
-  rating: number;
   datePublished: string;
 }): object {
   return {
@@ -150,12 +136,6 @@ export function buildReviewSchema(review: {
     itemReviewed: {
       "@type": "Product",
       name: review.productName,
-    },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: review.rating,
-      bestRating: 5,
-      worstRating: 1,
     },
     reviewBody: review.reviewBody,
     datePublished: review.datePublished,

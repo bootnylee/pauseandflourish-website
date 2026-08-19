@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "wouter";
 import { Trophy, CheckCircle, XCircle, Sparkles, ArrowRight } from "lucide-react";
 import SiteLayout from "@/components/SiteLayout";
-import { StarRatingDisplay } from "@/components/ProductCard";
 import { comparisons, getProductById, amazonLink } from "@/lib/products";
 import { updateDocumentMeta, buildArticleSchema, buildBreadcrumbSchema, buildPersonSchema, injectStructuredData } from "@/lib/seo";
 import { getAuthor } from "@/lib/authors";
@@ -289,7 +288,6 @@ export default function ComparisonPage() {
                   <h3 className="font-display font-bold mb-2 leading-snug" style={{ fontSize: "1.1rem", color: "#2C2C2C" }}>
                     {product.name}
                   </h3>
-                  <StarRatingDisplay rating={product.rating} reviewCount={product.reviewCount} />
                   <div className="mt-3 mb-4"><FreshCatalogPrice product={product} className="text-xl" />{(!catalogIsFresh() || currentPriceNumber(product.price) <= 0) && <p className="font-body text-xs" style={{ color: "#8C8C8C" }}>Price unavailable</p>}</div>
                   <div className="space-y-1 mb-4">
                     {product.pros.slice(0, 3).map((pro, i) => (

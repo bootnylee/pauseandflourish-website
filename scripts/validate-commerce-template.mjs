@@ -18,6 +18,7 @@ const review = read("client/src/pages/ProductReview.tsx");
 const cards = read("client/src/components/ProductCard.tsx");
 const quiz = "";
 const commerceSeo = read("client/src/lib/commerceSeo.ts");
+const products = read("client/src/lib/products.ts");
 
 expect(commerce, 'rel="sponsored nofollow noopener"', "Verified CTA must use sponsored, nofollow, noopener");
 expect(commerce, "No verified link", "Verified CTA must suppress unverified product links");
@@ -33,6 +34,14 @@ expect(review, "product-faq-schema", "Review pages must emit FAQPage schema");
 expect(cards, "VerifiedAmazonCta", "Product cards must use verified CTA rendering");
 
 if (/\baggregateRating\s*:/.test(commerceSeo)) failures.push("Commerce schema must not fabricate aggregateRating");
+if (/reviewRating\s*:|ratingValue\s*:/.test(commerceSeo)) failures.push("Commerce schema must not expose an unverified static numeric rating");
+const prohibitedBadge = /Amazon['’]?s Choice|Amazon Choice|Best[- ]?Seller|Bestseller|#\d+\s+Best[- ]?Seller/i;
+for (const [name, source] of [["Product content", products], ["ComparisonPage", comparison], ["ProductReview", review], ["ProductCard", cards]]) {
+  if (prohibitedBadge.test(source)) failures.push(`${name} contains a prohibited Amazon merchandising badge claim`);
+}
+for (const [name, source] of [["ProductCard", cards], ["ComparisonPage", comparison], ["ProductReview", review]]) {
+  if (/StarRatingDisplay|product\.rating\.toFixed\(|product\.reviewCount/.test(source)) failures.push(`${name} renders an unverified static product rating`);
+}
 
 for (const [name, source] of [["ComparisonPage", comparison], ["ProductReview", review], ["ProductCard", cards]]) {
   if (/href=\{(?:amazonLink|affUrl|amazonUrl)/.test(source)) failures.push(`${name} contains a raw Amazon href outside VerifiedAmazonCta`);
@@ -44,4 +53,4 @@ if (failures.length) {
   for (const failure of failures) console.error(`- ${failure}`);
   process.exit(1);
 }
-console.log("Commerce template gate passed: verified CTAs, comparison table, schema parity, and rating policy are present.");
+console.log("Commerce template gate passed: verified CTAs, comparison table, schema parity, and content-integrity rules are present.");

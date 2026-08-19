@@ -5,7 +5,6 @@ import { useParams, Link } from "wouter";
 import { ExternalLink, ArrowLeft, CheckCircle, XCircle, Sparkles } from "lucide-react";
 import { QUIZ_RESULT_KEY } from "./MenopauseQuiz";
 import SiteLayout from "@/components/SiteLayout";
-import { StarRatingDisplay } from "@/components/ProductCard";
 import { allProducts, amazonLink, getProductsByCategory } from "@/lib/products";
 import { updateDocumentMeta, buildBreadcrumbSchema, buildPersonSchema, injectStructuredData } from "@/lib/seo";
 import { FreshCatalogPrice, VerifiedAmazonCta, catalogIsFresh, currentPriceNumber } from "@/components/ProductCommerce";
@@ -221,7 +220,6 @@ export default function ProductReview() {
                 </div>
               )}
               <div className="mb-3"><FreshCatalogPrice product={product} className="text-2xl" />{(!catalogIsFresh() || currentPriceNumber(product.price) <= 0) && <p className="font-body text-xs" style={{ color: "#B8A99A" }}>Current price unavailable</p>}</div>
-              <StarRatingDisplay rating={product.rating} reviewCount={product.reviewCount} size={16} />
               <VerifiedAmazonCta product={product} label="Check Price on Amazon" className="w-full mt-4" />
               <p className="font-body text-xs text-center mt-2" style={{ color: "#B8A99A" }}>
                 Affiliate link - we earn a commission at no extra cost to you
@@ -335,7 +333,6 @@ export default function ProductReview() {
             <div className="p-6 rounded-sm mt-8" style={{ backgroundColor: "#EDF5F3", border: "2px solid #C4722A" }}>
               <p className="section-label mb-2">Our Verdict</p>
               <div className="flex items-center gap-3 mb-3">
-                <StarRatingDisplay rating={product.rating} reviewCount={product.reviewCount} size={20} />
               </div>
               <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
                 {product.shortDescription} Best for: <strong>{product.bestFor}</strong>.
