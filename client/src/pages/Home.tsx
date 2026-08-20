@@ -20,6 +20,10 @@ const STAGE_META: Record<string, { label: string; tagline: string; color: string
   "late-postmenopause": { label: "Late Postmenopause", tagline: "Thriving in your next chapter with confidence.", color: "#2C6B2F", bg: "#EDFAEE" },
 };
 
+function newestFirst<T extends { publishDate: string }>(items: T[]): T[] {
+  return [...items].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
+}
+
 function RecentlyViewedSection() {
   const [recentProducts, setRecentProducts] = useState<typeof allProducts>([]);
   useEffect(() => {
@@ -63,7 +67,7 @@ function QuizCtaSection() {
 
   if (savedResult?.stage && STAGE_META[savedResult.stage]) {
     const meta = STAGE_META[savedResult.stage];
-    const topProducts = allProducts.filter(p => p.stages.includes(savedResult.stage)).slice(0, 3);
+    const topProducts = newestFirst(allProducts.filter(p => p.stages.includes(savedResult.stage))).slice(0, 3);
     return (
       <section className="py-16 px-6" style={{ backgroundColor: meta.bg }}>
         <div className="max-w-4xl mx-auto">
@@ -105,9 +109,9 @@ function QuizCtaSection() {
 }
 
 export default function Home() {
-  const editorPicks = getEditorPicks();
-  const featuredComparisons = comparisons.slice(0, 3);
-  const recentReviews = allProducts.slice(0, 6);
+  const editorPicks = newestFirst(getEditorPicks());
+  const featuredComparisons = newestFirst(comparisons).slice(0, 3);
+  const recentReviews = newestFirst(allProducts).slice(0, 6);
 
   useEffect(() => {
     updateDocumentMeta({

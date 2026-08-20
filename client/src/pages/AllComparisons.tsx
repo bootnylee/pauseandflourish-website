@@ -152,15 +152,17 @@ export default function AllComparisons() {
     } catch {}
   }, []);
 
-  const filtered = comparisons.filter(c => {
-    const categoryMatch = activeCategory === "all" || c.categorySlug === activeCategory;
-    const productIds = (c as any).productIds || [(c as any).product1Id, (c as any).product2Id].filter(Boolean);
-    const stageMatch = !activeStage || productIds.some((pid: string) => {
-      const product = (allProducts as any[]).find((p: any) => p.id === pid);
-      return product?.stages?.includes(activeStage);
-    });
-    return categoryMatch && stageMatch;
-  });
+  const filtered = comparisons
+    .filter(c => {
+      const categoryMatch = activeCategory === "all" || c.categorySlug === activeCategory;
+      const productIds = (c as any).productIds || [(c as any).product1Id, (c as any).product2Id].filter(Boolean);
+      const stageMatch = !activeStage || productIds.some((pid: string) => {
+        const product = (allProducts as any[]).find((p: any) => p.id === pid);
+        return product?.stages?.includes(activeStage);
+      });
+      return categoryMatch && stageMatch;
+    })
+    .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
 
   return (
     <SiteLayout>

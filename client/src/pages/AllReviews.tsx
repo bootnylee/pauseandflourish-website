@@ -102,7 +102,7 @@ const SORT_OPTIONS = [
 export default function AllReviews() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [filters, setFilters] = useState<FilterState>(getDefaultFilters());
-  const [sortBy, setSortBy] = useState<string>("default");
+  const [sortBy, setSortBy] = useState<string>("newest");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [showMobileFilters, setShowMobileFilters] = useState<boolean>(false);
   const [sortOpen, setSortOpen] = useState(false);
@@ -119,14 +119,14 @@ export default function AllReviews() {
   const clearAll = () => {
     setSelectedCategory("all");
     setFilters(getDefaultFilters());
-    setSortBy("default");
+    setSortBy("newest");
     setSearchQuery("");
   };
 
   const anyActive =
     selectedCategory !== "all" ||
     hasActiveFilters(filters) ||
-    sortBy !== "default" ||
+    sortBy !== "newest" ||
     searchQuery.length > 0;
 
   const activeFilterCount =
@@ -186,7 +186,7 @@ export default function AllReviews() {
   }, [selectedCategory, filters, sortBy, searchQuery]);
 
   const activeSortLabel =
-    SORT_OPTIONS.find((o) => o.id === sortBy)?.label || "Featured";
+    SORT_OPTIONS.find((o) => o.id === sortBy)?.label || "Newest First";
 
   function applyStageFilter(stage: string) {
     setFilters(prev => ({ ...prev, stages: [stage] }));
