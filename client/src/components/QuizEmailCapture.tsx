@@ -5,20 +5,11 @@
  * the visitor to the EmailOctopus list with their MenopauseStage custom field
  * pre-filled, and then delivers the stage-specific lead-magnet PDF.
  *
- * ── EmailOctopus Configuration ───────────────────────────────────────────────
- * PRIMARY path (server-side, API key never exposed to browser):
- *   POST /.netlify/functions/subscribe
- *   Requires EMAILOCTOPUS_API_KEY + EMAILOCTOPUS_LIST_ID in Netlify env vars.
- *
- * FALLBACK path (embedded widget endpoint, no API key needed):
- *   POST https://emailoctopus.com/lists/{EO_LIST_ID_FALLBACK}/members/embedded/1.3/add
- *   Uses the list ID hardcoded below.
- *
- * ── TO CONFIGURE ─────────────────────────────────────────────────────────────
- * 1. Set EMAILOCTOPUS_API_KEY and EMAILOCTOPUS_LIST_ID in Netlify → Site settings
- *    → Environment variables. The Netlify Function will use these automatically.
- * 2. The EO_LIST_ID_FALLBACK constant below is the fallback list ID for the
- *    embedded widget path. Update it if your list ID changes.
+ * ── Subscription path ────────────────────────────────────────────────────────
+ * POST /.netlify/functions/subscribe
+ * The existing Netlify Function uses EMAILOCTOPUS_API_KEY and
+ * EMAILOCTOPUS_LIST_ID from Netlify environment variables. No list ID or API
+ * credential is included in the browser bundle.
  *
  * ── Lead Magnet ──────────────────────────────────────────────────────────────
  * On successful subscription, the browser is directed to download the
@@ -28,17 +19,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import { CheckCircle, Mail, ArrowRight, Loader2, Download } from "lucide-react";
-
-// ─── Configuration ────────────────────────────────────────────────────────────
-
-/**
- * FALLBACK EmailOctopus list ID (used when the Netlify Function is unavailable).
- * This is the UUID from dashboard.emailoctopus.com/lists/{id}.
- * The primary path uses EMAILOCTOPUS_LIST_ID set in Netlify environment variables.
- *
- * ⚠️  TO UPDATE: Replace this value with your EmailOctopus list UUID.
- */
-const EO_LIST_ID_FALLBACK = "a1d7e346-40dd-11f1-90e8-0d2682659c97";
 
 // ─── Stage label map ──────────────────────────────────────────────────────────
 
@@ -116,34 +96,6 @@ export default function QuizEmailCapture({
     return "error";
   }
 
-  // ── Fallback: EmailOctopus embedded widget endpoint ────────────────────────
-  async function subscribeViaEmbedded(
-    emailVal: string,
-    firstNameVal: string
-  ): Promise<"success" | "already_subscribed" | "error"> {
-    const formData = new URLSearchParams();
-    formData.append("member[email_address]", emailVal);
-    if (firstNameVal) formData.append("member[fields][FirstName]", firstNameVal);
-    formData.append("member[fields][MenopauseStage]", stageLabel);
-    formData.append("hp", "");
-
-    const res = await fetch(
-      `https://emailoctopus.com/lists/${EO_LIST_ID_FALLBACK}/members/embedded/1.3/add`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: formData.toString(),
-      }
-    );
-    const data = await res.json().catch(() => ({}));
-    if (res.ok || data?.status === "SUCCESS") return "success";
-    if (
-      data?.error?.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS" ||
-      data?.message?.toLowerCase().includes("already")
-    ) return "already_subscribed";
-    return "error";
-  }
-
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (submitState === "submitting" || submitState === "success") return;
@@ -161,13 +113,7 @@ export default function QuizEmailCapture({
     const firstNameVal = firstName.trim();
 
     try {
-      // Try primary (Netlify Function) first; fall back to embedded endpoint
-      let result: "success" | "already_subscribed" | "error";
-      try {
-        result = await subscribeViaFunction(emailVal, firstNameVal);
-      } catch {
-        result = await subscribeViaEmbedded(emailVal, firstNameVal);
-      }
+      const result = await subscribeViaFunction(emailVal, firstNameVal);
 
       if (result === "success" || result === "already_subscribed") {
         setSubmitState(result);

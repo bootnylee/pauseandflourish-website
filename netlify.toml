@@ -18,6 +18,13 @@
   status = 301
   force  = true
 
+# ── Legacy subscribe alias — protects stale cached frontend bundles ───────────
+[[redirects]]
+  from = "/api/subscribe"
+  to = "/.netlify/functions/subscribe"
+  status = 200
+  force = true
+
 # ── SPA routing — serve prerendered HTML for all routes ─────────────────────
 [[redirects]]
   from = "/*"
