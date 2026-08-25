@@ -1,0 +1,13 @@
+{
+  "suggestedSubject": "New this week: URO Bladder Control — Urgency & Frequency, 30-Day Supply",
+  "previewText": "A hormone-free daily capsule with pumpkin seed, saw palmetto, and soy germ extracts for bladder-support needs during menopause.",
+  "fromName": "Pause & Flourish",
+  "fromAddress": "hello@pauseandflourish.com",
+  "listName": "Pause & Flourish newsletter list",
+  "articleUrl": "https://pauseandflourish.com/review/uro-bladder-control-urgency-frequency",
+  "publishedDate": "2026-08-17",
+  "articleTitle": "URO Bladder Control — Urgency & Frequency, 30-Day Supply",
+  "articleSource": "client/src/lib/products.ts (allProducts)",
+  "stagedAt": "2026-08-25T16:42:46.064Z",
+  "note": "Create and send this campaign manually in the EmailOctopus dashboard. This workflow never calls the EmailOctopus API."
+}
