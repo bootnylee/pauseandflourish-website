@@ -5,16 +5,16 @@ import { useParams, Link } from "wouter";
 import { ExternalLink, ArrowLeft, CheckCircle, XCircle, Sparkles } from "lucide-react";
 import { QUIZ_RESULT_KEY } from "./MenopauseQuiz";
 import SiteLayout from "@/components/SiteLayout";
-import { allProducts, amazonLink, getProductsByCategory } from "@/lib/products";
+import { allProducts, comparisons, amazonLink, getProductsByCategory } from "@/lib/products";
 import { updateDocumentMeta, buildBreadcrumbSchema, buildPersonSchema, injectStructuredData } from "@/lib/seo";
 import { FreshCatalogPrice, VerifiedAmazonCta, catalogIsFresh, currentPriceNumber } from "@/components/ProductCommerce";
-import { commerceFaqSchema, commerceItemListSchema, editorialProductSchema } from "@/lib/commerceSeo";
+import { commerceItemListSchema, editorialProductSchema } from "@/lib/commerceSeo";
 import { getAuthor } from "@/lib/authors";
 import { FEATURE_USER_REVIEWS } from "@/lib/featureFlags";
 import { buildAggregateRatingSchema } from "@/lib/userReviews";
 import UserReviewSection from "@/components/UserReviewSection";
-import ProductCard from "@/components/ProductCard";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { getStageMatchedResearch, researchPath } from "@/lib/researchRoutes";
 
 // ─── Recently Viewed Key ────────────────────────────────────────────────────
 export const RECENTLY_VIEWED_KEY = "pauseandflourish_recently_viewed";
@@ -88,41 +88,18 @@ function QuizPromptBanner() {
 export default function ProductReview() {
   const { slug } = useParams<{ slug: string }>();
   const product = allProducts.find(p => p.slug === slug);
-  const [savedStage, setSavedStage] = useState<string | null>(null);
-
-  useEffect(() => {
-    const saved = localStorage.getItem(QUIZ_RESULT_KEY);
-    if (saved) {
-      try { setSavedStage(JSON.parse(saved).stage || null); } catch {}
-    }
-  }, []);
-
-  // Build related products: prioritize those matching the user's saved menopause stage
-  const relatedProducts = (() => {
-    if (!product) return [];
-    const sameCategory = getProductsByCategory(product.categorySlug).filter(p => p.id !== product.id);
-    if (savedStage) {
-      const stageMatches = sameCategory.filter(p =>
-        Array.isArray(p.stages) && p.stages.includes(savedStage)
-      );
-      const rest = sameCategory.filter(p =>
-        !(Array.isArray(p.stages) && p.stages.includes(savedStage))
-      );
-      return [...stageMatches, ...rest].slice(0, 3);
-    }
-    return sameCategory.slice(0, 3);
-  })();
-
-  const stageDisplayNames: Record<string, string> = {
-    "early-perimenopause": "Early Perimenopause",
-    "late-perimenopause": "Late Perimenopause",
-    "active-menopause": "Active Menopause",
-    "early-postmenopause": "Early Postmenopause",
-    "late-postmenopause": "Late Postmenopause",
-  };
-  const relatedLabel = savedStage && relatedProducts.some(p =>
-    Array.isArray(p.stages) && p.stages.includes(savedStage)
-  ) ? `Recommended for ${stageDisplayNames[savedStage] || savedStage}` : null;
+  const relatedProducts = product
+    ? getProductsByCategory(product.categorySlug).filter((item) => item.id !== product.id).slice(0, 3)
+    : [];
+  const relatedComparisons = product
+    ? comparisons.filter((comparison) => {
+        const ids = comparison.productIds?.length
+          ? comparison.productIds
+          : [comparison.product1Id, comparison.product2Id].filter(Boolean);
+        return ids.includes(product.id);
+      })
+    : [];
+  const relatedResearch = product ? getStageMatchedResearch(product.stages) : [];
 
   // Track this product as recently viewed
   useEffect(() => {
@@ -156,7 +133,6 @@ export default function ProductReview() {
       }, "article-schema");
       injectStructuredData(productSchema, "product-schema");
       injectStructuredData(commerceItemListSchema([product], { name: author.name, role: author.role, url: author.url }), "product-itemlist-schema");
-      injectStructuredData(commerceFaqSchema(product, `https://pauseandflourish.com/review/${product.slug}`), "product-faq-schema");
 
       injectStructuredData(buildPersonSchema({
         name: author.name,
@@ -373,18 +349,35 @@ export default function ProductReview() {
           />
         )}
 
-        {/* Related Products */}
-        {relatedProducts.length > 0 && (
+        {/* Static, catalog-derived contextual links */}
+        {(relatedProducts.length > 0 || relatedComparisons.length > 0 || relatedResearch.length > 0) && (
           <section className="mt-16 pt-10 border-t" style={{ borderColor: "#D4EBE7" }}>
-            <p className="section-label mb-2">
-              {relatedLabel ? "Personalized for You" : `More in ${product.category}`}
-            </p>
-            <h2 className="font-display font-bold mb-8" style={{ fontSize: "1.8rem", color: "#2C2C2C" }}>
-              {relatedLabel ?? "Related Reviews"}
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {relatedProducts.map(p => <ProductCard key={p.id} product={p} variant="default" />)}
-            </div>
+            <p className="section-label mb-2">More in {product.category}</p>
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: "1.8rem", color: "#2C2C2C" }}>Related Reviews &amp; Comparisons</h2>
+            {relatedComparisons.length > 0 && (
+              <div className="mb-6">
+                <h3 className="font-display font-bold mb-3" style={{ color: "#2C2C2C" }}>Comparisons featuring {product.name}</h3>
+                <ul className="space-y-2">
+                  {relatedComparisons.map((comparison) => <li key={comparison.id}><Link href={`/comparison/${comparison.slug}`}><a className="font-body hover:underline" style={{ color: "#2D7D6F" }}>{comparison.title}</a></Link></li>)}
+                </ul>
+              </div>
+            )}
+            {relatedProducts.length > 0 && (
+              <div className={relatedResearch.length > 0 ? "mb-6" : undefined}>
+                <h3 className="font-display font-bold mb-3" style={{ color: "#2C2C2C" }}>Related Reviews</h3>
+                <ul className="space-y-2">
+                  {relatedProducts.map((item) => <li key={item.id}><Link href={`/review/${item.slug}`}><a className="font-body hover:underline" style={{ color: "#2D7D6F" }}>{item.name}</a></Link></li>)}
+                </ul>
+              </div>
+            )}
+            {relatedResearch.length > 0 && (
+              <div>
+                <h3 className="font-display font-bold mb-3" style={{ color: "#2C2C2C" }}>Related Research</h3>
+                <ul className="space-y-2">
+                  {relatedResearch.map((article) => <li key={article.id}><Link href={researchPath(article)}><a className="font-body hover:underline" style={{ color: "#2D7D6F" }}>{article.headline}</a></Link></li>)}
+                </ul>
+              </div>
+            )}
           </section>
         )}
 

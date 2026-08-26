@@ -1,7 +1,7 @@
 # PauseAndFlourish.com — Netlify Configuration
 
 [build]
-  command = "pnpm install && node scripts/validate-commerce-template.mjs && node scripts/validate-asins.mjs && if [ -n \"$CREATORS_API_CLIENT_ID\" ] && [ -n \"$CREATORS_API_CLIENT_SECRET\" ] && [ -n \"$CREATORS_API_PARTNER_TAG\" ]; then node scripts/fetch-prices.js; else echo 'Creators API credentials unavailable; price UI will hide catalog values.'; fi && npx tsx scripts/extract-data.ts && node scripts/generate-sitemap.mjs && pnpm build && node scripts/prerender.mjs && echo ${COMMIT_REF:-local} > dist/public/version.txt"
+  command = "pnpm install && node scripts/validate-commerce-template.mjs && node scripts/validate-asins.mjs && if [ -n \"$CREATORS_API_CLIENT_ID\" ] && [ -n \"$CREATORS_API_CLIENT_SECRET\" ] && [ -n \"$CREATORS_API_PARTNER_TAG\" ]; then node scripts/fetch-prices.js; else echo 'Creators API credentials unavailable; price UI will hide catalog values.'; fi && npx tsx scripts/extract-data.ts && pnpm exec tsx scripts/render-static-bodies.tsx && node scripts/generate-sitemap.mjs && pnpm build && node scripts/prerender.mjs && echo ${COMMIT_REF:-local} > dist/public/version.txt"
   publish = "dist/public"
   functions = "netlify/functions"
 
@@ -18,6 +18,25 @@
   status = 301
   force  = true
 
+# ── Canonical detail-route form: no trailing slash ───────────────────────────
+[[redirects]]
+  from = "/review/:slug/"
+  to = "/review/:slug"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/comparison/:slug/"
+  to = "/comparison/:slug"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/research/:slug/"
+  to = "/research/:slug"
+  status = 301
+  force = true
+
 # ── Legacy subscribe alias — protects stale cached frontend bundles ───────────
 [[redirects]]
   from = "/api/subscribe"
@@ -25,23 +44,12 @@
   status = 200
   force = true
 
-# ── Unknown detail routes return a true static 404 response. Existing
-# prerendered route files take precedence because these rules are not forced.
-[[redirects]]
-  from = "/review/*"
-  to = "/404.html"
-  status = 404
-
-[[redirects]]
-  from = "/comparison/*"
-  to = "/404.html"
-  status = 404
-
-# ── SPA routing — serve prerendered HTML for all other routes ───────────────
+# ── Unknown routes return a true static 404 response. Existing prerendered
+# route files and static assets take precedence because this rule is not forced.
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404
 
 # ── Security headers ─────────────────────────────────────────────────────────
 [[headers]]

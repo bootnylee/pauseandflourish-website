@@ -45,8 +45,27 @@ function esc(str = "") {
 
 // ── Helper: truncate to max length ───────────────────────────────────────────
 function trunc(str = "", max = 155) {
-  const s = String(str).replace(/\s+/g, " ").trim();
-  return s.length <= max ? s : s.slice(0, max - 1).replace(/\s+\S*$/, "") + "…";
+  const clean = String(str)
+    .replace(/\s+/g, " ")
+    .replace(/\s*\|\s*(?:…|\.\.\.)?\s*$/, "")
+    .replace(/(?:…|\.\.\.)\s*$/, "")
+    .trim();
+  if (clean.length <= max) return clean;
+
+  const bounded = clean.slice(0, max + 1);
+  const sentenceEnd = Math.max(
+    bounded.lastIndexOf(". "),
+    bounded.lastIndexOf("! "),
+    bounded.lastIndexOf("? ")
+  );
+  const candidate = sentenceEnd >= Math.floor(max * 0.72)
+    ? bounded.slice(0, sentenceEnd + 1)
+    : bounded.slice(0, max + 1).replace(/\s+\S*$/, "");
+
+  return candidate
+    .replace(/\s*[|:–—-]+\s*$/, "")
+    .replace(/(?:…|\.\.\.)\s*$/, "")
+    .trim();
 }
 
 // ── Read the base index.html template ────────────────────────────────────────
@@ -61,6 +80,13 @@ if (!existsSync(BUILT_INDEX)) {
   process.exit(1);
 }
 const BASE_HTML = readFileSync(BUILT_INDEX, "utf8");
+const BODY_DATA = JSON.parse(readFileSync(resolve(ROOT, "scripts", "static-bodies.json"), "utf8"));
+
+function rootMarkup(urlPath) {
+  const body = BODY_DATA[urlPath];
+  if (!body) throw new Error(`Missing rendered body for ${urlPath}`);
+  return `<div id="root">${body}</div>`;
+}
 
 // ── Build a full HTML page from page-specific meta ───────────────────────────
 function buildHtml({
@@ -70,6 +96,7 @@ function buildHtml({
   ogImage = `${BASE_URL}/og-image.jpg`,
   ogType = "website",
   jsonLd,
+  bodyHtml,
 }) {
   const safeTitle = esc(title);
   const safeDesc = esc(trunc(description, 155));
@@ -142,14 +169,17 @@ function buildHtml({
     );
   }
 
-  return html;
+  if (!bodyHtml) throw new Error(`Missing body HTML for ${canonical}`);
+  const rendered = html.replace(/<div id="root"><\/div>/, bodyHtml);
+  if (rendered === html) throw new Error(`Could not inject body HTML for ${canonical}`);
+  return rendered;
 }
 
 // ── Write a route's HTML file ─────────────────────────────────────────────────
 function writeRoute(urlPath, meta) {
   const dir = resolve(DIST, ...urlPath.replace(/^\//, "").split("/"));
   mkdirSync(dir, { recursive: true });
-  const html = buildHtml(meta);
+  const html = buildHtml({ ...meta, bodyHtml: rootMarkup(urlPath) });
   writeFileSync(resolve(dir, "index.html"), html, "utf8");
   console.log(`  ✓ ${urlPath}`);
 }
@@ -217,6 +247,7 @@ const allProducts = siteData.allProducts || [];
 const categories = siteData.categories || [];
 const comparisons = siteData.comparisons || [];
 const authors = siteData.authors || [];
+const researchArticles = siteData.researchArticles || [];
 if (!allProducts.length || !comparisons.length) {
   throw new Error("Validated site-data.json is missing product or comparison route data.");
 }
@@ -641,6 +672,40 @@ for (const comp of comparisons) {
   });
 }
 
+// 13. Research detail pages
+console.log("\n📚 Research detail pages:");
+for (const article of researchArticles) {
+  const researchSlug = article.headline
+    .toLowerCase()
+    .replace(/\.\.\.|…/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 72);
+  const slug = researchSlug ? `${researchSlug}-${article.id}` : article.id;
+  const canonical = `${BASE_URL}/research/${slug}`;
+  writeRoute(`/research/${slug}`, {
+    title: trunc(article.headline, 60),
+    description: trunc(article.takeaway, 155),
+    canonical,
+    ogType: "article",
+    jsonLd: siteGraph(
+      breadcrumb([
+        { name: "Home", url: `${BASE_URL}/` },
+        { name: "News & Articles", url: `${BASE_URL}/news-and-articles` },
+        { name: article.headline, url: canonical },
+      ]),
+      {
+        "@type": "Article",
+        headline: article.headline,
+        description: article.takeaway,
+        citation: article.citation,
+        url: canonical,
+        datePublished: article.date_added,
+      }
+    ),
+  });
+}
+
 // ── Summary ───────────────────────────────────────────────────────────────────
-const total = 7 + authorList.length + categoryDefs.length + menopauseStages.length + productList.length + comparisons.length;
+const total = 7 + authorList.length + categoryDefs.length + menopauseStages.length + productList.length + comparisons.length + researchArticles.length;
 console.log(`\n✅ Prerender complete — ${total} HTML files written to dist/public/\n`);

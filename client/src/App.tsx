@@ -16,6 +16,7 @@ import MenopauseQuiz from "./pages/MenopauseQuiz";
 import NewsAndArticles from "./pages/NewsAndArticles";
 import Methodology from "./pages/Methodology";
 import AuthorPage from "./pages/AuthorPage";
+import ResearchArticlePage from "./pages/ResearchArticlePage";
 
 function Router() {
   return (
@@ -30,6 +31,7 @@ function Router() {
       <Route path="/stage/:slug" component={MenopauseStagePage} />
       <Route path="/quiz" component={MenopauseQuiz} />
       <Route path="/news-and-articles" component={NewsAndArticles} />
+      <Route path="/research/:slug" component={ResearchArticlePage} />
       <Route path="/methodology" component={Methodology} />
       <Route path="/author/:slug" component={AuthorPage} />
       <Route path="/404" component={NotFound} />

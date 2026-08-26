@@ -9,7 +9,7 @@ import { updateDocumentMeta, buildArticleSchema, buildBreadcrumbSchema, buildPer
 import { getAuthor } from "@/lib/authors";
 import { QUIZ_RESULT_KEY } from "@/pages/MenopauseQuiz";
 import { ProductComparisonTable, VerifiedAmazonCta, FreshCatalogPrice, catalogIsFresh, currentPriceNumber } from "@/components/ProductCommerce";
-import { commerceComparisonFaqSchema, commerceItemListSchema } from "@/lib/commerceSeo";
+import { commerceItemListSchema } from "@/lib/commerceSeo";
 
 // Menopause stage metadata for contextual tips
 const STAGE_META: Record<string, { label: string; color: string; bg: string }> = {
@@ -182,7 +182,6 @@ export default function ComparisonPage() {
       injectStructuredData(breadcrumbSchema, "breadcrumb-schema");
       if (product1 && product2) {
         injectStructuredData(commerceItemListSchema([product1, product2], compAuthor), "comparison-itemlist-schema");
-        injectStructuredData(commerceComparisonFaqSchema(comparison.title, (comparison.winnerId ?? comparison.winner) === product1.id ? product1 : product2), "comparison-faq-schema");
       }
     }
   }, [comparison, product1, product2]);

@@ -6,6 +6,7 @@
 import { allProducts, categories, comparisons } from "../client/src/lib/products.js";
 import { menopauseStages } from "../client/src/lib/menopauseStages.js";
 import { authors } from "../client/src/lib/authors.js";
+import { researchArticles } from "../client/src/lib/researchArticles.js";
 import { writeFileSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -49,7 +50,12 @@ const data = {
     reviewCount: p.reviewCount,
     heroImage: p.heroImage,
     shortDescription: p.shortDescription,
-    fullReview: p.fullReview ? p.fullReview.substring(0, 500) : "",
+    fullReview: p.fullReview || "",
+    pros: p.pros || [],
+    cons: p.cons || [],
+    bestFor: p.bestFor || "",
+    editorPick: p.editorPick || false,
+    editorNote: p.editorNote || "",
     verdict: p.verdict,
     score: p.score,
     publishDate: p.publishDate,
@@ -66,6 +72,11 @@ const data = {
     subtitle: c.subtitle,
     category: c.category,
     categorySlug: c.categorySlug,
+    productIds: c.productIds,
+    product1Id: c.product1Id,
+    product2Id: c.product2Id,
+    winnerId: c.winnerId,
+    winnerReason: c.winnerReason,
     summary: c.summary,
     verdict: c.verdict,
     publishDate: c.publishDate,
@@ -85,6 +96,16 @@ const data = {
     slug: s.slug,
     name: s.name,
     description: s.description,
+  })),
+  researchArticles: researchArticles.map(article => ({
+    id: article.id,
+    citation: article.citation,
+    headline: article.headline,
+    takeaway: article.takeaway,
+    url: article.url,
+    study_type: article.study_type,
+    stage_id: article.stage_id,
+    date_added: article.date_added,
   })),
 };
 

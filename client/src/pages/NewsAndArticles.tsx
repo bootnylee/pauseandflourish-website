@@ -6,10 +6,11 @@ import SiteLayout from "../components/SiteLayout";
 import { updateDocumentMeta, buildBreadcrumbSchema, injectStructuredData } from "../lib/seo";
 import {
   researchArticles,
-  getArticlesByStage,
   type ResearchArticle,
   type ArticleStageId,
 } from "../lib/researchArticles";
+import { researchPath } from "../lib/researchRoutes";
+import { Link } from "wouter";
 
 // ─── Stage tab configuration ─────────────────────────────────────────────────
 const TABS: { id: ArticleStageId | "all"; label: string; color: string }[] = [
@@ -78,7 +79,7 @@ function ArticleCard({ article }: { article: ResearchArticle }) {
 
       {/* Consumer headline */}
       <h3 className="font-display font-bold leading-snug" style={{ fontSize: "1rem", color: "#1A2E2A" }}>
-        {article.headline}
+        <Link href={researchPath(article)}><a className="hover:underline">{article.headline}</a></Link>
       </h3>
 
       {/* Key takeaway */}

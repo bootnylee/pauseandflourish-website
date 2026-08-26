@@ -38,6 +38,7 @@ const {
   categories = [],
   menopauseStages = [],
   authors = [],
+  researchArticles = [],
 } = data;
 
 const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
@@ -54,6 +55,16 @@ function urlEntry(path, { lastmod = today, changefreq = "monthly", priority = "0
   ].join("\n");
 }
 
+function researchPath(article) {
+  const headline = String(article.headline || "")
+    .toLowerCase()
+    .replace(/\.\.\.|…/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 72);
+  return `/research/${headline ? `${headline}-${article.id}` : article.id}`;
+}
+
 // ── Collect all URLs ──────────────────────────────────────────────────────────
 const entries = [];
 
@@ -64,6 +75,7 @@ entries.push(urlEntry("/comparisons", { changefreq: "weekly",  priority: "0.9" }
 entries.push(urlEntry("/about",       { changefreq: "monthly", priority: "0.5" }));
 entries.push(urlEntry("/methodology", { changefreq: "monthly", priority: "0.5" }));
 entries.push(urlEntry("/quiz",        { changefreq: "monthly", priority: "0.8" }));
+entries.push(urlEntry("/news-and-articles", { changefreq: "weekly", priority: "0.8" }));
 
 // Category pages — sourced from live categories data
 for (const cat of categories) {
@@ -102,6 +114,15 @@ for (const comp of comparisons) {
   entries.push(urlEntry(`/comparison/${comp.slug}`, { lastmod, changefreq: "monthly", priority: "0.8" }));
 }
 
+// Research detail pages — sourced verbatim from the existing research catalog
+for (const article of researchArticles) {
+  entries.push(urlEntry(researchPath(article), {
+    lastmod: article.date_added || today,
+    changefreq: "monthly",
+    priority: "0.6",
+  }));
+}
+
 // ── Assemble XML ─────────────────────────────────────────────────────────────
 const xml = [
   '<?xml version="1.0" encoding="UTF-8"?>',
@@ -116,9 +137,10 @@ writeFileSync(OUT_PATH, xml, "utf8");
 console.log(`✅ Sitemap written to ${OUT_PATH}`);
 console.log(`   ${entries.length} URLs total`);
 console.log(`   Breakdown:`);
-console.log(`     Static pages:     6`);
+console.log(`     Static pages:     7`);
 console.log(`     Category pages:   ${categories.length}`);
 console.log(`     Stage pages:      ${menopauseStages.length}`);
 console.log(`     Author pages:     ${authors.length}`);
 console.log(`     Review pages:     ${allProducts.length}`);
 console.log(`     Comparison pages: ${comparisons.length}`);
+console.log(`     Research pages:    ${researchArticles.length}`);
