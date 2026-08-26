@@ -31,7 +31,7 @@ export interface ResearchArticle {
   date_added: string; // ISO date YYYY-MM-DD
 }
 
-export const researchArticles: ResearchArticle[] = 
+const rawResearchArticles: ResearchArticle[] =
 [
   {
     "id": "article-001",
@@ -446,7 +446,7 @@ export const researchArticles: ResearchArticle[] =
   {
     "id": "article-042",
     "citation": "Maunder A, Mardon AK, Rao V, Torkel S, Metri NJ, Liu J, Yang G, Giese N, Mantzioris E, Abdul Jafar NK, Rodrigues de Souza GE, Al-Kanini I, Romero L, Panay N, Pedder H, Ee C. Complementary therapies for management of menopausal symptoms: a systematic review to inform the update of the International Menopause Society recommendations on women's midlife health. Climacteric. 2026 Apr;29(2):165-209. doi: 10.1080/13697137.2025.2584061. Epub 2026 Jan 7. PMID: 41498229.",
-    "headline": "Complementary Therapies for Menopause: What Works?",
+    "headline": "Complementary Therapies for Menopause: What Works? — Climacteric 2026",
     "takeaway": "This systematic review evaluated various complementary therapies for menopausal symptoms. While many showed promise, most evidence was of low certainty, with stronger support for vitamin D safety, black cohosh for hot flashes, and Chinese herbal medicine for hot flashes and sleep.",
     "url": "https://pubmed.ncbi.nlm.nih.gov/41498229/",
     "study_type": "Systematic Review",
@@ -586,7 +586,7 @@ export const researchArticles: ResearchArticle[] =
   {
     "id": "article-056",
     "citation": "Maunder A, Mardon AK, Rao V, Torkel S, Metri NJ, Liu J, Yang G, Giese N, Mantzioris E, Abdul Jafar NK, Rodrigues de Souza GE, Al-Kanini I, Romero L, Panay N, Pedder H, Ee C. Complementary therapies for management of menopausal symptoms: a systematic review to inform the update of the International Menopause Society recommendations on women's midlife health. Climacteric. 2026 Apr;29(2):165-209. doi: 10.1080/13697137.2025.2584061. PMID: 41498229.",
-    "headline": "Complementary Therapies for Menopause: What Works?",
+    "headline": "Complementary Therapies for Menopause: What Works? — Climacteric 2026 (PMID 41498229)",
     "takeaway": "This systematic review evaluates complementary therapies for menopausal symptoms, finding promising but often low-certainty evidence for acupuncture, Chinese herbal medicine, and certain herbs and nutrients. While some therapies like black cohosh and vitamin D show moderate benefits, more rigorous research is needed to confirm efficacy and safety and to inform updated recommendations for women's midlife health.",
     "url": "https://pubmed.ncbi.nlm.nih.gov/41498229/",
     "study_type": "Systematic Review",
@@ -1770,6 +1770,32 @@ export const researchArticles: ResearchArticle[] =
     "date_added": "2026-08-17"
   }
 ];
+
+function citationTitleSuffix(article: ResearchArticle): string {
+  const journalAndYear = article.citation.match(/\.\s*([^.;]+?)\.\s*(20\d{2})\b/);
+  const pmid = article.citation.match(/\bPMID:\s*(\d+)\b/i);
+  const primary = journalAndYear ? `${journalAndYear[1].trim()} ${journalAndYear[2]}` : "Research citation";
+  return pmid ? `${primary} (PMID ${pmid[1]})` : primary;
+}
+
+function ensureUniqueResearchHeadlines(articles: ResearchArticle[]): ResearchArticle[] {
+  const used = new Set<string>();
+  return articles.map((article) => {
+    const base = article.headline.trim();
+    let headline = base;
+    if (used.has(headline.toLocaleLowerCase())) {
+      headline = `${base} — ${citationTitleSuffix(article)}`;
+    }
+    if (used.has(headline.toLocaleLowerCase())) {
+      headline = `${headline} [${article.id}]`;
+    }
+    used.add(headline.toLocaleLowerCase());
+    return headline === article.headline ? article : { ...article, headline };
+  });
+}
+
+export const researchArticles: ResearchArticle[] = ensureUniqueResearchHeadlines(rawResearchArticles);
+
 export function getArticlesByStage(stageId: ArticleStageId): ResearchArticle[] {
   return researchArticles.filter(a => a.stage_id === stageId);
 }
