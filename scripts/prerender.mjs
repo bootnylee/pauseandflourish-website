@@ -25,7 +25,7 @@
  * (called automatically by the Netlify build command in netlify.toml)
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -177,10 +177,19 @@ function buildHtml({
 
 // ── Write a route's HTML file ─────────────────────────────────────────────────
 function writeRoute(urlPath, meta) {
-  const dir = resolve(DIST, ...urlPath.replace(/^\//, "").split("/"));
-  mkdirSync(dir, { recursive: true });
+  const normalized = urlPath.replace(/^\//, "");
   const html = buildHtml({ ...meta, bodyHtml: rootMarkup(urlPath) });
-  writeFileSync(resolve(dir, "index.html"), html, "utf8");
+  if (!normalized) {
+    writeFileSync(resolve(DIST, "index.html"), html, "utf8");
+  } else {
+    // Netlify resolves route.html at /route without creating a directory URL,
+    // preserving the no-slash canonical form used by internal links and sitemap.
+    const legacyDirectory = resolve(DIST, ...normalized.split("/"));
+    rmSync(legacyDirectory, { recursive: true, force: true });
+    const output = resolve(DIST, `${normalized}.html`);
+    mkdirSync(dirname(output), { recursive: true });
+    writeFileSync(output, html, "utf8");
+  }
   console.log(`  ✓ ${urlPath}`);
 }
 
