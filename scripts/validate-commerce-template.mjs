@@ -26,11 +26,11 @@ expect(commerce, "Price unavailable", "Catalog-price UI must hide unavailable pr
 expect(comparison, "ProductComparisonTable", "Comparison pages must render the standardized comparison table");
 expect(comparison, "View picks on Amazon", "Comparison pages must render the mobile sticky buyer CTA");
 expect(comparison, "commerceItemListSchema", "Comparison pages must emit ItemList Product schema");
-expect(comparison, "comparison-faq-schema", "Comparison pages must emit FAQPage schema");
+if (comparison.includes("comparison-faq-schema")) failures.push("Comparison pages must not emit FAQPage schema without visible FAQ content");
 if (/Editorial assessment|>Rating</.test(commerce)) failures.push("Comparison template must not contain a placeholder Rating column or assessment text");
 expect(review, '"@type": "Article"', "Review pages must emit Article schema");
 expect(review, "commerceItemListSchema", "Review pages must emit ItemList Product schema");
-expect(review, "product-faq-schema", "Review pages must emit FAQPage schema");
+if (review.includes("product-faq-schema")) failures.push("Review pages must not emit FAQPage schema without visible FAQ content");
 expect(cards, "VerifiedAmazonCta", "Product cards must use verified CTA rendering");
 
 if (/\baggregateRating\s*:/.test(commerceSeo)) failures.push("Commerce schema must not fabricate aggregateRating");
@@ -53,4 +53,4 @@ if (failures.length) {
   for (const failure of failures) console.error(`- ${failure}`);
   process.exit(1);
 }
-console.log("Commerce template gate passed: verified CTAs, comparison table, schema parity, and content-integrity rules are present.");
+console.log("Commerce template gate passed: verified CTAs, comparison table, visible-schema policy, and content-integrity rules are present.");
