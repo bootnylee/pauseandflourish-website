@@ -279,7 +279,7 @@ export default function QuizEmailCapture({
         </button>
 
         <p className="text-xs mt-3 text-center" style={{ color: "#9C9C9C" }}>
-          No spam, ever. Unsubscribe at any time. Your stage is saved privately on your device.
+          No spam, ever. Unsubscribe at any time. Your stage is saved privately on your device. By subscribing, you agree to our <a href="/privacy" className="underline">Privacy Policy</a>.
         </p>
       </form>
     </div>

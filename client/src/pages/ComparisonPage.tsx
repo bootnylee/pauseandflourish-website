@@ -10,6 +10,7 @@ import { getAuthor } from "@/lib/authors";
 import { QUIZ_RESULT_KEY } from "@/pages/MenopauseQuiz";
 import { ProductComparisonTable, VerifiedAmazonCta, FreshCatalogPrice, catalogIsFresh, currentPriceNumber } from "@/components/ProductCommerce";
 import { commerceItemListSchema } from "@/lib/commerceSeo";
+import { HealthDisclaimers } from "@/components/HealthDisclaimers";
 
 // Menopause stage metadata for contextual tips
 const STAGE_META: Record<string, { label: string; color: string; bg: string }> = {
@@ -23,39 +24,39 @@ const STAGE_META: Record<string, { label: string; color: string; bg: string }> =
 // Contextual tips per menopause stage per product category
 const CATEGORY_TIPS: Record<string, Record<string, string>> = {
   "early-perimenopause": {
-    "Multi-Symptom Supplements": "In early perimenopause, milder formulas with black cohosh or phytoestrogens are a good starting point before symptoms intensify.",
-    "Sleep & Mood Support": "Sleep disruption often starts before hot flashes — a magnesium or L-theanine option is a gentle first step.",
-    "Hot Flash & Cooling": "Cooling products are worth having on hand even before hot flashes peak — early investment pays off.",
-    "Bone & Joint Health": "Starting calcium and vitamin D supplementation early in perimenopause provides the longest protective window.",
-    default: "Early perimenopause is the ideal time to build a proactive wellness routine — the gentler, foundational option is usually the right starting point.",
+    "Multi-Symptom Supplements": "In early perimenopause, consider discussing any new supplement routine with a qualified healthcare professional and prioritize products that fit your preferences and health history.",
+    "Sleep & Mood Support": "Sleep changes can occur during perimenopause; consider practical sleep habits and consult a qualified healthcare professional for persistent concerns.",
+    "Hot Flash & Cooling": "Cooling products can be a practical comfort option for people experiencing temperature changes during perimenopause.",
+    "Bone & Joint Health": "Bone health is an important long-term consideration; discuss nutrition, movement, and any supplement routine with a qualified healthcare professional.",
+    default: "Early perimenopause can be a useful time to build a sustainable wellness routine that reflects your preferences and health history.",
   },
   "late-perimenopause": {
-    "Multi-Symptom Supplements": "Late perimenopause brings intensifying symptoms — look for the more comprehensive multi-symptom formula in this comparison.",
-    "Sleep & Mood Support": "Sleep issues peak in late perimenopause — the option with stronger sleep-onset support will make the biggest difference.",
-    "Hot Flash & Cooling": "Hot flashes are most frequent now — prioritize the option with faster, longer-lasting cooling relief.",
-    "Bone & Joint Health": "Bone density loss accelerates in late perimenopause — the option with higher elemental calcium and D3 is the stronger choice.",
-    default: "Late perimenopause demands more targeted relief — the more comprehensive or higher-potency option is usually the better fit.",
+    "Multi-Symptom Supplements": "Late perimenopause can involve changing symptoms; compare ingredients, product format, and your individual preferences before choosing a routine.",
+    "Sleep & Mood Support": "If sleep changes are affecting daily life, consider discussing them with a qualified healthcare professional; product format and ingredients may affect personal preference.",
+    "Hot Flash & Cooling": "For temperature-related discomfort, compare practical features such as material, portability, and ease of use.",
+    "Bone & Joint Health": "Compare ingredient labels, serving format, and your overall nutrition and activity routine when considering bone-health products.",
+    default: "Late perimenopause can call for a thoughtful review of the products, routines, and professional support that fit your circumstances.",
   },
   "active-menopause": {
-    "Multi-Symptom Supplements": "Active menopause calls for full-spectrum support — look for the formula addressing hot flashes, mood, and sleep together.",
-    "Sleep & Mood Support": "Mood and sleep are closely linked at this stage — the option addressing both simultaneously offers the most value.",
-    "Hot Flash & Cooling": "Hot flashes are at their most disruptive now — the option with the broadest cooling coverage wins.",
-    "Vaginal & Intimate Health": "Vaginal dryness typically begins in active menopause — the longer-lasting moisturizer is the more practical choice.",
-    default: "Active menopause requires comprehensive support across multiple symptoms — the more complete solution is usually the better investment.",
+    "Multi-Symptom Supplements": "During active menopause, consider whether a product’s ingredients, format, and cost fit your needs and health history.",
+    "Sleep & Mood Support": "Sleep and mood concerns can have many causes; consider professional guidance for persistent or disruptive symptoms.",
+    "Hot Flash & Cooling": "Cooling products vary in format and features; choose based on the setting and comfort features that matter to you.",
+    "Vaginal & Intimate Health": "Intimate dryness can occur during menopause; choose products based on intended use and seek professional guidance for persistent, severe, or painful symptoms.",
+    default: "Active menopause is an opportunity to choose a practical routine that reflects your preferences and qualified healthcare guidance.",
   },
   "early-postmenopause": {
-    "Vaginal & Intimate Health": "Vaginal atrophy continues post-menopause — the option with hyaluronic acid or longer-lasting moisture is the stronger choice.",
-    "Menopause Skincare": "Collagen loss accelerates post-menopause — the option with retinol or collagen-stimulating ingredients will deliver more visible results.",
-    "Bone & Joint Health": "Bone protection remains critical in early postmenopause — the option with the highest bioavailable calcium wins.",
-    "Cognitive & Energy Support": "Brain fog often persists post-menopause — the nootropic or adaptogen with the strongest clinical evidence is the better pick.",
-    default: "Early postmenopause is about rebuilding and protecting — the option with the strongest long-term protective benefits is usually the right choice.",
+    "Vaginal & Intimate Health": "Intimate tissue changes may continue after menopause; choose products based on intended use and speak with a qualified healthcare professional about persistent, severe, or painful symptoms.",
+    "Menopause Skincare": "Skin can change after menopause; compare product ingredients, texture, and your skin’s tolerance when selecting skincare.",
+    "Bone & Joint Health": "Bone health remains an important consideration after menopause; discuss nutrition, movement, and supplements with a qualified healthcare professional.",
+    "Cognitive & Energy Support": "Concentration and energy can be affected by many factors; seek professional guidance for new, persistent, or concerning changes.",
+    default: "Early postmenopause can be a time to review sustainable wellness habits with your preferences and health history in mind.",
   },
   "late-postmenopause": {
-    "Bone & Joint Health": "Long-term bone health is the top priority — the option with the most comprehensive mineral and vitamin D3/K2 profile wins.",
-    "Cognitive & Energy Support": "Cognitive support becomes increasingly important — look for the option with the strongest evidence for long-term brain health.",
-    "Menopause Skincare": "Skin continues to thin post-menopause — the option with the most intensive collagen and barrier-support ingredients is the better choice.",
-    "Fitness & Pelvic Health": "Muscle preservation and pelvic floor strength are key at this stage — the option supporting both is the more complete solution.",
-    default: "Late postmenopause calls for long-term protective strategies — the option with the strongest evidence for longevity and vitality is usually the better fit.",
+    "Bone & Joint Health": "For long-term bone health, consider products as one part of an overall nutrition, movement, and professional-care plan.",
+    "Cognitive & Energy Support": "For ongoing cognitive or energy concerns, consider lifestyle factors and seek professional guidance when appropriate.",
+    "Menopause Skincare": "Choose skincare based on ingredient tolerance, daily routine, and the appearance goals that matter to you.",
+    "Fitness & Pelvic Health": "Fitness and pelvic-health routines should reflect your comfort, goals, and qualified professional guidance when needed.",
+    default: "Late postmenopause is an opportunity to maintain sustainable routines that align with your preferences and health history.",
   },
 };
 
@@ -347,6 +348,8 @@ export default function ComparisonPage() {
           Published: {new Date(comparison.publishDate ?? "2026-05-02").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} · 
           Prices subject to change. Amazon affiliate links - we earn a commission at no extra cost to you.
         </p>
+
+        <HealthDisclaimers showDshea={product1.isDietarySupplement || product2.isDietarySupplement} />
         <div className="fixed inset-x-0 bottom-0 z-40 p-3 md:hidden" style={{ background: "rgba(250,253,252,0.97)", borderTop: "1px solid #D4EBE7" }}>
           <VerifiedAmazonCta product={winner} label="View picks on Amazon" className="w-full" />
         </div>

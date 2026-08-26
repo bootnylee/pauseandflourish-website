@@ -17,6 +17,9 @@ import NewsAndArticles from "./pages/NewsAndArticles";
 import Methodology from "./pages/Methodology";
 import AuthorPage from "./pages/AuthorPage";
 import ResearchArticlePage from "./pages/ResearchArticlePage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
+import Contact from "./pages/Contact";
 
 function Router() {
   return (
@@ -25,6 +28,9 @@ function Router() {
       <Route path="/reviews" component={AllReviews} />
       <Route path="/comparisons" component={AllComparisons} />
       <Route path="/about" component={About} />
+      <Route path="/privacy" component={PrivacyPolicy} />
+      <Route path="/terms" component={TermsOfUse} />
+      <Route path="/contact" component={Contact} />
       <Route path="/category/:slug" component={CategoryPage} />
       <Route path="/review/:slug" component={ProductReview} />
       <Route path="/comparison/:slug" component={ComparisonPage} />

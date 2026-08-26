@@ -104,7 +104,7 @@ export default function NewsletterSignup({
           ? "Thanks — you’re subscribed to the PauseAndFlourish Weekly."
           : submitState === "error"
             ? errorMessage
-            : "No spam, ever. Unsubscribe at any time."}
+            : <>No spam, ever. Unsubscribe at any time. By subscribing, you agree to our <a href="/privacy" className="underline">Privacy Policy</a>.</>}
       </p>
     </form>
   );

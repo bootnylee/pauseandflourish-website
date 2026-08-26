@@ -462,7 +462,36 @@ writeRoute("/methodology", {
   ),
 });
 
-// 8. Author pages
+// 8. Legal and contact pages
+writeRoute("/privacy", {
+  title: "Privacy Policy | PauseAndFlourish",
+  description: "How PauseAndFlourish collects, uses, and protects information.",
+  canonical: `${BASE_URL}/privacy`,
+  jsonLd: siteGraph(breadcrumb([
+    { name: "Home", url: `${BASE_URL}/` },
+    { name: "Privacy Policy", url: `${BASE_URL}/privacy` },
+  ])),
+});
+writeRoute("/terms", {
+  title: "Terms of Use | PauseAndFlourish",
+  description: "Terms governing use of PauseAndFlourish.com.",
+  canonical: `${BASE_URL}/terms`,
+  jsonLd: siteGraph(breadcrumb([
+    { name: "Home", url: `${BASE_URL}/` },
+    { name: "Terms of Use", url: `${BASE_URL}/terms` },
+  ])),
+});
+writeRoute("/contact", {
+  title: "Contact | PauseAndFlourish",
+  description: "Contact PauseAndFlourish with feedback, corrections, privacy requests, and general questions.",
+  canonical: `${BASE_URL}/contact`,
+  jsonLd: siteGraph(breadcrumb([
+    { name: "Home", url: `${BASE_URL}/` },
+    { name: "Contact", url: `${BASE_URL}/contact` },
+  ])),
+});
+
+// 9. Author pages
 console.log("\n👤 Author pages:");
 const authorList = authors.length > 0 ? authors : [FALLBACK_AUTHOR];
 for (const author of authorList) {
@@ -582,14 +611,6 @@ for (const product of productList) {
     description: product.shortDescription || name,
     brand: brand ? { "@type": "Brand", name: brand } : undefined,
     image: product.heroImage || undefined,
-    offers: product.asin ? {
-      "@type": "Offer",
-      price: product.price ? String(product.price).replace(/[^0-9.]/g, "") : undefined,
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: `https://www.amazon.com/dp/${product.asin}?tag=pauseandflourish-20`,
-      seller: { "@type": "Organization", name: "Amazon" },
-    } : undefined,
     // Editorial review only — no fabricated aggregateRating
     review: editorialRating ? {
       "@type": "Review",
@@ -716,5 +737,5 @@ for (const article of researchArticles) {
 }
 
 // ── Summary ───────────────────────────────────────────────────────────────────
-const total = 7 + authorList.length + categoryDefs.length + menopauseStages.length + productList.length + comparisons.length + researchArticles.length;
+const total = 10 + authorList.length + categoryDefs.length + menopauseStages.length + productList.length + comparisons.length + researchArticles.length;
 console.log(`\n✅ Prerender complete — ${total} HTML files written to dist/public/\n`);

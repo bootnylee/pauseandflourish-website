@@ -17,6 +17,7 @@ export interface Product {
   name: string;
   brand: string;
   asin: string;
+  isDietarySupplement: boolean;
   affiliateUrl: string;
   category: string;
   categorySlug: string;
@@ -78,6 +79,7 @@ export interface Comparison {
 export const categories: Category[] = [
   {
     id: "multi-symptom-supplements",
+    isDietarySupplement: true,
     slug: "multi-symptom-supplements",
     name: "Multi-Symptom Supplements",
     description: "Comprehensive formulas targeting hot flashes, mood, sleep, and energy simultaneously.",
@@ -87,6 +89,7 @@ export const categories: Category[] = [
   },
   {
     id: "sleep-mood-support",
+    isDietarySupplement: true,
     slug: "sleep-mood-support",
     name: "Sleep & Mood Support",
     description: "Supplements and tools to restore restful sleep and stabilize mood during hormonal shifts.",
@@ -96,6 +99,7 @@ export const categories: Category[] = [
   },
   {
     id: "hot-flash-cooling",
+    isDietarySupplement: true,
     slug: "hot-flash-cooling",
     name: "Hot Flash & Cooling",
     description: "Products designed to reduce hot flash frequency and intensity, and keep you cool.",
@@ -105,6 +109,7 @@ export const categories: Category[] = [
   },
   {
     id: "bone-joint-health",
+    isDietarySupplement: true,
     slug: "bone-joint-health",
     name: "Bone & Joint Health",
     description: "Calcium, magnesium, vitamin D, and collagen supplements to protect bone density and joint comfort.",
@@ -114,6 +119,7 @@ export const categories: Category[] = [
   },
   {
     id: "vaginal-intimate-health",
+    isDietarySupplement: true,
     slug: "vaginal-intimate-health",
     name: "Vaginal & Intimate Health",
     description: "Moisturizers, lubricants, and supplements for vaginal dryness and intimate comfort.",
@@ -123,6 +129,7 @@ export const categories: Category[] = [
   },
   {
     id: "menopause-skincare",
+    isDietarySupplement: true,
     slug: "menopause-skincare",
     name: "Menopause Skincare",
     description: "Collagen supplements, moisturizers, and serums formulated for menopausal skin changes.",
@@ -132,6 +139,7 @@ export const categories: Category[] = [
   },
   {
     id: "fitness-pelvic-health",
+    isDietarySupplement: true,
     slug: "fitness-pelvic-health",
     name: "Fitness & Pelvic Health",
     description: "Resistance training tools, pelvic floor devices, and protein supplements for midlife fitness.",
@@ -141,6 +149,7 @@ export const categories: Category[] = [
   },
   {
     id: "cognitive-energy-support",
+    isDietarySupplement: true,
     slug: "cognitive-energy-support",
     name: "Cognitive & Energy Support",
     description: "Supplements targeting brain fog, memory, focus, and fatigue common in perimenopause.",
@@ -154,8 +163,9 @@ export const categories: Category[] = [
 
 export const allProducts: Product[] = [
   // ── Restored after clean authenticated ASIN revalidation ──
-  {
+{
       id: "pausitivi-t-menopause-support",
+    isDietarySupplement: true,
       slug: "pausitivi-t-menopause-support",
       name: "Pausitivi-T Menopause Support",
       brand: "LifeSeasons",
@@ -168,11 +178,11 @@ export const allProducts: Product[] = [
       rating: 4.3,
       reviewCount: 753,
       heroImage: "https://m.media-amazon.com/images/I/31SpMHcGTFL._SL500_.jpg",
-      summary: "Pausitivi-T is a comprehensive multi-symptom herbal blend featuring Sage, Chasteberry, and Black Cohosh to provide powerful relief for hot flashes, night sweats, and hormone imbalance.",
+      summary: "Pausitivi-T is a comprehensive multi-symptom herbal blend featuring Sage, Chasteberry, and Black Cohosh to support comfort during hot flashes, night sweats, and hormonal transitions.",
       pros: [
         "Combines multiple well-researched botanicals",
         "Hormone-free and natural formulation",
-        "Addresses hot flashes and tissue nourishment",
+        "Addresses hot flashes and supports overall comfort",
         "Good value for a multi-ingredient blend",
       ],
       cons: [
@@ -180,19 +190,20 @@ export const allProducts: Product[] = [
         "Herbal scent may be strong for some users",
       ],
       ingredients: ["Sage", "Chasteberry (Vitex)", "Black Cohosh", "Soy Isoflavones", "Wild Yam"],
-      verdict: "Pausitivi-T offers an effective, well-rounded herbal approach for women seeking natural relief from multiple menopause symptoms simultaneously.",
+      verdict: "Pausitivi-T offers a well-rounded herbal approach for women seeking natural support for multiple menopause symptoms simultaneously.",
       score: 8.5,
       editorPick: false,
       bestFor: "Comprehensive herbal relief for multiple symptoms",
-      tags: ["herbal", "hot flashes", "night sweats", "hormone balance", "multi-symptom"],
-      shortDescription: "Powerful multi-herb blend for hot flashes, night sweats, and hormone balance.",
-      fullReview: "LifeSeasons Pausitivi-T is designed as a comprehensive, multi-symptom solution for women navigating the menopausal transition. Rather than relying on a single ingredient, it utilizes a synergistic blend of traditional herbs known for their efficacy in managing menopause symptoms. The formula includes Sage and Black Cohosh, both widely recognized for their ability to reduce the frequency and severity of hot flashes and night sweats.\n\nIn addition to temperature regulation, Pausitivi-T includes Chasteberry (Vitex) and Wild Yam to support overall hormone balance, as well as Soy Isoflavones which provide phytoestrogen support. This multi-pronged approach makes it an excellent option for women experiencing a wide range of symptoms, from temperature fluctuations to mood swings.\n\nUsers frequently praise the product for its effectiveness in reducing night sweats, leading to significantly improved sleep quality. While it requires a two-capsule daily dose, the comprehensive nature of the formula means many women can replace multiple single-ingredient supplements with this one product. At its price point, it represents excellent value for a multi-herb formulation.",
+      tags: ["herbal", "hot flashes", "night sweats", "hormonal support", "multi-symptom"],
+      shortDescription: "Comprehensive multi-herb blend for hot flashes, night sweats, and hormonal support.",
+      fullReview: "LifeSeasons Pausitivi-T is designed as a multi-symptom support option for women navigating the menopausal transition. Rather than relying on a single ingredient, it utilizes a synergistic blend of traditional herbs often used to support comfort during menopause. The formula includes Sage and Black Cohosh, both widely recognized for their role in helping manage hot flashes and night sweats.\n\nIn addition to temperature-related comfort, Pausitivi-T includes Chasteberry (Vitex) and Wild Yam for hormonal support, as well as Soy Isoflavones which are sources of phytoestrogens. This multi-pronged approach makes it an excellent option for women experiencing a wide range of symptoms, from temperature fluctuations to mood swings.\n\nUsers often report positive experiences with the product for night sweats, which can help support better sleep comfort. While it requires a two-capsule daily dose, the comprehensive nature of the formula means many women can consolidate their supplement routine with this multi-herb product. At its price point, it represents excellent value for a multi-herb formulation.",
       priceDisplay: "$29.99",
       publishDate: "2026-07-20",
       authorId: "diane-kessler",
     },
-  {
+{
       id: "remifemin-menopause",
+    isDietarySupplement: true,
       slug: "remifemin-menopause-supplement",
       name: "Remifemin Menopause Supplement",
       brand: "Remifemin",
@@ -205,11 +216,11 @@ export const allProducts: Product[] = [
       rating: 4.3,
       reviewCount: 4821,
       heroImage: "https://m.media-amazon.com/images/I/41s52hQx+FL._SL500_.jpg",
-      summary: "Remifemin is one of the most clinically studied black cohosh supplements on the market, with over 30 years of research supporting its use for hot flash and mood relief.",
+      summary: "Remifemin is a widely studied black cohosh supplement, with over 30 years of research history regarding its role in supporting hot flash and mood relief.",
       pros: [
-        "30+ years of clinical research behind the formula",
+        "30+ years of research history behind the formula",
         "Standardized black cohosh extract (20mg per tablet)",
-        "Non-hormonal — safe for women who cannot use HRT",
+        "Non-hormonal — a common choice for those seeking alternatives to HRT",
         "Over 4,800 Amazon reviews averaging 4.3 stars",
       ],
       cons: [
@@ -218,20 +229,21 @@ export const allProducts: Product[] = [
         "Some users report mild GI upset initially",
       ],
       ingredients: ["Black Cohosh Extract (Actaea racemosa) 20mg"],
-      verdict: "Remifemin is our top pick for women seeking a well-researched, non-hormonal option for hot flashes and mood swings. The clinical backing sets it apart from most competitors.",
+      verdict: "Remifemin is a leading choice for women seeking a well-researched, non-hormonal option for hot flashes and mood swings. Its extensive research history distinguishes it in this category.",
       score: 9.0,
       editorPick: true,
       bestFor: "Hot flashes & mood swings",
-      tags: ["black cohosh", "non-hormonal", "hot flashes", "clinically studied"],
-      shortDescription: "The most clinically studied black cohosh supplement for hot flash and mood relief, with 30+ years of research.",
-      fullReview: "Remifemin has been the gold standard in non-hormonal menopause relief since the 1950s. Its active ingredient — a standardized black cohosh extract (Actaea racemosa) — has been evaluated in over 30 clinical trials, making it the most research-backed supplement in this category.\n\nThe mechanism is not fully understood, but black cohosh appears to act on serotonin receptors rather than estrogen receptors, which is why it is considered safe for women who cannot use hormonal therapies, including breast cancer survivors (though individual consultation with a physician is always advised).\n\nIn clinical studies, Remifemin reduced hot flash frequency by 26% and severity by 42% compared to placebo over 12 weeks. Users typically begin noticing improvement at 4–6 weeks, with full benefit at 8–12 weeks. The formula has been unchanged for decades — a testament to its effectiveness.\n\nThe main limitation is patience: this is not a quick-fix supplement. Women who stick with it for 3 months consistently report the best outcomes. If you are looking for the most evidence-backed non-hormonal option for hot flashes and mood swings, Remifemin is our top recommendation.",
+      tags: ["black cohosh", "non-hormonal", "hot flashes", "research-backed"],
+      shortDescription: "A widely researched black cohosh supplement for hot flash and mood relief, backed by over 30 years of history.",
+      fullReview: "Remifemin has been a prominent non-hormonal menopause support option since the 1950s. Its active ingredient — a standardized black cohosh extract (Actaea racemosa) — has been evaluated in numerous clinical trials, establishing it as a highly research-backed supplement in this category.\\n\\nWhile the mechanism is not fully understood, research suggests black cohosh may interact with serotonin receptors rather than estrogen receptors. For this reason, it is often discussed as a non-hormonal option for those who cannot use hormonal therapies, though consultation with a physician is essential for individual safety and suitability.\\n\\nIn clinical studies, Remifemin has been shown to support a reduction in hot flash frequency and severity compared to placebo over a 12-week period. Many users report noticing support for their symptoms starting around 4–6 weeks, with continued benefits observed through 8–12 weeks. The formula has remained consistent for decades, reflecting its long-standing use.\\n\\nThe main limitation is patience: this is not a quick-fix supplement. Consistent use over a 3-month period is often associated with the most positive experiences. For those seeking a research-supported non-hormonal option for hot flashes and mood swings, Remifemin remains a top-tier recommendation.",
       priceDisplay: "$29.99",
       publishDate: "2026-05-02",
       authorId: "carol-beaumont",
-      editorNote: "Remifemin is the supplement I recommend first to women who ask me about non-hormonal hot flash relief. The clinical evidence is simply unmatched in this category.",
+      editorNote: "Remifemin is a primary supplement I discuss with women seeking non-hormonal hot flash relief. Its extensive research history is a significant factor in this category.",
     },
   {
       id: "elegear-revolutionary-cooling-blanket",
+    isDietarySupplement: true,
       slug: "elegear-revolutionary-cooling-blanket",
       name: "Elegear Revolutionary Cooling Blanket",
       brand: "Elegear",
@@ -267,8 +279,9 @@ export const allProducts: Product[] = [
       authorId: "carol-beaumont",
       editorNote: "At under $30, this blanket is the best value cooling solution in the entire catalog. The instant cool-to-touch sensation is genuinely impressive and the reversible design means you can use it year-round.",
     },
-  {
+{
       id: "garden-of-life-bone-strength",
+    isDietarySupplement: true,
       slug: "naturelo-calcium-bone-strength",
       name: "NATURELO Bone Strength Calcium Supplement",
       brand: "NATURELO",
@@ -300,7 +313,7 @@ export const allProducts: Product[] = [
       bestFor: "Plant-based calcium with D3 and K2",
       tags: ["bone health", "calcium", "vitamin D3", "vitamin K2", "plant-based"],
       shortDescription: "A comprehensive plant-based calcium formula with D3, K2, magnesium, zinc, and vitamin C for postmenopausal bone-health support.",
-      fullReview: `Bone density protection becomes a priority after menopause, when estrogen decline accelerates bone loss and increases long-term fracture risk. NATURELO Bone Strength is positioned as a comprehensive calcium formula rather than a simple standalone mineral product. The current Amazon listing highlights calcium from marine algae together with vitamin D3, vitamin K2, magnesium, zinc, and vitamin C.
+      fullReview: `Bone density protection becomes a priority after menopause, when estrogen decline can lead to natural changes in bone density and long-term skeletal health. NATURELO Bone Strength is positioned as a comprehensive calcium formula rather than a simple standalone mineral product. The current Amazon listing highlights calcium from marine algae together with vitamin D3, vitamin K2, magnesium, zinc, and vitamin C.
   
   That cofactor approach matters. Vitamin D3 supports calcium absorption, vitamin K2 supports proper calcium utilization, and magnesium plays a complementary role in bone metabolism. For women who want a more complete formula than basic calcium citrate, NATURELO provides a practical middle ground between budget calcium tablets and very premium practitioner-only products.
   
@@ -312,8 +325,9 @@ export const allProducts: Product[] = [
       authorId: "diane-kessler",
       editorNote: "The D3 and K2 cofactor pairing is the reason I prefer comprehensive bone formulas over plain calcium for many postmenopausal women.",
     },
-  {
+{
       id: "replens-long-lasting-moisturizer",
+    isDietarySupplement: false,
       slug: "replens-long-lasting-vaginal-moisturizer",
       name: "Replens Long-Lasting Vaginal Moisturizer",
       brand: "Replens",
@@ -326,32 +340,33 @@ export const allProducts: Product[] = [
       rating: 4.4,
       reviewCount: 18923,
       heroImage: "https://m.media-amazon.com/images/I/41EU4yI9lxL._SL500_.jpg",
-      summary: "Replens is the #1 OB/GYN recommended vaginal moisturizer, providing up to 3 days of relief from vaginal dryness with a single application. Hormone-free and clinically tested.",
+      summary: "Replens is the #1 OB/GYN recommended vaginal moisturizer, providing up to 3 days of relief from vaginal dryness with a single application. Hormone-free and clinically studied.",
       pros: [
         "#1 OB/GYN recommended vaginal moisturizer",
         "Lasts up to 3 days per application",
-        "Hormone-free — safe for all women including cancer survivors",
-        "Clinically tested for safety and efficacy",
+        "Hormone-free — a non-estrogen option for those seeking vaginal comfort",
+        "Clinically studied for safety and use",
       ],
       cons: [
         "Some women prefer daily application for consistent comfort",
         "Applicator-based — less convenient than topical creams",
-        "May not be sufficient for severe vaginal atrophy",
+        "May not be sufficient for severe dryness",
       ],
-      verdict: "Replens is the gold standard for non-hormonal vaginal moisture. The 3-day duration and OB/GYN endorsement make it the most trusted option in this category.",
+      verdict: "Replens is a leading choice for non-hormonal vaginal moisture. The 3-day duration and OB/GYN endorsement make it a highly regarded option in this category.",
       score: 9.1,
       editorPick: true,
       bestFor: "Vaginal dryness & intimate comfort",
       tags: ["vaginal dryness", "moisturizer", "hormone-free", "OB/GYN recommended"],
       shortDescription: "The OB/GYN-recommended vaginal moisturizer that provides up to 3 days of relief from vaginal dryness with a single application.",
-      fullReview: "Vaginal dryness affects over 50% of postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is the most widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical studies show it is as effective as topical estrogen for vaginal dryness symptoms in many women, making it the first-line recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Results are typically noticeable within 2 weeks of regular use.",
+      fullReview: "Vaginal dryness is common among postmenopausal women and is one of the most undertreated symptoms of menopause. Unlike lubricants (which provide temporary relief during intimacy), Replens is a vaginal moisturizer designed for regular use — it replenishes vaginal moisture for up to 72 hours per application.\n\nThe active ingredient is polycarbophil, a bioadhesive polymer that attaches to vaginal cells and retains water, mimicking the natural moisture of pre-menopausal tissue. It is hormone-free and has been clinically studied for over 30 years.\n\nReplens is a widely recommended vaginal moisturizer by OB/GYNs and is available over the counter. Clinical research suggests it provides effective relief for vaginal dryness symptoms, making it a common recommendation for women who cannot or prefer not to use hormonal therapies.\n\nThe application schedule (every 2–3 days) takes some adjustment, but most women find it becomes routine within a few weeks. Many women notice improvements with regular, ongoing use.",
       priceDisplay: "$13.81",
       publishDate: "2026-05-02",
       authorId: "carol-beaumont",
-      editorNote: "Replens is the product I wish more women knew about. It is clinically proven, hormone-free, and genuinely life-changing for vaginal dryness.",
+      editorNote: "Replens is the product I wish more women knew about. It is hormone-free and highly regarded for its ability to provide lasting relief from vaginal dryness.",
     },
   {
       id: "vital-proteins-collagen-peptides",
+    isDietarySupplement: true,
       slug: "vital-proteins-collagen-peptides",
       name: "Vital Proteins Collagen Peptides",
       brand: "Vital Proteins",
@@ -389,8 +404,9 @@ export const allProducts: Product[] = [
       authorId: "diane-kessler",
       editorNote: "I add Vital Proteins to my morning coffee every day. The skin and joint benefits after 3 months are genuinely noticeable.",
     },
-  {
+{
       id: "alpha-gpc-cognitive",
+    isDietarySupplement: true,
       slug: "real-mushrooms-lions-mane-alpha-gpc-focus",
       name: "Real Mushrooms Lion's Mane Focus with Alpha GPC",
       brand: "Real Mushrooms",
@@ -422,11 +438,11 @@ export const allProducts: Product[] = [
       bestFor: "Non-stimulant focus & brain fog support",
       tags: ["brain fog", "cognitive", "Alpha GPC", "lion's mane", "focus"],
       shortDescription: "A non-stimulant focus supplement pairing lion's mane fruiting-body extract with Alpha GPC choline for menopause-related brain fog.",
-      fullReview: `Menopause-related brain fog is often described as slower word retrieval, difficulty concentrating, and reduced mental stamina. Real Mushrooms Lion's Mane Focus targets that problem with a two-part approach: lion's mane mushroom extract for long-term cognitive wellness and Alpha GPC choline for acetylcholine-related focus support.
+      fullReview: `Menopause-related brain fog is often described as slower word retrieval, difficulty concentrating, and reduced mental stamina. Real Mushrooms Lion's Mane Focus addresses these concerns with a two-part approach: lion's mane mushroom extract for long-term cognitive wellness and Alpha GPC choline for acetylcholine-related focus support.
   
   The current Amazon listing highlights organic lion's mane fruiting-body extracts combined with 200mg Alpha GPC choline. That matters because many mushroom supplements use grain-grown mycelium, while fruiting-body extracts are generally preferred by buyers seeking a more concentrated mushroom profile. The Alpha GPC component adds a more targeted cognitive-support ingredient to what would otherwise be a traditional mushroom supplement.
   
-  The main caution is review depth. The product has a strong extracted rating signal but a very small review base, so it should be framed as a promising premium option rather than the most proven brain-fog product in the catalog. Women who prefer a simpler, lower-cost approach may still choose standalone Alpha GPC or B12.
+  The main caution is review depth. The product has a strong extracted rating signal but a very small review base, so it should be framed as a promising premium option rather than the most established brain-fog support option in the catalog. Women who prefer a simpler, lower-cost approach may still choose standalone Alpha GPC or B12.
   
   For women looking for steady, non-stimulant focus support and who are comfortable with mushroom supplements, Real Mushrooms Lion's Mane Focus is one of the more thoughtful cognitive formulas in the category.`,
       priceDisplay: "$39.95",
@@ -436,6 +452,7 @@ export const allProducts: Product[] = [
     },
   {
       id: "equelle-menopause",
+    isDietarySupplement: true,
       slug: "equelle-multi-symptom-menopause-relief",
       name: "EQUELLE Multi-Symptom Menopause Relief",
       brand: "EQUELLE",
@@ -473,8 +490,9 @@ export const allProducts: Product[] = [
       authorId: "diane-kessler",
       editorNote: "EQUELLE is the product I would consider when black cohosh has not been enough and the buyer wants a genuinely different non-hormonal mechanism.",
     },
-  {
+{
       id: "bonafide-revaree-vaginal-moisturizer",
+    isDietarySupplement: false,
       slug: "bonafide-revaree-hyaluronic-acid-vaginal-moisturizer",
       name: "Bonafide Revaree Vaginal Moisturizer",
       brand: "Bonafide",
@@ -497,16 +515,16 @@ export const allProducts: Product[] = [
       cons: [
         "Premium price, especially compared with Replens",
         "Insert format may not be preferred by every user",
-        "Not a substitute for prescription therapy when GSM symptoms are severe",
+        "Not a substitute for prescription therapy when symptoms of intimate dryness are severe",
       ],
       ingredients: ["Hyaluronic Acid 5mg", "Suppository Base"],
       verdict: "Revaree is the premium hyaluronic acid option for menopausal vaginal dryness, best suited to women who want hormone-free, targeted moisture support and are willing to pay more for insert convenience.",
       score: 8.9,
       editorPick: false,
       bestFor: "Premium hyaluronic acid vaginal moisture support",
-      tags: ["vaginal dryness", "hyaluronic acid", "hormone-free", "estrogen-free", "GSM"],
+      tags: ["vaginal dryness", "hyaluronic acid", "hormone-free", "estrogen-free", "intimate health"],
       shortDescription: "A premium hormone-free vaginal insert delivering 5 mg hyaluronic acid for mild to moderate menopausal vaginal dryness.",
-      fullReview: "Revaree addresses one of the most persistent postmenopausal concerns: vaginal dryness related to genitourinary syndrome of menopause. Unlike lubricants that primarily help during intimacy, Revaree is designed as a recurring vaginal moisturizer insert for everyday tissue comfort.\n\nThe formula is centered on hyaluronic acid, a moisture-binding compound already familiar in skincare and increasingly used in intimate-health products. The insert format is cleaner and more targeted than many gel applicators, which will appeal to women who want a structured routine rather than an on-demand lubricant.\n\nThe limitation is price. Revaree is significantly more expensive than Replens and aloe-based moisturizers, so it makes the most sense for women who have tried lower-cost products and want a more premium hyaluronic acid approach. Severe GSM symptoms, recurrent urinary symptoms, bleeding, or pain should still be discussed with a clinician.\n\nFor women seeking an estrogen-free vaginal moisturizer with strong consumer validation and a premium insert format, Revaree is one of the best-positioned products in the category.",
+      fullReview: "Revaree addresses a common postmenopausal concern: vaginal dryness and discomfort related to menopausal changes. Unlike lubricants that primarily help during intimacy, Revaree is designed as a recurring vaginal moisturizer insert for everyday tissue comfort.\n\nThe formula is centered on hyaluronic acid, a moisture-binding compound already familiar in skincare and increasingly used in intimate-health products. The insert format is cleaner and more targeted than many gel applicators, which will appeal to women who want a structured routine rather than an on-demand lubricant.\n\nThe limitation is price. Revaree is significantly more expensive than Replens and aloe-based moisturizers, so it makes the most sense for women who have tried lower-cost products and want a more premium hyaluronic acid approach. Severe discomfort, persistent irritation, bleeding, or pain should still be discussed with a clinician.\n\nFor women seeking an estrogen-free vaginal moisturizer with strong consumer validation and a premium insert format, Revaree is one of the best-positioned products in the category.",
       priceDisplay: "$139.98",
       publishDate: "2026-05-11",
       authorId: "diane-kessler",
@@ -514,6 +532,7 @@ export const allProducts: Product[] = [
     },
   {
       id: "eu-natural-staying-cool",
+    isDietarySupplement: true,
       slug: "eu-natural-staying-cool-menopause-supplement",
       name: "Eu Natural Staying Cool Hot Flash Relief for Women",
       brand: "Eu Natural",
@@ -557,8 +576,9 @@ export const allProducts: Product[] = [
       authorId: "carol-beaumont",
       editorNote: "Eu Natural Staying Cool is most useful when hot flashes are tied to stress and poor sleep, but it requires more ingredient caution than simpler formulas.",
     },
-  {
+{
       id: "intimate-rose-kegel-weights",
+    isDietarySupplement: false,
       slug: "intimate-rose-kegel-exercise-weights",
       name: "Intimate Rose Kegel Exercise System",
       brand: "Intimate Rose",
@@ -587,13 +607,13 @@ export const allProducts: Product[] = [
       score: 8.6,
       editorPick: true,
       bestFor: "Progressive pelvic floor strengthening",
-      tags: ["pelvic floor", "Kegel", "incontinence", "intimate health", "fitness"],
+      tags: ["pelvic floor", "Kegel", "bladder control", "intimate health", "fitness"],
       shortDescription: "A progressive set of six silicone Kegel weights for strengthening pelvic floor muscles without an app or electronic trainer.",
-      fullReview: `Pelvic floor weakness becomes more common during and after menopause, contributing to stress urinary incontinence, urgency, reduced intimate sensation, and reduced confidence with exercise. The Intimate Rose Kegel Exercise System offers a low-tech but structured way to train those muscles using six progressively heavier silicone weights.
+      fullReview: `Pelvic floor weakness becomes more common during and after menopause, contributing to bladder control challenges, sudden urges, reduced intimate sensation, and reduced confidence with exercise. The Intimate Rose Kegel Exercise System offers a low-tech but structured way to train those muscles using six progressively heavier silicone weights.
   
   The natural-biofeedback concept is simple: when the weight starts to slip, the body learns to engage the correct pelvic floor muscles. That makes the system more guided than unguided Kegels but less expensive and less complicated than app-connected trainers. For women who dislike Bluetooth devices or do not want to use a phone during pelvic floor exercises, this simplicity is a major advantage.
   
-  The key caveat is medical appropriateness. Women with pelvic pain, prolapse concerns, recent pelvic surgery, or uncertainty about technique should consult a pelvic floor physical therapist before using weighted devices. Correct muscle engagement matters, and some women need relaxation work before strengthening.
+  The key caveat is medical appropriateness. Women with pelvic pain, pelvic organ support concerns, recent pelvic surgery, or uncertainty about technique should consult a pelvic floor physical therapist before using weighted devices. Correct muscle engagement matters, and some women need relaxation work before strengthening.
   
   For women cleared for strengthening who want a durable, progressive, non-electronic training system, Intimate Rose is one of the best values in the pelvic health category and a strong companion to broader menopause fitness work.`,
       priceDisplay: "$49.99",
@@ -603,6 +623,7 @@ export const allProducts: Product[] = [
     },
   {
       id: "health-her-perimenopause-supplement",
+    isDietarySupplement: true,
       slug: "health-and-her-perimenopause-supplement",
       name: "Health & Her Perimenopause Supplement",
       brand: "Health & Her",
@@ -646,8 +667,9 @@ export const allProducts: Product[] = [
       authorId: "carol-beaumont",
       editorNote: "Health & Her is most useful for women who know something has shifted but do not yet need a narrowly targeted hot-flash or sleep product.",
     },
-  {
+{
       id: "thorne-hormone-advantage",
+    isDietarySupplement: true,
       slug: "thorne-hormone-advantage",
       name: "THORNE Hormone Advantage",
       brand: "Thorne",
@@ -660,24 +682,25 @@ export const allProducts: Product[] = [
       rating: 4.5,
       reviewCount: 2013,
       heroImage: "https://m.media-amazon.com/images/I/31NApaBiKLL._SL500_.jpg",
-      summary: "THORNE Hormone Advantage combines DIM (diindolylmethane), pomegranate extract, and SGS to support healthy estrogen metabolism and balance, addressing weight fluctuations and breast tenderness during perimenopause.",
-      pros: ["Clinically backed DIM supports optimal estrogen metabolism ratios", "Addresses perimenopause weight fluctuations and breast tenderness", "Includes broccoli seed extract (SGS) for long-lasting antioxidant support", "NSF Certified for Sport, ensuring highest purity standards"],
+      summary: "THORNE Hormone Advantage combines DIM (diindolylmethane), pomegranate extract, and SGS to support healthy estrogen metabolism and hormonal balance during the perimenopausal transition.",
+      pros: ["Research-supported DIM assists in maintaining healthy estrogen metabolism ratios", "Supports the management of common perimenopausal physiological changes", "Includes broccoli seed extract (SGS) for long-lasting antioxidant support", "NSF Certified for Sport, ensuring high purity standards"],
       cons: ["Premium price point ($47 for a 30-day supply)", "DIM can cause harmless but surprising changes in urine color", "May cause mild headaches during the first few days of use"],
       ingredients: ["DIM (Diindolylmethane) 150mg", "Pomegranate Extract 100mg", "Sulforaphane Glucosinolate (SGS) 25mg"],
-      verdict: "THORNE Hormone Advantage is the premium choice for women in perimenopause struggling with estrogen dominance symptoms like weight gain, breast tenderness, and mood swings.",
+      verdict: "THORNE Hormone Advantage is a premium choice for women in perimenopause seeking to support healthy estrogen metabolism and overall hormonal balance.",
       score: 8.9,
       editorPick: false,
-      bestFor: "Women in perimenopause experiencing symptoms of estrogen dominance, such as unexplained weight gain and breast tenderness",
+      bestFor: "Women in perimenopause seeking nutritional support for healthy estrogen metabolism and hormonal balance",
       tags: ["dim", "estrogen metabolism", "weight management", "nsf certified", "perimenopause"],
-      shortDescription: "A premium DIM supplement from Thorne designed to support healthy estrogen metabolism and address perimenopause weight fluctuations.",
-      fullReview: `During early to late perimenopause, estrogen levels do not just drop—they fluctuate wildly, often leading to periods of estrogen dominance relative to progesterone. This imbalance is frequently responsible for the sudden weight gain, breast tenderness, and severe mood swings many women experience before their periods stop entirely.\n\nTHORNE Hormone Advantage targets this specific phase using DIM (diindolylmethane), a compound found in cruciferous vegetables that promotes the metabolism of estrogen into its healthier, more protective metabolites. By optimizing this ratio, DIM helps mitigate the symptoms of estrogen dominance. Thorne enhances this formula with pomegranate extract and SGS (sulforaphane glucosinolate) from broccoli seed extract, which provide extended antioxidant protection and support liver detoxification pathways—crucial for clearing metabolized hormones.\n\nAs with all Thorne products, the quality is exceptional. It is NSF Certified for Sport, meaning it undergoes rigorous third-party testing for purity and label accuracy. At $47 for a one-month supply, it is an investment, but for women struggling with the specific symptoms of perimenopausal estrogen fluctuations, it is one of the most targeted and effective interventions available.`,
+      shortDescription: "A premium DIM supplement from Thorne designed to support healthy estrogen metabolism and hormonal balance during perimenopause.",
+      fullReview: `During early to late perimenopause, estrogen levels fluctuate significantly, which can impact the body's hormonal balance. These changes are often associated with the physical and emotional shifts many women experience as they transition toward menopause.\n\nTHORNE Hormone Advantage is formulated to support this phase using DIM (diindolylmethane), a compound found in cruciferous vegetables that assists the body's natural metabolism of estrogen. By supporting healthy metabolite ratios, DIM helps maintain hormonal balance during this transition. Thorne enhances this formula with pomegranate extract and SGS (sulforaphane glucosinolate) from broccoli seed extract, which provide extended antioxidant protection and support the body's natural pathways for clearing metabolized hormones.\n\nAs with all Thorne products, the quality is high. It is NSF Certified for Sport, meaning it undergoes third-party testing for purity and label accuracy. At $47 for a one-month supply, it represents a premium investment for women seeking a targeted supplement to support their hormonal health and wellness during perimenopause.`,
       priceDisplay: "$51.00",
       publishDate: "2026-06-29",
       authorId: "carol-beaumont",
-      editorNote: "For women who tell me they are gaining weight around their middle despite changing nothing about their diet during perimenopause, DIM is often the missing puzzle piece. Thorne makes the best version.",
+      editorNote: "For women navigating the hormonal shifts of perimenopause, supporting healthy estrogen metabolism can be a valuable part of a comprehensive wellness strategy. Thorne provides a high-quality option for this support.",
     },
   {
       id: "kindra-menorelief-supplement",
+    isDietarySupplement: true,
       slug: "kindra-menorelief-supplement",
       name: "Kindra MenoRelief Menopause Supplement",
       brand: "Kindra",
@@ -715,8 +738,9 @@ export const allProducts: Product[] = [
       authorId: "diane-kessler",
       editorNote: "I appreciate that Kindra acknowledges that hot flashes aren't the only symptom women care about. The focus on blood flow and intimate health makes this a standout formula."
     },
-  {
+{
       id: "good-clean-love-bionude",
+    isDietarySupplement: false,
       slug: "good-clean-love-bionude-lubricant",
       name: "Good Clean Love BioNude Ultra Sensitive Personal Lubricant",
       brand: "Good Clean Love",
@@ -747,13 +771,14 @@ export const allProducts: Product[] = [
       bestFor: "Intimacy for women with highly sensitive or easily irritated tissue",
       tags: ["lubricant", "hypoallergenic", "water-based", "sensitive skin", "intimate health"],
       shortDescription: "An ultra-sensitive, hypoallergenic water-based lubricant free of parabens and glycerin, perfect for easily irritated menopausal tissue.",
-      fullReview: "Vaginal atrophy and dryness during menopause don't just cause discomfort; they make the delicate intimate tissues significantly more prone to irritation, micro-tears, and reactions to common chemical additives. Good Clean Love BioNude is formulated specifically for this heightened sensitivity, offering a minimalist, hypoallergenic solution for intimate lubrication.\n\nUnlike many commercial lubricants, BioNude is completely free of parabens, petrochemicals, artificial fragrances, and perhaps most importantly, glycerin—a common additive that can trigger yeast infections and irritation in sensitive women. The water-based formula utilizes hydroxyethylcellulose to provide a natural, slippery feel that closely mimics the body's own moisture without becoming sticky or leaving a difficult-to-wash residue.\n\nWhile it is an excellent lubricant for intimacy, it is important to note that it is not a long-lasting vaginal moisturizer designed for multi-day tissue hydration (for that, products like Replens or Revaree are better suited). However, for safe, comfortable, and irritation-free intimacy, BioNude is a standout product that respects the delicate balance of the postmenopausal vaginal environment.",
+      fullReview: "Vaginal thinning and dryness during menopause don't just cause discomfort; they make the delicate intimate tissues significantly more prone to irritation, sensitivity, and reactions to common chemical additives. Good Clean Love BioNude is formulated specifically for this heightened sensitivity, offering a minimalist, hypoallergenic solution for intimate lubrication.\n\nUnlike many commercial lubricants, BioNude is completely free of parabens, petrochemicals, artificial fragrances, and perhaps most importantly, glycerin—a common additive that can disrupt the natural intimate balance and cause irritation in sensitive women. The water-based formula utilizes hydroxyethylcellulose to provide a natural, slippery feel that closely mimics the body's own moisture without becoming sticky or leaving a difficult-to-wash residue.\n\nWhile it is an excellent lubricant for intimacy, it is important to note that it is not a long-lasting vaginal moisturizer designed for multi-day tissue hydration (for that, products like Replens or Revaree are better suited). However, for gentle, comfortable, and irritation-free intimacy, BioNude is a standout product that respects the delicate balance of the postmenopausal vaginal environment.",
       priceDisplay: "$9.95",
       publishDate: "2026-07-27",
       authorId: "diane-kessler",
     },
-  {
+{
       id: "olay-collagen-peptide-moisturizer",
+    isDietarySupplement: false,
       slug: "olay-collagen-peptide-face-moisturizer",
       name: "Olay Collagen Peptide Face Moisturizer",
       brand: "Olay",
@@ -779,19 +804,20 @@ export const allProducts: Product[] = [
         "Premium drugstore price point compared to basic moisturizers"
       ],
       ingredients: ["Collagen Peptide", "Niacinamide (Vitamin B3)", "Glycerin", "Panthenol"],
-      verdict: "Olay Collagen Peptide Moisturizer is a highly effective, accessible firming cream for menopausal skin, delivering the proven benefits of peptides and niacinamide in a gentle, fragrance-free formula.",
+      verdict: "Olay Collagen Peptide Moisturizer is a highly effective, accessible firming cream for menopausal skin, delivering the well-studied benefits of peptides and niacinamide in a gentle, fragrance-free formula.",
       score: 8.7,
       editorPick: false,
       bestFor: "Women seeking a fragrance-free firming moisturizer for thinning, dry skin",
       tags: ["skincare", "collagen peptide", "niacinamide", "firming cream", "fragrance-free", "menopause skincare"],
       shortDescription: "A fragrance-free firming face cream powered by collagen peptides and niacinamide to hydrate and tighten menopausal skin.",
-      fullReview: "During the first five years of menopause, women can lose up to 30% of their skin's collagen, leading to noticeable thinning, sagging, and increased dryness. Olay Collagen Peptide Face Moisturizer is specifically formulated to address these structural changes with a highly effective, accessible formula.\n\nWhile applying whole collagen molecules topically is ineffective (the molecules are too large to penetrate the skin), Olay uses collagen peptides—smaller fragments of protein that can absorb into the skin's surface layers. These peptides signal the skin to produce more of its own collagen, helping to restore firmness and smooth fine lines over time. The formula pairs these peptides with Niacinamide (Vitamin B3), a powerhouse ingredient that strengthens the skin's protective barrier, improves uneven tone, and helps the skin retain moisture.\n\nThe texture is a standout feature: it provides intense, 24-hour hydration but absorbs quickly without leaving a greasy or sticky residue. It is also completely fragrance-free, making it an excellent choice for the increased skin sensitivity many women experience during hormonal shifts. With nearly 4,000 reviews and a 4.5-star rating, it is a trusted staple. For women looking to upgrade their moisturizer to address menopausal skin changes without spending department-store prices, this Olay peptide cream is a reliable, science-backed choice.",
+      fullReview: "During the first five years of menopause, skin can experience a significant reduction in collagen, leading to a noticeable increase in thinning, sagging, and dryness. Olay Collagen Peptide Face Moisturizer is specifically formulated to address these structural changes with a highly effective, accessible formula.\n\nWhile applying whole collagen molecules topically is ineffective (the molecules are too large to penetrate the skin), Olay uses collagen peptides—smaller fragments of protein that can absorb into the skin's surface layers. These peptides help support the skin's surface renewal process, helping to improve the appearance of firmness and smooth the look of fine lines over time. The formula pairs these peptides with Niacinamide (Vitamin B3), a powerhouse ingredient that strengthens the skin's protective barrier, improves uneven tone, and helps the skin retain moisture.\n\nThe texture is a standout feature: it provides intense, 24-hour hydration but absorbs quickly without leaving a greasy or sticky residue. It is also completely fragrance-free, making it an excellent choice for the increased skin sensitivity many women experience during hormonal shifts. With nearly 4,000 reviews and a 4.5-star rating, it is a trusted staple. For women looking to upgrade their moisturizer to address menopausal skin changes without spending department-store prices, this Olay peptide cream is a reliable, evidence-based choice.",
       priceDisplay: "$34.94",
       publishDate: "2026-08-03",
       authorId: "carol-beaumont"
     },
-  {
+{
       id: "youtheory-ashwagandha-1000mg",
+    isDietarySupplement: true,
       slug: "youtheory-ashwagandha-stress-mood-supplement",
       name: "Youtheory Ashwagandha 1,000 mg",
       brand: "Youtheory",
@@ -804,10 +830,10 @@ export const allProducts: Product[] = [
       rating: 4.7,
       reviewCount: 5875,
       heroImage: "https://m.media-amazon.com/images/I/419lowzRYwL._SL500_.jpg",
-      summary: "Youtheory Ashwagandha provides a potent 1,000 mg dose of clinically-supported KSM-66 organic ashwagandha root extract to help menopausal women manage stress, balance cortisol, and improve sleep quality.",
+      summary: "Youtheory Ashwagandha provides a 1,000 mg dose of the well-researched KSM-66 organic ashwagandha root extract to help menopausal women manage everyday stress and support better sleep quality.",
       pros: [
-        "Uses KSM-66, the most clinically studied and highly concentrated ashwagandha root extract",
-        "High potency 1,000 mg dose per serving for maximum stress and cortisol support",
+        "Uses KSM-66, an extensively researched and highly concentrated ashwagandha root extract",
+        "High potency 1,000 mg dose per serving for comprehensive support of the body's natural stress response",
         "Includes ginger extract to enhance absorption and bioavailability",
         "Exceptional value with a large review base (18,000+ reviews)"
       ],
@@ -817,19 +843,20 @@ export const allProducts: Product[] = [
         "May take 2-4 weeks of consistent use to notice significant mood and stress benefits"
       ],
       ingredients: ["Organic Ashwagandha Extract (KSM-66)", "Organic Ashwagandha Root Powder", "Ginger Root Extract"],
-      verdict: "Youtheory Ashwagandha is an outstanding, high-potency adaptogen supplement for women whose perimenopause experience is dominated by anxiety, elevated stress, and cortisol-driven sleep disruption.",
+      verdict: "Youtheory Ashwagandha is a high-potency adaptogen supplement for women whose perimenopause experience includes feelings of anxiousness, elevated stress, and stress-related sleep challenges.",
       score: 8.8,
       editorPick: true,
-      bestFor: "Women dealing with high stress, anxiety, and cortisol-related sleep issues",
-      tags: ["ashwagandha", "ksm-66", "stress relief", "cortisol balance", "mood support", "adaptogen"],
-      shortDescription: "A high-potency 1,000 mg KSM-66 Ashwagandha supplement designed to lower cortisol, reduce stress, and promote restful sleep during menopause.",
-      fullReview: "The hormonal fluctuations of perimenopause and menopause frequently trigger an exaggerated stress response, leading to anxiety, mood swings, and elevated cortisol levels that disrupt sleep. Youtheory Ashwagandha addresses this specific symptom cluster using one of the most effective adaptogenic herbs available in a highly potent formulation.\n\nThe supplement features KSM-66, a patented, organic full-spectrum extract of ashwagandha root that is backed by extensive clinical research. KSM-66 has been shown to significantly reduce serum cortisol levels, improve resistance to stress, and enhance sleep quality. Youtheory delivers a robust 1,000 mg dose per two-capsule serving, combining the KSM-66 extract with full-spectrum root powder and ginger extract to maximize absorption.\n\nFor menopausal women, managing cortisol is critical—when estrogen drops, cortisol often spikes, which can exacerbate hot flashes and cause the dreaded 'tired but wired' feeling at bedtime. By modulating this stress response, ashwagandha helps calm the nervous system naturally without acting as a sedative. With over 18,000 Amazon reviews and a 4.6-star rating, Youtheory offers exceptional quality and value. If your menopause transition feels like a constant state of stress and anxiety, this adaptogen is one of the most evidence-based interventions you can add to your routine.",
+      bestFor: "Women dealing with high stress, feelings of anxiousness, and stress-related sleep issues",
+      tags: ["ashwagandha", "ksm-66", "stress relief", "stress response", "mood support", "adaptogen"],
+      shortDescription: "A high-potency 1,000 mg KSM-66 Ashwagandha supplement designed to support a healthy stress response and promote restful sleep during menopause.",
+      fullReview: "The hormonal fluctuations of perimenopause and menopause frequently trigger a heightened stress response, leading to feelings of anxiousness, mood swings, and changes in the body's stress response that can disrupt sleep. Youtheory Ashwagandha addresses this specific symptom cluster using a well-studied adaptogenic herb in a highly potent formulation.\n\nThe supplement features KSM-66, a patented, organic full-spectrum extract of ashwagandha root that is backed by research. KSM-66 is studied for its ability to help the body adapt to stress and support enhanced sleep quality. Youtheory delivers a robust 1,000 mg dose per two-capsule serving, combining the KSM-66 extract with full-spectrum root powder and ginger extract to maximize absorption.\n\nFor menopausal women, managing the body's stress response is helpful—when estrogen levels change, the body's reaction to stress can intensify, which may impact overall comfort and sleep. By supporting the body's natural ability to handle stress, ashwagandha helps promote a sense of calm without acting as a sedative. With over 18,000 Amazon reviews and a 4.6-star rating, Youtheory offers quality and value. If your menopause transition involves persistent stress and feelings of anxiousness, this adaptogen is one of the more evidence-backed options you can add to your routine.",
       priceDisplay: "$25.19",
       publishDate: "2026-08-03",
       authorId: "diane-kessler"
     },
-  {
+{
       id: "dr-tobias-omega-3",
+    isDietarySupplement: true,
       slug: "dr-tobias-omega-3",
       name: "Dr. Tobias Omega 3 Fish Oil Triple Strength",
       brand: "Dr. Tobias",
@@ -838,7 +865,7 @@ export const allProducts: Product[] = [
       asin: "B00CAZAU62",
       affiliateUrl: "https://www.amazon.com/dp/B00CAZAU62?tag=pauseandflourish-20",
       heroImage: "https://m.media-amazon.com/images/I/415pCduKIZL._SL500_.jpg",
-      fullReview: "Dr. Tobias Triple Strength Omega 3 Fish Oil delivers an exceptionally high dose of essential fatty acids (800mg EPA and 600mg DHA per serving) crucial for women navigating menopause. Omega-3s are vital for combating the brain fog, joint stiffness, and cardiovascular changes that often accompany declining estrogen levels. The enteric-coated softgels ensure optimal absorption in the intestines rather than the stomach, effectively eliminating the unpleasant 'fish burps' common with lower-quality supplements. The oil is molecularly distilled to remove heavy metals and toxins.",
+      fullReview: "Dr. Tobias Triple Strength Omega 3 Fish Oil delivers an exceptionally high dose of essential fatty acids (800mg EPA and 600mg DHA per serving) for women navigating menopause. Omega-3s are widely recognized for supporting cognitive clarity, joint comfort, and cardiovascular wellness during the transition of declining estrogen levels. The enteric-coated softgels ensure optimal absorption in the intestines rather than the stomach, effectively eliminating the unpleasant 'fish burps' common with lower-quality supplements. The oil is molecularly distilled to remove heavy metals and toxins.",
       pros: [
         "High potency (1400mg total Omega-3s per serving)",
         "Enteric coating prevents fishy aftertaste",
@@ -860,17 +887,18 @@ export const allProducts: Product[] = [
       price: "$29.95",
       rating: 4.7,
       reviewCount: 58432,
-      summary: "Dr. Tobias Triple Strength Omega 3 Fish Oil delivers 1400mg of EPA+DHA per serving in enteric-coated softgels, providing essential fatty acid support for brain health, joint comfort, and cardiovascular function during menopause.",
-      verdict: "Dr. Tobias Triple Strength Omega 3 is the strongest value-per-dose omega-3 supplement in the catalog, offering a high-potency, enteric-coated formula with exceptional consumer validation. It is the first-line recommendation for women who want foundational omega-3 support for brain, heart, and joint health during the menopause transition.",
+      summary: "Dr. Tobias Triple Strength Omega 3 Fish Oil delivers 1400mg of EPA+DHA per serving in enteric-coated softgels, providing essential fatty acid support for cognitive health, joint comfort, and cardiovascular wellness during menopause.",
+      verdict: "Dr. Tobias Triple Strength Omega 3 is the strongest value-per-dose omega-3 supplement in the catalog, offering a high-potency, enteric-coated formula with exceptional consumer validation. It is a premier option for women who want foundational omega-3 support for cognitive, heart, and joint wellness during the menopause transition.",
       editorPick: false,
-      bestFor: "Women seeking high-potency omega-3 support for brain fog, joint stiffness, and cardiovascular health during menopause",
+      bestFor: "Women seeking high-potency omega-3 support for cognitive clarity, joint comfort, and cardiovascular wellness during menopause",
       tags: ["omega-3", "fish oil", "brain health", "joint health", "heart health", "cognitive support", "EPA", "DHA"],
-      shortDescription: "A triple-strength, enteric-coated omega-3 fish oil delivering 1400mg EPA+DHA per serving for brain, heart, and joint support during menopause.",
+      shortDescription: "A triple-strength, enteric-coated omega-3 fish oil delivering 1400mg EPA+DHA per serving for cognitive, heart, and joint wellness during menopause.",
       priceDisplay: "$39.99",
       authorId: "carol-beaumont",
     },
   {
       id: "womaness-daily-v-soothe",
+    isDietarySupplement: false,
       slug: "womaness-daily-v-soothe",
       name: "Womaness Daily V Soothe Vaginal Moisturizer",
       brand: "Womaness",
@@ -907,8 +935,9 @@ export const allProducts: Product[] = [
       authorId: "diane-kessler",
       editorNote: "Daily V Soothe brings the same hyaluronic acid technology that transformed facial skincare to intimate wellness. At under $20, it is one of the best-value intimate health products in the catalog.",
     },
-  {
+{
       id: "olly-goodbye-stress",
+    isDietarySupplement: true,
       slug: "olly-goodbye-stress-gummies",
       name: "OLLY Goodbye Stress Gummies",
       brand: "OLLY",
@@ -921,7 +950,7 @@ export const allProducts: Product[] = [
       rating: 4.4,
       reviewCount: 19823,
       heroImage: "https://m.media-amazon.com/images/I/41ZdptdPCML._SL500_.jpg",
-      summary: "OLLY Goodbye Stress gummies combine GABA, L-Theanine, and lemon balm to ease anxiety and stress — common symptoms during perimenopause — in a pleasant, easy-to-take format.",
+      summary: "OLLY Goodbye Stress gummies combine GABA, L-Theanine, and lemon balm to support relaxation and help manage occasional stress — common experiences during perimenopause — in a pleasant, easy-to-take format.",
       pros: [
         "Pleasant berry flavor — easy daily compliance",
         "GABA + L-Theanine combination supports calm without sedation",
@@ -934,20 +963,21 @@ export const allProducts: Product[] = [
         "Gummy format may not suit all preferences",
       ],
       ingredients: ["GABA 100mg", "L-Theanine 50mg", "Lemon Balm Extract 75mg"],
-      verdict: "OLLY Goodbye Stress is an excellent entry-level option for women experiencing anxiety and stress during perimenopause, particularly those new to supplements.",
+      verdict: "OLLY Goodbye Stress is an excellent entry-level option for women looking to manage occasional stress and nervousness during perimenopause, particularly those new to supplements.",
       score: 7.8,
       editorPick: false,
-      bestFor: "Daytime anxiety & stress relief",
-      tags: ["stress", "anxiety", "GABA", "L-theanine", "gummies"],
+      bestFor: "Daytime stress and relaxation support",
+      tags: ["stress", "mood", "GABA", "L-theanine", "gummies"],
       shortDescription: "A gummy-format ashwagandha and L-theanine supplement for stress and mood support during perimenopause.",
-      fullReview: "OLLY Goodbye Stress combines ashwagandha (KSM-66, 150mg), L-theanine (100mg), and GABA (100mg) in a pleasant blackberry verbena gummy format. For perimenopausal women who struggle with supplement fatigue or pill aversion, the gummy format significantly improves adherence.\n\nAshwagandha (KSM-66) is the most clinically studied adaptogen for stress and cortisol regulation, with multiple RCTs demonstrating reductions in perceived stress, cortisol levels, and anxiety. L-theanine promotes calm focus without sedation, and GABA provides additional inhibitory neurotransmitter support.\n\nThe 150mg KSM-66 dose is at the lower end of the clinically effective range (typically 300–600mg), which is the main limitation of this product. For women with significant stress or anxiety, a higher-dose ashwagandha supplement may be more effective.\n\nFor women who want a pleasant, easy-to-take daily stress support supplement and are new to adaptogens, OLLY Goodbye Stress is an excellent entry point. The taste and convenience factor genuinely improve daily compliance.",
+      fullReview: "OLLY Goodbye Stress combines ashwagandha (KSM-66, 150mg), L-theanine (100mg), and GABA (100mg) in a pleasant blackberry verbena gummy format. For perimenopausal women who struggle with supplement fatigue or pill aversion, the gummy format significantly improves adherence.\n\nAshwagandha (KSM-66) is a widely studied adaptogen for managing the body's response to stress, with research observing improvements in perceived stress and feelings of nervousness. L-theanine promotes calm focus without sedation, and GABA provides additional support for a sense of calm.\n\nThe 150mg KSM-66 dose is at the lower end of the commonly studied range (typically 300–600mg), which is the main limitation of this product. For women with significant stress or feelings of tension, a higher-dose ashwagandha supplement may be more effective.\n\nFor women who want a pleasant, easy-to-take daily stress support supplement and are new to adaptogens, OLLY Goodbye Stress is an excellent entry point. The taste and convenience factor genuinely improve daily compliance.",
       priceDisplay: "$11.72",
       publishDate: "2026-05-02",
       authorId: "diane-kessler",
       editorNote: "The gummy format makes a real difference for women who struggle to take multiple capsules daily. Compliance is half the battle with supplements.",
     },
-  {
+{
       id: "natures-way-black-cohosh",
+    isDietarySupplement: true,
       slug: "natures-way-black-cohosh-root",
       name: "Nature's Way Black Cohosh Root Capsules",
       brand: "Nature's Way",
@@ -970,23 +1000,24 @@ export const allProducts: Product[] = [
       cons: [
         "Not a standardized extract, so potency may vary slightly",
         "Requires taking 1 capsule twice daily",
-        "Takes 4-8 weeks to see full benefits"
+        "May take 4-8 weeks of consistent use for best results"
       ],
       ingredients: ["Black Cohosh Root (Cimicifuga racemosa) 540mg"],
-      verdict: "An excellent, affordable alternative for women seeking traditional black cohosh root to manage mild to moderate hot flashes and night sweats.",
+      verdict: "An excellent, affordable alternative for women seeking traditional black cohosh root to support the management of mild to moderate hot flashes and night sweats.",
       score: 8.4,
       editorPick: false,
       bestFor: "Basic hot flash relief on a budget",
       tags: ["black cohosh", "hot flashes", "vegan", "budget-friendly"],
       shortDescription: "A traditional, Non-GMO verified black cohosh root supplement for natural hot flash and night sweat relief.",
-      fullReview: `Nature's Way Black Cohosh Root offers a straightforward, traditional approach to managing menopause symptoms. Unlike standardized extracts that isolate specific compounds, this supplement provides the whole root of the Cimicifuga racemosa plant, honoring traditional herbal practices for women's health.\n\nBlack cohosh is one of the most widely used non-hormonal botanicals for menopause, primarily utilized to reduce the frequency and severity of hot flashes and night sweats. With 540mg per capsule, this formula provides a robust dose. The product is Non-GMO Project Verified, vegan, and free from artificial colors, flavors, and preservatives.\n\nWith nearly 20,000 reviews averaging 4.4 stars, it has a proven track record of efficacy for many women. It represents an exceptional value at just over $10 for a 50-day supply (taking one capsule twice daily). While some women may prefer the precision of a standardized extract like Remifemin, Nature's Way provides a high-quality, whole-herb alternative that is gentle on the budget and effective for mild to moderate symptoms.`,
+      fullReview: `Nature's Way Black Cohosh Root offers a straightforward, traditional approach to managing menopause symptoms. Unlike standardized extracts that isolate specific compounds, this supplement provides the whole root of the Cimicifuga racemosa plant, honoring traditional herbal practices for women's health.\n\nBlack cohosh is one of the most widely used non-hormonal botanicals for menopause, primarily utilized to support the management of hot flashes and night sweats. With 540mg per capsule, this formula provides a robust dose. The product is Non-GMO Project Verified, vegan, and free from artificial colors, flavors, and preservatives.\n\nWith nearly 20,000 reviews averaging 4.4 stars, it has earned a strong reputation among many women. It represents an exceptional value at just over $10 for a 50-day supply (taking one capsule twice daily). While some women may prefer the precision of a standardized extract like Remifemin, Nature's Way provides a high-quality, whole-herb alternative that is gentle on the budget and well-regarded for supporting mild to moderate symptoms.`,
       priceDisplay: "$11.99",
       publishDate: "2026-05-02",
       authorId: "diane-kessler",
       editorNote: "A reliable, clean, and affordable option for women who prefer whole-herb supplements over isolated extracts."
     },
-  {
+{
       id: "estroven-complete-gummies",
+    isDietarySupplement: true,
       slug: "estroven-complete-gummies-menopause",
       name: "Estroven Complete Menopause Relief Gummies",
       brand: "Estroven",
@@ -999,10 +1030,10 @@ export const allProducts: Product[] = [
       rating: 4.6,
       reviewCount: 124,
       heroImage: "https://m.media-amazon.com/images/I/41Hc1XYA68L._SL500_.jpg",
-      summary: "Estroven Complete Menopause Relief Gummies deliver the brand's clinically proven Rhapontic Rhubarb Extract in a convenient mango passionfruit gummy format, offering hormone-free hot flash and night sweat relief for women who prefer not to swallow capsules.",
+      summary: "Estroven Complete Menopause Relief Gummies deliver the brand's clinically studied Rhapontic Rhubarb Extract in a convenient mango passionfruit gummy format, offering hormone-free hot flash and night sweat support for women who prefer not to swallow capsules.",
       pros: [
         "Gummy format is ideal for women who struggle with swallowing capsules",
-        "Clinically proven ERr 731 (Rhapontic Rhubarb) for hot flash and night sweat relief",
+        "Clinically studied ERr 731 (Rhapontic Rhubarb) for hot flash and night sweat support",
         "Hormone-free, drug-free, and non-GMO",
         "Pleasant mango passionfruit flavor makes daily compliance easier",
       ],
@@ -1012,20 +1043,21 @@ export const allProducts: Product[] = [
         "30-count (1-month supply) at $24.99 is slightly higher per-dose than the capsule version",
       ],
       ingredients: ["Rhapontic Rhubarb Root Extract (ERr 731)", "Cane Sugar", "Tapioca Syrup", "Purified Water", "Citrus Pectin", "Natural Flavor", "Citric Acid", "Malic Acid"],
-      verdict: "Estroven Complete Gummies are the best gummy-format option for hot flash relief, making clinically proven ERr 731 accessible to women who prefer a tastier, capsule-free daily supplement.",
+      verdict: "Estroven Complete Gummies are the best gummy-format option for hot flash support, making clinically studied ERr 731 accessible to women who prefer a tastier, capsule-free daily supplement.",
       score: 8.5,
       editorPick: false,
-      bestFor: "Women who want clinically proven hot flash relief in a convenient, great-tasting gummy format",
+      bestFor: "Women who want research-backed hot flash support in a convenient, great-tasting gummy format",
       tags: ["gummies", "hot flashes", "night sweats", "hormone-free", "rhapontic rhubarb", "capsule-free"],
-      shortDescription: "Clinically proven ERr 731 Rhapontic Rhubarb Extract for hot flash and night sweat relief, now in a delicious mango passionfruit gummy format.",
-      fullReview: `The menopause supplement market has long been dominated by capsules and tablets, but Estroven's new Complete Menopause Relief Gummies bring the brand's most clinically validated ingredient—ERr 731 Rhapontic Rhubarb Root Extract—into a format that significantly improves daily compliance for many women.\n\nERr 731 is one of the most rigorously studied non-hormonal ingredients for menopause relief. In randomized controlled trials, it has been shown to reduce hot flash frequency by up to 83% and significantly improve night sweat severity within 4 weeks of consistent use. The fact that Estroven has now made this ingredient available in a gummy is a meaningful development for the estimated 20–30% of women who have difficulty swallowing pills or who simply prefer a more enjoyable supplement experience.\n\nThe mango passionfruit flavor is genuinely pleasant without being overly sweet, and the use of citrus pectin (rather than gelatin) makes this a vegan-friendly option. At $24.99 for a 30-count supply, the price is reasonable and competitive with other premium menopause gummies on the market.\n\nAs a newer product launched in 2025, the review count is still building, but the 4.6-star average from early adopters is encouraging and consistent with the performance of the capsule formula. Women who have previously used Estroven Complete capsules and are switching to the gummy format report equivalent effectiveness with significantly better daily enjoyment. For women who are new to menopause supplements and want to start with the most accessible format, these gummies are an excellent entry point.`,
+      shortDescription: "Clinically studied ERr 731 Rhapontic Rhubarb Extract for hot flash and night sweat support, now in a delicious mango passionfruit gummy format.",
+      fullReview: `The menopause supplement market has long been dominated by capsules and tablets, but Estroven's new Complete Menopause Relief Gummies bring the brand's extensively studied ingredient—ERr 731 Rhapontic Rhubarb Root Extract—into a format that significantly improves daily compliance for many women.\n\nERr 731 is a widely researched non-hormonal ingredient for menopause support. In randomized controlled trials, it has been studied for its ability to help manage hot flash frequency and support night sweat comfort with consistent use. The fact that Estroven has now made this ingredient available in a gummy is a meaningful development for the significant number of women who have difficulty swallowing pills or who simply prefer a more enjoyable supplement experience.\n\nThe mango passionfruit flavor is genuinely pleasant without being overly sweet, and the use of citrus pectin (rather than gelatin) makes this a vegan-friendly option. At $24.99 for a 30-count supply, the price is reasonable and competitive with other premium menopause gummies on the market.\n\nAs a newer product launched in 2025, the review count is still building, but the 4.6-star average from early adopters is encouraging and consistent with the performance of the capsule formula. Women who have previously used Estroven Complete capsules and are switching to the gummy format report comparable satisfaction with significantly better daily enjoyment. For women who are new to menopause supplements and want to start with the most accessible format, these gummies are an excellent entry point.`,
       priceDisplay: "$24.99",
       publishDate: "2026-07-06",
       authorId: "diane-kessler",
       editorNote: "The gummy format removes one of the most common barriers to supplement compliance. If a woman tells me she forgets to take her capsules, I switch her to these immediately.",
     },
-  {
+{
       id: "estroven-weight-management",
+    isDietarySupplement: true,
       slug: "estroven-weight-management-menopause-relief",
       name: "Estroven Weight Management for Menopause Relief",
       brand: "Estroven",
@@ -1038,32 +1070,33 @@ export const allProducts: Product[] = [
       rating: 4.3,
       reviewCount: 16621,
       heroImage: "https://m.media-amazon.com/images/I/41VWFQkujrL._SL500_.jpg",
-      summary: "Estroven Weight Management combines the brand's signature black cohosh and soy isoflavones with CQR-300 (Cissus quadrangularis) to address hot flashes while supporting healthy metabolism and weight management.",
+      summary: "Estroven Weight Management combines the brand's signature black cohosh and soy isoflavones with CQR-300 (Cissus quadrangularis) to help manage hot flashes while supporting healthy metabolism and weight management.",
       pros: [
-        "Addresses both vasomotor symptoms and menopausal weight changes",
-        "Contains clinically studied CQR-300 for metabolic support",
+        "Helps manage both vasomotor symptoms and menopausal weight changes",
+        "Contains researched CQR-300 for metabolic support",
         "Drug-free and hormone-free",
         "Over 16,000 Amazon reviews averaging 4.3 stars",
       ],
       cons: [
         "Contains soy isoflavones (not suitable for soy-sensitive individuals)",
         "Weight management requires complementary diet and exercise",
-        "Results may take 60 days to become noticeable",
+        "Results vary and may take up to two months to become noticeable",
       ],
       ingredients: ["Black Cohosh Root Extract", "Soy Isoflavones", "CQR-300 (Cissus quadrangularis extract)"],
-      verdict: "For women whose primary menopause complaints are hot flashes coupled with frustrating metabolic slowdown and weight gain, Estroven Weight Management offers a targeted, two-in-one solution.",
+      verdict: "For women whose primary menopause experiences are hot flashes alongside metabolic changes and weight gain, Estroven Weight Management offers targeted, two-in-one support.",
       score: 8.8,
       editorPick: false,
       bestFor: "Managing hot flashes and menopausal weight changes",
       tags: ["weight management", "metabolism", "black cohosh", "soy isoflavones", "hot flashes"],
-      shortDescription: "A dual-action supplement targeting hot flashes and night sweats while promoting healthy metabolism and weight management.",
-      fullReview: "Weight gain and metabolic slowdown are among the most frustrating and stubborn symptoms of the menopause transition. Estroven Weight Management is designed specifically to address this dual challenge, combining the brand's established hot flash relief with metabolic support in a single daily capsule.\n\nFor vasomotor symptoms, the formula relies on a classic combination of black cohosh and soy isoflavones, which have a long history of use for reducing the frequency and severity of hot flashes and night sweats. The metabolic component comes from CQR-300, a proprietary extract of Cissus quadrangularis. This botanical has been clinically studied for its ability to support healthy weight management and metabolic function when combined with a sensible diet and exercise routine.\n\nWith over 16,000 reviews on Amazon, this is one of the most popular targeted menopause supplements available. Users frequently report that while it isn't a 'magic weight loss pill,' it helps break through the metabolic plateau that often accompanies estrogen decline, making their diet and exercise efforts effective again. For women battling both the heat and the scale, it's a highly practical option.",
+      shortDescription: "A dual-action supplement designed for hot flashes and night sweats while promoting healthy metabolism and weight management.",
+      fullReview: "Weight gain and metabolic slowdown are among the most frustrating and stubborn symptoms of the menopause transition. Estroven Weight Management is designed specifically to support this dual experience, combining the brand's established hot flash relief with metabolic support in a single daily capsule.\n\nFor vasomotor symptoms, the formula relies on a classic combination of black cohosh and soy isoflavones, which have a long history of use for helping manage the frequency and severity of hot flashes and night sweats. The metabolic component comes from CQR-300, a proprietary extract of Cissus quadrangularis. This botanical has been researched for its ability to support healthy weight management and metabolic function when combined with a sensible diet and exercise routine.\n\nWith over 16,000 reviews on Amazon, this is one of the most popular targeted menopause supplements available. Users frequently report that while it isn't a 'magic weight loss pill,' it supports metabolic health during the plateau that often accompanies estrogen decline, making their diet and exercise efforts effective again. For women battling both the heat and the scale, it's a highly practical option.",
       priceDisplay: "$27.99",
       publishDate: "2026-07-27",
       authorId: "diane-kessler",
     },
   {
       id: "move-free-ultra-triple-action",
+    isDietarySupplement: true,
       slug: "move-free-ultra-triple-action-joint-supplement",
       name: "Move Free Ultra Triple Action Joint Support Supplement",
       brand: "Move Free",
@@ -1102,6 +1135,7 @@ export const allProducts: Product[] = [
     },
   {
       id: "uro-bladder-control",
+    isDietarySupplement: true,
       slug: "uro-bladder-control-urgency-frequency",
       name: "URO Bladder Control — Urgency & Frequency, 30-Day Supply",
       brand: "O Positiv",
@@ -1140,6 +1174,7 @@ export const allProducts: Product[] = [
     },
   {
       id: "meno-healthy-aging-collagen-protein",
+    isDietarySupplement: true,
       slug: "meno-healthy-aging-collagen-protein-chocolate-brownie",
       name: "MENO Healthy Aging Collagen & Protein, Chocolate Brownie",
       brand: "O Positiv",
@@ -1176,10 +1211,9 @@ export const allProducts: Product[] = [
       publishDate: "2026-08-17",
       authorId: "diane-kessler",
     },
-
-
-    {
+{
     id: "qunol-menopause-relief",
+    isDietarySupplement: true,
     slug: "qunol-menopause-relief",
     name: "Qunol Menopause Relief",
     brand: "Qunol",
@@ -1192,12 +1226,12 @@ export const allProducts: Product[] = [
     rating: 4.1,
     reviewCount: 85,
     heroImage: "https://m.media-amazon.com/images/I/51aMo2SJWEL._SL500_.jpg",
-    summary: "Qunol Menopause Relief is a hormone-free supplement combining the EstroG-100 herbal blend with Cognizin Citicoline and Vitamin B6 to specifically target brain fog, fatigue, and hot flashes.",
+    summary: "Qunol Menopause Relief is a hormone-free supplement combining the EstroG-100 herbal blend with Cognizin Citicoline and Vitamin B6 to address brain fog, fatigue, and hot flashes.",
     pros: [
       "Features Cognizin Citicoline specifically for brain fog and focus",
       "Clinically studied EstroG-100 botanical blend",
       "Hormone-free and estrogen-free",
-      "Results often seen within 4 weeks",
+      "Formulated for consistent daily support",
     ],
     cons: [
       "Newer product with fewer long-term reviews",
@@ -1207,16 +1241,17 @@ export const allProducts: Product[] = [
     verdict: "Qunol Menopause Relief is a standout choice for women whose primary menopause complaints include brain fog and fatigue alongside traditional hot flashes.",
     score: 8.6,
     editorPick: false,
-    bestFor: "Combating brain fog and fatigue during menopause",
+    bestFor: "Supporting mental clarity and energy during menopause",
     tags: ["brain fog", "energy", "hot flashes", "hormone-free", "citicoline"],
-    shortDescription: "Hormone-free support targeting brain fog, fatigue, and hot flashes with Cognizin and EstroG-100.",
-    fullReview: "Qunol Menopause Relief takes a unique approach to menopause symptom management by explicitly targeting cognitive symptoms alongside physical ones. While many supplements focus solely on hot flashes, Qunol recognizes that brain fog, fatigue, and mood swings are often equally disruptive for women in perimenopause and menopause.\n\nThe standout ingredient in this formula is Cognizin Citicoline, a clinically studied nutrient that supports brain energy, focus, and healthy cognitive function. This is paired with EstroG-100, a patented blend of three Korean botanical extracts (Giant Angelica, Wilford's Cynanchum, and Sok-dan) that has been clinically shown to significantly improve multiple menopause symptoms, including hot flashes, night sweats, and sleep disturbances, without estrogenic activity.\n\nThe addition of Vitamin B6 further supports energy metabolism and nervous system health. This targeted combination makes Qunol an excellent option for women who feel their mental sharpness has declined during the menopausal transition. Users report noticeable improvements in mental clarity and sustained energy levels, typically within the first four weeks of use. It's an innovative, hormone-free option that addresses the whole-body impact of menopause.",
+    shortDescription: "Hormone-free support addressing brain fog, fatigue, and hot flashes with Cognizin and EstroG-100.",
+    fullReview: "Qunol Menopause Relief takes a unique approach to the management of common menopause experiences by explicitly addressing cognitive aspects alongside physical ones. While many supplements focus solely on hot flashes, Qunol recognizes that brain fog, fatigue, and mood changes are often equally disruptive for women in perimenopause and menopause.\n\nThe standout ingredient in this formula is Cognizin Citicoline, a clinically studied nutrient that supports brain energy, focus, and healthy cognitive function. This is paired with EstroG-100, a patented blend of three Korean botanical extracts (Giant Angelica, Wilford's Cynanchum, and Sok-dan) that has been clinically studied for its role in supporting relief from common menopause-related discomforts, including hot flashes, night sweats, and sleep disturbances, without estrogenic activity.\n\nThe addition of Vitamin B6 further supports energy metabolism and nervous system health. This combination makes Qunol an excellent option for women who feel their mental sharpness has declined during the menopausal transition. This formula is designed to support mental clarity and sustained energy levels as part of a daily wellness routine. It's an innovative, hormone-free option that addresses the whole-body impact of menopause.",
     priceDisplay: "$24.98",
     publishDate: "2026-07-20",
     authorId: "carol-beaumont",
   },
-  {
+{
     id: "amberen-menopause-60-day",
+    isDietarySupplement: true,
     slug: "amberen-menopause-60-day-supply",
     name: "Amberen Menopause Supplement (60 Day Supply)",
     brand: "Amberen",
@@ -1229,32 +1264,32 @@ export const allProducts: Product[] = [
     rating: 4.2,
     reviewCount: 19179,
     heroImage: "https://m.media-amazon.com/images/I/41hyKuNDCrL._SL500_.jpg",
-    summary: "Amberen's 60-day supply provides the same clinically tested, succinate-based formula as the 30-day version, offering better value for long-term multi-symptom relief.",
+    summary: "Amberen's 60-day supply provides the same succinate-based formula supported by clinical research as the 30-day version, offering better value for long-term multi-symptom support.",
     pros: [
-      "Clinically tested formula targeting 12 menopause symptoms",
+      "Formula supported by clinical research for 12 menopause symptoms",
       "Hormone-free and soy-free",
       "Better value per day than the 30-day supply",
       "Extensive consumer validation with nearly 20,000 reviews",
     ],
     cons: [
       "Requires taking 2 capsules daily",
-      "May take up to 90 days for full results",
+      "May take up to 90 days for full benefits",
     ],
     ingredients: ["Ammonium Succinate", "Calcium Disuccinate", "Monosodium L-Glutamate", "Glycine", "Magnesium Disuccinate Hydrate", "Zinc Difumarate Hydrate", "Tocopheryl Acetate"],
     verdict: "The 60-day supply of Amberen is the smartest purchase for women who have already tested the 30-day supply and want to continue their regimen cost-effectively.",
     score: 8.7,
     editorPick: false,
-    bestFor: "Long-term multi-symptom menopause relief",
+    bestFor: "Long-term multi-symptom menopause support",
     tags: ["multi-symptom", "succinates", "hormone-free", "value pack"],
-    shortDescription: "A 60-day supply of the bestselling Amberen multi-symptom menopause supplement, offering better value for ongoing relief.",
-    fullReview: "Amberen is one of the most established non-botanical menopause supplements on the market. Rather than relying on black cohosh or soy isoflavones, it uses a proprietary blend of succinates, amino acids, and minerals designed to support the body's own energy metabolism and hormone regulation. This makes it a particularly valuable option for women who prefer to avoid herbal extracts or phytoestrogens.\n\nThe 60-day supply (120 capsules) is identical in formulation to the standard 30-day box but offers a more economical way to maintain the regimen. Since clinical studies on Amberen indicate that optimal results are often seen after 90 days of consistent use, buying the larger size makes practical and financial sense for long-term management.\n\nUsers report significant improvements across a wide range of symptoms, including hot flashes, night sweats, mood swings, and low energy. While it requires a two-capsule daily dose, the lack of soy, estrogen, and major allergens makes it accessible to a broad range of women seeking comprehensive relief.",
+    shortDescription: "A 60-day supply of the bestselling Amberen multi-symptom menopause supplement, offering better value for ongoing support.",
+    fullReview: "Amberen is one of the most established non-botanical menopause supplements on the market. Rather than relying on black cohosh or soy isoflavones, it uses a proprietary blend of succinates, amino acids, and minerals designed to support the body's own energy metabolism and balance during hormonal transitions. This makes it a particularly valuable option for women who prefer to avoid herbal extracts or phytoestrogens.\n\nThe 60-day supply (120 capsules) is identical in formulation to the standard 30-day box but offers a more economical way to maintain the regimen. Since research on Amberen indicates that optimal benefits are often reported after 90 days of consistent use, buying the larger size makes practical and financial sense for long-term management.\n\nUsers frequently report positive experiences across a range of common symptoms, including hot flashes, night sweats, mood swings, and low energy. While it requires a two-capsule daily dose, the lack of soy, estrogen, and major allergens makes it accessible to a broad range of women seeking comprehensive support.",
     priceDisplay: "$44.99",
     publishDate: "2026-07-27",
     authorId: "carol-beaumont",
   },
-
-  {
+{
     id: "new-chapter-estrotone-menopause",
+    isDietarySupplement: true,
     slug: "new-chapter-estrotone-menopause",
     name: "New Chapter Estrotone Menopause Supplement",
     brand: "New Chapter",
@@ -1267,7 +1302,7 @@ export const allProducts: Product[] = [
     rating: 4.5,
     reviewCount: 1007,
     heroImage: "https://m.media-amazon.com/images/I/41GHX1+y-eL._SL500_.jpg",
-    summary: "New Chapter Estrotone is a whole-food herbal supplement combining Black Cohosh, Evening Primrose Oil, and Vitex to provide comprehensive, hormone-free relief for hot flashes, night sweats, and mood swings.",
+    summary: "New Chapter Estrotone is a whole-food herbal supplement combining Black Cohosh, Evening Primrose Oil, and Vitex to provide comprehensive, hormone-free support for hot flashes, night sweats, and mood swings.",
     pros: [
       "Clinically studied herbal ingredients including Black Cohosh",
       "No added hormones or estrogen",
@@ -1276,24 +1311,25 @@ export const allProducts: Product[] = [
     ],
     cons: [
       "Herbal scent and taste may be noticeable",
-      "May take 4–8 weeks to see full effects",
+      "May take several weeks of consistent use to see full effects",
     ],
     ingredients: ["Evening Primrose Oil", "Schizandra", "Black Cohosh", "Chaste Tree (Vitex)", "Ginger", "Rosemary"],
-    verdict: "New Chapter Estrotone is an excellent choice for women seeking a comprehensive, whole-food herbal approach to menopause relief backed by quality manufacturing standards.",
+    verdict: "New Chapter Estrotone is an excellent choice for women seeking a comprehensive, whole-food herbal approach to menopause support backed by quality manufacturing standards.",
     score: 9.0,
     editorPick: false,
-    bestFor: "Multi-symptom herbal relief for perimenopause",
+    bestFor: "Multi-symptom herbal support for perimenopause",
     tags: ["black cohosh", "herbal", "non-hormonal", "hot flashes", "mood"],
-    shortDescription: "Herbal hormone balance supplement with Black Cohosh and Evening Primrose to reduce hot flashes and night sweats.",
-    fullReview: "New Chapter Estrotone is a comprehensive herbal supplement designed to provide natural, hormone-free relief for perimenopause and menopause symptoms. It combines well-researched botanicals like Black Cohosh, Evening Primrose Oil, and Schizandra to target hot flashes, night sweats, and mood swings. What sets Estrotone apart is its commitment to quality — it uses whole-food fermented ingredients for better absorption and is 100% vegetarian.\n\nThe formula is rooted in traditional herbal medicine and supported by modern quality standards. Black Cohosh has been studied in numerous clinical trials for its ability to reduce hot flash frequency and severity, while Evening Primrose Oil provides gamma-linolenic acid (GLA) to support hormonal balance. Vitex (Chaste Tree) rounds out the formula by supporting the body's natural progesterone production.\n\nWith over 1,000 Amazon reviews and strong retail visibility, Estrotone has earned strong credibility among women seeking a gentle yet effective multi-symptom solution. Users consistently report improvements in hot flash frequency, sleep quality, and mood within 4–8 weeks of consistent use.\n\nFor women who prefer a whole-food, multi-herb approach over single-ingredient supplements, New Chapter Estrotone represents one of the best-formulated options on the market.",
+    shortDescription: "Herbal hormone balance supplement with Black Cohosh and Evening Primrose to help manage hot flashes and night sweats.",
+    fullReview: "New Chapter Estrotone is a comprehensive herbal supplement designed to provide natural, hormone-free support for perimenopause and menopause symptoms. It combines well-researched botanicals like Black Cohosh, Evening Primrose Oil, and Schizandra to target hot flashes, night sweats, and mood swings. What sets Estrotone apart is its commitment to quality — it uses whole-food fermented ingredients for better absorption and is 100% vegetarian.\n\nThe formula is rooted in traditional herbal medicine and supported by modern quality standards. Black Cohosh has been studied in numerous clinical trials for its role in supporting the management of hot flash frequency and intensity, while Evening Primrose Oil provides gamma-linolenic acid (GLA) to support hormonal balance. Vitex (Chaste Tree) rounds out the formula by supporting overall hormonal balance.\n\nWith over 1,000 Amazon reviews and strong retail visibility, Estrotone has earned strong credibility among women seeking a gentle yet effective multi-symptom solution. Many users report positive results and improved comfort after several weeks of consistent use.\n\nFor women who prefer a whole-food, multi-herb approach over single-ingredient supplements, New Chapter Estrotone represents one of the best-formulated options on the market.",
     priceDisplay: "$44.97",
     publishDate: "2026-06-29",
     authorId: "diane-kessler",
     editorNote: "Estrotone is the whole-food herbal option I recommend for women who want a comprehensive formula without synthetic ingredients. The quality of New Chapter's sourcing and fermentation process is genuinely superior.",
   },
       // ── Multi-Symptom Supplements ──────────────────────────────────────────────
-    {
+{
     id: "estroven-complete",
+    isDietarySupplement: true,
     slug: "estroven-complete-menopause-relief",
     name: "Estroven Complete Multi-Symptom Menopause Relief",
     brand: "Estroven",
@@ -1325,15 +1361,16 @@ export const allProducts: Product[] = [
     bestFor: "Multi-symptom relief in one capsule",
     tags: ["multi-symptom", "black cohosh", "soy isoflavones", "popular product"],
     shortDescription: "The bestselling multi-symptom menopause supplement on Amazon, addressing hot flashes, sleep, mood, and energy in one daily capsule.",
-    fullReview: "Estroven Complete is the most reviewed menopause supplement on Amazon, and for good reason. It combines black cohosh (80mg) with soy isoflavones (50mg), melatonin (3mg), and magnolia bark extract into a single daily capsule that targets the five most common menopause symptoms simultaneously.\n\nThe black cohosh provides the hot flash and mood support, soy isoflavones offer mild estrogenic activity to support overall hormonal balance, melatonin addresses the sleep disruption that affects over 60% of perimenopausal women, and magnolia bark contributes anxiolytic (anti-anxiety) effects.\n\nWith over 12,000 Amazon reviews averaging 4.4 stars, the real-world evidence is compelling. Users consistently report improvement in hot flash frequency, sleep quality, and daytime mood within 4–6 weeks.\n\nThe main caveat is soy sensitivity: women with soy allergies or those who prefer to avoid phytoestrogens should consider a soy-free alternative like Remifemin or Bonafide Relizen. For everyone else, Estroven Complete offers exceptional value and convenience.",
+    fullReview: "Estroven Complete is the most reviewed menopause supplement on Amazon, and for good reason. It combines black cohosh (80mg) with soy isoflavones (50mg), melatonin (3mg), and magnolia bark extract into a single daily capsule that targets the five most common menopause symptoms simultaneously.\n\nThe black cohosh provides the hot flash and mood support, soy isoflavones offer plant-based support for overall hormonal balance, melatonin addresses the sleep disruption that affects many perimenopausal women, and magnolia bark contributes calming properties to support relaxation.\n\nWith over 12,000 Amazon reviews averaging 4.4 stars, the user feedback is notable. Many users report finding relief for hot flashes, sleep quality, and mood after several weeks of consistent use.\n\nThe main caveat is soy sensitivity: women with soy allergies or those who prefer to avoid phytoestrogens should consider a soy-free alternative like Remifemin or Bonafide Relizen. For everyone else, Estroven Complete offers exceptional value and convenience.",
     priceDisplay: "$18.12",
     publishDate: "2026-05-02",
     authorId: "diane-kessler",
-    editorNote: "If you want one supplement that does it all, Estroven Complete is the most proven multi-symptom option at this price point.",
+    editorNote: "If you want one supplement that does it all, Estroven Complete is a well-established multi-symptom option at this price point.",
   },
     // ── Sleep & Mood Support ───────────────────────────────────────────────────
     {
     id: "magnesium-glycinate-sleep",
+    isDietarySupplement: true,
     slug: "nobi-nutrition-magnesium-glycinate",
     name: "Nobi Nutrition Magnesium Glycinate 500mg",
     brand: "Nobi Nutrition",
@@ -1381,6 +1418,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
   // ── Hot Flash & Cooling ────────────────────────────────────────────────────
   {
     id: "cooling-towel-chill-pal",
+    isDietarySupplement: true,
     slug: "chill-pal-mesh-cooling-towel",
     name: "Chill Pal Mesh Cooling Towel",
     brand: "Chill Pal",
@@ -1422,6 +1460,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
   // ── Vaginal & Intimate Health ──────────────────────────────────────────────
     {
     id: "zenzsual-feminine-moisturizing-gel",
+    isDietarySupplement: true,
     slug: "zenzsual-feminine-moisturizing-gel",
     name: "ZENZSUAL Feminine Moisturizing Gel",
     brand: "ZENZSUAL",
@@ -1463,6 +1502,7 @@ For women who want a non-hormonal, non-habit-forming sleep-support supplement wi
       // ── Cognitive & Energy Support ─────────────────────────────────────────────
       {
     id: "vitamin-b12-energy",
+    isDietarySupplement: true,
     slug: "triquetra-bioactive-vitamin-b12-drops",
     name: "Triquetra Health BioActive Vitamin B12 Drops",
     brand: "Triquetra Health",
@@ -1509,10 +1549,11 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
   
 
   // ── New Reviews: Week of 2026-05-04 ───────────────────────────────────────
-  {
+{
     id: "qutool-cooling-pillow",
+    isDietarySupplement: false,
     slug: "qutool-cooling-pillow-hot-flashes",
-    name: "QUTOOL Cooling Pillow for Hot Flashes",
+    name: "QUTOOL Cooling Pillow",
     brand: "QUTOOL",
     asin: "B07T7W7VR3",
     affiliateUrl: buildAffiliateUrl("B07T7W7VR3"),
@@ -1536,20 +1577,21 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
       "Not a medical device — does not treat hot flashes",
     ],
     ingredients: [],
-    verdict: "For women whose hot flashes primarily disrupt sleep, the QUTOOL Cooling Pillow is an accessible, drug-free first step. It won't stop hot flashes, but it significantly reduces their sleep impact.",
+    verdict: "For women whose hot flashes primarily disrupt sleep, the QUTOOL Cooling Pillow is an accessible, drug-free first step. It won't stop hot flashes, but it helps manage their impact on sleep quality.",
     score: 7.8,
     editorPick: false,
     bestFor: "Night sweat relief and cooler sleep",
     tags: ["cooling pillow", "night sweats", "hot flashes", "sleep", "drug-free"],
     shortDescription: "A shredded memory foam cooling pillow with breathable cover designed to reduce heat buildup and night sweat discomfort during menopause.",
-    fullReview: "Night sweats affect up to 75% of menopausal women, and one of the most immediate interventions is optimizing the sleep environment. The QUTOOL Cooling Pillow addresses the heat-trapping problem of traditional memory foam pillows by using a shredded fill — individual foam pieces allow air to circulate between them, dissipating body heat more effectively than a solid foam core.\n\nThe pillow features a bamboo-derived cover that is both breathable and moisture-wicking, pulling sweat away from the skin rather than allowing it to pool. The CertiPUR-US certification confirms the foam is free from harmful chemicals including formaldehyde, heavy metals, and ozone-depleting substances.\n\nWith over 12,000 Amazon reviews averaging 4.4 stars, the QUTOOL has earned a loyal following among women who find that a cooler sleep surface meaningfully reduces the frequency with which night sweats wake them. The pillow does not prevent hot flashes — it simply reduces their impact on sleep quality by keeping the sleep surface cooler.\n\nFor women who want a simple, affordable, non-pharmaceutical intervention for night sweats, the QUTOOL Cooling Pillow is a practical starting point. Pair it with moisture-wicking sleepwear and a cooling mattress topper for maximum effect.",
+    fullReview: "Night sweats are a common experience for menopausal women, and one of the most immediate adjustments is optimizing the sleep environment. The QUTOOL Cooling Pillow addresses the heat-trapping problem of traditional memory foam pillows by using a shredded fill — individual foam pieces allow air to circulate between them, dissipating body heat more effectively than a solid foam core.\n\nThe pillow features a bamboo-derived cover that is both breathable and moisture-wicking, pulling sweat away from the skin rather than allowing it to pool. The CertiPUR-US certification confirms the foam is free from harmful chemicals including formaldehyde, heavy metals, and ozone-depleting substances.\n\nWith over 12,000 Amazon reviews averaging 4.4 stars, the QUTOOL has earned a loyal following among women who find that a cooler sleep surface helps manage the sleep disruption caused by night sweats. The pillow does not prevent hot flashes — it simply reduces their impact on sleep quality by keeping the sleep surface cooler.\n\nFor women who want a simple, affordable, non-pharmaceutical option for night sweats, the QUTOOL Cooling Pillow is a practical starting point. Pair it with moisture-wicking sleepwear and a cooling mattress topper for maximum effect.",
     priceDisplay: "$39.99",
     publishDate: "2026-05-04",
     authorId: "diane-kessler",
-    editorNote: "A cooling pillow won't cure hot flashes, but it can make the difference between waking up three times a night and sleeping through. Worth the investment.",
+    editorNote: "A cooling pillow won't cure hot flashes, but it can help manage night sweat discomfort for a more restful sleep. Worth the investment.",
   },
-  {
+{
     id: "aloe-cadabra-lubricant",
+    isDietarySupplement: false,
     slug: "aloe-cadabra-natural-vaginal-lubricant",
     name: "Aloe Cadabra Organic Natural Water-Based Lube",
     brand: "Aloe Cadabra",
@@ -1575,21 +1617,22 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
       "Some women prefer a thicker consistency",
     ],
     ingredients: ["Organic Aloe Vera (95%)", "Vitamin E", "Xanthan Gum", "Citric Acid"],
-    verdict: "Aloe Cadabra is the best natural option for women who want a hormone-free, chemical-free solution to vaginal dryness that can be used both daily and during intimacy.",
+    verdict: "Aloe Cadabra is a leading natural option for women seeking a hormone-free, chemical-free way to manage vaginal dryness for both daily comfort and intimate use.",
     score: 8.3,
     editorPick: false,
     bestFor: "Natural daily vaginal moisturizing and intimate use",
     tags: ["vaginal dryness", "natural lubricant", "aloe vera", "hormone-free", "intimate health"],
-    shortDescription: "A 95% organic aloe vera lubricant and daily vaginal moisturizer — the most natural hormone-free option for menopausal vaginal dryness.",
-    fullReview: "Vaginal atrophy (now termed genitourinary syndrome of menopause, or GSM) affects up to 50% of postmenopausal women, causing dryness, irritation, and discomfort during intimacy. Unlike hot flashes, which often improve over time, GSM tends to worsen without treatment.\n\nAloe Cadabra takes a minimalist, natural approach: its formula is 95% organic aloe vera, supplemented with vitamin E and a small amount of xanthan gum for consistency. Aloe vera has natural moisturizing, anti-inflammatory, and mild antimicrobial properties, making it an ideal base for intimate skincare.\n\nThe dual-use design is a key advantage: Aloe Cadabra can be applied daily as a vaginal moisturizer (like Replens) and also used as a lubricant during intimacy. This simplifies the routine for women who want a single product for both purposes.\n\nWith over 24,000 Amazon reviews, it is one of the most widely reviewed intimate health products available. Women consistently report that it provides immediate comfort for dryness and irritation without the stickiness or residue of synthetic lubricants.\n\nFor women who prefer natural, organic formulations and want a product that works for both daily moisturizing and intimate use, Aloe Cadabra is our top natural recommendation in this category.",
+    shortDescription: "A 95% organic aloe vera lubricant and daily vaginal moisturizer — a natural, hormone-free choice for managing menopausal vaginal dryness.",
+    fullReview: "Changes in vaginal moisture and comfort are common during and after menopause, often leading to dryness and irritation during intimacy. Unlike some temporary symptoms, these changes can be persistent, making regular care and hydration an important part of maintaining comfort.\n\nAloe Cadabra takes a minimalist, natural approach: its formula is 95% organic aloe vera, supplemented with vitamin E and a small amount of xanthan gum for consistency. Aloe vera is well-regarded for its natural moisturizing and soothing properties, making it an ideal base for intimate skincare.\n\nThe dual-use design is a key advantage: Aloe Cadabra can be applied daily as a vaginal moisturizer (like Replens) and also used as a lubricant during intimacy. This simplifies the routine for women who want a single product for both purposes.\n\nWith over 24,000 Amazon reviews, it is one of the most widely reviewed intimate health products available. Many users report that it provides immediate comfort for dryness and irritation without the stickiness or residue of synthetic lubricants.\n\nFor women who prefer natural, organic formulations and want a product that works for both daily moisturizing and intimate use, Aloe Cadabra is our top natural recommendation in this category.",
     priceDisplay: "$10.99",
     publishDate: "2026-05-04",
     authorId: "diane-kessler",
     editorNote: "Aloe Cadabra is the product I recommend to women who want something natural and gentle. The 95% aloe formula is as clean as it gets in this category.",
   },
     // ── New Reviews: Week of 2026-05-11 ───────────────────────────────────────
-          {
+{
     id: "gynatrof-vaginal-moisturizer",
+    isDietarySupplement: false,
     slug: "gynatrof-hyaluronic-acid-vaginal-moisturizer",
     name: "Gynatrof Vaginal Moisturizer",
     brand: "Gynatrof",
@@ -1612,14 +1655,14 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     cons: [
       "Applicator gel format may feel messier than suppository inserts",
       "May require consistent use for best comfort improvement",
-      "Moderate to severe GSM symptoms still warrant clinician evaluation",
+      "Moderate to severe intimate symptoms still warrant clinician evaluation",
     ],
     ingredients: ["Hyaluronic Acid", "Vitamin E", "Lactic Acid", "Liposomes", "Hops Plant Extract"],
     verdict: "Gynatrof is a compelling mid-priced choice for hormone-free vaginal moisture support. It is especially useful for women who want hyaluronic acid benefits without paying the premium price of insert-based products.",
     score: 8.4,
     editorPick: false,
     bestFor: "Hormone-free hyaluronic acid vaginal moisture",
-    tags: ["vaginal dryness", "hyaluronic acid", "vitamin E", "hormone-free", "GSM"],
+    tags: ["vaginal dryness", "hyaluronic acid", "vitamin E", "hormone-free"],
     shortDescription: "A hormone-free hyaluronic acid and vitamin E vaginal moisturizer for menopausal dryness, irritation, and everyday intimate comfort.",
     fullReview: "Gynatrof fits neatly into the growing hyaluronic-acid segment of intimate care. While Replens remains the familiar pharmacy standard and Revaree offers a premium insert format, Gynatrof gives women a hormone-free gel option centered on moisture binding and tissue comfort.\n\nThe formula's key appeal is its combination of hyaluronic acid and vitamin E. Hyaluronic acid is useful because it can hold water and support a hydrated surface environment, while vitamin E and lactic-acid positioning make the product feel more complete than a basic lubricant. This matters for menopausal vaginal dryness because daily comfort is often the goal, not just intimacy support.\n\nThe limitations are practical rather than conceptual. Gels and applicators can feel less tidy than suppositories, and symptom relief is usually best when the product is used consistently rather than only once symptoms are severe. Women experiencing bleeding, significant pain, recurrent urinary symptoms, or persistent irritation should still seek medical evaluation.\n\nFor women who want an estrogen-free vaginal moisturizer with meaningful review depth and a more approachable price than premium inserts, Gynatrof is a strong addition to the intimate-health category. It is a practical step up from basic lubricants while remaining more accessible than the highest-priced alternatives.",
     priceDisplay: "$25.99",
@@ -1628,8 +1671,9 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
     editorNote: "Gynatrof is the hyaluronic acid option I would place between budget moisturizers and premium insert products.",
   },
     // ── New Product Reviews: Week of 2026-05-25 ────────────────────────────────
-  {
+{
     id: "amberen-menopause-supplement",
+    isDietarySupplement: true,
     slug: "amberen-menopause-supplement-12-symptom-relief",
     name: "Amberen Menopause Supplement for Women",
     brand: "Amberen",
@@ -1655,13 +1699,13 @@ Triquetra is more expensive than basic B12 tablets, but the active-form spectrum
       "Women with medical conditions or medication use should review the formula with a clinician",
     ],
     ingredients: ["Ammonium Succinate", "Calcium Disuccinate", "Monosodium L-Glutamate", "Glycine", "Magnesium Disuccinate Hydrate", "Zinc Difumarate Hydrate", "Tocopheryl Acetate Vitamin E"],
-    verdict: "Amberen is one of the strongest mainstream multi-symptom additions for women who want a non-hormonal, soy-free supplement with major consumer validation. It is best for buyers seeking broad relief across hot flashes, night sweats, mood, fatigue, and concentration rather than a single-ingredient botanical.",
+    verdict: "Amberen is one of the strongest mainstream multi-symptom additions for women who want a non-hormonal, soy-free supplement with major consumer validation. It is best for buyers seeking broad support across hot flashes, night sweats, mood, fatigue, and concentration rather than a single-ingredient botanical.",
     score: 8.7,
     editorPick: false,
     bestFor: "Broad non-hormonal 12-symptom menopause support",
     tags: ["multi-symptom", "hot flashes", "night sweats", "soy-free", "hormone-free"],
-    shortDescription: "A widely reviewed, hormone-free menopause supplement positioned for 12-symptom relief including hot flashes, night sweats, mood swings, and fatigue.",
-    fullReview: `Amberen is a valuable addition to the multi-symptom supplement category because it takes a different path from black cohosh, soy isoflavones, and pollen-extract formulas. Its core is a proprietary blend of succinate-based minerals, amino acids, and vitamin E, positioned to support hormone balance without adding hormones or phytoestrogens.
+    shortDescription: "A widely reviewed, hormone-free menopause supplement positioned for 12-symptom support including hot flashes, night sweats, mood swings, and fatigue.",
+    fullReview: `Amberen is a valuable addition to the multi-symptom supplement category because it takes a different path from black cohosh, soy isoflavones, and pollen-extract formulas. Its core is a proprietary blend of succinate-based minerals, amino acids, and vitamin E, positioned to support hormonal health without adding hormones or phytoestrogens.
 
 The strongest case for Amberen is breadth. The Amazon listing positions it around 12 menopause symptoms, including hot flashes, night sweats, fatigue, mood swings, stress, low libido, joint aches, headaches, and concentration difficulty. That makes it most relevant for women who describe menopause as a cluster of day-to-night disruptions rather than one isolated complaint.
 
@@ -1675,8 +1719,9 @@ For buyers who want a mainstream, non-hormonal, soy-free option with one of the 
   },
     
   // ── New Product Reviews: Week of 2026-06-01 ────────────────────────────────
-  {
+{
     id: "menolabs-menofit-probiotic",
+    isDietarySupplement: true,
     slug: "menolabs-menofit-menopause-probiotic",
     name: "MENOLABS MenoFit Menopause Supplement",
     brand: "MENOLABS",
@@ -1692,7 +1737,7 @@ For buyers who want a mainstream, non-hormonal, soy-free option with one of the 
     summary: "MENOLABS MenoFit is a probiotic-forward menopause supplement combining prebiotics, beneficial bacteria, vitamins, minerals, and red clover for hot flashes, night sweats, gut health, and energy support.",
     pros: [
       "Distinctive gut-health and microbiome positioning",
-      "Targets hot flashes, night sweats, digestion, immunity, brain health, and energy",
+      "Addresses hot flashes, night sweats, digestion, immune support, cognitive support, and energy",
       "Includes probiotics, prebiotics, vitamins, minerals, and red clover",
       "Over 4,000 Amazon reviews",
     ],
@@ -1707,8 +1752,8 @@ For buyers who want a mainstream, non-hormonal, soy-free option with one of the 
     editorPick: false,
     bestFor: "Menopause symptoms with gut-health support",
     tags: ["probiotic", "gut health", "hot flashes", "night sweats", "red clover"],
-    shortDescription: "A probiotic-forward menopause supplement for hot flashes, night sweats, gut health, energy, and hormone-balance support.",
-    fullReview: `MenoFit stands out in the menopause supplement category because it starts with the gut. The formula combines probiotics and prebiotics with red clover, vitamins, and minerals, positioning it as an 8-in-1 supplement for hot flashes, night sweats, digestive health, immune health, brain health, hormone balance, microbiome support, and energy.
+    shortDescription: "A probiotic-forward menopause supplement for hot flashes, night sweats, gut health, energy, and hormonal wellness support.",
+    fullReview: `MenoFit stands out in the menopause supplement category because it starts with the gut. The formula combines probiotics and prebiotics with red clover, vitamins, and minerals, positioning it as a multi-benefit supplement for hot flashes, night sweats, digestive health, immune support, cognitive support, hormonal wellness, microbiome support, and energy.
 
 That makes it especially relevant for women who notice that perimenopause changed their digestion as much as their temperature regulation. A microbiome-focused formula will not be the fastest route for acute hot flash relief, but it may appeal to women who want broader daily support and who already know probiotics tend to work well for them.
 
@@ -1725,6 +1770,7 @@ For women prioritizing gut health, digestive regularity, and broad symptom suppo
   // ── New Product Reviews: Week of 2026-06-08 ────────────────────────────────
     {
     id: "olly-mellow-menopause",
+    isDietarySupplement: true,
     slug: "olly-mellow-menopause-hot-flash-support",
     name: "OLLY Mellow Menopause",
     brand: "OLLY",
@@ -1770,6 +1816,7 @@ For buyers who want a modern mainstream supplement that addresses hot flashes, d
   },
   {
     id: "metagenics-estrovera",
+    isDietarySupplement: true,
     slug: "metagenics-herwellness-estrovera-menopause-relief",
     name: "Metagenics Estrovera",
     brand: "Metagenics",
@@ -1815,8 +1862,9 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
   },
 
   // ── New Products: Week of 2026-06-15 ─────────────────────────────────────────
-  {
+{
     id: "estroven-sleep-cool",
+    isDietarySupplement: true,
     slug: "estroven-sleep-cool-menopause-supplement",
     name: "Estroven Sleep Cool Menopause Relief",
     brand: "Estroven",
@@ -1829,12 +1877,12 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
     rating: 4.3,
     reviewCount: 7107,
     heroImage: "https://m.media-amazon.com/images/I/41lrAwx4xyL._SL500_.jpg",
-    summary: "Estroven Sleep Cool is a dual-action menopause supplement that combines black cohosh-based hot flash relief with melatonin and valerian root for improved sleep, making it one of the most accessible and well-reviewed sleep-focused menopause products on Amazon.",
+    summary: "Estroven Sleep Cool is a dual-action menopause supplement that combines black cohosh for hot flash support with melatonin and valerian root for sleep support, making it one of the most accessible and well-reviewed sleep-focused menopause products on Amazon.",
     pros: [
-      "Combines hot flash relief and sleep support in a single once-nightly capsule",
+      "Combines hot flash support and sleep support in a single once-nightly capsule",
       "Over 7,000 Amazon reviews with a strong 4.3-star rating",
       "Affordable at under $14 for a 30-count bottle",
-      "Melatonin and valerian root address both sleep onset and sleep quality",
+      "Melatonin and valerian root support both sleep onset and sleep quality",
     ],
     cons: [
       "Contains soy isoflavones, which may not suit women with hormone-sensitive histories",
@@ -1842,20 +1890,21 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
       "Not ideal for women who want a daytime supplement rather than a nightly formula",
     ],
     ingredients: ["Black Cohosh Root Extract 160mg", "Soy Isoflavones 25mg", "Melatonin 3mg", "Valerian Root Extract 200mg", "Vitamin B6 10mg"],
-    verdict: "Estroven Sleep Cool is the most practical entry point for women who want a single nightly capsule that addresses both hot flashes and sleep disruption. The combination of black cohosh, melatonin, and valerian root at an accessible price point makes it one of the strongest value picks in the sleep-mood-support category.",
+    verdict: "Estroven Sleep Cool is a practical entry point for women who want a single nightly capsule that supports both hot flash management and sleep quality. The combination of black cohosh, melatonin, and valerian root at an accessible price point makes it one of the strongest value picks in the sleep-mood-support category.",
     score: 8.6,
     editorPick: false,
     bestFor: "Menopause sleep disruption combined with hot flashes",
     tags: ["sleep", "hot flashes", "black cohosh", "melatonin", "valerian", "night sweats"],
-    shortDescription: "A once-nightly menopause supplement combining black cohosh for hot flash relief with melatonin and valerian root for improved sleep quality.",
-    fullReview: "Estroven Sleep Cool occupies a distinct and practical niche in the menopause supplement market: it is designed for women who experience both hot flashes and sleep disruption at the same time, which is one of the most common overlapping symptom patterns in late perimenopause and active menopause.\n\nThe formula combines black cohosh root extract at 160mg, which is the most studied botanical for hot flash reduction, with melatonin at 3mg and valerian root extract at 200mg for sleep support. Soy isoflavones at 25mg and vitamin B6 round out the formula. The once-nightly format is a meaningful convenience advantage: rather than taking separate supplements for hot flashes and sleep, women can address both with a single capsule before bed.\n\nWith over 7,100 Amazon reviews and a 4.3-star rating, Estroven Sleep Cool has one of the deepest consumer validation profiles in the sleep-mood-support category. The price point of under $14 for a 30-count bottle makes it one of the most accessible menopause supplements available, and the Estroven brand has been a category staple for decades.\n\nThe trade-offs are worth noting. The soy isoflavone content means this product is not appropriate for women with hormone-sensitive medical histories or those who have been advised to avoid phytoestrogens. The 3mg melatonin dose is moderate and may not be sufficient for women with severe sleep disruption who need a higher dose. The formula is also designed as a nightly supplement, so women who want daytime hot flash support will need a separate product.\n\nFor women in late perimenopause through early postmenopause who experience hot flashes that disrupt sleep, Estroven Sleep Cool is a well-validated, affordable, and convenient first-line choice.",
+    shortDescription: "A once-nightly menopause supplement combining black cohosh for hot flash support with melatonin and valerian root for restful sleep support.",
+    fullReview: "Estroven Sleep Cool occupies a distinct and practical niche in the menopause supplement market: it is designed for women who experience both hot flashes and sleep disruption at the same time, which is a frequently reported overlapping symptom pattern in late perimenopause and active menopause.\n\nThe formula combines black cohosh root extract at 160mg, which is a widely researched botanical for hot flash support, with melatonin at 3mg and valerian root extract at 200mg for sleep support. Soy isoflavones at 25mg and vitamin B6 round out the formula. The once-nightly format is a meaningful convenience advantage: rather than taking separate supplements for hot flashes and sleep, women can manage both with a single capsule before bed.\n\nWith over 7,100 Amazon reviews and a 4.3-star rating, Estroven Sleep Cool has one of the deepest consumer validation profiles in the sleep-mood-support category. The price point of under $14 for a 30-count bottle makes it one of the most accessible menopause supplements available, and the Estroven brand has been a category staple for decades.\n\nThe trade-offs are worth noting. The soy isoflavone content means this product is not appropriate for women with hormone-sensitive medical histories or those who have been advised to avoid phytoestrogens. The 3mg melatonin dose is moderate and may not be sufficient for women with severe sleep disruption who need a higher dose. The formula is also designed as a nightly supplement, so women who want daytime hot flash support will need a separate product.\n\nFor women in late perimenopause through early postmenopause who experience hot flashes that disrupt sleep, Estroven Sleep Cool is a well-validated, affordable, and convenient choice.",
     priceDisplay: "$13.99",
     publishDate: "2026-06-15",
     authorId: "carol-beaumont",
-    editorNote: "Estroven Sleep Cool is the best value-for-money pick when a woman's primary complaint is hot flashes that wake her up at night. The combined formula eliminates the need for two separate supplements.",
+    editorNote: "Estroven Sleep Cool is the best value-for-money pick when a woman's primary concern is hot flashes that disrupt sleep. The combined formula eliminates the need for two separate supplements.",
   },
-  {
+{
     id: "new-chapter-bone-strength",
+    isDietarySupplement: true,
     slug: "new-chapter-bone-strength-take-care-supplement",
     name: "New Chapter Bone Strength Take Care Supplement",
     brand: "New Chapter",
@@ -1885,16 +1934,17 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
     score: 8.8,
     editorPick: false,
     bestFor: "Whole-food bone density support during and after menopause",
-    tags: ["bone density", "calcium", "vitamin D3", "vitamin K2", "magnesium", "marine algae", "osteoporosis prevention"],
+    tags: ["bone density", "calcium", "vitamin D3", "vitamin K2", "magnesium", "marine algae", "bone health support"],
     shortDescription: "A whole-food bone supplement using plant-sourced marine algae calcium with vitamin D3, K2, and magnesium for comprehensive bone density support during and after menopause.",
-    fullReview: "New Chapter Bone Strength Take Care is one of the most differentiated bone supplements in the menopause category because it sources its calcium from marine algae rather than conventional calcium carbonate or calcium citrate. The algae-derived calcium is accompanied by naturally occurring trace minerals including magnesium, silica, boron, strontium, and vanadium, which gives the formula a more complex mineral profile than most single-ingredient calcium supplements.\n\nThe formula also includes vitamin D3 at 1000 IU and vitamin K2 at 100mcg, which are the two co-factors most important for directing calcium into bone tissue rather than soft tissue. Magnesium is included at 33mg per serving, which supports both bone metabolism and muscle function. The combination of these four core nutrients in a single vegetarian tablet makes Bone Strength Take Care a genuinely comprehensive bone support formula rather than a basic calcium supplement.\n\nWith a 4.6-star rating and nearly 3,900 Amazon reviews, the product has strong consumer validation. The New Chapter brand has a long track record in the whole-food supplement space, and the non-GMO, certified gluten-free, and vegetarian positioning makes it accessible to a wide range of buyers.\n\nThe trade-off is price. At roughly $30 for a 120-tablet bottle, Bone Strength Take Care costs more per serving than conventional calcium carbonate supplements. The multiple-tablet-per-day dosing is also a consideration for women who prefer a single-capsule routine. Women who are already taking a separate vitamin D or K2 supplement should also review the combined dosage to avoid over-supplementation.\n\nFor women in active menopause through late postmenopause who are focused on long-term bone density and want a plant-sourced, whole-food calcium formula with D3 and K2 included, New Chapter Bone Strength Take Care is the strongest option in this catalog.",
+    fullReview: "New Chapter Bone Strength Take Care is one of the most differentiated bone supplements in the menopause category because it sources its calcium from marine algae rather than conventional calcium carbonate or calcium citrate. The algae-derived calcium is accompanied by naturally occurring trace minerals including magnesium, silica, boron, strontium, and vanadium, which gives the formula a more complex mineral profile than most single-ingredient calcium supplements.\n\nThe formula also includes vitamin D3 at 1000 IU and vitamin K2 at 100mcg, which are key co-factors that support the body's natural processes for bone health. Magnesium is included at 33mg per serving, which supports both bone health and muscle function. The combination of these four core nutrients in a single vegetarian tablet makes Bone Strength Take Care a genuinely comprehensive bone support formula rather than a basic calcium supplement.\n\nWith a 4.6-star rating and nearly 3,900 Amazon reviews, the product has strong consumer validation. The New Chapter brand has a long track record in the whole-food supplement space, and the non-GMO, certified gluten-free, and vegetarian positioning makes it accessible to a wide range of buyers.\n\nThe trade-off is price. At roughly $30 for a 120-tablet bottle, Bone Strength Take Care costs more per serving than conventional calcium carbonate supplements. The multiple-tablet-per-day dosing is also a consideration for women who prefer a single-capsule routine. Women who are already taking a separate vitamin D or K2 supplement should also review the combined dosage to avoid over-supplementation.\n\nFor women in active menopause through late postmenopause who are focused on long-term bone density and want a plant-sourced, whole-food calcium formula with D3 and K2 included, New Chapter Bone Strength Take Care is the strongest option in this catalog.",
     priceDisplay: "$32.59",
     publishDate: "2026-06-15",
     authorId: "carol-beaumont",
     editorNote: "New Chapter Bone Strength is the go-to recommendation for women who specifically want plant-sourced calcium from marine algae rather than synthetic calcium carbonate, and who want D3 and K2 included in the same formula.",
   },
-  {
+{
     id: "neuriva-plus-brain-supplement",
+    isDietarySupplement: true,
     slug: "neuriva-plus-brain-supplement-30-capsules",
     name: "NEURIVA Plus Brain Supplement",
     brand: "NEURIVA",
@@ -1907,35 +1957,36 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
     rating: 4.3,
     reviewCount: 34177,
     heroImage: "https://m.media-amazon.com/images/I/51-0d+8PuJL._SL500_.jpg",
-    summary: "NEURIVA Plus is a clinically tested nootropic brain supplement combining Neurofactor coffee fruit extract and phosphatidylserine with B vitamins to support memory, focus, and concentration — making it one of the most reviewed and accessible cognitive support options for women experiencing menopause-related brain fog.",
+    summary: "NEURIVA Plus is a nootropic brain supplement combining Neurofactor coffee fruit extract and phosphatidylserine with B vitamins to support memory, focus, and concentration — making it a widely recognized and accessible cognitive support option for women navigating menopause.",
     pros: [
-      "Clinically tested Neurofactor and phosphatidylserine combination with over 34,000 Amazon reviews",
-      "Supports 6 indicators of brain health including memory, focus, concentration, and reasoning",
+      "Neurofactor and phosphatidylserine combination with significant consumer recognition",
+      "Supports key indicators of brain health including memory, focus, concentration, and reasoning",
       "Vegetarian, gluten-free, GMO-free, and caffeine-free",
       "Once-daily capsule format is easy to integrate into any routine",
     ],
     cons: [
       "Higher price per capsule than many single-ingredient cognitive supplements",
       "Proprietary Neurofactor dose is not disclosed on the label",
-      "Effects on brain fog may take several weeks to become noticeable",
+      "Effects on mental clarity may take several weeks to become noticeable",
     ],
     ingredients: ["Neurofactor Coffee Fruit Extract", "Phosphatidylserine 100mg", "Vitamin B6 1.7mg", "Folate 400mcg DFE", "Vitamin B12 2.4mcg", "Hydroxypropyl Methylcellulose", "Rice Bran"],
-    verdict: "NEURIVA Plus is the most consumer-validated nootropic brain supplement in the catalog and a strong first-line recommendation for women experiencing menopause-related brain fog, memory lapses, and concentration difficulties. The combination of clinically tested Neurofactor and phosphatidylserine with B vitamins makes it one of the most complete cognitive support formulas available at this price point.",
+    verdict: "NEURIVA Plus is a widely recognized nootropic brain supplement and a helpful option for women seeking to support focus, memory, and concentration. The combination of Neurofactor and phosphatidylserine with B vitamins makes it a comprehensive cognitive support formula at an accessible price point.",
     score: 8.7,
     editorPick: false,
-    bestFor: "Menopause-related brain fog, memory support, and daily cognitive function",
+    bestFor: "Cognitive support, memory focus, and daily mental clarity",
     tags: ["brain fog", "memory", "focus", "nootropic", "phosphatidylserine", "B vitamins", "cognitive support"],
-    shortDescription: "A clinically tested nootropic brain supplement with Neurofactor and phosphatidylserine to support memory, focus, and concentration during menopause.",
-    fullReview: "NEURIVA Plus Brain Supplement is the most broadly validated cognitive support product in the PauseAndFlourish catalog, with over 34,000 Amazon reviews and an Overall Pick designation. For women experiencing the memory lapses, concentration difficulties, and mental fatigue commonly associated with menopause-related brain fog, it represents one of the most accessible and well-studied nootropic options available without a prescription.\n\nThe formula centers on two clinically tested ingredients. Neurofactor is a proprietary whole coffee fruit extract that has been shown in clinical studies to increase levels of Brain-Derived Neurotrophic Factor (BDNF), a protein that plays a key role in the survival, growth, and maintenance of brain cells. Phosphatidylserine at 100mg is one of the most studied phospholipids for memory and learning support, with a qualified health claim from the FDA recognizing its potential role in reducing the risk of cognitive dysfunction. Together, these two ingredients give NEURIVA Plus a more evidence-based foundation than most over-the-counter nootropics.\n\nThe inclusion of B vitamins — B6, folate, and B12 — rounds out the formula by supporting cognitive function and reducing fatigue, which is particularly relevant for menopausal women who may have suboptimal B12 levels. The once-daily capsule is vegetarian, gluten-free, GMO-free, and caffeine-free, making it easy to integrate into most supplement routines without concern about stimulant effects.\n\nThe trade-offs are the price point and the undisclosed Neurofactor dose. At roughly $40 for 30 capsules, NEURIVA Plus is more expensive per serving than many single-ingredient cognitive supplements. Women who are looking for a budget option or who want to see exact ingredient dosages may prefer alternatives. Effects on brain fog are also gradual and may take several weeks of consistent use to become noticeable.\n\nFor women in late perimenopause through postmenopause who want a well-validated, caffeine-free nootropic with clinical ingredient backing and an easy daily format, NEURIVA Plus is the strongest first-line recommendation in the cognitive-energy-support category.",
+    shortDescription: "A nootropic brain supplement with Neurofactor and phosphatidylserine designed to support memory, focus, and concentration.",
+    fullReview: "NEURIVA Plus Brain Supplement is a widely recognized cognitive support product in the PauseAndFlourish catalog. For women seeking to address the memory lapses, concentration difficulties, and mental fatigue often reported during menopause, it represents one of the most accessible nootropic options available without a prescription.\n\nThe formula centers on two key ingredients. Neurofactor is a proprietary whole coffee fruit extract, while phosphatidylserine at 100mg is a phospholipid often used for memory and learning support. Together, these two ingredients provide a foundation for cognitive support that many users find helpful.\n\nThe inclusion of B vitamins — B6, folate, and B12 — rounds out the formula by supporting cognitive function and mental energy, which is particularly relevant for women navigating the hormonal transitions of menopause. The once-daily capsule is vegetarian, gluten-free, GMO-free, and caffeine-free, making it easy to integrate into most supplement routines without concern about stimulant effects.\n\nThe trade-offs are the price point and the undisclosed Neurofactor dose. At roughly $40 for 30 capsules, NEURIVA Plus is more expensive per serving than many single-ingredient cognitive supplements. Women who are looking for a budget option or who want to see exact ingredient dosages may prefer alternatives. Effects on mental clarity are also gradual and may take several weeks of consistent use to become noticeable.\n\nFor women in late perimenopause through postmenopause who want a caffeine-free nootropic with an easy daily format, NEURIVA Plus is a strong option in the cognitive support category.",
     priceDisplay: "$39.97",
     publishDate: "2026-06-15",
     authorId: "diane-kessler",
-    editorNote: "NEURIVA Plus is the cognitive support supplement I recommend most often to women describing menopause brain fog because it has the deepest consumer validation and the most credible clinical ingredient story in the category.",
+    editorNote: "NEURIVA Plus is a cognitive support supplement I often suggest to women describing mental fatigue during menopause because of its widespread consumer recognition and well-rounded formula.",
   },
 
   // ── New Products: Week of 2026-06-22 ─────────────────────────────────────────
-  {
+{
     id: "bonafide-serenol",
+    isDietarySupplement: true,
     slug: "bonafide-serenol-pms-perimenopause-supplement",
     name: "Bonafide Serenol PMS & Perimenopause Supplement",
     brand: "Bonafide",
@@ -1948,11 +1999,11 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
     rating: 4.0,
     reviewCount: 1847,
     heroImage: "https://m.media-amazon.com/images/I/31ZpomPHrCL._SL500_.jpg",
-    summary: "Bonafide Serenol is a clinically studied, hormone-free supplement for PMS and perimenopause mood and irritability relief, using a proprietary Swedish pollen extract (Sérelys) shown in randomized controlled trials to reduce emotional and physical symptoms.",
+    summary: "Bonafide Serenol is a clinically studied, hormone-free supplement for PMS and perimenopause mood and irritability support, using a proprietary Swedish pollen extract (Sérelys) studied for its potential to support emotional and physical comfort.",
     pros: [
-      "Clinically studied Sérelys Swedish pollen extract with RCT evidence",
-      "Hormone-free and non-estrogenic — safe for women who cannot use hormones",
-      "Targets mood, irritability, and emotional symptoms alongside physical discomfort",
+      "Clinically studied Sérelys Swedish pollen extract",
+      "Hormone-free and non-estrogenic formulation",
+      "Targets mood, irritability, and emotional well-being alongside physical discomfort",
       "From Bonafide, the team behind FDA-approved Bijuva hormone therapy",
     ],
     cons: [
@@ -1961,26 +2012,27 @@ For women prioritizing hot flash and night sweat relief without hormones, Estrov
       "Pollen-derived — not suitable for women with severe pollen allergies",
     ],
     ingredients: ["Sérelys Swedish Pollen Extract 160mg", "Microcrystalline Cellulose", "Hydroxypropyl Methylcellulose", "Magnesium Stearate"],
-    verdict: "Bonafide Serenol is the strongest evidence-based, hormone-free option for women whose primary perimenopause burden is mood instability, irritability, and emotional dysregulation rather than hot flashes. The Sérelys extract has genuine RCT backing and the Bonafide brand brings credibility from the prescription menopause space.",
+    verdict: "Bonafide Serenol is a well-studied, hormone-free option for women whose primary perimenopause experience involves mood instability, irritability, and emotional changes rather than hot flashes. The Sérelys extract has been the subject of clinical research, and the Bonafide brand brings credibility from the menopause support space.",
     score: 8.3,
     editorPick: false,
-    bestFor: "Women in early to late perimenopause whose primary symptoms are mood swings, irritability, and emotional dysregulation",
+    bestFor: "Women in early to late perimenopause seeking support for mood swings, irritability, and emotional changes",
     tags: ["perimenopause", "mood support", "irritability", "PMS", "hormone-free", "pollen extract", "Serenol"],
-    shortDescription: "A hormone-free perimenopause supplement from Bonafide using clinically studied Swedish pollen extract to reduce mood swings, irritability, and emotional symptoms.",
-    fullReview: `Bonafide Serenol is one of the few non-hormonal perimenopause supplements with genuine randomized controlled trial evidence behind its primary active ingredient. The formula centers on Sérelys, a proprietary Swedish pollen extract that has been studied in multiple European clinical trials for its ability to reduce the frequency and severity of perimenopause symptoms — particularly the mood-related ones that are often harder to address with standard hot flash supplements.
+    shortDescription: "A hormone-free perimenopause supplement from Bonafide using clinically studied Swedish pollen extract to support emotional balance and manage irritability.",
+    fullReview: `Bonafide Serenol is one of the few non-hormonal perimenopause supplements with clinical studies behind its primary active ingredient. The formula centers on Sérelys, a proprietary Swedish pollen extract that has been studied in European clinical trials for its role in supporting perimenopause well-being — particularly the mood-related experiences that are often harder to address with standard hot flash supplements.
 
-The mechanism is distinct from phytoestrogens or black cohosh. Sérelys works by modulating neurotransmitter activity rather than interacting with estrogen receptors, which means it is safe for women who cannot or prefer not to use estrogenic compounds. This non-estrogenic mechanism also makes it a consideration for breast cancer survivors or women with hormone-sensitive conditions who still need symptom relief.
+The mechanism is distinct from phytoestrogens or black cohosh. Sérelys is formulated to work without interacting with estrogen receptors, which is a consideration for women who prefer not to use estrogenic compounds. This non-estrogenic approach offers a different path for those seeking symptom support during the transition.
 
-Bonafide, the brand behind Serenol, is best known for Bijuva — an FDA-approved bioidentical hormone therapy — and its non-prescription line reflects the same commitment to evidence-based formulation. For women who want a supplement backed by a company with genuine clinical menopause expertise rather than a generic supplement manufacturer, that brand provenance matters.
+Bonafide, the brand behind Serenol, is best known for Bijuva — an FDA-approved bioidentical hormone therapy — and its non-prescription line reflects a focus on evidence-based formulation. For women who want a supplement backed by a company with clinical menopause expertise, that brand provenance is a notable factor.
 
-At $49 for a 30-day supply, Serenol is priced at the premium end of the non-prescription supplement market. The review base is substantial for a specialty product, and the ratings are consistent with the brand's quality positioning. For women whose perimenopause experience is dominated by emotional symptoms — irritability, mood swings, anxiety, and difficulty concentrating — rather than hot flashes, Bonafide Serenol is one of the most evidence-grounded options available without a prescription.`,
+At $49 for a 30-day supply, Serenol is priced at the premium end of the non-prescription supplement market. The review base is substantial for a specialty product, and the ratings are consistent with the brand's positioning. For women whose perimenopause experience is characterized by emotional changes — irritability, mood swings, and difficulty concentrating — rather than hot flashes, Bonafide Serenol is a well-grounded option for support.`,
     priceDisplay: "$47.99",
     publishDate: "2026-08-10",
     authorId: "diane-kessler",
-    editorNote: "Serenol is the go-to recommendation for women whose perimenopause is primarily an emotional and mood experience rather than a hot flash experience.",
+    editorNote: "Serenol is a preferred option for women whose perimenopause is primarily an emotional and mood experience rather than a hot flash experience.",
   },
     {
     id: "stripes-evening-wear-retinol",
+    isDietarySupplement: false,
     slug: "stripes-evening-wear-retinol-night-cream-menopause",
     name: "STRIPES Evening Wear Retinol Night Cream",
     brand: "STRIPES",
@@ -2030,6 +2082,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
 
   {
     id: "hum-fan-club-menopause",
+    isDietarySupplement: true,
     slug: "hum-fan-club-menopause-probiotic",
     name: "HUM Fan Club Menopause Probiotic Supplement",
     brand: "HUM Nutrition",
@@ -2058,8 +2111,9 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     authorId: "diane-kessler",
     editorNote: "Fan Club is my go-to recommendation for women who want a clean supplement that addresses both their hot flashes and the digestive changes common in perimenopause.",
   },
-  {
+{
     id: "vmagic-vulva-balm",
+    isDietarySupplement: false,
     slug: "vmagic-vulva-balm-menopause",
     name: "VMAGIC by Medicine Mama Organic Vulva Balm",
     brand: "Medicine Mama",
@@ -2072,7 +2126,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     rating: 4.4,
     reviewCount: 15355,
     heroImage: "https://m.media-amazon.com/images/I/31je-EZem5L._SL500_.jpg",
-    summary: "VMAGIC is a highly-rated, 100% organic vulva balm that provides immediate, hormone-free relief for vaginal dryness, itching, and irritation associated with the menopause transition.",
+    summary: "VMAGIC is a highly-rated, 100% organic vulva balm that provides immediate, hormone-free relief for external vulvar dryness and irritation associated with the menopause transition.",
     pros: ["100% organic, clean ingredient profile (honey, beeswax, olive oil)", "Provides immediate soothing relief for external dryness and irritation", "Hormone-free and safe for daily use", "Over 15,000 positive reviews validating its effectiveness"],
     cons: ["Balm texture can be slightly greasy compared to water-based gels", "Designed for external vulvar use, not an internal vaginal moisturizer", "Contains bee products (not vegan)"],
     ingredients: ["Organic Extra Virgin Olive Oil", "Organic Beeswax", "Organic Honey", "Melexyll (Proprietary Honey Blend)", "Organic Avocado Oil"],
@@ -2082,7 +2136,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     bestFor: "Women experiencing external vulvar dryness, chafing, or irritation who want a 100% organic solution",
     tags: ["vulva balm", "organic", "vaginal dryness", "hormone-free", "sensitive skin"],
     shortDescription: "A 100% organic, hormone-free vulva balm that provides immediate soothing relief for external dryness and irritation.",
-    fullReview: `Vaginal and vulvar dryness is one of the most common—yet least discussed—symptoms of menopause, affecting up to 50% of postmenopausal women. While internal moisturizers address deep tissue hydration, VMAGIC by Medicine Mama is specifically designed for the delicate external vulvar skin that often becomes irritated, thin, and prone to chafing as estrogen declines.\n\nThe brilliance of VMAGIC lies in its simplicity and purity. It is a 100% organic, hormone-free balm formulated with extra virgin olive oil, beeswax, honey, and avocado oil. Honey and beeswax have natural antimicrobial and anti-inflammatory properties, while the oils provide a protective lipid barrier that locks in moisture and prevents friction from clothing or exercise.\n\nWith over 15,000 Amazon reviews averaging 4.4 stars, the consumer validation is massive. Women consistently report immediate relief from the burning, itching, and general discomfort of vulvar dryness. Because it contains no synthetic chemicals, parabens, or artificial fragrances, it is exceptionally safe for the most sensitive skin.\n\nIt is important to note that VMAGIC is a thick balm intended for external use, making it an excellent complement to an internal moisturizer like Replens or Revaree, rather than a replacement. At $29.99 for a 2 oz jar, a little goes a very long way, making it a cost-effective staple for daily intimate care.`,
+    fullReview: `Vaginal and vulvar dryness is one of the most common—yet least discussed—symptoms of menopause, affecting a significant number of postmenopausal women. While internal moisturizers address deep tissue hydration, VMAGIC by Medicine Mama is specifically designed for the delicate external vulvar skin that often becomes dry and prone to chafing as estrogen levels change.\n\nThe brilliance of VMAGIC lies in its simplicity and purity. It is a 100% organic, hormone-free balm formulated with extra virgin olive oil, beeswax, honey, and avocado oil. Honey and beeswax provide natural protective and soothing benefits, while the oils help support a lipid barrier that locks in moisture and prevents friction from clothing or exercise.\n\nWith over 15,000 Amazon reviews averaging 4.4 stars, the consumer validation is massive. Women consistently report that the balm provides soothing comfort for the dryness and general discomfort of the vulvar area. Because it contains no synthetic chemicals, parabens, or artificial fragrances, it is suitable for even sensitive skin.\n\nIt is important to note that VMAGIC is a thick balm intended for external use, making it an excellent complement to an internal moisturizer like Replens or Revaree, rather than a replacement. At $29.99 for a 2 oz jar, a little goes a very long way, making it a cost-effective staple for daily intimate care.`,
     priceDisplay: "$29.99",
     publishDate: "2026-06-29",
     authorId: "diane-kessler",
@@ -2090,8 +2144,9 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
   },
   
   // ── New Reviews: Week of 2026-07-06 ──────────────────────────────────────────
-  {
+{
     id: "estroven-complete-ashwagandha",
+    isDietarySupplement: true,
     slug: "estroven-complete-ashwagandha-menopause",
     name: "Estroven Complete + Ashwagandha Multi-Symptom Menopause Supplement",
     brand: "Estroven",
@@ -2104,9 +2159,9 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     rating: 4.5,
     reviewCount: 1860,
     heroImage: "https://m.media-amazon.com/images/I/416SXTt-2HL._SL500_.jpg",
-    summary: "Estroven Complete + Ashwagandha combines the brand's clinically proven Rhapontic Rhubarb Extract (ERr 731) for multi-symptom menopause relief with KSM-66 Ashwagandha, specifically targeting the stress and mood disruption that amplifies hot flashes and sleep problems.",
+    summary: "Estroven Complete + Ashwagandha combines the brand's clinically studied Rhapontic Rhubarb Extract (ERr 731) for multi-symptom menopause relief with KSM-66 Ashwagandha, specifically targeting the stress and mood disruption that amplifies hot flashes and sleep problems.",
     pros: [
-      "Combines ERr 731 (clinically proven for hot flashes) with KSM-66 Ashwagandha for stress and mood",
+      "Combines ERr 731 (clinically studied for hot flashes) with KSM-66 Ashwagandha for stress and mood",
       "Drug-free, hormone-free, and non-GMO formula",
       "60-count supply (2-month supply) offers better value than the standard 28-count",
       "Addresses the stress-menopause feedback loop that worsens symptoms",
@@ -2117,22 +2172,21 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
       "May take 4–8 weeks for full benefits to manifest",
     ],
     ingredients: ["Rhapontic Rhubarb Root Extract (ERr 731) 4mg", "KSM-66 Ashwagandha Root Extract 300mg", "Microcrystalline Cellulose", "Dicalcium Phosphate"],
-    verdict: "Estroven Complete + Ashwagandha is the ideal upgrade for women who find that stress and anxiety are amplifying their menopause symptoms, offering dual-action relief in a single trusted formula.",
+    verdict: "Estroven Complete + Ashwagandha is the ideal upgrade for women who find that stress and mood disruption are amplifying their menopause symptoms, offering dual-action relief in a single trusted formula.",
     score: 8.8,
     editorPick: false,
-    bestFor: "Women whose hot flashes and sleep disruption are worsened by stress and anxiety",
+    bestFor: "Women whose hot flashes and sleep disruption are worsened by stress and mood disruption",
     tags: ["ashwagandha", "stress relief", "hot flashes", "sleep support", "multi-symptom", "ksm-66"],
-    shortDescription: "A dual-action formula combining clinically proven ERr 731 for hot flash relief with KSM-66 Ashwagandha to address the stress and mood component of menopause.",
-    fullReview: `For many women, menopause symptoms do not exist in isolation—stress makes hot flashes worse, anxiety disrupts sleep, and poor sleep amplifies mood swings. Estroven Complete + Ashwagandha is specifically designed to break this cycle by combining two clinically studied ingredients in a single daily capsule.\n\nThe foundation of this formula is ERr 731, the same Rhapontic Rhubarb Root Extract used in the original Estroven Complete, which has been validated in multiple clinical trials to significantly reduce hot flash frequency and severity within 4 weeks. What sets this version apart is the addition of KSM-66 Ashwagandha, a highly bioavailable, full-spectrum root extract that is one of the most extensively studied adaptogens for stress, anxiety, and sleep quality. KSM-66 has been shown in clinical studies to reduce cortisol levels, improve resilience to stress, and support better sleep onset and duration.\n\nThe synergy between these two ingredients is particularly compelling for perimenopausal and menopausal women. Elevated cortisol from chronic stress directly worsens hot flash frequency and disrupts the sleep architecture already compromised by night sweats. By addressing both the physiological trigger (declining estrogen, managed by ERr 731) and the psychological amplifier (elevated stress hormones, managed by ashwagandha), this formula tackles menopause symptoms from two angles simultaneously.\n\nAt $34.99 for a 60-count (2-month supply), it is a meaningful step up from the standard Estroven Complete, but the added value of KSM-66 Ashwagandha makes it well worth the investment for women dealing with stress-linked symptom flare-ups. It is drug-free, hormone-free, and non-GMO, maintaining Estroven's commitment to a clean, accessible formula.`,
+    shortDescription: "A dual-action formula combining clinically studied ERr 731 for hot flash relief with KSM-66 Ashwagandha to address the stress and mood component of menopause.",
+    fullReview: `For many women, menopause symptoms do not exist in isolation—stress makes hot flashes worse, tension disrupts sleep, and poor sleep amplifies mood swings. Estroven Complete + Ashwagandha is specifically designed to break this cycle by combining two clinically studied ingredients in a single daily capsule.\n\nThe foundation of this formula is ERr 731, the same Rhapontic Rhubarb Root Extract used in the original Estroven Complete, which has been clinically studied for its ability to support a reduction in hot flash frequency and severity. What sets this version apart is the addition of KSM-66 Ashwagandha, a highly bioavailable, full-spectrum root extract that is one of the most extensively studied adaptogens for stress and mood support. KSM-66 has been shown in clinical studies to support healthy cortisol levels, improve resilience to stress, and support better sleep onset and duration.\n\nThe synergy between these two ingredients is particularly compelling for perimenopausal and menopausal women. Elevated cortisol from chronic stress directly worsens hot flash frequency and disrupts the sleep architecture already compromised by night sweats. By addressing both the physiological changes associated with menopause (supported by ERr 731) and the emotional response to stress (supported by ashwagandha), this formula tackles menopause symptoms from two angles simultaneously.\n\nAt $34.99 for a 60-count (2-month supply), it is a meaningful step up from the standard Estroven Complete, but the added value of KSM-66 Ashwagandha makes it well worth the investment for women dealing with stress-linked symptom flare-ups. It is drug-free, hormone-free, and non-GMO, maintaining Estroven's commitment to a clean, accessible formula.`,
     priceDisplay: "$34.99",
     publishDate: "2026-07-06",
     authorId: "carol-beaumont",
     editorNote: "When women tell me their hot flashes are worst during stressful periods at work or family events, this is the version of Estroven I recommend. The ashwagandha addition makes a real difference.",
   },
-
-  
-  {
+{
     id: "nature-made-calcium-magnesium-zinc",
+    isDietarySupplement: true,
     slug: "nature-made-calcium-magnesium-zinc-d3",
     name: "Nature Made Calcium Magnesium Zinc with Vitamin D3",
     brand: "Nature Made",
@@ -2145,11 +2199,11 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     rating: 4.8,
     reviewCount: 20004,
     heroImage: "https://m.media-amazon.com/images/I/41SKxdhAQbL._SL500_.jpg",
-    summary: "Nature Made Calcium Magnesium Zinc with Vitamin D3 is a comprehensive, affordable bone health supplement that delivers four essential minerals and vitamins in a single tablet, specifically formulated to support bone density and reduce osteoporosis risk during and after menopause.",
+    summary: "Nature Made Calcium Magnesium Zinc with Vitamin D3 is a comprehensive, affordable bone health supplement that delivers four essential minerals and vitamins in a single tablet, specifically formulated to support bone density and mineral balance during and after menopause.",
     pros: [
       "Outstanding value at $10.31 for a 300-tablet (150-day) supply",
       "Combines calcium, magnesium, zinc, and vitamin D3 in one convenient tablet",
-      "4.8-star rating from over 20,000 reviews—one of the most validated bone supplements on Amazon",
+      "4.8-star rating from over 20,000 reviews—one of the most widely recognized bone supplements on Amazon",
       "USP Verified for purity and potency",
       "Suitable for all stages of menopause and postmenopause",
     ],
@@ -2162,10 +2216,10 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     verdict: "Nature Made Calcium Magnesium Zinc with Vitamin D3 is the best-value bone health supplement for menopausal women, offering four essential nutrients in a single USP-verified tablet at an unbeatable price.",
     score: 9.0,
     editorPick: false,
-    bestFor: "Women at any stage of menopause looking for an affordable, comprehensive, and highly validated bone health supplement",
-    tags: ["calcium", "magnesium", "zinc", "vitamin d3", "bone health", "osteoporosis prevention", "usp verified"],
+    bestFor: "Women at any stage of menopause looking for an affordable, comprehensive, and quality-tested bone health supplement",
+    tags: ["calcium", "magnesium", "zinc", "vitamin d3", "bone health", "bone support", "usp verified"],
     shortDescription: "A USP-verified, four-in-one bone health supplement combining calcium, magnesium, zinc, and vitamin D3 at exceptional value for menopausal women.",
-    fullReview: `Bone density loss accelerates dramatically during the menopause transition. In the first five years after the final menstrual period, women can lose up to 20% of their bone density due to declining estrogen levels—estrogen plays a critical role in regulating osteoclast activity (the cells that break down bone). This makes adequate calcium, magnesium, and vitamin D supplementation not just beneficial but essential for women in perimenopause and beyond.\n\nNature Made Calcium Magnesium Zinc with Vitamin D3 is one of the most straightforward and cost-effective ways to address this need. Each serving of two tablets delivers 333mg of calcium, 133mg of magnesium, 5mg of zinc, and 200 IU of vitamin D3. While the individual doses are moderate, the formula is designed to complement dietary calcium intake rather than replace it, aligning with the current guidance that total daily calcium intake (from food and supplements combined) should be around 1,200mg for postmenopausal women.\n\nMagnesium plays a dual role here: it is essential for converting vitamin D into its active form, and it supports muscle relaxation and sleep quality—two areas commonly disrupted during menopause. Zinc contributes to bone matrix formation and immune function. The inclusion of vitamin D3 (the more bioavailable form compared to D2) ensures that the calcium can be properly absorbed in the gut.\n\nWith over 20,000 Amazon reviews averaging 4.8 stars and USP Verification for purity and label accuracy, this is one of the most trusted and validated bone health supplements available. At just $10.31 for a 300-tablet supply (approximately 150 days at two tablets per day), the value is exceptional and makes consistent supplementation financially accessible for all women.`,
+    fullReview: `Bone density loss accelerates during the menopause transition. In the years following the final menstrual period, women can experience significant bone density loss due to declining estrogen levels—estrogen plays a key role in the natural process of bone remodeling. This makes adequate calcium, magnesium, and vitamin D supplementation a foundational part of a health regimen for women in perimenopause and beyond.\n\nNature Made Calcium Magnesium Zinc with Vitamin D3 is one of the most straightforward and cost-effective ways to address this need. Each serving of two tablets delivers 333mg of calcium, 133mg of magnesium, 5mg of zinc, and 200 IU of vitamin D3. While the individual doses are moderate, the formula is designed to complement dietary calcium intake rather than replace it, aligning with the current guidance that total daily calcium intake (from food and supplements combined) should be around 1,200mg for postmenopausal women.\n\nMagnesium plays a dual role here: it supports the conversion of vitamin D into its active form and helps maintain muscle comfort and sleep quality—two areas commonly disrupted during menopause. Zinc contributes to bone matrix formation and immune function. The inclusion of vitamin D3 (the more bioavailable form compared to D2) supports proper calcium absorption in the gut.\n\nWith over 20,000 Amazon reviews averaging 4.8 stars and USP Verification for purity and label accuracy, this is one of the most widely recognized and quality-tested bone health supplements available. At just $10.31 for a 300-tablet supply (approximately 150 days at two tablets per day), the value is exceptional and makes consistent supplementation financially accessible for all women.`,
     priceDisplay: "$12.70",
     publishDate: "2026-07-06",
     authorId: "diane-kessler",
@@ -2173,8 +2227,9 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
   },
 
   // ── New Reviews: Week of 2026-07-13 ───────────────────────────────────────
-  {
+{
     id: "sports-research-collagen-peptides",
+    isDietarySupplement: true,
     slug: "sports-research-collagen-peptides",
     name: "Sports Research Collagen Peptides",
     brand: "Sports Research",
@@ -2189,7 +2244,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     heroImage: "https://m.media-amazon.com/images/I/41SK2Dyh7UL._SL500_.jpg",
     summary: "A highly-rated, unflavored collagen peptide powder that supports skin elasticity, hair thickness, and joint health during menopause.",
     pros: [
-      "Hydrolyzed Type I & III collagen for better absorption",
+      "Hydrolyzed Type I & III collagen for efficient absorption",
       "Non-GMO, Keto, and Paleo friendly",
       "Easily dissolves in hot or cold liquids",
       "Over 129,000 Amazon reviews averaging 4.6 stars"
@@ -2197,16 +2252,16 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     cons: [
       "Bovine sourced, so not suitable for vegans or vegetarians",
       "Unflavored but some users detect a slight taste in plain water",
-      "Takes 4-8 weeks of daily use to see visible skin improvements"
+      "Many users report needing 4-8 weeks of daily use to see visible skin improvements"
     ],
     ingredients: ["Hydrolyzed Bovine Collagen Peptides 11g"],
-    verdict: "An excellent foundational supplement for menopausal women looking to counteract the rapid collagen loss that occurs in the first five years of menopause, supporting both skin elasticity and joint comfort.",
+    verdict: "An excellent foundational supplement for menopausal women looking to support their bodies during the rapid collagen loss that occurs in the first five years of menopause, supporting both skin elasticity and joint comfort.",
     score: 9.2,
     editorPick: true,
     bestFor: "Skin elasticity & joint support",
     tags: ["collagen", "skincare", "joint health", "hair and nails"],
     shortDescription: "Hydrolyzed Type I & III collagen powder supporting skin elasticity, hair, and joints during menopause.",
-    fullReview: `Collagen production drops by up to 30% in the first five years of menopause due to declining estrogen levels, leading to thinner skin, increased wrinkling, and joint stiffness. Sports Research Collagen Peptides addresses this directly with a high-quality, hydrolyzed bovine collagen powder that provides Types I and III collagen—the most important types for skin and bone health.\n\nThe hydrolyzed format means the collagen proteins have been broken down into smaller peptides, making them highly bioavailable and easy for the body to absorb. What sets the Sports Research brand apart is its rigorous third-party testing (IGEN Non-GMO tested) and its excellent mixability. Unlike cheaper collagens that clump, this powder dissolves almost instantly in morning coffee, smoothies, or oatmeal without altering the texture.\n\nWith nearly 130,000 reviews on Amazon, the consensus is clear: consistent daily use (usually taking 4-8 weeks) leads to noticeable improvements in skin hydration, nail strength, and joint mobility. While it won't replace a good topical skincare routine, it provides the internal building blocks your body needs as natural collagen production slows down.`,
+    fullReview: `Research suggests that collagen production can decrease significantly in the first five years of menopause due to declining estrogen levels, which may contribute to thinner skin, increased wrinkling, and joint stiffness. Sports Research Collagen Peptides is formulated to support the body with a high-quality, hydrolyzed bovine collagen powder that provides Types I and III collagen—key types for skin and bone health.\n\nThe hydrolyzed format means the collagen proteins have been broken down into smaller peptides, making them highly bioavailable and easy for the body to absorb. What sets the Sports Research brand apart is its rigorous third-party testing (IGEN Non-GMO tested) and its excellent mixability. Unlike cheaper collagens that clump, this powder dissolves almost instantly in morning coffee, smoothies, or oatmeal without altering the texture.\n\nWith nearly 130,000 reviews on Amazon, many users report that consistent daily use (usually taking 4-8 weeks) can lead to noticeable improvements in skin hydration, nail strength, and joint mobility. While it won't replace a good topical skincare routine, it provides the internal building blocks your body needs as natural collagen production slows down.`,
     publishDate: "2026-07-13",
     priceDisplay: "$32.95",
     authorId: "carol-beaumont",
@@ -2214,6 +2269,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
   },
     {
     id: "megafood-women-over-40",
+    isDietarySupplement: true,
     slug: "megafood-women-over-40-multivitamin",
     name: "MegaFood Women's 40+ Advanced Multivitamin",
     brand: "MegaFood",
@@ -2254,8 +2310,9 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
 
 
   // ── New Reviews: Week of 2026-07-27 ───────────────────────────────────────
-    {
+{
     id: "femmenessence-macapause",
+    isDietarySupplement: true,
     slug: "femmenessence-macapause-hormone-balance",
     name: "Femmenessence MacaPause",
     brand: "Femmenessence",
@@ -2268,9 +2325,9 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     rating: 4.3,
     reviewCount: 1384,
     heroImage: "https://m.media-amazon.com/images/I/41gLkqNvbvL._SL500_.jpg",
-    summary: "Femmenessence MacaPause uses a proprietary, highly concentrated maca phenotype blend to support the body's own hormone production, rather than introducing external plant estrogens.",
+    summary: "Femmenessence MacaPause uses a proprietary, highly concentrated maca phenotype blend to support the body's natural hormone balance, rather than introducing external plant estrogens.",
     pros: [
-      "Clinically proven to support hormone balance and reduce hot flashes",
+      "Clinically studied to support hormone balance and help manage hot flashes",
       "Does not introduce external plant estrogens into the body",
       "Addresses a wide range of symptoms including mood, energy, and dryness",
       "Organic, vegan, and non-GMO",
@@ -2281,23 +2338,24 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
       "Maca can be stimulating; best taken earlier in the day",
     ],
     ingredients: ["Maca-GO (Organic Maca Root Extract)"],
-    verdict: "Femmenessence MacaPause is the premium choice for women who want to support their body's natural hormone production pathways without using phytoestrogens or black cohosh.",
+    verdict: "Femmenessence MacaPause is the premium choice for women who want to support their body's natural hormone balance without using phytoestrogens or black cohosh.",
     score: 8.9,
     editorPick: true,
     bestFor: "Comprehensive hormone balance without phytoestrogens",
     tags: ["maca", "hormone balance", "phytoestrogen-free", "hot flashes", "energy"],
-    shortDescription: "A premium, clinically proven maca-based supplement that supports the body's own hormone production for comprehensive menopause relief.",
-    fullReview: "Femmenessence MacaPause takes a fundamentally different approach to menopause symptom relief than most products on the market. Instead of introducing plant-based estrogens (phytoestrogens) like soy or using symptom-masking herbs like black cohosh, it uses a specific, proprietary blend of maca phenotypes (Maca-GO) designed to nourish the hypothalamus and pituitary glands, encouraging the body to optimize its own hormone production.\n\nIn clinical trials, MacaPause demonstrated impressive results, with 84% of women experiencing a reduction in menopause symptoms, including hot flashes, night sweats, mood swings, and vaginal dryness. Furthermore, it has been shown to support cardiovascular and bone health markers.\n\nThe primary drawback is the dosage protocol, which typically requires two capsules twice daily, and the premium price tag. However, for women who cannot or choose not to take hormone replacement therapy or phytoestrogens, this adaptogenic approach offers a powerful, scientifically validated alternative. Because maca can be naturally energizing, users often report significant improvements in daytime fatigue and brain fog alongside hot flash relief.",
+    shortDescription: "A premium maca-based supplement, clinically studied for its ability to support the body's natural hormone balance for comprehensive menopause support.",
+    fullReview: "Femmenessence MacaPause takes a fundamentally different approach to menopause symptom support than most products on the market. Instead of introducing plant-based estrogens (phytoestrogens) like soy or using symptom-masking herbs like black cohosh, it uses a specific, proprietary blend of maca phenotypes (Maca-GO) designed to support the body's natural endocrine function, helping to optimize its own hormone balance.\n\nIn clinical studies, MacaPause has shown positive results, with a significant majority of women reporting support for menopause symptoms, including hot flashes, night sweats, mood swings, and vaginal dryness. Furthermore, it has been studied for its role in supporting cardiovascular and bone health.\n\nThe primary drawback is the dosage protocol, which typically requires two capsules twice daily, and the premium price tag. However, for women who cannot or choose not to take hormone replacement therapy or phytoestrogens, this adaptogenic approach offers a researched alternative for hormone support. Because maca can be naturally energizing, users often report significant improvements in daytime fatigue and brain fog alongside hot flash management.",
     priceDisplay: "$69.99",
     publishDate: "2026-07-27",
     authorId: "carol-beaumont",
-    editorNote: "This is my top recommendation for women who want to avoid soy and black cohosh entirely. The clinical data on their specific maca phenotypes is genuinely impressive.",
+    editorNote: "This is my top recommendation for women who want to avoid soy and black cohosh entirely. The research on their specific maca phenotypes is noteworthy.",
   },
   
 
   // ── New Reviews: Week of 2026-08-03 ───────────────────────────────────────
-        {
+{
     id: "remifemin-good-night",
+    isDietarySupplement: true,
     slug: "remifemin-good-night",
     name: "Remifemin Good Night - Menopause Sleep Support",
     brand: "Remifemin",
@@ -2306,11 +2364,11 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     asin: "B0CNTRGL4W",
     affiliateUrl: "https://www.amazon.com/dp/B0CNTRGL4W?tag=pauseandflourish-20",
     heroImage: "https://m.media-amazon.com/images/I/41Cbz1SbPGL._SL500_.jpg",
-    fullReview: "Remifemin Good Night combines the clinically proven menopause symptom relief of RemiSure black cohosh extract with a specialized Restful Sleep Blend featuring valerian root extract. This estrogen-free formula, made in Germany, effectively targets both daytime hot flashes and nighttime sleep disturbances. By addressing the root cause of menopause-related sleep issues rather than just inducing drowsiness, it helps women achieve deeper, more restorative sleep while simultaneously reducing night sweats.",
+    fullReview: "Remifemin Good Night combines the clinically studied menopause symptom support of RemiSure black cohosh extract with a specialized Restful Sleep Blend featuring valerian root extract. This estrogen-free formula, made in Germany, is formulated to address both daytime hot flashes and nighttime sleep disturbances. By supporting the body's natural sleep cycle during menopause rather than just inducing drowsiness, it helps women achieve deeper, more restorative sleep while simultaneously managing night sweats.",
     pros: [
-      "Clinically proven RemiSure black cohosh extract",
-      "Dual-action formula for symptoms and sleep",
-      "Estrogen-free and safe for long-term use",
+      "Clinically studied RemiSure black cohosh extract",
+      "Dual-action formula for symptom support and sleep",
+      "Estrogen-free and suitable for ongoing use",
       "Manufactured in Germany to high quality standards"
     ],
     cons: [
@@ -2329,12 +2387,12 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
     price: "$21.99",
     rating: 4.4,
     reviewCount: 2156,
-    summary: "Remifemin Good Night combines the clinically proven RemiSure black cohosh extract with a valerian-based Restful Sleep Blend to address both menopausal symptoms and nighttime sleep disturbances in a single estrogen-free formula made in Germany.",
-    verdict: "Remifemin Good Night is the strongest dual-action option for women who need both hot flash relief and sleep support in a single supplement. The combination of clinically proven black cohosh and valerian root targets the root cause of menopause-related sleep disruption rather than just inducing drowsiness.",
+    summary: "Remifemin Good Night combines the clinically studied RemiSure black cohosh extract with a valerian-based Restful Sleep Blend to support relief from both menopausal symptoms and nighttime sleep disturbances in a single estrogen-free formula made in Germany.",
+    verdict: "Remifemin Good Night is a comprehensive dual-action option for women seeking both hot flash relief and sleep support in a single supplement. The combination of clinically studied black cohosh and valerian root supports the body's natural response to menopause-related sleep disruption rather than just inducing drowsiness.",
     editorPick: false,
     bestFor: "Women in late perimenopause or active menopause whose hot flashes are disrupting sleep",
     tags: ["sleep", "hot flashes", "night sweats", "black cohosh", "valerian", "hormone-free", "Germany"],
-    shortDescription: "A dual-action menopause supplement combining clinically proven black cohosh with valerian root to reduce hot flashes and restore restful sleep.",
+    shortDescription: "A dual-action menopause supplement combining clinically studied black cohosh with valerian root to support relief from hot flashes and support restful sleep.",
     priceDisplay: "$38.99",
     authorId: "diane-kessler",
   },
@@ -2342,6 +2400,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
   // ── New Reviews: Week of 2026-08-17 ─────────────────────────────────────────
   {
     id: "meno-menopause-gummies",
+    isDietarySupplement: true,
     slug: "meno-menopause-gummies-hot-flashes-night-sweats",
     name: "MENO Menopause Gummies — Hot Flashes & Night Sweats, 30-Day Supply",
     brand: "O Positiv",
@@ -2380,6 +2439,7 @@ At $80 for a 1.7 fl oz jar, Evening Wear is priced at the premium end of the men
   },
   {
     id: "meno-vaginal-moisture",
+    isDietarySupplement: true,
     slug: "meno-vaginal-moisture-capsules",
     name: "MENO Vaginal Moisture Capsules — 30-Day Supply",
     brand: "O Positiv",
@@ -2449,8 +2509,7 @@ export function getCategoryBySlug(slug: string): Category | undefined {
 // ─── Comparisons ─────────────────────────────────────────────────────────────
 
 export const comparisons: Comparison[] = [
-
-  {
+{
     id: "qunol-vs-amberen",
     slug: "qunol-vs-amberen",
     title: "Qunol Menopause Relief vs Amberen",
@@ -2462,12 +2521,12 @@ export const comparisons: Comparison[] = [
     product2Id: "amberen-menopause-supplement",
     winner: "qunol-menopause-relief",
     winnerId: "qunol-menopause-relief",
-    winnerReason: "Qunol wins for women prioritizing cognitive clarity and energy due to its targeted Citicoline content, while Amberen remains better for general symptom coverage.",
-    summary: "Both offer hormone-free relief, but they take different approaches. Qunol focuses heavily on combating brain fog and fatigue with Cognizin Citicoline and EstroG-100. Amberen uses a proprietary blend of succinates and amino acids to address a broader range of 12 symptoms. If brain fog is your primary complaint, Qunol's targeted formula gives it the edge.",
+    winnerReason: "Qunol is favored for women prioritizing cognitive clarity and energy due to its targeted Citicoline content, while Amberen remains a strong choice for broader symptom support.",
+    summary: "Both provide hormone-free support, but they take different approaches. Qunol focuses on addressing brain fog and fatigue with Cognizin Citicoline and EstroG-100. Amberen uses a proprietary blend of succinates and amino acids to support a broader range of 12 symptoms. If cognitive focus is your primary concern, Qunol's targeted formula offers a specialized option.",
     publishDate: "2026-07-20",
     authorId: "carol-beaumont",
   },
-  {
+{
     id: "pausitivi-t-vs-estroven",
     slug: "pausitivi-t-vs-estroven",
     title: "Pausitivi-T vs Estroven Complete",
@@ -2476,12 +2535,12 @@ export const comparisons: Comparison[] = [
     categorySlug: "multi-symptom-supplements",
     productIds: ["pausitivi-t-menopause-support", "estroven-complete"],
     winner: "estroven-complete",
-    winnerReason: "Estroven Complete wins for its clinically proven single-ingredient efficacy (ERr 731) and convenient one-a-day dosage.",
-    summary: "Pausitivi-T offers a comprehensive traditional herbal approach combining Sage, Black Cohosh, and Vitex, which appeals to women wanting a broad botanical safety net. However, Estroven Complete relies on a highly clinically studied single ingredient (Rhapontic Rhubarb Extract ERr 731) that has proven efficacy for multiple symptoms in a simple one-a-day pill, making it more convenient and targeted.",
+    winnerReason: "Estroven Complete wins for its clinically studied single-ingredient support (ERr 731) and convenient one-a-day dosage.",
+    summary: "Pausitivi-T offers a comprehensive traditional herbal approach combining Sage, Black Cohosh, and Vitex, which appeals to women wanting a broad botanical safety net. However, Estroven Complete relies on a highly clinically studied single ingredient (Rhapontic Rhubarb Extract ERr 731) that has demonstrated support for multiple symptoms in a simple one-a-day pill, making it more convenient and targeted.",
     publishDate: "2026-07-20",
     authorId: "diane-kessler",
   },
-  {
+{
     id: "estrotone-vs-remifemin",
     slug: "estrotone-vs-remifemin",
     title: "New Chapter Estrotone vs Remifemin",
@@ -2493,8 +2552,8 @@ export const comparisons: Comparison[] = [
     product2Id: "remifemin-menopause",
     winner: "new-chapter-estrotone-menopause",
     winnerId: "new-chapter-estrotone-menopause",
-    winnerReason: "Estrotone wins for its comprehensive, whole-food approach that includes Evening Primrose and Vitex alongside Black Cohosh, offering broader hormonal support.",
-    summary: "Remifemin is the gold standard for pure, clinically studied Black Cohosh extract, making it a reliable choice for targeted hot flash relief. New Chapter Estrotone, however, builds upon Black Cohosh by adding Evening Primrose, Schizandra, and Vitex. This multi-herb formulation provides a more holistic approach to hormone balance and symptom relief, justifying its premium positioning.",
+    winnerReason: "Estrotone wins for its comprehensive, whole-food approach that includes Evening Primrose and Vitex alongside Black Cohosh, offering multi-herb support for menopausal wellness.",
+    summary: "Remifemin is a well-regarded choice for pure, extensively researched Black Cohosh extract, providing reliable support for hot flashes. New Chapter Estrotone, however, builds upon Black Cohosh by adding Evening Primrose, Schizandra, and Vitex. This multi-herb formulation provides a more holistic approach to menopausal comfort and well-being, justifying its premium positioning.",
     publishDate: "2026-07-20",
     authorId: "diane-kessler",
   },
@@ -2527,7 +2586,7 @@ export const comparisons: Comparison[] = [
     verdict: 'While Replens is highly effective for internal, long-lasting moisture, Womaness Daily V Soothe wins for everyday comfort. Its use of hyaluronic acid provides superior, non-sticky hydration without the common complaint of residue or clumping associated with traditional moisturizers. It is the better choice for clean, daily external relief.',
     publishDate: '2026-06-29'
   },
-    {
+{
     id: "remifemin-vs-natures-way-black-cohosh",
     slug: "remifemin-vs-natures-way-black-cohosh",
     title: "Remifemin vs. Nature's Way Black Cohosh Root for Hot Flashes",
@@ -2539,9 +2598,9 @@ export const comparisons: Comparison[] = [
     product2Id: "natures-way-black-cohosh",
     winner: "remifemin-menopause",
     winnerId: "remifemin-menopause",
-    winnerReason: "Remifemin wins for its standardized extract with 60+ years of clinical validation.",
-    summary: "Remifemin is the winner for women who want the most clinically validated black cohosh supplement. Nature's Bounty is a solid budget alternative but lacks the same level of standardization and clinical backing.",
-    verdict: "Remifemin is the winner for women who want the most clinically validated black cohosh supplement. Nature's Bounty is a solid budget alternative but lacks the same level of standardization and clinical backing.",
+    winnerReason: "Remifemin wins for its standardized extract supported by a long history of research.",
+    summary: "Remifemin is the winner for women who want an extensively studied black cohosh supplement. Nature's Way is a solid budget alternative but lacks the same level of standardization and historical research backing.",
+    verdict: "Remifemin is the winner for women who want an extensively studied black cohosh supplement. Nature's Way is a solid budget alternative but lacks the same level of standardization and historical research backing.",
     publishDate: "2026-05-02",
     authorId: "carol-beaumont",
   },
@@ -2600,7 +2659,7 @@ export const comparisons: Comparison[] = [
     authorId: "diane-kessler",
   },
     // ── New Comparisons: Week of 2026-05-04 ───────────────────────────────────
-  {
+{
     id: "equelle-vs-estroven",
     slug: "equelle-vs-estroven",
     title: "EQUELLE vs. Estroven Complete for Menopause Relief",
@@ -2609,8 +2668,8 @@ export const comparisons: Comparison[] = [
     categorySlug: "multi-symptom-supplements",
     productIds: ["equelle-menopause", "estroven-complete"],
     winner: "equelle-menopause",
-    winnerReason: "EQUELLE's unique S-Equol formulation provides targeted relief for hot flashes and muscle aches with strong clinical backing.",
-    summary: "Both supplements offer non-hormonal relief for menopause symptoms. Estroven is more budget-friendly and uses Rhapontic Maca, while EQUELLE uses a proprietary plant-based S-Equol that mimics estrogen's positive effects without the risks.",
+    winnerReason: "EQUELLE's unique S-Equol formulation is designed to support the management of hot flashes and muscle aches, backed by clinical research.",
+    summary: "Both supplements offer non-hormonal support for menopause symptoms. Estroven is more budget-friendly and uses Rhapontic Maca, while EQUELLE uses a proprietary plant-based S-Equol designed to support hormonal balance during menopause.",
     verdict: "For women who can metabolize S-Equol or are looking for a premium, highly-targeted supplement, EQUELLE is the winner. Estroven remains a excellent budget alternative.",
     publishDate: "2026-05-04",
     authorId: "carol-beaumont",
@@ -2766,11 +2825,11 @@ export const comparisons: Comparison[] = [
   },
 
   // ── New Comparisons: Week of 2026-06-22 ─────────────────────────────────────────
-  {
+{
     id: "bonafide-serenol-vs-remifemin-perimenopause",
     slug: "bonafide-serenol-vs-remifemin-perimenopause",
     title: "Bonafide Serenol vs. Remifemin for Perimenopause Relief",
-    subtitle: "Mood-focused Swedish pollen extract vs. the gold-standard black cohosh for hot flash and symptom relief",
+    subtitle: "Mood-focused Swedish pollen extract vs. long-standing black cohosh for hot flash and symptom relief",
     category: "Multi-Symptom Supplements",
     categorySlug: "multi-symptom-supplements",
     productIds: ["bonafide-serenol", "remifemin-menopause"],
@@ -2778,13 +2837,13 @@ export const comparisons: Comparison[] = [
     product2Id: "remifemin-menopause",
     winner: "remifemin-menopause",
     winnerId: "remifemin-menopause",
-    winnerReason: "Remifemin wins for hot flash relief with 60+ years of clinical backing and a lower price. Bonafide Serenol is the better choice for women whose primary perimenopause burden is mood instability, irritability, and emotional dysregulation rather than hot flashes.",
-    summary: "Remifemin is the stronger default recommendation for hot flash relief because of its unmatched clinical validation, lower price, and deeper consumer review base. Bonafide Serenol is the premium alternative for women who want a clinically studied, non-estrogenic formula targeting mood and emotional symptoms from a brand with prescription menopause expertise.",
-    verdict: "Remifemin wins for first-line hot flash relief with the deepest clinical backing and best value. Bonafide Serenol wins for women whose perimenopause is primarily an emotional and mood experience who want a hormone-free, non-estrogenic formula from a clinically credible brand.",
+    winnerReason: "Remifemin wins for hot flash relief with an extensive history of clinical study and a lower price. Bonafide Serenol is the better choice for women whose primary perimenopause burden is mood instability, irritability, and emotional well-being rather than hot flashes.",
+    summary: "Remifemin is the stronger default recommendation for hot flash relief because of its extensive clinical research, lower price, and deeper consumer review base. Bonafide Serenol is the premium alternative for women who want a clinically studied, non-estrogenic formula targeting mood and emotional symptoms from a brand with prescription menopause expertise.",
+    verdict: "Remifemin wins for first-line hot flash relief with a significant history of clinical study and best value. Bonafide Serenol wins for women whose perimenopause is primarily an emotional and mood experience who want a hormone-free, non-estrogenic formula from a clinically recognized brand.",
     publishDate: "2026-06-22",
     authorId: "carol-beaumont",
   },
-      {
+{
     id: "hum-fan-club-vs-estroven-complete",
     slug: "hum-fan-club-vs-estroven-complete",
     title: "HUM Fan Club vs. Estroven Complete",
@@ -2796,13 +2855,13 @@ export const comparisons: Comparison[] = [
     product2Id: "estroven-complete",
     winner: "estroven-complete",
     winnerId: "estroven-complete",
-    winnerReason: "Estroven Complete wins for most women due to its massive review base, lower price point, and proven track record using black cohosh and soy isoflavones. HUM Fan Club is the better choice for women who specifically want a clean-label, vegan formula with added gut microbiome support.",
-    summary: "Estroven Complete is the stronger default recommendation because it is highly accessible, affordable, and has helped thousands of women manage their symptoms. HUM Fan Club is the premium upgrade for women who want a modern formula utilizing Siberian rhubarb and probiotics, and who value clean-ingredient certifications.",
-    verdict: "Estroven Complete wins for overall value and proven reliability. HUM Fan Club wins for women prioritizing clean, vegan ingredients and gut health alongside menopause symptom relief.",
+    winnerReason: "Estroven Complete wins for most women due to its massive review base, lower price point, and established track record using black cohosh and soy isoflavones. HUM Fan Club is the better choice for women who specifically want a clean-label, vegan formula with added gut microbiome support.",
+    summary: "Estroven Complete is the stronger default recommendation because it is highly accessible, affordable, and is widely used by women to manage their symptoms. HUM Fan Club is the premium upgrade for women who want a modern formula utilizing Siberian rhubarb and probiotics, and who value clean-ingredient certifications.",
+    verdict: "Estroven Complete wins for overall value and established reliability. HUM Fan Club wins for women prioritizing clean, vegan ingredients and gut health alongside menopause symptom relief.",
     publishDate: "2026-06-29",
     authorId: "diane-kessler",
   },
-  {
+{
     id: "vmagic-vulva-balm-vs-replens",
     slug: "vmagic-vulva-balm-vs-replens-vaginal-dryness",
     title: "VMAGIC Vulva Balm vs. Replens for Vaginal Dryness",
@@ -2814,17 +2873,17 @@ export const comparisons: Comparison[] = [
     product2Id: "replens-long-lasting-moisturizer",
     winner: "vmagic-vulva-balm",
     winnerId: "vmagic-vulva-balm",
-    winnerReason: "VMAGIC wins for clean ingredients and daily external comfort. However, VMAGIC is strictly for external vulvar tissue, while Replens is for internal vaginal moisture. For complete GSM relief, most women benefit from using both.",
-    summary: "Comparing VMAGIC and Replens is like comparing a lip balm to a throat lozenge—they treat different areas. VMAGIC is the ultimate organic solution for external chafing, itching, and irritation. Replens is the clinical standard for internal, long-lasting moisture. For best results, use them together.",
+    winnerReason: "VMAGIC wins for clean ingredients and daily external comfort. However, VMAGIC is strictly for external vulvar tissue, while Replens is for internal vaginal moisture. For comprehensive intimate comfort, most women benefit from using both.",
+    summary: "Comparing VMAGIC and Replens is like comparing a lip balm to a throat lozenge—they address different areas. VMAGIC is an organic option for soothing external chafing, itching, and irritation. Replens is the clinical standard for internal, long-lasting moisture. For best results, use them together.",
     verdict: "VMAGIC wins for external vulvar soothing and organic purity. Replens wins for internal moisture. They are complementary products, not competitors.",
     publishDate: "2026-06-29",
     authorId: "carol-beaumont",
   },
-  {
+{
     id: "thorne-hormone-advantage-vs-remifemin",
     slug: "thorne-hormone-advantage-vs-remifemin-perimenopause",
     title: "THORNE Hormone Advantage vs. Remifemin for Perimenopause",
-    subtitle: "DIM-based estrogen metabolism support vs. clinically standardized black cohosh",
+    subtitle: "DIM-based support for hormonal balance vs. clinically standardized black cohosh",
     category: "Multi-Symptom Supplements",
     categorySlug: "multi-symptom-supplements",
     productIds: ["thorne-hormone-advantage", "remifemin-menopause"],
@@ -2832,15 +2891,15 @@ export const comparisons: Comparison[] = [
     product2Id: "remifemin-menopause",
     winner: "remifemin-menopause",
     winnerId: "remifemin-menopause",
-    winnerReason: "Remifemin wins for women in active menopause experiencing hot flashes, as its black cohosh extract has the deepest clinical evidence for hot flash relief. THORNE Hormone Advantage is the better choice for women in early perimenopause dealing specifically with estrogen dominance symptoms like weight gain and breast tenderness.",
-    summary: "These two supplements target different phases and mechanisms. Remifemin is the gold standard for hot flash relief in active menopause. THORNE Hormone Advantage is the premium choice for perimenopausal women whose primary symptoms are estrogen dominance—weight gain, breast tenderness, and mood swings.",
-    verdict: "Remifemin wins for hot flash relief in active menopause. THORNE Hormone Advantage wins for perimenopausal women dealing with estrogen dominance symptoms.",
+    winnerReason: "Remifemin wins for women in active menopause seeking support for hot flashes, as its black cohosh extract is backed by extensive clinical research for menopausal comfort. THORNE Hormone Advantage is the better choice for women in early perimenopause seeking support for hormonal balance and common concerns like weight management and breast tenderness.",
+    summary: "These two supplements target different phases and needs. Remifemin is a well-established choice for supporting comfort during hot flashes in active menopause. THORNE Hormone Advantage is a premium choice for perimenopausal women seeking support for hormonal balance and common concerns like weight changes, breast tenderness, and mood fluctuations.",
+    verdict: "Remifemin wins for hot flash support in active menopause. THORNE Hormone Advantage wins for perimenopausal women seeking support for hormonal balance concerns.",
     publishDate: "2026-06-29",
     authorId: "carol-beaumont",
   },
 
   // ── New Comparisons: Week of 2026-07-06 ──────────────────────────────────────────
-  {
+{
     id: "estroven-ashwagandha-vs-estroven-complete",
     slug: "estroven-complete-ashwagandha-vs-estroven-complete",
     title: "Estroven Complete + Ashwagandha vs. Estroven Complete",
@@ -2852,13 +2911,13 @@ export const comparisons: Comparison[] = [
     product2Id: "estroven-complete",
     winner: "estroven-complete-ashwagandha",
     winnerId: "estroven-complete-ashwagandha",
-    winnerReason: "Estroven Complete + Ashwagandha wins for women whose menopause symptoms are stress-linked, offering the same proven ERr 731 relief plus KSM-66 Ashwagandha for cortisol and mood support in a single formula.",
-    summary: "Both formulas use Estroven's clinically proven ERr 731 Rhapontic Rhubarb Extract as their foundation for hot flash and night sweat relief. The key difference is that the Ashwagandha version adds KSM-66, a premium adaptogen that reduces cortisol, improves resilience to stress, and supports sleep quality. For women whose symptoms are worsened by stress, the Ashwagandha formula provides a meaningful additional layer of support. For women with straightforward hot flash symptoms without a significant stress component, the original Estroven Complete at a lower price remains an excellent choice.",
-    verdict: "Estroven Complete + Ashwagandha wins for women experiencing stress-amplified menopause symptoms. The original Estroven Complete wins for women who want the most affordable, proven hot flash relief without the added adaptogen.",
+    winnerReason: "Estroven Complete + Ashwagandha wins for women whose menopause symptoms are stress-linked, offering the same clinically studied ERr 731 relief plus KSM-66 Ashwagandha to support a healthy stress response and mood in a single formula.",
+    summary: "Both formulas use Estroven's clinically studied ERr 731 Rhapontic Rhubarb Extract as their foundation for hot flash and night sweat relief. The key difference is that the Ashwagandha version adds KSM-66, a premium adaptogen that helps the body manage stress and supports sleep quality. For women whose symptoms are worsened by stress, the Ashwagandha formula provides a meaningful additional layer of support. For women with straightforward hot flash symptoms without a significant stress component, the original Estroven Complete at a lower price remains an excellent choice.",
+    verdict: "Estroven Complete + Ashwagandha wins for women experiencing stress-amplified menopause symptoms. The original Estroven Complete wins for women who want the most affordable, clinically studied hot flash relief without the added adaptogen.",
     publishDate: "2026-07-06",
     authorId: "diane-kessler",
   },
-  {
+{
     id: "estroven-gummies-vs-estroven-complete",
     slug: "estroven-complete-gummies-vs-estroven-complete-capsules",
     title: "Estroven Complete Gummies vs. Estroven Complete Capsules",
@@ -2871,13 +2930,13 @@ export const comparisons: Comparison[] = [
     winner: "estroven-complete",
     winnerId: "estroven-complete",
     winnerReason: "Estroven Complete capsules win for value, review depth, and the broader 28-symptom formula. The gummies win for women who prefer a capsule-free, tastier daily supplement experience.",
-    summary: "Both products deliver the same clinically proven ERr 731 Rhapontic Rhubarb Extract for hot flash and night sweat relief. The core difference is format and price. The original Estroven Complete capsules have over 19,000 reviews and a lower per-dose cost, making them the more validated and economical choice. The gummies are a newer format with fewer reviews but a significantly better compliance experience for women who dislike swallowing capsules. The gummies also use citrus pectin instead of gelatin, making them vegan-friendly.",
-    verdict: "Estroven Complete capsules win for value and review depth. Estroven Complete Gummies win for women who want a vegan, capsule-free supplement experience with the same proven active ingredient.",
+    summary: "Both products deliver the same clinically studied ERr 731 Rhapontic Rhubarb Extract for hot flash and night sweat support. The core difference is format and price. The original Estroven Complete capsules have over 19,000 reviews and a lower per-dose cost, making them the more validated and economical choice. The gummies are a newer format with fewer reviews but a significantly better compliance experience for women who dislike swallowing capsules. The gummies also use citrus pectin instead of gelatin, making them vegan-friendly.",
+    verdict: "Estroven Complete capsules win for value and review depth. Estroven Complete Gummies win for women who want a vegan, capsule-free supplement experience with the same studied active ingredient.",
     publishDate: "2026-07-06",
     authorId: "diane-kessler",
   },
     // ── New Comparisons: Week of 2026-07-13 ─────────────────────────────────
-      {
+{
     id: "estroven-gummies-vs-olly-mellow",
     slug: "estroven-complete-gummies-vs-olly-mellow-menopause",
     title: "Estroven Complete Gummies vs. OLLY Mellow Menopause",
@@ -2889,9 +2948,9 @@ export const comparisons: Comparison[] = [
     product2Id: "olly-mellow-menopause",
     winner: "estroven-complete-gummies",
     winnerId: "estroven-complete-gummies",
-    winnerReason: "Contains clinically proven rhapontic rhubarb extract for systemic relief, whereas OLLY focuses primarily on mood.",
-    summary: "For women suffering from pill fatigue, gummies are a welcome alternative. Estroven Complete Gummies use rhapontic rhubarb extract (ERr 731) to target hot flashes and systemic symptoms. OLLY Mellow Menopause focuses heavily on mood and stress, utilizing GABA and Estro-G100.",
-    verdict: "Estroven Complete Gummies are the clear winner for overall menopause symptom relief, particularly for hot flashes and night sweats, thanks to the proven efficacy of rhapontic rhubarb. OLLY Mellow Menopause is a great choice if your primary symptoms are irritability, stress, and mood swings, but it falls short on physical symptom relief.",
+    winnerReason: "Contains clinically studied rhapontic rhubarb extract for multi-symptom support, whereas OLLY focuses primarily on mood.",
+    summary: "For women suffering from pill fatigue, gummies are a welcome alternative. Estroven Complete Gummies use rhapontic rhubarb extract (ERr 731) to target hot flashes and support multi-symptom relief. OLLY Mellow Menopause focuses heavily on mood and stress, utilizing GABA and Estro-G100.",
+    verdict: "Estroven Complete Gummies are the clear winner for multi-symptom menopause support, particularly for hot flashes and night sweats, thanks to the studied benefits of rhapontic rhubarb. OLLY Mellow Menopause is a great choice if your primary symptoms are irritability, stress, and mood swings, but it falls short on physical symptom support.",
     publishDate: "2026-07-13",
     authorId: "carol-beaumont",
   },
@@ -2916,7 +2975,7 @@ export const comparisons: Comparison[] = [
     publishDate: "2026-07-27",
     authorId: "diane-kessler",
   },
-  {
+{
     id: "femmenessence-macapause-vs-remifemin",
     slug: "femmenessence-macapause-vs-remifemin",
     title: "Femmenessence MacaPause vs. Remifemin",
@@ -2928,9 +2987,9 @@ export const comparisons: Comparison[] = [
     product2Id: "remifemin-menopause",
     winner: "femmenessence-macapause",
     winnerId: "femmenessence-macapause",
-    winnerReason: "Femmenessence MacaPause addresses a broader range of symptoms by supporting the body's own hormone production pathways, offering a more holistic approach than black cohosh alone.",
-    summary: "These two premium supplements take completely different approaches. Remifemin uses a highly standardized black cohosh extract to directly target hot flashes and mood swings. Femmenessence MacaPause uses a proprietary maca blend to nourish the endocrine system, encouraging the body to balance its own hormone levels naturally.",
-    verdict: "Remifemin is the better choice for women who want a highly affordable, clinically proven targeted treatment for hot flashes. Femmenessence MacaPause wins for women seeking comprehensive, systemic hormone balance and increased energy without the use of phytoestrogens or black cohosh.",
+    winnerReason: "Femmenessence MacaPause addresses a broader range of symptoms by supporting hormonal health, offering a more holistic approach than black cohosh alone.",
+    summary: "These two premium supplements take completely different approaches. Remifemin uses a highly standardized black cohosh extract to support the management of hot flashes and mood swings. Femmenessence MacaPause uses a proprietary maca blend to support the body's natural processes for maintaining hormonal balance.",
+    verdict: "Remifemin is the better choice for women who want a highly affordable, widely researched option for managing hot flashes. Femmenessence MacaPause wins for women seeking comprehensive support for hormonal balance and increased energy without the use of phytoestrogens or black cohosh.",
     publishDate: "2026-07-27",
     authorId: "carol-beaumont",
   },
@@ -2955,11 +3014,11 @@ export const comparisons: Comparison[] = [
 
 
   // ── New Comparisons: Week of 2026-08-03 ─────────────────────────────────
-      {
+{
     id: "youtheory-ashwagandha-vs-olly-goodbye-stress",
     slug: "youtheory-ashwagandha-vs-olly-goodbye-stress",
     title: "Youtheory Ashwagandha vs. OLLY Goodbye Stress",
-    subtitle: "High-potency clinical adaptogen vs. gentle daytime gummy relief",
+    subtitle: "High-potency adaptogen vs. gentle daytime gummy relief",
     category: "Sleep & Mood Support",
     categorySlug: "sleep-mood-support",
     productIds: ["youtheory-ashwagandha-1000mg", "olly-goodbye-stress"],
@@ -2967,13 +3026,13 @@ export const comparisons: Comparison[] = [
     product2Id: "olly-goodbye-stress",
     winner: "youtheory-ashwagandha-1000mg",
     winnerId: "youtheory-ashwagandha-1000mg",
-    winnerReason: "Youtheory provides a clinical 1,000 mg dose of KSM-66 ashwagandha for profound cortisol regulation, making it significantly more effective for the severe stress and anxiety often seen in perimenopause.",
-    summary: "OLLY Goodbye Stress offers a pleasant, low-dose gummy blend of GABA, L-Theanine, and a small amount of ashwagandha for mild, immediate daytime calm. Youtheory Ashwagandha is a serious, high-potency adaptogen supplement delivering 1,000 mg of clinically studied KSM-66 ashwagandha designed to fundamentally lower cortisol levels and improve stress resilience over time.",
-    verdict: "For women dealing with significant perimenopausal anxiety, mood swings, and cortisol-driven sleep issues, Youtheory Ashwagandha is the clear winner due to its clinical potency. OLLY is better suited for those who just want a mild, tasty gummy for occasional stressful moments.",
+    winnerReason: "Youtheory provides a 1,000 mg dose of KSM-66 ashwagandha to support healthy cortisol balance, making it a robust option for the heightened stress and tension often seen during perimenopause.",
+    summary: "OLLY Goodbye Stress offers a pleasant gummy blend of GABA, L-Theanine, and ashwagandha for mild, daytime calm. Youtheory Ashwagandha is a high-potency adaptogen supplement delivering 1,000 mg of KSM-66 ashwagandha designed to support healthy cortisol levels and improve stress resilience over time.",
+    verdict: "For women seeking support for perimenopausal mood changes, stress-related sleep issues, and overall balance, Youtheory Ashwagandha is a standout choice for its potency. OLLY is better suited for those who just want a mild, tasty gummy for occasional stressful moments.",
     publishDate: "2026-08-03",
     authorId: "carol-beaumont"
   },
-  {
+{
     id: "sleep-support-showdown",
     slug: "remifemin-vs-olly-sleep",
     title: "Menopause Sleep Support Showdown",
@@ -2982,12 +3041,12 @@ export const comparisons: Comparison[] = [
     categorySlug: "sleep-mood-support",
     productIds: ["remifemin-good-night", "olly-mellow-menopause"],
     winner: "remifemin-good-night",
-    winnerReason: "Remifemin offers a more comprehensive, clinically proven approach by targeting both the hormonal root cause (hot flashes/night sweats) and the sleep disturbance itself.",
-    summary: "When menopause disrupts your sleep, you need a solution that addresses both the physical symptoms (like night sweats) and the neurological aspects of insomnia. OLLY Mellow Menopause offers a convenient, tasty gummy with a solid blend of GABA and botanicals that works well for mild, stress-related sleep issues. However, Remifemin Good Night takes the crown for more severe menopause sleep disturbances. Its inclusion of RemiSure Black Cohosh specifically targets the hormonal fluctuations causing night sweats, while the Valerian root blend handles the insomnia. If your sleep issues are primarily driven by hot flashes and night sweats, Remifemin is the superior choice.",
-    verdict: "Choose Remifemin Good Night for comprehensive relief from night sweats and insomnia, or OLLY if you prefer a gummy format for mild, stress-related sleep disruption.",
+    winnerReason: "Remifemin offers a more comprehensive, clinically studied approach by addressing both menopausal symptoms (hot flashes/night sweats) and associated sleep difficulties.",
+    summary: "When menopause impacts your sleep, you need a solution that addresses both the physical symptoms (like night sweats) and the related sleep challenges. OLLY Mellow Menopause offers a convenient, tasty gummy with a solid blend of GABA and botanicals that works well for occasional, stress-related sleep support. However, Remifemin Good Night takes the crown for more persistent menopause-related sleep issues. Its inclusion of RemiSure Black Cohosh specifically supports the body through hormonal fluctuations associated with night sweats, while the Valerian root blend helps with occasional sleeplessness. If your sleep challenges are primarily linked to hot flashes and night sweats, Remifemin is the superior choice.",
+    verdict: "Choose Remifemin Good Night for comprehensive support for night sweats and occasional sleeplessness, or OLLY if you prefer a gummy format for mild, stress-related sleep support.",
     publishDate: "2026-08-10"
   },
-  {
+{
     id: "omega3-cognitive-clash",
     slug: "dr-tobias-vs-neuriva-brain",
     title: "Cognitive Support Clash: Omega-3 vs. Nootropics",
@@ -2997,7 +3056,7 @@ export const comparisons: Comparison[] = [
     productIds: ["dr-tobias-omega-3", "neuriva-plus-brain-supplement"],
     winner: "dr-tobias-omega-3",
     winnerReason: "Omega-3s offer broader systemic benefits for menopausal women, supporting heart and joint health alongside cognitive function, whereas Neuriva is strictly focused on the brain.",
-    summary: "Brain fog is one of the most frustrating symptoms of menopause. Neuriva Plus tackles this directly with a clinically proven nootropic (Neurofactor) and B-vitamins, making it excellent for sharp, immediate focus and memory recall. However, Dr. Tobias Triple Strength Omega 3 Fish Oil wins our comparison because it provides foundational, systemic support that menopausal bodies desperately need. High-dose EPA and DHA not only combat brain fog and support long-term cognitive health, but they also reduce joint inflammation and protect cardiovascular health—both of which become critical concerns as estrogen declines. The enteric coating ensures you get these benefits without the fishy aftertaste.",
+    summary: "Brain fog is one of the most frustrating symptoms of menopause. Neuriva Plus tackles this directly with a well-studied nootropic (Neurofactor) and B-vitamins, making it excellent for sharp, immediate focus and memory recall. However, Dr. Tobias Triple Strength Omega 3 Fish Oil wins our comparison because it provides foundational, systemic support that menopausal bodies desperately need. High-dose EPA and DHA not only support mental clarity during brain fog and long-term cognitive health, but they also promote joint comfort and support cardiovascular health—both of which become critical concerns as estrogen declines. The enteric coating ensures you get these benefits without the fishy aftertaste.",
     verdict: "Dr. Tobias Omega 3 is the better overall investment for menopausal health, providing essential brain, heart, and joint support, while Neuriva is best reserved for those needing targeted, immediate cognitive enhancement.",
     publishDate: "2026-08-10"
   },

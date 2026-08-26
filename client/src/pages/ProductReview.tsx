@@ -15,6 +15,7 @@ import { buildAggregateRatingSchema } from "@/lib/userReviews";
 import UserReviewSection from "@/components/UserReviewSection";
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getStageMatchedResearch, researchPath } from "@/lib/researchRoutes";
+import { HealthDisclaimers } from "@/components/HealthDisclaimers";
 
 // ─── Recently Viewed Key ────────────────────────────────────────────────────
 export const RECENTLY_VIEWED_KEY = "pauseandflourish_recently_viewed";
@@ -319,6 +320,8 @@ export default function ProductReview() {
             <p className="font-body text-xs mt-4" style={{ color: "#B8A99A" }}>
               Prices and availability subject to change. Last verified on Amazon.
             </p>
+
+            <HealthDisclaimers showDshea={product.isDietarySupplement} />
           </div>
         </div>
 

@@ -76,6 +76,9 @@ entries.push(urlEntry("/about",       { changefreq: "monthly", priority: "0.5" }
 entries.push(urlEntry("/methodology", { changefreq: "monthly", priority: "0.5" }));
 entries.push(urlEntry("/quiz",        { changefreq: "monthly", priority: "0.8" }));
 entries.push(urlEntry("/news-and-articles", { changefreq: "weekly", priority: "0.8" }));
+entries.push(urlEntry("/privacy", { changefreq: "yearly", priority: "0.3" }));
+entries.push(urlEntry("/terms", { changefreq: "yearly", priority: "0.3" }));
+entries.push(urlEntry("/contact", { changefreq: "yearly", priority: "0.3" }));
 
 // Category pages — sourced from live categories data
 for (const cat of categories) {
@@ -137,7 +140,7 @@ writeFileSync(OUT_PATH, xml, "utf8");
 console.log(`✅ Sitemap written to ${OUT_PATH}`);
 console.log(`   ${entries.length} URLs total`);
 console.log(`   Breakdown:`);
-console.log(`     Static pages:     7`);
+console.log(`     Static pages:     10`);
 console.log(`     Category pages:   ${categories.length}`);
 console.log(`     Stage pages:      ${menopauseStages.length}`);
 console.log(`     Author pages:     ${authors.length}`);

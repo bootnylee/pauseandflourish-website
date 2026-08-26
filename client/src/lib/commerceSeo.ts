@@ -1,14 +1,13 @@
-import { type Product } from "@/lib/products";
-import { catalogIsFresh, hasVerifiedAsin } from "@/components/ProductCommerce";
+import type { Product } from "@/lib/products";
+import { hasVerifiedAsin } from "@/components/ProductCommerce";
 
 const SITE = "PauseAndFlourish";
 const ORIGIN = "https://pauseandflourish.com";
-const TAG = "pauseandflourish-20";
 
-type ProductLike = Pick<Product, "name" | "brand" | "shortDescription" | "heroImage" | "asin" | "price" | "priceDisplay" | "publishDate" | "bestFor"> & { availability?: string };
+type ProductLike = Pick<Product, "name" | "brand" | "shortDescription" | "heroImage" | "asin" | "publishDate" | "bestFor">;
 
 export function editorialProductSchema(product: ProductLike, author?: { name: string; role?: string; url?: string }) {
-  const schema: Record<string, unknown> = {
+  return {
     "@type": "Product",
     name: product.name,
     description: product.shortDescription,
@@ -22,18 +21,6 @@ export function editorialProductSchema(product: ProductLike, author?: { name: st
       reviewBody: product.shortDescription,
     },
   };
-  // AggregateRating is intentionally absent: it may only be emitted by the approved-user-review feature.
-  if (catalogIsFresh() && Number(product.price) > 0 && hasVerifiedAsin(product.asin)) {
-    schema.offers = {
-      "@type": "Offer",
-      price: product.price,
-      priceCurrency: "USD",
-      availability: product.availability ? "https://schema.org/InStock" : undefined,
-      url: `https://www.amazon.com/dp/${product.asin}?tag=${TAG}`,
-      seller: { "@type": "Organization", name: "Amazon" },
-    };
-  }
-  return schema;
 }
 
 export function commerceFaqSchema(product: ProductLike, pageUrl: string) {
@@ -65,7 +52,7 @@ export function commerceComparisonFaqSchema(title: string, winner: ProductLike) 
     "@type": "FAQPage",
     mainEntity: [
       { "@type": "Question", name: `What is the editorial winner in ${title}?`, acceptedAnswer: { "@type": "Answer", text: `${winner.name} is the editorial winner for the use case described in this comparison.` } },
-      { "@type": "Question", name: "Are current Amazon prices shown?", acceptedAnswer: { "@type": "Answer", text: "Prices are displayed only after a current Amazon Creators API catalog refresh; otherwise the comparison links to the verified product listing without displaying a stale price." } },
+      { "@type": "Question", name: "Are current Amazon prices shown?", acceptedAnswer: { "@type": "Answer", text: "Current retailer pricing is available on the verified product listing when provided." } },
     ],
   };
 }
