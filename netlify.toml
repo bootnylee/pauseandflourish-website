@@ -19,23 +19,9 @@
   force  = true
 
 # ── Canonical detail-route form: no trailing slash ───────────────────────────
-[[redirects]]
-  from = "/review/:slug/"
-  to = "/review/:slug"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/comparison/:slug/"
-  to = "/comparison/:slug"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/research/:slug/"
-  to = "/research/:slug"
-  status = 301
-  force = true
+# Detail pages are emitted as flat .html artifacts. Netlify's Pretty URLs
+# serve their extensionless form directly and handle slash normalization before
+# redirect rules run; explicit slash-removal rules would therefore self-loop.
 
 # ── Legacy subscribe alias — protects stale cached frontend bundles ───────────
 [[redirects]]
