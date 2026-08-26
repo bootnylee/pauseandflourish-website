@@ -12,6 +12,29 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+const productIds = new Set(allProducts.map((product) => product.id));
+const reviewSlugs = new Set<string>();
+for (const product of allProducts) {
+  if (reviewSlugs.has(product.slug)) {
+    throw new Error(`Duplicate review slug in catalog: ${product.slug}`);
+  }
+  reviewSlugs.add(product.slug);
+}
+
+const invalidComparisons = comparisons.filter((comparison) => {
+  const referencedProducts = comparison.productIds?.length
+    ? comparison.productIds
+    : [comparison.product1Id, comparison.product2Id].filter(Boolean);
+  const winnerId = comparison.winnerId || comparison.winner;
+  return referencedProducts.length !== 2
+    || referencedProducts.some((productId) => !productIds.has(productId))
+    || !winnerId
+    || !productIds.has(winnerId);
+});
+if (invalidComparisons.length > 0) {
+  throw new Error(`Unresolvable comparison data: ${invalidComparisons.map((comparison) => comparison.slug).join(", ")}`);
+}
+
 const data = {
   allProducts: allProducts.map(p => ({
     slug: p.slug,

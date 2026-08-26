@@ -201,22 +201,26 @@ function breadcrumb(items) {
 // The data is extracted by scripts/extract-data.ts (run via tsx before this
 // script) and saved to scripts/site-data.json.
 
-let allProducts = [], categories = [], comparisons = [], authors = [];
 const dataPath = resolve(ROOT, "scripts", "site-data.json");
-if (existsSync(dataPath)) {
-  try {
-    const siteData = JSON.parse(readFileSync(dataPath, "utf8"));
-    allProducts = siteData.allProducts || [];
-    categories = siteData.categories || [];
-    comparisons = siteData.comparisons || [];
-    authors = siteData.authors || [];
-    console.log(`   Loaded ${allProducts.length} products, ${comparisons.length} comparisons, ${authors.length} authors from site-data.json`);
-  } catch (e) {
-    console.warn("⚠ Could not parse site-data.json — using fallback slugs from sitemap.");
-  }
-} else {
-  console.warn("⚠ site-data.json not found — using fallback slugs from sitemap.");
+if (!existsSync(dataPath)) {
+  throw new Error("scripts/site-data.json not found — run `npx tsx scripts/extract-data.ts` before prerendering.");
 }
+
+let siteData;
+try {
+  siteData = JSON.parse(readFileSync(dataPath, "utf8"));
+} catch (error) {
+  throw new Error(`Could not parse scripts/site-data.json: ${error.message}`);
+}
+
+const allProducts = siteData.allProducts || [];
+const categories = siteData.categories || [];
+const comparisons = siteData.comparisons || [];
+const authors = siteData.authors || [];
+if (!allProducts.length || !comparisons.length) {
+  throw new Error("Validated site-data.json is missing product or comparison route data.");
+}
+console.log(`   Loaded ${allProducts.length} products, ${comparisons.length} comparisons, ${authors.length} authors from site-data.json`);
 
 // ── Author lookup helper ──────────────────────────────────────────────────────
 const authorsById = Object.fromEntries(authors.map(a => [a.id, a]));

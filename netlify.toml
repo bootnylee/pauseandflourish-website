@@ -25,7 +25,19 @@
   status = 200
   force = true
 
-# ── SPA routing — serve prerendered HTML for all routes ─────────────────────
+# ── Unknown detail routes return a true static 404 response. Existing
+# prerendered route files take precedence because these rules are not forced.
+[[redirects]]
+  from = "/review/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/comparison/*"
+  to = "/404.html"
+  status = 404
+
+# ── SPA routing — serve prerendered HTML for all other routes ───────────────
 [[redirects]]
   from = "/*"
   to = "/index.html"
