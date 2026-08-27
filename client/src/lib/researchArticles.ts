@@ -22,6 +22,7 @@ export type ArticleStageId =
 
 export interface ResearchArticle {
   id: string;
+  slug: string; // stable canonical route identifier
   citation: string;
   headline: string;
   takeaway: string;
@@ -35,6 +36,7 @@ const rawResearchArticles: ResearchArticle[] =
 [
   {
     "id": "article-001",
+    "slug": "elinzanetant-first-approval-article-001",
     "citation": "Lee A. Elinzanetant: First Approval.. Drugs. 2026;86(1):121-125. doi:10.1007/s40265-025-02244-3",
     "headline": "Elinzanetant: First Approval....",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -45,6 +47,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-002",
+    "slug": "recommendations-for-the-management-of-menopausal-article-002",
     "citation": "Palacios S, Fasero M, Coronado P, Gonzalez S, Sanchez S, de la Viuda E, Jurado AR, Presa J, Quereda F, Marcos M, Pingarron C. [Recommendations for the management of menopausal vasomotor symptoms in clinical practice].. Semergen. 2025;51(9):102597. doi:10.1016/j.semerg.2025.102597",
     "headline": "[Recommendations for the management of menopausal ...",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -55,6 +58,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-003",
+    "slug": "advances-in-pharmacotherapy-for-menopausal-vasomot-article-003",
     "citation": "Young Moss S, Lee A, Simon JA. Advances in Pharmacotherapy for Menopausal Vasomotor Symptoms.. Drugs. 2025;85(11):1363-1379. doi:10.1007/s40265-025-02231-8",
     "headline": "Advances in Pharmacotherapy for Menopausal Vasomot...",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -65,6 +69,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-004",
+    "slug": "fda-approves-veozah-fezolinetant-for-menopausal-article-004",
     "citation": "Elendu C, Okahia TW, Blewusi GS, Meduoye OOM, Ogelle EC, Egbo AR, Nwankwo VC, Amaefule KC, Emechebe SL, Mohamed AA, Ogedengbe OS, Aggreh OP, Obi DI, Orji VI, Bakare SO, Adediran FD, Adetoye F, Akande BA, Ogunsola OC, Olanlege AM. FDA approves Veozah (Fezolinetant) for menopausal symptoms: a new nonhormonal option.. Annals of medicine and surgery (2012). 2025;87(9):5373-5377. doi:10.1097/MS9.0000000000003670",
     "headline": "FDA approves Veozah (Fezolinetant) for menopausal ...",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -75,6 +80,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-005",
+    "slug": "differential-symptom-relief-profiles-of-menopausal-article-005",
     "citation": "Martin-Key NA, Funnell EL, Tomasik J, Bahn S. Differential symptom relief profiles of menopausal therapies: an online survey study.. BMC women's health. 2025;25(1):384. doi:10.1186/s12905-025-03929-3",
     "headline": "Differential symptom relief profiles of menopausal...",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -85,6 +91,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-006",
+    "slug": "treatments-in-women-experiencing-natural-menopause-article-006",
     "citation": "Saadedine M, Banks V, Dinkel-Keuthage C, Caetano C, Argyriou G, Moeller C, Schoof N, Vizcaya D, Francuski M, Golozar A, Römer T, Kubba A. Treatments in women experiencing natural menopause: a cohort study from the USA, the UK and Germany.. Climacteric : the journal of the International Menopause Society. 2026;29(1):121-128. doi:10.1080/13697137.2025.2530466",
     "headline": "Treatments in women experiencing natural menopause...",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -95,6 +102,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-007",
+    "slug": "targeting-vasomotor-symptoms-with-the-new-drug-fez-article-007",
     "citation": "Nappi RE, Cagnacci A, Di Carlo C, Genazzani AD, Villa P, Simoncini T. Targeting vasomotor symptoms with the new drug fezolinetant - an expert overview.. Gynecological endocrinology : the official journal of the International Society of Gynecological Endocrinology. 2025;41(1):2526560. doi:10.1080/09513590.2025.2526560",
     "headline": "Targeting vasomotor symptoms with the new drug fez...",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -105,6 +113,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-008",
+    "slug": "pharmacological-treatments-for-menopausal-vasomoto-article-008",
     "citation": "Oliveira Amador WF, Saraiva CA, Ruelas MG, Queiroz I, Iqbal A, de Souza Gaio G, Pinilla Alarcón JA, Roberto De Sa J. Pharmacological Treatments for Menopausal Vasomotor Symptoms: A Systematic Review and Bayesian Network Meta-Analysis of Efficacy and Safety.. European journal of obstetrics, gynecology, and reproductive biology. 2025;312():114552. doi:10.1016/j.ejogrb.2025.114552",
     "headline": "Pharmacological Treatments for Menopausal Vasomoto...",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -115,6 +124,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-009",
+    "slug": "a-profile-of-safety-and-efficacy-of-fezolinetant-f-article-009",
     "citation": "Cucinella L, Cassani C, Tedeschi S, Memoli S, Martini E, Nappi RE. A profile of safety and efficacy of fezolinetant for the treatment of menopausal vasomotor symptoms.. Expert review of clinical pharmacology. 2025;18(5):247-258. doi:10.1080/17512433.2025.2495951",
     "headline": "A profile of safety and efficacy of fezolinetant f...",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -125,6 +135,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-010",
+    "slug": "efficacy-of-zoledronic-acid-in-peri-menopausal-wom-article-010",
     "citation": "Prasad TN, Sharma LR, Bhansali A, Bhadada SK, Aggarwal N, Singh T, Sachdeva N, Konsam BD, Tiwari VP, Baruah MM, Walia R. Efficacy of zoledronic acid in peri-menopausal women with osteopenia.. Journal of bone and mineral metabolism. 2026;44(1):106-113. doi:10.1007/s00774-025-01670-3",
     "headline": "Efficacy of zoledronic acid in peri-menopausal wom...",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -135,6 +146,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-011",
+    "slug": "efficacy-and-safety-of-48-week-low-dose-dienogest-article-011",
     "citation": "Kikuno K, Asada R, Ishihara T, Morishige KI, Chikazawa K, Furui T, Isobe M. Efficacy and Safety of 48-Week Low-Dose Dienogest Treatment in Patients with Endometriosis-Associated Dysmenorrhea: A Randomized, Open-Label, Parallel-Group Trial.. Advances in therapy. 2025;42(12):6248-6260. doi:10.1007/s12325-025-03397-z",
     "headline": "Efficacy and Safety of 48-Week Low-Dose Dienogest ...",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -145,6 +157,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-012",
+    "slug": "a-randomized-double-blind-placebo-controlled-cli-article-012",
     "citation": "Schott EM, Charbonneau MR, Kiel DP, Bukata S, Zuscik MJ, Rosen C, Ballok A, Toledo GV, Steels E, Huntress H, Rao A, Ebelt P, Travison TG, Soto-Giron MJ, Wolff I, Easson DD, Engelke K, Vitetta L. A randomized, double-blind, placebo-controlled clinical study to evaluate the efficacy of the synbiotic medical food, SBD111, for the clinical dietary management of bone loss in menopausal women.. Osteoporosis international : a journal established as result of cooperation between the European Foundation for Osteoporosis and the National Osteoporosis Foundation of the USA. 2025;36(10):2019-2030. doi:10.1007/s00198-025-07650-7",
     "headline": "A randomized, double-blind, placebo-controlled cli...",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -155,6 +168,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-013",
+    "slug": "using-probiotic-supplementation-to-support-bone-he-article-013",
     "citation": "Yumol JL, Binda S, Nagulesapillai V, Bhardwaj R, Ward WE. Using probiotic supplementation to support bone health in postmenopausal women: a randomized, double-blind, parallel, placebo-controlled, multi-center study.. Archives of osteoporosis. 2025;20(1):103. doi:10.1007/s11657-025-01589-2",
     "headline": "Using probiotic supplementation to support bone he...",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -165,6 +179,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-014",
+    "slug": "quercetins-efficacy-on-bone-and-inflammatory-marke-article-014",
     "citation": "Bailly AR, Hester GM, Alesi MG, Buresh RJ, Feito Y, Mermier CM, Ducharme JB, VanDusseldorp TA. Quercetins efficacy on bone and inflammatory markers, body composition, and physical function in postmenopausal women.. Journal of bone and mineral metabolism. 2025;43(3):304-314. doi:10.1007/s00774-025-01592-0",
     "headline": "Quercetins efficacy on bone and inflammatory marke...",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -175,6 +190,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-015",
+    "slug": "romosozumab-followed-by-denosumab-versus-denosumab-article-015",
     "citation": "Cosman F, Oates M, Betah D, Timoshanko J, Wang Z, Ferrari S, McClung MR. Romosozumab followed by denosumab versus denosumab only: a post hoc analysis of FRAME and FRAME extension.. Journal of bone and mineral research : the official journal of the American Society for Bone and Mineral Research. 2024;39(9):1268-1277. doi:10.1093/jbmr/zjae116",
     "headline": "Romosozumab followed by denosumab versus denosumab...",
     "takeaway": "Study on active menopause symptoms and treatments.",
@@ -185,6 +201,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-016",
+    "slug": "hrt-exercise-boosting-postmenopause-bone-health-article-016",
     "citation": "Treviño M, et al. Comparative Effects of Hormone Replacement Therapy and Weight-Bearing Exercise on Bone Mineral Density and Fracture Risk in Postmenopausal Women: A Systematic Review and Meta-Analysis. PMC. 2025. PMC12799281.",
     "headline": "HRT & Exercise: Boosting Postmenopause Bone Health",
     "takeaway": "This systematic review and meta-analysis explores the comparative effects of hormone replacement therapy (HRT) and weight-bearing exercise on bone mineral density and fracture risk in postmenopausal women. It suggests that both interventions are beneficial for bone health, with potential synergistic effects.",
@@ -195,6 +212,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-017",
+    "slug": "improving-sexual-quality-of-life-post-menopause-article-017",
     "citation": "Sacarin G, et al. Sexual Quality of Life in Postmenopausal Women: A Systematic Review and Meta-Analysis. PMC. 2025. PMC12299161.",
     "headline": "Improving Sexual Quality of Life Post-Menopause",
     "takeaway": "This systematic review and meta-analysis investigates factors affecting sexual quality of life in postmenopausal women. It identifies common challenges and effective interventions to improve sexual well-being during this stage.",
@@ -205,6 +223,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-018",
+    "slug": "menopause-and-heart-disease-risk-article-018",
     "citation": "Fasero M, et al. Cardiovascular Disease Risk in Women with Menopause. PMC. 2025. PMC12156203.",
     "headline": "Menopause and Heart Disease Risk",
     "takeaway": "This article discusses the increased risk of cardiovascular disease in women during and after menopause. It highlights the hormonal and physiological changes that contribute to this risk and emphasizes the importance of early intervention and lifestyle modifications.",
@@ -215,6 +234,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-019",
+    "slug": "high-salt-intake-linked-to-bone-loss-in-postmenopausal-women-article-019",
     "citation": "Imash D, Gusmanov A, Chan MY. High salt intake and bone health in postmenopausal women: exposing the lack of studies - a systematic review and meta-analysis. Front Endocrinol (Lausanne). 2025 Nov 19;16:1694539. doi:10.3389/fendo.2025.1694539.",
     "headline": "High Salt Intake Linked to Bone Loss in Postmenopausal Women",
     "takeaway": "This systematic review and meta-analysis found that high dietary sodium significantly increases urinary calcium excretion in postmenopausal women, suggesting a detrimental impact on bone health and an accelerated loss of bone mass. Limiting salt intake is recommended to help prevent osteoporosis.",
@@ -225,6 +245,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-020",
+    "slug": "exercise-boosts-bone-health-post-menopause-article-020",
     "citation": "Zhang W, et al. Effects of exercise on bone metabolism in postmenopausal women: a meta-analysis. PMC. 2025. PMC12477224.",
     "headline": "Exercise Boosts Bone Health Post-Menopause",
     "takeaway": "This meta-analysis assesses the impact of exercise on bone metabolism in postmenopausal women. It provides evidence-based insights into how various forms of physical activity can help maintain bone mineral density and reduce the risk of osteoporosis.",
@@ -235,6 +256,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-021",
+    "slug": "best-exercises-for-post-menopause-bone-density-article-021",
     "citation": "Xiaoya L, et al. Effect of different types of exercise on bone mineral density in postmenopausal women: a systematic review and network meta-analysis. PMC. 2025. PMC11972399.",
     "headline": "Best Exercises for Post-Menopause Bone Density",
     "takeaway": "This systematic review and network meta-analysis compares the effectiveness of different types of exercise on bone mineral density in postmenopausal women. It offers valuable insights into which exercise modalities are most beneficial for bone protection during this stage.",
@@ -245,6 +267,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-022",
+    "slug": "hrt-s-heart-impact-in-postmenopause-article-022",
     "citation": "Khalifey HT, Mahereen R, Adwan R, Chahine R, Kaidali M, Mirza SF, Tullah SN, Shaikh S, Hammad S, Sukkarieh HH. The impact of hormone replacement therapy on cardiovascular health in postmenopausal women: a narrative review. Front Reprod Health. 2026 Jan 25;8:1745210. doi:10.3389/frph.2026.1745210.",
     "headline": "HRT's Heart Impact in Postmenopause",
     "takeaway": "This narrative review discusses the impact of hormone replacement therapy (HRT) on cardiovascular health in postmenopausal women. It highlights that modern HRT, especially when started within 10 years of menopause, can offer cardiovascular benefits or be neutral, emphasizing the need for personalized approaches.",
@@ -255,6 +278,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-023",
+    "slug": "postmenopausal-women-s-sexual-health-needs-article-023",
     "citation": "Masoumi M, Keramat A, Farjamfar M, Talebi SS. Sexual Health Needs of Postmenopausal Women: A Systematic Review. J Sex Marital Ther. 2025;51(8):799-822. doi:10.1080/0092623X.2025.2550960. Epub 2025 Oct 9. PMID: 41063604.",
     "headline": "Postmenopausal Women's Sexual Health Needs",
     "takeaway": "This systematic review highlights the often-overlooked sexual health needs of postmenopausal women. It suggests that education, improved counseling, specialized clinics, and insurance support are crucial to address these concerns.",
@@ -265,6 +289,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-024",
+    "slug": "menopause-pharmacology-tailored-treatments-article-024",
     "citation": "Guo Z, et al. Precision pharmacology in menopause: advances, challenges, and ... Front Reprod Health. 2025. doi:10.3389/frph.2025.1694240.",
     "headline": "Menopause Pharmacology: Tailored Treatments",
     "takeaway": "This article discusses advances and challenges in precision pharmacology for menopause, focusing on tailored treatments for various symptoms. It highlights the effectiveness of menopausal hormone therapy (MHT) for vasomotor symptoms and the importance of individualized approaches.",
@@ -275,6 +300,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-025",
+    "slug": "physical-activity-boosts-heart-health-in-menopause-article-025",
     "citation": "Woodward A, Mason-Jones AJ, Faires M, Jones V, Beaumont A. Effect of Physical Activity on Cardiorespiratory Fitness and Markers of Cardiovascular Disease Risk During Menopause: A Systematic Review and Meta-Analysis of Randomised-Controlled Trials. J Sci Sport Exerc. 2025 Nov 7;8:9-31. doi:10.1007/s42978-025-00343-x.",
     "headline": "Physical Activity Boosts Heart Health in Menopause",
     "takeaway": "This systematic review and meta-analysis found that physical activity can improve cardiorespiratory fitness and reduce cardiovascular disease risk during menopause. It highlights the importance of exercise as an intervention during this transitional period.",
@@ -285,6 +311,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-026",
+    "slug": "menopause-therapy-exercise-bone-and-mental-health-article-026",
     "citation": "Platt O, Bateman J, Bakour S. Impact of menopause hormone therapy, exercise, and their combination on bone mineral density and mental wellbeing in menopausal women: a scoping review. Front Reprod Health. 2025 May 12;7:1542746. doi:10.3389/frph.2025.1542746.",
     "headline": "Menopause Therapy & Exercise: Bone and Mental Health",
     "takeaway": "This scoping review examines the combined effects of menopause hormone therapy (MHT) and exercise on bone mineral density and mental well-being in menopausal women. It suggests that combining MHT and structured exercise is most effective for enhancing bone mineral density and preventing osteoporosis.",
@@ -295,6 +322,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-027",
+    "slug": "bisphosphonates-early-menopause-bone-protection-article-027",
     "citation": "Ardebili AA, Fu T, Dunnewold N, Aghajafari F, Billington EO. Bisphosphonates Preserve Bone Mineral Density and Suppress Bone Turnover Markers in Early Menopausal Women: A Systematic Review and Meta‐Analysis of Randomized Trials. JBMR Plus. 2023 Apr 14;7(6):e10748. doi:10.1002/jbm4.10748.",
     "headline": "Bisphosphonates: Early Menopause Bone Protection",
     "takeaway": "This systematic review and meta-analysis found that bisphosphonates can effectively preserve bone mineral density and reduce bone turnover in women in early menopause. This suggests a potential role for these medications in preventing osteoporosis during this critical period.",
@@ -305,6 +333,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-028",
+    "slug": "exercise-boosts-bone-density-in-postmenopausal-women-article-028",
     "citation": "Mohebbi R, Shojaa M, Kohl M, von Stengel S, Jakob F, Kerschan-Schindl K, Lange U, Peters S, Thomasius F, Uder M, Kemmler W. Exercise training and bone mineral density in postmenopausal women: an updated systematic review and meta-analysis of intervention studies with emphasis on potential moderators. Osteoporos Int. 2023 Jul;34(7):1145-1178. doi: 10.1007/s00198-023-06682-1. Epub 2023 Feb 7. PMID: 36749350 Free PMC article.",
     "headline": "Exercise boosts bone density in postmenopausal women.",
     "takeaway": "This meta-analysis confirms that exercise positively impacts bone mineral density in postmenopausal women. The benefits are consistent regardless of initial bone health, menopausal stage (early vs. late postmenopausal), or whether the exercise is supervised.",
@@ -315,6 +344,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-029",
+    "slug": "hormone-levels-linked-to-heart-disease-risk-in-older-women-article-029",
     "citation": "Chen IJ, Stanczyk FZ, Sriprasert I, Karim R, Shoupe D, Kono N, Hodis HN, Mack WJ. Sex steroid hormones and subclinical atherosclerosis progression in postmenopausal women. Eur J Endocrinol. 2025 Mar 3;192(3):248-256. doi: 10.1093/ejendo/lvaf032. PMID: 39980346 Clinical Trial.",
     "headline": "Hormone levels linked to heart disease risk in older women.",
     "takeaway": "This study found that the relationship between sex steroid hormones and the progression of subclinical atherosclerosis (hardening of the arteries) differs based on how long a woman has been postmenopausal. In late postmenopause, higher levels of estradiol, estrone, and SHBG were associated with increased atherosclerosis progression, highlighting the importance of hormone therapy timing.",
@@ -325,6 +355,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-030",
+    "slug": "hysterectomy-linked-to-faster-artery-hardening-in-older-women-article-030",
     "citation": "Chen IJ, Shoupe D, Karim R, Stanczyk FZ, Kono N, Sriprasert I, Hodis HN, Mack WJ. The association of hysterectomy with or without ovarian conservation with subclinical atherosclerosis progression in healthy postmenopausal women. Menopause. 2023 Jul 1;30(7):692-702. doi: 10.1097/GME.0000000000002192. Epub 2023 May 16. PMID: 37192828 Free PMC article. Clinical Trial.",
     "headline": "Hysterectomy linked to faster artery hardening in older women.",
     "takeaway": "This study found that hysterectomy, with or without ovarian removal, is associated with a faster progression of subclinical atherosclerosis in postmenopausal women. The risk is higher for those who had the surgery at an older age or many years prior, suggesting a need for long-term monitoring of cardiovascular health in these women.",
@@ -335,6 +366,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-031",
+    "slug": "zoledronate-maintains-fat-mass-in-older-osteopenic-women-article-031",
     "citation": "Reid IR, Horne AM, Mihov B, Stewart A, Bastin S, Gamble GD. Zoledronate Slows Weight Loss and Maintains Fat Mass in Osteopenic Older Women: Secondary Analysis of a Randomized Controlled Trial. Calcif Tissue Int. 2020 Apr;106(4):386-391. doi: 10.1007/s00223-019-00653-7. Epub 2020 Jan 2. PMID: 31897528 Clinical Trial.",
     "headline": "Zoledronate maintains fat mass in older osteopenic women.",
     "takeaway": "This study found that zoledronate, a medication used for osteoporosis, helped prevent age-related fat mass loss in late postmenopausal women. This suggests a potential benefit beyond bone health, possibly influencing intermediary metabolism and contributing to longevity.",
@@ -345,6 +377,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-032",
+    "slug": "romosozumab-builds-bone-strength-in-postmenopausal-women-article-032",
     "citation": "Eriksen EF, Boyce RW, Shi Y, Brown JP, Betah D, Libanati C, Oates M, Chapurlat R, Chavassieux P. Reconstruction of remodeling units reveals positive effects after 2 and 12 months of romosozumab treatment. J Bone Miner Res. 2024 Jul 23;39(6):729-736. doi: 10.1093/jbmr/zjae055. PMID: 38640512 Clinical Trial.",
     "headline": "Romosozumab builds bone strength in postmenopausal women.",
     "takeaway": "This clinical trial shows that romosozumab treatment significantly increases bone mass and strength, reducing fracture risk in postmenopausal women with osteoporosis. The positive effects on bone remodeling units are observed early in treatment and continue for at least 12 months.",
@@ -355,6 +388,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-033",
+    "slug": "denosumab-helps-postmenopausal-women-reach-bone-density-goals-article-033",
     "citation": "Cosman F, Wang Z, Li X, Cummings SR. Probability of achieving bone mineral density treatment goals with denosumab treatment in postmenopausal women with osteoporosis. J Bone Miner Res. 2025 Jun 3;40(6):766-772. doi: 10.1093/jbmr/zjaf014. PMID: 39861972 Free PMC article. Clinical Trial.",
     "headline": "Denosumab helps postmenopausal women reach bone density goals.",
     "takeaway": "This clinical trial examines the probability of postmenopausal women with osteoporosis achieving bone mineral density treatment goals with denosumab. The study highlights that achieving a T-score >-2.5 is a critical target for reducing fracture risk, and denosumab treatment can help women reach this goal.",
@@ -365,6 +399,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-034",
+    "slug": "evening-exercise-improves-fat-metabolism-in-postmenopausal-women-article-034",
     "citation": "Shah M, Gloeckner A, Bailey S, Adams-Huet B, Kreutzer A, Cheek D, Willis JL, Mitchell J. J Sports Sci. 2022 Jan;40(2):175-184. doi: 10.1080/02640414.2021.1982497. Epub 2021 Sep 27. PMID: 34565292 Clinical Trial.",
     "headline": "Evening Exercise Improves Fat Metabolism in Postmenopausal Women.",
     "takeaway": "A study found that exercising in the late afternoon or early evening can help postmenopausal women better process fats after a high-sugar meal the next day. This suggests that the timing of exercise might be important for managing cardiovascular health in older women.",
@@ -375,6 +410,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-035",
+    "slug": "psychological-distress-linked-to-cognitive-decline-in-postmenopausal-wom-article-035",
     "citation": "Ouyang J, Lin F, Kono N, Henderson VW, Shen BJ, Maeda U, Hodis HN, Mack WJ. J Womens Health (Larchmt). 2026 Mar;35(3):237-246. doi: 10.1177/15409996251400054. Epub 2025 Dec 29. PMID: 41467938 Clinical Trial.",
     "headline": "Psychological Distress Linked to Cognitive Decline in Postmenopausal Women.",
     "takeaway": "This study reveals that psychological distress is associated with reduced executive functions and visuospatial ability in postmenopausal women. Addressing mental well-being is crucial for maintaining cognitive health in this population.",
@@ -385,6 +421,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-036",
+    "slug": "nitrate-supplementation-benefits-muscle-and-heart-health-in-postmenopaus-article-036",
     "citation": "Caldwell JT, Koenke A, Zimmerman L, Wahl AE, Fenn SA, Grammer EE, Stahl ME, Allen JD, Jaime SJ. Physiol Rep. 2024 Oct;12(19):e70076. doi: 10.14814/phy2.70076. PMID: 39367530 Free PMC article. Clinical Trial.",
     "headline": "Nitrate Supplementation Benefits Muscle and Heart Health in Postmenopausal Women.",
     "takeaway": "This pilot study suggests that inorganic nitrate supplementation can help manage blood pressure at rest and during exercise in postmenopausal women. This could be a non-pharmacological approach to improve cardiovascular health and muscle function.",
@@ -395,6 +432,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-037",
+    "slug": "exercise-boosts-bone-density-in-postmenopausal-women-article-037",
     "citation": "Mohebbi R, Shojaa M, Kohl M, von Stengel S, Jakob F, Kerschan-Schindl K, Lange U, Peters S, Thomasius F, Uder M, Kemmler W. Osteoporos Int. 2023 Jul;34(7):1145-1178. doi: 10.1007/s00198-023-06682-1. Epub 2023 Feb 7. PMID: 36749350 Free PMC article.",
     "headline": "Exercise Boosts Bone Density in Postmenopausal Women.",
     "takeaway": "This systematic review and meta-analysis confirms that exercise significantly improves bone mineral density in postmenopausal women. These benefits apply regardless of initial bone health, menopausal stage, or supervision level.",
@@ -405,6 +443,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-038",
+    "slug": "pcos-impact-on-menopause-a-systematic-review-article-038",
     "citation": "Millán-de-Meer M, Luque-Ramírez M, Nattero-Chávez L, Escobar-Morreale HF. Hum Reprod Update. 2023 Nov 2;29(6):741-772. doi: 10.1093/humupd/dmad015. PMID: 37353908.",
     "headline": "PCOS Impact on Menopause: A Systematic Review.",
     "takeaway": "This systematic review and meta-analysis highlights that hyperandrogenism persists in women with PCOS during and after menopause. While cardiometabolic issues are often linked to obesity, more research is needed to guide treatment for this population.",
@@ -415,6 +454,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-039",
+    "slug": "late-menopause-linked-to-faster-cognitive-decline-article-039",
     "citation": "Guo M, Wu Y, Gross AL, Karvonen-Gutierrez C, Kobayashi LC. Age at menopause and cognitive function and decline among middle-aged and older women in the China Health and Retirement Longitudinal Study, 2011-2018. Alzheimers Dement. 2025 Feb;21(2):e14580. doi: 10.1002/alz.14580. PMID: 39936226 Free PMC article.",
     "headline": "Late Menopause Linked to Faster Cognitive Decline.",
     "takeaway": "This longitudinal study found that women who experience menopause later in life (>55 years) tend to have lower baseline cognitive scores and may experience a faster rate of cognitive decline over time compared to those who have menopause at a typical age.",
@@ -425,6 +465,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-040",
+    "slug": "new-hormone-therapy-guidelines-for-menopause-article-040",
     "citation": "Kim Y, Choi Y, Kim Y, Kim S, Lee Y, Kim Y. The 2025 Menopausal Hormone Therapy Guidelines. J Menopausal Med. 2025 Apr;31(1):1-10. doi: 10.6118/jmm.25001. PMID: 41234567.",
     "headline": "New Hormone Therapy Guidelines for Menopause",
     "takeaway": "The updated 2025 guidelines for menopausal hormone therapy emphasize individualized treatment based on a woman's symptoms, health history, and preferences. It highlights the importance of shared decision-making between patients and healthcare providers to optimize benefits and minimize risks.",
@@ -435,6 +476,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-041",
+    "slug": "menopause-management-current-evidence-and-future-directions-article-041",
     "citation": "Kim Y, Choi Y, Kim Y, Kim S, Lee Y, Kim Y. Current evidence and research gaps in menopause management in ... J Menopausal Med. 2025 Apr;31(1):1-10. doi: 10.6118/jmm.25001. PMID: 41234567.",
     "headline": "Menopause Management: Current Evidence and Future Directions",
     "takeaway": "This review summarizes the latest evidence in menopause management, covering various therapeutic approaches and identifying areas needing further research. It emphasizes the need for personalized care and addresses the evolving landscape of treatments for menopausal symptoms.",
@@ -445,6 +487,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-042",
+    "slug": "complementary-therapies-for-menopause-what-works-article-042",
     "citation": "Maunder A, Mardon AK, Rao V, Torkel S, Metri NJ, Liu J, Yang G, Giese N, Mantzioris E, Abdul Jafar NK, Rodrigues de Souza GE, Al-Kanini I, Romero L, Panay N, Pedder H, Ee C. Complementary therapies for management of menopausal symptoms: a systematic review to inform the update of the International Menopause Society recommendations on women's midlife health. Climacteric. 2026 Apr;29(2):165-209. doi: 10.1080/13697137.2025.2584061. Epub 2026 Jan 7. PMID: 41498229.",
     "headline": "Complementary Therapies for Menopause: What Works? — Climacteric 2026",
     "takeaway": "This systematic review evaluated various complementary therapies for menopausal symptoms. While many showed promise, most evidence was of low certainty, with stronger support for vitamin D safety, black cohosh for hot flashes, and Chinese herbal medicine for hot flashes and sleep.",
@@ -455,6 +498,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-043",
+    "slug": "mht-balancing-benefits-risks-and-new-options-article-043",
     "citation": "Arnautu AM, Nimigean VR, Nacea-Radu CA, Tilici DM, Paun DL. Menopausal Hormone Therapy—Risks, Benefits and Emerging Options: A Narrative Review. Int J Mol Sci. 2025 Nov 17;26(22):11098. doi: 10.3390/ijms262211098. PMID: 41303580.",
     "headline": "MHT: Balancing Benefits, Risks, and New Options",
     "takeaway": "Menopausal hormone therapy (MHT) is effective for symptoms and bone health, but carries risks like blood clots and breast cancer that depend on timing, route, and formulation. New therapies like estetrol offer promise, but long-term safety data is still needed; treatment should be personalized based on individual risks and preferences.",
@@ -465,6 +509,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-044",
+    "slug": "menopause-and-work-improving-quality-of-life-article-044",
     "citation": "Theis S, Baumgartner SJ, Janka H, Kolokythas A, Skala C, Stute P. Quality of life in menopausal women in the workplace - a systematic review. Climacteric. 2023 Apr;26(2):80-87. doi: 10.1080/13697137.2022.2158729. Epub 2023 Jan 22. PMID: 36682379.",
     "headline": "Menopause and Work: Improving Quality of Life",
     "takeaway": "This systematic review highlights factors affecting the quality of life of menopausal women in the workplace, including age, work environment, and mental factors. It recommends medical and psychological support and workplace adaptations to improve their well-being.",
@@ -475,6 +520,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-045",
+    "slug": "perimenopause-factors-affecting-women-s-quality-of-life-article-045",
     "citation": "Liu X, Zhang X, Wang D, Zhou J, Li Y. Investigation of the quality of life and influencing factors among perimenopausal women. Arch Gynecol Obstet. 2025 Jul 23;312(4):1253–1265. doi: 10.1007/s00404-025-08116-1. PMID: 40699304.",
     "headline": "Perimenopause: Factors Affecting Women's Quality of Life",
     "takeaway": "This study found that lifestyle, psychological well-being, and chronic health conditions significantly impact the quality of life for perimenopausal women. Early screening and targeted interventions, especially for sleep, mental health, and physical activity, are crucial for improving their well-being.",
@@ -485,6 +531,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-046",
+    "slug": "postmenopausal-women-s-quality-of-life-during-covid-19-article-046",
     "citation": "Vallibhakara SA, Piyatham N, Vallibhakara O, Manonai J. Quality of life and the associated factors among postmenopausal women during the COVID-19 pandemic: a cross-sectional study. Arch Womens Ment Health. 2025 Apr 3;28(5):1181–1190. doi: 10.1007/s00737-025-01581-2. PMID: 40175774.",
     "headline": "Postmenopausal Women's Quality of Life During COVID-19",
     "takeaway": "This study found that over half of postmenopausal women in Thailand experienced poor quality of life during the COVID-19 pandemic. Menopausal symptoms, physical activity, and mental well-being were key factors influencing their quality of life, highlighting the need for comprehensive support during crises.",
@@ -495,6 +542,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-047",
+    "slug": "mind-body-therapies-ease-menopausal-sleep-mood-issues-article-047",
     "citation": "Fan Z, Zhang Y, Shu Y, Zhou Y, Zuo Z. Mind–body therapies for sleep disturbances, depression, and anxiety in menopausal women: a systematic review and meta-analysis of randomized controlled trials. Front Public Health. 2025 Nov 18;13:1686981. doi: 10.3389/fpubh.2025.1686981. PMID: 41341454.",
     "headline": "Mind-Body Therapies Ease Menopausal Sleep, Mood Issues",
     "takeaway": "This systematic review and meta-analysis of randomized controlled trials suggests that mind-body therapies, such as yoga, can significantly improve sleep disturbances, depression, and anxiety in menopausal women. These therapies offer a safe and effective complementary approach to managing menopausal symptoms.",
@@ -505,6 +553,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-048",
+    "slug": "dietary-strategies-for-menopausal-health-a-mini-review-article-048",
     "citation": "Liu YC, Guo ZQ. Dietary interventions and nutritional strategies for menopausal health: a mini review. Front Nutr. 2025 Dec 15;12:1702105. doi: 10.3389/fnut.2025.1702105. PMID: 41473185.",
     "headline": "Dietary Strategies for Menopausal Health: A Mini Review",
     "takeaway": "This mini-review systematically synthesizes evidence from 42 high-quality studies, including systematic reviews, meta-analyses, and randomized controlled trials, on dietary interventions for menopausal health. It highlights the importance of nutrition in managing menopausal symptoms and overall wellness.",
@@ -515,6 +564,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-049",
+    "slug": "melatonin-a-boost-for-menopausal-bone-sleep-and-well-being-article-049",
     "citation": "Du J, Tan Y. A systematic review and meta-analysis of randomized controlled trials investigated the effects of melatonin supplementation on bone mineral density, quality of life, and sleep in menopausal women. Front Nutr. 2026 Jan 29;13:1687221. doi: 10.3389/fnut.2026.1687221. PMID: 41693954.",
     "headline": "Melatonin: A Boost for Menopausal Bone, Sleep, and Well-being?",
     "takeaway": "This systematic review and meta-analysis suggests that melatonin supplementation may improve bone mineral density, sleep quality, and overall quality of life in menopausal women. However, as most studies used combination therapies, further research is needed to confirm melatonin's independent effects and optimal dosage.",
@@ -525,6 +575,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-050",
+    "slug": "menopause-and-heart-health-a-modern-risk-assessment-article-050",
     "citation": "D’Costa Z, Spertus E, Hingorany S, Patil R, Horwich T, Press MC, Shah J, Watson KE, Jafari L. Cardiovascular Risk Associated with Menopause and Menopause Hormone Therapy: A Review and Contemporary Approach to Risk Assessment. Curr Atheroscler Rep. 2025 Oct 9;27(1):100. doi: 10.1007/s11883-025-01343-6. PMID: 41066010.",
     "headline": "Menopause and Heart Health: A Modern Risk Assessment",
     "takeaway": "Menopause accelerates the development of cardiovascular disease due to hormonal, metabolic, and vascular changes. This review emphasizes a personalized approach to risk assessment, considering traditional factors and imaging for early atherosclerosis. It also highlights that newer hormone therapy formulations, like low-dose transdermal estrogen, may have lower cardiovascular risks.",
@@ -535,6 +586,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-051",
+    "slug": "menopause-and-heart-health-understanding-and-managing-your-risk-article-051",
     "citation": "Fasero M, Coronado PJ. Cardiovascular Disease Risk in Women with Menopause. J Clin Med. 2025 May 23;14(11):3663. doi: 10.3390/jcm14113663. PMID: 40507425.",
     "headline": "Menopause and Heart Health: Understanding and Managing Your Risk",
     "takeaway": "Menopause significantly increases a woman's risk of cardiovascular disease due to hormonal and metabolic changes. This review highlights the importance of personalized risk assessment and lifestyle interventions, including hormone therapy, diet, exercise, and lipid management, to improve heart health in postmenopausal women.",
@@ -545,6 +597,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-052",
+    "slug": "lifestyle-interventions-for-perimenopause-exercise-and-education-show-pr-article-052",
     "citation": "McNulty KL, Murphy M, Flynn E, Lane A, Muldoon A, Kealy R, Harrison M, Windle J, Heavey P. The Effectiveness of Lifestyle Interventions, Including Exercise, Diet, and Health Education on Symptoms Experienced During Perimenopause: A Systematic Review of Randomized Controlled Trials. J Aging Phys Act. 2025 Sep 23:1-24. doi: 10.1123/japa.2024-0226. PMID: 40992413.",
     "headline": "Lifestyle Interventions for Perimenopause: Exercise and Education Show Promise",
     "takeaway": "This systematic review of randomized controlled trials suggests that exercise and health education can help manage perimenopausal symptoms. However, due to inconsistencies in study methodologies, more rigorous research is needed to establish definitive, evidence-based guidelines for optimal lifestyle interventions during perimenopause.",
@@ -555,6 +608,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-053",
+    "slug": "new-guidelines-for-menopausal-hormone-therapy-in-2025-article-053",
     "citation": "Kim Y, Cho MK, Chung YJ, Hong SH, Hwang KR, Jeon GH, Joo JK, Kim SK, Lee DO, Lee DY, Lee ES, Lee SR, Seo SK, Song JY, Yi KW, Yun BH, Han JY, Kim DH, Kim SE, Lee J, Yuk JS, Hong YH, Chun S, Kim MR. The 2025 Menopausal Hormone Therapy Guidelines. J Menopausal Med. 2025 Aug 29;31(2):53-84. doi:10.6118/jmm.25103.",
     "headline": "New Guidelines for Menopausal Hormone Therapy in 2025",
     "takeaway": "These updated guidelines provide comprehensive recommendations for menopausal hormone therapy (MHT), highlighting its effectiveness in managing symptoms like hot flashes, mood disturbances, and sleep problems. MHT can also improve overall quality of life and reduce risks for conditions like type 2 diabetes and osteoporosis.",
@@ -565,6 +619,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-054",
+    "slug": "women-s-views-on-perimenopause-tests-treatments-and-knowledge-gaps-article-054",
     "citation": "Wegrzynowicz AK, Walls AC, Godfrey M, Beckley A. Insights into Perimenopause: A Survey of Perceptions, Opinions on Treatment, and Potential Approaches. Women (Basel). 2025 Jan 31;5(1):4. doi: 10.3390/women5010004. PMID: 40264725.",
     "headline": "Women's Views on Perimenopause: Tests, Treatments, and Knowledge Gaps",
     "takeaway": "This survey reveals that while many women are interested in at-home perimenopause tests for convenience and privacy, most have not yet used them. It highlights a desire for more information and personalized treatment approaches, indicating a need for better education and accessible diagnostic tools during this transitional phase.",
@@ -575,6 +630,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-055",
+    "slug": "comparing-cbt-i-and-hrt-for-perimenopausal-insomnia-a-study-protocol-article-055",
     "citation": "Pavicic E, Stute P, Rudzik F, Urech A, Lozza-Fiacco S. No more sleepless nights in perimenopause-an open-label, randomized, parallel-group, active controlled intervention study in perimenopausal women with vasomotor symptoms and insomnia to investigate the efficacy of hormone replacement therapy and cognitive behavioral therapy for the treatment of insomnia: study protocol. Trials. 2025 Dec 30;27(1):94. doi: 10.1186/s13063-025-09366-9. PMID: 41462320.",
     "headline": "Comparing CBT-I and HRT for Perimenopausal Insomnia: A Study Protocol",
     "takeaway": "This study protocol outlines a randomized controlled trial comparing the efficacy of cognitive behavioral therapy for insomnia (CBT-I) and hormone replacement therapy (HRT) in perimenopausal women experiencing vasomotor symptoms and insomnia. The research aims to provide evidence-based treatment decisions to improve sleep quality and overall quality of life during this transitional phase.",
@@ -585,6 +641,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-056",
+    "slug": "complementary-therapies-for-menopause-what-works-article-056",
     "citation": "Maunder A, Mardon AK, Rao V, Torkel S, Metri NJ, Liu J, Yang G, Giese N, Mantzioris E, Abdul Jafar NK, Rodrigues de Souza GE, Al-Kanini I, Romero L, Panay N, Pedder H, Ee C. Complementary therapies for management of menopausal symptoms: a systematic review to inform the update of the International Menopause Society recommendations on women's midlife health. Climacteric. 2026 Apr;29(2):165-209. doi: 10.1080/13697137.2025.2584061. PMID: 41498229.",
     "headline": "Complementary Therapies for Menopause: What Works? — Climacteric 2026 (PMID 41498229)",
     "takeaway": "This systematic review evaluates complementary therapies for menopausal symptoms, finding promising but often low-certainty evidence for acupuncture, Chinese herbal medicine, and certain herbs and nutrients. While some therapies like black cohosh and vitamin D show moderate benefits, more rigorous research is needed to confirm efficacy and safety and to inform updated recommendations for women's midlife health.",
@@ -595,6 +652,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-057",
+    "slug": "melatonin-and-menopause-bone-health-sleep-and-quality-of-life-article-057",
     "citation": "Du J, Tan Y. A systematic review and meta-analysis of randomized controlled trials investigated the effects of melatonin supplementation on bone mineral density, quality of life, and sleep in menopausal women. Front Nutr. 2026 Jan 29;13:1687221. doi: 10.3389/fnut.2026.1687221. PMID: 41693954.",
     "headline": "Melatonin and Menopause: Bone Health, Sleep, and Quality of Life",
     "takeaway": "This systematic review and meta-analysis investigates the effects of melatonin supplementation on bone mineral density, quality of life, and sleep in menopausal women. While some evidence suggests melatonin may improve bone mineral density, particularly at the femoral neck, its impact on sleep, menopausal symptoms, mood, and other factors remains unclear, highlighting the need for more focused research.",
@@ -605,6 +663,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-058",
+    "slug": "mind-body-therapies-ease-menopause-sleep-mood-and-anxiety-article-058",
     "citation": "Fan Z, Zhang Y, Shu Y, Zhou Y, Zuo Z. Mind-body therapies for sleep disturbances, depression, and anxiety in menopausal women: a systematic review and meta-analysis of randomized controlled trials. Front Public Health. 2025 Nov 18;13:1686981. doi: 10.3389/fpubh.2025.1686981. PMID: 41341454.",
     "headline": "Mind-Body Therapies Ease Menopause Sleep, Mood, and Anxiety",
     "takeaway": "Mind-body therapies like yoga, mindfulness, and music therapy significantly improve sleep quality, reduce depression, and alleviate anxiety in menopausal women. These non-pharmacological approaches offer safe and effective ways to manage common menopausal symptoms, enhancing overall quality of life.",
@@ -615,6 +674,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-059",
+    "slug": "cbt-for-insomnia-in-perimenopause-a-systematic-review-protocol-article-059",
     "citation": "Breitinger-Blatt D, Lee J, Pereira SIR, Smith C, Gavriloff D, Sekaran S. Cognitive behavioural therapeutics for insomnia symptoms in the perimenopause through to the early postmenopausal period. Cochrane Database Syst Rev. 2026 Apr 24;2026(4):CD016349. doi: 10.1002/14651858.CD016349.",
     "headline": "CBT for Insomnia in Perimenopause: A Systematic Review Protocol",
     "takeaway": "This systematic review protocol outlines the evaluation of cognitive behavioral therapy for insomnia (CBT-I) and menopausal symptoms (CBT-M) to address sleep disturbances and vasomotor symptoms in perimenopausal and early postmenopausal women. The study aims to assess the efficacy, safety, and adverse effects of these therapies to provide evidence-based treatment options.",
@@ -625,6 +685,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-060",
+    "slug": "depression-hot-flashes-linked-to-perimenopause-sleep-issues-article-060",
     "citation": "Zeng W, Xu J, Yang Y, Lv M, Chu X. Factors influencing sleep disorders in perimenopausal women: a systematic review and meta-analysis. Front Neurol. 2025 Feb 7;16:1460613. doi: 10.3389/fneur.2025.1460613. PMID: 39990264.",
     "headline": "Depression, Hot Flashes Linked to Perimenopause Sleep Issues",
     "takeaway": "This systematic review and meta-analysis identifies key factors contributing to sleep disorders in perimenopausal women, including depression, hot flashes, chronic diseases, and psychotropic drug use. Understanding these influences can help in developing targeted interventions to improve sleep quality during this transitional phase.",
@@ -635,6 +696,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-061",
+    "slug": "perimenopause-sleep-troubles-causes-and-treatments-article-061",
     "citation": "Troìa L, Garassino M, Volpicelli AI, Fornara A, Libretti A, Surico D, Remorgida V. Sleep Disturbance and Perimenopause: A Narrative Review. J Clin Med. 2025 Feb 23;14(5):1479. doi: 10.3390/jcm14051479. PMID: 40094961.",
     "headline": "Perimenopause Sleep Troubles: Causes and Treatments",
     "takeaway": "This narrative review explores the causes of sleep disturbances during perimenopause, including hormonal fluctuations, vasomotor symptoms, and circadian changes. It emphasizes an individualized approach to management, considering both non-pharmacological and pharmacological treatments based on patient needs and risk factors.",
@@ -645,6 +707,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-062",
+    "slug": "exercise-best-therapy-for-menopausal-sleep-quality-article-062",
     "citation": "Zhou K, Ren Y, Zang L, Zhou Z. Sleep quality in perimenopausal and postmenopausal women: which exercise therapy is the most effective? A systematic review and network meta-analysis of 31 RCTs. Climacteric. 2025 Oct;28(5):516-528. doi: 10.1080/13697137.2025.2509866. PMID: 40575963.",
     "headline": "Exercise: Best Therapy for Menopausal Sleep Quality?",
     "takeaway": "This network meta-analysis of 31 randomized controlled trials evaluates the effectiveness of various exercise modalities on sleep quality in perimenopausal and postmenopausal women. Combined exercise and flexibility exercise showed the highest efficacy, particularly for younger menopausal women and those with sleep disorders, suggesting tailored exercise interventions can significantly improve sleep.",
@@ -655,6 +718,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-063",
+    "slug": "exercise-boosts-sleep-and-mood-in-menopausal-women-article-063",
     "citation": "Choudhary A, Bansal K. Menopause and movement: exercise for better sleep and psychological well-being-a systematic review. Menopause. 2025 Nov 1;32(11):1063-1071. doi: 10.1097/GME.0000000000002610. PMID: 40694785.",
     "headline": "Exercise Boosts Sleep and Mood in Menopausal Women",
     "takeaway": "This systematic review highlights the positive impact of various exercise forms, including aerobic, yoga, Pilates, resistance, stretching, and relaxation, on improving sleep quality and psychological well-being in perimenopausal and postmenopausal women. Exercise offers a valuable non-hormonal option for managing menopausal symptoms and enhancing overall quality of life.",
@@ -665,6 +729,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-064",
+    "slug": "menopause-bridging-physiology-and-psychology-for-mental-health-article-064",
     "citation": "Lang XL, Huang CC, Cui HY, Zhong HX, Shen MY, Zhao F. From physiology to psychology: An integrative review of menopausal syndrome. World J Psychiatry. 2025 Nov 19;15(11):108713. doi: 10.5498/wjp.v15.i11.108713. PMID: 41281528.",
     "headline": "Menopause: Bridging Physiology and Psychology for Mental Health",
     "takeaway": "This integrative review examines the complex interplay between physiological changes during menopause and psychological symptoms like anxiety and depression. It highlights how hormonal fluctuations impact neuroendocrine and neuroinflammatory pathways, emphasizing the need for a holistic approach to understanding and managing menopausal mental health.",
@@ -675,6 +740,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-065",
+    "slug": "non-drug-therapies-improve-menopausal-symptoms-and-quality-of-life-article-065",
     "citation": "Kim JH, Yu HJ. Nonpharmacological Intervention Effects on Middle-Aged Women with Menopausal Symptoms: A Systematic Review and Meta-Analysis. Healthcare (Basel). 2025 Dec 8;13(24):3206. doi: 10.3390/healthcare13243206. PMID: 41464280.",
     "headline": "Non-Drug Therapies Improve Menopausal Symptoms and Quality of Life",
     "takeaway": "This systematic review and meta-analysis demonstrates the effectiveness of non-pharmacological interventions, such as herbal supplements, exercise, and psychological therapies, in alleviating menopausal symptoms like depression, anxiety, sleep disturbances, and hot flashes. These findings support the use of integrated approaches to improve the overall well-being of middle-aged women during menopause.",
@@ -685,6 +751,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-066",
+    "slug": "mind-body-therapies-ease-menopause-sleep-mood-and-anxiety-article-066",
     "citation": "Fan Z, Zhang Y, Shu Y, Zhou Y, Zuo Z. Mind–body therapies for sleep disturbances, depression, and anxiety in menopausal women: a systematic review and meta-analysis of randomized controlled trials. Front Public Health. 2025;13:1686981. doi:10.3389/fpubh.2025.1686981.",
     "headline": "Mind-Body Therapies Ease Menopause Sleep, Mood, and Anxiety.",
     "takeaway": "Mind-body therapies like mindfulness and music therapy can significantly improve sleep, depression, and anxiety in menopausal women. These approaches offer safe and effective ways to manage common menopause symptoms.",
@@ -695,6 +762,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-067",
+    "slug": "new-guidelines-for-menopausal-hormone-therapy-in-2025-article-067",
     "citation": "Kim Y, Cho MK, Chung YJ, Hong SH, Hwang KR, Jeon GH, Joo JK, Kim SK, Lee DO, Lee DY, Lee ES, Lee SR, Seo SK, Song JY, Yi KW, Yun BH, Han JY, Kim DH, Kim SE, Lee J, Yuk JS, Hong YH, Chun S, Kim MR. The 2025 Menopausal Hormone Therapy Guidelines. J Menopausal Med. 2025 Aug 29;31(2):53-84. doi:10.6118/jmm.25103.",
     "headline": "New Guidelines for Menopausal Hormone Therapy in 2025.",
     "takeaway": "The Korean Society of Menopause has updated its guidelines for menopausal hormone therapy (MHT), emphasizing its effectiveness for vasomotor symptoms, genitourinary syndrome, and osteoporosis prevention in younger postmenopausal women. MHT also improves quality of life by enhancing sleep, reducing abdominal fat, and positively influencing metabolic and musculoskeletal health.",
@@ -705,6 +773,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-068",
+    "slug": "personalized-weight-management-works-for-perimenopausal-women-article-068",
     "citation": "Verma A, Ranjan P, Kumari A, Malhotra A, Pandey S, Devi MJ, Prakash B, Singh A, Vikram NK. Effectiveness of an Individualized Comprehensive Weight Management Program in Perimenopausal Women: An Open-label Randomized Control Trial. J Midlife Health. 2025 Dec 8;16(4):434-444. doi:10.4103/jmh.jmh_205_24.",
     "headline": "Personalized Weight Management Works for Perimenopausal Women.",
     "takeaway": "An intensive, individualized lifestyle program significantly improved weight, metabolic markers, and psychological well-being in perimenopausal women. This comprehensive approach, including diet, exercise, and psychological support, is crucial for managing health during this life stage.",
@@ -715,6 +784,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-069",
+    "slug": "personalized-menopause-treatment-new-era-of-precision-pharmacology-article-069",
     "citation": "Guo Z. Precision pharmacology in menopause: advances, challenges, and future innovations for personalized management. Front Reprod Health. 2025 Nov 13;7:1694240. doi:10.3389/frph.2025.1694240.",
     "headline": "Personalized Menopause Treatment: New Era of Precision Pharmacology.",
     "takeaway": "This review highlights advances in menopause pharmacology, including hormonal and non-hormonal therapies, and emerging options for personalized management. It emphasizes the need for individualized approaches to alleviate symptoms like hot flashes and improve long-term health outcomes.",
@@ -725,6 +795,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-070",
+    "slug": "low-dose-melatonin-improves-menopause-symptoms-and-sleep-article-070",
     "citation": "Saraiva SP,D'Aurea CV, Luz CS, Amaral FG, Cipolla-Neto J, Marqueze EC, Moreno CR. Low-Dose Melatonin, Climacteric Symptoms and Sleep in Female Shift Workers: A Randomized Controlled Trial. J Pineal Res. 2026 Mar 17;78(2):e70140. doi:10.1111/jpi.70140.",
     "headline": "Low-Dose Melatonin Improves Menopause Symptoms and Sleep.",
     "takeaway": "Low-dose melatonin significantly reduces climacteric symptoms and improves sleep quality, especially for day-shift workers, without affecting reproductive hormone levels. This randomized controlled trial suggests melatonin as a safe and effective option for managing menopause-related sleep disturbances and other symptoms.",
@@ -735,6 +806,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-071",
+    "slug": "perimenopause-linked-to-specific-cognitive-problems-article-071",
     "citation": "Metcalf CA, Duffy KA, Page CE, Novick AM. Cognitive Problems in Perimenopause: A Review of Recent Evidence. Curr Psychiatry Rep. 2024 Feb 5;26(2):501-511. doi:10.1007/s11920-023-01447-3. PMID: 37755656.",
     "headline": "Perimenopause Linked to Specific Cognitive Problems.",
     "takeaway": "Perimenopause is associated with cognitive issues, particularly in verbal learning, memory, processing speed, attention, and working memory. More research is needed, especially larger randomized trials, to identify at-risk individuals and develop effective interventions for these cognitive concerns.",
@@ -745,6 +817,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-072",
+    "slug": "mind-body-therapies-ease-menopause-sleep-mood-issues-article-072",
     "citation": "Fan Z, Zhang Y, Shu Y, Zhou Y, Zuo Z. Mind–body therapies for sleep disturbances, depression, and anxiety in menopausal women: a systematic review and meta-analysis of randomized controlled trials. Front Public Health. 2025 Nov 18;13:1686981. doi:10.3389/fpubh.2025.1686981.",
     "headline": "Mind-Body Therapies Ease Menopause Sleep, Mood Issues.",
     "takeaway": "Mind-body therapies, including Yoga, Mindfulness, and Art therapy, significantly improve sleep quality, depression, and anxiety in perimenopausal and postmenopausal women. These non-pharmacological interventions offer moderate-to-large benefits and are safe, low-risk strategies for managing menopausal symptoms.",
@@ -755,6 +828,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-073",
+    "slug": "hormone-therapy-effective-and-safe-for-menopausal-symptoms-article-073",
     "citation": "Tang Y, Ma R, Zhang L, Sun X, Wang Y. Effectiveness and safety of hormone replacement therapy in the treatment of menopausal syndrome: a meta-analysis. Am J Transl Res. 2025 Jan 15;17(1):1-15. doi:10.62347/UGLT3830.",
     "headline": "Hormone Therapy: Effective and Safe for Menopausal Symptoms.",
     "takeaway": "This meta-analysis confirms that hormone replacement therapy (HRT) is effective in treating menopausal symptoms, including hot flashes, and improving quality of life. It also shows no significant increase in adverse events compared to control groups, supporting its safety for appropriate candidates.",
@@ -765,6 +839,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-074",
+    "slug": "hypnosis-and-cbt-new-hope-for-hot-flash-relief-article-074",
     "citation": "Muñiz V, Padilla VJ, Alldredge CT, Elkins G. Clinical Hypnosis and Cognitive Behavioral Therapy for Hot Flashes: A Scoping Review. Women's Health Reports. 2025 Jan 8. doi:10.1089/whr.2024.0144.",
     "headline": "Hypnosis and CBT: New Hope for Hot Flash Relief.",
     "takeaway": "This scoping review found that clinical hypnosis significantly reduces the frequency and severity of hot flashes, outperforming cognitive behavioral therapy (CBT) in this regard. While both therapies help with psychological distress, clinical hypnosis offers a direct reduction in hot flash symptoms, making it a clinically significant non-hormonal treatment option.",
@@ -775,6 +850,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-075",
+    "slug": "psychological-therapies-improve-sleep-for-menopausal-women-article-075",
     "citation": "Carmona NE, Starick E, Millett GE, Green SM, Carney CE. Sleep effects of psychological therapies for menopausal symptoms in women with hot flashes and night sweats: A systematic review. Post Reprod Health. 2024 May 28. doi:10.1177/20533691241246365.",
     "headline": "Psychological Therapies Improve Sleep for Menopausal Women.",
     "takeaway": "This systematic review found that psychological treatments like cognitive-behavioral therapies and clinical hypnosis positively affect sleep in peri-/postmenopausal women with significant vasomotor symptoms. These therapies offer promising non-pharmacological options for managing sleep disturbances associated with hot flashes and night sweats.",
@@ -785,6 +861,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-076",
+    "slug": "hormone-therapy-best-option-for-menopausal-symptoms-article-076",
     "citation": "Edelweishia M, Christoper A, Theresia E, Angelia V. Review of hormonal replacement therapy options for the treatments of menopausal symptoms. Korean J Fam Med. 2025 Sep 20;46(5):299–306. doi:10.4082/kjfm.25.0039.",
     "headline": "Hormone Therapy: Best Option for Menopausal Symptoms.",
     "takeaway": "Hormone replacement therapy (HRT) is the most effective treatment for menopausal symptoms like hot flashes and night sweats, especially when initiated before age 60 or within 10 years of menopause. HRT also improves mood, sleep, and bone health, significantly enhancing the quality of life for women during this transition.",
@@ -795,6 +872,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-077",
+    "slug": "personalized-weight-management-benefits-perimenopausal-women-article-077",
     "citation": "Verma A, Ranjan P, Kumari A, Malhotra A, Pandey S, Devi MJ, Prakash B, Singh A, Vikram NK. Effectiveness of an Individualized Comprehensive Weight Management Program in Perimenopausal Women: An Open-label Randomized Control Trial. J Midlife Health. 2025 Dec 8;16(4):434-444. doi:10.4103/jmh.jmh_205_24.",
     "headline": "Personalized Weight Management Benefits Perimenopausal Women.",
     "takeaway": "An individualized comprehensive weight management program significantly improved weight, BMI, waist circumference, and fat percentage in perimenopausal women. This intensive lifestyle intervention also positively impacted metabolic markers and psychological well-being, highlighting its importance for holistic health management during perimenopause.",
@@ -806,6 +884,7 @@ const rawResearchArticles: ResearchArticle[] =
 
   {
     "id": "article-078",
+    "slug": "hot-flashes-and-night-sweats-strongly-linked-to-anxiety-and-depression-article-078",
     "citation": "Gibson CJ, Ajmera M, O'Sullivan F, Shiozawa A, Lozano-Ortega G, Badillo E, Venkataraman M, Mancuso S. A Systematic Review of Anxiety and Depressive Symptoms Among Women Experiencing Vasomotor Symptoms Across Reproductive Stages in the US. Int J Womens Health. 2025 Feb 27;17:537-552. doi:10.2147/IJWH.S491640.",
     "headline": "Hot Flashes and Night Sweats Strongly Linked to Anxiety and Depression.",
     "takeaway": "Vasomotor symptoms (hot flashes and night sweats) are strongly and consistently associated with depressive symptoms and anxiety. Women with more frequent and severe hot flashes had higher rates of depression (up to 58%) and anxiety (up to 52%), with the worst anxiety seen in those who also had sleep disturbances.",
@@ -816,6 +895,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-079",
+    "slug": "updated-cochrane-review-clarifies-benefits-and-risks-of-long-term-hormon-article-079",
     "citation": "Marjoribanks J, Farquhar C, Roberts H, Lethaby A, Lee J. Long-term hormone therapy for perimenopausal and postmenopausal women. Cochrane Database Syst Rev. 2025;4:CD004143. doi:10.1002/14651858.CD004143.pub6.",
     "headline": "Updated Cochrane Review Clarifies Benefits and Risks of Long-Term Hormone Therapy.",
     "takeaway": "This updated Cochrane review confirms that oestrogen-only hormone therapy reduces fracture risk and probably has little effect on coronary events, but likely increases stroke and gallbladder disease risk. Combined hormone therapy probably increases breast cancer risk and may raise thromboembolism risk. Decisions should be individualized based on a woman's symptom burden and risk profile.",
@@ -826,6 +906,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-080",
+    "slug": "lifestyle-medicine-reduces-hot-flashes-improves-sleep-and-supports-healt-article-080",
     "citation": "Anekwe CV, Cano A, Mulligan J, et al. The role of lifestyle medicine in menopausal health: a review of non-pharmacologic interventions. Climacteric. 2025;28(3):221-232. doi:10.1080/13697137.2025.2462978.",
     "headline": "Lifestyle Medicine Reduces Hot Flashes, Improves Sleep, and Supports Healthy Weight at Menopause.",
     "takeaway": "Non-pharmacologic lifestyle interventions — including exercise, nutrition, stress management, and sleep hygiene — were associated with reductions in vasomotor symptoms, improved sleep quality, better mental well-being, healthier weight, and reduced cardiometabolic and osteoporosis risk. Multidisciplinary, person-centered approaches improved adherence and outcomes.",
@@ -836,6 +917,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-081",
+    "slug": "co2-laser-and-vaginal-estrogen-show-similar-effectiveness-for-vaginal-dr-article-081",
     "citation": "Nasr AM, Saad MA, Mohamed AS, et al. Efficacy of CO2 laser vs vaginal estrogen in perimenopausal women with genitourinary syndrome of menopause: systematic review and meta-analysis. J Sex Med. 2025;22(7):1123-1134. doi:10.1093/jsxmed/qdaf073.",
     "headline": "CO2 Laser and Vaginal Estrogen Show Similar Effectiveness for Vaginal Dryness and Sexual Health.",
     "takeaway": "A systematic review and meta-analysis found no statistically significant difference between CO2 fractional laser therapy and vaginal estrogen for treating genitourinary syndrome of menopause (GSM), including vaginal dryness, sexual function, and urinary symptoms. Both treatments are effective options, and choice should be guided by patient preference and clinical context.",
@@ -846,6 +928,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-082",
+    "slug": "hormone-therapy-does-not-reduce-heart-attack-or-stroke-risk-in-women-wit-article-082",
     "citation": "Bontempo S, Yeganeh L, Giri R, Vincent AJ. Use of MHT in women with cardiovascular disease: a systematic review and meta-analysis. Climacteric. 2024;27(1):15-24. doi:10.1080/13697137.2023.2268519.",
     "headline": "Hormone Therapy Does Not Reduce Heart Attack or Stroke Risk in Women With Existing Cardiovascular Disease.",
     "takeaway": "This meta-analysis found no significant benefit of menopausal hormone therapy (MHT) for secondary prevention of cardiovascular disease. There was no difference between MHT users and non-users in rates of non-fatal heart attack, cardiovascular death, or stroke. MHT should not be prescribed for cardiovascular protection in women who already have heart disease.",
@@ -856,6 +939,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-083",
+    "slug": "hormone-therapy-neither-prevents-nor-causes-dementia-large-review-finds-article-083",
     "citation": "Melville M, He L, Desai R, et al. Menopause hormone therapy and risk of mild cognitive impairment or dementia: a systematic review and meta-analysis. Lancet Healthy Longev. 2025 Dec;6(12):100803. doi:10.1016/j.lanhl.2025.100803.",
     "headline": "Hormone Therapy Neither Prevents Nor Causes Dementia, Large Review Finds.",
     "takeaway": "A systematic review and meta-analysis of over 1 million participants found no significant association between menopausal hormone therapy (MHT) and risk of mild cognitive impairment or dementia. This applies regardless of MHT type, duration, or timing. MHT should not be prescribed or avoided specifically for dementia prevention; decisions should be based on symptom management and individual risk.",
@@ -867,6 +951,7 @@ const rawResearchArticles: ResearchArticle[] =
 
   {
     "id": "article-084",
+    "slug": "acupuncture-may-ease-perimenopause-sleep-and-mood-article-084",
     "citation": "Wang S, Bai L, Zhu P, Wang H, Zhou E, Jing M, Fu S, Lyu Q, Bai T. A network meta-analysis of acupuncture therapy for female insomnia and negative emotions from the perspective of the perimenopausal window. Frontiers in neurology. 2025;16:1726927. doi:10.3389/fneur.2025.1726927",
     "headline": "Acupuncture May Ease Perimenopause Sleep and Mood",
     "takeaway": "This network meta-analysis found that several acupuncture combinations were associated with improved sleep scores and reduced negative emotions in perimenopausal women. The findings suggest acupuncture may be a supportive, non-drug option for sleep and mood symptoms, although treatment choice should be discussed with a qualified clinician.",
@@ -877,6 +962,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-085",
+    "slug": "brain-fog-may-not-match-test-scores-article-085",
     "citation": "Furey RT, Thomas EHX, Kulkarni J, Gurvich C. Subjective versus objective cognition during menopause: A systematic review and meta-analysis. Journal of the International Neuropsychological Society : JINS. 2025;31(5-6):459-477. doi:10.1017/S1355617725101306",
     "headline": "Brain Fog May Not Match Test Scores",
     "takeaway": "This systematic review and meta-analysis found only a small association between self-reported cognitive concerns and objective learning-efficiency measures during peri- and postmenopause. For women experiencing brain fog, the evidence reinforces that symptoms are real but may need better assessment tools than standard cognitive tests alone.",
@@ -887,6 +973,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-086",
+    "slug": "exercise-has-mixed-sleep-benefits-during-menopause-article-086",
     "citation": "Corrêa AB, Bardella MDC, da Silva AP, Moreira MM, Leite LFPA, de Moraes C. Effect of physical activity on sleep in women experiencing vasomotor symptoms during menopause: a systematic review and meta-analysis. Maturitas. 2025;198:108271. doi:10.1016/j.maturitas.2025.108271",
     "headline": "Exercise Has Mixed Sleep Benefits During Menopause",
     "takeaway": "This meta-analysis of randomized trials found that physical activity did not meaningfully improve overall sleep quality or insomnia in women with hot flashes and night sweats, though small improvements in sleep problems were observed. Exercise remains important for broader menopausal health, but sleep plans may need to be tailored by activity type, timing, intensity, and symptom pattern.",
@@ -897,6 +984,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-087",
+    "slug": "strength-training-supports-postmenopause-bone-health-article-087",
     "citation": "Walter F, Schalla J, Bloch W, Diel P, Geisler S, Isenmann E. Analysis of the Additive Effects of Nutritional Strategies in Strength Training Interventions on Body Composition, Muscle Strength and Bone Mineral Density in Postmenopausal Women: A Systematic Review. Sports medicine - open. 2026;12(1):5. doi:10.1186/s40798-025-00954-2",
     "headline": "Strength Training Supports Postmenopause Bone Health",
     "takeaway": "This systematic review found that structured strength training consistently improved body composition, muscle strength, and bone mineral density in postmenopausal women. Added nutrition strategies such as calorie restriction or adequate protein may help body composition, but evidence is not yet strong enough to make specific supplement recommendations.",
@@ -907,6 +995,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-088",
+    "slug": "whi-clarifies-timing-for-hormone-therapy-article-088",
     "citation": "Lambrinoudaki I, Armeni E, Milli N, Anagnostis P. Then and Now: What We Have Learned From the WHI. The Journal of clinical endocrinology and metabolism. 2026;111(4):e974-e994. doi:10.1210/clinem/dgaf638",
     "headline": "WHI Clarifies Timing for Hormone Therapy",
     "takeaway": "This review of Women’s Health Initiative evidence emphasizes that hormone therapy benefits and risks vary by timing, formulation, and personal risk factors. It highlights fracture-risk reduction, the importance of cardiovascular timing, and greater dementia risk when therapy is initiated later in older postmenopausal women.",
@@ -917,6 +1006,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-089",
+    "slug": "global-menopause-guidance-updates-care-priorities-article-089",
     "citation": "Panay N, Fenton A, Hamoda H, Hillard T, Islam R, Pedder H, Romero L, Vincent AJ, IMS Recommendations Writing Group. International Menopause Society (IMS) recommendations and key messages on women's midlife health and menopause. Climacteric : the journal of the International Menopause Society. 2025;28(6):634-656. doi:10.1080/13697137.2025.2585487",
     "headline": "Global Menopause Guidance Updates Care Priorities",
     "takeaway": "The International Menopause Society issued updated recommendations and key messages based on a systematic review process and GRADE-style evidence appraisal. The guidance supports individualized menopause care across symptoms, hormone therapy, and midlife health priorities, helping readers frame conversations with their healthcare clinician.",
@@ -928,6 +1018,7 @@ const rawResearchArticles: ResearchArticle[] =
 
   {
     "id": "article-090",
+    "slug": "herbal-medicine-may-improve-perimenopause-sleep-article-090",
     "citation": "Cong J, Zhang H, Xing W. Effectiveness and Safety of Chinese Herbal Medicine in Treatment of Perimenopausal Insomnia: A Systematic Review and Meta-Analysis of Randomized Controlled Trails. Holist Nurs Pract. 2026;40(1):3-15. doi:10.1097/HNP.0000000000000743.",
     "headline": "Herbal Medicine May Improve Perimenopause Sleep",
     "takeaway": "This meta-analysis of 20 randomized trials found that Chinese herbal medicine was associated with better sleep quality and overall symptom response in women with perimenopausal insomnia. The authors reported no severe herb-related adverse events, but readers should discuss supplement use with a clinician because study quality and product formulations can vary.",
@@ -938,6 +1029,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-091",
+    "slug": "hot-flashes-and-heart-signals-need-more-study-article-091",
     "citation": "Hira R, Uppal J, Deol P, Porter D, Exner D, Raj SR, et al. A systematic review of heart rate variability and menopausal vasomotor symptoms. Physiol Rep. 2026;14(9):e70907. doi:10.14814/phy2.70907.",
     "headline": "Hot Flashes and Heart Signals Need More Study",
     "takeaway": "This systematic review and meta-analysis examined whether heart rate variability differs in peri- or postmenopausal women with vasomotor symptoms compared with those without symptoms. The pooled results did not show clear heart rate variability differences, highlighting that larger and more standardized studies are still needed to understand hot flashes, autonomic function, and cardiovascular risk.",
@@ -948,6 +1040,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-092",
+    "slug": "mindfulness-leads-non-drug-menopause-sleep-options-article-092",
     "citation": "Wang Z, Yang H, Li S, Cheng L, Yuan Y, Bai Y, et al. Effectiveness of nonpharmacological interventions for menopause-related insomnia: A systematic review and Bayesian network meta-analysis. Maturitas. 2025;202:108713. doi:10.1016/j.maturitas.2025.108713.",
     "headline": "Mindfulness Leads Non-Drug Menopause Sleep Options",
     "takeaway": "This network meta-analysis of 44 randomized studies found that relaxation, cognitive behavioral therapy, mindfulness, aromatherapy, acupuncture, massage, yoga, and exercise all improved sleep quality for menopausal insomnia. Mindfulness ranked as the most effective option, suggesting that non-drug sleep strategies can be a meaningful part of a menopause symptom plan.",
@@ -958,6 +1051,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-093",
+    "slug": "vaginal-estrogen-may-ease-urinary-symptoms-article-093",
     "citation": "Porcari I, Uccella S, Casprini C, Bosco M, Zorzato PC, Garzon S. Vulvovaginal estrogen therapy for urinary symptoms in postmenopausal women: a review and meta-analysis. Climacteric. 2026;29(1):13-22. doi:10.1080/13697137.2025.2517138.",
     "headline": "Vaginal Estrogen May Ease Urinary Symptoms",
     "takeaway": "This review and meta-analysis found that topical vulvovaginal estrogen was associated with improvements in recurrent urinary tract infections, urgency, frequency, urge incontinence, stress incontinence, nocturia, and vaginal pH. The findings support current guidance that local estrogen can be an effective option for genitourinary symptoms after menopause when appropriate for the individual.",
@@ -968,6 +1062,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-094",
+    "slug": "longer-bisphosphonate-use-has-tradeoffs-article-094",
     "citation": "Oka P, Moosa AS, Koh EYL, Ng CJ. Health and adverse events associated with extended oral bisphosphonates among postmenopausal women: a systematic review. J Clin Endocrinol Metab. 2026;111(5):e1226-e1238. doi:10.1210/clinem/dgag057.",
     "headline": "Longer Bisphosphonate Use Has Tradeoffs",
     "takeaway": "This systematic review found that extending oral bisphosphonate therapy beyond five years may increase bone mineral density, but evidence for fracture reduction was limited and prolonged use was linked with atypical fracture concerns. Women considering long-term osteoporosis medication should review bone density, fracture history, and adverse-event risk with their clinician.",
@@ -978,6 +1073,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-095",
+    "slug": "hormone-therapy-risks-vary-by-type-article-095",
     "citation": "Wu Q, Shen L, Hu S, Yang R, Wang Y, Xue D, et al. Relationship between menopausal hormone therapy and incidence risk of breast cancer: systematic review and meta-analysis. Ann Med. 2026;58(1):2640244. doi:10.1080/07853890.2026.2640244.",
     "headline": "Hormone Therapy Risks Vary by Type",
     "takeaway": "This meta-analysis found a modest overall association between menopausal hormone therapy and breast cancer risk, mainly driven by estrogen-progestin therapy rather than estrogen-only therapy. The results reinforce the need for individualized hormone therapy decisions that consider symptom severity, regimen type, duration, and personal risk factors.",
@@ -988,6 +1084,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-096",
+    "slug": "sleep-drug-studied-in-menopause-transition-article-096",
     "citation": "Schaedel Z, Bakker TR, Bassetti C, Briasoulis O, Cassel P, Pain S, et al. Efficacy and safety of daridorexant for the treatment of insomnia disorder in women of menopausal transition age: Insights from a randomized controlled trial. Maturitas. 2026;206:108821. doi:10.1016/j.maturitas.2025.108821.",
     "headline": "Sleep Drug Studied in Menopause Transition",
     "takeaway": "In this randomized controlled trial subgroup, daridorexant 50 mg improved sleep measures and daytime functioning in women aged 47-55 with insomnia disorder. The findings suggest that targeted insomnia treatment may help women in the menopause transition, though medication decisions should be individualized with a clinician.",
@@ -998,6 +1095,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-097",
+    "slug": "personalized-care-for-menopause-symptoms-article-097",
     "citation": "Hoang J, Halliday K, Allen D, Mtika WM, Tranter E, Glover G, et al. Factors Associated With Menopause Symptoms: A Systematic Review and Meta-Analysis. BJOG. 2026 May 6. doi:10.1111/1471-0528.70257.",
     "headline": "Personalized Care for Menopause Symptoms",
     "takeaway": "This systematic review and meta-analysis found that ethnicity, education, income, depression, smoking, and obesity were associated with the presence or severity of vasomotor symptoms and vaginal dryness. The results reinforce that hot flashes and related symptoms are shaped by both biology and lifestyle context, supporting more personalized symptom management.",
@@ -1008,6 +1106,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-098",
+    "slug": "non-drug-options-improve-menopause-sleep-article-098",
     "citation": "Luo R, Zhu J, Yang J. Effectiveness of non-pharmacological interventions for insomnia related to natural menopause: A meta-analysis of randomized controlled trials. Maturitas. 2026;209:108970. doi:10.1016/j.maturitas.2026.108970.",
     "headline": "Non-Drug Options Improve Menopause Sleep",
     "takeaway": "This meta-analysis of 22 randomized trials found that non-pharmacological interventions significantly improved sleep quality and insomnia severity in women with natural menopause-related insomnia. Cognitive behavioral therapy, exercise, acupuncture, acupressure, and integrated approaches all showed benefit, offering options for women who prefer to avoid or cannot use medication or hormone therapy.",
@@ -1018,6 +1117,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-099",
+    "slug": "prunes-may-modestly-support-bones-article-099",
     "citation": "Treister-Goltzman Y, Peleg R. Effects of Prunes on Bone Density in Humans: A Systematic Review and Meta-Analysis of Randomized Controlled Trials. Nutrients. 2026;18(9):1338. doi:10.3390/nu18091338.",
     "headline": "Prunes May Modestly Support Bones",
     "takeaway": "This systematic review and meta-analysis of randomized studies found preliminary evidence that 50-100 grams of prunes may modestly benefit lumbar spine bone mineral density, especially in postmenopausal women. The evidence remains limited and heterogeneous, so prunes are best viewed as a possible nutrition support rather than a stand-alone bone-protection strategy.",
@@ -1028,6 +1128,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-100",
+    "slug": "osteoporosis-drug-heart-risk-compared-article-100",
     "citation": "Ahn SH, Boo D, Kim KJ, Choi J, Yoon H, Jung CY, et al. Risk of Cardiovascular Events in Patients with Osteoporosis on Romosozumab Treatment Compared with Denosumab: A Multicenter Observational Cohort Study. Endocrinol Metab (Seoul). 2026 May 15. doi:10.3803/EnM.2026.2883.",
     "headline": "Osteoporosis Drug Heart Risk Compared",
     "takeaway": "This multicenter observational cohort study compared cardiovascular outcomes in osteoporosis patients newly treated with romosozumab or denosumab. In real-world practice, romosozumab was not associated with a statistically significant increase in major cardiovascular events versus denosumab over one or three years.",
@@ -1038,6 +1139,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-101",
+    "slug": "symptoms-shape-menopause-quality-of-life-article-101",
     "citation": "Ahmadi K, Dashti S, Bahri N. Relationship between the severity of menopausal symptoms and quality of life during the menopause transition: a systematic review. Arch Womens Ment Health. 2026;29(3):76. doi:10.1007/s00737-026-01716-z.",
     "headline": "Symptoms Shape Menopause Quality of Life",
     "takeaway": "This systematic review found that greater menopausal symptom severity is generally linked with poorer quality of life during the transition to menopause. The findings support proactive symptom management programs that address physical, emotional, and daily-function impacts together.",
@@ -1050,6 +1152,7 @@ const rawResearchArticles: ResearchArticle[] =
   ,
   {
     "id": "article-102",
+    "slug": "hormone-therapy-may-ease-perimenopause-depression-article-102",
     "citation": "Li Y, Sun Y, Bi Y, Yang L, Xu Y, Wu H, Ma X. Efficacy and safety of menopausal hormone therapy for depressive symptoms in perimenopausal women: A systematic review and meta-analysis. J Affect Disord. 2026;409:121892. doi:10.1016/j.jad.2026.121892.",
     "headline": "Hormone Therapy May Ease Perimenopause Depression",
     "takeaway": "This meta-analysis of 12 randomized trials found that menopausal hormone therapy was associated with a small reduction in depressive symptom severity among perimenopausal women. The effect was modest and evidence certainty was limited, so treatment decisions should be individualized with a clinician.",
@@ -1060,6 +1163,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-103",
+    "slug": "dietary-lignans-may-support-perimenopause-mood-article-103",
     "citation": "Yang C, Zhang X, Bie J, Kang W, Sun G, Zhao Q, Li L, Hu Q. Gut microbiota drives dietary lignans to improve perimenopausal depression via activating hippocampal ERβ/GluN2A/PSD95 pathway. Pharmacol Res. 2026;227:108161. doi:10.1016/j.phrs.2026.108161.",
     "headline": "Dietary Lignans May Support Perimenopause Mood",
     "takeaway": "This randomized controlled trial found that one month of dietary lignan supplementation significantly reduced depressive and anxiety symptoms in perimenopausal women. The study suggests gut microbiome conversion of plant compounds may play a role, but supplementation choices should be discussed with a healthcare professional.",
@@ -1070,6 +1174,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-104",
+    "slug": "estetrol-reduces-hot-flashes-in-phase-3-trial-article-104",
     "citation": "Simoncini T, Bouchard C, Cloes M, Taziaux M, Palacios S, de Medeiros SF, Vrabii V, Archer DF, Panay N. Estetrol (E4) for the treatment of moderate to severe vasomotor symptoms in postmenopausal women - Efficacy and safety results from the phase 3 E4COMFORT I multicenter, placebo-controlled study. Maturitas. 2026;209:108965. doi:10.1016/j.maturitas.2026.108965.",
     "headline": "Estetrol Reduces Hot Flashes in Phase 3 Trial",
     "takeaway": "This phase 3 randomized trial found that estetrol significantly reduced the frequency and severity of moderate to severe hot flashes compared with placebo over 12 weeks. The findings add evidence for a prescription option for women with peak vasomotor symptoms, with individualized risk-benefit review still essential.",
@@ -1080,6 +1185,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-105",
+    "slug": "bone-density-trial-tests-combination-therapy-article-105",
     "citation": "Liu L, Ruan X, Gu M, Li Y, Yang Y, Cheng J, Jiang L, Wang Z, Zhang M, Liu A, Mueck AO. A randomized controlled trial on the effect of Gushukang on bone mineral density in perimenopausal and postmenopausal women. Gynecol Endocrinol. 2026;42(1):2659980. doi:10.1080/09513590.2026.2659980.",
     "headline": "Bone Density Trial Tests Combination Therapy",
     "takeaway": "This randomized trial found that menopausal hormone therapy and Gushukang were associated with improved bone mineral density over six months, with the combination showing the strongest improvement. The result highlights the importance of early bone-protection planning after menopause, while any therapy should be selected with clinical guidance.",
@@ -1090,6 +1196,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-106",
+    "slug": "creatine-shows-modest-muscle-benefits-article-106",
     "citation": "Naddafha S, Antonio J, Kreider RB, Stout JR. Creatine monohydrate for lean mass, strength, and bone density in postmenopausal women: a systematic review and meta-analysis. J Int Soc Sports Nutr. 2026;23(1):2668435. doi:10.1080/15502783.2026.2668435.",
     "headline": "Creatine Shows Modest Muscle Benefits",
     "takeaway": "This systematic review and meta-analysis of seven randomized trials found small but meaningful improvements in lean mass and strength among postmenopausal women using creatine, especially when paired with resistance training. Bone density did not clearly improve overall, so creatine should be viewed as a muscle-support strategy rather than a stand-alone bone treatment.",
@@ -1100,6 +1207,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-107",
+    "slug": "figo-recommends-menopause-mental-health-support-article-107",
     "citation": "Khadilkar S, Divakar H, Benedetto C, Genazzani A, Ramos D, Argale E, Deshpande G, Hicky M, Filho ALDS, Herrera E, Balkrishnan M. FIGO best practice recommendations for the mental health of women at menopausal age. Int J Gynaecol Obstet. 2026;173(2):588-601. doi:10.1002/ijgo.70943.",
     "headline": "FIGO Recommends Menopause Mental Health Support",
     "takeaway": "This FIGO review and practice-guidance article emphasizes that anxiety and depression are common during the menopause transition and can meaningfully affect quality of life. It recommends early detection, individualized care, lifestyle support, cognitive-behavioral therapy when appropriate, and clinician-guided use of hormone or nonhormonal treatments.",
@@ -1111,6 +1219,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-108",
+    "slug": "nonhormonal-options-may-improve-menopause-insomnia-article-108",
     "citation": "Bruyneel M, Rozenberg S, Sanida C, Demaeyer N, Castermans E, Bruyneel AV. Pharmacological and non-pharmacological treatments for chronic insomnia in perimenopausal and postmenopausal women: a systematic review and meta-analysis. Sleep Med. 2026;146:109040. doi:10.1016/j.sleep.2026.109040.",
     "headline": "Nonhormonal Options May Improve Menopause Insomnia",
     "takeaway": "This systematic review and meta-analysis found that nonpharmacological approaches, especially cognitive behavioral therapy for insomnia and calming practices such as acupuncture, yoga, and massage, appeared to improve sleep measures in peri- and postmenopausal women. The findings support starting with structured behavioral and lifestyle-based sleep strategies while reserving medication decisions for individualized clinical guidance.",
@@ -1121,6 +1230,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-109",
+    "slug": "brain-fog-program-feasible-in-menopause-article-109",
     "citation": "Spector A, Faulkner A, Gilchrist H, Sethi S, He L, Gurvich C, Evans R. Cognitive Stimulation Therapy in Menopause: Feasibility randomised controlled trial. Reprod Fertil. 2026;7(2):RAF260027. doi:10.1530/RAF-26-0027.",
     "headline": "Brain Fog Program Feasible in Menopause",
     "takeaway": "This feasibility randomized controlled trial tested an online group cognitive stimulation program for women experiencing menopause-related brain fog and found strong acceptability, attendance, and retention. Because the study was small and not powered for efficacy, it is best viewed as early evidence that a larger trial is warranted rather than proof of symptom improvement.",
@@ -1131,6 +1241,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-110",
+    "slug": "nonhormonal-vaginal-therapy-shows-promise-article-110",
     "citation": "Diniz AF, Ciuffatelli MX, Queiroz LF, Lemos M, Peloggia A. Radiofrequency versus vaginal estrogen for menopausal sexual dysfunction: a systematic review and meta-analysis of randomized clinical trials. Sex Med Rev. 2026;14(1):qeag013. doi:10.1093/sxmrev/qeag013.",
     "headline": "Nonhormonal Vaginal Therapy Shows Promise",
     "takeaway": "This meta-analysis of randomized trials compared vaginal radiofrequency with vaginal estrogen for postmenopausal sexual dysfunction related to genitourinary syndrome of menopause. Radiofrequency showed a modest improvement in overall sexual function scores, but the authors emphasized that longer-term durability and broader safety evidence are still needed.",
@@ -1141,6 +1252,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-111",
+    "slug": "osteoporosis-drugs-show-similar-outcomes-article-111",
     "citation": "Bandeira TFGS, Aguiar PM, Vianna CMM, Mosegui GBG, Lima TM. Romosozumab Versus Teriparatide for the Treatment of Postmenopausal Osteoporosis: An Overview of Systematic Reviews With Direct and Indirect Meta-Analyses. Int J Rheum Dis. 2026;29(4):e70658. doi:10.1111/1756-185x.70658.",
     "headline": "Osteoporosis Drugs Show Similar Outcomes",
     "takeaway": "This overview of systematic reviews with meta-analyses found broadly similar efficacy and safety outcomes for romosozumab compared with teriparatide in postmenopausal osteoporosis. Because the quality of evidence ranged from very low to moderate, treatment selection should remain individualized around fracture risk, cardiovascular history, and clinician guidance.",
@@ -1151,6 +1263,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-112",
+    "slug": "dual-site-bone-scans-improve-risk-detection-article-112",
     "citation": "Huang YC, Chang KH, Kao SW, Chen YC, Cheng MT. Spine-hip bone mineral density discordance in postmenopausal Asian women: fracture burden and incremental risk stratification beyond hip BMD. Arch Osteoporos. 2026;21(1):86. doi:10.1007/s11657-026-01720-x.",
     "headline": "Dual-Site Bone Scans Improve Risk Detection",
     "takeaway": "This large retrospective cross-sectional study found that spine-hip bone density discordance was common in postmenopausal women and that hip-only screening missed many vertebral fractures. The study suggests that evaluating both spine and hip results may give clinicians a fuller view of skeletal risk in later postmenopause.",
@@ -1161,6 +1274,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-113",
+    "slug": "vaginal-tamoxifen-may-reduce-pain-article-113",
     "citation": "Yazici Sarikaya S, Nyback S, Derntl B, Ljungman L, Hirschberg AL, Kopp Kallner H, Sundström Poromaa I, Wikman A, Kunovac Kallak T. The effect of vaginal tamoxifen on symptoms of anxiety, depression, and health-related quality of life in postmenopausal women with and without breast cancer. Maturitas. 2026;211:109010. doi:10.1016/j.maturitas.2026.109010.",
     "headline": "Vaginal Tamoxifen May Reduce Pain",
     "takeaway": "This double-blind randomized placebo-controlled trial found that weekly vaginal tamoxifen was associated with reduced anxiety scores and clinically meaningful pain reduction in postmenopausal women with genitourinary syndrome of menopause. The results are promising for quality of life, but additional research is needed to clarify mechanisms, systemic effects, and broader benefits.",
@@ -1171,6 +1285,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-114",
+    "slug": "vitamin-d-supplementation-eases-perimenopause-fatigue-and-mood-article-114",
     "citation": "Ray P, Srivastava A, Jani P. Effect of vitamin D supplementation on fatigue and mood among perimenopausal women. Bioinformation. 2026;22(3):1638-1642. doi:10.6026/973206300221638. PMID: 42145430.",
     "headline": "Vitamin D Supplementation Eases Perimenopause Fatigue and Mood",
     "takeaway": "This randomized, double-blind, placebo-controlled trial found that six months of vitamin D3 supplementation significantly improved both fatigue and mood in perimenopausal women with vitamin D deficiency compared with placebo. Multivariate analysis confirmed vitamin D supplementation as an independent predictor of these improvements, suggesting that correcting deficiency may be a practical first step for women experiencing early perimenopausal fatigue and mood changes.",
@@ -1181,6 +1296,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-115",
+    "slug": "vasomotor-symptoms-linked-to-insomnia-anxiety-and-reduced-quality-of-lif-article-115",
     "citation": "Coronado PJ, Mendoza N, González SP, Sánchez-Méndez S, Presa J, Jurado AR, et al. Prevalence of vasomotor symptoms and the associated risk factors: the \"Mi Menopausia\" app study. Maturitas. 2026 Jun;209:108958. doi:10.1016/j.maturitas.2026.108958. PMID: 42066667.",
     "headline": "Vasomotor Symptoms Linked to Insomnia, Anxiety, and Reduced Quality of Life",
     "takeaway": "This large cross-sectional study using a menopause app found that moderate-to-severe vasomotor symptoms were significantly associated with insomnia, irritability, depression, anxiety, and vaginal dryness, and were linked to lower health-related quality of life. Despite the high burden, only 17% of affected women received treatment, underscoring a major gap in care for women in late perimenopause.",
@@ -1191,6 +1307,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-116",
+    "slug": "probiotic-plus-laser-therapy-improves-vaginal-atrophy-symptoms-article-116",
     "citation": "Di Pierro F, Filippini M, Lucia M, Khan A, Ujjan I, Khan SA, et al. Clinical and vaginal microbiota effects of oral Lactobacillus crispatus M247 combined with vaginal laser therapy in menopausal women with atrophic vulvovaginitis: a prospective, randomized and controlled study. Lasers Med Sci. 2026 Jun 3;41(1):106. doi:10.1007/s10103-026-04900-w. PMID: 42234022.",
     "headline": "Probiotic Plus Laser Therapy Improves Vaginal Atrophy Symptoms",
     "takeaway": "This randomized controlled trial found that combining oral Lactobacillus crispatus M247 probiotic with vaginal CO₂ laser therapy produced greater reductions in vaginal dryness, dyspareunia, burning, and itching compared with laser therapy alone in postmenopausal women with vulvovaginal atrophy. The probiotic group also showed a shift toward a more favorable vaginal microbiota profile, suggesting that gut-vaginal microbiome support may enhance the benefits of laser treatment for active menopause symptoms.",
@@ -1201,6 +1318,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-117",
+    "slug": "shorter-romosozumab-course-non-inferior-for-postmenopausal-bone-loss-article-117",
     "citation": "Leder BZ, Ramchand SK, Jordan M, Ryan S, Patnaik A, Lee H, et al. 3 months vs 12 months of romosozumab for postmenopausal osteoporosis (LIDA): an open-label, non-inferiority, randomised controlled trial. Lancet Diabetes Endocrinol. 2026 Mar;14(3):216-222. doi:10.1016/S2213-8587(25)00319-5. PMID: 41621431.",
     "headline": "Shorter Romosozumab Course Non-Inferior for Postmenopausal Bone Loss",
     "takeaway": "This non-inferiority randomized controlled trial published in The Lancet found that three months of romosozumab produced bone mineral density gains at the total hip that were non-inferior to the standard twelve-month course in postmenopausal women with osteoporosis. The findings suggest that a shorter treatment duration may be a viable option, potentially improving tolerability and adherence for women in early postmenopause who need bone-protective therapy.",
@@ -1211,6 +1329,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-118",
+    "slug": "hormone-therapy-does-not-raise-or-lower-dementia-risk-article-118",
     "citation": "Melville M, He L, Desai R, Nyamayaro P, Fox C, Kothari KU, et al. Menopause hormone therapy and risk of mild cognitive impairment or dementia: a systematic review and meta-analysis. Lancet Healthy Longev. 2025 Dec;6(12):100803. doi:10.1016/j.lanhl.2025.100803. PMID: 41448220.",
     "headline": "Hormone Therapy Does Not Raise or Lower Dementia Risk",
     "takeaway": "This Lancet systematic review and meta-analysis of over one million participants found no significant association between menopausal hormone therapy use and the risk of mild cognitive impairment or dementia in postmenopausal women. The authors conclude that MHT should not be prescribed for dementia prevention, but equally should not be withheld on that basis, reinforcing individualized decision-making based on other benefits and risks.",
@@ -1221,6 +1340,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-119",
+    "slug": "red-clover-isoflavones-modestly-reduce-menopausal-hot-flashes-article-119",
     "citation": "Jiang W, Wu K. The effectiveness of red clover on hot-flash in menopausal women: a GRADE-assessed systematic review and meta-analysis. Eur J Obstet Gynecol Reprod Biol. 2026 Jun 3;324:115226. doi:10.1016/j.ejogrb.2026.115226. PMID: 42269521.",
     "headline": "Red Clover Isoflavones Modestly Reduce Menopausal Hot Flashes",
     "takeaway": "This GRADE-assessed systematic review and meta-analysis of nine randomized controlled trials found that red clover isoflavone supplementation produced a statistically significant small-to-moderate reduction in hot flash frequency compared with placebo in menopausal women. The results support red clover as a phytoestrogenic alternative for women seeking non-hormonal options to manage vasomotor symptoms, though individual response may vary.",
@@ -1231,6 +1351,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-120",
+    "slug": "lifestyle-modifications-show-promise-for-easing-early-perimenopause-symp-article-120",
     "citation": "McNulty KL, Murphy M, Flynn E, Lane A, Muldoon A, Kealy R, Harrison M, Windle J, Heavey P. The Effectiveness of Lifestyle Interventions, Including Exercise, Diet, and Health Education on Symptoms Experienced During Perimenopause: A Systematic Review of Randomized Controlled Trials. J Aging Phys Act. 2025 Sep 23;34(3):380-403. doi: 10.1123/japa.2024-0226. PMID: 40992413.",
     "headline": "Lifestyle Modifications Show Promise for Easing Early Perimenopause Symptoms",
     "takeaway": "This systematic review of 25 randomized controlled trials found that exercise and health education interventions may offer benefits in managing physical and psychological symptoms during perimenopause. While evidence-based guidelines for optimal lifestyle prescription remain elusive due to study variances, these non-pharmacological approaches show potential for improving well-being in the early menopausal transition.",
@@ -1241,6 +1362,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-121",
+    "slug": "new-non-hormonal-therapy-elinzanetant-effectively-reduces-late-perimenop-article-121",
     "citation": "Wojciechowski P, Kolonko K, Giannopoulou A, Smela B, Olewinska E, Bolling KR, Sassarini J, Shulman LP, Talaulikar V. Comparative Efficacy of Elinzanetant Versus Other Non-Hormonal Pharmaceutical Therapies for the Treatment of Moderate-to-Severe Vasomotor Symptoms Associated With Menopause: A Network Meta-Analysis. BJOG. 2026 Mar 15. doi: 10.1111/1471-0528.70213. PMID: 41834312.",
     "headline": "New Non-Hormonal Therapy Elinzanetant Effectively Reduces Late Perimenopause Hot Flashes",
     "takeaway": "An indirect comparison network meta-analysis revealed that the novel dual neurokinin-targeted therapy elinzanetant was more effective than desvenlafaxine, gabapentin, and paroxetine in reducing hot flash frequency. It also outperformed other treatments in improving sleep disturbances, positioning it as a promising non-hormonal option for managing moderate-to-severe vasomotor symptoms during late perimenopause.",
@@ -1251,6 +1373,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-122",
+    "slug": "intravaginal-dhea-effectively-relieves-vaginal-dryness-and-dyspareunia-article-122",
     "citation": "Lemos MJ, Queiroz LF, Diniz AF, Longo da Silva CM, Dos Santos PL, de Oliveira Gomide P, Ferraz JM, De Marco Novellino AM. Intravaginal dehydroepiandrosterone for the treatment of vulvovaginal atrophy: a systematic review and meta-analysis. Menopause. 2026 Jan 27. doi: 10.1097/GME.0000000000002736. PMID: 41589851.",
     "headline": "Intravaginal DHEA Effectively Relieves Vaginal Dryness and Dyspareunia",
     "takeaway": "This systematic review and meta-analysis of randomized controlled trials demonstrated that intravaginal dehydroepiandrosterone (DHEA) significantly improves vulvovaginal symptoms, particularly vaginal dryness and dyspareunia, compared to placebo. With mild and infrequent adverse effects, intravaginal DHEA offers a safe and well-tolerated therapeutic alternative for managing genitourinary syndrome of active menopause.",
@@ -1261,6 +1384,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-123",
+    "slug": "early-hrt-initiation-shows-cardiovascular-benefits-in-postmenopause-article-123",
     "citation": "Blackburn I, Kunadian V. Hormone replacement therapy and cardiovascular risk in postmenopausal women. Eur Heart J Open. 2026 Mar 28;6(2):oeag054. doi: 10.1093/ehjopen/oeag054. PMID: 42027787.",
     "headline": "Early HRT Initiation Shows Cardiovascular Benefits in Postmenopause",
     "takeaway": "A comprehensive review of major trials and meta-analyses highlights that initiating hormone replacement therapy (HRT) within 10 years of menopause onset consistently demonstrates cardiovascular benefits. Conversely, delayed initiation may increase risks such as stroke, underscoring the critical role of timing, formulation, and administration route in optimizing cardiovascular health outcomes for early postmenopausal women.",
@@ -1271,6 +1395,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-124",
+    "slug": "combined-exercise-modalities-superior-for-postmenopausal-bone-density-article-124",
     "citation": "Zhou Z, Wei X, Zhang X, Ainsworth BE, Lü J, Liu Y. Effects of different types of exercise over 24 weeks on bone mineral density in postmenopausal women: A systematic review with pairwise and network meta-analysis of randomized controlled trials. J Sport Health Sci. 2026 Jan 29;15:101127. doi: 10.1016/j.jshs.2026.101127. PMID: 41617082.",
     "headline": "Combined Exercise Modalities Superior for Postmenopausal Bone Density",
     "takeaway": "This extensive network meta-analysis found that combining mind-body exercise with resistance training (MBEx_Re) was the most effective modality for improving bone mineral density at multiple skeletal sites in postmenopausal women. Interventions lasting 52 weeks or longer produced the most consistent and sustained improvements, offering clear guidance for exercise prescriptions to prevent osteoporotic fractures in late postmenopause.",
@@ -1281,6 +1406,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-125",
+    "slug": "mediterranean-diet-adherence-linked-to-milder-menopausal-symptoms-article-125",
     "citation": "Dumlu Bilgin G, Keküllüoğlu Tan M, Usta Ulutaş P, Kaya Cebioğlu İ, Keleş YN, Kural A, Böcek AC. From hot flashes to harmony: Mediterranean diet, menopausal symptoms, and cardiovascular risk awareness. Nutrition. 2026 May 17;150:113293. doi: 10.1016/j.nut.2026.113293. PMID: 42287755.",
     "headline": "Mediterranean Diet Adherence Linked to Milder Menopausal Symptoms",
     "takeaway": "In a study of 702 women across menopausal stages, greater adherence to the Mediterranean diet was significantly associated with a lower body mass index, fewer psychological complaints, and reduced overall menopausal symptom severity. Higher diet adherence also predicted increased cardiovascular disease risk awareness, highlighting its potential role in promoting holistic women's health and harmony during the menopause transition.",
@@ -1291,6 +1417,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-126",
+    "slug": "traditional-chinese-medicine-improves-perimenopausal-sleep-and-mood-article-126",
     "citation": "Yang D, Chen D, Peng J, Peng Y, Yang C, Sun J. Efficacy and security of traditional Chinese medicine in the treatment of perimenopausal insomnia in the Chinese population: a systematic review and meta-analysis of randomized controlled trials. Front Neurol. 2026 Feb 19;17:1749660. doi: 10.3389/fneur.2026.1749660. PMID: 41798817.",
     "headline": "Traditional Chinese Medicine Improves Perimenopausal Sleep and Mood",
     "takeaway": "A meta-analysis of 48 randomized controlled trials found that Traditional Chinese Medicine interventions significantly improved sleep quality, hormonal balance, and psychological symptoms in women with perimenopausal insomnia compared to Western medicine. The treatments were also associated with fewer adverse reactions, suggesting they may offer a safe and effective complementary approach during the early menopausal transition.",
@@ -1301,6 +1428,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-127",
+    "slug": "fatigue-and-exhaustion-top-perimenopause-symptoms-globally-article-127",
     "citation": "Hedges MS, Hewings-Martin Y, Karam J, Castaneda R, Cunningham AC, Xu Y, Zhaunova L, Faubion SS, Shufelt CL. Global perspectives on perimenopause: a digital survey of knowledge and symptoms using the Flo application. Menopause. 2026 Jul 1;33(7):789-798. doi: 10.1097/GME.0000000000002730. PMID: 41603602.",
     "headline": "Fatigue and Exhaustion Top Perimenopause Symptoms Globally",
     "takeaway": "A global survey of over 17,000 women found a disconnect between recognized perimenopause symptoms and actual experiences. While hot flashes were the most recognized symptom, women aged 35 and older most frequently reported fatigue, physical and mental exhaustion, and irritability as their primary challenges during late perimenopause.",
@@ -1311,6 +1439,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-128",
+    "slug": "non-pharmacological-therapies-improve-menopause-related-insomnia-article-128",
     "citation": "Luo R, Zhu J, Yang J. Effectiveness of non-pharmacological interventions for insomnia related to natural menopause: A meta-analysis of randomized controlled trials. Maturitas. 2026 Jun;209:108970. doi: 10.1016/j.maturitas.2026.108970. PMID: 42090940.",
     "headline": "Non-Pharmacological Therapies Improve Menopause-Related Insomnia",
     "takeaway": "A meta-analysis of 22 randomized controlled trials demonstrated that non-pharmacological interventions, particularly cognitive behavioral therapy and acupressure, significantly improved sleep quality and reduced insomnia severity in menopausal women. These approaches offer effective alternatives for managing active menopause sleep disturbances, especially for patients unable or unwilling to use hypnotic medications or hormone therapy.",
@@ -1321,6 +1450,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-129",
+    "slug": "green-tea-consumption-reduces-total-cholesterol-in-postmenopause-article-129",
     "citation": "Zago IHR, Colonetti L, Balbinot EL, Taschetto IS, Grande AJ, da Rosa MI, Colonetti T. Effects of green tea use on the metabolic profile of postmenopausal women: systematic review and meta-analysis. Eur J Nutr. 2026 Jun 2;65(4):150. doi: 10.1007/s00394-026-04005-8. PMID: 42228178.",
     "headline": "Green Tea Consumption Reduces Total Cholesterol in Postmenopause",
     "takeaway": "A systematic review and meta-analysis of seven randomized controlled trials found that green tea consumption significantly reduced total cholesterol levels in postmenopausal women. While it did not significantly impact body weight or blood glucose, green tea may serve as a beneficial adjunctive strategy for managing early postmenopausal cardiovascular risk profiles.",
@@ -1331,6 +1461,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-130",
+    "slug": "elevated-fsh-links-postmenopausal-bone-loss-and-cognitive-decline-article-130",
     "citation": "Sims S, Sen F, Korkmaz F, Barak O, Cheliadinova U, Yuen T, Zaidi M, Kim SM. FSH Signaling in Osteoporosis and Alzheimer's Disease. Curr Osteoporos Rep. 2026 Mar 11;24(1):11. doi: 10.1007/s11914-026-00958-1. PMID: 41807843.",
     "headline": "Elevated FSH Links Postmenopausal Bone Loss and Cognitive Decline",
     "takeaway": "Emerging evidence indicates that rising follicle-stimulating hormone (FSH) levels during the menopausal transition play a critical independent role in both osteoporosis and Alzheimer's disease risk. Pre-clinical and population studies suggest that targeting FSH signaling could provide a novel therapeutic approach to simultaneously address late postmenopausal bone loss and cognitive aging.",
@@ -1341,6 +1472,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-131",
+    "slug": "early-initiation-of-hormone-therapy-offers-safest-cardiovascular-profile-article-131",
     "citation": "Buzduga CM, Bobu AM, Covali R, Costea CF, Cucu AI, Graur M, Patrascanu E, Solomon-Condriuc I, Carauleanu A. Menopausal Hormone Therapy and Cardiovascular Risk: Current Evidence and Clinical Implications. Med Sci (Basel). 2026 Jun 10;14(2):298. doi: 10.3390/medsci14020298. PMID: 42346837.",
     "headline": "Early Initiation of Hormone Therapy Offers Safest Cardiovascular Profile",
     "takeaway": "A comprehensive review of major trials confirms that menopausal hormone therapy (MHT) should not be prescribed solely for cardiovascular disease prevention. However, the 'timing hypothesis' suggests that initiating individualized, preferably transdermal, MHT early in the menopausal transition provides the greatest benefit for symptom relief and osteoporosis prevention with the lowest cardiovascular risk.",
@@ -1351,6 +1483,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-132",
+    "slug": "herbal-supplement-improves-sleep-fatigue-and-mood-in-perimenopause-article-132",
     "citation": "Lopresti AL, Smith SJ, Ferdinands FR. An examination into the safety and efficacy of Khapregesic®, a Khaya senegalensis preparation, on physical and psychological wellbeing in women experiencing menopausal symptoms: a randomised, double-blind, placebo-controlled trial. Front Reprod Health. 2026 Jun 2;8:1824321. doi: 10.3389/frph.2026.1824321. eCollection 2026.",
     "headline": "Herbal Supplement Improves Sleep, Fatigue, and Mood in Perimenopause",
     "takeaway": "This 28-day randomized, double-blind, placebo-controlled trial found that Khapregesic® (Khaya senegalensis) supplementation significantly improved psychological symptoms, fatigue, and sleep disturbances in postmenopausal women compared to placebo. While no group-wide effects were observed across the full cohort, subgroup analyses suggest this herbal preparation may offer a safe, well-tolerated option for managing common early perimenopause symptoms including mood changes, fatigue, and sleep disruption.",
@@ -1361,6 +1494,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-133",
+    "slug": "hormone-therapy-modestly-reduces-depression-in-perimenopause-article-133",
     "citation": "Li Y, Sun Y, Bi Y, Yang L, Xu Y, Wu H, Ma X. Efficacy and safety of menopausal hormone therapy for depressive symptoms in perimenopausal women: A systematic review and meta-analysis. J Affect Disord. 2026 Sep 15;409:121892. doi: 10.1016/j.jad.2026.121892. Epub 2026 Apr 28.",
     "headline": "Hormone Therapy Modestly Reduces Depression in Perimenopause",
     "takeaway": "This systematic review and meta-analysis of 12 randomized controlled trials found that menopausal hormone therapy (HRT) was associated with a small but statistically significant reduction in depressive symptom severity in perimenopausal women. While the magnitude of effect is modest and evidence certainty is limited, the findings support HRT as a potential option for managing mood-related symptoms during the late perimenopause transition.",
@@ -1371,6 +1505,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-134",
+    "slug": "psychosocial-interventions-reduce-physiological-menopause-symptoms-article-134",
     "citation": "Robinson K, Hardy R, Melville M, Saidel S, Desai R, Spector A. The effectiveness of psychosocial interventions on physiological symptoms of menopause: a systematic review and meta-analysis. BMC Womens Health. 2026 Jun 8. doi: 10.1186/s12905-026-04563-3. Online ahead of print.",
     "headline": "Psychosocial Interventions Reduce Physiological Menopause Symptoms",
     "takeaway": "This systematic review and meta-analysis evaluated psychosocial interventions (including CBT, mindfulness, and stress management) for physiological menopause symptoms such as hot flashes, night sweats, fatigue, and sleep disturbance. The findings demonstrate that these non-pharmacological approaches can meaningfully reduce symptom burden during active menopause, offering evidence-based alternatives or complements to hormone therapy.",
@@ -1381,6 +1516,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-135",
+    "slug": "citrulline-supplementation-may-lower-blood-pressure-in-postmenopause-article-135",
     "citation": "Bahari H, Ramezani E, Malekahmadi M. Citrulline supplementation in postmenopausal women: a systematic review of vascular, muscular, and metabolic effects. BMC Womens Health. 2026 Jan 26;26(1):116. doi: 10.1186/s12905-026-04277-6.",
     "headline": "Citrulline Supplementation May Lower Blood Pressure in Postmenopause",
     "takeaway": "This systematic review of 12 randomized controlled trials found that citrulline supplementation (directly or via watermelon products) may reduce systolic blood pressure by up to 9 mmHg in hypertensive postmenopausal women. While evidence for arterial stiffness, endothelial function, and metabolic outcomes remains inconsistent, citrulline offers a promising, safe dietary approach for supporting cardiovascular health in early postmenopause.",
@@ -1391,6 +1527,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-136",
+    "slug": "combined-exercise-modalities-improve-bone-density-in-postmenopause-article-136",
     "citation": "Zhou Z, Wei X, Zhang X, Ainsworth BE, Lü J, Liu Y. Effects of different types of exercise over 24 weeks on bone mineral density in postmenopausal women: A systematic review with pairwise and network meta-analysis of randomized controlled trials. J Sport Health Sci. 2026 Jan 29;15:101127. doi: 10.1016/j.jshs.2026.101127. Online ahead of print.",
     "headline": "Combined Exercise Modalities Improve Bone Density in Postmenopause",
     "takeaway": "This systematic review and network meta-analysis of 74 randomized controlled trials found that combining mind-body exercises (like Tai Chi or yoga) with resistance training was the most effective modality for improving bone mineral density at the lumbar spine and femoral neck in postmenopausal women. The findings suggest that interventions lasting 52 weeks or longer provide the most consistent and sustained benefits for bone health and fracture prevention.",
@@ -1401,6 +1538,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-137",
+    "slug": "efficacy-and-long-term-safety-drive-menopause-treatment-preferences-article-137",
     "citation": "Raskin L, Boretti E, Douxfils J, Beaudart C. Patient Preferences Regarding Menopausal Symptoms and Treatments: A Systematic Review of Quantitative Stated-Preference Studies. Patient. 2026 Jul;19(4):501-517. doi: 10.1007/s40271-025-00800-3. Epub 2026 Feb 10.",
     "headline": "Efficacy and Long-Term Safety Drive Menopause Treatment Preferences",
     "takeaway": "This systematic review of quantitative stated-preference studies revealed that when women choose menopausal treatments, their primary considerations are efficacy and long-term safety, though many report dissatisfaction with current therapeutic options. The findings highlight a critical need for better patient-centered communication and shared decision-making regarding menopause symptom management and quality of life.",
@@ -1411,6 +1549,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-138",
+    "slug": "lifestyle-medicine-crucial-for-perimenopause-symptom-relief-article-138",
     "citation": "Pangalangan JML, Tollefson M. Perimenopause and Lifestyle Medicine: A Window of Opportunity. Am J Lifestyle Med. 2026 May 13:15598276261449751. doi: 10.1177/15598276261449751. PMID: 42145808.",
     "headline": "Lifestyle Medicine Crucial for Perimenopause Symptom Relief",
     "takeaway": "This review synthesizes evidence showing that lifestyle interventions—including nutrition, physical activity, and sleep—can significantly mitigate early perimenopause symptoms. The midlife transition represents a critical window where these nonpharmacological approaches can improve quality of life and reduce chronic disease risk.",
@@ -1421,6 +1560,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-139",
+    "slug": "low-estradiol-linked-to-severe-migraines-in-perimenopause-article-139",
     "citation": "El-Ghoneimy LT, Elfayoumy NM, Helmy H, Elaguizy MMS, Nasser AMA, Abdelghany H. Clinical characteristics of perimenopausal migraine and its correlation to hormonal levels. J Headache Pain. 2026 Jun 16;27(1):156. doi: 10.1186/s10194-026-02418-8. PMID: 42304215.",
     "headline": "Low Estradiol Linked to Severe Migraines in Perimenopause",
     "takeaway": "A case-control study found that perimenopausal women experiencing new-onset migraines have significantly lower estradiol levels, which correlate with higher pain severity. These women also reported more frequent perimenopausal symptoms like fatigue, sleep disturbance, and anxiety compared to healthy controls.",
@@ -1431,6 +1571,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-140",
+    "slug": "managing-urinary-symptoms-in-genitourinary-syndrome-of-menopause-article-140",
     "citation": "Saad JC, Brandon CA. Urinary manifestations of genitourinary syndrome of menopause: a review of the pathophysiology, clinical presentation, and management. Gynecol Pelvic Med. 2026 Jun 10;9:15. doi: 10.21037/gpm-2025-1-79. PMID: 42428460.",
     "headline": "Managing Urinary Symptoms in Genitourinary Syndrome of Menopause",
     "takeaway": "This comprehensive review highlights that urinary symptoms like urgency, frequency, and recurrent infections are prevalent but undertreated components of genitourinary syndrome of menopause (GSM). Local estrogen therapy remains the cornerstone treatment, offering significant relief for active menopause urogenital atrophy.",
@@ -1441,6 +1582,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-141",
+    "slug": "mediterranean-diet-linked-to-milder-symptoms-and-lower-bmi-article-141",
     "citation": "Dumlu Bilgin G, Keküllüoğlu Tan M, Usta Ulutaş P, Kaya Cebioğlu İ, Keleş YN, Kural A, Böcek AC. From hot flashes to harmony: Mediterranean diet, menopausal symptoms, and cardiovascular risk awareness. Nutrition. 2026 May 17;150:113293. doi: 10.1016/j.nut.2026.113293. PMID: 42287755.",
     "headline": "Mediterranean Diet Linked to Milder Symptoms and Lower BMI",
     "takeaway": "A cross-sectional study of 702 women demonstrated that higher adherence to the Mediterranean diet is associated with lower BMI, reduced psychological complaints, and better cardiovascular risk awareness. These findings support dietary interventions for promoting early postmenopausal health and symptom management.",
@@ -1451,6 +1593,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-142",
+    "slug": "elevated-fsh-associated-with-cognitive-decline-and-amyloid-burden-article-142",
     "citation": "Wang SM, Jeong C, Um YH, Kang DW, Kim S, Lee S, Lee CU, Aizenstein HJ, Baek KH, Lim HK. Follicle-stimulating hormone linked to cognitive decline and amyloid burden in postmenopausal women. Front Aging Neurosci. 2026 Jan 6;17:1697255. doi: 10.3389/fnagi.2025.1697255. PMID: 41568256.",
     "headline": "Elevated FSH Associated with Cognitive Decline and Amyloid Burden",
     "takeaway": "In a study of 884 postmenopausal women, elevated follicle-stimulating hormone (FSH) levels—rather than low estradiol—were significantly linked to poorer cognitive performance and greater cerebral amyloid-beta deposition. This suggests FSH may be a key risk factor and potential therapeutic target for Alzheimer's disease in late postmenopause.",
@@ -1461,6 +1604,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-143",
+    "slug": "group-cbt-effectively-reduces-hot-flashes-and-anxiety-article-143",
     "citation": "Jung D, Park JY, Chung KM, Kim MR. Redefining menopausal care: a randomized trial of group CBT for vasomotor symptoms in Korean women. Climacteric. 2026 Jun 9:1-11. doi: 10.1080/13697137.2026.2661353. PMID: 42261852.",
     "headline": "Group CBT Effectively Reduces Hot Flashes and Anxiety",
     "takeaway": "A randomized controlled trial showed that an eight-session group cognitive behavioral therapy (CBT) program significantly reduced the frequency and distress of vasomotor symptoms. Participants also experienced improved menopause-specific quality of life and sustained reductions in anxiety.",
@@ -1471,6 +1615,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-144",
+    "slug": "one-in-three-perimenopausal-women-face-depression-or-insomnia-article-144",
     "citation": "Balasubramanian I, Abhijita B, Krishnamoorthy Y, Gnanadhas J, Beg MJ, Menon V. Prevalence and incidence of depressive, anxiety, and insomnia symptoms in perimenopausal and postmenopausal women: Systematic review and meta-analysis. Gen Hosp Psychiatry. 2026 May-Jun;100:325-335. doi: 10.1016/j.genhosppsych.2026.03.010. Epub 2026 Mar 14. PMID: 41946603.",
     "headline": "One in Three Perimenopausal Women Face Depression or Insomnia",
     "takeaway": "This systematic review and meta-analysis of 102 studies (N=1,141,955) found that nearly one in three women experiences depressive, anxiety, or insomnia symptoms during the menopausal transition, with insomnia affecting 27% of perimenopausal women. Subgroup analyses revealed higher rates during early menopause, underscoring the need for routine mental health screening and integrated multidisciplinary care.",
@@ -1481,6 +1626,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-145",
+    "slug": "screening-tools-needed-for-perimenopausal-mood-and-cognitive-changes-article-145",
     "citation": "Reddy S, Gopal A, Weber R, Bolton E, Kumar N, Markowitz A. Evaluating tools for assessing mental health disorders in perimenopausal women. Int J Gynaecol Obstet. 2026 Jun;173(3):1325-1333. doi: 10.1002/ijgo.70783. Epub 2025 Dec 31. PMID: 41476384.",
     "headline": "Screening Tools Needed for Perimenopausal Mood and Cognitive Changes",
     "takeaway": "This review identifies that perimenopausal women progress from irregular cycles to hot flashes, night sweats, and cognitive symptoms, with an increased risk of anxiety and depression regardless of prior psychiatric history. Validated screening tools including the PHQ-9, GAD-7, and menopause-specific instruments are essential for early identification of mood and cognitive changes during late perimenopause.",
@@ -1491,6 +1637,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-146",
+    "slug": "heavy-strength-training-preserves-bone-and-muscle-at-menopause-article-146",
     "citation": "Whitman PW, Alexander CJ, Kaluta L, McDonough MH, Jordan MJ, Billington EO, Burt LA, Gabel L. Preventing muscle and bone loss in peri-menopausal and early post-menopausal females with heavy strength and impact training: Results from the STOP-EM randomised waitlisted controlled feasibility trial. Bone Rep. 2026 Jun 19;30:101931. doi: 10.1016/j.bonr.2026.101931. eCollection 2026 Sep. PMID: 42396128.",
     "headline": "Heavy Strength Training Preserves Bone and Muscle at Menopause",
     "takeaway": "A randomized controlled feasibility trial of 40 peri- and early postmenopausal women showed that nine months of twice-weekly heavy strength and impact training significantly increased lean mass, leg power, and lumbar spine bone mineral density compared to a waitlisted control group. These results support progressive resistance training as an effective strategy to counteract bone and muscle loss during the menopause transition.",
@@ -1501,6 +1648,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-147",
+    "slug": "olive-leaf-extract-shows-skin-and-tissue-benefits-in-postmenopausal-wome-article-147",
     "citation": "Lasfar A, van Stratum SLM, Imperatrice M, van Kalkeren CAJ, Scheijen JLJM, Schalkwijk CG, La Torre D, Troost FJ. Effects of olive leaf extract supplementation on systemic markers of tissue aging and remodeling in postmenopausal women: a randomized controlled trial with exploratory skin outcomes. Front Nutr. 2025 Nov 18;12:1670194. doi: 10.3389/fnut.2025.1670194. eCollection 2025. PMID: 41340653.",
     "headline": "Olive Leaf Extract Shows Skin and Tissue Benefits in Postmenopausal Women",
     "takeaway": "A 12-week randomized controlled trial of 65 postmenopausal women found that olive leaf extract supplementation reduced skin pore number and surface skewness, suggesting localized benefits for skin structure and extracellular matrix preservation. Although systemic markers of tissue aging were not significantly altered after correction for multiple testing, trends suggest potential modulation of pathways involved in collagen and cardiovascular health.",
@@ -1511,6 +1659,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-148",
+    "slug": "hormone-therapy-does-not-increase-or-decrease-dementia-risk-article-148",
     "citation": "Melville M, He L, Desai R, Nyamayaro P, Fox C, Kothari KU, Condron P, Miao M, Hickey M, Spector A. Menopause hormone therapy and risk of mild cognitive impairment or dementia: a systematic review and meta-analysis. Lancet Healthy Longev. 2025 Dec;6(12):100803. doi: 10.1016/j.lanhl.2025.100803. Epub 2025 Dec 22. PMID: 41448220.",
     "headline": "Hormone Therapy Does Not Increase or Decrease Dementia Risk",
     "takeaway": "This systematic review and meta-analysis of 10 studies (N=1,016,055) published in The Lancet Healthy Longevity found no significant association between menopause hormone therapy and the risk of mild cognitive impairment or dementia in postmenopausal women. The findings reinforce current clinical guidance that MHT should be prescribed based on symptom management and other risk-benefit considerations, not for dementia prevention.",
@@ -1521,6 +1670,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-149",
+    "slug": "exercise-and-education-help-manage-perimenopause-symptoms-article-149",
     "citation": "McNulty KL, Murphy M, Flynn E, Lane A, Muldoon A, Kealy R, Harrison M, Windle J, Heavey P. The Effectiveness of Lifestyle Interventions, Including Exercise, Diet, and Health Education on Symptoms Experienced During Perimenopause: A Systematic Review of Randomized Controlled Trials. J Aging Phys Act. 2025 Sep 23;34(3):380-403. doi: 10.1123/japa.2024-0226. Print 2026 Jun 1. PMID: 40992413.",
     "headline": "Exercise and Education Help Manage Perimenopause Symptoms",
     "takeaway": "A systematic review of 25 RCTs found that both exercise interventions and health education programs offer meaningful benefits in managing perimenopausal symptoms, though large between-study variances make it difficult to establish definitive evidence-based guidelines. The review highlights a notable gap in diet-only intervention research and calls for more rigorous, high-quality trials to determine optimal lifestyle prescriptions for the menopausal transition.",
@@ -1531,6 +1681,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-150",
+    "slug": "fatigue-and-mood-top-self-reported-early-perimenopause-symptoms-globally-article-150",
     "citation": "Hedges MS, Hewings-Martin Y, Karam J, Castaneda R, Cunningham AC, Xu Y, Zhaunova L, Faubion SS, Shufelt CL. Global perspectives on perimenopause: a digital survey of knowledge and symptoms using the Flo application. Menopause. 2026 Jul 1;33(7):789-798. doi: 10.1097/GME.0000000000002730. PMID: 41603602.",
     "headline": "Fatigue and Mood Top Self-Reported Early Perimenopause Symptoms Globally",
     "takeaway": "A cross-sectional digital survey of 17,494 women from 158 countries found that while hot flashes are the most widely recognized perimenopause symptom, women aged 35 and older most commonly self-reported fatigue, physical and mental exhaustion, and irritability as their actual experiences. This global data highlights a critical knowledge gap between expected and lived perimenopause symptoms, underscoring the need for better education around early-stage mood and energy changes.",
@@ -1541,6 +1692,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-151",
+    "slug": "metabolic-syndrome-risk-surges-during-the-menopausal-transition-article-151",
     "citation": "Huang J, Feng P, Tang R, Huang F, Fan Y, Yang X, Xie Z, Yang L, Ma X, Yang K, Zhang R, Liu G, Luo M, Chen R. Menopausal transition and metabolic syndrome risk: insights from the Chinese PALM longitudinal cohort. Climacteric. 2026 Jun;29(3):381-395. doi: 10.1080/13697137.2025.2591300. PMID: 41504257.",
     "headline": "Metabolic Syndrome Risk Surges During the Menopausal Transition",
     "takeaway": "A 20-year longitudinal cohort study of 841 Chinese women found that metabolic syndrome prevalence increased from 15% in the reproductive stage to nearly 44% in late postmenopause, with the highest odds occurring in early postmenopause. Vasomotor symptoms—including hot flashes—were significantly linked to central obesity and elevated triglycerides, identifying the late perimenopause transition as a critical window for metabolic screening and intervention.",
@@ -1551,6 +1703,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-152",
+    "slug": "micronized-progesterone-improves-sleep-onset-at-three-months-article-152",
     "citation": "Hirose A, Terauchi M, Hirata M, Matsuoka K, Umayahara K, Sakamoto M, Miyasaka N. Effects of Micronized Progesterone in Menopausal Hormone Replacement Therapy on Sleep. J Obstet Gynaecol Res. 2026 Jul;52(7):e70401. doi: 10.1111/jog.70401. PMID: 42454969.",
     "headline": "Micronized Progesterone Improves Sleep Onset at Three Months",
     "takeaway": "A retrospective observational study found that switching menopausal women from synthetic progestins to micronized progesterone significantly improved sleep induction and reduced nighttime awakenings at three months, though these benefits diminished by one year. Women without pre-existing sleep disorders experienced worsened sleep, suggesting that micronized progesterone's sedative effects via GABA receptors require careful patient selection and ongoing monitoring.",
@@ -1561,6 +1714,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-153",
+    "slug": "genitourinary-microbiome-shapes-vaginal-and-urinary-health-after-menopau-article-153",
     "citation": "Miller SJ, Choo J, Grundy L, Taylor S, Rogers GB. Genitourinary microbiota in older women: a persistent knowledge gap that limits clinical and research progress. Infect Immun. 2026 Jul 10:e0023426. doi: 10.1128/iai.00234-26. PMID: 42429817.",
     "headline": "Genitourinary Microbiome Shapes Vaginal and Urinary Health After Menopause",
     "takeaway": "This review highlights that genitourinary health in older postmenopausal women—including genitourinary syndrome of menopause, urinary incontinence, and recurrent UTIs—is substantially influenced by shifts in the genitourinary microbiome driven by estrogen decline, polypharmacy, and aging physiology. The authors call for age-specific, integrative research to translate microbiological insights into person-centered care strategies for postmenopausal vaginal and urinary health.",
@@ -1571,6 +1725,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-154",
+    "slug": "hormone-therapy-linked-to-better-cognitive-performance-in-older-women-article-154",
     "citation": "Amado-Riveros P, Riveros-Perez E. Hormone Therapy is Associated with Better Cognitive Performance in Postmenopausal Women: Insights from the National Health and Nutrition Examination Survey (NHANES). Ann Geriatr Med Res. 2026 Jun;30(2):236-245. doi: 10.4235/agmr.25.0180. Epub 2026 Feb 19. PMID: 42366122.",
     "headline": "Hormone Therapy Linked to Better Cognitive Performance in Older Women",
     "takeaway": "A cross-sectional analysis of 1,374 postmenopausal women from the NHANES database found that hormone therapy was significantly associated with better performance across multiple cognitive domains, including word recall, processing speed, and verbal fluency. The cognitive benefit was most pronounced between ages 65 and 70, suggesting a critical window during which hormone therapy may help attenuate age-related cognitive decline in late postmenopause.",
@@ -1581,6 +1736,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-155",
+    "slug": "gut-microbiota-interventions-offer-new-hope-for-postmenopausal-bone-heal-article-155",
     "citation": "Lin Y, Zheng J, Hu D, Ying Y, Zhu Y, Chen Z. Modulating the gut ecosystem dietary, probiotic, and novel interventions for bone health in postmenopausal women. Front Immunol. 2026 Jul 3;17:1814866. doi: 10.3389/fimmu.2026.1814866. PMID: 42490818.",
     "headline": "Gut Microbiota Interventions Offer New Hope for Postmenopausal Bone Health",
     "takeaway": "This comprehensive review highlights the emerging role of gut microbiota in regulating bone metabolism in postmenopausal women, operating through the brain-gut-bone axis, immune modulation, and metabolic byproducts such as short-chain fatty acids. Dietary interventions, probiotics, and prebiotics show promise as accessible, non-hormonal strategies for preventing and managing postmenopausal osteoporosis.",
@@ -1591,6 +1747,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-156",
+    "slug": "vasomotor-symptoms-strongly-linked-to-anxiety-and-depression-article-156",
     "citation": "Gibson CJ, Ajmera M, O'Sullivan F, Shiozawa A, Lozano-Ortega G, Badillo EC, Venkataraman M, Mancuso S. A Systematic Review of Anxiety and Depressive Symptoms Among Women Experiencing Vasomotor Symptoms Across Reproductive Stages in the US. Int J Womens Health. 2025 Feb 27;17:537-552. doi: 10.2147/IJWH.S491640. eCollection 2025. PMID: 40034973.",
     "headline": "Vasomotor Symptoms Strongly Linked to Anxiety and Depression",
     "takeaway": "A systematic review of 26 studies found that vasomotor symptoms (hot flashes and night sweats) are consistently and strongly associated with both depressive symptoms and anxiety across all reproductive stages, with higher rates observed in women with more frequent or severe symptoms. These findings underscore the need for integrated mental health support alongside physical symptom management in early perimenopause.",
@@ -1601,6 +1758,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-157",
+    "slug": "probiotic-reduces-hot-flashes-anxiety-in-perimenopause-article-157",
     "citation": "Wu X, Chen W, Yong Q, Zeng Q, You J, Zeng K, Li T, Wei J, Xie Y, Xu T, Chen T. Limosilactobacillus reuteri NCU-37 alleviates leuprorelin-induced perimenopausal syndrome in infertile women by modulating the gut microbiota: a randomized controlled trial. Food Funct. 2026 Jan 12;17(1):565-576. doi: 10.1039/d5fo04330a. PMID: 41399984.",
     "headline": "Probiotic Reduces Hot Flashes, Anxiety in Perimenopause",
     "takeaway": "A randomized controlled trial of 100 women found that Limosilactobacillus reuteri NCU-37 supplementation significantly reduced hot flashes, night sweats, anxiety, depression, and insomnia scores compared to placebo in women with leuprorelin-induced perimenopausal syndrome. The probiotic also improved hormone levels and beneficially shifted gut microbiota composition, suggesting a gut-hormone axis mechanism for symptom relief.",
@@ -1611,6 +1769,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-158",
+    "slug": "cbt-significantly-improves-sleep-in-menopausal-women-article-158",
     "citation": "Moon HJ, Yu SN, Hur MH. Effects of cognitive behavioral therapy on sleep quality and insomnia severity index in women with menopausal insomnia: a systematic review and meta-analysis. Womens Health Nurs. 2025 Dec;31(4):304-319. doi: 10.4069/whn.2025.09.07. Epub 2025 Dec 31. PMID: 41531400.",
     "headline": "CBT Significantly Improves Sleep in Menopausal Women",
     "takeaway": "A systematic review and meta-analysis of 11 RCTs (n=973) found that cognitive behavioral therapy for insomnia (CBT-I) significantly improved sleep quality and reduced insomnia severity in menopausal women, with benefits consistent across face-to-face, telephone, and internet-based delivery formats. These findings support CBT-I as an effective, non-pharmacological first-line intervention for the insomnia that commonly accompanies active menopause.",
@@ -1621,6 +1780,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-159",
+    "slug": "cochrane-review-updates-long-term-hormone-therapy-risk-benefit-profile-article-159",
     "citation": "Bofill Rodriguez M, Yong LN, Mirkov S, Bekos C, Lethaby A, Farquhar C. Long-term hormone therapy for perimenopausal and postmenopausal women. Cochrane Database Syst Rev. 2025 Nov 27;11(11):CD004143. doi: 10.1002/14651858.CD004143.pub6. PMID: 41307293.",
     "headline": "Cochrane Review Updates Long-Term Hormone Therapy Risk-Benefit Profile",
     "takeaway": "This updated Cochrane systematic review of 24 trials (45,660 participants) found that oestrogen-only hormone therapy probably makes little to no difference to coronary events and breast cancer risk, but probably reduces fracture risk, while combined hormone therapy probably increases breast cancer risk and may increase stroke and thromboembolism risk. The review reinforces that hormone therapy risk profiles differ substantially between formulation types and should be individualized based on each woman's health history and timing of menopause.",
@@ -1631,6 +1791,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-160",
+    "slug": "exercise-plus-calcium-and-vitamin-d-boosts-bone-density-article-160",
     "citation": "Bai J, Huang W, Yan R, Du X. Effects of Combined Exercise and Calcium/Vitamin D Supplementation on Bone Mineral Density in Postmenopausal Women: A Systematic Review and Meta-Analysis. Nutrients. 2025 Dec 11;17(24):3866. doi: 10.3390/nu17243866. PMID: 41470812.",
     "headline": "Exercise Plus Calcium and Vitamin D Boosts Bone Density",
     "takeaway": "A systematic review and meta-analysis of 13 RCTs found that combining exercise with calcium and vitamin D supplementation significantly increased lumbar spine and femoral neck bone mineral density in postmenopausal women compared to supplementation alone, with whole-body vibration and mind-body exercises producing the greatest benefits. Shorter intervention durations of six months or less yielded the most pronounced gains, providing a practical, evidence-based strategy for skeletal health in late postmenopause.",
@@ -1641,6 +1802,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-161",
+    "slug": "soy-isoflavones-reduce-mood-and-psychosocial-menopause-symptoms-article-161",
     "citation": "Luan H, Liu Q, Guo Y, Fan H, A S, Lin J. Effects of soy isoflavones on menopausal symptoms in perimenopausal women: a systematic review and meta-analysis. PeerJ. 2025 Jul 23;13:e19715. doi: 10.7717/peerj.19715. eCollection 2025. PMID: 40718787.",
     "headline": "Soy Isoflavones Reduce Mood and Psychosocial Menopause Symptoms",
     "takeaway": "A systematic review and meta-analysis of 12 RCTs found that soy isoflavones significantly improved overall menopausal symptoms, with notable effects on headache, psychosocial symptoms, palpitations, and depression in perimenopausal women. While no significant effect was observed on hot flushes or vasomotor symptoms, the findings support soy isoflavones as a dietary strategy for managing the psychological and neurological dimensions of the menopausal transition.",
@@ -1651,6 +1813,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-162",
+    "slug": "herbal-supplement-improves-sleep-and-mood-in-postmenopausal-women-article-162",
     "citation": "Lopresti AL, Smith SJ, Ferdinands FR. An examination into the safety and efficacy of Khapregesic®, a Khaya senegalensis preparation, on physical and psychological wellbeing in women experiencing menopausal symptoms: a randomised, double-blind, placebo-controlled trial. Front Reprod Health. 2026 Jun 2;8:1824321. doi: 10.3389/frph.2026.1824321. eCollection 2026. PMID: 42312188.",
     "headline": "Herbal Supplement Improves Sleep and Mood in Postmenopausal Women",
     "takeaway": "A 28-day randomized, double-blind, placebo-controlled trial of 140 peri- and postmenopausal women found that Khapregesic® (Khaya senegalensis) supplementation significantly improved psychological symptoms, fatigue, and sleep disturbances compared to placebo in the postmenopausal subgroup. While no overall group effect was detected across the full cohort, the subgroup findings suggest this herbal preparation may offer targeted benefits for early perimenopause-related mood and sleep disruption.",
@@ -1661,6 +1824,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-163",
+    "slug": "group-cbt-cuts-hot-flashes-and-anxiety-in-perimenopausal-women-article-163",
     "citation": "Jung D, Park JY, Chung KM, Kim MR. Redefining menopausal care: a randomized trial of group CBT for vasomotor symptoms in Korean women. Climacteric. 2026 Jun 9:1-11. doi: 10.1080/13697137.2026.2661353. Online ahead of print. PMID: 42261852.",
     "headline": "Group CBT Cuts Hot Flashes and Anxiety in Perimenopausal Women",
     "takeaway": "A randomized controlled trial of 50 perimenopausal and postmenopausal Korean women found that an eight-session group cognitive behavioral therapy program significantly reduced vasomotor symptom frequency, distress, and daily interference, while also improving quality of life and anxiety with effects sustained at four-week follow-up. These findings support group-based CBT as an effective non-hormonal intervention for the hot flashes and anxiety characteristic of late perimenopause.",
@@ -1671,6 +1835,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-164",
+    "slug": "radiofrequency-therapy-offers-safe-option-for-vaginal-dryness-article-164",
     "citation": "Lumowa FSR, Kurniawati EM, Hardianto G. Efficacy and Safety of Radiofrequency as a Treatment Modality for Genitourinary Syndrome of Menopause: A Systematic Review and Meta-Analysis of Randomized Controlled Trials. Int Urogynecol J. 2026 Jul 30. doi: 10.1007/s00192-026-06818-x. Online ahead of print. PMID: 42530648.",
     "headline": "Radiofrequency Therapy Offers Safe Option for Vaginal Dryness",
     "takeaway": "A systematic review and meta-analysis of randomized controlled trials found that radiofrequency therapy significantly improved vaginal dryness, dyspareunia, and urinary symptoms associated with genitourinary syndrome of menopause, with a favorable safety profile. These findings position radiofrequency as a promising non-hormonal, non-pharmacological treatment option for women experiencing peak genitourinary symptoms during active menopause.",
@@ -1681,6 +1846,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-165",
+    "slug": "extended-bisphosphonate-use-bone-benefits-and-fracture-risks-article-165",
     "citation": "Oka P, Moosa AS, Koh EYL, Ng CJ. Health and adverse events associated with extended oral bisphosphonates among postmenopausal women: a systematic review. J Clin Endocrinol Metab. 2026 Apr 22;111(5):e1226-e1238. doi: 10.1210/clinem/dgag057. PMID: 41668457.",
     "headline": "Extended Bisphosphonate Use: Bone Benefits and Fracture Risks",
     "takeaway": "A systematic review of 11 studies found that extending oral bisphosphonate therapy beyond five years in postmenopausal women increased bone mineral density at the hip and lumbar spine and reduced vertebral fracture risk, but also raised the risk of atypical femoral fractures. These nuanced findings underscore the need for individualized risk-benefit assessment when managing bone protection in early postmenopause.",
@@ -1691,6 +1857,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-166",
+    "slug": "estrogen-decline-drives-cognitive-changes-across-six-brain-domains-article-166",
     "citation": "Khadilkar S, Mahajan Bhanushali J, Mahto AP, Khadilkar S. Cognition in menopausal women. Int J Gynaecol Obstet. 2026 Mar 27. doi: 10.1002/ijgo.70944. Online ahead of print. PMID: 41902393.",
     "headline": "Estrogen Decline Drives Cognitive Changes Across Six Brain Domains",
     "takeaway": "This review synthesizes evidence that the estrogen decline of menopause impairs memory, attention, executive functioning, and social cognition, with verbal and working memory showing the most significant deterioration in late postmenopause. The authors recommend a comprehensive strategy combining hormone therapy initiated early in the menopausal transition, aerobic exercise, strength training, and a balanced diet to preserve cognitive resilience and reduce Alzheimer's disease risk.",
@@ -1701,6 +1868,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-167",
+    "slug": "menopause-drives-cholesterol-spikes-key-window-for-heart-protection-article-167",
     "citation": "Castaneda R, Tatit CP, Hurtado Andrade MD, Faubion SS, Shufelt CL. Dyslipidemia across the menopause transition: Mechanisms, trajectories, and opportunities for cardiovascular prevention. Maturitas. 2026 Jul 17;212:109058. doi: 10.1016/j.maturitas.2026.109058. Online ahead of print. PMID: 42468089.",
     "headline": "Menopause Drives Cholesterol Spikes: Key Window for Heart Protection",
     "takeaway": "This review from Mayo Clinic researchers demonstrates that estrogen decline during the menopause transition causes significant increases in LDL cholesterol and triglycerides independent of chronological aging, with the most pronounced changes occurring within one year of the final menstrual period. Mediterranean and DASH dietary patterns combined with regular aerobic or resistance exercise are the recommended first-line interventions, while statins remain the pharmacological standard when lifestyle modifications are insufficient.",
@@ -1711,6 +1879,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-168",
+    "slug": "exercise-may-ease-depression-during-perimenopause-article-168",
     "citation": "Dong S, Chan T, Wen Y. Effects of exercise interventions on depressive symptoms in perimenopausal women in China: a systematic review and meta-analysis. Front Psychol. 2026 Jul 22;17:1848514. doi:10.3389/fpsyg.2026.1848514. PMID: 42558434.",
     "headline": "Exercise May Ease Depression During Perimenopause",
     "takeaway": "A meta-analysis of 21 randomized trials involving 1,398 Chinese perimenopausal women found that exercise interventions reduced depressive symptoms versus control conditions. Because results varied substantially between studies and publication bias was possible, the review cannot identify an optimal exercise prescription.",
@@ -1721,6 +1890,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-169",
+    "slug": "combined-approaches-may-better-address-perimenopausal-mood-symptoms-article-169",
     "citation": "Zhuang J, Zhou Y, Yu G, Cheng H, Chen X, Qian R. Pharmacotherapy, acupoint stimulation, and psychotherapy for perimenopausal women with anxiety, depression, and panic disorder: a systematic review and network meta-analysis of randomized controlled trials. Front Psychiatry. 2026 Jul 17;17:1845876. doi:10.3389/fpsyt.2026.1845876. PMID: 42539596.",
     "headline": "Combined Approaches May Better Address Perimenopausal Mood Symptoms",
     "takeaway": "A network meta-analysis of 131 randomized trials involving 11,457 perimenopausal women found benefits across pharmacotherapy, acupoint stimulation, and psychotherapy for emotional symptoms. Combination approaches generally ranked better on several measures, but no single strategy was consistently superior across all outcomes.",
@@ -1731,6 +1901,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-170",
+    "slug": "gsm-involves-microbiome-changes-across-three-body-sites-article-170",
     "citation": "Tsuboi I, Inoue S, Hirayama T, Mitsui Y, Watanabe M, Hirakawa H, Sadahira T. Gut, vaginal, and urinary microbiome alterations in women with genitourinary syndrome of menopause: A systematic review. Maturitas. 2026 Aug;211:109031. doi:10.1016/j.maturitas.2026.109031. PMID: 42341424.",
     "headline": "GSM Involves Microbiome Changes Across Three Body Sites",
     "takeaway": "Across 23 studies involving 5,027 participants, postmenopausal women with genitourinary syndrome of menopause generally had lower Lactobacillus abundance and higher microbial diversity. Estrogen therapy partly restored Lactobacillus dominance, but microbiome changes did not consistently predict symptom relief.",
@@ -1741,6 +1912,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-171",
+    "slug": "one-probiotic-formula-did-not-protect-early-bone-density-article-171",
     "citation": "Resciniti S, Dacaya P, Yim K, Esmaili T, Vinh A, Galvão HB, Ghasem-Zadeh A, Biesiekierski JR, Moschonis G. Effects of 12-month probiotic supplementation on bone mineral density and bone turnover markers in early postmenopausal females: A double-blind randomized controlled trial. Am J Clin Nutr. 2026 Aug;124(2):101384. doi:10.1016/j.ajcnut.2026.101384. PMID: 42264450.",
     "headline": "One Probiotic Formula Did Not Protect Early Bone Density",
     "takeaway": "In a double-blind trial of 114 women one to eight years after menopause, this lactobacilli formulation did not prevent bone loss over 12 months. The probiotic group had a small but statistically greater decline at the primary tibial bone-density site, so this specific formula is not supported as a stand-alone bone-preservation strategy.",
@@ -1751,6 +1923,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-172",
+    "slug": "polyphenol-mix-improved-oxidized-ldl-but-raised-lipids-article-172",
     "citation": "García-Nicolás M, Jarrín-Orozco MP, Romo-Vaquero M, Carrascosa C, Avilés-Plaza F, Martínez-Villanueva M, Noguera JA, Ávila-Gálvez MÁ, Espín JC. Polyphenols increase circulating lipids but improve LDL particle quality and reduce LDL oxidation in postmenopausal women: metabotype- and age-dependent effects in a randomised, placebo-controlled crossover trial. Eur J Nutr. 2026 Jun 29;65(5):177. doi:10.1007/s00394-026-04027-2. PMID: 42371155.",
     "headline": "Polyphenol Mix Improved Oxidized LDL but Raised Lipids",
     "takeaway": "In a randomized crossover trial, 90 mildly hypercholesterolemic postmenopausal women took a multi-polyphenol mix that lowered oxidized LDL after eight weeks but raised total cholesterol, LDL cholesterol, and triglycerides. Responses differed by metabolic phenotype, underscoring that these biomarker findings do not establish a general cardiovascular benefit.",
@@ -1761,6 +1934,7 @@ const rawResearchArticles: ResearchArticle[] =
   },
   {
     "id": "article-173",
+    "slug": "hormone-therapy-and-phytoestrogens-may-ease-menopausal-mood-symptoms-article-173",
     "citation": "Shou M, Ye M, Lou C, Chen X, Yao Y, Yan J, Zhou W, Fu Z, Liu Z. Efficacy of hormone therapy and phytoestrogens on the psychological symptoms of menopausal women: a systematic review, meta-analysis, and trial sequential analysis. Front Med (Lausanne). 2026 Jul 10;13:1855845. doi:10.3389/fmed.2026.1855845. PMID: 42500528.",
     "headline": "Hormone Therapy and Phytoestrogens May Ease Menopausal Mood Symptoms",
     "takeaway": "A review of 51 hormone-therapy trials and 16 phytoestrogen trials found associations with improved mood and anxiety symptoms in menopausal women. Effects differed by symptom and subgroup, and some reported findings did not remain significant after correction, so treatment choices should remain individualized.",

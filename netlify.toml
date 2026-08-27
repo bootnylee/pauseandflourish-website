@@ -23,6 +23,19 @@
 # serve their extensionless form directly and handle slash normalization before
 # redirect rules run; explicit slash-removal rules would therefore self-loop.
 
+# Preserve legacy routes created when research titles temporarily drove slugs.
+[[redirects]]
+  from = "/research/complementary-therapies-for-menopause-what-works-climacteric-2026-article-042"
+  to = "/research/complementary-therapies-for-menopause-what-works-article-042"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/research/complementary-therapies-for-menopause-what-works-climacteric-2026-pmid-4-article-056"
+  to = "/research/complementary-therapies-for-menopause-what-works-article-056"
+  status = 301
+  force = true
+
 # ── Legacy subscribe alias — protects stale cached frontend bundles ───────────
 [[redirects]]
   from = "/api/subscribe"

@@ -715,13 +715,8 @@ for (const comp of comparisons) {
 // 13. Research detail pages
 console.log("\n📚 Research detail pages:");
 for (const article of researchArticles) {
-  const researchSlug = article.headline
-    .toLowerCase()
-    .replace(/\.\.\.|…/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 72);
-  const slug = researchSlug ? `${researchSlug}-${article.id}` : article.id;
+  if (!article.slug) throw new Error(`Research article is missing stable slug: ${article.id}`);
+  const slug = article.slug;
   const canonical = `${BASE_URL}/research/${slug}`;
   writeRoute(`/research/${slug}`, {
     title: researchPageTitle(article.headline, 60),

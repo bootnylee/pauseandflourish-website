@@ -99,6 +99,7 @@ const data = {
   })),
   researchArticles: researchArticles.map(article => ({
     id: article.id,
+    slug: article.slug,
     citation: article.citation,
     headline: article.headline,
     takeaway: article.takeaway,

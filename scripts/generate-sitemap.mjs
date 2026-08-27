@@ -56,13 +56,8 @@ function urlEntry(path, { lastmod = today, changefreq = "monthly", priority = "0
 }
 
 function researchPath(article) {
-  const headline = String(article.headline || "")
-    .toLowerCase()
-    .replace(/\.\.\.|…/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 72);
-  return `/research/${headline ? `${headline}-${article.id}` : article.id}`;
+  if (!article.slug) throw new Error(`Research article is missing stable slug: ${article.id}`);
+  return `/research/${article.slug}`;
 }
 
 // ── Collect all URLs ──────────────────────────────────────────────────────────

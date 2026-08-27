@@ -1,17 +1,7 @@
 import { researchArticles, type ResearchArticle } from "./researchArticles";
 
-function slugPart(value: string) {
-  return value
-    .toLowerCase()
-    .replace(/\.\.\.|…/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 72);
-}
-
 export function researchSlug(article: ResearchArticle) {
-  const headline = slugPart(article.headline);
-  return headline ? `${headline}-${article.id}` : article.id;
+  return article.slug;
 }
 
 export function researchPath(article: ResearchArticle) {
