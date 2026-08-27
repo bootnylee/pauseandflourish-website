@@ -68,6 +68,16 @@ function trunc(str = "", max = 155) {
     .trim();
 }
 
+function researchPageTitle(headline, max = 60) {
+  const [base, ...citationParts] = String(headline).split(" — ");
+  const citation = citationParts.join(" — ").trim();
+  if (!citation || headline.length <= max) return trunc(headline, max);
+
+  const availableBaseLength = max - citation.length - 3;
+  if (availableBaseLength < 12) return trunc(headline, max);
+  return `${trunc(base, availableBaseLength)} — ${citation}`;
+}
+
 // ── Read the base index.html template ────────────────────────────────────────
 // MUST read from dist/public/index.html (the Vite-built output) so that
 // the hashed asset paths (/assets/index-XXXX.js, /assets/index-XXXX.css)
@@ -714,7 +724,7 @@ for (const article of researchArticles) {
   const slug = researchSlug ? `${researchSlug}-${article.id}` : article.id;
   const canonical = `${BASE_URL}/research/${slug}`;
   writeRoute(`/research/${slug}`, {
-    title: trunc(article.headline, 60),
+    title: researchPageTitle(article.headline, 60),
     description: trunc(article.takeaway, 155),
     canonical,
     ogType: "article",
