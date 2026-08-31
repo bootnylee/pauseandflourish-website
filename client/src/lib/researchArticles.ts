@@ -1943,8 +1943,74 @@ const rawResearchArticles: ResearchArticle[] =
     "stage_id": "general",
     "date_added": "2026-08-17"
   }
+,
+  {
+    "id": "article-174",
+    "slug": "early-perimenopause-symptoms-can-appear-before-hot-flashes-article-174",
+    "citation": "Bresolin S, Islam RM, Bond M, Davis SR. Symptom profiles in the late reproductive stage, earlier premenopause and early perimenopause in the absence of vasomotor symptoms: a cross-sectional study. BMJ Sex Reprod Health. 2026;52(3):192-199. doi:10.1136/bmjsrh-2025-203075. PMID: 41813093.",
+    "headline": "Early Perimenopause Symptoms Can Appear Before Hot Flashes",
+    "takeaway": "In this cross-sectional analysis of Australian women without vasomotor symptoms, early perimenopause was defined by a menstrual-cycle variation of at least 7 days, and its symptom profile differed little from the late reproductive stage with changed flow. The findings indicate that changed flow alone is not a clear marker of transition onset and cannot establish that a particular symptom was caused by menopause.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41813093/",
+    "study_type": "Cross-Sectional",
+    "stage_id": "early-perimenopause",
+    "date_added": "2026-08-31"
+  },
+  {
+    "id": "article-175",
+    "slug": "hot-flashes-become-more-common-in-late-perimenopause-article-175",
+    "citation": "Islam RM, Bond M, Ghalebeigi A, Wang Y, Walker-Bone K, Davis SR. Prevalence and severity of symptoms across the menopause transition: cross-sectional findings from the Australian Women's Midlife Years (AMY) Study. Lancet Diabetes Endocrinol. 2025;13(9):765-776. doi:10.1016/S2213-8587(25)00138-X. PMID: 40720963.",
+    "headline": "Hot Flashes Become More Common in Late Perimenopause",
+    "takeaway": "Among 8,096 Australian participants, moderately-to-severely bothersome hot flashes increased from 8.8% in premenopause to 37.3% in late perimenopause, while vaginal dryness also became more discriminative across the transition. This cross-sectional result describes prevalence at one point in time, so it does not establish a single cause for an individual's symptoms.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40720963/",
+    "study_type": "Cross-Sectional",
+    "stage_id": "late-perimenopause",
+    "date_added": "2026-08-31"
+  },
+  {
+    "id": "article-176",
+    "slug": "digital-cbt-reduced-hot-flash-burden-in-a-pilot-trial-article-176",
+    "citation": "Stute P, Pavicic E, Schulze-Wundling K, Kutsojannis H, Green SM, Theis S. Effectiveness of a digital cognitive behavioral therapy application for vasomotor symptoms in menopausal women: An open-label pilot randomized controlled trial. Maturitas. 2026;213:109090. doi:10.1016/j.maturitas.2026.109090. PMID: 42641440.",
+    "headline": "Digital CBT Reduced Hot-Flash Burden in a Pilot Trial",
+    "takeaway": "In an open-label pilot randomized trial of 100 participants with bothersome vasomotor symptoms, a self-guided digital cognitive behavioral therapy app added to usual care improved hot-flash problem ratings over 12 weeks versus usual care alone. Because the trial was small, open label, and relied on self-reported outcomes, larger confirmatory studies are still needed.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42641440/",
+    "study_type": "RCT",
+    "stage_id": "active-menopause",
+    "date_added": "2026-08-31"
+  },
+  {
+    "id": "article-177",
+    "slug": "large-danish-cohort-maps-early-postmenopause-symptoms-article-177",
+    "citation": "Biener SN, Jørgensen TSH, Hybholt M. Women in Healthy Transition (KISO) Survey: a cohort of 153,800 women aged 45-59 years living in Denmark. Eur J Epidemiol. 2025;40(10):1251-1261. doi:10.1007/s10654-025-01291-0. PMID: 40864411.",
+    "headline": "Large Danish Cohort Maps Early Postmenopause Symptoms",
+    "takeaway": "The KISO cohort enrolled 153,800 women in Denmark and includes 8,314 participants classified as early postmenopausal, creating a large foundation for tracking symptom patterns, quality of life, activity, and work productivity across stages. Its planned 15-year follow-up may clarify long-term changes, but this cohort-profile paper does not test a treatment or establish symptom causes.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40864411/",
+    "study_type": "Cohort Study",
+    "stage_id": "early-postmenopause",
+    "date_added": "2026-08-31"
+  },
+  {
+    "id": "article-178",
+    "slug": "vascular-stiffness-and-fitness-differ-across-postmenopause-article-178",
+    "citation": "Ferreira L, Abrantes C, Alves ME, Bohn L, Moreira H. Exploring the relationship between reproductive aging, arterial stiffness, and cardiorespiratory fitness in women after menopause. Physiol Rep. 2026;14(7):e70722. doi:10.14814/phy2.70722. PMID: 41906346.",
+    "headline": "Vascular Stiffness and Fitness Differ Across Postmenopause",
+    "takeaway": "In a cross-sectional study of 125 postmenopausal women, the early-postmenopause group had lower arterial stiffness and systolic blood pressure and higher cardiorespiratory fitness than the late-postmenopause group. The design cannot show that stage causes these differences, but it highlights blood pressure, body composition, and fitness as important areas for discussion with a clinician.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41906346/",
+    "study_type": "Cross-Sectional",
+    "stage_id": "late-postmenopause",
+    "date_added": "2026-08-31"
+  },
+  {
+    "id": "article-179",
+    "slug": "menopause-transition-and-physical-function-article-179",
+    "citation": "Macêdo PRS, Macêdo SGGF, Cavalcante ARS, Salustiano MA, Lima MDA, Jerez-Roig J, Câmara SMA. Association between menopausal status and physical function: a systematic review and meta-analysis. Climacteric. 2026;29(3):345-357. doi:10.1080/13697137.2026.2651720. PMID: 42017262.",
+    "headline": "Menopause Transition and Physical Function: What the Evidence Shows",
+    "takeaway": "This systematic review and meta-analysis of 26 observational studies found that premenopausal and perimenopausal women generally had stronger handgrip strength than postmenopausal women, while results for several adjusted self-reported outcomes were less certain. The authors note that age explains part of the observed differences, so the findings support attention to strength and balance rather than proving that menopause alone drives decline.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42017262/",
+    "study_type": "Meta-Analysis",
+    "stage_id": "general",
+    "date_added": "2026-08-31"
+  }
 ];
-
 function citationTitleSuffix(article: ResearchArticle): string {
   const journalAndYear = article.citation.match(/\.\s*([^.;]+?)\.\s*(20\d{2})\b/);
   const pmid = article.citation.match(/\bPMID:\s*(\d+)\b/i);
