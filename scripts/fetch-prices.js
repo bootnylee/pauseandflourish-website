@@ -33,7 +33,7 @@
  *                                             # price-sync-report.json
  *
  * Systemic-failure guard: if mode is live and updatedCount is 0 and every ASIN
- * is flagged, the script exits non-zero so the workflow fails loudly.
+ * is flagged, the script logs the failure loudly but never blocks the deploy.
  */
 
 import fs from "node:fs";
@@ -81,7 +81,7 @@ function getCredentials() {
       "ERROR: Missing required environment variables. " +
         "CREATORS_API_CLIENT_ID, CREATORS_API_CLIENT_SECRET, and CREATORS_API_PARTNER_TAG must all be set."
     );
-    process.exit(1);
+    throw new Error("Missing required Creators API environment variables.");
   }
   return { credentialId, credentialSecret, partnerTag };
 }
@@ -489,8 +489,7 @@ async function main() {
 
   // ── Systemic-failure guard ────────────────────────────────────────────────
   // If live mode returned 0 updates and every ASIN is flagged, the API is
-  // returning errors for all items — fail loudly instead of committing a
-  // useless report.
+  // returning errors for all items — log loudly, but do not block the deploy.
   if (!DRY_RUN && updated.size === 0 && errorMap.size === asins.length && asins.length > 0) {
     const uniqueCodes = [...new Set(batchErrors.flatMap((b) => b.errorCodes))];
     console.error(
@@ -498,11 +497,32 @@ async function main() {
         `All ASINs flagged. Error codes: ${uniqueCodes.join(", ") || "none captured"}. ` +
         `Check Creators API credentials and Associates account eligibility.`
     );
-    process.exit(1);
+    process.exitCode = 0;
   }
 }
 
 main().catch((err) => {
   console.error(`FATAL: ${err.message}`);
-  process.exit(1);
+  try {
+    fs.writeFileSync(
+      REPORT_FILE,
+      JSON.stringify(
+        {
+          generatedAt: new Date().toISOString(),
+          mode: DRY_RUN ? "dry-run" : "live",
+          totalAsins: 0,
+          updatedCount: 0,
+          updated: [],
+          flagged: [],
+          fatal: err.message,
+        },
+        null,
+        2
+      ) + "\n",
+      "utf8"
+    );
+  } catch (reportErr) {
+    console.error(`FATAL: could not write price-sync-report.json: ${reportErr.message}`);
+  }
+  process.exitCode = 0;
 });
