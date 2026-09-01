@@ -51,6 +51,8 @@ const FIXTURE_FILE = path.join(__dirname, "fixtures", "creators-api-getitems-moc
 const CREATORS_API_BASE = "https://creatorsapi.amazon";
 const GETITEMS_PATH = "/catalog/v1/getItems";
 const MARKETPLACE = "www.amazon.com";
+// Creators API app is registered to this store; site affiliate links keep their own tags.
+const API_PARTNER_TAG = "trailbuiltove-20";
 
 // v3.x LwA token endpoint (try first — new credentials issued as v3.x)
 const LWA_TOKEN_URL = "https://api.amazon.com/auth/o2/token";
@@ -66,7 +68,7 @@ const MAX_RETRIES = 5;
 const BACKOFF_BASE_MS = 2000; // 2s, 4s, 8s, 16s, 32s
 const TOKEN_EXPIRY_BUFFER_MS = 60_000; // 60s buffer before expiry
 
-const RESOURCES = ["offersV2.listings.price", "offersV2.listings.availability", "offersV2.listings.isBuyBoxWinner", "images.primary.large"];
+const RESOURCES = ["offersV2.listings.price", "images.primary.large"];
 
 const DRY_RUN = process.argv.includes("--dry-run");
 
@@ -75,15 +77,20 @@ const DRY_RUN = process.argv.includes("--dry-run");
 function getCredentials() {
   const credentialId = process.env.CREATORS_API_CLIENT_ID;
   const credentialSecret = process.env.CREATORS_API_CLIENT_SECRET;
-  const partnerTag = process.env.CREATORS_API_PARTNER_TAG;
-  if (!credentialId || !credentialSecret || !partnerTag) {
+  const configuredPartnerTag = process.env.CREATORS_API_PARTNER_TAG;
+  if (!credentialId || !credentialSecret) {
     console.error(
       "ERROR: Missing required environment variables. " +
-        "CREATORS_API_CLIENT_ID, CREATORS_API_CLIENT_SECRET, and CREATORS_API_PARTNER_TAG must all be set."
+        "CREATORS_API_CLIENT_ID and CREATORS_API_CLIENT_SECRET must both be set."
     );
     throw new Error("Missing required Creators API environment variables.");
   }
-  return { credentialId, credentialSecret, partnerTag };
+  if (configuredPartnerTag && configuredPartnerTag !== API_PARTNER_TAG) {
+    console.warn(
+      "WARNING: configured Creators API partner tag differs from the app registration; using trailbuiltove-20 for API requests."
+    );
+  }
+  return { credentialId, credentialSecret };
 }
 
 // ─── OAuth2 token cache ───────────────────────────────────────────────────────
@@ -184,6 +191,14 @@ async function fetchToken_v2(credentials) {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+function sanitizeErrorBody(body) {
+  const raw = typeof body === "string" ? body : JSON.stringify(body ?? {});
+  return (raw || "")
+    .replace(/Bearer\s+[A-Za-z0-9._~+/=-]+/gi, "Bearer [REDACTED]")
+    .replace(/(["']?(?:client[_-]?id|client[_-]?secret|access[_-]?token|refresh[_-]?token)["']?\s*[:=]\s*["']?)[^"',\s}]+/gi, "$1[REDACTED]")
+    .slice(0, 500);
+}
+
 /**
  * Returns { body, httpStatus, errorCodes } where:
  *   body        — parsed JSON response (may contain itemsResult and/or errors)
@@ -197,7 +212,7 @@ async function getItems(credentials, asins) {
     itemIds: asins,
     itemIdType: "ASIN",
     marketplace: MARKETPLACE,
-    partnerTag: credentials.partnerTag,
+    partnerTag: API_PARTNER_TAG,
     resources: RESOURCES,
   });
 
@@ -242,7 +257,8 @@ async function getItems(credentials, asins) {
       }
       if (errorCodes.length === 0) errorCodes.push(`HTTP_${httpStatus}`);
       console.error(
-        `  Creators API HTTP ${httpStatus} — error codes: ${errorCodes.join(", ")}`
+        `  Creators API HTTP ${httpStatus} — error codes: ${errorCodes.join(", ")}; ` +
+          `response body: ${sanitizeErrorBody(body)}`
       );
     } else if (Array.isArray(body.errors) && body.errors.length > 0) {
       // Partial per-item errors within a 200 response
@@ -289,14 +305,12 @@ function indexResponse(response, priceMap, errorMap) {
     const listing = item.offersV2?.listings?.[0];
     const money = listing?.price?.money;
     const image = item.images?.primary?.large?.url ?? null;
-    const availability = listing?.availability ? "Available" : "Unavailable";
-    const isBuyBoxWinner = Boolean(listing?.isBuyBoxWinner);
     if (money?.amount != null && money?.displayAmount) {
-      priceMap.set(asin, { amount: money.amount, display: money.displayAmount, image, availability, isBuyBoxWinner });
+      priceMap.set(asin, { amount: money.amount, display: money.displayAmount, image });
     } else {
       // Clear offer fields so a fresh sync cannot display a stale price.
       errorMap.set(asin, "NoOffer");
-      priceMap.set(asin, { amount: 0, display: "", image, availability: "Unavailable", isBuyBoxWinner: false });
+      priceMap.set(asin, { amount: 0, display: "", image });
     }
   }
 }
@@ -346,20 +360,6 @@ function updateProductBlocks(source, priceMap) {
         .replace(/(\bheroImage:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.image}${p2}`)
         .replace(/(\bimageUrl:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.image}${p2}`)
         .replace(/(\bamazonImageUrl:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.image}${p2}`);
-      if (nb !== block) { block = nb; changed = true; }
-    }
-    if (data.availability !== undefined) {
-      const availabilityLiteral = JSON.stringify(data.availability);
-      const buyBoxLiteral = data.isBuyBoxWinner ? "true" : "false";
-      let nb = block;
-      if (/\bavailability:\s*"[^"]*"/.test(nb)) {
-        nb = nb.replace(/(\bavailability:\s*")[^"]*(")/, (_, p1, p2) => `${p1}${data.availability}${p2}`);
-      } else {
-        nb = nb.replace(/(\bpriceDisplay:\s*"[^"]*",?)/, `$1\n      availability: ${availabilityLiteral},\n      isBuyBoxWinner: ${buyBoxLiteral},`);
-      }
-      if (/\bisBuyBoxWinner:\s*(?:true|false)/.test(nb)) {
-        nb = nb.replace(/\bisBuyBoxWinner:\s*(?:true|false)/, `isBuyBoxWinner: ${buyBoxLiteral}`);
-      }
       if (nb !== block) { block = nb; changed = true; }
     }
 

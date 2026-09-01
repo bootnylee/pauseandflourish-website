@@ -15,7 +15,7 @@
  *   ASIN_VALIDATE=warn              → warn-only mode for remote catalog validation
  *   CREATORS_API_CLIENT_ID          → Amazon Creators API client ID
  *   CREATORS_API_CLIENT_SECRET      → Amazon Creators API client secret
- *   CREATORS_API_PARTNER_TAG        → affiliate tag (default: pauseandflourish-20)
+ *   CREATORS_API_PARTNER_TAG        → compared to the registered API partner tag; mismatch logs a warning
  *   Credentials portal: https://affiliate-program.amazon.com/creatorsapi
  *
  * Auth: OAuth 2.0 client_credentials via Login with Amazon (LwA)
@@ -35,7 +35,9 @@ const PRODUCTS_FILE = join(REPO_ROOT, "client/src/lib/products.ts");
 // ── Creators API config ────────────────────────────────────────────────────
 const CREATORS_CLIENT_ID     = process.env.CREATORS_API_CLIENT_ID || "";
 const CREATORS_CLIENT_SECRET = process.env.CREATORS_API_CLIENT_SECRET || "";
-const PARTNER_TAG            = process.env.CREATORS_API_PARTNER_TAG || "pauseandflourish-20";
+// Creators API app is registered to this store; site affiliate links keep their own tags.
+const API_PARTNER_TAG        = "trailbuiltove-20";
+const CONFIGURED_PARTNER_TAG = process.env.CREATORS_API_PARTNER_TAG || "";
 const MARKETPLACE            = "www.amazon.com";
 
 const WARN_ONLY = process.argv.includes("--warn-only") || process.env.ASIN_VALIDATE === "warn";
@@ -199,7 +201,7 @@ async function creatorsApiLookup(asin) {
       itemIds: [asin],
       itemIdType: "ASIN",
       marketplace: MARKETPLACE,
-      partnerTag: PARTNER_TAG,
+      partnerTag: API_PARTNER_TAG,
       partnerType: "Associates",
       resources: ["itemInfo.title", "images.primary.small", "offersV2.listings.price"],
     })
@@ -272,6 +274,9 @@ function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 // Main
 // ─────────────────────────────────────────────────────────────────────────────
 async function main() {
+  if (CONFIGURED_PARTNER_TAG && CONFIGURED_PARTNER_TAG !== API_PARTNER_TAG) {
+    console.warn("WARNING: configured Creators API partner tag differs from the app registration; using trailbuiltove-20 for API requests.");
+  }
   console.log(`\n${"=".repeat(60)}`);
   console.log(`ASIN Validation Gate — PauseAndFlourish`);
   console.log(`Auth: ${CREATORS_CLIENT_ID ? "Creators API (OAuth 2.0)" : "public page scraping (fallback)"}`);
