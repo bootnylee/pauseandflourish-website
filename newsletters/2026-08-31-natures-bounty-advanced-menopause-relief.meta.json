@@ -1,0 +1,13 @@
+{
+  "suggestedSubject": "New this week: Nature's Bounty Optimal Solutions Advanced Menopause Relief Supplement",
+  "previewText": "A one-tablet Siberian-rhubarb and saffron formula for shoppers seeking a simple menopause-support routine.",
+  "fromName": "Pause & Flourish",
+  "fromAddress": "hello@pauseandflourish.com",
+  "listName": "Pause & Flourish newsletter list",
+  "articleUrl": "https://pauseandflourish.com/review/natures-bounty-advanced-menopause-relief",
+  "publishedDate": "2026-08-31",
+  "articleTitle": "Nature's Bounty Optimal Solutions Advanced Menopause Relief Supplement",
+  "articleSource": "client/src/lib/products.ts (allProducts)",
+  "stagedAt": "2026-09-01T19:18:19.804Z",
+  "note": "Create and send this campaign manually in the EmailOctopus dashboard. This workflow never calls the EmailOctopus API."
+}
