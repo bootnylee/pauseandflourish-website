@@ -288,7 +288,7 @@ export default function ComparisonPage() {
                   <h3 className="font-display font-bold mb-2 leading-snug" style={{ fontSize: "1.1rem", color: "#2C2C2C" }}>
                     {product.name}
                   </h3>
-                  <div className="mt-3 mb-4"><FreshCatalogPrice product={product} className="text-xl" />{(!catalogIsFresh() || currentPriceNumber(product.price) <= 0) && <p className="font-body text-xs" style={{ color: "#8C8C8C" }}>Price unavailable</p>}</div>
+                  <div className="mt-3 mb-4"><FreshCatalogPrice product={product} className="text-xl" />{(!catalogIsFresh(product) || currentPriceNumber(product.price) <= 0) && <p className="font-body text-xs" style={{ color: "#8C8C8C" }}>Price unavailable</p>}</div>
                   <div className="space-y-1 mb-4">
                     {product.pros.slice(0, 3).map((pro, i) => (
                       <div key={i} className="flex items-start gap-2">
@@ -333,7 +333,7 @@ export default function ComparisonPage() {
             <div key={product.id} className="p-4 rounded-sm border" style={{ borderColor: "#D4EBE7" }}>
               <p className="section-label text-xs mb-1">{i === 0 ? "🏆 Winner" : "Runner-Up"}</p>
               <p className="font-body font-semibold text-sm mb-2" style={{ color: "#2C2C2C" }}>{product.name}</p>
-              <div className="mb-3"><FreshCatalogPrice product={product} />{(!catalogIsFresh() || currentPriceNumber(product.price) <= 0) && <span className="font-body text-xs" style={{ color: "#8C8C8C" }}>Price unavailable</span>}</div>
+              <div className="mb-3"><FreshCatalogPrice product={product} />{(!catalogIsFresh(product) || currentPriceNumber(product.price) <= 0) && <span className="font-body text-xs" style={{ color: "#8C8C8C" }}>Price unavailable</span>}</div>
               <div className="flex gap-2">
                 <Link href={`/review/${product.slug}`}>
                   <button className="btn-primary text-xs py-2 px-3 rounded-sm">Review</button>

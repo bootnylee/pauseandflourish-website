@@ -4,7 +4,8 @@
 
 import { Link } from "wouter";
 import { ExternalLink, Star, TrendingDown, Flame, Sparkles } from "lucide-react";
-import { type Product, lastSyncedAt } from "@/lib/products";
+import { type Product } from "@/lib/products";
+import { isProductPriceFresh } from "@/lib/priceFreshness.generated";
 import { getPriceBadge, type PriceBadge } from "@/lib/priceHistory";
 import { trackAffiliateClick } from "@/lib/analytics";
 import { VerifiedAmazonCta, hasVerifiedAsin } from "@/components/ProductCommerce";
@@ -17,18 +18,6 @@ function isNewThisWeek(publishDate: string): boolean {
   const diffDays = diffMs / (1000 * 60 * 60 * 24);
   return diffDays <= 14;
 }
-
-/**
- * Returns true if the last price sync is within the 24-hour freshness window.
- * Reads lastSyncedAt exported from products.ts (written by scripts/fetch-prices.js).
- */
-function isPriceFresh(): boolean {
-  if (!lastSyncedAt) return false;
-  const age = Date.now() - new Date(lastSyncedAt).getTime();
-  return age < 24 * 60 * 60 * 1000; // 24 hours in ms
-}
-
-const PRICES_FRESH = isPriceFresh();
 
 /**
  * Renders either the live numeric price (when fresh) or a 'Check price on Amazon'
@@ -44,7 +33,7 @@ function PriceDisplay({
   fontSize?: string;
   color?: string;
 }) {
-  if (PRICES_FRESH && product.priceDisplay) {
+  if (isProductPriceFresh(product.asin) && product.priceDisplay) {
     return (
       <span className="font-label font-bold block" style={{ color, fontSize }}>
         {product.priceDisplay}
@@ -121,7 +110,7 @@ export default function ProductCard({
   product,
   variant = "default",
 }: ProductCardProps) {
-  const priceBadge = getPriceBadge(product.asin, product.price);
+  const priceBadge = getPriceBadge(product.asin, Number(String(product.price).replace(/[^0-9.]/g, "")) || 0);
   const isNew = isNewThisWeek(product.publishDate);
 
   if (variant === "compact") {
@@ -159,7 +148,7 @@ export default function ProductCard({
           <div className="flex items-center justify-between mt-2">
             <div className="flex flex-col gap-0.5">
               <PriceDisplay product={product} fontSize="0.9rem" />
-              {PRICES_FRESH && priceBadge && <PriceDropBadge badge={priceBadge} size="xs" />}
+              {isProductPriceFresh(product.asin) && priceBadge && <PriceDropBadge badge={priceBadge} size="xs" />}
             </div>
               <VerifiedAmazonCta product={product} label="Check Price on Amazon" compact />
           </div>
@@ -192,7 +181,7 @@ export default function ProductCard({
               </span>
             )}
             {isNew && <NewBadge />}
-            {PRICES_FRESH && priceBadge && <PriceDropBadge badge={priceBadge} />}
+            {isProductPriceFresh(product.asin) && priceBadge && <PriceDropBadge badge={priceBadge} />}
           </div>
         </div>
         <div className="p-5">
@@ -217,7 +206,7 @@ export default function ProductCard({
           >
             <div>
               <PriceDisplay product={product} fontSize="1.1rem" />
-              {PRICES_FRESH && (
+              {isProductPriceFresh(product.asin) && (
                 <p
                   className="font-body text-xs mt-0.5"
                   style={{ color: "#B8A99A" }}
@@ -264,7 +253,7 @@ export default function ProductCard({
             </span>
           )}
           {isNew && <NewBadge size="xs" />}
-          {PRICES_FRESH && priceBadge && <PriceDropBadge badge={priceBadge} size="xs" />}
+          {isProductPriceFresh(product.asin) && priceBadge && <PriceDropBadge badge={priceBadge} size="xs" />}
         </div>
       </div>
       <div className="p-4">
@@ -283,7 +272,7 @@ export default function ProductCard({
         >
           <div>
             <PriceDisplay product={product} />
-            {PRICES_FRESH && priceBadge && (
+            {isProductPriceFresh(product.asin) && priceBadge && (
               <div className="mt-0.5">
                 <PriceDropBadge badge={priceBadge} size="xs" />
               </div>

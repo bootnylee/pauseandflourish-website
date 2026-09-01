@@ -1,6 +1,8 @@
 // PauseAndFlourish.com - SEO Utilities
 // Handles meta tags, structured data, and canonical URLs
 
+import { isProductPriceFresh } from "@/lib/priceFreshness.generated";
+
 export interface SEOMeta {
   title: string;
   description: string;
@@ -77,7 +79,7 @@ export function buildProductSchema(product: {
   reviewBody?: string;
   author?: { name: string; url: string; id: string };
 }): object {
-  return {
+  const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
@@ -87,17 +89,6 @@ export function buildProductSchema(product: {
       name: product.brand,
     },
     image: product.heroImage,
-    offers: {
-      "@type": "Offer",
-      price: String(product.price).replace(/[^0-9.]/g, ""),
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: `https://www.amazon.com/dp/${product.asin}?tag=pauseandflourish-20`,
-      seller: {
-        "@type": "Organization",
-        name: "Amazon",
-      },
-    },
     // Editorial review content is retained without a numeric rating. AggregateRating
     // is reserved exclusively for genuine approved first-party user reviews.
     review: {
@@ -123,6 +114,20 @@ export function buildProductSchema(product: {
       ...(product.reviewBody ? { reviewBody: product.reviewBody } : {}),
     },
   };
+  if (isProductPriceFresh(product.asin) && Number(String(product.price).replace(/[^0-9.]/g, "")) > 0) {
+    schema.offers = {
+      "@type": "Offer",
+      price: String(product.price).replace(/[^0-9.]/g, ""),
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: `https://www.amazon.com/dp/${product.asin}?tag=pauseandflourish-20`,
+      seller: {
+        "@type": "Organization",
+        name: "Amazon",
+      },
+    };
+  }
+  return schema;
 }
 
 export function buildReviewSchema(review: {

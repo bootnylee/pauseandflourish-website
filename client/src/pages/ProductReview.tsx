@@ -196,7 +196,7 @@ export default function ProductReview() {
                   <span className="editor-pick-badge text-xs px-3 py-1">Editor's Pick</span>
                 </div>
               )}
-              <div className="mb-3"><FreshCatalogPrice product={product} className="text-2xl" />{(!catalogIsFresh() || currentPriceNumber(product.price) <= 0) && <p className="font-body text-xs" style={{ color: "#B8A99A" }}>Current price unavailable</p>}</div>
+              <div className="mb-3"><FreshCatalogPrice product={product} className="text-2xl" />{(!catalogIsFresh(product) || currentPriceNumber(product.price) <= 0) && <p className="font-body text-xs" style={{ color: "#B8A99A" }}>Current price unavailable</p>}</div>
               <VerifiedAmazonCta product={product} label="Check Price on Amazon" className="w-full mt-4" />
               <p className="font-body text-xs text-center mt-2" style={{ color: "#B8A99A" }}>
                 Affiliate link - we earn a commission at no extra cost to you

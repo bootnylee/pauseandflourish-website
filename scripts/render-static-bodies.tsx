@@ -9,6 +9,7 @@ import { menopauseStages } from "../client/src/lib/menopauseStages";
 import { authors } from "../client/src/lib/authors";
 import { researchArticles } from "../client/src/lib/researchArticles";
 import { researchPath } from "../client/src/lib/researchRoutes";
+import { isProductPriceFresh } from "../client/src/lib/priceFreshness.generated";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const outputPath = resolve(__dirname, "static-bodies.json");
@@ -37,13 +38,19 @@ const routes = [
 
 const uniqueRoutes = [...new Set(routes)];
 const bodies: Record<string, string> = {};
+const allPricesStale = allProducts.every((product) => !isProductPriceFresh(product.asin));
+const STALE_PRICE_TEXT = /\$\s*\d+(?:,\d{3})*(?:\.\d{1,2})?(?:\s*(?:to|[-–])\s*\$?\s*\d+(?:,\d{3})*(?:\.\d{1,2})?)?/g;
+
+function redactStalePriceText(markup: string): string {
+  return allPricesStale ? markup.replace(STALE_PRICE_TEXT, "current pricing") : markup;
+}
 
 for (const route of uniqueRoutes) {
-  bodies[route] = renderToStaticMarkup(
+  bodies[route] = redactStalePriceText(renderToStaticMarkup(
     <WouterRouter ssrPath={route}>
       <App />
     </WouterRouter>
-  );
+  ));
 }
 
 mkdirSync(dirname(outputPath), { recursive: true });

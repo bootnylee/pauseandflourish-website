@@ -1,5 +1,6 @@
 import { ExternalLink } from "lucide-react";
-import { type Product, amazonLink, lastSyncedAt } from "@/lib/products";
+import { type Product, amazonLink } from "@/lib/products";
+import { isProductPriceFresh } from "@/lib/priceFreshness.generated";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 type CommerceProduct = Pick<Product, "asin" | "name" | "shortDescription" | "bestFor" | "price" | "priceDisplay"> & {
@@ -11,10 +12,8 @@ export function hasVerifiedAsin(asin?: string): boolean {
   return Boolean(asin && /^[A-Z0-9]{10}$/i.test(asin));
 }
 
-export function catalogIsFresh(): boolean {
-  if (!lastSyncedAt) return false;
-  const age = Date.now() - new Date(lastSyncedAt).getTime();
-  return Number.isFinite(age) && age >= 0 && age < 24 * 60 * 60 * 1000;
+export function catalogIsFresh(product?: CommerceProduct): boolean {
+  return Boolean(product && isProductPriceFresh(product.asin));
 }
 
 export function currentPriceNumber(price: unknown): number {
@@ -22,7 +21,7 @@ export function currentPriceNumber(price: unknown): number {
 }
 
 export function FreshCatalogPrice({ product, className = "", color = "#2D7D6F" }: { product: CommerceProduct; className?: string; color?: string }) {
-  if (!catalogIsFresh() || !product.priceDisplay || currentPriceNumber(product.price) <= 0) return null;
+  if (!catalogIsFresh(product) || !product.priceDisplay || currentPriceNumber(product.price) <= 0) return null;
   return (
     <span className={`inline-flex items-baseline flex-wrap gap-x-1.5 font-label font-bold ${className}`} style={{ color }}>
       <span className="whitespace-nowrap">{product.priceDisplay}</span>
@@ -70,7 +69,7 @@ export function ProductComparisonTable({ products }: { products: CommerceProduct
             {products.map((product) => <tr key={product.asin || product.name} className="border-t" style={{ borderColor: "#E4F1EE" }}>
               <td className="px-5 py-4 font-body font-semibold text-sm" style={{ color: "#2C2C2C" }}>{product.name}</td>
               <td className="px-5 py-4 font-body text-xs leading-relaxed" style={{ color: "#6C6C6C" }}>{keySpec(product)}</td>
-              <td className="px-5 py-4 whitespace-nowrap align-middle"><FreshCatalogPrice product={product} className="text-sm" />{!catalogIsFresh() || currentPriceNumber(product.price) <= 0 ? <span className="font-body text-xs" style={{ color: "#8C8C8C" }}>{hasVerifiedAsin(product.asin) ? "Price unavailable" : "Not linked"}</span> : null}</td>
+              <td className="px-5 py-4 whitespace-nowrap align-middle"><FreshCatalogPrice product={product} className="text-sm" />{!catalogIsFresh(product) || currentPriceNumber(product.price) <= 0 ? <span className="font-body text-xs" style={{ color: "#8C8C8C" }}>{hasVerifiedAsin(product.asin) ? "Price unavailable" : "Not linked"}</span> : null}</td>
               <td className="px-5 py-4 whitespace-nowrap align-middle"><VerifiedAmazonCta product={product} compact /></td>
             </tr>)}
           </tbody>
