@@ -84,7 +84,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 <span className="font-display font-bold leading-none" style={{ fontSize: "1.8rem", color: "#2D7D6F", letterSpacing: "-0.01em" }}>
                   PauseAndFlourish
                 </span>
-                <span className="font-label" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: "#B8A99A", textTransform: "uppercase" }}>
+                <span className="font-label" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: "var(--masthead-tagline)", textTransform: "uppercase" }}>
                   Menopause Wellness Reviews & Guidance
                 </span>
               </div>
