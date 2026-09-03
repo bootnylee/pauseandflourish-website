@@ -81,14 +81,10 @@ function trunc(str = "", max = 155) {
     .trim();
 }
 
-function researchPageTitle(headline, max = 60) {
-  const [base, ...citationParts] = String(headline).split(" — ");
-  const citation = citationParts.join(" — ").trim();
-  if (!citation || headline.length <= max) return trunc(headline, max);
-
-  const availableBaseLength = max - citation.length - 3;
-  if (availableBaseLength < 12) return trunc(headline, max);
-  return `${trunc(base, availableBaseLength)} — ${citation}`;
+function researchPageTitle(headline) {
+  // Research routes use the publication title as both H1 and document title.
+  // Do not truncate: a truncated title can alter the cited work's identity.
+  return String(headline).trim();
 }
 
 // ── Read the base index.html template ────────────────────────────────────────
@@ -731,8 +727,12 @@ for (const article of researchArticles) {
   if (!article.slug) throw new Error(`Research article is missing stable slug: ${article.id}`);
   const slug = article.slug;
   const canonical = `${BASE_URL}/research/${slug}`;
+  const pageTitle = researchPageTitle(article.headline);
+  if (/(?:…|\.\.\.)\s*$/.test(article.headline) || /(?:…|\.\.\.)\s*$/.test(pageTitle)) {
+    throw new Error(`Research title output must not end in an ellipsis: ${article.id}`);
+  }
   writeRoute(`/research/${slug}`, {
-    title: researchPageTitle(article.headline, 60),
+    title: pageTitle,
     description: trunc(article.takeaway, 155),
     canonical,
     ogType: "article",
