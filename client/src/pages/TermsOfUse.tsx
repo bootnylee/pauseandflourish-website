@@ -57,7 +57,7 @@ export default function TermsOfUse() {
           <p>We may modify, suspend, or discontinue all or part of the Site or these Terms at any time. Continued use after revised Terms are posted constitutes acceptance to the extent permitted by law.</p>
 
           <h2>8. Governing Law and Venue</h2>
-          <p>These Terms are governed by the laws of <strong>[STATE]</strong>, without regard to conflict-of-law principles. Subject to applicable law, disputes will be resolved exclusively in the state or federal courts located in <strong>[COUNTY, STATE]</strong>.</p>
+          <p>These Terms are governed by the laws of the <strong>State of California</strong>, without regard to conflict-of-law principles. Subject to applicable law, disputes will be resolved exclusively in the state or federal courts located in the <strong>State of California</strong>.</p>
 
           <h2>9. Contact</h2>
           <p>Questions about these Terms may be sent to <a href="mailto:hello@pauseandflourish.com">hello@pauseandflourish.com</a>.</p>

@@ -6,6 +6,7 @@ import { Link } from "wouter";
 import { ExternalLink, Star, TrendingDown, Flame, Sparkles } from "lucide-react";
 import { type Product } from "@/lib/products";
 import { isProductPriceFresh } from "@/lib/priceFreshness.generated";
+import { getRenderableProductImage } from "@/lib/productImageFreshness";
 import { getPriceBadge, type PriceBadge } from "@/lib/priceHistory";
 import { trackAffiliateClick } from "@/lib/analytics";
 import { VerifiedAmazonCta, hasVerifiedAsin } from "@/components/ProductCommerce";
@@ -112,6 +113,7 @@ export default function ProductCard({
 }: ProductCardProps) {
   const priceBadge = getPriceBadge(product.asin, Number(String(product.price).replace(/[^0-9.]/g, "")) || 0);
   const isNew = isNewThisWeek(product.publishDate);
+  const productImage = getRenderableProductImage(product);
 
   if (variant === "compact") {
     return (
@@ -121,20 +123,14 @@ export default function ProductCard({
             <NewBadge size="xs" />
           </div>
         )}
-        <div
-          className="flex-shrink-0 w-20 h-20 overflow-hidden rounded-sm"
-          style={{ backgroundColor: "#EDF5F3" }}
-        >
-          <img
-            src={product.heroImage}
-            alt={product.name}
-            className="w-full h-full object-contain"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src =
-                "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=200&auto=format&fit=crop";
-            }}
-          />
-        </div>
+        {productImage ? (
+          <div
+            className="flex-shrink-0 w-20 h-20 overflow-hidden rounded-sm"
+            style={{ backgroundColor: "#EDF5F3" }}
+          >
+            <img src={productImage} alt={product.name} className="w-full h-full object-contain" />
+          </div>
+        ) : null}
         <div className="flex-1 min-w-0">
           <p className="section-label text-xs mb-1">{product.brand}</p>
           <Link href={`/review/${product.slug}`}>
@@ -160,30 +156,19 @@ export default function ProductCard({
   if (variant === "featured") {
     return (
       <div className="product-card rounded-sm overflow-hidden group">
-        <div
-          className="relative overflow-hidden"
-          style={{ height: "220px", backgroundColor: "#EDF5F3" }}
-        >
-          <img
-            src={product.heroImage}
-            alt={product.name}
-            className="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src =
-                "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&auto=format&fit=crop";
-            }}
-          />
-          {/* Badges - stacked top-left */}
-          <div className="absolute top-3 left-3 flex flex-col gap-1.5">
-            {product.editorPick && (
-              <span className="editor-pick-badge text-xs px-2 py-1">
-                Editor's Pick
-              </span>
-            )}
-            {isNew && <NewBadge />}
-            {isProductPriceFresh(product.asin) && priceBadge && <PriceDropBadge badge={priceBadge} />}
+        {productImage ? (
+          <div
+            className="relative overflow-hidden"
+            style={{ height: "220px", backgroundColor: "#EDF5F3" }}
+          >
+            <img src={productImage} alt={product.name} className="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105" />
+            <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+              {product.editorPick && <span className="editor-pick-badge text-xs px-2 py-1">Editor's Pick</span>}
+              {isNew && <NewBadge />}
+              {isProductPriceFresh(product.asin) && priceBadge && <PriceDropBadge badge={priceBadge} />}
+            </div>
           </div>
-        </div>
+        ) : null}
         <div className="p-5">
           <p className="section-label text-xs mb-1">{product.brand}</p>
           <Link href={`/review/${product.slug}`}>
@@ -232,30 +217,19 @@ export default function ProductCard({
   // Default card
   return (
     <div className="product-card rounded-sm overflow-hidden group">
-      <div
-        className="relative overflow-hidden"
-        style={{ height: "180px", backgroundColor: "#EDF5F3" }}
-      >
-        <img
-          src={product.heroImage}
-          alt={product.name}
-          className="w-full h-full object-contain p-3 transition-transform duration-300 group-hover:scale-105"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src =
-              "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&auto=format&fit=crop";
-          }}
-        />
-        {/* Badges - stacked top-left */}
-        <div className="absolute top-2 left-2 flex flex-col gap-1">
-          {product.editorPick && (
-            <span className="editor-pick-badge text-xs px-2 py-0.5">
-              Editor's Pick
-            </span>
-          )}
-          {isNew && <NewBadge size="xs" />}
-          {isProductPriceFresh(product.asin) && priceBadge && <PriceDropBadge badge={priceBadge} size="xs" />}
+      {productImage ? (
+        <div
+          className="relative overflow-hidden"
+          style={{ height: "180px", backgroundColor: "#EDF5F3" }}
+        >
+          <img src={productImage} alt={product.name} className="w-full h-full object-contain p-3 transition-transform duration-300 group-hover:scale-105" />
+          <div className="absolute top-2 left-2 flex flex-col gap-1">
+            {product.editorPick && <span className="editor-pick-badge text-xs px-2 py-0.5">Editor's Pick</span>}
+            {isNew && <NewBadge size="xs" />}
+            {isProductPriceFresh(product.asin) && priceBadge && <PriceDropBadge badge={priceBadge} size="xs" />}
+          </div>
         </div>
-      </div>
+      ) : null}
       <div className="p-4">
         <p className="section-label text-xs mb-1">{product.brand}</p>
         <Link href={`/review/${product.slug}`}>

@@ -16,6 +16,7 @@ import UserReviewSection from "@/components/UserReviewSection";
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getStageMatchedResearch, researchPath } from "@/lib/researchRoutes";
 import { HealthDisclaimers } from "@/components/HealthDisclaimers";
+import { getRenderableProductImage } from "@/lib/productImageFreshness";
 
 // ─── Recently Viewed Key ────────────────────────────────────────────────────
 export const RECENTLY_VIEWED_KEY = "pauseandflourish_recently_viewed";
@@ -89,6 +90,7 @@ function QuizPromptBanner() {
 export default function ProductReview() {
   const { slug } = useParams<{ slug: string }>();
   const product = allProducts.find(p => p.slug === slug);
+  const productImage = getRenderableProductImage(product);
   const relatedProducts = product
     ? getProductsByCategory(product.categorySlug).filter((item) => item.id !== product.id).slice(0, 3)
     : [];
@@ -114,7 +116,7 @@ export default function ProductReview() {
         description: `Expert review of ${product.name} by ${product.brand}. ${product.shortDescription}`,
         keywords: `${product.name} review, ${product.brand}, ${product.category}`,
         canonical: `https://pauseandflourish.com/review/${product.slug}`,
-        ogImage: product.heroImage,
+        ogImage: getRenderableProductImage(product) || "https://pauseandflourish.com/og-image.jpg",
         ogType: "article",
       });
 
@@ -177,17 +179,12 @@ export default function ProductReview() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Left: Product Info */}
           <div className="lg:col-span-1">
-            {/* Product Image */}
-            <div className="rounded-sm overflow-hidden mb-4" style={{ backgroundColor: "#EDF5F3", height: "280px" }}>
-              <img
-                src={product.heroImage}
-                alt={product.name}
-                className="w-full h-full object-contain p-6"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&auto=format&fit=crop`;
-                }}
-              />
-            </div>
+            {/* Product Image — Amazon-hosted images render only after a current per-ASIN API sync. */}
+            {productImage ? (
+              <div className="rounded-sm overflow-hidden mb-4" style={{ backgroundColor: "#EDF5F3", height: "280px" }}>
+                <img src={productImage} alt={product.name} className="w-full h-full object-contain p-6" />
+              </div>
+            ) : null}
 
             {/* Price & Buy */}
             <div className="p-5 rounded-sm border" style={{ borderColor: "#D4EBE7", backgroundColor: "white" }}>

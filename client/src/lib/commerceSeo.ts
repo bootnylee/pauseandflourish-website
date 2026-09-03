@@ -1,5 +1,6 @@
 import type { Product } from "@/lib/products";
 import { hasVerifiedAsin } from "@/components/ProductCommerce";
+import { getRenderableProductImage } from "@/lib/productImageFreshness";
 
 const SITE = "PauseAndFlourish";
 const ORIGIN = "https://pauseandflourish.com";
@@ -7,12 +8,13 @@ const ORIGIN = "https://pauseandflourish.com";
 type ProductLike = Pick<Product, "name" | "brand" | "shortDescription" | "heroImage" | "asin" | "publishDate" | "bestFor">;
 
 export function editorialProductSchema(product: ProductLike, author?: { name: string; role?: string; url?: string }) {
+  const image = getRenderableProductImage(product);
   return {
     "@type": "Product",
     name: product.name,
     description: product.shortDescription,
     brand: { "@type": "Brand", name: product.brand },
-    image: product.heroImage,
+    ...(image ? { image } : {}),
     review: {
       "@type": "Review",
       author: author ? { "@type": "Person", name: author.name, jobTitle: author.role, url: author.url } : { "@type": "Organization", name: `${SITE} Editorial Team`, url: ORIGIN },

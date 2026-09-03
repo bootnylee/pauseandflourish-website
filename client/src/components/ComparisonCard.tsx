@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { Trophy, ExternalLink } from "lucide-react";
 import { type Comparison, getProductById, amazonLink } from "@/lib/products";
 import { isProductPriceFresh } from "@/lib/priceFreshness.generated";
+import { getRenderableProductImage } from "@/lib/productImageFreshness";
 import { VerifiedAmazonCta } from "@/components/ProductCommerce";
 
 interface ComparisonCardProps {
@@ -20,6 +21,8 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
   const winnerId = comparison.winnerId ?? comparison.winner;
   const winner = winnerId === product1.id ? product1 : product2;
   const loser = winnerId === product1.id ? product2 : product1;
+  const winnerImage = getRenderableProductImage(winner);
+  const loserImage = getRenderableProductImage(loser);
 
   return (
     <div className="product-card rounded-sm overflow-hidden">
@@ -43,16 +46,11 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
               Winner
             </span>
           </div>
-          <div className="w-16 h-16 mx-auto mb-2 bg-gray-50 rounded overflow-hidden">
-            <img
-              src={winner.heroImage}
-              alt={winner.name}
-              className="w-full h-full object-contain p-1"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=100&auto=format&fit=crop`;
-              }}
-            />
-          </div>
+          {winnerImage ? (
+            <div className="w-16 h-16 mx-auto mb-2 bg-gray-50 rounded overflow-hidden">
+              <img src={winnerImage} alt={winner.name} className="w-full h-full object-contain p-1" />
+            </div>
+          ) : null}
           <p className="font-body text-xs font-semibold text-center leading-tight" style={{ color: "#2C2C2C" }}>
             {winner.name}
           </p>
@@ -72,16 +70,11 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
               Runner-Up
             </span>
           </div>
-          <div className="w-16 h-16 mx-auto mb-2 bg-gray-50 rounded overflow-hidden">
-            <img
-              src={loser.heroImage}
-              alt={loser.name}
-              className="w-full h-full object-contain p-1"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=100&auto=format&fit=crop`;
-              }}
-            />
-          </div>
+          {loserImage ? (
+            <div className="w-16 h-16 mx-auto mb-2 bg-gray-50 rounded overflow-hidden">
+              <img src={loserImage} alt={loser.name} className="w-full h-full object-contain p-1" />
+            </div>
+          ) : null}
           <p className="font-body text-xs font-semibold text-center leading-tight" style={{ color: "#6C6C6C" }}>
             {loser.name}
           </p>

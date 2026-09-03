@@ -34,6 +34,19 @@ const ROOT = resolve(__dirname, "..");
 const DIST = resolve(ROOT, "dist", "public");
 const BASE_URL = "https://pauseandflourish.com";
 
+function isAmazonHostedProductImage(url) {
+  try {
+    return ["m.media-amazon.com", "images-na.ssl-images-amazon.com"].includes(new URL(url).hostname.toLowerCase());
+  } catch {
+    return false;
+  }
+}
+
+function renderableProductImage(product) {
+  const url = product?.heroImage;
+  return url && (!isAmazonHostedProductImage(url) || product.imageFresh) ? url : undefined;
+}
+
 // ── Helper: escape HTML entities ─────────────────────────────────────────────
 function esc(str = "") {
   return String(str)
@@ -620,7 +633,7 @@ for (const product of productList) {
     name,
     description: product.shortDescription || name,
     brand: brand ? { "@type": "Brand", name: brand } : undefined,
-    image: product.heroImage || undefined,
+    image: renderableProductImage(product),
     // Editorial review only — no fabricated aggregateRating
     review: editorialRating ? {
       "@type": "Review",
@@ -649,7 +662,7 @@ for (const product of productList) {
     title: trunc(`${name} Review | PauseAndFlourish`, 60),
     description: desc,
     canonical: `${BASE_URL}/review/${slug}`,
-    ogImage: product.heroImage || `${BASE_URL}/og-image.jpg`,
+    ogImage: renderableProductImage(product) || `${BASE_URL}/og-image.jpg`,
     ogType: "article",
     jsonLd: siteGraph(
       breadcrumb([
