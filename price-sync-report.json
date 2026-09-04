@@ -1,14 +1,9 @@
 {
-  "generatedAt": "2026-08-17T10:39:05.432Z",
+  "generatedAt": "2026-09-04T14:04:43.455Z",
   "mode": "live",
-  "totalAsins": 54,
-  "updatedCount": 5,
-  "updated": [
-    "B000P9WSMY",
-    "B01M1HYRNJ",
-    "B075NTJ96W",
-    "B07Q8ZT7JL",
-    "B0GS3DQQD4"
-  ],
-  "flagged": []
+  "totalAsins": 0,
+  "updatedCount": 0,
+  "updated": [],
+  "flagged": [],
+  "fatal": "Missing required Creators API environment variables."
 }
