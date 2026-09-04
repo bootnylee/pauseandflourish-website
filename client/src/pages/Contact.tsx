@@ -28,7 +28,7 @@ export default function Contact() {
           <p>PauseAndFlourish welcomes corrections, feedback, source suggestions, and general questions about the Site.</p>
           <p><strong>Email:</strong> <a href="mailto:hello@pauseandflourish.com">hello@pauseandflourish.com</a></p>
           <p>For corrections or feedback about a review, comparison, research summary, product listing, or link, please include the page URL, the specific text or issue, and any supporting source you would like us to consider. We review good-faith requests but cannot provide individualized medical advice, product recommendations, or customer service for third-party retailers.</p>
-          <p><strong>Operator:</strong> [LEGAL ENTITY NAME + ADDRESS]</p>
+          <p><strong>Operator:</strong><br />Brightpath Digital Media, LLC<br />506 S Spring St #13308<br />SMB#21914<br />Los Angeles, CA, 90013</p>
           <p>If your message concerns privacy, use the subject line <strong>Privacy Request</strong>. If it concerns an accessibility issue, use the subject line <strong>Accessibility</strong>.</p>
         </div>
       </article>

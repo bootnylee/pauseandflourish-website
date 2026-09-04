@@ -30,7 +30,7 @@ export default function PrivacyPolicy() {
 
         <div className="prose max-w-none mt-10 font-body" style={{ color: "#2C2C2C" }}>
           <p>PauseAndFlourish (“<strong>PauseAndFlourish</strong>,” “<strong>we</strong>,” “<strong>us</strong>,” or “<strong>our</strong>”) operates <a href="https://pauseandflourish.com">https://pauseandflourish.com</a> (the “<strong>Site</strong>”). This Privacy Policy explains how we collect, use, disclose, and protect information when you visit the Site, subscribe to updates, complete the menopause-stage quiz, or interact with our content.</p>
-          <p><strong>Controller / business identity:</strong> [LEGAL ENTITY NAME + ADDRESS]</p>
+          <p><strong>Controller / business identity:</strong><br />Brightpath Digital Media, LLC<br />506 S Spring St #13308<br />SMB#21914<br />Los Angeles, CA, 90013</p>
           <p><strong>Contact:</strong> <a href="mailto:hello@pauseandflourish.com">hello@pauseandflourish.com</a></p>
 
           <h2>1. Information We Collect</h2>
