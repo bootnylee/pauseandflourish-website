@@ -69,7 +69,7 @@ export function ProductComparisonTable({ products }: { products: CommerceProduct
             {products.map((product) => <tr key={product.asin || product.name} className="border-t" style={{ borderColor: "#E4F1EE" }}>
               <td className="px-5 py-4 font-body font-semibold text-sm" style={{ color: "#2C2C2C" }}>{product.name}</td>
               <td className="px-5 py-4 font-body text-xs leading-relaxed" style={{ color: "#6C6C6C" }}>{keySpec(product)}</td>
-              <td className="px-5 py-4 whitespace-nowrap align-middle"><FreshCatalogPrice product={product} className="text-sm" />{!catalogIsFresh(product) || currentPriceNumber(product.price) <= 0 ? <span className="font-body text-xs" style={{ color: "#8C8C8C" }}>{hasVerifiedAsin(product.asin) ? "Price unavailable" : "Not linked"}</span> : null}</td>
+              <td className="px-5 py-4 whitespace-nowrap align-middle"><FreshCatalogPrice product={product} className="text-sm" />{!catalogIsFresh(product) || currentPriceNumber(product.price) <= 0 ? <span className="font-body text-xs" style={{ color: "#8C8C8C" }}>{hasVerifiedAsin(product.asin) ? "See price on Amazon" : "Not linked"}</span> : null}</td>
               <td className="px-5 py-4 whitespace-nowrap align-middle"><VerifiedAmazonCta product={product} compact /></td>
             </tr>)}
           </tbody>

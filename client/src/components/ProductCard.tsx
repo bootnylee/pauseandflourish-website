@@ -42,7 +42,7 @@ function PriceDisplay({
     );
   }
   return hasVerifiedAsin(product.asin) ? (
-    <span className="font-body text-xs block" style={{ color }}>Price unavailable</span>
+    <span className="font-body text-xs block" style={{ color }}>See price on Amazon</span>
   ) : (
     <span className="font-body text-xs block" style={{ color: "#8C8C8C" }}>No verified link</span>
   );
