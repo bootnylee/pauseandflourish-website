@@ -296,8 +296,10 @@ export const allProducts: Product[] = [
     stages: ["early-perimenopause", "late-perimenopause", "active-menopause"],
     price: "$16.79",
     rating: 4.4,
-    reviewCount: 315,
+    reviewCount: 319,
     heroImage: "https://m.media-amazon.com/images/I/71z4DzHOwiL._AC_SL1500_.jpg",
+    availability: "In Stock",
+    isBuyBoxWinner: true,
     summary: "A one-tablet menopause-support formula built around Siberian rhubarb and saffron extracts, with a vegan, no-added-hormones positioning.",
     pros: [
       "One-tablet daily format is straightforward for a short routine",
