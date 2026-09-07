@@ -165,7 +165,10 @@ function renderHtml(article) {
         <div style="color:#ffffff;font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:400;letter-spacing:.4px;">Pause &amp; Flourish</div>
         <div style="margin-top:8px;color:#b8d8d8;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;">${escapeHtml(config.tagline)}</div>
       </td></tr>
-      <tr><td align="center" style="background:#ffffff;padding:18px 18px 0;"><img src="${escapeHtml(article.heroImage)}" alt="${escapeHtml(article.title)}" width="420" style="display:block;max-width:100%;height:auto;border:0;"></td></tr>
+      <tr><td align="center" style="background:${palette.footer};padding:18px 28px;border-bottom:1px solid #d7e8e5;">
+        <div style="color:${palette.accent};font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;">Pause &amp; Flourish Journal</div>
+        <div style="margin-top:6px;color:${palette.muted};font-size:13px;line-height:1.5;">Practical, evidence-based support for every stage.</div>
+      </td></tr>
       <tr><td style="padding:28px 34px 18px;color:${palette.body};font-size:16px;line-height:1.7;">
         <div style="color:${palette.accent};font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;margin:0 0 10px;">New evidence-based guidance</div>
         <h1 style="margin:0 0 16px;color:${palette.heading};font-family:Georgia,'Times New Roman',serif;font-size:28px;line-height:1.22;">${escapeHtml(article.title)}</h1>
