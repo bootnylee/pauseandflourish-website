@@ -219,6 +219,13 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        // Retain a content hash and add a stable revision marker so cached builds
+        // cannot reuse a prior immutable product-catalog bundle pathname.
+        entryFileNames: "assets/[name]-[hash]-paf-content.js",
+      },
+    },
   },
   server: {
     port: 3000,
