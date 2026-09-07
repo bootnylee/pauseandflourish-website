@@ -195,6 +195,14 @@ exports.handler = async function (event) {
   }
 
   if (subscriptionResponse.ok) {
+    // Consume the upstream acknowledgement before the serverless invocation
+    // resolves so Netlify serializes the existing client-facing JSON body.
+    try {
+      await subscriptionResponse.arrayBuffer();
+    } catch {
+      // A successful subscription remains successful if an empty upstream body
+      // cannot be read.
+    }
     return {
       statusCode: 200,
       headers: CORS_HEADERS,
