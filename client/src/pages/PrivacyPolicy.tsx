@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
             <table>
               <thead><tr><th>Recipient</th><th>Information / function</th></tr></thead>
               <tbody>
-                <tr><td><strong>EmailOctopus</strong></td><td>Email address, optional first name, and MenopauseStage custom field used to store the subscription and send requested email communications.</td></tr>
+                <tr><td><strong>Klaviyo</strong></td><td>Email address, optional first name, and MenopauseStage custom field used to store the subscription and send requested email communications.</td></tr>
                 <tr><td><strong>Google Analytics 4</strong></td><td>Technical and interaction data used for measurement, including page views and configured events.</td></tr>
                 <tr><td><strong>Netlify</strong></td><td>Website hosting, delivery, serverless subscription-function operations, and associated technical and security processing.</td></tr>
                 <tr><td><strong>Amazon and other destination sites</strong></td><td>When you click an affiliate or external link, the destination receives information under its own privacy policy.</td></tr>
@@ -62,7 +62,7 @@ export default function PrivacyPolicy() {
           <p>You may opt out of marketing emails at any time by using the unsubscribe link in the message or by contacting <a href="mailto:hello@pauseandflourish.com">hello@pauseandflourish.com</a>. Disabling functional storage may affect quiz continuity, guide-delivery flow, or recently viewed content. For Google Analytics, you may use Google’s available opt-out tools and browser controls.</p>
 
           <h2>5. Retention</h2>
-          <p>We retain personal information only for as long as reasonably necessary for the purposes described in this Policy, including maintaining your subscription, honoring your choices, resolving disputes, enforcing agreements, and meeting legal obligations. EmailOctopus retention and deletion are administered through our email-list management process. Technical and analytics retention are subject to the settings and policies of the relevant provider.</p>
+          <p>We retain personal information only for as long as reasonably necessary for the purposes described in this Policy, including maintaining your subscription, honoring your choices, resolving disputes, enforcing agreements, and meeting legal obligations. Klaviyo retention and deletion are administered through our email-list management process. Technical and analytics retention are subject to the settings and policies of the relevant provider.</p>
 
           <h2>6. Your Privacy Rights</h2>
           <p>Depending on where you live, you may have rights to request access to, correction of, deletion of, portability of, or restriction of processing of your personal information; to object to certain processing; and to withdraw consent where processing is based on consent. To exercise a right, email <a href="mailto:hello@pauseandflourish.com">hello@pauseandflourish.com</a> with the subject line <strong>Privacy Request</strong> and describe your request. We may need to verify your identity before responding.</p>

@@ -51,7 +51,7 @@ export default function TermsOfUse() {
           <p>You may not misuse the Site, interfere with its operation, introduce malicious code, attempt unauthorized access, scrape or harvest data in violation of applicable law or the Site’s technical controls, impersonate another person, or use the Site in a way that infringes another party’s rights.</p>
 
           <h2>6. Third-Party Services and Links</h2>
-          <p>The Site may link to Amazon, EmailOctopus, research databases, and other third parties. We do not control and are not responsible for their content, availability, products, policies, or practices. Your dealings with those third parties are governed by their own terms and privacy notices.</p>
+          <p>The Site may link to Amazon, Klaviyo, research databases, and other third parties. We do not control and are not responsible for their content, availability, products, policies, or practices. Your dealings with those third parties are governed by their own terms and privacy notices.</p>
 
           <h2>7. Changes; Suspension</h2>
           <p>We may modify, suspend, or discontinue all or part of the Site or these Terms at any time. Continued use after revised Terms are posted constitutes acceptance to the extent permitted by law.</p>

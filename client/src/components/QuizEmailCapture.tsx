@@ -2,14 +2,13 @@
  * QuizEmailCapture — PauseAndFlourish.com
  *
  * Shown on the quiz results screen. Captures first name + email, subscribes
- * the visitor to the EmailOctopus list with their MenopauseStage custom field
- * pre-filled, and then delivers the stage-specific lead-magnet PDF.
+ * the visitor through the Klaviyo-backed subscription function with their
+ * MenopauseStage custom field pre-filled, and then delivers the stage-specific lead-magnet PDF.
  *
  * ── Subscription path ────────────────────────────────────────────────────────
  * POST /.netlify/functions/subscribe
- * The existing Netlify Function uses EMAILOCTOPUS_API_KEY and
- * EMAILOCTOPUS_LIST_ID from Netlify environment variables. No list ID or API
- * credential is included in the browser bundle.
+ * The Netlify Function handles the Klaviyo-backed subscription server-side. No
+ * provider credential is included in the browser bundle.
  *
  * ── Lead Magnet ──────────────────────────────────────────────────────────────
  * On successful subscription, the browser is directed to download the
