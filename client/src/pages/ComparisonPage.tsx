@@ -15,11 +15,11 @@ import { getRenderableProductImage } from "@/lib/productImageFreshness";
 
 // Menopause stage metadata for contextual tips
 const STAGE_META: Record<string, { label: string; color: string; bg: string }> = {
-  "early-perimenopause":  { label: "Early Perimenopause",  color: "#2D7D6F", bg: "#F0FAF8" },
-  "late-perimenopause":   { label: "Late Perimenopause",   color: "#3D8B7A", bg: "#E8F7F4" },
-  "active-menopause":     { label: "Active Menopause",     color: "#C4722A", bg: "#FFF8EE" },
+  "early-perimenopause":  { label: "Early Perimenopause",  color: "var(--pf-primary)", bg: "var(--pf-tint-2)" },
+  "late-perimenopause":   { label: "Late Perimenopause",   color: "var(--pf-primary-light)", bg: "var(--pf-tint)" },
+  "active-menopause":     { label: "Active Menopause",     color: "var(--pf-accent)", bg: "var(--pf-accent-tint)" },
   "early-postmenopause":  { label: "Early Postmenopause",  color: "#7B6EA8", bg: "#F5F0FF" },
-  "late-postmenopause":   { label: "Late Postmenopause",   color: "#2D7D6F", bg: "#F0FAF8" },
+  "late-postmenopause":   { label: "Late Postmenopause",   color: "var(--pf-primary)", bg: "var(--pf-tint-2)" },
 };
 
 // Contextual tips per menopause stage per product category
@@ -93,14 +93,14 @@ function ComparisonQuizBanner({ category }: { category: string }) {
           <p className="font-body font-semibold text-sm mb-0.5" style={{ color: meta.color }}>
             Your stage: {meta.label}
           </p>
-          <p className="font-body text-sm leading-relaxed" style={{ color: "#4A3A3A" }}>
+          <p className="font-body text-sm leading-relaxed" style={{ color: "var(--pf-ink)" }}>
             {tip}
           </p>
         </div>
         <button
           onClick={() => setDismissed(true)}
           className="flex-shrink-0 hover:opacity-50 transition-opacity mt-0.5"
-          style={{ background: "none", border: "none", padding: 0, color: "#8C8C8C", cursor: "pointer" }}
+          style={{ background: "none", border: "none", padding: 0, color: "var(--pf-soft)", cursor: "pointer" }}
           aria-label="Dismiss"
         >
           ✕
@@ -113,12 +113,12 @@ function ComparisonQuizBanner({ category }: { category: string }) {
   return (
     <div
       className="rounded-lg px-5 py-4 mb-8 flex items-center gap-3 justify-between"
-      style={{ backgroundColor: "#EDF5F3", border: "1.5px solid #D4EBE7" }}
+      style={{ backgroundColor: "var(--pf-tint)", border: "1.5px solid var(--pf-line)" }}
     >
       <div className="flex items-center gap-3">
-        <Sparkles size={15} className="flex-shrink-0" style={{ color: "#2D7D6F" }} />
-        <p className="font-body text-sm" style={{ color: "#4A3A3A" }}>
-          <span className="font-semibold" style={{ color: "#2D7D6F" }}>Not sure which is right for your menopause stage?</span>
+        <Sparkles size={15} className="flex-shrink-0" style={{ color: "var(--pf-primary)" }} />
+        <p className="font-body text-sm" style={{ color: "var(--pf-ink)" }}>
+          <span className="font-semibold" style={{ color: "var(--pf-primary)" }}>Not sure which is right for your menopause stage?</span>
           {" "}Take our 2-minute quiz to get a personalized recommendation.
         </p>
       </div>
@@ -126,7 +126,7 @@ function ComparisonQuizBanner({ category }: { category: string }) {
         <Link href="/quiz">
           <span
             className="inline-flex items-center gap-1 px-4 py-2 rounded font-body font-semibold text-xs cursor-pointer transition-opacity hover:opacity-90"
-            style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}
+            style={{ backgroundColor: "var(--pf-primary)", color: "var(--pf-paper)" }}
           >
             Take Quiz <ArrowRight size={11} />
           </span>
@@ -134,7 +134,7 @@ function ComparisonQuizBanner({ category }: { category: string }) {
         <button
           onClick={() => setDismissed(true)}
           className="hover:opacity-50 transition-opacity"
-          style={{ background: "none", border: "none", padding: 0, color: "#8C8C8C", cursor: "pointer" }}
+          style={{ background: "none", border: "none", padding: 0, color: "var(--pf-soft)", cursor: "pointer" }}
           aria-label="Dismiss"
         >
           ✕
@@ -192,7 +192,7 @@ export default function ComparisonPage() {
     return (
       <SiteLayout>
         <div className="container py-20 text-center">
-          <h1 className="font-display text-3xl" style={{ color: "#2C2C2C" }}>Comparison Not Found</h1>
+          <h1 className="font-display text-3xl" style={{ color: "var(--pf-ink)" }}>Comparison Not Found</h1>
           <Link href="/comparisons"><button className="btn-primary mt-6 rounded-sm px-6 py-3">All Comparisons</button></Link>
         </div>
       </SiteLayout>
@@ -208,30 +208,30 @@ export default function ComparisonPage() {
       <div className="container py-10 max-w-5xl mx-auto">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 mb-8">
-          <Link href="/"><span className="font-body text-sm cursor-pointer hover:text-teal-700" style={{ color: "#B8A99A" }}>Home</span></Link>
-          <span style={{ color: "#B8A99A" }}>/</span>
-          <Link href="/comparisons"><span className="font-body text-sm cursor-pointer hover:text-teal-700" style={{ color: "#B8A99A" }}>Comparisons</span></Link>
-          <span style={{ color: "#B8A99A" }}>/</span>
-          <span className="font-body text-sm" style={{ color: "#2C2C2C" }}>{comparison.title}</span>
+          <Link href="/"><span className="font-body text-sm cursor-pointer hover:text-teal-700" style={{ color: "var(--pf-muted)" }}>Home</span></Link>
+          <span style={{ color: "var(--pf-muted)" }}>/</span>
+          <Link href="/comparisons"><span className="font-body text-sm cursor-pointer hover:text-teal-700" style={{ color: "var(--pf-muted)" }}>Comparisons</span></Link>
+          <span style={{ color: "var(--pf-muted)" }}>/</span>
+          <span className="font-body text-sm" style={{ color: "var(--pf-ink)" }}>{comparison.title}</span>
         </div>
 
         {/* Header */}
         <p className="section-label mb-2">{comparison.category ?? "Menopause Supplements"} · Head-to-Head</p>
-        <h1 className="font-display font-bold mb-3 leading-tight" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2C2C" }}>
+        <h1 className="font-display font-bold mb-3 leading-tight" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--pf-ink)" }}>
           {comparison.title}
         </h1>
-        <p className="font-body text-lg mb-4" style={{ color: "#6C6C6C" }}>{comparison.subtitle}</p>
+        <p className="font-body text-lg mb-4" style={{ color: "var(--pf-soft-ink)" }}>{comparison.subtitle}</p>
 
         {/* E-E-A-T: Author byline + publish date */}
         {(() => {
           const compAuthorDisplay = getAuthor((comparison as any).authorId || "");
           return (
-            <div className="flex flex-wrap items-center gap-3 mb-6 text-xs" style={{ color: "#B8A99A" }}>
+            <div className="flex flex-wrap items-center gap-3 mb-6 text-xs" style={{ color: "var(--pf-muted)" }}>
               <span className="flex items-center gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 <span>By{" "}
                   <Link href={`/author/${compAuthorDisplay.slug}`}>
-                    <a className="font-semibold hover:underline" style={{ color: "#2C2C2C" }}>{compAuthorDisplay.name}</a>
+                    <a className="font-semibold hover:underline" style={{ color: "var(--pf-ink)" }}>{compAuthorDisplay.name}</a>
                   </Link>
                   <span className="ml-1">· {compAuthorDisplay.role}</span>
                 </span>
@@ -246,7 +246,7 @@ export default function ComparisonPage() {
                 </>
               )}
               <span>·</span>
-              <a href="/methodology" className="underline hover:text-teal-700" style={{ color: "#B8A99A" }}>Editorial Methodology</a>
+              <a href="/methodology" className="underline hover:text-teal-700" style={{ color: "var(--pf-muted)" }}>Editorial Methodology</a>
             </div>
           );
         })()}
@@ -264,10 +264,10 @@ export default function ComparisonPage() {
             const isWinner = product.id === (comparison.winnerId ?? comparison.winner);
             return (
               <div key={product.id} className={`rounded-sm overflow-hidden border-2 ${isWinner ? "comparison-winner" : ""}`}
-                style={{ borderColor: isWinner ? "#C4722A" : "#D4EBE7" }}>
+                style={{ borderColor: isWinner ? "var(--pf-accent)" : "var(--pf-line)" }}>
                 {isWinner && (
                   <div className="flex items-center justify-center gap-2 py-2"
-                    style={{ backgroundColor: "#C4722A" }}>
+                    style={{ backgroundColor: "var(--pf-accent)" }}>
                     <Trophy size={14} style={{ color: "white" }} />
                     <span className="font-label font-bold text-xs" style={{ color: "white", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                       Our Winner
@@ -276,20 +276,20 @@ export default function ComparisonPage() {
                 )}
                 <div className="p-6">
                   {getRenderableProductImage(product) ? (
-                    <div className="h-40 flex items-center justify-center mb-4 rounded-sm" style={{ backgroundColor: "#EDF5F3" }}>
+                    <div className="h-40 flex items-center justify-center mb-4 rounded-sm" style={{ backgroundColor: "var(--pf-tint)" }}>
                       <img src={getRenderableProductImage(product)} alt={product.name} className="h-full w-full object-contain p-4" />
                     </div>
                   ) : null}
                   <p className="section-label text-xs mb-1">{product.brand}</p>
-                  <h3 className="font-display font-bold mb-2 leading-snug" style={{ fontSize: "1.1rem", color: "#2C2C2C" }}>
+                  <h3 className="font-display font-bold mb-2 leading-snug" style={{ fontSize: "1.1rem", color: "var(--pf-ink)" }}>
                     {product.name}
                   </h3>
-                  <div className="mt-3 mb-4"><FreshCatalogPrice product={product} className="text-xl" />{(!catalogIsFresh(product) || currentPriceNumber(product.price) <= 0) && <p className="font-body text-xs" style={{ color: "#8C8C8C" }}>See price on Amazon</p>}</div>
+                  <div className="mt-3 mb-4"><FreshCatalogPrice product={product} className="text-xl" />{(!catalogIsFresh(product) || currentPriceNumber(product.price) <= 0) && <p className="font-body text-xs" style={{ color: "var(--pf-soft)" }}>See price on Amazon</p>}</div>
                   <div className="space-y-1 mb-4">
                     {product.pros.slice(0, 3).map((pro, i) => (
                       <div key={i} className="flex items-start gap-2">
                         <CheckCircle size={13} className="flex-shrink-0 mt-0.5" style={{ color: "#4CAF50" }} />
-                        <span className="font-body text-xs" style={{ color: "#2C2C2C" }}>{pro}</span>
+                        <span className="font-body text-xs" style={{ color: "var(--pf-ink)" }}>{pro}</span>
                       </div>
                     ))}
                   </div>
@@ -297,7 +297,7 @@ export default function ComparisonPage() {
                     {product.cons.slice(0, 2).map((con, i) => (
                       <div key={i} className="flex items-start gap-2">
                         <XCircle size={13} className="flex-shrink-0 mt-0.5" style={{ color: "#E53935" }} />
-                        <span className="font-body text-xs" style={{ color: "#6C6C6C" }}>{con}</span>
+                        <span className="font-body text-xs" style={{ color: "var(--pf-soft-ink)" }}>{con}</span>
                       </div>
                     ))}
                   </div>
@@ -309,27 +309,27 @@ export default function ComparisonPage() {
         </div>
 
         {/* Winner Explanation */}
-        <div className="p-6 rounded-sm mb-8" style={{ backgroundColor: "#EDF5F3", border: "2px solid #C4722A" }}>
+        <div className="p-6 rounded-sm mb-8" style={{ backgroundColor: "var(--pf-tint)", border: "2px solid var(--pf-accent)" }}>
           <div className="flex items-center gap-2 mb-3">
-            <Trophy size={18} style={{ color: "#C4722A" }} />
+            <Trophy size={18} style={{ color: "var(--pf-accent)" }} />
             <p className="section-label">Why {winner.name} Wins</p>
           </div>
-          <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>{comparison.winnerReason}</p>
+          <p className="font-body leading-relaxed" style={{ color: "var(--pf-ink)" }}>{comparison.winnerReason}</p>
         </div>
 
         {/* Full Verdict */}
         <div className="mb-8">
-          <h2 className="font-display font-bold mb-4" style={{ fontSize: "1.8rem", color: "#2C2C2C" }}>Our Full Verdict</h2>
-          <p className="font-body text-lg leading-relaxed" style={{ color: "#2C2C2C" }}>{comparison.verdict}</p>
+          <h2 className="font-display font-bold mb-4" style={{ fontSize: "1.8rem", color: "var(--pf-ink)" }}>Our Full Verdict</h2>
+          <p className="font-body text-lg leading-relaxed" style={{ color: "var(--pf-ink)" }}>{comparison.verdict}</p>
         </div>
 
         {/* Bottom CTAs */}
-        <div className="grid grid-cols-2 gap-4 pt-8 border-t" style={{ borderColor: "#D4EBE7" }}>
+        <div className="grid grid-cols-2 gap-4 pt-8 border-t" style={{ borderColor: "var(--pf-line)" }}>
           {[winner, runnerUp].map((product, i) => (
-            <div key={product.id} className="p-4 rounded-sm border" style={{ borderColor: "#D4EBE7" }}>
+            <div key={product.id} className="p-4 rounded-sm border" style={{ borderColor: "var(--pf-line)" }}>
               <p className="section-label text-xs mb-1">{i === 0 ? "🏆 Winner" : "Runner-Up"}</p>
-              <p className="font-body font-semibold text-sm mb-2" style={{ color: "#2C2C2C" }}>{product.name}</p>
-              <div className="mb-3"><FreshCatalogPrice product={product} />{(!catalogIsFresh(product) || currentPriceNumber(product.price) <= 0) && <span className="font-body text-xs" style={{ color: "#8C8C8C" }}>See price on Amazon</span>}</div>
+              <p className="font-body font-semibold text-sm mb-2" style={{ color: "var(--pf-ink)" }}>{product.name}</p>
+              <div className="mb-3"><FreshCatalogPrice product={product} />{(!catalogIsFresh(product) || currentPriceNumber(product.price) <= 0) && <span className="font-body text-xs" style={{ color: "var(--pf-soft)" }}>See price on Amazon</span>}</div>
               <div className="flex gap-2">
                 <Link href={`/review/${product.slug}`}>
                   <button className="btn-primary text-xs py-2 px-3 rounded-sm">Review</button>
@@ -340,13 +340,13 @@ export default function ComparisonPage() {
           ))}
         </div>
 
-        <p className="font-body text-xs mt-6" style={{ color: "#B8A99A" }}>
+        <p className="font-body text-xs mt-6" style={{ color: "var(--pf-muted)" }}>
           Published: {new Date(comparison.publishDate ?? "2026-05-02").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} · 
           Prices subject to change. Amazon affiliate links - we earn a commission at no extra cost to you.
         </p>
 
         <HealthDisclaimers showDshea={product1.isDietarySupplement || product2.isDietarySupplement} />
-        <div className="fixed inset-x-0 bottom-0 z-40 p-3 md:hidden" style={{ background: "rgba(250,253,252,0.97)", borderTop: "1px solid #D4EBE7" }}>
+        <div className="fixed inset-x-0 bottom-0 z-40 p-3 md:hidden" style={{ background: "rgba(250,253,252,0.97)", borderTop: "1px solid var(--pf-line)" }}>
           <VerifiedAmazonCta product={winner} label="View picks on Amazon" className="w-full" />
         </div>
       </div>

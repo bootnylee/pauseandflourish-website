@@ -20,11 +20,11 @@ const STAGE_OPTIONS: { id: string; label: string; emoji: string }[] = [
 ];
 
 const STAGE_LABELS: Record<string, { label: string; color: string; bg: string }> = {
-  "early-perimenopause":  { label: "Early Perimenopause",  color: "#2D7D6F", bg: "#F0FAF8" },
-  "late-perimenopause":   { label: "Late Perimenopause",   color: "#3D8B7A", bg: "#E8F7F4" },
-  "active-menopause":     { label: "Active Menopause",     color: "#C4722A", bg: "#FFF8EE" },
+  "early-perimenopause":  { label: "Early Perimenopause",  color: "var(--pf-primary)", bg: "var(--pf-tint-2)" },
+  "late-perimenopause":   { label: "Late Perimenopause",   color: "var(--pf-primary-light)", bg: "var(--pf-tint)" },
+  "active-menopause":     { label: "Active Menopause",     color: "var(--pf-accent)", bg: "var(--pf-accent-tint)" },
   "early-postmenopause":  { label: "Early Postmenopause",  color: "#7B6EA8", bg: "#F5F0FF" },
-  "late-postmenopause":   { label: "Late Postmenopause",   color: "#2D7D6F", bg: "#F0FAF8" },
+  "late-postmenopause":   { label: "Late Postmenopause",   color: "var(--pf-primary)", bg: "var(--pf-tint-2)" },
 };
 
 const CATEGORY_OPTIONS = [
@@ -67,7 +67,7 @@ function QuizEntryBanner() {
               <span className="font-body font-semibold text-sm" style={{ color: meta.color }}>
                 Showing comparisons for {meta.label}
               </span>
-              <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "#3D5A58" }}>
+              <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "var(--pf-primary-dark)" }}>
                 Use the menopause stage filter below to surface the most relevant comparisons.
               </span>
             </div>
@@ -76,7 +76,7 @@ function QuizEntryBanner() {
             <Link href="/quiz">
               <span
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded font-body font-semibold text-xs transition-all duration-200 hover:opacity-90 cursor-pointer"
-                style={{ backgroundColor: meta.color, color: "#FDF8F4" }}
+                style={{ backgroundColor: meta.color, color: "var(--pf-paper)" }}
               >
                 View My Stage Profile <ArrowRight size={12} />
               </span>
@@ -84,7 +84,7 @@ function QuizEntryBanner() {
             <button
               onClick={() => setDismissed(true)}
               className="hover:opacity-60 transition-opacity"
-              style={{ color: "#8C8C8C", background: "none", border: "none", padding: 0 }}
+              style={{ color: "var(--pf-soft)", background: "none", border: "none", padding: 0 }}
               aria-label="Dismiss"
             >
               <X size={14} />
@@ -96,15 +96,15 @@ function QuizEntryBanner() {
   }
 
   return (
-    <div className="border-b px-6 py-4" style={{ backgroundColor: "#EDF5F3", borderColor: "#D4EBE7" }}>
+    <div className="border-b px-6 py-4" style={{ backgroundColor: "var(--pf-tint)", borderColor: "var(--pf-line)" }}>
       <div className="container flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
         <div className="flex items-center gap-3">
-          <Sparkles size={16} style={{ color: "#2D7D6F", flexShrink: 0 }} />
+          <Sparkles size={16} style={{ color: "var(--pf-primary)", flexShrink: 0 }} />
           <div>
-            <span className="font-body font-semibold text-sm" style={{ color: "#2D7D6F" }}>
+            <span className="font-body font-semibold text-sm" style={{ color: "var(--pf-primary)" }}>
               Not sure which product is right for you?
             </span>
-            <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "#3D5A58" }}>
+            <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "var(--pf-primary-dark)" }}>
               Your menopause stage can help — take our 2-minute quiz to find out.
             </span>
           </div>
@@ -113,7 +113,7 @@ function QuizEntryBanner() {
           <Link href="/quiz">
             <span
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded font-body font-semibold text-xs transition-all duration-200 hover:opacity-90 cursor-pointer"
-              style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}
+              style={{ backgroundColor: "var(--pf-primary)", color: "var(--pf-paper)" }}
             >
               Take the Menopause Stage Quiz <ArrowRight size={12} />
             </span>
@@ -121,7 +121,7 @@ function QuizEntryBanner() {
           <button
             onClick={() => setDismissed(true)}
             className="hover:opacity-60 transition-opacity"
-            style={{ color: "#8C8C8C", background: "none", border: "none", padding: 0 }}
+            style={{ color: "var(--pf-soft)", background: "none", border: "none", padding: 0 }}
             aria-label="Dismiss"
           >
             <X size={14} />
@@ -170,26 +170,26 @@ export default function AllComparisons() {
       <QuizEntryBanner />
 
       {/* Header */}
-      <section className="py-16 border-b" style={{ borderColor: "#D4EBE7", backgroundColor: "#EDF5F3" }}>
+      <section className="py-16 border-b" style={{ borderColor: "var(--pf-line)", backgroundColor: "var(--pf-tint)" }}>
         <div className="container">
           <p className="section-label mb-2">Head-to-Head</p>
-          <h1 className="font-display font-bold" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2C2C" }}>
+          <h1 className="font-display font-bold" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--pf-ink)" }}>
             Product Comparisons
           </h1>
-          <p className="font-body text-lg mt-3" style={{ color: "#6C6C6C", maxWidth: "600px" }}>
+          <p className="font-body text-lg mt-3" style={{ color: "var(--pf-soft-ink)", maxWidth: "600px" }}>
             We put the top products head-to-head so you know exactly which one to buy. New comparisons added every Monday.
           </p>
         </div>
       </section>
 
       {/* Filter Bar */}
-      <section className="sticky top-0 z-20 border-b" style={{ backgroundColor: "#FDFAF6", borderColor: "#D4EBE7" }}>
+      <section className="sticky top-0 z-20 border-b" style={{ backgroundColor: "#FDFAF6", borderColor: "var(--pf-line)" }}>
         <div className="container py-4">
           <div className="flex flex-col gap-3">
 
             {/* Menopause Stage Filter */}
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-1.5 font-label text-xs font-semibold mr-1" style={{ color: "#2D7D6F", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+              <span className="inline-flex items-center gap-1.5 font-label text-xs font-semibold mr-1" style={{ color: "var(--pf-primary)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                 <Filter size={11} /> Menopause Stage
               </span>
               <button
@@ -197,8 +197,8 @@ export default function AllComparisons() {
                 className="px-3 py-1.5 rounded-full font-body text-xs font-medium transition-all duration-150"
                 style={
                   activeStage === null
-                    ? { backgroundColor: "#2D7D6F", color: "#FDF8F4", border: "1.5px solid #2D7D6F" }
-                    : { backgroundColor: "transparent", color: "#3D5A58", border: "1.5px solid #C0DDD9" }
+                    ? { backgroundColor: "var(--pf-primary)", color: "var(--pf-paper)", border: "1.5px solid var(--pf-primary)" }
+                    : { backgroundColor: "transparent", color: "var(--pf-primary-dark)", border: "1.5px solid var(--pf-line-strong)" }
                 }
               >
                 All Types
@@ -210,8 +210,8 @@ export default function AllComparisons() {
                   className="px-3 py-1.5 rounded-full font-body text-xs font-medium transition-all duration-150"
                   style={
                     activeStage === ht.id
-                      ? { backgroundColor: "#2D7D6F", color: "#FDF8F4", border: "1.5px solid #2D7D6F" }
-                      : { backgroundColor: "transparent", color: "#3D5A58", border: "1.5px solid #C0DDD9" }
+                      ? { backgroundColor: "var(--pf-primary)", color: "var(--pf-paper)", border: "1.5px solid var(--pf-primary)" }
+                      : { backgroundColor: "transparent", color: "var(--pf-primary-dark)", border: "1.5px solid var(--pf-line-strong)" }
                   }
                 >
                   {ht.emoji} {ht.label}
@@ -221,7 +221,7 @@ export default function AllComparisons() {
 
             {/* Category Filter */}
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-1.5 font-label text-xs font-semibold mr-1" style={{ color: "#3D5A58", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+              <span className="inline-flex items-center gap-1.5 font-label text-xs font-semibold mr-1" style={{ color: "var(--pf-primary-dark)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                 Category
               </span>
               {CATEGORY_OPTIONS.map(cat => (
@@ -231,8 +231,8 @@ export default function AllComparisons() {
                   className="px-3 py-1.5 rounded-full font-body text-xs font-medium transition-all duration-150"
                   style={
                     activeCategory === cat.id
-                      ? { backgroundColor: "#1A3A38", color: "#FDF8F4", border: "1.5px solid #1A3A38" }
-                      : { backgroundColor: "transparent", color: "#3D5A58", border: "1.5px solid #C0DDD9" }
+                      ? { backgroundColor: "var(--pf-primary-dark)", color: "var(--pf-paper)", border: "1.5px solid var(--pf-primary-dark)" }
+                      : { backgroundColor: "transparent", color: "var(--pf-primary-dark)", border: "1.5px solid var(--pf-line-strong)" }
                   }
                 >
                   {cat.label}
@@ -245,17 +245,17 @@ export default function AllComparisons() {
 
       {/* Results count */}
       <div className="container pt-6 pb-2">
-        <p className="font-body text-sm" style={{ color: "#8C8C8C" }}>
+        <p className="font-body text-sm" style={{ color: "var(--pf-soft)" }}>
           {filtered.length === comparisons.length
             ? `${comparisons.length} comparisons`
             : `${filtered.length} of ${comparisons.length} comparisons`}
           {activeStage && (
-            <span style={{ color: "#2D7D6F" }}>
+            <span style={{ color: "var(--pf-primary)" }}>
               {" for "}<strong>{STAGE_OPTIONS.find(h => h.id === activeStage)?.label}</strong>
             </span>
           )}
           {activeCategory !== "all" && (
-            <span style={{ color: "#3D5A58" }}>
+            <span style={{ color: "var(--pf-primary-dark)" }}>
               {" "}in <strong>{CATEGORY_OPTIONS.find(c => c.id === activeCategory)?.label}</strong>
             </span>
           )}
@@ -271,13 +271,13 @@ export default function AllComparisons() {
             </div>
           ) : (
             <div className="py-20 text-center">
-              <p className="font-display text-2xl font-semibold mb-3" style={{ color: "#2C2C2C" }}>No comparisons found</p>
-              <p className="font-body text-base mb-6" style={{ color: "#6C6C6C" }}>
+              <p className="font-display text-2xl font-semibold mb-3" style={{ color: "var(--pf-ink)" }}>No comparisons found</p>
+              <p className="font-body text-base mb-6" style={{ color: "var(--pf-soft-ink)" }}>
                 No comparisons match the selected filters. Try removing a filter to see more results.
               </p>
               <button              onClick={() => { setActiveCategory("all"); setActiveStage(null); }}
                 className="px-5 py-2.5 rounded font-body font-semibold text-sm transition-all hover:opacity-90"
-                style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}
+                style={{ backgroundColor: "var(--pf-primary)", color: "var(--pf-paper)" }}
               >
                 Clear All Filters
               </button>

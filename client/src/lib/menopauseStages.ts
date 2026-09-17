@@ -29,7 +29,7 @@ export const menopauseStages: MenopauseStage[] = [
     ageRange: "Late 30s – mid-40s",
     keyFocus: ["Cycle regulation", "Energy support", "Mood balance", "Sleep quality", "Stress management"],
     primarySymptoms: ["Irregular cycles", "Mood changes", "Fatigue", "Sleep disruption", "PMS changes"],
-    accentColor: "#2D7D6F",
+    accentColor: "var(--pf-primary)",
     heroKeywords: ["perimenopause symptoms", "early perimenopause signs", "perimenopause fatigue"],
   },
   {
@@ -43,7 +43,7 @@ export const menopauseStages: MenopauseStage[] = [
     ageRange: "45–52",
     keyFocus: ["Hot flash relief", "Night sweat management", "Brain fog support", "Weight management", "Anxiety reduction"],
     primarySymptoms: ["Hot flashes", "Night sweats", "Brain fog", "Weight gain", "Anxiety"],
-    accentColor: "#C4622D",
+    accentColor: "var(--pf-accent-dark)",
     heroKeywords: ["hot flash relief", "perimenopause brain fog", "night sweats solutions"],
   },
   {

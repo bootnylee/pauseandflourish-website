@@ -25,10 +25,10 @@ export default function TermsOfUse() {
     <SiteLayout>
       <article className="container max-w-4xl mx-auto py-12 md:py-16">
         <p className="section-label mb-3">Legal</p>
-        <h1 className="font-display font-bold text-4xl md:text-5xl" style={{ color: "#2C2C2C" }}>Terms of Use</h1>
-        <p className="font-body text-sm mt-4" style={{ color: "#6C6C6C" }}>Effective date: {EFFECTIVE_DATE}</p>
+        <h1 className="font-display font-bold text-4xl md:text-5xl" style={{ color: "var(--pf-ink)" }}>Terms of Use</h1>
+        <p className="font-body text-sm mt-4" style={{ color: "var(--pf-soft-ink)" }}>Effective date: {EFFECTIVE_DATE}</p>
 
-        <div className="prose max-w-none mt-10 font-body" style={{ color: "#2C2C2C" }}>
+        <div className="prose max-w-none mt-10 font-body" style={{ color: "var(--pf-ink)" }}>
           <p>These Terms of Use (“<strong>Terms</strong>”) govern your use of <a href="https://pauseandflourish.com">https://pauseandflourish.com</a> and its content, features, and services (collectively, the “<strong>Site</strong>”). The Site is operated by <span>Brightpath Digital Media, LLC<br />506 S Spring St #13308<br />SMB#21914<br />Los Angeles, CA, 90013</span> (“<strong>PauseAndFlourish</strong>,” “<strong>we</strong>,” “<strong>us</strong>,” or “<strong>our</strong>”). By accessing or using the Site, you agree to these Terms. If you do not agree, do not use the Site.</p>
 
           <h2>1. Informational Content; No Medical Advice</h2>

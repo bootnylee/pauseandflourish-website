@@ -1,0 +1,440 @@
+{
+  "version": 1,
+  "purpose": "Local, manifest-backed product imagery (PF-IMAGES-0917). Amazon listing images used under the Amazon Associates image-display terms, subject to those terms.",
+  "assets": [
+    {
+      "asin": "B0CXK29H8W",
+      "path": "/images/products/B0CXK29H8W.jpg",
+      "source": "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T2/images/I/81UDYAKQz2L._AC_SL1500_.jpg",
+      "name": "Degrees of Comfort Cooling Blanket for Hot Sleepers, King 108 x 90 Inches",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0GD6WC6HY",
+      "path": "/images/products/B0GD6WC6HY.jpg",
+      "source": "https://m.media-amazon.com/images/I/61PEEBziR1L._AC_SL1500_.jpg",
+      "name": "arcopik Thigh Trainer Pelvic Floor Muscle Trainer with 25LB Resistance Band",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B00TTD9BRC",
+      "path": "/images/products/B00TTD9BRC.jpg",
+      "source": "https://m.media-amazon.com/images/I/41DQ3piKvnL._SX466_.jpg",
+      "name": "CeraVe Moisturizing Cream Face & Body Moisturizer for Dry Skin, 19 oz",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0DX84QTPP",
+      "path": "/images/products/B0DX84QTPP.jpg",
+      "source": "https://m.media-amazon.com/images/I/71z4DzHOwiL._AC_SL1500_.jpg",
+      "name": "Nature's Bounty Optimal Solutions Advanced Menopause Relief Supplement",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B089V9WXYL",
+      "path": "/images/products/B089V9WXYL.jpg",
+      "source": "https://m.media-amazon.com/images/I/61MQzXEidJL._AC_SL1500_.jpg",
+      "name": "Menopause Supplements for Women w Black Cohosh for Hot Flashes - 60ct",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0D45Y7GR6",
+      "path": "/images/products/B0D45Y7GR6.jpg",
+      "source": "https://m.media-amazon.com/images/I/81peMJPnF0L._AC_SL1500_.jpg",
+      "name": "Menopause Sleep Support, Fast-Acting Sleep Spray with Melatonin 1 mg & GABA",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B008KPZMS2",
+      "path": "/images/products/B008KPZMS2.jpg",
+      "source": "https://m.media-amazon.com/images/I/31SpMHcGTFL._SL500_.jpg",
+      "name": "Pausitivi-T Menopause Support",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0CRKW8DFJ",
+      "path": "/images/products/B0CRKW8DFJ.jpg",
+      "source": "https://m.media-amazon.com/images/I/41s52hQx+FL._SL500_.jpg",
+      "name": "Remifemin Menopause Supplement",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B07Q8ZT7JL",
+      "path": "/images/products/B07Q8ZT7JL.jpg",
+      "source": "https://m.media-amazon.com/images/I/51QGxS4WShL._SL500_.jpg",
+      "name": "Elegear Revolutionary Cooling Blanket",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0716RWHX4",
+      "path": "/images/products/B0716RWHX4.jpg",
+      "source": "https://m.media-amazon.com/images/I/51AU4ztKAJL._SL500_.jpg",
+      "name": "NATURELO Bone Strength Calcium Supplement",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B000P9WSMY",
+      "path": "/images/products/B000P9WSMY.jpg",
+      "source": "https://m.media-amazon.com/images/I/41EU4yI9lxL._SL500_.jpg",
+      "name": "Replens Long-Lasting Vaginal Moisturizer",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B09RQBHRCT",
+      "path": "/images/products/B09RQBHRCT.jpg",
+      "source": "https://m.media-amazon.com/images/I/413yutXiSbL._SL500_.jpg",
+      "name": "Vital Proteins Collagen Peptides",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0GP23MVCC",
+      "path": "/images/products/B0GP23MVCC.jpg",
+      "source": "https://m.media-amazon.com/images/I/41aFgVA1rHL._SL500_.jpg",
+      "name": "Real Mushrooms Lion's Mane Focus with Alpha GPC",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0D6DL2Q1M",
+      "path": "/images/products/B0D6DL2Q1M.jpg",
+      "source": "https://m.media-amazon.com/images/I/418rJDdCVwL._SL500_.jpg",
+      "name": "EQUELLE Multi-Symptom Menopause Relief",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B07GX65L5T",
+      "path": "/images/products/B07GX65L5T.jpg",
+      "source": "https://m.media-amazon.com/images/I/41K7JIbxRxL._SL500_.jpg",
+      "name": "Bonafide Revaree Vaginal Moisturizer",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B00S74SB9S",
+      "path": "/images/products/B00S74SB9S.jpg",
+      "source": "https://m.media-amazon.com/images/I/417D0kp-iXL._SL500_.jpg",
+      "name": "Eu Natural Staying Cool Hot Flash Relief for Women",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B09SGFG3ZF",
+      "path": "/images/products/B09SGFG3ZF.jpg",
+      "source": "https://m.media-amazon.com/images/I/51dR9e-xZHL._SL500_.jpg",
+      "name": "Intimate Rose Kegel Exercise System",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B08H6KGPX3",
+      "path": "/images/products/B08H6KGPX3.jpg",
+      "source": "https://m.media-amazon.com/images/I/51x7ORec6lL._SL500_.jpg",
+      "name": "Health & Her Perimenopause Supplement",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B07RR9JF9B",
+      "path": "/images/products/B07RR9JF9B.jpg",
+      "source": "https://m.media-amazon.com/images/I/31NApaBiKLL._SL500_.jpg",
+      "name": "THORNE Hormone Advantage",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0DXWTW9BL",
+      "path": "/images/products/B0DXWTW9BL.jpg",
+      "source": "https://m.media-amazon.com/images/I/415n1M6QqmL._SL500_.jpg",
+      "name": "Kindra MenoRelief Menopause Supplement",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B075NTJ96W",
+      "path": "/images/products/B075NTJ96W.jpg",
+      "source": "https://m.media-amazon.com/images/I/41jggeaIP4L._SL500_.jpg",
+      "name": "Good Clean Love BioNude Ultra Sensitive Personal Lubricant",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B09GHN9129",
+      "path": "/images/products/B09GHN9129.jpg",
+      "source": "https://m.media-amazon.com/images/I/41SRxLAPTWL._SL500_.jpg",
+      "name": "Olay Collagen Peptide Face Moisturizer",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0DY833VPB",
+      "path": "/images/products/B0DY833VPB.jpg",
+      "source": "https://m.media-amazon.com/images/I/419lowzRYwL._SL500_.jpg",
+      "name": "Youtheory Ashwagandha 1,000 mg",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B00CAZAU62",
+      "path": "/images/products/B00CAZAU62.jpg",
+      "source": "https://m.media-amazon.com/images/I/415pCduKIZL._SL500_.jpg",
+      "name": "Dr. Tobias Omega 3 Fish Oil Triple Strength",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B09S6SWGVN",
+      "path": "/images/products/B09S6SWGVN.jpg",
+      "source": "https://m.media-amazon.com/images/I/31lK1tCm+YL._SL500_.jpg",
+      "name": "Womaness Daily V Soothe Vaginal Moisturizer",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B01M1HYRNJ",
+      "path": "/images/products/B01M1HYRNJ.jpg",
+      "source": "https://m.media-amazon.com/images/I/41ZdptdPCML._SL500_.jpg",
+      "name": "OLLY Goodbye Stress Gummies",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B000KHMYR0",
+      "path": "/images/products/B000KHMYR0.jpg",
+      "source": "https://m.media-amazon.com/images/I/41xcNijgT0L._SL500_.jpg",
+      "name": "Nature's Way Black Cohosh Root Capsules",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0GS41K1XH",
+      "path": "/images/products/B0GS41K1XH.jpg",
+      "source": "https://m.media-amazon.com/images/I/41Hc1XYA68L._SL500_.jpg",
+      "name": "Estroven Complete Menopause Relief Gummies",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B07RCHRS9N",
+      "path": "/images/products/B07RCHRS9N.jpg",
+      "source": "https://m.media-amazon.com/images/I/41VWFQkujrL._SL500_.jpg",
+      "name": "Estroven Weight Management for Menopause Relief",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B07VLJN7C6",
+      "path": "/images/products/B07VLJN7C6.jpg",
+      "source": "https://m.media-amazon.com/images/I/51N9PHvYdyL._SL500_.jpg",
+      "name": "Move Free Ultra Triple Action Joint Support Supplement",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0D5G3XLTX",
+      "path": "/images/products/B0D5G3XLTX.jpg",
+      "source": "https://m.media-amazon.com/images/I/61RtYqTj0TL._SL500_.jpg",
+      "name": "URO Bladder Control \u2014 Urgency & Frequency, 30-Day Supply",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0FKPYG413",
+      "path": "/images/products/B0FKPYG413.jpg",
+      "source": "https://m.media-amazon.com/images/I/6150m934ksL._SL500_.jpg",
+      "name": "MENO Healthy Aging Collagen & Protein, Chocolate Brownie",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0GS3DQQD4",
+      "path": "/images/products/B0GS3DQQD4.jpg",
+      "source": "https://m.media-amazon.com/images/I/51aMo2SJWEL._SL500_.jpg",
+      "name": "Qunol Menopause Relief",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B00DTCNI2I",
+      "path": "/images/products/B00DTCNI2I.jpg",
+      "source": "https://m.media-amazon.com/images/I/41hyKuNDCrL._SL500_.jpg",
+      "name": "Amberen Menopause Supplement (60 Day Supply)",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B01N169N8J",
+      "path": "/images/products/B01N169N8J.jpg",
+      "source": "https://m.media-amazon.com/images/I/41GHX1+y-eL._SL500_.jpg",
+      "name": "New Chapter Estrotone Menopause Supplement",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B07N813336",
+      "path": "/images/products/B07N813336.jpg",
+      "source": "https://m.media-amazon.com/images/I/41-+sOsBsWL._SL500_.jpg",
+      "name": "Estroven Complete Multi-Symptom Menopause Relief",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0CWM5K6W6",
+      "path": "/images/products/B0CWM5K6W6.jpg",
+      "source": "https://m.media-amazon.com/images/I/51g9GXTvqAL._SL500_.jpg",
+      "name": "Nobi Nutrition Magnesium Glycinate 500mg",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B01K97XFO6",
+      "path": "/images/products/B01K97XFO6.jpg",
+      "source": "https://m.media-amazon.com/images/I/41e8dfPP5uL._SL500_.jpg",
+      "name": "Chill Pal Mesh Cooling Towel",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B07N1XCZZ6",
+      "path": "/images/products/B07N1XCZZ6.jpg",
+      "source": "https://m.media-amazon.com/images/I/41yxitk40BL._SL500_.jpg",
+      "name": "ZENZSUAL Feminine Moisturizing Gel",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B08DP545FG",
+      "path": "/images/products/B08DP545FG.jpg",
+      "source": "https://m.media-amazon.com/images/I/51NYm4TJjTL._SL500_.jpg",
+      "name": "Triquetra Health BioActive Vitamin B12 Drops",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B07T7W7VR3",
+      "path": "/images/products/B07T7W7VR3.jpg",
+      "source": "https://m.media-amazon.com/images/I/519DmR9iC-L._SL500_.jpg",
+      "name": "QUTOOL Cooling Pillow",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0161J28AI",
+      "path": "/images/products/B0161J28AI.jpg",
+      "source": "https://m.media-amazon.com/images/I/511CnGvVajL._SL500_.jpg",
+      "name": "Aloe Cadabra Organic Natural Water-Based Lube",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B07VSHBL6H",
+      "path": "/images/products/B07VSHBL6H.jpg",
+      "source": "https://m.media-amazon.com/images/I/41SbImQ4bnL._SL500_.jpg",
+      "name": "Gynatrof Vaginal Moisturizer",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B00KFA94FC",
+      "path": "/images/products/B00KFA94FC.jpg",
+      "source": "https://m.media-amazon.com/images/I/41PjpTLF2HL._SL500_.jpg",
+      "name": "Amberen Menopause Supplement for Women",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B084MM9VNS",
+      "path": "/images/products/B084MM9VNS.jpg",
+      "source": "https://m.media-amazon.com/images/I/31mQ7Tco4lL._SL500_.jpg",
+      "name": "MENOLABS MenoFit Menopause Supplement",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0DBXQQGLG",
+      "path": "/images/products/B0DBXQQGLG.jpg",
+      "source": "https://m.media-amazon.com/images/I/411RbbIwhdL._SL500_.jpg",
+      "name": "OLLY Mellow Menopause",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B005NKRJWE",
+      "path": "/images/products/B005NKRJWE.jpg",
+      "source": "https://m.media-amazon.com/images/I/41WsA5AxP8L._SL500_.jpg",
+      "name": "Metagenics Estrovera",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B00IXRZWW8",
+      "path": "/images/products/B00IXRZWW8.jpg",
+      "source": "https://m.media-amazon.com/images/I/41lrAwx4xyL._SL500_.jpg",
+      "name": "Estroven Sleep Cool Menopause Relief",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B01MZ6YI2A",
+      "path": "/images/products/B01MZ6YI2A.jpg",
+      "source": "https://m.media-amazon.com/images/I/41GyYDMsaKL._SL500_.jpg",
+      "name": "New Chapter Bone Strength Take Care Supplement",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B07PBZRDJN",
+      "path": "/images/products/B07PBZRDJN.jpg",
+      "source": "https://m.media-amazon.com/images/I/51-0d+8PuJL._SL500_.jpg",
+      "name": "NEURIVA Plus Brain Supplement",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B07BMJQQ97",
+      "path": "/images/products/B07BMJQQ97.jpg",
+      "source": "https://m.media-amazon.com/images/I/31ZpomPHrCL._SL500_.jpg",
+      "name": "Bonafide Serenol PMS & Perimenopause Supplement",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0BSWWD7MK",
+      "path": "/images/products/B0BSWWD7MK.jpg",
+      "source": "https://m.media-amazon.com/images/I/41uK-GwlcLL._SL500_.jpg",
+      "name": "STRIPES Evening Wear Retinol Night Cream",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0DY9YCMTT",
+      "path": "/images/products/B0DY9YCMTT.jpg",
+      "source": "https://m.media-amazon.com/images/I/716dnVyeX3L._SL500_.jpg",
+      "name": "Bonafide Relizen Hot Flash & Night Sweat Relief \u2014 2 Month Supply",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0071Q5PL0",
+      "path": "/images/products/B0071Q5PL0.jpg",
+      "source": "https://m.media-amazon.com/images/I/31je-EZem5L._SL500_.jpg",
+      "name": "VMAGIC by Medicine Mama Organic Vulva Balm",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0BHC66LZP",
+      "path": "/images/products/B0BHC66LZP.jpg",
+      "source": "https://m.media-amazon.com/images/I/416SXTt-2HL._SL500_.jpg",
+      "name": "Estroven Complete + Ashwagandha Multi-Symptom Menopause Supplement",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B000OD1F7U",
+      "path": "/images/products/B000OD1F7U.jpg",
+      "source": "https://m.media-amazon.com/images/I/41SKxdhAQbL._SL500_.jpg",
+      "name": "Nature Made Calcium Magnesium Zinc with Vitamin D3",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B00XQ2XGAA",
+      "path": "/images/products/B00XQ2XGAA.jpg",
+      "source": "https://m.media-amazon.com/images/I/41SK2Dyh7UL._SL500_.jpg",
+      "name": "Sports Research Collagen Peptides",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B01CQ3DULY",
+      "path": "/images/products/B01CQ3DULY.jpg",
+      "source": "https://m.media-amazon.com/images/I/41UUaILASoL._SL500_.jpg",
+      "name": "MegaFood Women's 40+ Advanced Multivitamin",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B07NY3FNQG",
+      "path": "/images/products/B07NY3FNQG.jpg",
+      "source": "https://m.media-amazon.com/images/I/41gLkqNvbvL._SL500_.jpg",
+      "name": "Femmenessence MacaPause",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0CNTRGL4W",
+      "path": "/images/products/B0CNTRGL4W.jpg",
+      "source": "https://m.media-amazon.com/images/I/41Cbz1SbPGL._SL500_.jpg",
+      "name": "Remifemin Good Night - Menopause Sleep Support",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0D5GFJRRL",
+      "path": "/images/products/B0D5GFJRRL.jpg",
+      "source": "https://m.media-amazon.com/images/I/716mTlVYm0L._SL500_.jpg",
+      "name": "MENO Menopause Gummies \u2014 Hot Flashes & Night Sweats, 30-Day Supply",
+      "source_type": "Amazon product listing"
+    },
+    {
+      "asin": "B0DB6M5D68",
+      "path": "/images/products/B0DB6M5D68.jpg",
+      "source": "https://m.media-amazon.com/images/I/71KTH03mq4L._SL500_.jpg",
+      "name": "MENO Vaginal Moisture Capsules \u2014 30-Day Supply",
+      "source_type": "Amazon product listing"
+    }
+  ]
+}

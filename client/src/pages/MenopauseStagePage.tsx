@@ -37,10 +37,10 @@ export default function MenopauseStagePage() {
     return (
       <SiteLayout>
         <div className="container py-24 text-center">
-          <h1 className="font-display font-bold text-3xl mb-4" style={{ color: "#2C2C2C" }}>Stage Not Found</h1>
-          <p className="font-body text-base mb-8" style={{ color: "#5C5C5C" }}>We couldn't find that menopause stage. Try taking our quiz to find yours.</p>
+          <h1 className="font-display font-bold text-3xl mb-4" style={{ color: "var(--pf-ink)" }}>Stage Not Found</h1>
+          <p className="font-body text-base mb-8" style={{ color: "var(--pf-soft-ink)" }}>We couldn't find that menopause stage. Try taking our quiz to find yours.</p>
           <Link href="/quiz">
-            <button className="font-label font-semibold px-6 py-3 rounded-sm" style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.08em", textTransform: "uppercase" }}>Take the Quiz</button>
+            <button className="font-label font-semibold px-6 py-3 rounded-sm" style={{ backgroundColor: "var(--pf-primary)", color: "var(--pf-paper)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Take the Quiz</button>
           </Link>
         </div>
       </SiteLayout>
@@ -64,7 +64,7 @@ export default function MenopauseStagePage() {
       <section className="py-14" style={{ backgroundColor: stage.bg }}>
         <div className="container">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 mb-6 text-xs font-label" style={{ color: "#8C8C8C" }}>
+          <nav className="flex items-center gap-2 mb-6 text-xs font-label" style={{ color: "var(--pf-soft)" }}>
             <Link href="/">Home</Link>
             <ChevronRight size={12} />
             <span>Menopause Stages</span>
@@ -78,11 +78,11 @@ export default function MenopauseStagePage() {
                 <span className="text-4xl">{stage.icon}</span>
                 <div>
                   <p className="font-label font-semibold text-xs mb-1" style={{ color: stage.color, letterSpacing: "0.15em", textTransform: "uppercase" }}>Menopause Stage Guide</p>
-                  <h1 className="font-display font-bold" style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)", color: "#2C2C2C" }}>{stage.name}</h1>
+                  <h1 className="font-display font-bold" style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)", color: "var(--pf-ink)" }}>{stage.name}</h1>
                 </div>
               </div>
-              <p className="font-body text-sm mb-2" style={{ color: "#8C8C8C" }}>Typical age range: <strong style={{ color: "#2C2C2C" }}>{stage.ageRange}</strong></p>
-              <p className="font-body text-base leading-relaxed mb-6" style={{ color: "#5C5C5C" }}>{stage.description}</p>
+              <p className="font-body text-sm mb-2" style={{ color: "var(--pf-soft)" }}>Typical age range: <strong style={{ color: "var(--pf-ink)" }}>{stage.ageRange}</strong></p>
+              <p className="font-body text-base leading-relaxed mb-6" style={{ color: "var(--pf-soft-ink)" }}>{stage.description}</p>
               <Link href="/quiz">
                 <button className="font-label font-semibold text-xs px-5 py-3 rounded-sm border transition-colors" style={{ color: stage.color, borderColor: stage.color, backgroundColor: "transparent", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                   Not sure this is your stage? Take the quiz
@@ -92,17 +92,17 @@ export default function MenopauseStagePage() {
 
             {/* Symptoms */}
             <div className="bg-white rounded-sm p-6 border" style={{ borderColor: `${stage.color}33` }}>
-              <h2 className="font-display font-bold mb-4" style={{ fontSize: "1.1rem", color: "#2C2C2C" }}>Common Symptoms</h2>
+              <h2 className="font-display font-bold mb-4" style={{ fontSize: "1.1rem", color: "var(--pf-ink)" }}>Common Symptoms</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {stage.primarySymptoms.map((symptom) => (
                   <div key={symptom} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: stage.color }} />
-                    <span className="font-body text-sm" style={{ color: "#5C5C5C" }}>{symptom}</span>
+                    <span className="font-body text-sm" style={{ color: "var(--pf-soft-ink)" }}>{symptom}</span>
                   </div>
                 ))}
               </div>
               {stage.keyFocus && (
-                <div className="mt-4 pt-4 border-t" style={{ borderColor: "#D4EBE7" }}>
+                <div className="mt-4 pt-4 border-t" style={{ borderColor: "var(--pf-line)" }}>
                   <p className="font-label font-semibold text-xs mb-2" style={{ color: stage.color, letterSpacing: "0.1em", textTransform: "uppercase" }}>Key Focus Areas</p>
                   <div className="flex flex-wrap gap-2">
                     {stage.keyFocus.map((focus) => (
@@ -122,17 +122,17 @@ export default function MenopauseStagePage() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <div>
               <p className="section-label mb-1">Curated for {stage.name}</p>
-              <h2 className="font-display font-bold" style={{ fontSize: "1.8rem", color: "#2C2C2C" }}>
+              <h2 className="font-display font-bold" style={{ fontSize: "1.8rem", color: "var(--pf-ink)" }}>
                 {sorted.length} Recommended Product{sorted.length !== 1 ? "s" : ""}
               </h2>
             </div>
             <div className="flex items-center gap-2">
-              <label className="font-label text-xs" style={{ color: "#8C8C8C", letterSpacing: "0.08em", textTransform: "uppercase" }}>Sort:</label>
+              <label className="font-label text-xs" style={{ color: "var(--pf-soft)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Sort:</label>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
                 className="font-body text-sm border rounded-sm px-3 py-1.5"
-                style={{ borderColor: "#D4EBE7", color: "#2C2C2C", backgroundColor: "#FDF8F4" }}
+                style={{ borderColor: "var(--pf-line)", color: "var(--pf-ink)", backgroundColor: "var(--pf-paper)" }}
               >
                 <option value="default">Editor's Choice</option>
                 <option value="rating">Highest Rated</option>
@@ -144,10 +144,10 @@ export default function MenopauseStagePage() {
 
           {sorted.length === 0 ? (
             <div className="text-center py-16">
-              <p className="font-display font-bold text-xl mb-3" style={{ color: "#2C2C2C" }}>No products yet for this stage</p>
-              <p className="font-body text-sm mb-6" style={{ color: "#8C8C8C" }}>We're adding more reviews regularly. Check back soon.</p>
+              <p className="font-display font-bold text-xl mb-3" style={{ color: "var(--pf-ink)" }}>No products yet for this stage</p>
+              <p className="font-body text-sm mb-6" style={{ color: "var(--pf-soft)" }}>We're adding more reviews regularly. Check back soon.</p>
               <Link href="/reviews">
-                <button className="font-label font-semibold text-xs px-5 py-3 rounded-sm" style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.08em", textTransform: "uppercase" }}>Browse All Reviews</button>
+                <button className="font-label font-semibold text-xs px-5 py-3 rounded-sm" style={{ backgroundColor: "var(--pf-primary)", color: "var(--pf-paper)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Browse All Reviews</button>
               </Link>
             </div>
           ) : (
@@ -161,12 +161,12 @@ export default function MenopauseStagePage() {
       </section>
 
       {/* Other Stages */}
-      <section className="py-12 border-t" style={{ borderColor: "#D4EBE7", backgroundColor: "#EDF5F3" }}>
+      <section className="py-12 border-t" style={{ borderColor: "var(--pf-line)", backgroundColor: "var(--pf-tint)" }}>
         <div className="container">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="font-display font-bold" style={{ fontSize: "1.4rem", color: "#2C2C2C" }}>Explore Other Stages</h2>
+            <h2 className="font-display font-bold" style={{ fontSize: "1.4rem", color: "var(--pf-ink)" }}>Explore Other Stages</h2>
             <Link href="/quiz">
-              <button className="font-label font-semibold text-xs flex items-center gap-1" style={{ color: "#2D7D6F", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+              <button className="font-label font-semibold text-xs flex items-center gap-1" style={{ color: "var(--pf-primary)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                 Find My Stage <ArrowRight size={13} />
               </button>
             </Link>
@@ -176,8 +176,8 @@ export default function MenopauseStagePage() {
               <Link key={s.id} href={`/stage/${s.slug}`}>
                 <div className="p-4 rounded-sm cursor-pointer transition-all hover:shadow-md border" style={{ backgroundColor: s.bg, borderColor: `${s.color}33` }}>
                   <span className="text-xl mb-2 block">{s.icon}</span>
-                  <p className="font-display font-semibold text-sm leading-tight" style={{ color: "#2C2C2C" }}>{s.name}</p>
-                  <p className="font-body text-xs mt-1" style={{ color: "#8C8C8C" }}>{s.ageRange}</p>
+                  <p className="font-display font-semibold text-sm leading-tight" style={{ color: "var(--pf-ink)" }}>{s.name}</p>
+                  <p className="font-body text-xs mt-1" style={{ color: "var(--pf-soft)" }}>{s.ageRange}</p>
                 </div>
               </Link>
             ))}

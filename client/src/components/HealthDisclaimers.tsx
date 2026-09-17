@@ -9,7 +9,7 @@ function DisclaimerPanel({ title, children }: { title: string; children: React.R
     <section
       aria-label={title}
       className="mt-8 rounded-sm border p-5 font-body text-sm leading-relaxed"
-      style={{ backgroundColor: "#F0FAF8", borderColor: "#D4EBE7", color: "#4A5E5A" }}
+      style={{ backgroundColor: "var(--pf-tint-2)", borderColor: "var(--pf-line)", color: "var(--pf-soft-ink)" }}
     >
       <p>
         <strong>{title}:</strong> {children}

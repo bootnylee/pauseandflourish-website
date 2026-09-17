@@ -57,8 +57,8 @@ export default function NewsletterSignup({
   }
 
   const isFooter = variant === "footer";
-  const accentColor = isFooter ? "#7ECEC4" : "#C4722A";
-  const mutedTextColor = isFooter ? "rgba(250,247,244,0.7)" : "#5C5C5C";
+  const accentColor = isFooter ? "var(--pf-primary-light)" : "var(--pf-accent)";
+  const mutedTextColor = isFooter ? "rgba(250,247,244,0.7)" : "var(--pf-soft-ink)";
 
   const form = (
     <form onSubmit={handleSubmit} noValidate aria-describedby={statusId}>
@@ -73,9 +73,9 @@ export default function NewsletterSignup({
           disabled={submitState === "submitting" || submitState === "success"}
           className="flex-1 px-4 py-3 rounded-sm border text-sm font-body focus:outline-none focus:ring-2 disabled:opacity-70"
           style={{
-            borderColor: errorMessage ? "#C0392B" : isFooter ? "#4A5A58" : "#D4EBE7",
+            borderColor: errorMessage ? "#C0392B" : isFooter ? "#4A5A58" : "var(--pf-line)",
             backgroundColor: isFooter ? "#FFFFFF" : "#FFFFFF",
-            color: "#2C2C2C",
+            color: "var(--pf-ink)",
           }}
         />
         <button
@@ -84,7 +84,7 @@ export default function NewsletterSignup({
           className="px-5 py-3 rounded-sm font-label font-semibold text-sm transition-opacity disabled:opacity-60"
           style={{
             backgroundColor: accentColor,
-            color: isFooter ? "#2C2C2C" : "#FFFFFF",
+            color: isFooter ? "var(--pf-ink)" : "#FFFFFF",
             letterSpacing: "0.05em",
             textTransform: "uppercase",
             whiteSpace: "nowrap",
@@ -115,20 +115,20 @@ export default function NewsletterSignup({
         className={`relative overflow-hidden ${className}`}
         style={{
           background:
-            "linear-gradient(135deg, #1E5C54 0%, #2D7D6F 50%, #1A4A44 100%)",
+            "linear-gradient(135deg, #1E5C54 0%, var(--pf-primary) 50%, #1A4A44 100%)",
         }}
       >
         <div
           className="absolute inset-0 opacity-10"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 20% 50%, #C4722A 0%, transparent 50%), radial-gradient(circle at 80% 50%, #E8F5F2 0%, transparent 50%)",
+              "radial-gradient(circle at 20% 50%, var(--pf-accent) 0%, transparent 50%), radial-gradient(circle at 80% 50%, var(--pf-tint) 0%, transparent 50%)",
           }}
         />
         <div className="relative max-w-4xl mx-auto px-6 py-16 text-center">
           <div
             className="inline-block text-xs font-bold tracking-widest uppercase mb-4 px-4 py-1 rounded-full"
-            style={{ background: "#C4722A", color: "#fff" }}
+            style={{ background: "var(--pf-accent)", color: "#fff" }}
           >
             Join the Community
           </div>
@@ -136,7 +136,7 @@ export default function NewsletterSignup({
             className="text-4xl md:text-5xl font-bold mb-4 leading-tight"
             style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
-              color: "#FDF8F4",
+              color: "var(--pf-paper)",
             }}
           >
             Evidence-Based Menopause Guidance
@@ -161,7 +161,7 @@ export default function NewsletterSignup({
       <div className={className}>
         <p
           className="font-semibold text-xs mb-3 uppercase tracking-widest"
-          style={{ color: "#7ECEC4" }}
+          style={{ color: "var(--pf-primary-light)" }}
         >
           The PauseAndFlourish Weekly
         </p>
@@ -179,15 +179,15 @@ export default function NewsletterSignup({
   return (
     <div
       className={`rounded-sm p-6 ${className}`}
-      style={{ backgroundColor: "#EDF5F3", border: "1px solid #D4EBE7" }}
+      style={{ backgroundColor: "var(--pf-tint)", border: "1px solid var(--pf-line)" }}
     >
       <p
         className="font-semibold text-xs mb-2 uppercase tracking-widest"
-        style={{ color: "#2D7D6F" }}
+        style={{ color: "var(--pf-primary)" }}
       >
         Stay Informed
       </p>
-      <p className="text-sm mb-4 leading-relaxed" style={{ color: "#4A4A4A" }}>
+      <p className="text-sm mb-4 leading-relaxed" style={{ color: "var(--pf-soft-ink)" }}>
         Get new menopause product reviews and clinical insights in your inbox every Monday.
       </p>
       {form}

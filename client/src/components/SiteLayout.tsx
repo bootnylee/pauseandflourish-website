@@ -64,9 +64,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FDF8F4" }}>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "var(--pf-paper)" }}>
       {/* Affiliate Disclosure Banner */}
-      <div style={{ backgroundColor: "#2C2C2C", color: "#FDF8F4" }} className="text-center py-2 px-4">
+      <div style={{ backgroundColor: "var(--pf-ink)", color: "var(--pf-paper)" }} className="text-center py-2 px-4">
         <p className="font-body text-xs" style={{ letterSpacing: "0.03em" }}>
           As an Amazon Associate, PauseAndFlourish earns from qualifying purchases. 
           <span className="opacity-70 ml-1">Product prices and availability are accurate as of the date reviewed.</span>
@@ -74,14 +74,14 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b" style={{ backgroundColor: "#FDF8F4", borderColor: "#D4EBE7" }}>
+      <header className="sticky top-0 z-50 border-b" style={{ backgroundColor: "var(--pf-paper)", borderColor: "var(--pf-line)" }}>
         {/* Top bar */}
         <div className="container">
           <div className="flex items-center justify-between py-4">
             {/* Logo */}
             <Link href="/">
               <div className="flex flex-col cursor-pointer">
-                <span className="font-display font-bold leading-none" style={{ fontSize: "1.8rem", color: "#2D7D6F", letterSpacing: "-0.01em" }}>
+                <span className="font-display font-bold leading-none" style={{ fontSize: "1.8rem", color: "var(--pf-primary)", letterSpacing: "-0.01em" }}>
                   PauseAndFlourish
                 </span>
                 <span className="font-label" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: "var(--masthead-tagline)", textTransform: "uppercase" }}>
@@ -110,11 +110,11 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 </button>
                 {categoriesOpen && (
                   <div className="absolute top-full left-0 mt-1 w-56 bg-white border shadow-lg z-50"
-                    style={{ borderColor: "#D4EBE7" }}>
+                    style={{ borderColor: "var(--pf-line)" }}>
                     {navCategories.map(cat => (
                       <Link key={cat.href} href={cat.href}>
                         <div className="px-4 py-3 hover:bg-gray-50 font-body text-sm cursor-pointer"
-                          style={{ color: "#2C2C2C", borderBottom: "1px solid #EDF5F3" }}>
+                          style={{ color: "var(--pf-ink)", borderBottom: "1px solid var(--pf-tint)" }}>
                           {cat.label}
                         </div>
                       </Link>
@@ -132,18 +132,18 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 </button>
                 {stagesOpen && (
                   <div className="absolute top-full left-0 mt-1 w-52 bg-white border shadow-lg z-50"
-                    style={{ borderColor: "#D4EBE7" }}>
+                    style={{ borderColor: "var(--pf-line)" }}>
                 {navStages.map(ht => (
                   <Link key={ht.href} href={ht.href}>
                     <div className="px-4 py-2.5 hover:bg-amber-50 font-body text-sm cursor-pointer"
-                      style={{ color: "#2C2C2C", borderBottom: "1px solid #EDF5F3" }}>
+                      style={{ color: "var(--pf-ink)", borderBottom: "1px solid var(--pf-tint)" }}>
                       {ht.label}
                     </div>
                   </Link>
                 ))}
                 <Link href="/quiz">
                   <div className="px-4 py-2.5 font-body text-sm font-semibold cursor-pointer"
-                    style={{ color: "#2D7D6F", backgroundColor: "#F0FAF8" }}>
+                    style={{ color: "var(--pf-primary)", backgroundColor: "var(--pf-tint-2)" }}>
                     Take the Stage Quiz →
                   </div>
                 </Link>
@@ -154,10 +154,10 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 <Link href="/quiz">
                   <span
                     className="inline-flex items-center gap-1.5 font-body font-semibold px-3 py-1.5 rounded transition-all duration-200 hover:opacity-90"
-                    style={{ backgroundColor: "#FFF5E6", color: "#2D7D6F", border: "1.5px solid #C4722A", fontSize: "0.78rem", letterSpacing: "0.03em" }}
+                    style={{ backgroundColor: "var(--pf-accent-tint)", color: "var(--pf-primary)", border: "1.5px solid var(--pf-accent)", fontSize: "0.78rem", letterSpacing: "0.03em" }}
                     title="Your saved menopause stage — click to view your results"
                   >
-                    <Sparkles size={12} style={{ color: "#7ECEC4" }} />
+                    <Sparkles size={12} style={{ color: "var(--pf-primary-light)" }} />
                     {STAGE_LABELS[savedStage] ?? "My Stage"}
                   </span>
                 </Link>
@@ -165,7 +165,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 <Link href="/quiz">
                   <span
                     className="nav-link font-semibold px-3 py-1.5 rounded transition-all duration-200"
-                    style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.04em", fontSize: "0.78rem" }}
+                    style={{ backgroundColor: "var(--pf-primary)", color: "var(--pf-paper)", letterSpacing: "0.04em", fontSize: "0.78rem" }}
                   >
                     Stage Quiz
                   </span>
@@ -182,14 +182,14 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
-              {mobileOpen ? <X size={24} style={{ color: "#2D7D6F" }} /> : <Menu size={24} style={{ color: "#2D7D6F" }} />}
+              {mobileOpen ? <X size={24} style={{ color: "var(--pf-primary)" }} /> : <Menu size={24} style={{ color: "var(--pf-primary)" }} />}
             </button>
           </div>
         </div>
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden border-t" style={{ borderColor: "#D4EBE7", backgroundColor: "#FDF8F4" }}>
+          <div className="lg:hidden border-t" style={{ borderColor: "var(--pf-line)", backgroundColor: "var(--pf-paper)" }}>
             <div className="container py-4 flex flex-col gap-4">
               <Link href="/reviews" onClick={() => setMobileOpen(false)}>
                 <span className="nav-link block py-2">Reviews</span>
@@ -200,25 +200,25 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               <Link href="/news-and-articles" onClick={() => setMobileOpen(false)}>
                 <span className="nav-link block py-2">News &amp; Articles</span>
               </Link>
-              <div className="border-t pt-2" style={{ borderColor: "#D4EBE7" }}>
+              <div className="border-t pt-2" style={{ borderColor: "var(--pf-line)" }}>
                 <p className="section-label mb-2">Categories</p>
                 {navCategories.map(cat => (
                   <Link key={cat.href} href={cat.href} onClick={() => setMobileOpen(false)}>
-                    <div className="py-2 font-body text-sm" style={{ color: "#2C2C2C" }}>{cat.label}</div>
+                    <div className="py-2 font-body text-sm" style={{ color: "var(--pf-ink)" }}>{cat.label}</div>
                   </Link>
                 ))}
               </div>
-              <div className="border-t pt-2" style={{ borderColor: "#D4EBE7" }}>
+              <div className="border-t pt-2" style={{ borderColor: "var(--pf-line)" }}>
                 <p className="section-label mb-2">My Journey</p>
                 {navStages.map(ht => (
                   <Link key={ht.href} href={ht.href} onClick={() => setMobileOpen(false)}>
-                    <div className="py-1.5 font-body text-sm" style={{ color: "#2C2C2C" }}>{ht.label}</div>
+                    <div className="py-1.5 font-body text-sm" style={{ color: "var(--pf-ink)" }}>{ht.label}</div>
                   </Link>
                 ))}
               </div>
               <Link href="/quiz" onClick={() => setMobileOpen(false)}>
                 <div className="py-2.5 px-4 rounded font-body text-sm font-semibold my-1"
-                  style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}>
+                  style={{ backgroundColor: "var(--pf-primary)", color: "var(--pf-paper)" }}>
                   Take the Stage Quiz
                 </div>
               </Link>
@@ -236,60 +236,60 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       </main>
 
       {/* Footer */}
-      <footer style={{ backgroundColor: "#2C2C2C", color: "#FDF8F4" }}>
+      <footer style={{ backgroundColor: "var(--pf-ink)", color: "var(--pf-paper)" }}>
         <div className="container py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Brand */}
             <div className="md:col-span-2">
-              <span className="font-display font-bold" style={{ fontSize: "1.6rem", color: "#7ECEC4" }}>
+              <span className="font-display font-bold" style={{ fontSize: "1.6rem", color: "var(--pf-primary-light)" }}>
                 PauseAndFlourish
               </span>
-              <p className="font-body text-sm mt-3 leading-relaxed" style={{ color: "#B8A99A" }}>
+              <p className="font-body text-sm mt-3 leading-relaxed" style={{ color: "var(--pf-muted)" }}>
                 Expert menopause and perimenopause product reviews for women navigating the transition. We research the evidence so you can make confident decisions.
               </p>
-              <p className="font-body text-xs mt-4" style={{ color: "#8C8C8C" }}>
+              <p className="font-body text-xs mt-4" style={{ color: "var(--pf-soft)" }}>
                 PauseAndFlourish is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.
               </p>
             </div>
 
             {/* Product Categories */}
             <div>
-              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "#7ECEC4" }}>
+              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--pf-primary-light)" }}>
                 Product Categories
               </p>
               <div className="flex flex-col gap-2">
                 <Link href="/category/multi-symptom-supplements">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Multi-Symptom Supplements</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Multi-Symptom Supplements</span>
                 </Link>
                 <Link href="/category/sleep-mood-support">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Sleep & Mood Support</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Sleep & Mood Support</span>
                 </Link>
                 <Link href="/category/hot-flash-cooling">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Hot Flash & Cooling</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Hot Flash & Cooling</span>
                 </Link>
                 <Link href="/category/bone-joint-health">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Bone & Joint Health</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Bone & Joint Health</span>
                 </Link>
               </div>
             </div>
 
             {/* My Journey */}
             <div>
-              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "#7ECEC4" }}>
+              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--pf-primary-light)" }}>
                 My Journey
               </p>
               <div className="flex flex-col gap-2">
                 <Link href="/category/vaginal-intimate-health">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Vaginal & Intimate Health</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Vaginal & Intimate Health</span>
                 </Link>
                 <Link href="/category/menopause-skincare">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Menopause Skincare</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Menopause Skincare</span>
                 </Link>
                 <Link href="/category/fitness-pelvic-health">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Fitness & Pelvic Health</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Fitness & Pelvic Health</span>
                 </Link>
                 <Link href="/category/cognitive-energy-support">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Cognitive & Energy Support</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Cognitive & Energy Support</span>
                 </Link>
               </div>
             </div>
@@ -302,30 +302,30 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
 
           <div className="border-t mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
             style={{ borderColor: "#3C3C3C" }}>
-            <p className="font-body text-xs" style={{ color: "#8C8C8C" }}>
+            <p className="font-body text-xs" style={{ color: "var(--pf-soft)" }}>
               © {new Date().getFullYear()} PauseAndFlourish.com - All rights reserved.
             </p>
             <div className="flex gap-6 items-center">
               <Link href="/news-and-articles">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "#7ECEC4" }}>News &amp; Articles</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-primary-light)" }}>News &amp; Articles</span>
               </Link>
               <Link href="/quiz">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "#7ECEC4" }}>Stage Quiz</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-primary-light)" }}>Stage Quiz</span>
               </Link>
               <Link href="/about">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "#8C8C8C" }}>About</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-soft)" }}>About</span>
               </Link>
               <Link href="/methodology">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "#8C8C8C" }}>Methodology</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-soft)" }}>Methodology</span>
               </Link>
               <Link href="/privacy">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "#8C8C8C" }}>Privacy Policy</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-soft)" }}>Privacy Policy</span>
               </Link>
               <Link href="/terms">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "#8C8C8C" }}>Terms of Use</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-soft)" }}>Terms of Use</span>
               </Link>
               <Link href="/contact">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "#8C8C8C" }}>Contact</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-soft)" }}>Contact</span>
               </Link>
               {savedStage && (
                 <button
@@ -334,7 +334,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                     setSavedStage(null);
                   }}
                   className="font-body text-xs cursor-pointer transition-colors hover:text-white"
-                  style={{ color: "#8C8C8C", background: "none", border: "none", padding: 0 }}
+                  style={{ color: "var(--pf-soft)", background: "none", border: "none", padding: 0 }}
                   title="Remove your saved stage profile"
                 >
                   Clear My Profile

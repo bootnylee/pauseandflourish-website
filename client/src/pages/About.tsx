@@ -49,14 +49,14 @@ export default function About() {
         <p className="section-label mb-2">Our Story</p>
         <h1
           className="font-display font-bold mb-6 leading-tight"
-          style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2C2C" }}
+          style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--pf-ink)" }}
         >
           About PauseAndFlourish
         </h1>
         <hr className="editorial-rule w-16 mb-8" />
 
         <div className="space-y-6">
-          <p className="font-body text-lg leading-relaxed" style={{ color: "#2C2C2C" }}>
+          <p className="font-body text-lg leading-relaxed" style={{ color: "var(--pf-ink)" }}>
             PauseAndFlourish was built on a simple belief: every woman deserves honest,
             evidence-based guidance through menopause and perimenopause. With thousands of
             supplements, cooling products, sleep aids, and wellness tools on the market — and
@@ -64,7 +64,7 @@ export default function About() {
             specific stage can feel overwhelming.
           </p>
 
-          <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
+          <p className="font-body leading-relaxed" style={{ color: "var(--pf-ink)" }}>
             We research and review every product we feature — from widely available supplements
             to specialized wellness devices — and give you our honest assessment based on
             ingredient science, clinical evidence, and real-world user data. Our reviews cover
@@ -80,33 +80,33 @@ export default function About() {
           {/* ── Editorial Team ─────────────────────────────────────────────── */}
           <h2
             className="font-display font-bold mt-10 mb-4"
-            style={{ fontSize: "1.6rem", color: "#2C2C2C" }}
+            style={{ fontSize: "1.6rem", color: "var(--pf-ink)" }}
           >
             Our Editorial Team
           </h2>
 
           <div
             className="p-6 rounded-sm"
-            style={{ backgroundColor: "#EDF5F3", border: "1px solid #D4EBE7" }}
+            style={{ backgroundColor: "var(--pf-tint)", border: "1px solid var(--pf-line)" }}
           >
             <div className="flex items-start gap-4">
               <div
                 className="w-14 h-14 rounded-full flex-shrink-0 flex items-center justify-center font-bold text-white text-lg"
-                style={{ backgroundColor: "#2D7D6F" }}
+                style={{ backgroundColor: "var(--pf-primary)" }}
               >
                 PF
               </div>
               <div>
                 <p
                   className="font-display font-bold mb-1"
-                  style={{ fontSize: "1.1rem", color: "#2C2C2C" }}
+                  style={{ fontSize: "1.1rem", color: "var(--pf-ink)" }}
                 >
                   PauseAndFlourish Editorial Team
                 </p>
-                <p className="font-body text-sm mb-2" style={{ color: "#6C6C6C" }}>
+                <p className="font-body text-sm mb-2" style={{ color: "var(--pf-soft-ink)" }}>
                   Women's Health Researchers &amp; Writers
                 </p>
-                <p className="font-body text-sm leading-relaxed" style={{ color: "#2C2C2C" }}>
+                <p className="font-body text-sm leading-relaxed" style={{ color: "var(--pf-ink)" }}>
                   Our editorial team specializes in menopause, perimenopause, and midlife
                   wellness. Every review is grounded in clinical evidence, ingredient science,
                   and aggregated real-world user data. We do not accept payment for positive
@@ -117,12 +117,12 @@ export default function About() {
             </div>
           </div>
 
-          <p className="font-body text-sm leading-relaxed" style={{ color: "#6C6C6C" }}>
+          <p className="font-body text-sm leading-relaxed" style={{ color: "var(--pf-soft-ink)" }}>
             Our review process follows a rigorous multi-factor scoring framework. For full
             details on how we evaluate products, score ingredients, and maintain editorial
             independence, see our{" "}
             <Link href="/methodology">
-              <a className="underline hover:text-teal-700" style={{ color: "#2D7D6F" }}>
+              <a className="underline hover:text-teal-700" style={{ color: "var(--pf-primary)" }}>
                 Editorial Methodology
               </a>
             </Link>
@@ -132,12 +132,12 @@ export default function About() {
           {/* ── Review Methodology (summary) ───────────────────────────────── */}
           <h2
             className="font-display font-bold mt-10 mb-4"
-            style={{ fontSize: "1.6rem", color: "#2C2C2C" }}
+            style={{ fontSize: "1.6rem", color: "var(--pf-ink)" }}
           >
             Our Review Methodology
           </h2>
 
-          <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
+          <p className="font-body leading-relaxed" style={{ color: "var(--pf-ink)" }}>
             Every product we review is evaluated against a rigorous multi-factor framework:
             ingredient quality and clinical evidence, real-world efficacy based on aggregated
             user data, value for money, safety profile, and suitability for specific menopause
@@ -145,7 +145,7 @@ export default function About() {
             importance to women at that stage of the transition.
           </p>
 
-          <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
+          <p className="font-body leading-relaxed" style={{ color: "var(--pf-ink)" }}>
             For head-to-head comparisons, we evaluate both products against identical criteria
             to ensure a fair assessment. Our winner recommendations are based on overall
             performance, ingredient quality, value, and suitability for the target menopause
@@ -166,23 +166,23 @@ export default function About() {
           {/* ── Affiliate Disclosure ────────────────────────────────────────── */}
           <h2
             className="font-display font-bold mt-10 mb-4"
-            style={{ fontSize: "1.6rem", color: "#2C2C2C" }}
+            style={{ fontSize: "1.6rem", color: "var(--pf-ink)" }}
           >
             Amazon Affiliate Disclosure
           </h2>
 
           <div
             className="p-5 rounded-sm"
-            style={{ backgroundColor: "#EDF5F3", border: "1px solid #D4EBE7" }}
+            style={{ backgroundColor: "var(--pf-tint)", border: "1px solid var(--pf-line)" }}
           >
-            <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
+            <p className="font-body leading-relaxed" style={{ color: "var(--pf-ink)" }}>
               PauseAndFlourish is a participant in the Amazon Services LLC Associates Program,
               an affiliate advertising program designed to provide a means for sites to earn
               advertising fees by advertising and linking to Amazon.com. When you click an
               Amazon link on our site and make a purchase, we may earn a small commission at
               no additional cost to you.
             </p>
-            <p className="font-body leading-relaxed mt-3" style={{ color: "#2C2C2C" }}>
+            <p className="font-body leading-relaxed mt-3" style={{ color: "var(--pf-ink)" }}>
               Our affiliate relationship with Amazon does not influence our reviews or
               recommendations. We only recommend products we have evaluated and genuinely
               believe are worth your money. Product prices and availability are accurate as of
@@ -193,12 +193,12 @@ export default function About() {
           {/* ── Content Updates ─────────────────────────────────────────────── */}
           <h2
             className="font-display font-bold mt-10 mb-4"
-            style={{ fontSize: "1.6rem", color: "#2C2C2C" }}
+            style={{ fontSize: "1.6rem", color: "var(--pf-ink)" }}
           >
             Content Updates
           </h2>
 
-          <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
+          <p className="font-body leading-relaxed" style={{ color: "var(--pf-ink)" }}>
             We publish new content every Monday, including new product reviews and head-to-head
             comparisons across our eight product categories. Our content is reviewed weekly for
             accuracy and updated whenever new clinical evidence or product formulations emerge.
@@ -209,12 +209,12 @@ export default function About() {
           {/* ── Contact ─────────────────────────────────────────────────────── */}
           <h2
             className="font-display font-bold mt-10 mb-4"
-            style={{ fontSize: "1.6rem", color: "#2C2C2C" }}
+            style={{ fontSize: "1.6rem", color: "var(--pf-ink)" }}
           >
             Contact Us
           </h2>
 
-          <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
+          <p className="font-body leading-relaxed" style={{ color: "var(--pf-ink)" }}>
             Have a product you'd like us to review? A question about one of our
             recommendations? A personal experience with menopause wellness you'd like to share?
             We'd love to hear from you.

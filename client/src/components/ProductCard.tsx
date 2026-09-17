@@ -28,7 +28,7 @@ function isNewThisWeek(publishDate: string): boolean {
 function PriceDisplay({
   product,
   fontSize = "1rem",
-  color = "#2D7D6F",
+  color = "var(--pf-primary)",
 }: {
   product: Product;
   fontSize?: string;
@@ -44,7 +44,7 @@ function PriceDisplay({
   return hasVerifiedAsin(product.asin) ? (
     <span className="font-body text-xs block" style={{ color }}>See price on Amazon</span>
   ) : (
-    <span className="font-body text-xs block" style={{ color: "#8C8C8C" }}>No verified link</span>
+    <span className="font-body text-xs block" style={{ color: "var(--pf-soft)" }}>No verified link</span>
   );
 }
 
@@ -81,9 +81,9 @@ function PriceDropBadge({ badge, size = "sm" }: { badge: PriceBadge; size?: "sm"
   const isPriceDrop = badge.type === "price-drop";
 
   const bg = isAllTimeLow
-    ? "#C4722A"
+    ? "var(--pf-accent)"
     : isPriceDrop
-    ? "#2D7D6F"
+    ? "var(--pf-primary)"
     : "#4A7C59";
 
   const Icon = isAllTimeLow ? Flame : TrendingDown;
@@ -126,7 +126,7 @@ export default function ProductCard({
         {productImage ? (
           <div
             className="flex-shrink-0 w-20 h-20 overflow-hidden rounded-sm"
-            style={{ backgroundColor: "#EDF5F3" }}
+            style={{ backgroundColor: "var(--pf-tint)" }}
           >
             <img src={productImage} alt={product.name} className="w-full h-full object-contain" />
           </div>
@@ -136,7 +136,7 @@ export default function ProductCard({
           <Link href={`/review/${product.slug}`}>
             <h3
               className="font-display font-semibold leading-tight mb-1 hover:text-teal-700 transition-colors cursor-pointer"
-              style={{ fontSize: "1rem", color: "#2C2C2C" }}
+              style={{ fontSize: "1rem", color: "var(--pf-ink)" }}
             >
               {product.name}
             </h3>
@@ -159,7 +159,7 @@ export default function ProductCard({
         {productImage ? (
           <div
             className="relative overflow-hidden"
-            style={{ height: "220px", backgroundColor: "#EDF5F3" }}
+            style={{ height: "220px", backgroundColor: "var(--pf-tint)" }}
           >
             <img src={productImage} alt={product.name} className="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105" />
             <div className="absolute top-3 left-3 flex flex-col gap-1.5">
@@ -174,27 +174,27 @@ export default function ProductCard({
           <Link href={`/review/${product.slug}`}>
             <h3
               className="font-display font-semibold mb-2 hover:text-teal-700 transition-colors cursor-pointer leading-snug"
-              style={{ fontSize: "1.1rem", color: "#2C2C2C" }}
+              style={{ fontSize: "1.1rem", color: "var(--pf-ink)" }}
             >
               {product.name}
             </h3>
           </Link>
           <p
             className="font-body text-sm mt-2 line-clamp-2 leading-relaxed"
-            style={{ color: "#6C6C6C" }}
+            style={{ color: "var(--pf-soft-ink)" }}
           >
             {product.shortDescription}
           </p>
           <div
             className="flex items-center justify-between mt-4 pt-4 border-t"
-            style={{ borderColor: "#F0E8DE" }}
+            style={{ borderColor: "var(--pf-line)" }}
           >
             <div>
               <PriceDisplay product={product} fontSize="1.1rem" />
               {isProductPriceFresh(product.asin) && (
                 <p
                   className="font-body text-xs mt-0.5"
-                  style={{ color: "#B8A99A" }}
+                  style={{ color: "var(--pf-muted)" }}
                 >
                   on Amazon
                 </p>
@@ -220,7 +220,7 @@ export default function ProductCard({
       {productImage ? (
         <div
           className="relative overflow-hidden"
-          style={{ height: "180px", backgroundColor: "#EDF5F3" }}
+          style={{ height: "180px", backgroundColor: "var(--pf-tint)" }}
         >
           <img src={productImage} alt={product.name} className="w-full h-full object-contain p-3 transition-transform duration-300 group-hover:scale-105" />
           <div className="absolute top-2 left-2 flex flex-col gap-1">
@@ -235,14 +235,14 @@ export default function ProductCard({
         <Link href={`/review/${product.slug}`}>
           <h3
             className="font-display font-semibold mb-1 hover:text-teal-700 transition-colors cursor-pointer leading-snug"
-            style={{ fontSize: "1rem", color: "#2C2C2C" }}
+            style={{ fontSize: "1rem", color: "var(--pf-ink)" }}
           >
             {product.name}
           </h3>
         </Link>
         <div
           className="flex items-center justify-between mt-3 pt-3 border-t"
-          style={{ borderColor: "#F0E8DE" }}
+          style={{ borderColor: "var(--pf-line)" }}
         >
           <div>
             <PriceDisplay product={product} />
