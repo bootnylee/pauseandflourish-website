@@ -23,7 +23,7 @@ const products = read("client/src/lib/products.ts");
 expect(commerce, 'rel="sponsored nofollow noopener"', "Verified CTA must use sponsored, nofollow, noopener");
 expect(commerce, "No verified link", "Verified CTA must suppress unverified product links");
 expect(commerce, "See price on Amazon", "Catalog-price UI must present the approved stale-price copy");
-expect(comparison, "ProductComparisonTable", "Comparison pages must render the standardized comparison table");
+if (!comparison.includes("ProductComparisonTable") && !comparison.includes("HeadToHeadTable")) failures.push("Comparison pages must render the standardized comparison table (ProductComparisonTable or HeadToHeadTable)");
 expect(comparison, "View picks on Amazon", "Comparison pages must render the mobile sticky buyer CTA");
 expect(comparison, "commerceItemListSchema", "Comparison pages must emit ItemList Product schema");
 if (comparison.includes("comparison-faq-schema")) failures.push("Comparison pages must not emit FAQPage schema without visible FAQ content");

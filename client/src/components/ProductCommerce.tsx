@@ -1,4 +1,6 @@
-import { ExternalLink } from "lucide-react";
+import { ArrowRight, CheckCircle, ExternalLink, XCircle } from "lucide-react";
+import { Link } from "wouter";
+import type React from "react";
 import { type Product, amazonLink } from "@/lib/products";
 import { isProductPriceFresh } from "@/lib/priceFreshness.generated";
 import { trackAffiliateClick } from "@/lib/analytics";
@@ -75,6 +77,52 @@ export function ProductComparisonTable({ products }: { products: CommerceProduct
           </tbody>
         </table>
       </div>
+    </section>
+  );
+}
+
+/**
+ * HeadToHeadTable — the standardized two-product comparison table (PF-OVERHAUL-0917, Phase C).
+ * One row per thing that decides a head-to-head; the winner column is marked. Uses the editorial
+ * score (1–10) and editor's pick — never a static Amazon rating (commerce gate).
+ */
+export function HeadToHeadTable({ products, winnerId, stageMeta }: { products: Product[]; winnerId: string; stageMeta?: Record<string, { label: string; color: string; bg: string }> }) {
+  const rows: [string, (p: Product) => React.ReactNode][] = [
+    ["Our score", (p) => <span className="font-display font-bold text-xl" style={{ color: p.id === winnerId ? "var(--pf-accent)" : "var(--pf-ink)" }}>{p.score}<span className="font-body text-xs font-normal" style={{ color: "var(--pf-muted)" }}> / 10</span></span>],
+    ["Editor's pick", (p) => p.editorPick ? <span className="inline-flex items-center gap-1" style={{ color: "var(--pf-primary)" }}><CheckCircle size={14} /> Yes</span> : <span style={{ color: "var(--pf-muted)" }}>—</span>],
+    ["Best for", (p) => p.bestFor],
+    ["Category", (p) => p.category],
+    ["Stages", (p) => <span className="flex flex-wrap gap-1">{p.stages.map((st) => <span key={st} className="font-label text-[10px] px-2 py-0.5 rounded-sm" style={{ background: stageMeta?.[st]?.bg ?? "var(--pf-tint)", color: stageMeta?.[st]?.color ?? "var(--pf-primary)" }}>{stageMeta?.[st]?.label ?? st}</span>)}</span>],
+    ["Strengths", (p) => <ul className="space-y-1">{p.pros.slice(0, 3).map((x, i) => <li key={i} className="flex items-start gap-1.5"><CheckCircle size={13} className="mt-0.5 shrink-0" style={{ color: "var(--pf-primary)" }} /><span>{x}</span></li>)}</ul>],
+    ["Trade-offs", (p) => <ul className="space-y-1">{p.cons.slice(0, 2).map((x, i) => <li key={i} className="flex items-start gap-1.5"><XCircle size={13} className="mt-0.5 shrink-0" style={{ color: "var(--pf-accent)" }} /><span>{x}</span></li>)}</ul>],
+    ["Price", (p) => <span><FreshCatalogPrice product={p} className="text-base" />{(!catalogIsFresh(p) || currentPriceNumber(p.price) <= 0) && <span className="font-body text-xs" style={{ color: "var(--pf-soft)" }}>{hasVerifiedAsin(p.asin) ? "See price on Amazon" : "Not linked"}</span>}</span>],
+    ["Buy", (p) => <VerifiedAmazonCta product={p} compact />],
+    ["Full review", (p) => <Link href={`/review/${p.slug}`}><a className="inline-flex items-center gap-1 font-semibold underline" style={{ color: "var(--pf-primary)" }}>Read our review <ArrowRight size={13} /></a></Link>],
+  ];
+  return (
+    <section className="mb-10 overflow-x-auto" aria-label="Side by side">
+      <table className="w-full text-left border-collapse min-w-[560px]">
+        <thead>
+          <tr className="font-label text-xs uppercase tracking-wide" style={{ color: "var(--pf-soft-ink)" }}>
+            <th className="py-3 pr-4 w-40"></th>
+            {products.map((p) => (
+              <th key={p.id} className="py-3 px-4 align-bottom" style={{ color: p.id === winnerId ? "var(--pf-accent)" : "var(--pf-ink)", borderBottom: p.id === winnerId ? "3px solid var(--pf-accent)" : "3px solid var(--pf-line)" }}>
+                {p.id === winnerId ? "🏆 " : ""}{p.name}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="font-body text-sm" style={{ color: "var(--pf-ink)" }}>
+          {rows.map(([label, cell]) => (
+            <tr key={label} className="border-t align-top" style={{ borderColor: "var(--pf-line)" }}>
+              <th scope="row" className="py-4 pr-4 font-label text-xs uppercase tracking-wide font-semibold" style={{ color: "var(--pf-soft-ink)" }}>{label}</th>
+              {products.map((p) => (
+                <td key={p.id} className="py-4 px-4" style={{ background: p.id === winnerId ? "var(--pf-tint)" : "transparent" }}>{cell(p)}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </section>
   );
 }

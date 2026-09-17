@@ -1,6 +1,6 @@
 // PauseAndFlourish.com - Comparison Page
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "wouter";
 import { Trophy, CheckCircle, XCircle, Sparkles, ArrowRight } from "lucide-react";
 import SiteLayout from "@/components/SiteLayout";
@@ -8,7 +8,7 @@ import { comparisons, getProductById, amazonLink } from "@/lib/products";
 import { updateDocumentMeta, buildArticleSchema, buildBreadcrumbSchema, buildPersonSchema, injectStructuredData } from "@/lib/seo";
 import { getAuthor } from "@/lib/authors";
 import { QUIZ_RESULT_KEY } from "@/pages/MenopauseQuiz";
-import { ProductComparisonTable, VerifiedAmazonCta, FreshCatalogPrice, catalogIsFresh, currentPriceNumber } from "@/components/ProductCommerce";
+import { HeadToHeadTable, VerifiedAmazonCta, FreshCatalogPrice, catalogIsFresh, currentPriceNumber } from "@/components/ProductCommerce";
 import { commerceItemListSchema } from "@/lib/commerceSeo";
 import { HealthDisclaimers } from "@/components/HealthDisclaimers";
 import { getRenderableProductImage } from "@/lib/productImageFreshness";
@@ -251,62 +251,53 @@ export default function ComparisonPage() {
           );
         })()}
 
-        <hr className="editorial-rule w-16 mb-10" />
+        <hr className="editorial-rule w-16 mb-8" />
+
+        {/* Versus hero: both products, the winner marked, the one-line reason */}
+        <section className="mb-8 rounded-sm overflow-hidden border" style={{ borderColor: "var(--pf-line)", background: "var(--pf-tint)" }} aria-label="Head to head">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-stretch">
+            {[product1, product2].map((product, i) => {
+              const isWinner = product.id === winnerId;
+              const image = getRenderableProductImage(product);
+              const lc = (t: string) => t.replace(/\.$/, "").replace(/^./, (ch) => ch.toLowerCase());
+              return (
+                <React.Fragment key={product.id}>
+                  {i === 1 && (
+                    <div className="hidden md:flex items-center justify-center px-2">
+                      <span className="font-display font-bold" style={{ fontSize: "1.6rem", color: "var(--pf-accent)" }}>vs</span>
+                    </div>
+                  )}
+                  <div className={`product-card p-5 md:p-6 flex flex-col items-center text-center ${isWinner ? "order-first md:order-none" : ""}`} style={{ background: isWinner ? "#fff" : "transparent" }}>
+                    <div className="h-44 w-full flex items-center justify-center mb-4">
+                      {image ? <img src={image} alt={product.name} className="max-h-full max-w-full object-contain" loading={i === 0 ? "eager" : "lazy"} /> : <span className="font-body text-xs" style={{ color: "var(--pf-muted)" }} data-image-free="listing image not yet available for this product">No image</span>}
+                    </div>
+                    {isWinner ? (
+                      <span className="inline-flex items-center gap-1 font-label text-xs font-bold px-3 py-1 rounded-sm mb-2" style={{ background: "var(--pf-accent)", color: "#fff", letterSpacing: "0.1em", textTransform: "uppercase" }}><Trophy size={12} /> Our winner</span>
+                    ) : (
+                      <span className="font-label text-xs font-bold px-3 py-1 rounded-sm mb-2" style={{ background: "var(--pf-tint-2)", color: "var(--pf-primary)", letterSpacing: "0.1em", textTransform: "uppercase" }}>Runner-up</span>
+                    )}
+                    <p className="section-label text-xs mb-1">{product.brand}</p>
+                    <h2 className="font-display font-bold leading-snug mb-2" style={{ fontSize: "1.15rem", color: "var(--pf-ink)" }}>{product.name}</h2>
+                    <p className="font-body text-sm mb-4" style={{ color: "var(--pf-soft-ink)" }}>Best for {lc(product.bestFor)}</p>
+                    <div className="mt-auto w-full"><VerifiedAmazonCta product={product} label="Check Price on Amazon" className="w-full" /></div>
+                  </div>
+                </React.Fragment>
+              );
+            })}
+          </div>
+          <div className="px-5 md:px-6 py-4 border-t" style={{ borderColor: "var(--pf-line)", background: "#fff" }}>
+            <p className="section-label mb-1">The short version</p>
+            <p className="font-body leading-relaxed" style={{ color: "var(--pf-ink)" }}>
+              <strong>{winner.name}</strong> if you want {winner.bestFor.replace(/\.$/, "").replace(/^./, (ch) => ch.toLowerCase())}. <strong>{runnerUp.name}</strong> if you want {runnerUp.bestFor.replace(/\.$/, "").replace(/^./, (ch) => ch.toLowerCase())}.
+            </p>
+          </div>
+        </section>
 
         {/* Quiz-aware contextual banner */}
         <ComparisonQuizBanner category={comparison.category ?? "Menopause Supplements"} />
 
-        <ProductComparisonTable products={[product1, product2]} />
-
-        {/* Side-by-Side Comparison */}
-        <div className="grid grid-cols-2 gap-6 mb-10">
-          {[product1, product2].map((product) => {
-            const isWinner = product.id === (comparison.winnerId ?? comparison.winner);
-            return (
-              <div key={product.id} className={`rounded-sm overflow-hidden border-2 ${isWinner ? "comparison-winner" : ""}`}
-                style={{ borderColor: isWinner ? "var(--pf-accent)" : "var(--pf-line)" }}>
-                {isWinner && (
-                  <div className="flex items-center justify-center gap-2 py-2"
-                    style={{ backgroundColor: "var(--pf-accent)" }}>
-                    <Trophy size={14} style={{ color: "white" }} />
-                    <span className="font-label font-bold text-xs" style={{ color: "white", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                      Our Winner
-                    </span>
-                  </div>
-                )}
-                <div className="p-6">
-                  {getRenderableProductImage(product) ? (
-                    <div className="h-40 flex items-center justify-center mb-4 rounded-sm" style={{ backgroundColor: "var(--pf-tint)" }}>
-                      <img src={getRenderableProductImage(product)} alt={product.name} className="h-full w-full object-contain p-4" />
-                    </div>
-                  ) : null}
-                  <p className="section-label text-xs mb-1">{product.brand}</p>
-                  <h3 className="font-display font-bold mb-2 leading-snug" style={{ fontSize: "1.1rem", color: "var(--pf-ink)" }}>
-                    {product.name}
-                  </h3>
-                  <div className="mt-3 mb-4"><FreshCatalogPrice product={product} className="text-xl" />{(!catalogIsFresh(product) || currentPriceNumber(product.price) <= 0) && <p className="font-body text-xs" style={{ color: "var(--pf-soft)" }}>See price on Amazon</p>}</div>
-                  <div className="space-y-1 mb-4">
-                    {product.pros.slice(0, 3).map((pro, i) => (
-                      <div key={i} className="flex items-start gap-2">
-                        <CheckCircle size={13} className="flex-shrink-0 mt-0.5" style={{ color: "#4CAF50" }} />
-                        <span className="font-body text-xs" style={{ color: "var(--pf-ink)" }}>{pro}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="space-y-1 mb-5">
-                    {product.cons.slice(0, 2).map((con, i) => (
-                      <div key={i} className="flex items-start gap-2">
-                        <XCircle size={13} className="flex-shrink-0 mt-0.5" style={{ color: "#E53935" }} />
-                        <span className="font-body text-xs" style={{ color: "var(--pf-soft-ink)" }}>{con}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <VerifiedAmazonCta product={product} label="Check Price on Amazon" className="w-full" />
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        {/* Head-to-head table: the standardized two-product table (ProductCommerce.HeadToHeadTable) */}
+        <HeadToHeadTable products={[product1, product2]} winnerId={winnerId} stageMeta={STAGE_META} />
 
         {/* Winner Explanation */}
         <div className="p-6 rounded-sm mb-8" style={{ backgroundColor: "var(--pf-tint)", border: "2px solid var(--pf-accent)" }}>
