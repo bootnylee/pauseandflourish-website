@@ -31,6 +31,9 @@
   --pf-accent-light: #F3DDE1;   /* rose wash */
   --pf-accent-tint: #FBF1F3;
   --pf-gold: #C9963A;           /* stars, badges */
+  --pf-on-ink-soft: #B9C4C3;    /* secondary text on the ink ground (footer) — 8.8:1 */
+  --pf-on-ink-muted: #9FABAA;   /* tertiary text on ink — 6.4:1 */
+  --pf-on-ink-accent: #8FC7CD;  /* accent text on ink — 8.3:1 (primary-light is 3.9:1 there) */
   --pf-on-primary: #F7F5F2;
   --pf-on-accent: #FFFFFF;
   --pf-danger: #B3261E;

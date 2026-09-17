@@ -55,8 +55,8 @@ function Hero({ picks }: { picks: Product[] }) {
               Reviews, comparisons and a research library for every stage of perimenopause and menopause. Sorted by where you are, not by what sells.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/quiz"><button className="btn-primary rounded-sm" style={{ fontSize: "0.85rem" }}>Find my stage · 2 min</button></Link>
-              <Link href="/reviews"><button className="font-label font-semibold text-sm px-6 py-3 rounded-sm border transition-colors" style={{ color: "var(--pf-primary)", borderColor: "var(--pf-primary)", backgroundColor: "transparent", letterSpacing: "0.06em" }}>Browse reviews</button></Link>
+              <Link href="/quiz" className="inline-flex"><button className="btn-primary rounded-sm" style={{ fontSize: "0.85rem" }}>Find my stage · 2 min</button></Link>
+              <Link href="/reviews" className="inline-flex"><button className="font-label font-semibold text-sm px-6 py-3 rounded-sm border transition-colors" style={{ color: "var(--pf-primary)", borderColor: "var(--pf-primary)", backgroundColor: "transparent", letterSpacing: "0.06em" }}>Browse reviews</button></Link>
             </div>
             <p className="font-body text-xs mt-6" style={{ color: "var(--pf-soft)" }}>{allProducts.length} products reviewed · {comparisons.length} head-to-head comparisons · {researchArticles.length} cited studies</p>
           </div>
@@ -157,7 +157,7 @@ function FeaturedComparison({ comparison }: { comparison: Comparison }) {
         <div className="w-28 h-28 rounded-sm flex items-center justify-center overflow-hidden" style={{ backgroundColor: "var(--pf-tint-2)" }}>
           {img ? <ProductImage product={p} className="max-w-full max-h-full object-contain" sizes="112px" /> : null}
         </div>
-        {win ? <span className="editor-pick-badge rounded-sm" style={{ backgroundColor: "var(--pf-primary)" }}>Winner</span> : <span className="font-label text-[0.65rem] uppercase font-semibold" style={{ color: "var(--pf-soft)", letterSpacing: "0.1em" }}>Runner-up</span>}
+        {win ? <span className="editor-pick-badge rounded-sm" style={{ backgroundColor: "var(--pf-primary)", color: "var(--pf-on-primary)" }}>Winner</span> : <span className="font-label text-[0.65rem] uppercase font-semibold" style={{ color: "var(--pf-soft)", letterSpacing: "0.1em" }}>Runner-up</span>}
         <Link href={`/review/${p.slug}`}><span className="font-display font-semibold leading-tight" style={{ fontSize: "1.05rem", color: "var(--pf-ink)" }}>{p.name}</span></Link>
         {hasVerifiedAsin(p.asin) ? <VerifiedAmazonCta product={p} label="Check price" compact /> : null}
       </div>

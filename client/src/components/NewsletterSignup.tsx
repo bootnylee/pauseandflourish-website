@@ -57,7 +57,7 @@ export default function NewsletterSignup({
   }
 
   const isFooter = variant === "footer";
-  const accentColor = isFooter ? "var(--pf-primary-light)" : "var(--pf-accent)";
+  const accentColor = isFooter ? "var(--pf-on-ink-accent)" : "var(--pf-accent)";
   const mutedTextColor = isFooter ? "rgba(250,247,244,0.7)" : "var(--pf-soft-ink)";
 
   const form = (
@@ -161,7 +161,7 @@ export default function NewsletterSignup({
       <div className={className}>
         <p
           className="font-semibold text-xs mb-3 uppercase tracking-widest"
-          style={{ color: "var(--pf-primary-light)" }}
+          style={{ color: isFooter ? "var(--pf-on-ink-accent)" : "var(--pf-primary)" }}
         >
           The PauseAndFlourish Weekly
         </p>

@@ -241,55 +241,55 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Brand */}
             <div className="md:col-span-2">
-              <span className="font-display font-bold" style={{ fontSize: "1.6rem", color: "var(--pf-primary-light)" }}>
+              <span className="font-display font-bold" style={{ fontSize: "1.6rem", color: "var(--pf-on-ink-accent)" }}>
                 PauseAndFlourish
               </span>
-              <p className="font-body text-sm mt-3 leading-relaxed" style={{ color: "var(--pf-muted)" }}>
+              <p className="font-body text-sm mt-3 leading-relaxed" style={{ color: "var(--pf-on-ink-muted)" }}>
                 Expert menopause and perimenopause product reviews for women navigating the transition. We research the evidence so you can make confident decisions.
               </p>
-              <p className="font-body text-xs mt-4" style={{ color: "var(--pf-soft)" }}>
+              <p className="font-body text-xs mt-4" style={{ color: "var(--pf-on-ink-soft)" }}>
                 PauseAndFlourish is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.
               </p>
             </div>
 
             {/* Product Categories */}
             <div>
-              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--pf-primary-light)" }}>
+              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--pf-on-ink-accent)" }}>
                 Product Categories
               </p>
               <div className="flex flex-col gap-2">
                 <Link href="/category/multi-symptom-supplements">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Multi-Symptom Supplements</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-on-ink-muted)" }}>Multi-Symptom Supplements</span>
                 </Link>
                 <Link href="/category/sleep-mood-support">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Sleep & Mood Support</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-on-ink-muted)" }}>Sleep & Mood Support</span>
                 </Link>
                 <Link href="/category/hot-flash-cooling">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Hot Flash & Cooling</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-on-ink-muted)" }}>Hot Flash & Cooling</span>
                 </Link>
                 <Link href="/category/bone-joint-health">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Bone & Joint Health</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-on-ink-muted)" }}>Bone & Joint Health</span>
                 </Link>
               </div>
             </div>
 
             {/* My Journey */}
             <div>
-              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--pf-primary-light)" }}>
+              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--pf-on-ink-accent)" }}>
                 My Journey
               </p>
               <div className="flex flex-col gap-2">
                 <Link href="/category/vaginal-intimate-health">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Vaginal & Intimate Health</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-on-ink-muted)" }}>Vaginal & Intimate Health</span>
                 </Link>
                 <Link href="/category/menopause-skincare">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Menopause Skincare</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-on-ink-muted)" }}>Menopause Skincare</span>
                 </Link>
                 <Link href="/category/fitness-pelvic-health">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Fitness & Pelvic Health</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-on-ink-muted)" }}>Fitness & Pelvic Health</span>
                 </Link>
                 <Link href="/category/cognitive-energy-support">
-                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-muted)" }}>Cognitive & Energy Support</span>
+                  <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "var(--pf-on-ink-muted)" }}>Cognitive & Energy Support</span>
                 </Link>
               </div>
             </div>
@@ -302,30 +302,30 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
 
           <div className="border-t mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
             style={{ borderColor: "#3C3C3C" }}>
-            <p className="font-body text-xs" style={{ color: "var(--pf-soft)" }}>
+            <p className="font-body text-xs" style={{ color: "var(--pf-on-ink-soft)" }}>
               © {new Date().getFullYear()} PauseAndFlourish.com - All rights reserved.
             </p>
             <div className="flex gap-6 items-center">
               <Link href="/news-and-articles">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-primary-light)" }}>News &amp; Articles</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-on-ink-accent)" }}>News &amp; Articles</span>
               </Link>
               <Link href="/quiz">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-primary-light)" }}>Stage Quiz</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-on-ink-accent)" }}>Stage Quiz</span>
               </Link>
               <Link href="/about">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-soft)" }}>About</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-on-ink-soft)" }}>About</span>
               </Link>
               <Link href="/methodology">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-soft)" }}>Methodology</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-on-ink-soft)" }}>Methodology</span>
               </Link>
               <Link href="/privacy">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-soft)" }}>Privacy Policy</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-on-ink-soft)" }}>Privacy Policy</span>
               </Link>
               <Link href="/terms">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-soft)" }}>Terms of Use</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-on-ink-soft)" }}>Terms of Use</span>
               </Link>
               <Link href="/contact">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-soft)" }}>Contact</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "var(--pf-on-ink-soft)" }}>Contact</span>
               </Link>
               {savedStage && (
                 <button
@@ -334,7 +334,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                     setSavedStage(null);
                   }}
                   className="font-body text-xs cursor-pointer transition-colors hover:text-white"
-                  style={{ color: "var(--pf-soft)", background: "none", border: "none", padding: 0 }}
+                  style={{ color: "var(--pf-on-ink-soft)", background: "none", border: "none", padding: 0 }}
                   title="Remove your saved stage profile"
                 >
                   Clear My Profile
