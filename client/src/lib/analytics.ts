@@ -67,8 +67,11 @@ export function initGA4(): void {
 
   // Initialise dataLayer and gtag function
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function (...args: unknown[]) {
-    window.dataLayer!.push(args);
+  // gtag.js only processes `arguments` objects pushed to dataLayer; a rest-array is silently ignored
+  // (verified 2026-09-17: the script loaded, nothing was ever collected).
+  window.gtag = function () {
+    // eslint-disable-next-line prefer-rest-params
+    window.dataLayer!.push(arguments);
   };
   window.gtag("js", new Date());
   window.gtag("config", measurementId, {
