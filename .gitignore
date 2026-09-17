@@ -116,6 +116,7 @@ client/public/__manus__/version.json
 # Allow the daily PA-API price sync workflow to be tracked
 !.github/workflows/daily-price-sync.yml
 !.github/workflows/verify-deploy.yml
+!.github/workflows/product-image-library.yml
 !.github/workflows/weekly-asin-health.yml
 # Allow the weekly content workflow to be tracked
 !.github/workflows/weekly-content.yml

@@ -1,0 +1,32 @@
+name: product-image-library
+# Keeps client/public/images/products/ complete: every product in products.ts gets a local listing image.
+# Fires when the product data changes and weekly as a sweep; can be run by hand. Commits only when something
+# was added. The Netlify build also runs the script (gap-fill) and then the image-coverage gate blocks any
+# product card that is still imageless — so an image can be missing for at most one build, never a deploy.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["client/src/lib/products.ts", "scripts/build-product-image-library.mjs"]
+  schedule:
+    - cron: "17 6 * * 1"
+permissions:
+  contents: write
+concurrency: product-image-library
+jobs:
+  fill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Fill the library
+        run: node scripts/build-product-image-library.mjs || echo "some images could not be fetched; the build gate will report any card still imageless"
+      - name: Commit additions
+        run: |
+          git add -A client/public/images/products client/src/lib/productImages.generated.json
+          if git diff --cached --quiet; then echo "library already complete"; exit 0; fi
+          git config user.name "product-image-library"
+          git config user.email "274051229+bootnylee@users.noreply.github.com"
+          git commit -m "product images: fill local library ($(git diff --cached --numstat | wc -l) file(s))"
+          git push
