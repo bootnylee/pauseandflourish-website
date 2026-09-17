@@ -15,6 +15,7 @@ import { updateDocumentMeta } from "@/lib/seo";
 import { QUIZ_RESULT_KEY } from "./MenopauseQuiz";
 import { RECENTLY_VIEWED_KEY } from "./ProductReview";
 import { MoonMark, STAGE_VISUAL } from "@/components/StageMark";
+import ProductImage from "@/components/ProductImage";
 
 // ─── Stage visuals: one lunar-phase mark per stage, one short "what changes now" ─
 function newestFirst<T extends { publishDate: string }>(items: T[]): T[] {
@@ -67,7 +68,7 @@ function Hero({ picks }: { picks: Product[] }) {
                   <Link key={p.id} href={`/review/${p.slug}`}>
                     <div className="rounded-sm overflow-hidden flex flex-col" style={{ backgroundColor: i === 1 ? "var(--pf-accent-tint)" : "var(--pf-tint)", marginTop: i === 1 ? 0 : 36, transform: i === 1 ? "translateY(-12px)" : undefined }}>
                       <div className="flex items-center justify-center p-6" style={{ height: 210 }}>
-                        {img ? <img src={img} alt={p.name} className="max-h-full max-w-full object-contain" loading="eager" /> : null}
+                        {img ? <ProductImage product={p} className="max-h-full max-w-full object-contain" sizes="(max-width: 640px) 40vw, 200px" eager /> : null}
                       </div>
                       <div className="px-4 pb-4">
                         <p className="font-label text-[0.62rem] font-semibold uppercase" style={{ color: "var(--pf-accent)", letterSpacing: "0.1em" }}>Editor's pick</p>
@@ -119,7 +120,7 @@ function StageSpine() {
                   {top ? (
                     <div className="mt-auto pt-4 flex items-center gap-3 border-t" style={{ borderColor: "var(--pf-line)" }}>
                       <div className="w-12 h-12 rounded-sm flex items-center justify-center overflow-hidden flex-shrink-0" style={{ backgroundColor: "var(--pf-panel)" }}>
-                        {img ? <img src={img} alt="" className="max-w-full max-h-full object-contain" loading="lazy" /> : null}
+                        {img ? <ProductImage product={top} alt="" className="max-w-full max-h-full object-contain" sizes="48px" /> : null}
                       </div>
                       <div className="min-w-0">
                         <p className="font-label text-[0.6rem] font-semibold uppercase" style={{ color: "var(--pf-primary)", letterSpacing: "0.1em" }}>Top pick</p>
@@ -154,7 +155,7 @@ function FeaturedComparison({ comparison }: { comparison: Comparison }) {
     return (
       <div className="flex flex-col items-center text-center gap-3 p-4">
         <div className="w-28 h-28 rounded-sm flex items-center justify-center overflow-hidden" style={{ backgroundColor: "var(--pf-tint-2)" }}>
-          {img ? <img src={img} alt={p.name} className="max-w-full max-h-full object-contain" loading="lazy" /> : null}
+          {img ? <ProductImage product={p} className="max-w-full max-h-full object-contain" sizes="112px" /> : null}
         </div>
         {win ? <span className="editor-pick-badge rounded-sm" style={{ backgroundColor: "var(--pf-primary)" }}>Winner</span> : <span className="font-label text-[0.65rem] uppercase font-semibold" style={{ color: "var(--pf-soft)", letterSpacing: "0.1em" }}>Runner-up</span>}
         <Link href={`/review/${p.slug}`}><span className="font-display font-semibold leading-tight" style={{ fontSize: "1.05rem", color: "var(--pf-ink)" }}>{p.name}</span></Link>

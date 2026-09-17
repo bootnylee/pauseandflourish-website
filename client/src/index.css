@@ -17,8 +17,8 @@
   --pf-panel: #FFFFFF;          /* cards */
   --pf-ink: #1E2A2B;            /* headlines, body */
   --pf-soft-ink: #4F5D5E;       /* secondary text */
-  --pf-soft: #7C8887;           /* tertiary text, icons */
-  --pf-muted: #98A5A4;          /* placeholders, meta */
+  --pf-soft: #5F6C6B;           /* tertiary text, icons — AA on paper, tint and rose wash (was #7C8887, 3.4:1) */
+  --pf-muted: #66716F;          /* placeholders, meta — 4.6:1 on white (was #98A5A4, 2.5:1) */
   --pf-line: #DCE3E2;           /* hairlines */
   --pf-line-strong: #C4CFCE;
   --pf-tint: #E9F0EF;           /* teal wash */
@@ -26,7 +26,7 @@
   --pf-primary: #0E5058;        /* petrol teal */
   --pf-primary-dark: #083B42;
   --pf-primary-light: #4D8C93;
-  --pf-accent: #B9536A;         /* deep rose */
+  --pf-accent: #A9435B;         /* deep rose — 5.3:1 on paper, paper text on it 5.3:1 (was #B9536A, 4.3:1) */
   --pf-accent-dark: #93384D;
   --pf-accent-light: #F3DDE1;   /* rose wash */
   --pf-accent-tint: #FBF1F3;
@@ -267,7 +267,7 @@
 
   .editor-pick-badge {
     background-color: var(--pf-gold);
-    color: var(--pf-paper);
+    color: var(--pf-ink); /* 5.6:1 on gold; paper text was 2.4:1 */
     font-family: 'Manrope', sans-serif;
     font-size: 0.65rem;
     font-weight: 700;

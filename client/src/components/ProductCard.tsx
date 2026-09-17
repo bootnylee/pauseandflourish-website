@@ -10,6 +10,7 @@ import { getRenderableProductImage } from "@/lib/productImageFreshness";
 import { getPriceBadge, type PriceBadge } from "@/lib/priceHistory";
 import { trackAffiliateClick } from "@/lib/analytics";
 import { VerifiedAmazonCta, hasVerifiedAsin } from "@/components/ProductCommerce";
+import ProductImage from "@/components/ProductImage";
 
 // Returns true if the product was published within the last 14 days
 function isNewThisWeek(publishDate: string): boolean {
@@ -128,7 +129,7 @@ export default function ProductCard({
             className="flex-shrink-0 w-20 h-20 overflow-hidden rounded-sm"
             style={{ backgroundColor: "var(--pf-tint)" }}
           >
-            <img src={productImage} alt={product.name} className="w-full h-full object-contain" />
+            <ProductImage product={product} className="w-full h-full object-contain" sizes="112px" />
           </div>
         ) : null}
         <div className="flex-1 min-w-0">
@@ -161,7 +162,7 @@ export default function ProductCard({
             className="relative overflow-hidden"
             style={{ height: "220px", backgroundColor: "var(--pf-tint)" }}
           >
-            <img src={productImage} alt={product.name} className="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105" />
+            <ProductImage product={product} className="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105" sizes="(max-width: 640px) 90vw, 400px" />
             <div className="absolute top-3 left-3 flex flex-col gap-1.5">
               {product.editorPick && <span className="editor-pick-badge text-xs px-2 py-1">Editor's Pick</span>}
               {isNew && <NewBadge />}
@@ -222,7 +223,7 @@ export default function ProductCard({
           className="relative overflow-hidden"
           style={{ height: "180px", backgroundColor: "var(--pf-tint)" }}
         >
-          <img src={productImage} alt={product.name} className="w-full h-full object-contain p-3 transition-transform duration-300 group-hover:scale-105" />
+          <ProductImage product={product} className="w-full h-full object-contain p-3 transition-transform duration-300 group-hover:scale-105" sizes="(max-width: 640px) 90vw, 320px" />
           <div className="absolute top-2 left-2 flex flex-col gap-1">
             {product.editorPick && <span className="editor-pick-badge text-xs px-2 py-0.5">Editor's Pick</span>}
             {isNew && <NewBadge size="xs" />}

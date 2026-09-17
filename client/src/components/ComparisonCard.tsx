@@ -6,6 +6,7 @@ import { type Comparison, getProductById, amazonLink } from "@/lib/products";
 import { isProductPriceFresh } from "@/lib/priceFreshness.generated";
 import { getRenderableProductImage } from "@/lib/productImageFreshness";
 import { VerifiedAmazonCta } from "@/components/ProductCommerce";
+import ProductImage from "@/components/ProductImage";
 
 interface ComparisonCardProps {
   comparison: Comparison;
@@ -48,7 +49,7 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
           </div>
           {winnerImage ? (
             <div className="w-16 h-16 mx-auto mb-2 bg-gray-50 rounded overflow-hidden">
-              <img src={winnerImage} alt={winner.name} className="w-full h-full object-contain p-1" />
+              <ProductImage product={winner} className="w-full h-full object-contain p-1" sizes="120px" />
             </div>
           ) : null}
           <p className="font-body text-xs font-semibold text-center leading-tight" style={{ color: "var(--pf-ink)" }}>
@@ -72,7 +73,7 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
           </div>
           {loserImage ? (
             <div className="w-16 h-16 mx-auto mb-2 bg-gray-50 rounded overflow-hidden">
-              <img src={loserImage} alt={loser.name} className="w-full h-full object-contain p-1" />
+              <ProductImage product={loser} className="w-full h-full object-contain p-1" sizes="120px" />
             </div>
           ) : null}
           <p className="font-body text-xs font-semibold text-center leading-tight" style={{ color: "var(--pf-soft-ink)" }}>

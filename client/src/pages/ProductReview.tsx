@@ -17,6 +17,7 @@ import { trackAffiliateClick } from "@/lib/analytics";
 import { getStageMatchedResearch, researchPath } from "@/lib/researchRoutes";
 import { HealthDisclaimers } from "@/components/HealthDisclaimers";
 import { getRenderableProductImage } from "@/lib/productImageFreshness";
+import ProductImage from "@/components/ProductImage";
 
 // ─── Recently Viewed Key ────────────────────────────────────────────────────
 export const RECENTLY_VIEWED_KEY = "pauseandflourish_recently_viewed";
@@ -182,7 +183,7 @@ export default function ProductReview() {
             {/* Product Image — Amazon-hosted images render only after a current per-ASIN API sync. */}
             {productImage ? (
               <div className="rounded-sm overflow-hidden mb-4" style={{ backgroundColor: "var(--pf-tint)", height: "280px" }}>
-                <img src={productImage} alt={product.name} className="w-full h-full object-contain p-6" />
+                <ProductImage product={product} className="w-full h-full object-contain p-6" sizes="(max-width: 640px) 90vw, 480px" eager />
               </div>
             ) : null}
 

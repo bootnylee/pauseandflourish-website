@@ -12,6 +12,7 @@ import { HeadToHeadTable, VerifiedAmazonCta, FreshCatalogPrice, catalogIsFresh, 
 import { commerceItemListSchema } from "@/lib/commerceSeo";
 import { HealthDisclaimers } from "@/components/HealthDisclaimers";
 import { getRenderableProductImage } from "@/lib/productImageFreshness";
+import ProductImage from "@/components/ProductImage";
 
 // Menopause stage metadata for contextual tips
 const STAGE_META: Record<string, { label: string; color: string; bg: string }> = {
@@ -269,7 +270,7 @@ export default function ComparisonPage() {
                   )}
                   <div className={`product-card p-5 md:p-6 flex flex-col items-center text-center ${isWinner ? "order-first md:order-none" : ""}`} style={{ background: isWinner ? "#fff" : "transparent" }}>
                     <div className="h-44 w-full flex items-center justify-center mb-4">
-                      {image ? <img src={image} alt={product.name} className="max-h-full max-w-full object-contain" loading={i === 0 ? "eager" : "lazy"} /> : <span className="font-body text-xs" style={{ color: "var(--pf-muted)" }} data-image-free="listing image not yet available for this product">No image</span>}
+                      {image ? <ProductImage product={product} className="max-h-full max-w-full object-contain" sizes="(max-width: 640px) 60vw, 260px" eager={i === 0} /> : <span className="font-body text-xs" style={{ color: "var(--pf-muted)" }} data-image-free="listing image not yet available for this product">No image</span>}
                     </div>
                     {isWinner ? (
                       <span className="inline-flex items-center gap-1 font-label text-xs font-bold px-3 py-1 rounded-sm mb-2" style={{ background: "var(--pf-accent)", color: "#fff", letterSpacing: "0.1em", textTransform: "uppercase" }}><Trophy size={12} /> Our winner</span>

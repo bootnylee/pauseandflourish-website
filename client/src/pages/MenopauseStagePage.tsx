@@ -14,6 +14,7 @@ import { getRenderableProductImage } from "@/lib/productImageFreshness";
 import { VerifiedAmazonCta, currentPriceNumber } from "@/components/ProductCommerce";
 import { MoonMark, STAGE_VISUAL } from "@/components/StageMark";
 import { updateDocumentMeta, buildBreadcrumbSchema, injectStructuredData } from "@/lib/seo";
+import ProductImage from "@/components/ProductImage";
 
 export default function MenopauseStagePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -133,7 +134,7 @@ export default function MenopauseStagePage() {
             <h2 className="font-display font-bold mb-6" style={{ fontSize: "1.8rem", color: "var(--pf-ink)" }}>Our top pick for {stage.name.toLowerCase()}</h2>
             <div className="product-card grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 rounded-sm border p-6" style={{ borderColor: "var(--pf-accent)", background: "#fff" }}>
               <div className="h-52 flex items-center justify-center rounded-sm" style={{ background: "var(--pf-tint)" }}>
-                {getRenderableProductImage(topPick) ? <img src={getRenderableProductImage(topPick)} alt={topPick.name} className="max-h-full max-w-full object-contain p-4" loading="eager" /> : <span className="font-body text-xs" style={{ color: "var(--pf-muted)" }} data-image-free="listing image not yet available for this product">No image</span>}
+                {getRenderableProductImage(topPick) ? <ProductImage product={topPick} className="max-h-full max-w-full object-contain p-4" sizes="240px" eager /> : <span className="font-body text-xs" style={{ color: "var(--pf-muted)" }} data-image-free="listing image not yet available for this product">No image</span>}
               </div>
               <div className="flex flex-col">
                 <span className="inline-flex items-center gap-1 self-start font-label text-xs font-bold px-3 py-1 rounded-sm mb-3" style={{ background: "var(--pf-accent)", color: "#fff", letterSpacing: "0.1em", textTransform: "uppercase" }}><Trophy size={12} /> {topPick.editorPick ? "Editor's pick" : "Highest score"} · {topPick.score}/10</span>
@@ -187,8 +188,9 @@ export default function MenopauseStagePage() {
               </h2>
             </div>
             <div className="flex items-center gap-2">
-              <label className="font-label text-xs" style={{ color: "var(--pf-soft)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Sort:</label>
+              <label htmlFor="stage-sort" className="font-label text-xs" style={{ color: "var(--pf-soft)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Sort:</label>
               <select
+                id="stage-sort"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
                 className="font-body text-sm border rounded-sm px-3 py-1.5"
@@ -234,7 +236,7 @@ export default function MenopauseStagePage() {
                   <Link key={c.id} href={`/comparison/${c.slug}`}>
                     <div className="product-card h-full rounded-sm border p-5 cursor-pointer transition-all hover:shadow-md" style={{ borderColor: "var(--pf-line)", background: "#fff" }}>
                       <div className="h-28 flex items-center justify-center mb-4 rounded-sm" style={{ background: "var(--pf-tint)" }}>
-                        {img ? <img src={img} alt={w?.name ?? ""} className="max-h-full max-w-full object-contain p-3" loading="lazy" /> : <span className="font-body text-xs" style={{ color: "var(--pf-muted)" }} data-image-free="listing image not yet available for this product">No image</span>}
+                        {img && w ? <ProductImage product={w} className="max-h-full max-w-full object-contain p-3" sizes="200px" /> : <span className="font-body text-xs" style={{ color: "var(--pf-muted)" }} data-image-free="listing image not yet available for this product">No image</span>}
                       </div>
                       <p className="font-display font-semibold leading-snug mb-2" style={{ fontSize: "1.05rem", color: "var(--pf-ink)" }}>{c.title}</p>
                       <p className="font-body text-xs" style={{ color: "var(--pf-soft-ink)" }}>Winner: <strong style={{ color: "var(--pf-accent)" }}>{w?.name}</strong></p>
