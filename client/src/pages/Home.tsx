@@ -170,7 +170,7 @@ function FeaturedComparison({ comparison }: { comparison: Comparison }) {
   const rows: Array<[string, (p: Product) => string]> = [
     ["Best for", p => p.bestFor],
     ["Our score", p => `${p.score}/10`],
-    ["Reader rating", p => `${p.rating.toFixed(1)} · ${p.reviewCount.toLocaleString()} reviews`],
+    ["Editor's pick", p => p.editorPick ? "Yes" : "No"],
     ["Category", p => p.category],
   ];
   const Cell = ({ p }: { p: Product }) => {

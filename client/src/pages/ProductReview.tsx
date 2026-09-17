@@ -178,7 +178,7 @@ export default function ProductReview() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Left: Product Info */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 lg:sticky lg:top-24 self-start">
             {/* Product Image — Amazon-hosted images render only after a current per-ASIN API sync. */}
             {productImage ? (
               <div className="rounded-sm overflow-hidden mb-4" style={{ backgroundColor: "var(--pf-tint)", height: "280px" }}>
@@ -206,7 +206,7 @@ export default function ProductReview() {
               <div className="space-y-2 mb-4">
                 {product.pros.map((pro, i) => (
                   <div key={i} className="flex items-start gap-2">
-                    <CheckCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#4CAF50" }} />
+                    <CheckCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: "var(--pf-success)" }} />
                     <span className="font-body text-sm" style={{ color: "var(--pf-ink)" }}>{pro}</span>
                   </div>
                 ))}
@@ -214,7 +214,7 @@ export default function ProductReview() {
               <div className="space-y-2">
                 {product.cons.map((con, i) => (
                   <div key={i} className="flex items-start gap-2">
-                    <XCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#E53935" }} />
+                    <XCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: "var(--pf-danger)" }} />
                     <span className="font-body text-sm" style={{ color: "var(--pf-ink)" }}>{con}</span>
                   </div>
                 ))}
@@ -260,6 +260,38 @@ export default function ProductReview() {
                 </div>
               );
             })()}
+
+            {/* Verdict box: the decision, before the prose */}
+            <div className="rounded-sm border mb-8 overflow-hidden" style={{ borderColor: "var(--pf-line)", backgroundColor: "var(--pf-panel)" }}>
+              <div className="grid grid-cols-3 divide-x" style={{ borderBottom: "1px solid var(--pf-line)" }}>
+                <div className="p-4 text-center">
+                  <p className="font-display font-semibold" style={{ fontSize: "2rem", color: "var(--pf-primary)", lineHeight: 1 }}>{product.score}<span className="font-body text-sm" style={{ color: "var(--pf-soft)" }}>/10</span></p>
+                  <p className="font-label text-[0.62rem] uppercase font-semibold mt-1" style={{ color: "var(--pf-soft)", letterSpacing: "0.1em" }}>Our score</p>
+                </div>
+                <div className="p-4 text-center" style={{ borderColor: "var(--pf-line)" }}>
+                  <p className="font-display font-semibold" style={{ fontSize: "2rem", color: "var(--pf-ink)", lineHeight: 1 }}>{product.editorPick ? "Yes" : "No"}</p>
+                  <p className="font-label text-[0.62rem] uppercase font-semibold mt-1" style={{ color: "var(--pf-soft)", letterSpacing: "0.1em" }}>Editor's pick</p>
+                </div>
+                <div className="p-4 text-center" style={{ borderColor: "var(--pf-line)" }}>
+                  <p className="font-display font-semibold" style={{ fontSize: "2rem", color: "var(--pf-ink)", lineHeight: 1 }}>{product.stages.length}</p>
+                  <p className="font-label text-[0.62rem] uppercase font-semibold mt-1" style={{ color: "var(--pf-soft)", letterSpacing: "0.1em" }}>{product.stages.length === 1 ? "stage" : "stages"} it suits</p>
+                </div>
+              </div>
+              <div className="p-5">
+                <p className="section-label mb-2">The verdict</p>
+                <p className="font-display leading-snug mb-4" style={{ fontSize: "1.25rem", color: "var(--pf-ink)" }}>{product.verdict}</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="rounded-sm p-3" style={{ backgroundColor: "var(--pf-tint)" }}>
+                    <p className="font-label text-[0.62rem] uppercase font-semibold mb-1" style={{ color: "var(--pf-primary)", letterSpacing: "0.1em" }}>Choose it if</p>
+                    <p className="font-body text-sm" style={{ color: "var(--pf-ink)" }}>{product.bestFor}</p>
+                  </div>
+                  <div className="rounded-sm p-3" style={{ backgroundColor: "var(--pf-accent-tint)" }}>
+                    <p className="font-label text-[0.62rem] uppercase font-semibold mb-1" style={{ color: "var(--pf-accent)", letterSpacing: "0.1em" }}>Skip it if</p>
+                    <p className="font-body text-sm" style={{ color: "var(--pf-ink)" }}>{product.cons[0] ? product.cons[0] : "You need a stage-specific formula; see the stage guide."}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <p className="font-body text-lg leading-relaxed mb-8" style={{ color: "var(--pf-soft-ink)" }}>
               {product.shortDescription}
