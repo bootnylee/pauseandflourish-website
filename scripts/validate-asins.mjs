@@ -41,6 +41,10 @@ const CONFIGURED_PARTNER_TAG = process.env.CREATORS_API_PARTNER_TAG || "";
 const MARKETPLACE            = "www.amazon.com";
 
 const WARN_ONLY = process.argv.includes("--warn-only") || process.env.ASIN_VALIDATE === "warn";
+// --local-only: the deterministic checks only (no network). The remote catalog verification is a data job, not a
+// build step: 62 products × (API retries + backoff + delay) was 3–12 minutes of every deploy for a check whose
+// answer does not change between commits (BUILD-TIME-0917). The daily rebuild runs the remote pass.
+const LOCAL_ONLY = process.argv.includes("--local-only") || process.env.ASIN_VALIDATE === "local";
 const MATCH_THRESHOLD = 0.60;
 // Creators API can return a transient empty item set under short-lived quota or
 // catalog propagation pressure. Retry before treating a listing as unavailable.
@@ -212,29 +216,9 @@ async function creatorsApiLookup(asin) {
 // ─────────────────────────────────────────────────────────────────────────────
 // Fallback: scrape public Amazon page
 // ─────────────────────────────────────────────────────────────────────────────
-async function scrapeAmazonTitle(asin) {
-  try {
-    const resp = await httpGet(
-      "www.amazon.com", `/dp/${asin}`,
-      {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0.0.0 Safari/537.36",
-        "Accept-Language": "en-US,en;q=0.9",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-      }
-    );
-    if (resp.status === 404) return { title: null, error: "ASIN not found (404)" };
-    const m = resp.body.match(/id="productTitle"[^>]*>\s*([^<]{5,300})/);
-    if (m) return { title: m[1].trim(), error: null };
-    const m2 = resp.body.match(/<meta[^>]+property="og:title"[^>]+content="([^"]{5,300})"/);
-    if (m2) return { title: m2[1].trim(), error: null };
-    if (resp.body.includes("robot") || resp.body.includes("captcha"))
-      return { title: null, error: "Amazon bot-check" };
-    return { title: null, error: "Title not found in page" };
-  } catch (e) {
-    return { title: null, error: e.message };
-  }
-}
-
+// The public-page scrape fallback was removed 2026-09-17: it ran with a spoofed browser UA, returned
+// "Title not found" or bot-checks for most products, and cost ~5 minutes per build. When the Creators API is
+// unavailable the product is reported as unverified and the site already hides its price.
 // ─────────────────────────────────────────────────────────────────────────────
 // Verify one ASIN
 // ─────────────────────────────────────────────────────────────────────────────
@@ -260,12 +244,7 @@ async function verifyAsin(asin, name) {
 
   // A final title fetch helps distinguish persistent API empty responses from a
   // real delisting. A missing or bot-protected title still fails closed.
-  const { title, error } = await scrapeAmazonTitle(asin);
-  if (error || !title) {
-    return { title: null, resolves: false, matches: false, score: 0, source: "scrape", error: `${lastApiIssue}; ${error || "not found"}` };
-  }
-  const { matches, score } = titleMatches(name, title);
-  return { title, resolves: true, matches, score, source: "scrape", error: null };
+  return { title: null, resolves: false, matches: false, score: 0, source: "creators_api", error: lastApiIssue };
 }
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
@@ -296,6 +275,24 @@ async function main() {
   if (products.length === 0) {
     failed++;
     failures.push({ product: "Product catalog", asin: "N/A", issue: "No direct-ASIN product records were found", amazon_title: null });
+  }
+
+  const seen = new Set();
+  for (const { name, asin } of products) {
+    if (!/^[A-Z0-9]{10}$/.test(asin)) { failed++; failures.push({ product: name, asin, issue: "ASIN is not 10 characters [A-Z0-9]", amazon_title: null }); }
+    if (seen.has(asin)) { failed++; failures.push({ product: name, asin, issue: "duplicate ASIN in catalog", amazon_title: null }); }
+    seen.add(asin);
+  }
+  if (LOCAL_ONLY) {
+    console.log(`  local checks: ${products.length} products, ${failures.length} finding(s); remote verification runs on the daily rebuild`);
+    if (failures.length) { failures.forEach(f => console.log(`   • ${f.product} (${f.asin}): ${f.issue}`)); process.exit(1); }
+    console.log("\n✓  Local ASIN checks passed. Deploy proceeding.");
+    process.exit(0);
+  }
+  if (!CREATORS_CLIENT_ID || !CREATORS_CLIENT_SECRET) {
+    console.log("  Creators API credentials unavailable: remote verification skipped (reported, not blocking).");
+    if (failures.length && !WARN_ONLY) { failures.forEach(f => console.log(`   • ${f.product} (${f.asin}): ${f.issue}`)); process.exit(1); }
+    process.exit(0);
   }
 
   for (let i = 0; i < products.length; i++) {
