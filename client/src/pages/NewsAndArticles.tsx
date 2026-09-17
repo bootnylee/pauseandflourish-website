@@ -14,10 +14,10 @@ import { Link } from "wouter";
 
 // ─── Stage tab configuration ─────────────────────────────────────────────────
 const TABS: { id: ArticleStageId | "all"; label: string; color: string }[] = [
-  { id: "all",                  label: "All Articles",        color: "#2D7D6F" },
+  { id: "all",                  label: "All Articles",        color: "var(--pf-primary)" },
   { id: "general",              label: "General",             color: "#5A6A7A" },
-  { id: "early-perimenopause",  label: "Early Perimenopause", color: "#2D7D6F" },
-  { id: "late-perimenopause",   label: "Late Perimenopause",  color: "#C4622D" },
+  { id: "early-perimenopause",  label: "Early Perimenopause", color: "var(--pf-primary)" },
+  { id: "late-perimenopause",   label: "Late Perimenopause",  color: "var(--pf-accent-dark)" },
   { id: "active-menopause",     label: "Active Menopause",    color: "#8B2252" },
   { id: "early-postmenopause",  label: "Early Postmenopause", color: "#5B6E2D" },
   { id: "late-postmenopause",   label: "Late Postmenopause",  color: "#4A3F7A" },
@@ -27,8 +27,8 @@ const TABS: { id: ArticleStageId | "all"; label: string; color: string }[] = [
 const STUDY_TYPE_STYLES: Record<string, { bg: string; text: string }> = {
   "Meta-Analysis":     { bg: "#E8F5E9", text: "#1B5E20" },
   "Systematic Review": { bg: "#E3F2FD", text: "#0D47A1" },
-  "RCT":               { bg: "#FFF3E0", text: "#E65100" },
-  "Clinical Trial":    { bg: "#FFF3E0", text: "#E65100" },
+  "RCT":               { bg: "var(--pf-accent-tint)", text: "#E65100" },
+  "Clinical Trial":    { bg: "var(--pf-accent-tint)", text: "#E65100" },
   "Cohort Study":      { bg: "#F3E5F5", text: "#4A148C" },
   "Cross-Sectional":   { bg: "#FCE4EC", text: "#880E4F" },
   "Observational":     { bg: "#F3E5F5", text: "#4A148C" },
@@ -58,7 +58,7 @@ function ArticleCard({ article }: { article: ResearchArticle }) {
   return (
     <div
       className="bg-white rounded-lg border p-5 flex flex-col gap-3 hover:shadow-md transition-shadow"
-      style={{ borderColor: "#E8F0EE" }}
+      style={{ borderColor: "var(--pf-tint)" }}
     >
       {/* Top row: study type badge + stage pill */}
       <div className="flex items-center justify-between flex-wrap gap-2">
@@ -78,19 +78,19 @@ function ArticleCard({ article }: { article: ResearchArticle }) {
       </div>
 
       {/* Consumer headline */}
-      <h3 className="font-display font-bold leading-snug" style={{ fontSize: "1rem", color: "#1A2E2A" }}>
+      <h3 className="font-display font-bold leading-snug" style={{ fontSize: "1rem", color: "var(--pf-primary-dark)" }}>
         <Link href={researchPath(article)}><a className="hover:underline">{article.headline}</a></Link>
       </h3>
 
       {/* Key takeaway */}
-      <p className="font-body text-sm leading-relaxed" style={{ color: "#4A5E5A" }}>
+      <p className="font-body text-sm leading-relaxed" style={{ color: "var(--pf-soft-ink)" }}>
         {article.takeaway}
       </p>
 
       {/* Citation */}
       <p
         className="font-body text-xs leading-relaxed italic"
-        style={{ color: "#8A9A97", borderTop: "1px solid #EDF5F3", paddingTop: "0.75rem" }}
+        style={{ color: "var(--pf-soft)", borderTop: "1px solid var(--pf-tint)", paddingTop: "0.75rem" }}
       >
         {article.citation}
       </p>
@@ -106,7 +106,7 @@ function ArticleCard({ article }: { article: ResearchArticle }) {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 font-label text-xs font-semibold hover:underline"
-            style={{ color: "#2D7D6F" }}
+            style={{ color: "var(--pf-primary)" }}
           >
             View Source <ExternalLink size={11} />
           </a>
@@ -155,28 +155,28 @@ export default function NewsAndArticles() {
       {/* Hero banner */}
       <section
         className="py-14 px-4"
-        style={{ background: "linear-gradient(135deg, #EDF5F3 0%, #F5EDE8 100%)" }}
+        style={{ background: "linear-gradient(135deg, var(--pf-tint) 0%, #F5EDE8 100%)" }}
       >
         <div className="container max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full font-label text-xs font-semibold"
-            style={{ backgroundColor: "#D4EBE7", color: "#2D7D6F" }}>
+            style={{ backgroundColor: "var(--pf-line)", color: "var(--pf-primary)" }}>
             <BookOpen size={13} />
             Peer-Reviewed Research
           </div>
-          <h1 className="font-display font-bold mb-4" style={{ fontSize: "2.4rem", color: "#1A2E2A", lineHeight: 1.15 }}>
+          <h1 className="font-display font-bold mb-4" style={{ fontSize: "2.4rem", color: "var(--pf-primary-dark)", lineHeight: 1.15 }}>
             News &amp; Articles
           </h1>
-          <p className="font-body text-base leading-relaxed max-w-2xl mx-auto" style={{ color: "#4A5E5A" }}>
+          <p className="font-body text-base leading-relaxed max-w-2xl mx-auto" style={{ color: "var(--pf-soft-ink)" }}>
             We curate the latest peer-reviewed research on menopause and perimenopause — translated into plain language so you can make informed decisions. Updated weekly.
           </p>
-          <p className="font-body text-xs mt-4" style={{ color: "#8A9A97" }}>
+          <p className="font-body text-xs mt-4" style={{ color: "var(--pf-soft)" }}>
             Content is for informational purposes only and is not a substitute for professional medical advice.
           </p>
         </div>
       </section>
 
       {/* Stage tabs */}
-      <section className="sticky top-0 z-30 border-b" style={{ backgroundColor: "#FDF8F4", borderColor: "#D4EBE7" }}>
+      <section className="sticky top-0 z-30 border-b" style={{ backgroundColor: "var(--pf-paper)", borderColor: "var(--pf-line)" }}>
         <div className="container overflow-x-auto">
           <div className="flex gap-0 min-w-max">
             {TABS.map(tab => {
@@ -187,7 +187,7 @@ export default function NewsAndArticles() {
                   onClick={() => setActiveTab(tab.id)}
                   className="px-4 py-3.5 font-label text-xs font-semibold whitespace-nowrap transition-all border-b-2"
                   style={{
-                    color: isActive ? tab.color : "#7A9A97",
+                    color: isActive ? tab.color : "var(--pf-soft)",
                     borderBottomColor: isActive ? tab.color : "transparent",
                     backgroundColor: isActive ? `${tab.color}0D` : "transparent",
                   }}
@@ -196,8 +196,8 @@ export default function NewsAndArticles() {
                   <span
                     className="ml-1.5 px-1.5 py-0.5 rounded-full text-xs"
                     style={{
-                      backgroundColor: isActive ? `${tab.color}22` : "#EDF5F3",
-                      color: isActive ? tab.color : "#7A9A97",
+                      backgroundColor: isActive ? `${tab.color}22` : "var(--pf-tint)",
+                      color: isActive ? tab.color : "var(--pf-soft)",
                     }}
                   >
                     {tab.id === "all"
@@ -223,28 +223,28 @@ export default function NewsAndArticles() {
               onChange={e => setSearchQuery(e.target.value)}
               className="w-full px-4 py-2.5 rounded-lg border font-body text-sm focus:outline-none focus:ring-2"
               style={{
-                borderColor: "#D4EBE7",
+                borderColor: "var(--pf-line)",
                 backgroundColor: "#FFFFFF",
-                color: "#2C2C2C",
+                color: "var(--pf-ink)",
                 // @ts-ignore
-                "--tw-ring-color": "#2D7D6F40",
+                "--tw-ring-color": "var(--pf-primary)40",
               }}
             />
           </div>
 
           {/* Section heading */}
           <div className="flex items-center justify-between mb-6">
-            <h2 className="font-display font-bold" style={{ fontSize: "1.3rem", color: "#1A2E2A" }}>
+            <h2 className="font-display font-bold" style={{ fontSize: "1.3rem", color: "var(--pf-primary-dark)" }}>
               {activeTab === "all" ? "All Articles" : activeTabConfig.label}
             </h2>
-            <span className="font-label text-xs" style={{ color: "#8A9A97" }}>
+            <span className="font-label text-xs" style={{ color: "var(--pf-soft)" }}>
               {filtered.length} article{filtered.length !== 1 ? "s" : ""}
             </span>
           </div>
 
           {/* Article grid */}
           {filtered.length === 0 ? (
-            <div className="text-center py-16" style={{ color: "#8A9A97" }}>
+            <div className="text-center py-16" style={{ color: "var(--pf-soft)" }}>
               <BookOpen size={40} className="mx-auto mb-3 opacity-30" />
               <p className="font-body text-sm">No articles found for that search.</p>
             </div>
@@ -259,7 +259,7 @@ export default function NewsAndArticles() {
           {/* Disclaimer */}
           <div
             className="mt-12 p-5 rounded-lg border font-body text-xs leading-relaxed"
-            style={{ backgroundColor: "#F0FAF8", borderColor: "#D4EBE7", color: "#4A5E5A" }}
+            style={{ backgroundColor: "var(--pf-tint-2)", borderColor: "var(--pf-line)", color: "var(--pf-soft-ink)" }}
           >
             <strong>Medical Disclaimer:</strong> The research articles listed here are sourced from peer-reviewed journals and are provided for informational and educational purposes only. PauseAndFlourish.com does not endorse any specific treatment, supplement, or medical intervention. Always consult a qualified healthcare professional before making changes to your health regimen.
           </div>

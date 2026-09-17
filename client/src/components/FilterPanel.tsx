@@ -1,5 +1,5 @@
 // PauseAndFlourish.com - Shared FilterPanel Component
-// Design: Teal (#2D7D6F) + Terracotta (#C4722A) + Ivory (#FDF8F4)
+// Design: Teal (var(--pf-primary)) + Terracotta (var(--pf-accent)) + Ivory (var(--pf-paper))
 // Features: Dual-handle price range slider + menopause stage checkboxes + category pills
 
 import { useRef, useCallback } from "react";
@@ -160,9 +160,9 @@ export default function FilterPanel({
   const resetStages = () => onChange({ ...filters, stages: [] });
   const resetAll = () => onChange(getDefaultFilters());
 
-  const TEAL = "#2D7D6F";
-  const TERRA = "#C4722A";
-  const IVORY = "#FDF8F4";
+  const TEAL = "var(--pf-primary)";
+  const TERRA = "var(--pf-accent)";
+  const IVORY = "var(--pf-paper)";
   const BORDER = "#D9EDE9";
 
   return (
@@ -283,7 +283,7 @@ export default function FilterPanel({
                 </div>
                 <span
                   className="text-sm font-body transition-colors"
-                  style={{ color: active ? TEAL : "#4A4A4A" }}
+                  style={{ color: active ? TEAL : "var(--pf-soft-ink)" }}
                   onClick={() => toggleStage(stage.id)}
                 >
                   {stage.label}

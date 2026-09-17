@@ -1,5 +1,5 @@
 // PauseAndFlourish.com - All Reviews Page
-// Design: Bold magazine aesthetic with Burgundy (#2D7D6F) + Amber (#C4722A) + Cream (#FDF8F4)
+// Design: Bold magazine aesthetic with Burgundy (var(--pf-primary)) + Amber (var(--pf-accent)) + Cream (var(--pf-paper))
 // Features: Sidebar FilterPanel (price range + menopause stage + category) + Sort + Search
 
 import { useEffect, useState, useMemo } from "react";
@@ -20,11 +20,11 @@ import { QUIZ_RESULT_KEY } from "@/pages/MenopauseQuiz";
 
 // Menopause stage meta for the personalized banner
 const STAGE_LABELS: Record<string, { label: string; color: string; bg: string; tagline: string }> = {
-  "early-perimenopause":  { label: "Early Perimenopause",  color: "#2D7D6F", bg: "#F0FAF8", tagline: "Targeted solutions for the earliest signs of hormonal change." },
-  "late-perimenopause":   { label: "Late Perimenopause",   color: "#3D8B7A", bg: "#E8F7F4", tagline: "Relief for intensifying symptoms — hot flashes, brain fog, and more." },
-  "active-menopause":     { label: "Active Menopause",     color: "#C4722A", bg: "#FFF8EE", tagline: "Comprehensive support for the full menopause transition." },
+  "early-perimenopause":  { label: "Early Perimenopause",  color: "var(--pf-primary)", bg: "var(--pf-tint-2)", tagline: "Targeted solutions for the earliest signs of hormonal change." },
+  "late-perimenopause":   { label: "Late Perimenopause",   color: "var(--pf-primary-light)", bg: "var(--pf-tint)", tagline: "Relief for intensifying symptoms — hot flashes, brain fog, and more." },
+  "active-menopause":     { label: "Active Menopause",     color: "var(--pf-accent)", bg: "var(--pf-accent-tint)", tagline: "Comprehensive support for the full menopause transition." },
   "early-postmenopause":  { label: "Early Postmenopause",  color: "#7B6EA8", bg: "#F5F0FF", tagline: "Rebuilding and thriving in the years after menopause." },
-  "late-postmenopause":   { label: "Late Postmenopause",   color: "#2D7D6F", bg: "#F0FAF8", tagline: "Long-term wellness, longevity, and vitality support." },
+  "late-postmenopause":   { label: "Late Postmenopause",   color: "var(--pf-primary)", bg: "var(--pf-tint-2)", tagline: "Long-term wellness, longevity, and vitality support." },
 };
 
 // Personalized banner shown at top of reviews when quiz result is saved
@@ -61,7 +61,7 @@ function PicksForYouBanner({ onApplyFilter }: { onApplyFilter: (stage: string) =
             <span className="font-body font-semibold text-sm" style={{ color: meta.color }}>
               {matchCount} Picks for Your {meta.label}
             </span>
-            <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "#3D5A58" }}>
+            <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "var(--pf-primary-dark)" }}>
               {meta.tagline}
             </span>
           </div>
@@ -70,7 +70,7 @@ function PicksForYouBanner({ onApplyFilter }: { onApplyFilter: (stage: string) =
           <button
             onClick={() => onApplyFilter(savedStage)}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded font-body font-semibold text-xs transition-all duration-200 hover:opacity-90"
-            style={{ backgroundColor: meta.color, color: "#FDF8F4" }}
+            style={{ backgroundColor: meta.color, color: "var(--pf-paper)" }}
           >
             Show My Picks <ArrowRight size={12} />
           </button>
@@ -80,7 +80,7 @@ function PicksForYouBanner({ onApplyFilter }: { onApplyFilter: (stage: string) =
           <button
             onClick={() => setDismissed(true)}
             className="font-body text-xs hover:opacity-60 transition-opacity"
-            style={{ color: "#8C8C8C", background: "none", border: "none", padding: 0 }}
+            style={{ color: "var(--pf-soft)", background: "none", border: "none", padding: 0 }}
             aria-label="Dismiss"
           >
             <X size={14} />
@@ -205,24 +205,24 @@ export default function AllReviews() {
       {/* ── Page Header ── */}
       <section
         className="py-14 border-b"
-        style={{ borderColor: "#D4EBE7", backgroundColor: "#EDF5F3" }}
+        style={{ borderColor: "var(--pf-line)", backgroundColor: "var(--pf-tint)" }}
       >
         <div className="container">
           <p
             className="font-label font-semibold text-xs mb-2"
-            style={{ color: "#C4722A", letterSpacing: "0.12em", textTransform: "uppercase" }}
+            style={{ color: "var(--pf-accent)", letterSpacing: "0.12em", textTransform: "uppercase" }}
           >
             Expert Tested
           </p>
           <h1
             className="font-display font-bold"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2C2C" }}
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--pf-ink)" }}
           >
             All Menopause Product Reviews
           </h1>
           <p
             className="font-body text-lg mt-3"
-            style={{ color: "#6C6C6C", maxWidth: "600px" }}
+            style={{ color: "var(--pf-soft-ink)", maxWidth: "600px" }}
           >
             {allProducts.length} products reviewed across {categories.length} categories.
             Updated every Monday with new reviews.
@@ -235,7 +235,7 @@ export default function AllReviews() {
       <div id="reviews-grid" />
       <section
         className="py-4 border-b sticky top-[73px] z-40"
-        style={{ borderColor: "#D4EBE7", backgroundColor: "#FDF8F4" }}
+        style={{ borderColor: "var(--pf-line)", backgroundColor: "var(--pf-paper)" }}
       >
         <div className="container">
           <div className="flex flex-wrap items-center gap-3">
@@ -244,7 +244,7 @@ export default function AllReviews() {
               <Search
                 size={15}
                 className="absolute left-3 top-1/2 -translate-y-1/2"
-                style={{ color: "#2D7D6F" }}
+                style={{ color: "var(--pf-primary)" }}
               />
               <input
                 type="text"
@@ -253,9 +253,9 @@ export default function AllReviews() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-9 pr-4 py-2 text-sm font-body rounded-sm border"
                 style={{
-                  borderColor: "#C0DDD9",
+                  borderColor: "var(--pf-line-strong)",
                   backgroundColor: "#FFFFFF",
-                  color: "#2C2C2C",
+                  color: "var(--pf-ink)",
                   outline: "none",
                 }}
               />
@@ -275,9 +275,9 @@ export default function AllReviews() {
               onClick={() => setShowMobileFilters((v) => !v)}
               className="lg:hidden flex items-center gap-2 px-4 py-2 text-xs font-label font-semibold rounded-sm border transition-colors"
               style={{
-                borderColor: showMobileFilters ? "#2D7D6F" : "#C0DDD9",
-                backgroundColor: showMobileFilters ? "#2D7D6F" : "transparent",
-                color: showMobileFilters ? "#FDF8F4" : "#2D7D6F",
+                borderColor: showMobileFilters ? "var(--pf-primary)" : "var(--pf-line-strong)",
+                backgroundColor: showMobileFilters ? "var(--pf-primary)" : "transparent",
+                color: showMobileFilters ? "var(--pf-paper)" : "var(--pf-primary)",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
               }}
@@ -287,7 +287,7 @@ export default function AllReviews() {
               {activeFilterCount > 0 && (
                 <span
                   className="ml-1 w-4 h-4 rounded-full text-xs flex items-center justify-center"
-                  style={{ backgroundColor: "#C4722A", color: "#FFF" }}
+                  style={{ backgroundColor: "var(--pf-accent)", color: "#FFF" }}
                 >
                   {activeFilterCount}
                 </span>
@@ -300,9 +300,9 @@ export default function AllReviews() {
                 onClick={() => setSortOpen((v) => !v)}
                 className="flex items-center gap-2 px-4 py-2 text-xs font-label font-semibold rounded-sm border transition-colors"
                 style={{
-                  borderColor: "#C0DDD9",
+                  borderColor: "var(--pf-line-strong)",
                   backgroundColor: "transparent",
-                  color: "#2C2C2C",
+                  color: "var(--pf-ink)",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                 }}
@@ -313,7 +313,7 @@ export default function AllReviews() {
               {sortOpen && (
                 <div
                   className="absolute right-0 top-full mt-1 rounded-sm border shadow-lg z-50"
-                  style={{ backgroundColor: "#FFF", borderColor: "#D4EBE7", minWidth: "180px" }}
+                  style={{ backgroundColor: "#FFF", borderColor: "var(--pf-line)", minWidth: "180px" }}
                 >
                   {SORT_OPTIONS.map((opt) => (
                     <button
@@ -321,10 +321,10 @@ export default function AllReviews() {
                       onClick={() => { setSortBy(opt.id); setSortOpen(false); }}
                       className="w-full text-left px-4 py-2.5 text-xs font-label font-semibold hover:bg-amber-50 transition-colors"
                       style={{
-                        color: sortBy === opt.id ? "#2D7D6F" : "#2C2C2C",
+                        color: sortBy === opt.id ? "var(--pf-primary)" : "var(--pf-ink)",
                         letterSpacing: "0.06em",
                         textTransform: "uppercase",
-                        borderBottom: "1px solid #F0E8DC",
+                        borderBottom: "1px solid var(--pf-line)",
                       }}
                     >
                       {opt.label}
@@ -339,7 +339,7 @@ export default function AllReviews() {
               <button
                 onClick={clearAll}
                 className="flex items-center gap-1 text-xs font-label font-semibold"
-                style={{ color: "#C4722A", letterSpacing: "0.06em", textTransform: "uppercase" }}
+                style={{ color: "var(--pf-accent)", letterSpacing: "0.06em", textTransform: "uppercase" }}
               >
                 <X size={12} /> Clear All
               </button>
@@ -357,7 +357,7 @@ export default function AllReviews() {
       {anyActive && (
         <section
           className="py-3 border-b"
-          style={{ borderColor: "#D4EBE7", backgroundColor: "#EDF5F3" }}
+          style={{ borderColor: "var(--pf-line)", backgroundColor: "var(--pf-tint)" }}
         >
           <div className="container">
             <div className="flex flex-wrap items-center gap-2">
@@ -365,7 +365,7 @@ export default function AllReviews() {
               {selectedCategory !== "all" && (
                 <span
                   className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full"
-                  style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}
+                  style={{ backgroundColor: "var(--pf-primary)", color: "var(--pf-paper)" }}
                 >
                   {categories.find((c) => c.slug === selectedCategory)?.name}
                   <button onClick={() => setSelectedCategory("all")}><X size={11} /></button>
@@ -374,7 +374,7 @@ export default function AllReviews() {
               {(filters.priceMin > 0 || filters.priceMax < 600) && (
                 <span
                   className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full"
-                  style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}
+                  style={{ backgroundColor: "var(--pf-primary)", color: "var(--pf-paper)" }}
                 >
                   ${filters.priceMin}–{filters.priceMax >= 600 ? "$600+" : `$${filters.priceMax}`}
                   <button onClick={() => setFilters(f => ({ ...f, priceMin: 0, priceMax: 600 }))}><X size={11} /></button>
@@ -384,7 +384,7 @@ export default function AllReviews() {
                 <span
                   key={ht}
                   className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full"
-                  style={{ backgroundColor: "#C4722A", color: "#FFF" }}
+                  style={{ backgroundColor: "var(--pf-accent)", color: "#FFF" }}
                 >
                   {MENOPAUSE_STAGES.find((h) => h.id === ht)?.label}
                   <button onClick={() => setFilters(f => ({ ...f, stages: f.stages.filter(t => t !== ht) }))}><X size={11} /></button>
@@ -393,7 +393,7 @@ export default function AllReviews() {
               {sortBy !== "default" && (
                 <span
                   className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full"
-                  style={{ backgroundColor: "#6C6C6C", color: "#FFF" }}
+                  style={{ backgroundColor: "var(--pf-soft-ink)", color: "#FFF" }}
                 >
                   {activeSortLabel}
                   <button onClick={() => setSortBy("default")}><X size={11} /></button>
@@ -415,7 +415,7 @@ export default function AllReviews() {
                 <div className="flex items-center justify-between mb-4">
                   <h2
                     className="font-label font-semibold text-xs"
-                    style={{ color: "#2D7D6F", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                    style={{ color: "var(--pf-primary)", letterSpacing: "0.12em", textTransform: "uppercase" }}
                   >
                     Filter Products
                   </h2>
@@ -423,7 +423,7 @@ export default function AllReviews() {
                     <button
                       onClick={clearAll}
                       className="text-xs font-label font-semibold"
-                      style={{ color: "#C4722A" }}
+                      style={{ color: "var(--pf-accent)" }}
                     >
                       Clear All
                     </button>
@@ -460,16 +460,16 @@ export default function AllReviews() {
             <div className="flex-1 min-w-0">
               {filtered.length === 0 ? (
                 <div className="text-center py-20">
-                  <p className="font-display text-2xl font-semibold mb-3" style={{ color: "#2C2C2C" }}>
+                  <p className="font-display text-2xl font-semibold mb-3" style={{ color: "var(--pf-ink)" }}>
                     No products found
                   </p>
-                  <p className="font-body text-base mb-6" style={{ color: "#6C6C6C" }}>
+                  <p className="font-body text-base mb-6" style={{ color: "var(--pf-soft-ink)" }}>
                     Try adjusting your price range, menopause stage, or search terms.
                   </p>
                   <button
                     onClick={clearAll}
                     className="px-6 py-3 font-label font-semibold text-xs rounded-sm"
-                    style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", letterSpacing: "0.1em", textTransform: "uppercase" }}
+                    style={{ backgroundColor: "var(--pf-primary)", color: "var(--pf-paper)", letterSpacing: "0.1em", textTransform: "uppercase" }}
                   >
                     Clear All Filters
                   </button>
@@ -480,10 +480,10 @@ export default function AllReviews() {
                   {!anyActive && (
                     <div className="mb-10">
                       <div className="flex items-center gap-3 mb-6">
-                        <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#C4722A" }} />
+                        <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "var(--pf-accent)" }} />
                         <h2
                           className="font-label font-semibold text-sm"
-                          style={{ color: "#2D7D6F", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                          style={{ color: "var(--pf-primary)", letterSpacing: "0.12em", textTransform: "uppercase" }}
                         >
                           Editor's Picks
                         </h2>
@@ -493,12 +493,12 @@ export default function AllReviews() {
                           <ProductCard key={p.id} product={p} variant="featured" />
                         ))}
                       </div>
-                      <div className="border-t mb-10" style={{ borderColor: "#D4EBE7" }} />
+                      <div className="border-t mb-10" style={{ borderColor: "var(--pf-line)" }} />
                       <div className="flex items-center gap-3 mb-6">
-                        <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#2D7D6F" }} />
+                        <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "var(--pf-primary)" }} />
                         <h2
                           className="font-label font-semibold text-sm"
-                          style={{ color: "#2D7D6F", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                          style={{ color: "var(--pf-primary)", letterSpacing: "0.12em", textTransform: "uppercase" }}
                         >
                           All Reviews
                         </h2>

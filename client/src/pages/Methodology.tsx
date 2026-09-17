@@ -68,25 +68,25 @@ export default function Methodology() {
         <p className="section-label mb-2">Transparency</p>
         <h1
           className="font-display font-bold mb-6 leading-tight"
-          style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2C2C" }}
+          style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--pf-ink)" }}
         >
           Editorial Methodology
         </h1>
         <hr className="editorial-rule w-16 mb-4" />
 
         {/* Author + date byline */}
-        <div className="flex flex-wrap items-center gap-3 mb-8 text-xs" style={{ color: "#B8A99A" }}>
-          <span>By <strong style={{ color: "#2C2C2C" }}>PauseAndFlourish Editorial Team</strong></span>
+        <div className="flex flex-wrap items-center gap-3 mb-8 text-xs" style={{ color: "var(--pf-muted)" }}>
+          <span>By <strong style={{ color: "var(--pf-ink)" }}>PauseAndFlourish Editorial Team</strong></span>
           <span>·</span>
           <span>Last updated July 2026</span>
           <span>·</span>
           <Link href="/about">
-            <a className="underline hover:text-teal-700" style={{ color: "#B8A99A" }}>About Us</a>
+            <a className="underline hover:text-teal-700" style={{ color: "var(--pf-muted)" }}>About Us</a>
           </Link>
         </div>
 
         <div className="space-y-6">
-          <p className="font-body text-lg leading-relaxed" style={{ color: "#2C2C2C" }}>
+          <p className="font-body text-lg leading-relaxed" style={{ color: "var(--pf-ink)" }}>
             Every review and comparison published on PauseAndFlourish is produced according to
             the methodology described on this page. We believe transparency about how we
             evaluate products is essential to earning your trust.
@@ -95,12 +95,12 @@ export default function Methodology() {
           {/* ── How We Score Products ───────────────────────────────────────── */}
           <h2
             className="font-display font-bold mt-10 mb-4"
-            style={{ fontSize: "1.6rem", color: "#2C2C2C" }}
+            style={{ fontSize: "1.6rem", color: "var(--pf-ink)" }}
           >
             How We Score Products
           </h2>
 
-          <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
+          <p className="font-body leading-relaxed" style={{ color: "var(--pf-ink)" }}>
             Each product receives a composite score from 1–10, calculated as a weighted
             average of five criteria:
           </p>
@@ -108,10 +108,10 @@ export default function Methodology() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
-                <tr style={{ backgroundColor: "#EDF5F3" }}>
-                  <th className="text-left p-3 font-semibold" style={{ color: "#2C2C2C", border: "1px solid #D4EBE7" }}>Criterion</th>
-                  <th className="text-left p-3 font-semibold" style={{ color: "#2C2C2C", border: "1px solid #D4EBE7" }}>Weight</th>
-                  <th className="text-left p-3 font-semibold" style={{ color: "#2C2C2C", border: "1px solid #D4EBE7" }}>What We Evaluate</th>
+                <tr style={{ backgroundColor: "var(--pf-tint)" }}>
+                  <th className="text-left p-3 font-semibold" style={{ color: "var(--pf-ink)", border: "1px solid var(--pf-line)" }}>Criterion</th>
+                  <th className="text-left p-3 font-semibold" style={{ color: "var(--pf-ink)", border: "1px solid var(--pf-line)" }}>Weight</th>
+                  <th className="text-left p-3 font-semibold" style={{ color: "var(--pf-ink)", border: "1px solid var(--pf-line)" }}>What We Evaluate</th>
                 </tr>
               </thead>
               <tbody>
@@ -123,9 +123,9 @@ export default function Methodology() {
                   ["Stage Suitability", "10%", "Alignment with the target menopause stage's specific symptom profile"],
                 ].map(([criterion, weight, detail], i) => (
                   <tr key={i} style={{ backgroundColor: i % 2 === 0 ? "white" : "#FAFAFA" }}>
-                    <td className="p-3 font-medium" style={{ color: "#2C2C2C", border: "1px solid #D4EBE7" }}>{criterion}</td>
-                    <td className="p-3 font-bold" style={{ color: "#2D7D6F", border: "1px solid #D4EBE7" }}>{weight}</td>
-                    <td className="p-3" style={{ color: "#6C6C6C", border: "1px solid #D4EBE7" }}>{detail}</td>
+                    <td className="p-3 font-medium" style={{ color: "var(--pf-ink)", border: "1px solid var(--pf-line)" }}>{criterion}</td>
+                    <td className="p-3 font-bold" style={{ color: "var(--pf-primary)", border: "1px solid var(--pf-line)" }}>{weight}</td>
+                    <td className="p-3" style={{ color: "var(--pf-soft-ink)", border: "1px solid var(--pf-line)" }}>{detail}</td>
                   </tr>
                 ))}
               </tbody>
@@ -135,25 +135,25 @@ export default function Methodology() {
           {/* ── Score Interpretation ────────────────────────────────────────── */}
           <h2
             className="font-display font-bold mt-10 mb-4"
-            style={{ fontSize: "1.6rem", color: "#2C2C2C" }}
+            style={{ fontSize: "1.6rem", color: "var(--pf-ink)" }}
           >
             Score Interpretation
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
-              { range: "9.0 – 10.0", label: "Exceptional", desc: "Best-in-class. Editor's Pick designation.", color: "#2D7D6F" },
+              { range: "9.0 – 10.0", label: "Exceptional", desc: "Best-in-class. Editor's Pick designation.", color: "var(--pf-primary)" },
               { range: "8.0 – 8.9", label: "Excellent", desc: "Highly recommended. Strong evidence and real-world results.", color: "#4CAF50" },
-              { range: "7.0 – 7.9", label: "Good", desc: "Worth considering. Some trade-offs.", color: "#C4722A" },
+              { range: "7.0 – 7.9", label: "Good", desc: "Worth considering. Some trade-offs.", color: "var(--pf-accent)" },
               { range: "Below 7.0", label: "Not Recommended", desc: "Significant limitations. Better alternatives exist.", color: "#E53935" },
             ].map(({ range, label, desc, color }) => (
               <div
                 key={range}
                 className="p-4 rounded-sm"
-                style={{ backgroundColor: "#EDF5F3", border: `2px solid ${color}` }}
+                style={{ backgroundColor: "var(--pf-tint)", border: `2px solid ${color}` }}
               >
                 <p className="font-bold text-sm mb-1" style={{ color }}>{range} — {label}</p>
-                <p className="font-body text-xs" style={{ color: "#6C6C6C" }}>{desc}</p>
+                <p className="font-body text-xs" style={{ color: "var(--pf-soft-ink)" }}>{desc}</p>
               </div>
             ))}
           </div>
@@ -161,12 +161,12 @@ export default function Methodology() {
           {/* ── Head-to-Head Comparisons ────────────────────────────────────── */}
           <h2
             className="font-display font-bold mt-10 mb-4"
-            style={{ fontSize: "1.6rem", color: "#2C2C2C" }}
+            style={{ fontSize: "1.6rem", color: "var(--pf-ink)" }}
           >
             Head-to-Head Comparisons
           </h2>
 
-          <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
+          <p className="font-body leading-relaxed" style={{ color: "var(--pf-ink)" }}>
             For comparison articles, both products are evaluated against identical criteria
             using the same scoring framework. The winner is the product with the higher
             composite score for the target use case. Where scores are close (within 0.3
@@ -177,12 +177,12 @@ export default function Methodology() {
           {/* ── Clinical Sources ────────────────────────────────────────────── */}
           <h2
             className="font-display font-bold mt-10 mb-4"
-            style={{ fontSize: "1.6rem", color: "#2C2C2C" }}
+            style={{ fontSize: "1.6rem", color: "var(--pf-ink)" }}
           >
             Clinical Sources
           </h2>
 
-          <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
+          <p className="font-body leading-relaxed" style={{ color: "var(--pf-ink)" }}>
             We reference peer-reviewed studies from PubMed, Cochrane Reviews, and other
             reputable medical databases. We also draw on guidance from the{" "}
             <a
@@ -190,7 +190,7 @@ export default function Methodology() {
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-teal-700"
-              style={{ color: "#2D7D6F" }}
+              style={{ color: "var(--pf-primary)" }}
             >
               Menopause Society (NAMS)
             </a>{" "}
@@ -200,7 +200,7 @@ export default function Methodology() {
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-teal-700"
-              style={{ color: "#2D7D6F" }}
+              style={{ color: "var(--pf-primary)" }}
             >
               British Menopause Society
             </a>
@@ -210,16 +210,16 @@ export default function Methodology() {
           {/* ── Editorial Independence ──────────────────────────────────────── */}
           <h2
             className="font-display font-bold mt-10 mb-4"
-            style={{ fontSize: "1.6rem", color: "#2C2C2C" }}
+            style={{ fontSize: "1.6rem", color: "var(--pf-ink)" }}
           >
             Editorial Independence
           </h2>
 
           <div
             className="p-5 rounded-sm"
-            style={{ backgroundColor: "#EDF5F3", border: "1px solid #D4EBE7" }}
+            style={{ backgroundColor: "var(--pf-tint)", border: "1px solid var(--pf-line)" }}
           >
-            <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
+            <p className="font-body leading-relaxed" style={{ color: "var(--pf-ink)" }}>
               <strong>We do not accept payment for positive reviews.</strong> We do not accept
               free products in exchange for coverage. We do not allow brands to review or
               approve content before publication. Our affiliate relationship with Amazon means
@@ -231,12 +231,12 @@ export default function Methodology() {
           {/* ── Update Policy ───────────────────────────────────────────────── */}
           <h2
             className="font-display font-bold mt-10 mb-4"
-            style={{ fontSize: "1.6rem", color: "#2C2C2C" }}
+            style={{ fontSize: "1.6rem", color: "var(--pf-ink)" }}
           >
             Update Policy
           </h2>
 
-          <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
+          <p className="font-body leading-relaxed" style={{ color: "var(--pf-ink)" }}>
             We publish new reviews every Monday. Existing reviews are checked weekly and
             updated whenever: (1) new clinical evidence emerges for a key ingredient, (2) a
             product formulation changes materially, (3) pricing shifts by more than 15%, or
@@ -248,7 +248,7 @@ export default function Methodology() {
           {/* ── FAQ ─────────────────────────────────────────────────────────── */}
           <h2
             className="font-display font-bold mt-10 mb-4"
-            style={{ fontSize: "1.6rem", color: "#2C2C2C" }}
+            style={{ fontSize: "1.6rem", color: "var(--pf-ink)" }}
           >
             Frequently Asked Questions
           </h2>
@@ -275,10 +275,10 @@ export default function Methodology() {
               <div
                 key={i}
                 className="p-5 rounded-sm"
-                style={{ backgroundColor: "white", border: "1px solid #D4EBE7" }}
+                style={{ backgroundColor: "white", border: "1px solid var(--pf-line)" }}
               >
-                <p className="font-body font-semibold mb-2" style={{ color: "#2C2C2C" }}>{q}</p>
-                <p className="font-body text-sm leading-relaxed" style={{ color: "#6C6C6C" }}>{a}</p>
+                <p className="font-body font-semibold mb-2" style={{ color: "var(--pf-ink)" }}>{q}</p>
+                <p className="font-body text-sm leading-relaxed" style={{ color: "var(--pf-soft-ink)" }}>{a}</p>
               </div>
             ))}
           </div>
@@ -290,7 +290,7 @@ export default function Methodology() {
             <a
               href="mailto:hello@pauseandflourish.com"
               className="rounded-sm inline-block px-6 py-3 font-semibold"
-              style={{ border: "2px solid #2D7D6F", color: "#2D7D6F" }}
+              style={{ border: "2px solid var(--pf-primary)", color: "var(--pf-primary)" }}
             >
               Contact Us
             </a>

@@ -58,12 +58,12 @@ function QuizPromptBanner() {
   return (
     <div
       className="mt-14 rounded-xl p-7 flex flex-col sm:flex-row items-center justify-between gap-5"
-      style={{ background: "linear-gradient(135deg, #2C1810 0%, #2D7D6F 100%)", border: "1px solid #2D7D6F44" }}
+      style={{ background: "linear-gradient(135deg, #2C1810 0%, var(--pf-primary) 100%)", border: "1px solid var(--pf-primary)44" }}
     >
       <div className="flex items-start gap-4">
-        <Sparkles size={28} style={{ color: "#C4722A", flexShrink: 0, marginTop: "2px" }} />
+        <Sparkles size={28} style={{ color: "var(--pf-accent)", flexShrink: 0, marginTop: "2px" }} />
         <div>
-          <p className="font-display font-bold text-lg leading-tight" style={{ color: "#FDF8F4" }}>
+          <p className="font-display font-bold text-lg leading-tight" style={{ color: "var(--pf-paper)" }}>
             {hasResult && stageName
               ? `Not sure this is right for your ${stageName}?`
               : "Not sure this product is right for your menopause stage?"}
@@ -78,7 +78,7 @@ function QuizPromptBanner() {
       <Link href="/quiz">
         <button
           className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded font-body font-semibold text-sm whitespace-nowrap transition-all duration-200 hover:opacity-90"
-          style={{ backgroundColor: "#C4722A", color: "#FDF8F4" }}
+          style={{ backgroundColor: "var(--pf-accent)", color: "var(--pf-paper)" }}
         >
           {hasResult ? <><Sparkles size={14} /> Retake Quiz</> : <><Sparkles size={14} /> Take the Menopause Quiz</>}
         </button>
@@ -157,7 +157,7 @@ export default function ProductReview() {
     return (
       <SiteLayout>
         <div className="container py-20 text-center">
-          <h1 className="font-display text-3xl" style={{ color: "#2C2C2C" }}>Review Not Found</h1>
+          <h1 className="font-display text-3xl" style={{ color: "var(--pf-ink)" }}>Review Not Found</h1>
           <Link href="/reviews"><button className="btn-primary mt-6 rounded-sm px-6 py-3">Browse All Reviews</button></Link>
         </div>
       </SiteLayout>
@@ -169,11 +169,11 @@ export default function ProductReview() {
       <div className="container py-10 max-w-5xl mx-auto">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 mb-8">
-          <Link href="/"><span className="font-body text-sm cursor-pointer hover:text-teal-700" style={{ color: "#B8A99A" }}>Home</span></Link>
-          <span style={{ color: "#B8A99A" }}>/</span>
-          <Link href={`/category/${product.categorySlug}`}><span className="font-body text-sm cursor-pointer hover:text-teal-700" style={{ color: "#B8A99A" }}>{product.category}</span></Link>
-          <span style={{ color: "#B8A99A" }}>/</span>
-          <span className="font-body text-sm" style={{ color: "#2C2C2C" }}>{product.name}</span>
+          <Link href="/"><span className="font-body text-sm cursor-pointer hover:text-teal-700" style={{ color: "var(--pf-muted)" }}>Home</span></Link>
+          <span style={{ color: "var(--pf-muted)" }}>/</span>
+          <Link href={`/category/${product.categorySlug}`}><span className="font-body text-sm cursor-pointer hover:text-teal-700" style={{ color: "var(--pf-muted)" }}>{product.category}</span></Link>
+          <span style={{ color: "var(--pf-muted)" }}>/</span>
+          <span className="font-body text-sm" style={{ color: "var(--pf-ink)" }}>{product.name}</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -181,33 +181,33 @@ export default function ProductReview() {
           <div className="lg:col-span-1">
             {/* Product Image — Amazon-hosted images render only after a current per-ASIN API sync. */}
             {productImage ? (
-              <div className="rounded-sm overflow-hidden mb-4" style={{ backgroundColor: "#EDF5F3", height: "280px" }}>
+              <div className="rounded-sm overflow-hidden mb-4" style={{ backgroundColor: "var(--pf-tint)", height: "280px" }}>
                 <img src={productImage} alt={product.name} className="w-full h-full object-contain p-6" />
               </div>
             ) : null}
 
             {/* Price & Buy */}
-            <div className="p-5 rounded-sm border" style={{ borderColor: "#D4EBE7", backgroundColor: "white" }}>
+            <div className="p-5 rounded-sm border" style={{ borderColor: "var(--pf-line)", backgroundColor: "white" }}>
               {product.editorPick && (
                 <div className="mb-3">
                   <span className="editor-pick-badge text-xs px-3 py-1">Editor's Pick</span>
                 </div>
               )}
-              <div className="mb-3"><FreshCatalogPrice product={product} className="text-2xl" />{(!catalogIsFresh(product) || currentPriceNumber(product.price) <= 0) && <p className="font-body text-xs" style={{ color: "#B8A99A" }}>See price on Amazon</p>}</div>
+              <div className="mb-3"><FreshCatalogPrice product={product} className="text-2xl" />{(!catalogIsFresh(product) || currentPriceNumber(product.price) <= 0) && <p className="font-body text-xs" style={{ color: "var(--pf-muted)" }}>See price on Amazon</p>}</div>
               <VerifiedAmazonCta product={product} label="Check Price on Amazon" className="w-full mt-4" />
-              <p className="font-body text-xs text-center mt-2" style={{ color: "#B8A99A" }}>
+              <p className="font-body text-xs text-center mt-2" style={{ color: "var(--pf-muted)" }}>
                 Affiliate link - we earn a commission at no extra cost to you
               </p>
             </div>
 
             {/* Pros & Cons */}
             <div className="mt-6">
-              <h3 className="font-display font-bold mb-4" style={{ fontSize: "1.3rem", color: "#2C2C2C" }}>Pros & Cons</h3>
+              <h3 className="font-display font-bold mb-4" style={{ fontSize: "1.3rem", color: "var(--pf-ink)" }}>Pros & Cons</h3>
               <div className="space-y-2 mb-4">
                 {product.pros.map((pro, i) => (
                   <div key={i} className="flex items-start gap-2">
                     <CheckCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#4CAF50" }} />
-                    <span className="font-body text-sm" style={{ color: "#2C2C2C" }}>{pro}</span>
+                    <span className="font-body text-sm" style={{ color: "var(--pf-ink)" }}>{pro}</span>
                   </div>
                 ))}
               </div>
@@ -215,23 +215,23 @@ export default function ProductReview() {
                 {product.cons.map((con, i) => (
                   <div key={i} className="flex items-start gap-2">
                     <XCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#E53935" }} />
-                    <span className="font-body text-sm" style={{ color: "#2C2C2C" }}>{con}</span>
+                    <span className="font-body text-sm" style={{ color: "var(--pf-ink)" }}>{con}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Best For */}
-            <div className="mt-6 p-4 rounded-sm" style={{ backgroundColor: "#EDF5F3", border: "1px solid #D4EBE7" }}>
+            <div className="mt-6 p-4 rounded-sm" style={{ backgroundColor: "var(--pf-tint)", border: "1px solid var(--pf-line)" }}>
               <p className="section-label text-xs mb-2">Best For</p>
-              <p className="font-body text-sm" style={{ color: "#2C2C2C" }}>{product.bestFor}</p>
+              <p className="font-body text-sm" style={{ color: "var(--pf-ink)" }}>{product.bestFor}</p>
             </div>
           </div>
 
           {/* Right: Review Content */}
           <div className="lg:col-span-2">
             <p className="section-label mb-2">{product.brand}</p>
-            <h1 className="font-display font-bold mb-4 leading-tight" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", color: "#2C2C2C" }}>
+            <h1 className="font-display font-bold mb-4 leading-tight" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", color: "var(--pf-ink)" }}>
               {product.name}
             </h1>
             <hr className="editorial-rule w-16 mb-4" />
@@ -240,12 +240,12 @@ export default function ProductReview() {
             {(() => {
               const reviewAuthor = getAuthor((product as any).authorId || "");
               return (
-                <div className="flex flex-wrap items-center gap-3 mb-6 text-xs" style={{ color: "#B8A99A" }}>
+                <div className="flex flex-wrap items-center gap-3 mb-6 text-xs" style={{ color: "var(--pf-muted)" }}>
                   <span className="flex items-center gap-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     <span>By{" "}
                       <Link href={`/author/${reviewAuthor.slug}`}>
-                        <a className="font-semibold hover:underline" style={{ color: "#2C2C2C" }}>{reviewAuthor.name}</a>
+                        <a className="font-semibold hover:underline" style={{ color: "var(--pf-ink)" }}>{reviewAuthor.name}</a>
                       </Link>
                       <span className="ml-1">· {reviewAuthor.role}</span>
                     </span>
@@ -256,19 +256,19 @@ export default function ProductReview() {
                     <span>Published {new Date(product.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
                   </span>
                   <span>·</span>
-                  <a href="/methodology" className="underline hover:text-teal-700" style={{ color: "#B8A99A" }}>Editorial Methodology</a>
+                  <a href="/methodology" className="underline hover:text-teal-700" style={{ color: "var(--pf-muted)" }}>Editorial Methodology</a>
                 </div>
               );
             })()}
 
-            <p className="font-body text-lg leading-relaxed mb-8" style={{ color: "#6C6C6C" }}>
+            <p className="font-body text-lg leading-relaxed mb-8" style={{ color: "var(--pf-soft-ink)" }}>
               {product.shortDescription}
             </p>
 
             {/* Full Review */}
             <div className="prose max-w-none">
               {product.fullReview.split('\n\n').map((paragraph, i) => (
-                <p key={i} className="font-body leading-relaxed mb-5" style={{ color: "#2C2C2C", fontSize: "1rem" }}>
+                <p key={i} className="font-body leading-relaxed mb-5" style={{ color: "var(--pf-ink)", fontSize: "1rem" }}>
                   {paragraph}
                 </p>
               ))}
@@ -276,26 +276,26 @@ export default function ProductReview() {
 
             {/* Editor's Note */}
             {product.editorNote ? (
-              <div className="my-8 relative" style={{ borderLeft: "4px solid #2D7D6F", paddingLeft: "1.5rem" }}>
+              <div className="my-8 relative" style={{ borderLeft: "4px solid var(--pf-primary)", paddingLeft: "1.5rem" }}>
                 <div
                   className="absolute -top-2 -left-3 w-6 h-6 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: "#2D7D6F" }}
+                  style={{ backgroundColor: "var(--pf-primary)" }}
                 >
-                  <span style={{ color: "#FDF8F4", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.05em" }}>Ed</span>
+                  <span style={{ color: "var(--pf-paper)", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.05em" }}>Ed</span>
                 </div>
                 <p
                   className="font-label text-xs font-semibold mb-2"
-                  style={{ color: "#2D7D6F", letterSpacing: "0.1em", textTransform: "uppercase" }}
+                  style={{ color: "var(--pf-primary)", letterSpacing: "0.1em", textTransform: "uppercase" }}
                 >
                   Editor's Note
                 </p>
                 <blockquote
                   className="font-body italic leading-relaxed"
-                  style={{ color: "#1A3A38", fontSize: "1.05rem", fontStyle: "italic" }}
+                  style={{ color: "var(--pf-primary-dark)", fontSize: "1.05rem", fontStyle: "italic" }}
                 >
                   &ldquo;{product.editorNote}&rdquo;
                 </blockquote>
-                <p className="font-body text-xs mt-2" style={{ color: "#B8A99A" }}>— PauseAndFlourish Editorial Team</p>
+                <p className="font-body text-xs mt-2" style={{ color: "var(--pf-muted)" }}>— PauseAndFlourish Editorial Team</p>
               </div>
             ) : (
               <blockquote className="pull-quote my-8">
@@ -304,17 +304,17 @@ export default function ProductReview() {
             )}
 
             {/* Final Verdict */}
-            <div className="p-6 rounded-sm mt-8" style={{ backgroundColor: "#EDF5F3", border: "2px solid #C4722A" }}>
+            <div className="p-6 rounded-sm mt-8" style={{ backgroundColor: "var(--pf-tint)", border: "2px solid var(--pf-accent)" }}>
               <p className="section-label mb-2">Our Verdict</p>
               <div className="flex items-center gap-3 mb-3">
               </div>
-              <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
+              <p className="font-body leading-relaxed" style={{ color: "var(--pf-ink)" }}>
                 {product.shortDescription} Best for: <strong>{product.bestFor}</strong>.
               </p>
               <VerifiedAmazonCta product={product} label="Check Price on Amazon" className="mt-4" />
             </div>
 
-            <p className="font-body text-xs mt-4" style={{ color: "#B8A99A" }}>
+            <p className="font-body text-xs mt-4" style={{ color: "var(--pf-muted)" }}>
               Prices and availability subject to change. Last verified on Amazon.
             </p>
 
@@ -351,30 +351,30 @@ export default function ProductReview() {
 
         {/* Static, catalog-derived contextual links */}
         {(relatedProducts.length > 0 || relatedComparisons.length > 0 || relatedResearch.length > 0) && (
-          <section className="mt-16 pt-10 border-t" style={{ borderColor: "#D4EBE7" }}>
+          <section className="mt-16 pt-10 border-t" style={{ borderColor: "var(--pf-line)" }}>
             <p className="section-label mb-2">More in {product.category}</p>
-            <h2 className="font-display font-bold mb-6" style={{ fontSize: "1.8rem", color: "#2C2C2C" }}>Related Reviews &amp; Comparisons</h2>
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: "1.8rem", color: "var(--pf-ink)" }}>Related Reviews &amp; Comparisons</h2>
             {relatedComparisons.length > 0 && (
               <div className="mb-6">
-                <h3 className="font-display font-bold mb-3" style={{ color: "#2C2C2C" }}>Comparisons featuring {product.name}</h3>
+                <h3 className="font-display font-bold mb-3" style={{ color: "var(--pf-ink)" }}>Comparisons featuring {product.name}</h3>
                 <ul className="space-y-2">
-                  {relatedComparisons.map((comparison) => <li key={comparison.id}><Link href={`/comparison/${comparison.slug}`}><a className="font-body hover:underline" style={{ color: "#2D7D6F" }}>{comparison.title}</a></Link></li>)}
+                  {relatedComparisons.map((comparison) => <li key={comparison.id}><Link href={`/comparison/${comparison.slug}`}><a className="font-body hover:underline" style={{ color: "var(--pf-primary)" }}>{comparison.title}</a></Link></li>)}
                 </ul>
               </div>
             )}
             {relatedProducts.length > 0 && (
               <div className={relatedResearch.length > 0 ? "mb-6" : undefined}>
-                <h3 className="font-display font-bold mb-3" style={{ color: "#2C2C2C" }}>Related Reviews</h3>
+                <h3 className="font-display font-bold mb-3" style={{ color: "var(--pf-ink)" }}>Related Reviews</h3>
                 <ul className="space-y-2">
-                  {relatedProducts.map((item) => <li key={item.id}><Link href={`/review/${item.slug}`}><a className="font-body hover:underline" style={{ color: "#2D7D6F" }}>{item.name}</a></Link></li>)}
+                  {relatedProducts.map((item) => <li key={item.id}><Link href={`/review/${item.slug}`}><a className="font-body hover:underline" style={{ color: "var(--pf-primary)" }}>{item.name}</a></Link></li>)}
                 </ul>
               </div>
             )}
             {relatedResearch.length > 0 && (
               <div>
-                <h3 className="font-display font-bold mb-3" style={{ color: "#2C2C2C" }}>Related Research</h3>
+                <h3 className="font-display font-bold mb-3" style={{ color: "var(--pf-ink)" }}>Related Research</h3>
                 <ul className="space-y-2">
-                  {relatedResearch.map((article) => <li key={article.id}><Link href={researchPath(article)}><a className="font-body hover:underline" style={{ color: "#2D7D6F" }}>{article.headline}</a></Link></li>)}
+                  {relatedResearch.map((article) => <li key={article.id}><Link href={researchPath(article)}><a className="font-body hover:underline" style={{ color: "var(--pf-primary)" }}>{article.headline}</a></Link></li>)}
                 </ul>
               </div>
             )}

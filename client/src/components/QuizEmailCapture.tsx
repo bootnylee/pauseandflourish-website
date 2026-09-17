@@ -147,10 +147,10 @@ export default function QuizEmailCapture({
         style={{ backgroundColor: stageBg, border: `1px solid ${stageColor}30` }}
       >
         <CheckCircle size={40} className="mx-auto mb-4" style={{ color: stageColor }} />
-        <h3 className="font-display font-bold text-xl mb-2" style={{ color: "#2C2C2C" }}>
+        <h3 className="font-display font-bold text-xl mb-2" style={{ color: "var(--pf-ink)" }}>
           {submitState === "already_subscribed" ? "You're already on the list!" : "Check your inbox!"}
         </h3>
-        <p className="font-body text-sm leading-relaxed mb-6" style={{ color: "#5C5C5C" }}>
+        <p className="font-body text-sm leading-relaxed mb-6" style={{ color: "var(--pf-soft-ink)" }}>
           {submitState === "already_subscribed"
             ? `We already have your email. Your ${stageLabel} guide is ready to download below.`
             : `We've sent your personalised ${stageLabel} guide to ${email}. You can also download it directly below.`}
@@ -164,7 +164,7 @@ export default function QuizEmailCapture({
             className="inline-flex items-center gap-2 px-6 py-3 rounded-sm font-label font-semibold text-sm transition-opacity hover:opacity-90"
             style={{
               backgroundColor: stageColor,
-              color: "#FDF8F4",
+              color: "var(--pf-paper)",
               letterSpacing: "0.06em",
               textTransform: "uppercase",
               textDecoration: "none",
@@ -206,13 +206,13 @@ export default function QuizEmailCapture({
           >
             Free Personalised Guide
           </p>
-          <h3 className="font-display font-bold text-lg leading-tight" style={{ color: "#2C2C2C" }}>
+          <h3 className="font-display font-bold text-lg leading-tight" style={{ color: "var(--pf-ink)" }}>
             Get Your {stageLabel} Product Guide
           </h3>
         </div>
       </div>
 
-      <p className="font-body text-sm leading-relaxed mb-6" style={{ color: "#5C5C5C" }}>
+      <p className="font-body text-sm leading-relaxed mb-6" style={{ color: "var(--pf-soft-ink)" }}>
         Enter your email to receive our top-rated products for <strong>{stageLabel}</strong> — 
         editor's picks, evidence summaries, and a downloadable stage guide, all tailored to where you are.
       </p>
@@ -236,7 +236,7 @@ export default function QuizEmailCapture({
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             className="flex-1 px-4 py-3 rounded-sm border text-sm font-body focus:outline-none focus:ring-2"
-            style={{ borderColor: "#D4EBE7", backgroundColor: "#FFFFFF", color: "#2C2C2C" }}
+            style={{ borderColor: "var(--pf-line)", backgroundColor: "#FFFFFF", color: "var(--pf-ink)" }}
             autoComplete="given-name"
           />
           <input
@@ -247,9 +247,9 @@ export default function QuizEmailCapture({
             required
             className="flex-1 px-4 py-3 rounded-sm border text-sm font-body focus:outline-none focus:ring-2"
             style={{
-              borderColor: errorMessage ? "#C0392B" : "#D4EBE7",
+              borderColor: errorMessage ? "#C0392B" : "var(--pf-line)",
               backgroundColor: "#FFFFFF",
-              color: "#2C2C2C",
+              color: "var(--pf-ink)",
             }}
             autoComplete="email"
           />
@@ -265,7 +265,7 @@ export default function QuizEmailCapture({
           className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-sm font-label font-semibold text-sm transition-opacity disabled:opacity-60"
           style={{
             backgroundColor: stageColor,
-            color: "#FDF8F4",
+            color: "var(--pf-paper)",
             letterSpacing: "0.06em",
             textTransform: "uppercase",
           }}

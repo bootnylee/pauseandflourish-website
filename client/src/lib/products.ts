@@ -84,8 +84,8 @@ export const categories: Category[] = [
     name: "Multi-Symptom Supplements",
     description: "Comprehensive formulas targeting hot flashes, mood, sleep, and energy simultaneously.",
     icon: "",
-    color: "#2D7D6F",
-    bg: "#E8F5F2",
+    color: "var(--pf-primary)",
+    bg: "var(--pf-tint)",
   },
   {
     id: "sleep-mood-support",
@@ -134,7 +134,7 @@ export const categories: Category[] = [
     name: "Menopause Skincare",
     description: "Collagen supplements, moisturizers, and serums formulated for menopausal skin changes.",
     icon: "",
-    color: "#C4722A",
+    color: "var(--pf-accent)",
     bg: "#FFF5EC",
   },
   {

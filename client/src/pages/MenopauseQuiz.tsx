@@ -150,8 +150,8 @@ const STAGE_RESULTS: Record<string, { title: string; description: string; color:
   "early-perimenopause": {
     title: "Early Perimenopause",
     description: "You're in the early stages of the transition. Your hormones are beginning to shift, and you may notice subtle changes in your cycle, mood, and energy. This is the perfect time to build a strong foundation with targeted supplements and lifestyle strategies.",
-    color: "#2D7D6F",
-    bg: "#E8F5F2",
+    color: "var(--pf-primary)",
+    bg: "var(--pf-tint)",
     icon: "🌱",
   },
   "late-perimenopause": {
@@ -253,10 +253,10 @@ export default function MenopauseQuiz() {
                 <p className="font-label font-semibold text-xs" style={{ color: stageResult.color, letterSpacing: "0.15em", textTransform: "uppercase" }}>Your Quiz Result</p>
               </div>
               <span className="text-5xl mb-4 block">{stageResult.icon}</span>
-              <h1 className="font-display font-bold mb-4" style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", color: "#2C2C2C" }}>
+              <h1 className="font-display font-bold mb-4" style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", color: "var(--pf-ink)" }}>
                 You're in {stageResult.title}
               </h1>
-              <p className="font-body text-base leading-relaxed" style={{ color: "#5C5C5C", maxWidth: "560px", margin: "0 auto" }}>
+              <p className="font-body text-base leading-relaxed" style={{ color: "var(--pf-soft-ink)", maxWidth: "560px", margin: "0 auto" }}>
                 {stageResult.description}
               </p>
             </div>
@@ -264,12 +264,12 @@ export default function MenopauseQuiz() {
             {/* Key Symptoms for this stage */}
             {stageData && (
               <div className="bg-white rounded-sm p-6 mb-8 border" style={{ borderColor: `${stageResult.color}33` }}>
-                <h2 className="font-display font-bold mb-4" style={{ fontSize: "1.3rem", color: "#2C2C2C" }}>Common Symptoms at This Stage</h2>
+                <h2 className="font-display font-bold mb-4" style={{ fontSize: "1.3rem", color: "var(--pf-ink)" }}>Common Symptoms at This Stage</h2>
                 <div className="grid grid-cols-2 gap-2">
                   {stageData.primarySymptoms.map(symptom => (
                     <div key={symptom} className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: stageResult.color }} />
-                      <span className="font-body text-sm" style={{ color: "#5C5C5C" }}>{symptom}</span>
+                      <span className="font-body text-sm" style={{ color: "var(--pf-soft-ink)" }}>{symptom}</span>
                     </div>
                   ))}
                 </div>
@@ -279,7 +279,7 @@ export default function MenopauseQuiz() {
             {/* Recommended Products */}
             {recommendedProducts.length > 0 && (
               <div className="mb-8">
-                <h2 className="font-display font-bold mb-6" style={{ fontSize: "1.5rem", color: "#2C2C2C" }}>
+                <h2 className="font-display font-bold mb-6" style={{ fontSize: "1.5rem", color: "var(--pf-ink)" }}>
                   Recommended for {stageResult.title}
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -302,7 +302,7 @@ export default function MenopauseQuiz() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/stage/${result}`}>
-                <button className="font-label font-semibold px-8 py-4 rounded-sm transition-colors" style={{ backgroundColor: stageResult.color, color: "#FDF8F4", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                <button className="font-label font-semibold px-8 py-4 rounded-sm transition-colors" style={{ backgroundColor: stageResult.color, color: "var(--pf-paper)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                   View Full Stage Guide <ArrowRight size={16} className="inline ml-2" />
                 </button>
               </Link>
@@ -319,28 +319,28 @@ export default function MenopauseQuiz() {
   // Quiz screen
   return (
     <SiteLayout>
-      <div className="min-h-screen" style={{ backgroundColor: "#FDF8F4" }}>
+      <div className="min-h-screen" style={{ backgroundColor: "var(--pf-paper)" }}>
         <div className="container max-w-2xl py-12">
           {/* Progress */}
           <div className="mb-8">
             <div className="flex items-center justify-between mb-2">
-              <p className="font-label text-xs" style={{ color: "#8C8C8C", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+              <p className="font-label text-xs" style={{ color: "var(--pf-soft)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                 Question {currentQuestion + 1} of {QUESTIONS.length}
               </p>
-              <p className="font-label text-xs" style={{ color: "#2D7D6F" }}>{Math.round(progress)}% complete</p>
+              <p className="font-label text-xs" style={{ color: "var(--pf-primary)" }}>{Math.round(progress)}% complete</p>
             </div>
-            <div className="w-full h-1.5 rounded-full" style={{ backgroundColor: "#D4EBE7" }}>
-              <div className="h-1.5 rounded-full transition-all duration-300" style={{ width: `${progress}%`, backgroundColor: "#2D7D6F" }} />
+            <div className="w-full h-1.5 rounded-full" style={{ backgroundColor: "var(--pf-line)" }}>
+              <div className="h-1.5 rounded-full transition-all duration-300" style={{ width: `${progress}%`, backgroundColor: "var(--pf-primary)" }} />
             </div>
           </div>
 
           {/* Question */}
           <div className="mb-8">
-            <h1 className="font-display font-bold mb-2" style={{ fontSize: "clamp(1.4rem, 3vw, 1.8rem)", color: "#2C2C2C" }}>
+            <h1 className="font-display font-bold mb-2" style={{ fontSize: "clamp(1.4rem, 3vw, 1.8rem)", color: "var(--pf-ink)" }}>
               {question.question}
             </h1>
             {question.subtext && (
-              <p className="font-body text-sm" style={{ color: "#8C8C8C" }}>{question.subtext}</p>
+              <p className="font-body text-sm" style={{ color: "var(--pf-soft)" }}>{question.subtext}</p>
             )}
           </div>
 
@@ -352,17 +352,17 @@ export default function MenopauseQuiz() {
                 onClick={() => handleSelect(option.value)}
                 className="w-full text-left p-4 rounded-sm border-2 transition-all"
                 style={{
-                  borderColor: selectedOption === option.value ? "#2D7D6F" : "#D4EBE7",
-                  backgroundColor: selectedOption === option.value ? "#E8F5F2" : "#FFFFFF",
+                  borderColor: selectedOption === option.value ? "var(--pf-primary)" : "var(--pf-line)",
+                  backgroundColor: selectedOption === option.value ? "var(--pf-tint)" : "#FFFFFF",
                 }}
               >
                 <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full border-2 flex-shrink-0 mt-0.5 flex items-center justify-center" style={{ borderColor: selectedOption === option.value ? "#2D7D6F" : "#B8A99A" }}>
-                    {selectedOption === option.value && <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "#2D7D6F" }} />}
+                  <div className="w-5 h-5 rounded-full border-2 flex-shrink-0 mt-0.5 flex items-center justify-center" style={{ borderColor: selectedOption === option.value ? "var(--pf-primary)" : "var(--pf-muted)" }}>
+                    {selectedOption === option.value && <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "var(--pf-primary)" }} />}
                   </div>
                   <div>
-                    <p className="font-body font-semibold text-sm" style={{ color: "#2C2C2C" }}>{option.label}</p>
-                    {option.description && <p className="font-body text-xs mt-0.5" style={{ color: "#8C8C8C" }}>{option.description}</p>}
+                    <p className="font-body font-semibold text-sm" style={{ color: "var(--pf-ink)" }}>{option.label}</p>
+                    {option.description && <p className="font-body text-xs mt-0.5" style={{ color: "var(--pf-soft)" }}>{option.description}</p>}
                   </div>
                 </div>
               </button>
@@ -375,7 +375,7 @@ export default function MenopauseQuiz() {
               onClick={handleBack}
               disabled={currentQuestion === 0}
               className="flex items-center gap-2 font-label font-semibold text-sm px-4 py-2 rounded-sm transition-colors disabled:opacity-30"
-              style={{ color: "#5C5C5C" }}
+              style={{ color: "var(--pf-soft-ink)" }}
             >
               <ArrowLeft size={16} /> Back
             </button>
@@ -383,7 +383,7 @@ export default function MenopauseQuiz() {
               onClick={handleNext}
               disabled={!selectedOption}
               className="flex items-center gap-2 font-label font-semibold text-sm px-6 py-3 rounded-sm transition-colors disabled:opacity-40"
-              style={{ backgroundColor: selectedOption ? "#2D7D6F" : "#B8A99A", color: "#FDF8F4", letterSpacing: "0.06em" }}
+              style={{ backgroundColor: selectedOption ? "var(--pf-primary)" : "var(--pf-muted)", color: "var(--pf-paper)", letterSpacing: "0.06em" }}
             >
               {currentQuestion === QUESTIONS.length - 1 ? "See My Results" : "Next"} <ArrowRight size={16} />
             </button>

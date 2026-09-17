@@ -1,14 +1,43 @@
 /*
- * PauseAndFlourish.com — Global Styles
- * Design: Refined Magazine Meets Bold Lifestyle
- * Colors: Warm Cream bg, Deep Burgundy primary, Warm Amber accent, Blush Rose highlight
- * Typography: Cormorant Garamond (display) + Inter (body) + Montserrat (labels)
+ * Pause & Flourish — Global Styles (identity v2, 2026-09-17)
+ * Ground: cool off-white. Ink: deep pine. Primary: petrol teal. Accent: deep rose.
+ * Display: Fraunces (soft humanist serif). Body + labels: Manrope.
+ * Every colour in the app resolves to a --pf-* token below; no component owns a hex.
  */
 
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+:root {
+  /* ---- Pause & Flourish identity tokens (v2) ---- */
+  --pf-paper: #F7F5F2;          /* page ground */
+  --pf-paper-deep: #EEEBE6;     /* recessed bands */
+  --pf-panel: #FFFFFF;          /* cards */
+  --pf-ink: #1E2A2B;            /* headlines, body */
+  --pf-soft-ink: #4F5D5E;       /* secondary text */
+  --pf-soft: #7C8887;           /* tertiary text, icons */
+  --pf-muted: #98A5A4;          /* placeholders, meta */
+  --pf-line: #DCE3E2;           /* hairlines */
+  --pf-line-strong: #C4CFCE;
+  --pf-tint: #E9F0EF;           /* teal wash */
+  --pf-tint-2: #F1F6F5;
+  --pf-primary: #0E5058;        /* petrol teal */
+  --pf-primary-dark: #083B42;
+  --pf-primary-light: #4D8C93;
+  --pf-accent: #B9536A;         /* deep rose */
+  --pf-accent-dark: #93384D;
+  --pf-accent-light: #F3DDE1;   /* rose wash */
+  --pf-accent-tint: #FBF1F3;
+  --pf-gold: #C9963A;           /* stars, badges */
+  --pf-on-primary: #F7F5F2;
+  --pf-on-accent: #FFFFFF;
+  --pf-danger: #B3261E;
+  --pf-success: #2E7D4F;
+  --pf-shadow: 14 42 43;        /* rgb for shadows */
+}
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -48,42 +77,42 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* PauseAndFlourish Custom Tokens */
-  --color-teal: #2D7D6F;
-  --color-teal-dark: #1A5C52;
-  --color-teal-light: #4A9E94;
-  --color-terracotta: #C4722A;
-  --color-terracotta-light: #E8A050;
-  --color-mint: #C8EAE6;
-  --color-ivory: #FDF8F4;
-  --color-ivory-dark: #EDF5F3;
-  --color-taupe: #B8A99A;
-  --color-charcoal: #2C2C2C;
-  --color-gold: #C9A84C;
+  /* Pause & Flourish identity tokens exposed to Tailwind utilities */
+  --color-teal: var(--pf-primary);
+  --color-teal-dark: var(--pf-primary-dark);
+  --color-teal-light: var(--pf-primary-light);
+  --color-terracotta: var(--pf-accent);
+  --color-terracotta-light: var(--pf-accent-light);
+  --color-mint: var(--pf-tint);
+  --color-ivory: var(--pf-paper);
+  --color-ivory-dark: var(--pf-paper-deep);
+  --color-taupe: var(--pf-muted);
+  --color-charcoal: var(--pf-ink);
+  --color-gold: var(--pf-gold);
 }
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(0.985 0.008 60);
-  --foreground: oklch(0.2 0.01 30);
+  --background: var(--pf-paper);
+  --foreground: var(--pf-ink);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.01 30);
+  --card-foreground: var(--pf-ink);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.01 30);
-  --primary: oklch(0.35 0.12 15);
-  --primary-foreground: oklch(0.98 0.005 60);
-  --secondary: oklch(0.95 0.01 55);
-  --secondary-foreground: oklch(0.3 0.02 30);
-  --muted: oklch(0.93 0.01 55);
-  --muted-foreground: #526E67;
-  --masthead-tagline: #526E67;
-  --accent: oklch(0.65 0.12 55);
-  --accent-foreground: oklch(0.98 0.005 60);
+  --popover-foreground: var(--pf-ink);
+  --primary: var(--pf-primary);
+  --primary-foreground: var(--pf-on-primary);
+  --secondary: var(--pf-tint);
+  --secondary-foreground: var(--pf-ink);
+  --muted: var(--pf-paper-deep);
+  --muted-foreground: var(--pf-soft-ink);
+  --masthead-tagline: var(--pf-soft-ink);
+  --accent: var(--pf-accent);
+  --accent-foreground: var(--pf-on-accent);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.88 0.015 55);
-  --input: oklch(0.88 0.015 55);
-  --ring: oklch(0.35 0.12 15);
+  --border: var(--pf-line);
+  --input: var(--pf-line);
+  --ring: var(--pf-primary);
   --chart-1: oklch(0.35 0.12 15);
   --chart-2: oklch(0.65 0.12 55);
   --chart-3: oklch(0.85 0.05 60);
@@ -105,12 +134,15 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
-    background-color: #FDF8F4;
-    color: #2C2C2C;
+    font-family: 'Manrope', system-ui, sans-serif;
+    background-color: var(--pf-paper);
+    color: var(--pf-ink);
+    -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: 'opsz' 96, 'SOFT' 50;
+    letter-spacing: -0.01em;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -156,21 +188,23 @@
 
   /* PauseAndFlourish Component Styles */
   .font-display {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: 'opsz' 96, 'SOFT' 50;
+    letter-spacing: -0.01em;
   }
 
   .font-label {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Manrope', sans-serif;
   }
 
   .font-body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', sans-serif;
   }
 
   .btn-primary {
     background-color: #2D7D6F;
     color: #FDF8F4;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 600;
     font-size: 0.8rem;
     letter-spacing: 0.08em;
@@ -181,14 +215,14 @@
   }
 
   .btn-primary:hover {
-    background-color: #6B1224;
+    background-color: var(--pf-primary-dark);
     transform: translateY(-1px);
   }
 
   .btn-amazon {
     background-color: #C4722A;
     color: #FDF8F4;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 700;
     font-size: 0.8rem;
     letter-spacing: 0.06em;
@@ -202,8 +236,8 @@
   }
 
   .btn-amazon:hover {
-    background-color: #B86E1F;
-    box-shadow: 0 4px 16px rgba(212, 130, 42, 0.4);
+    background-color: var(--pf-accent-dark);
+    box-shadow: 0 4px 16px rgba(185, 83, 106, 0.28);
   }
 
   .editorial-rule {
@@ -222,7 +256,7 @@
     border-radius: 50%;
     background-color: #2D7D6F;
     color: #FDF8F4;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -232,9 +266,9 @@
   }
 
   .editor-pick-badge {
-    background-color: #C9A84C;
+    background-color: var(--pf-gold);
     color: #FDF8F4;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -248,17 +282,17 @@
 
   .product-card {
     background: white;
-    border: 1px solid #F0E8DE;
+    border: 1px solid var(--pf-line);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .product-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(139, 26, 47, 0.12);
+    box-shadow: 0 12px 40px rgb(var(--pf-shadow) / 0.10);
   }
 
   .section-label {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -269,7 +303,9 @@
   .pull-quote {
     border-left: 4px solid #2D7D6F;
     padding-left: 1.5rem;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: 'opsz' 96, 'SOFT' 50;
+    letter-spacing: -0.01em;
     font-size: 1.4rem;
     font-style: italic;
     color: #2C2C2C;
@@ -281,7 +317,7 @@
   }
 
   .nav-link {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.1em;

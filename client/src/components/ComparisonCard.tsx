@@ -26,23 +26,23 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
 
   return (
     <div className="product-card rounded-sm overflow-hidden">
-      <div className="p-4 border-b" style={{ borderColor: "#F0E8DE", backgroundColor: "#F0FAF8" }}>
+      <div className="p-4 border-b" style={{ borderColor: "var(--pf-line)", backgroundColor: "var(--pf-tint-2)" }}>
         <p className="section-label text-xs mb-1">{comparison.category ?? "Menopause Supplements"}</p>
         <Link href={`/comparison/${comparison.slug}`}>
           <h3 className="font-display font-bold leading-snug hover:text-teal-700 transition-colors cursor-pointer"
-            style={{ fontSize: variant === "featured" ? "1.3rem" : "1.1rem", color: "#2C2C2C" }}>
+            style={{ fontSize: variant === "featured" ? "1.3rem" : "1.1rem", color: "var(--pf-ink)" }}>
             {comparison.title}
           </h3>
         </Link>
-        <p className="font-body text-sm mt-1" style={{ color: "#8C8C8C" }}>{comparison.subtitle}</p>
+        <p className="font-body text-sm mt-1" style={{ color: "var(--pf-soft)" }}>{comparison.subtitle}</p>
       </div>
 
       <div className="grid grid-cols-2 gap-0">
         {/* Winner */}
-        <div className="p-4 border-r" style={{ borderColor: "#F0E8DE", backgroundColor: "#FFFAF5" }}>
+        <div className="p-4 border-r" style={{ borderColor: "var(--pf-line)", backgroundColor: "#FFFAF5" }}>
           <div className="flex items-center gap-1 mb-2">
-            <Trophy size={12} style={{ color: "#C4722A" }} />
-            <span className="font-label font-bold text-xs" style={{ color: "#C4722A", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            <Trophy size={12} style={{ color: "var(--pf-accent)" }} />
+            <span className="font-label font-bold text-xs" style={{ color: "var(--pf-accent)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
               Winner
             </span>
           </div>
@@ -51,11 +51,11 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
               <img src={winnerImage} alt={winner.name} className="w-full h-full object-contain p-1" />
             </div>
           ) : null}
-          <p className="font-body text-xs font-semibold text-center leading-tight" style={{ color: "#2C2C2C" }}>
+          <p className="font-body text-xs font-semibold text-center leading-tight" style={{ color: "var(--pf-ink)" }}>
             {winner.name}
           </p>
           {isProductPriceFresh(winner.asin) && winner.priceDisplay ? (
-            <p className="font-label font-bold text-center mt-1" style={{ color: "#2D7D6F", fontSize: "0.85rem" }}>
+            <p className="font-label font-bold text-center mt-1" style={{ color: "var(--pf-primary)", fontSize: "0.85rem" }}>
               {winner.priceDisplay}
             </p>
           ) : (
@@ -66,7 +66,7 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
         {/* Runner-up */}
         <div className="p-4">
           <div className="flex items-center gap-1 mb-2">
-            <span className="font-label font-bold text-xs" style={{ color: "#B8A99A", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            <span className="font-label font-bold text-xs" style={{ color: "var(--pf-muted)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
               Runner-Up
             </span>
           </div>
@@ -75,11 +75,11 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
               <img src={loserImage} alt={loser.name} className="w-full h-full object-contain p-1" />
             </div>
           ) : null}
-          <p className="font-body text-xs font-semibold text-center leading-tight" style={{ color: "#6C6C6C" }}>
+          <p className="font-body text-xs font-semibold text-center leading-tight" style={{ color: "var(--pf-soft-ink)" }}>
             {loser.name}
           </p>
           {isProductPriceFresh(loser.asin) && loser.priceDisplay ? (
-            <p className="font-label font-bold text-center mt-1" style={{ color: "#B8A99A", fontSize: "0.85rem" }}>
+            <p className="font-label font-bold text-center mt-1" style={{ color: "var(--pf-muted)", fontSize: "0.85rem" }}>
               {loser.priceDisplay}
             </p>
           ) : (
@@ -88,8 +88,8 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
         </div>
       </div>
 
-      <div className="p-4 border-t" style={{ borderColor: "#F0E8DE" }}>
-        <p className="font-body text-sm line-clamp-2 leading-relaxed" style={{ color: "#6C6C6C" }}>
+      <div className="p-4 border-t" style={{ borderColor: "var(--pf-line)" }}>
+        <p className="font-body text-sm line-clamp-2 leading-relaxed" style={{ color: "var(--pf-soft-ink)" }}>
           {comparison.winnerReason ?? comparison.summary}
         </p>
         <Link href={`/comparison/${comparison.slug}`}>

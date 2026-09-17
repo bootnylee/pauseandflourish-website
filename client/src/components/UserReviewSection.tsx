@@ -41,14 +41,14 @@ function StarInput({
             border: "none",
             padding: "2px",
             cursor: "pointer",
-            color: star <= (hovered || value) ? "#C4722A" : "#D4C5B8",
+            color: star <= (hovered || value) ? "var(--pf-accent)" : "var(--pf-line-strong)",
             transition: "color 0.1s",
           }}
         >
           <Star
             size={24}
-            fill={star <= (hovered || value) ? "#C4722A" : "none"}
-            stroke={star <= (hovered || value) ? "#C4722A" : "#D4C5B8"}
+            fill={star <= (hovered || value) ? "var(--pf-accent)" : "none"}
+            stroke={star <= (hovered || value) ? "var(--pf-accent)" : "var(--pf-line-strong)"}
           />
         </button>
       ))}
@@ -62,7 +62,7 @@ function ReviewCard({ review }: { review: UserReview }) {
   return (
     <div
       className="p-5 rounded-sm"
-      style={{ backgroundColor: "#F9F5F1", border: "1px solid #E8DDD4" }}
+      style={{ backgroundColor: "var(--pf-paper-deep)", border: "1px solid var(--pf-line)" }}
     >
       <div className="flex items-center gap-3 mb-2">
         <div className="flex gap-0.5">
@@ -70,15 +70,15 @@ function ReviewCard({ review }: { review: UserReview }) {
             <Star
               key={s}
               size={14}
-              fill={s <= review.rating ? "#C4722A" : "none"}
-              stroke={s <= review.rating ? "#C4722A" : "#D4C5B8"}
+              fill={s <= review.rating ? "var(--pf-accent)" : "none"}
+              stroke={s <= review.rating ? "var(--pf-accent)" : "var(--pf-line-strong)"}
             />
           ))}
         </div>
-        <span className="font-body font-semibold text-sm" style={{ color: "#2C2C2C" }}>
+        <span className="font-body font-semibold text-sm" style={{ color: "var(--pf-ink)" }}>
           {review.reviewerName}
         </span>
-        <span className="font-body text-xs" style={{ color: "#B8A99A" }}>
+        <span className="font-body text-xs" style={{ color: "var(--pf-muted)" }}>
           {new Date(review.submittedAt).toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
@@ -86,7 +86,7 @@ function ReviewCard({ review }: { review: UserReview }) {
           })}
         </span>
       </div>
-      <p className="font-body text-sm leading-relaxed" style={{ color: "#4A3A3A" }}>
+      <p className="font-body text-sm leading-relaxed" style={{ color: "var(--pf-ink)" }}>
         {review.reviewText}
       </p>
     </div>
@@ -125,12 +125,12 @@ function ReviewForm({
     return (
       <div
         className="p-5 rounded-sm text-center"
-        style={{ backgroundColor: "#EDF5F3", border: "1px solid #D4EBE7" }}
+        style={{ backgroundColor: "var(--pf-tint)", border: "1px solid var(--pf-line)" }}
       >
-        <p className="font-body font-semibold" style={{ color: "#2D7D6F" }}>
+        <p className="font-body font-semibold" style={{ color: "var(--pf-primary)" }}>
           Thank you for your review!
         </p>
-        <p className="font-body text-sm mt-1" style={{ color: "#4A3A3A" }}>
+        <p className="font-body text-sm mt-1" style={{ color: "var(--pf-ink)" }}>
           Your review is pending approval and will appear shortly.
         </p>
       </div>
@@ -140,7 +140,7 @@ function ReviewForm({
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="font-label text-xs font-semibold block mb-1" style={{ color: "#2C2C2C" }}>
+        <label className="font-label text-xs font-semibold block mb-1" style={{ color: "var(--pf-ink)" }}>
           Your name
         </label>
         <input
@@ -151,23 +151,23 @@ function ReviewForm({
           placeholder="e.g. Sarah M."
           className="w-full rounded-sm px-3 py-2 font-body text-sm"
           style={{
-            border: "1px solid #D4C5B8",
-            backgroundColor: "#FDFAF7",
-            color: "#2C2C2C",
+            border: "1px solid var(--pf-line-strong)",
+            backgroundColor: "var(--pf-paper)",
+            color: "var(--pf-ink)",
             outline: "none",
           }}
         />
       </div>
 
       <div>
-        <label className="font-label text-xs font-semibold block mb-1" style={{ color: "#2C2C2C" }}>
+        <label className="font-label text-xs font-semibold block mb-1" style={{ color: "var(--pf-ink)" }}>
           Your rating
         </label>
         <StarInput value={rating} onChange={setRating} />
       </div>
 
       <div>
-        <label className="font-label text-xs font-semibold block mb-1" style={{ color: "#2C2C2C" }}>
+        <label className="font-label text-xs font-semibold block mb-1" style={{ color: "var(--pf-ink)" }}>
           Your review
         </label>
         <textarea
@@ -178,13 +178,13 @@ function ReviewForm({
           placeholder="Share your experience with this product..."
           className="w-full rounded-sm px-3 py-2 font-body text-sm resize-y"
           style={{
-            border: "1px solid #D4C5B8",
-            backgroundColor: "#FDFAF7",
-            color: "#2C2C2C",
+            border: "1px solid var(--pf-line-strong)",
+            backgroundColor: "var(--pf-paper)",
+            color: "var(--pf-ink)",
             outline: "none",
           }}
         />
-        <p className="font-body text-xs mt-1" style={{ color: "#B8A99A" }}>
+        <p className="font-body text-xs mt-1" style={{ color: "var(--pf-muted)" }}>
           {text.length}/2000 characters
         </p>
       </div>
@@ -198,7 +198,7 @@ function ReviewForm({
       <button
         type="submit"
         className="btn-primary rounded-sm px-6 py-2 font-body font-semibold text-sm"
-        style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4" }}
+        style={{ backgroundColor: "var(--pf-primary)", color: "var(--pf-paper)" }}
       >
         Submit Review
       </button>
@@ -221,25 +221,25 @@ function ModerationPanel({ onUpdate }: { onUpdate: () => void }) {
   useEffect(() => { refresh(); }, []);
 
   const statusColor: Record<string, string> = {
-    pending: "#C4722A",
-    approved: "#2D7D6F",
-    rejected: "#8C8C8C",
+    pending: "var(--pf-accent)",
+    approved: "var(--pf-primary)",
+    rejected: "var(--pf-soft)",
   };
 
   return (
     <div
       className="mt-10 p-6 rounded-sm"
-      style={{ backgroundColor: "#FFF8EE", border: "2px solid #C4722A" }}
+      style={{ backgroundColor: "var(--pf-accent-tint)", border: "2px solid var(--pf-accent)" }}
     >
-      <p className="font-label text-xs font-semibold mb-1" style={{ color: "#C4722A" }}>
+      <p className="font-label text-xs font-semibold mb-1" style={{ color: "var(--pf-accent)" }}>
         MODERATION PANEL — NOT PUBLIC
       </p>
-      <h3 className="font-display font-bold text-lg mb-4" style={{ color: "#2C2C2C" }}>
+      <h3 className="font-display font-bold text-lg mb-4" style={{ color: "var(--pf-ink)" }}>
         All Reviews ({reviews.length})
       </h3>
 
       {reviews.length === 0 && (
-        <p className="font-body text-sm" style={{ color: "#8C8C8C" }}>No reviews yet.</p>
+        <p className="font-body text-sm" style={{ color: "var(--pf-soft)" }}>No reviews yet.</p>
       )}
 
       <div className="space-y-4">
@@ -247,7 +247,7 @@ function ModerationPanel({ onUpdate }: { onUpdate: () => void }) {
           <div
             key={r.id}
             className="p-4 rounded-sm"
-            style={{ backgroundColor: "#FDFAF7", border: "1px solid #E8DDD4" }}
+            style={{ backgroundColor: "var(--pf-paper)", border: "1px solid var(--pf-line)" }}
           >
             <div className="flex flex-wrap items-center gap-3 mb-2">
               <span
@@ -260,17 +260,17 @@ function ModerationPanel({ onUpdate }: { onUpdate: () => void }) {
               >
                 {r.status.toUpperCase()}
               </span>
-              <span className="font-body font-semibold text-sm" style={{ color: "#2C2C2C" }}>
+              <span className="font-body font-semibold text-sm" style={{ color: "var(--pf-ink)" }}>
                 {r.reviewerName}
               </span>
-              <span className="font-body text-xs" style={{ color: "#B8A99A" }}>
+              <span className="font-body text-xs" style={{ color: "var(--pf-muted)" }}>
                 {r.productSlug} · {new Date(r.submittedAt).toLocaleString()}
               </span>
-              <span className="font-body text-xs font-semibold" style={{ color: "#C4722A" }}>
+              <span className="font-body text-xs font-semibold" style={{ color: "var(--pf-accent)" }}>
                 {"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}
               </span>
             </div>
-            <p className="font-body text-sm mb-3" style={{ color: "#4A3A3A" }}>
+            <p className="font-body text-sm mb-3" style={{ color: "var(--pf-ink)" }}>
               {r.reviewText}
             </p>
             <div className="flex gap-2">
@@ -278,7 +278,7 @@ function ModerationPanel({ onUpdate }: { onUpdate: () => void }) {
                 <button
                   onClick={() => { approveReview(r.id); refresh(); }}
                   className="px-3 py-1 rounded-sm font-body font-semibold text-xs"
-                  style={{ backgroundColor: "#2D7D6F", color: "#FDF8F4", border: "none", cursor: "pointer" }}
+                  style={{ backgroundColor: "var(--pf-primary)", color: "var(--pf-paper)", border: "none", cursor: "pointer" }}
                 >
                   Approve
                 </button>
@@ -287,7 +287,7 @@ function ModerationPanel({ onUpdate }: { onUpdate: () => void }) {
                 <button
                   onClick={() => { rejectReview(r.id); refresh(); }}
                   className="px-3 py-1 rounded-sm font-body font-semibold text-xs"
-                  style={{ backgroundColor: "#8C8C8C", color: "#FDF8F4", border: "none", cursor: "pointer" }}
+                  style={{ backgroundColor: "var(--pf-soft)", color: "var(--pf-paper)", border: "none", cursor: "pointer" }}
                 >
                   Reject
                 </button>
@@ -295,7 +295,7 @@ function ModerationPanel({ onUpdate }: { onUpdate: () => void }) {
               <button
                 onClick={() => { if (confirm("Delete this review permanently?")) { deleteReview(r.id); refresh(); } }}
                 className="px-3 py-1 rounded-sm font-body font-semibold text-xs"
-                style={{ backgroundColor: "#C0392B", color: "#FDF8F4", border: "none", cursor: "pointer" }}
+                style={{ backgroundColor: "#C0392B", color: "var(--pf-paper)", border: "none", cursor: "pointer" }}
               >
                 Delete
               </button>
@@ -354,7 +354,7 @@ export default function UserReviewSection({
       <p className="section-label mb-2">Reader Reviews</p>
       <h2
         className="font-display font-bold mb-2"
-        style={{ fontSize: "1.6rem", color: "#2C2C2C" }}
+        style={{ fontSize: "1.6rem", color: "var(--pf-ink)" }}
       >
         What Readers Are Saying
       </h2>
@@ -362,7 +362,7 @@ export default function UserReviewSection({
       {/* Aggregate summary */}
       {avgRating !== null && (
         <div className="flex items-center gap-3 mb-6">
-          <span className="font-display font-bold text-3xl" style={{ color: "#C4722A" }}>
+          <span className="font-display font-bold text-3xl" style={{ color: "var(--pf-accent)" }}>
             {avgRating}
           </span>
           <div>
@@ -371,12 +371,12 @@ export default function UserReviewSection({
                 <Star
                   key={s}
                   size={16}
-                  fill={s <= Math.round(avgRating) ? "#C4722A" : "none"}
-                  stroke={s <= Math.round(avgRating) ? "#C4722A" : "#D4C5B8"}
+                  fill={s <= Math.round(avgRating) ? "var(--pf-accent)" : "none"}
+                  stroke={s <= Math.round(avgRating) ? "var(--pf-accent)" : "var(--pf-line-strong)"}
                 />
               ))}
             </div>
-            <p className="font-body text-xs" style={{ color: "#B8A99A" }}>
+            <p className="font-body text-xs" style={{ color: "var(--pf-muted)" }}>
               Based on {approvedReviews.length} reader review{approvedReviews.length !== 1 ? "s" : ""}
             </p>
           </div>
@@ -391,7 +391,7 @@ export default function UserReviewSection({
           ))}
         </div>
       ) : (
-        <p className="font-body text-sm mb-8" style={{ color: "#B8A99A" }}>
+        <p className="font-body text-sm mb-8" style={{ color: "var(--pf-muted)" }}>
           No reader reviews yet. Be the first to share your experience.
         </p>
       )}
@@ -399,11 +399,11 @@ export default function UserReviewSection({
       {/* Submission form */}
       <div
         className="p-6 rounded-sm"
-        style={{ backgroundColor: "#F9F5F1", border: "1px solid #E8DDD4" }}
+        style={{ backgroundColor: "var(--pf-paper-deep)", border: "1px solid var(--pf-line)" }}
       >
         <h3
           className="font-display font-bold mb-4"
-          style={{ fontSize: "1.2rem", color: "#2C2C2C" }}
+          style={{ fontSize: "1.2rem", color: "var(--pf-ink)" }}
         >
           Write a Review
         </h3>
