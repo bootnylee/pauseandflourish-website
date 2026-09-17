@@ -46,7 +46,9 @@ export function initGA4(): void {
   if (typeof window === "undefined") return;
 
   const measurementId = window.__PAF_GA4_ID__;
-  if (!measurementId || measurementId === "G-P4BJFS5ZWH") {
+  // Only a missing ID or the documentation placeholder disables analytics. (Until 2026-09-17 this
+  // compared against the site's REAL ID, so gtag never loaded and the property received nothing.)
+  if (!measurementId || !/^G-[A-Z0-9]{6,12}$/.test(measurementId) || measurementId === "G-XXXXXXXXXX") {
     // Placeholder not yet replaced — skip loading to avoid polluting GA
     if (import.meta.env.DEV) {
       console.info("[analytics] GA4 Measurement ID not configured — analytics disabled.");
@@ -72,6 +74,23 @@ export function initGA4(): void {
   window.gtag("config", measurementId, {
     // GA4 automatically handles UTM parameters — no extra config needed
     send_page_view: true,
+  });
+}
+
+// ─── SPA page views ───────────────────────────────────────────────────────────
+
+let lastTrackedPath = "";
+
+/** Fire a page_view for client-side route changes (the config call covers only the first load). */
+export function trackPageView(path: string): void {
+  if (typeof window === "undefined" || !window.gtag) return;
+  if (path === lastTrackedPath) return;
+  if (!lastTrackedPath) { lastTrackedPath = path; return; } // first render: already sent by config
+  lastTrackedPath = path;
+  window.gtag("event", "page_view", {
+    page_path: path,
+    page_location: window.location.href,
+    page_title: document.title,
   });
 }
 
