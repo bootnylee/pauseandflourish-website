@@ -202,8 +202,8 @@
   }
 
   .btn-primary {
-    background-color: #2D7D6F;
-    color: #FDF8F4;
+    background-color: var(--pf-primary);
+    color: var(--pf-paper);
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     font-size: 0.8rem;
@@ -220,8 +220,8 @@
   }
 
   .btn-amazon {
-    background-color: #C4722A;
-    color: #FDF8F4;
+    background-color: var(--pf-accent);
+    color: var(--pf-paper);
     font-family: 'Manrope', sans-serif;
     font-weight: 700;
     font-size: 0.8rem;
@@ -242,7 +242,7 @@
 
   .editorial-rule {
     height: 3px;
-    background: linear-gradient(90deg, #2D7D6F, #C4722A);
+    background: linear-gradient(90deg, var(--pf-primary), var(--pf-accent));
     border: none;
     margin: 0;
   }
@@ -254,8 +254,8 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    background-color: #2D7D6F;
-    color: #FDF8F4;
+    background-color: var(--pf-primary);
+    color: var(--pf-paper);
     font-family: 'Manrope', sans-serif;
     font-size: 0.65rem;
     font-weight: 700;
@@ -267,7 +267,7 @@
 
   .editor-pick-badge {
     background-color: var(--pf-gold);
-    color: #FDF8F4;
+    color: var(--pf-paper);
     font-family: 'Manrope', sans-serif;
     font-size: 0.65rem;
     font-weight: 700;
@@ -277,7 +277,7 @@
   }
 
   .star-rating {
-    color: #C4722A;
+    color: var(--pf-accent);
   }
 
   .product-card {
@@ -297,23 +297,23 @@
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #2D7D6F;
+    color: var(--pf-primary);
   }
 
   .pull-quote {
-    border-left: 4px solid #2D7D6F;
+    border-left: 4px solid var(--pf-primary);
     padding-left: 1.5rem;
     font-family: 'Fraunces', Georgia, serif;
     font-variation-settings: 'opsz' 96, 'SOFT' 50;
     letter-spacing: -0.01em;
     font-size: 1.4rem;
     font-style: italic;
-    color: #2C2C2C;
+    color: var(--pf-ink);
   }
 
   .comparison-winner {
-    background-color: #F0FAF8;
-    border: 2px solid #C4722A;
+    background-color: var(--pf-tint-2);
+    border: 2px solid var(--pf-accent);
   }
 
   .nav-link {
@@ -322,12 +322,12 @@
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #2C2C2C;
+    color: var(--pf-ink);
     transition: color 0.2s ease;
   }
 
   .nav-link:hover {
-    color: #2D7D6F;
+    color: var(--pf-primary);
   }
 
   /* Animations */
