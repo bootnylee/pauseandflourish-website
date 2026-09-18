@@ -1,7 +1,13 @@
 #!/usr/bin/env node
 
 /**
- * Stages a ready-to-paste weekly newsletter for human review in EmailOctopus.
+ * Stages a ready-to-paste weekly newsletter for human review. A human creates the
+ * campaign in Klaviyo and sends it; this script never calls any email API.
+ *
+ * NEWSLETTER-0918: the scan used to read allProducts (reviews) only. Since the
+ * 2026-09-09 TOPIC PRIORITY directive every weekly stem is a comparison, so the
+ * newest "review" stayed at 2026-09-07 and every Tuesday run skipped silently.
+ * Both collections are scanned now, and a corpus that stops moving fails loudly.
  * This script intentionally makes no network requests and never creates or sends campaigns.
  */
 import { execFile as execFileCallback } from "node:child_process";
@@ -19,6 +25,10 @@ const config = {
   domain: "pauseandflourish.com",
   fromName: "Pause & Flourish",
   fromAddress: "hello@pauseandflourish.com",
+  eyebrow: {
+    review: "New evidence-based guidance",
+    comparison: "Head to head",
+  },
   listName: "Pause & Flourish newsletter list",
   palette: {
     page: "#f9f5f0",
@@ -32,6 +42,13 @@ const config = {
     footer: "#f9f5f0",
   },
 };
+
+// NEWSLETTER-0918: content ships weekly and the Tuesday run normally sees a
+// 1-day-old stem. 8 days (the freshness window below) means one cycle slipped —
+// tolerable and already quiet. More than 14 days means two consecutive cycles
+// produced nothing, which is broken authoring rather than a quiet week, so the
+// run must fail loudly instead of looking identical to "already sent that one".
+const STALL_AFTER_DAYS = 14;
 
 function fail(step, message) {
   throw new Error(`${step}: ${message}`);
@@ -170,10 +187,10 @@ function renderHtml(article) {
         <div style="margin-top:6px;color:${palette.muted};font-size:13px;line-height:1.5;">Practical, evidence-based support for every stage.</div>
       </td></tr>
       <tr><td style="padding:28px 34px 18px;color:${palette.body};font-size:16px;line-height:1.7;">
-        <div style="color:${palette.accent};font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;margin:0 0 10px;">New evidence-based guidance</div>
+        <div style="color:${palette.accent};font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;margin:0 0 10px;">${escapeHtml(config.eyebrow[article.kind])}</div>
         <h1 style="margin:0 0 16px;color:${palette.heading};font-family:Georgia,'Times New Roman',serif;font-size:28px;line-height:1.22;">${escapeHtml(article.title)}</h1>
         <p style="margin:0;color:${palette.body};">${escapeHtml(article.excerpt)}</p>
-        <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin:26px 0 10px;"><tr><td style="border-radius:5px;background:${palette.accent};"><a href="${escapeHtml(article.url)}" style="display:inline-block;padding:14px 24px;color:#ffffff;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:.2px;">Read the full review</a></td></tr></table>
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin:26px 0 10px;"><tr><td style="border-radius:5px;background:${palette.accent};"><a href="${escapeHtml(article.url)}" style="display:inline-block;padding:14px 24px;color:#ffffff;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:.2px;">${escapeHtml(ctaLabel(article.kind))}</a></td></tr></table>
       </td></tr>
       <tr><td align="center" style="background:${palette.footer};padding:24px 28px;color:${palette.muted};font-size:12px;line-height:1.55;">
         <p style="margin:0 0 8px;">{{SenderInfo}}</p>
@@ -186,27 +203,88 @@ function renderHtml(article) {
 `;
 }
 
-async function findNewestArticle() {
-  const source = await fs.readFile(path.join(root, "client/src/lib/products.ts"), "utf8");
-  const records = objectsInCollection(source, "allProducts")
-    .map((objectText) => ({
+const SOURCE_FILE = "client/src/lib/products.ts";
+
+function recordPath(kind) {
+  return kind === "comparison" ? "comparison" : "review";
+}
+
+function ctaLabel(kind) {
+  return kind === "comparison" ? "Read the full comparison" : "Read the full review";
+}
+
+// NEWSLETTER-0918: comparisons are a second export in the same module, not a
+// separate file, and carry no image of their own; the winner's product image is
+// resolved best-effort for downstream use only (the email body renders no image).
+async function findNewestRecord() {
+  const sourceFile = process.env.NEWSLETTER_SOURCE_FILE ?? SOURCE_FILE;
+  const source = await fs.readFile(path.resolve(root, sourceFile), "utf8");
+
+  const productImages = new Map();
+  const reviews = objectsInCollection(source, "allProducts").map((objectText) => {
+    const image = fieldFromObject(objectText, "heroImage");
+    productImages.set(fieldFromObject(objectText, "id"), image);
+    return {
+      kind: "review",
       title: fieldFromObject(objectText, "name"),
       excerpt: excerptFrom(fieldFromObject(objectText, "shortDescription"), fieldFromObject(objectText, "description")),
-      heroImage: fieldFromObject(objectText, "heroImage"),
+      heroImage: image,
       publishedDate: fieldFromObject(objectText, "publishDate"),
       slug: fieldFromObject(objectText, "slug"),
-      source: "client/src/lib/products.ts (allProducts)",
-    }))
-    .filter((record) => /^\d{4}-\d{2}-\d{2}$/.test(record.publishedDate));
+      source: `${SOURCE_FILE} (allProducts)`,
+    };
+  });
 
-  if (records.length === 0) fail("ARTICLE_DETECTION", "No dated review records were found in client/src/lib/products.ts.");
-  records.sort((left, right) => right.publishedDate.localeCompare(left.publishedDate));
-  const article = records[0];
-  article.url = `https://${config.domain}/review/${article.slug}`;
-  if (!article.title || !article.excerpt || !article.heroImage || !article.slug) {
-    fail("ARTICLE_PARSE", "The newest review record is missing a required title, excerpt, image, or slug field.");
+  const comparisons = objectsInCollection(source, "comparisons").map((objectText) => ({
+    kind: "comparison",
+    title: fieldFromObject(objectText, "title"),
+    excerpt: excerptFrom(
+      fieldFromObject(objectText, "summary"),
+      fieldFromObject(objectText, "verdict"),
+      fieldFromObject(objectText, "winnerReason"),
+      fieldFromObject(objectText, "subtitle"),
+    ),
+    heroImage:
+      productImages.get(fieldFromObject(objectText, "winnerId")) ||
+      productImages.get(fieldFromObject(objectText, "winner")) ||
+      productImages.get(fieldFromObject(objectText, "product1Id")) ||
+      productImages.get(fieldFromObject(objectText, "product2Id")) ||
+      "",
+    publishedDate: fieldFromObject(objectText, "publishDate"),
+    slug: fieldFromObject(objectText, "slug"),
+    source: `${SOURCE_FILE} (comparisons)`,
+  }));
+
+  const records = [...reviews, ...comparisons].filter((record) => /^\d{4}-\d{2}-\d{2}$/.test(record.publishedDate));
+  if (records.length === 0) fail("ARTICLE_DETECTION", `No dated review or comparison records were found in ${sourceFile}.`);
+
+  // Newest first; slug ascending breaks a same-day tie so the pick is deterministic.
+  records.sort((left, right) => right.publishedDate.localeCompare(left.publishedDate) || left.slug.localeCompare(right.slug));
+  const record = records[0];
+  record.url = `https://${config.domain}/${recordPath(record.kind)}/${record.slug}`;
+  // A review still has to carry its own image (unchanged gate). A comparison has no
+  // image field at all and frequently names products long retired from allProducts,
+  // so requiring one there would turn ordinary weeks into hard failures.
+  if (!record.title || !record.excerpt || !record.slug || (record.kind === "review" && !record.heroImage)) {
+    fail("ARTICLE_PARSE", `The newest ${record.kind} record is missing a required title, excerpt, slug, or (reviews only) image field.`);
   }
-  return article;
+  return record;
+}
+
+// NEWSLETTER-0918: "the newest stem is one we already sent" and "authoring has
+// produced nothing for two weeks" used to look identical and both exit 0.
+async function reportStall(record, age) {
+  const summary = plainText(
+    `${config.siteName}: the newest content across reviews and comparisons is the ${record.kind} "${record.title}" ` +
+      `(${recordPath(record.kind)}/${record.slug}), published ${record.publishedDate} — ${age} days old against a ${STALL_AFTER_DAYS}-day threshold. ` +
+      "Nothing newer exists in either collection, so at least two weekly authoring cycles produced nothing. " +
+      "This is an authoring/content-pipeline failure, not a week with nothing new to send; no newsletter was staged.",
+  );
+  if (process.env.GITHUB_OUTPUT) {
+    await fs.appendFile(process.env.GITHUB_OUTPUT, `newsletter_stalled=true\nnewsletter_stall_summary=${summary}\n`, "utf8");
+  }
+  await writeResult({ status: "failed", reason: "content-stalled", ageDays: age, thresholdDays: STALL_AFTER_DAYS, article: record });
+  return summary;
 }
 
 async function commitAndPush(htmlPath, metaPath, article) {
@@ -232,7 +310,7 @@ async function commitAndPush(htmlPath, metaPath, article) {
 }
 
 async function main() {
-  const article = await findNewestArticle();
+  const article = await findNewestRecord();
   const today = newsletterDate();
   const age = ageInDays(article.publishedDate, today);
   const outputDirectory = path.resolve(root, process.env.NEWSLETTER_OUTPUT_DIR ?? "newsletters");
@@ -240,6 +318,9 @@ async function main() {
   const htmlPath = path.join(outputDirectory, `${stem}.html`);
   const metaPath = path.join(outputDirectory, `${stem}.meta.json`);
 
+  if (age > STALL_AFTER_DAYS && !localTestMode()) {
+    fail("CONTENT_STALLED", await reportStall(article, age));
+  }
   if ((age < 0 || age > 8) && !localTestMode()) {
     console.log(`NO_NEW_ARTICLE: newest article ${article.slug} was published ${article.publishedDate} (${age} days old); no newsletter staged.`);
     await writeResult({ status: "no-op", reason: "stale", article });
@@ -253,7 +334,7 @@ async function main() {
   }
 
   const metadata = {
-    suggestedSubject: `New this week: ${article.title}`,
+    suggestedSubject: article.kind === "comparison" ? `Head to head: ${article.title}` : `New this week: ${article.title}`,
     previewText: article.excerpt.slice(0, 160),
     fromName: config.fromName,
     fromAddress: config.fromAddress,
@@ -262,8 +343,9 @@ async function main() {
     publishedDate: article.publishedDate,
     articleTitle: article.title,
     articleSource: article.source,
+    recordType: article.kind,
     stagedAt: new Date().toISOString(),
-    note: "Create and send this campaign manually in the EmailOctopus dashboard. This workflow never calls the EmailOctopus API.",
+    note: "Create and send this campaign manually in Klaviyo. This workflow never calls any email API.",
   };
   await fs.mkdir(outputDirectory, { recursive: true });
   await fs.writeFile(htmlPath, renderHtml(article), "utf8");
@@ -272,6 +354,7 @@ async function main() {
   console.log(`NEWSLETTER_PREPARED: ${path.relative(root, htmlPath)}`);
   console.log(`SUBJECT: ${metadata.suggestedSubject}`);
   console.log(`CTA_URL: ${article.url}`);
+  console.log(`RECORD_TYPE: ${article.kind}`);
   if (process.env.GITHUB_OUTPUT) {
     await fs.appendFile(
       process.env.GITHUB_OUTPUT,
